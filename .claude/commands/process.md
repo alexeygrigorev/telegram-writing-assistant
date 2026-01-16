@@ -101,7 +101,7 @@ status: draft
 
 # SUMMARY REPORT
 
-After processing, CREATE a summary file at `inbox/summary_` + timestamp + `.md` where timestamp is obtained by running:
+After processing, CREATE a summary file at `inbox/summaries/summary_` + timestamp + `.md` where timestamp is obtained by running:
 ```bash
 python -c "from datetime import datetime; print(datetime.now().strftime('%Y%m%d_%H%M%S'))"
 ```
