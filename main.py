@@ -363,6 +363,18 @@ async def process_command(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
                 msg += f"📦 Commit: `{commit_hash[:8]}`\n"
             msg += f"📝 Log: `{log_file.name}`"
             await update.message.reply_text(msg, parse_mode="Markdown")
+
+            # Send summary content
+            summaries_dir = REPO_PATH / "inbox" / "summaries"
+            summaries = sorted(summaries_dir.glob("summary_*.md"), key=lambda x: x.stat().st_mtime, reverse=True)
+            if summaries:
+                latest_summary = summaries[0]
+                with open(latest_summary, "r", encoding="utf-8") as f:
+                    summary_content = f.read()
+                # Truncate if too long (Telegram limit is 4096 chars)
+                if len(summary_content) > 4000:
+                    summary_content = summary_content[:4000] + "\n... (truncated)"
+                await update.message.reply_text(f"📊 Summary:\n\n{summary_content}", parse_mode="Markdown")
         else:
             await update.message.reply_text(f"⚠️ Claude exited with code {result.returncode}\n\nLog: `{log_file.name}`", parse_mode="Markdown")
 
