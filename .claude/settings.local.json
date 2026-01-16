@@ -5,7 +5,9 @@
       "Bash(uv add:*)",
       "Bash(uv run python:*)",
       "Bash(cat:*)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(gh repo create:*)",
+      "Bash(git add:*)"
     ]
   }
 }

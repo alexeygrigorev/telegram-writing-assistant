@@ -18,6 +18,12 @@ The idea of the slash-process command is that I do a brain dump of everything I 
 
 ## Processing Steps
 
+<figure>
+  <img src="../assets/images/processing-pipeline/processing-requirements-list.jpg" alt="Processing requirements list">
+  <figcaption>Terminal output showing the processing requirements derived from voice notes</figcaption>
+  <!-- This illustrates the actual requirements being implemented in the code -->
+</figure>
+
 1. Check inbox/raw/ for uncommitted materials
 2. Read all files in the raw folder
 3. For each text/transcript material:
@@ -42,6 +48,12 @@ The idea of the slash-process command is that I do a brain dump of everything I 
 
 Claude does git add and git commit with a normal description. The push is done from the Python script. The script takes the hash and sends a GitHub link to the chat. It should be clickable so I can click and view the commit link on GitHub.
 
+<figure>
+  <img src="../assets/images/processing-pipeline/changelog-development-progress.jpg" alt="Development progress changelog">
+  <figcaption>Terminal showing a summary of changes during development</figcaption>
+  <!-- This shows development progress on the processing pipeline -->
+</figure>
+
 ## Error Handling
 
 When some exception occurs during bot processing, write the exception to the chat. That way we can debug immediately.
@@ -62,18 +74,6 @@ Articles should follow these formatting rules:
 
 Each article section must list sources at the end.
 
-<figure>
-  <img src="../../../assets/images/processing-pipeline/20260116_211757_AlexeyDTC.jpg" alt="Terminal showing requirements list">
-  <figcaption>Terminal output showing the processing requirements derived from voice notes - lists the steps for processing voice notes including translation, categorization, and formatting</figcaption>
-  <!-- This illustrates the actual requirements being implemented in the code -->
-</figure>
-
-<figure>
-  <img src="../../../assets/images/processing-pipeline/20260116_213322_AlexeyDTC.jpg" alt="Terminal showing changelog">
-  <figcaption>Terminal showing a summary of changes including image descriptions, reply with description feature, and code cleanup</figcaption>
-  <!-- This shows development progress on the processing pipeline -->
-</figure>
-
 ## Sources
 - [20260116_211210_AlexeyDTC_transcript.txt](../inbox/raw/20260116_211210_AlexeyDTC_transcript.txt)
 - [20260116_211314_AlexeyDTC_transcript.txt](../inbox/raw/20260116_211314_AlexeyDTC_transcript.txt)
@@ -83,7 +83,5 @@ Each article section must list sources at the end.
 - [20260116_213156_AlexeyDTC_transcript.txt](../inbox/raw/20260116_213156_AlexeyDTC_transcript.txt)
 - [20260116_213629_AlexeyDTC_transcript.txt](../inbox/raw/20260116_213629_AlexeyDTC_transcript.txt)
 - [20260116_220451_AlexeyDTC_transcript.txt](../inbox/raw/20260116_220451_AlexeyDTC_transcript.txt)
-- [20260116_211757_AlexeyDTC_photo.md](../inbox/raw/20260116_211757_AlexeyDTC_photo.md)
-- [20260116_213322_AlexeyDTC_photo.md](../inbox/raw/20260116_213322_AlexeyDTC_photo.md)
-- [20260116_211757_AlexeyDTC.jpg](../assets/images/processing-pipeline/20260116_211757_AlexeyDTC.jpg)
-- [20260116_213322_AlexeyDTC.jpg](../assets/images/processing-pipeline/20260116_213322_AlexeyDTC.jpg)
+- [20260116_211757_AlexeyDTC_photo.md](../inbox/used/20260116_211757_AlexeyDTC_photo.md)
+- [20260116_213322_AlexeyDTC_photo.md](../inbox/used/20260116_213322_AlexeyDTC_photo.md)

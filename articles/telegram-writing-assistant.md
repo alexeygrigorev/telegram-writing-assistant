@@ -12,6 +12,12 @@ A personal knowledge management system where you send thoughts to Telegram (text
 
 ## Core Idea
 
+<figure>
+  <img src="../assets/images/telegram-writing-assistant/project-summary-workflow.jpg" alt="Project summary workflow">
+  <figcaption>A visual summary of the system workflow from sending thoughts to organizing into articles</figcaption>
+  <!-- This illustrates the high-level concept of the system -->
+</figure>
+
 I usually do brain dumps in the form of voice messages in Telegram. This needs to be organized. The idea is to transcribe these voice messages and add the transcription to some file. As voice messages accumulate, there may be several articles, and from each of these files there will be some article. It will gradually be filled and filled. Then, when the article is finished, we simply remove that article.
 
 ## Workflow
@@ -36,14 +42,7 @@ Target language for articles is English. Voice messages can be in any language, 
 
 Each article must include a list of source materials. This is important for cleanup when an article is deleted, so we can easily delete old resources we no longer need, like old transcripts.
 
-<figure>
-  <img src="../assets/images/telegram-writing-assistant/20260116_205911_AlexeyDTC.jpg" alt="Project summary slide">
-  <figcaption>A summary of the Telegram to GitHub Article Assistant system showing the workflow from sending thoughts to organizing into articles</figcaption>
-  <!-- This illustrates the high-level concept of the system -->
-</figure>
-
 ## Sources
 - [20260116_210119_AlexeyDTC_transcript.txt](../inbox/raw/20260116_210119_AlexeyDTC_transcript.txt)
 - [20260116_210336_AlexeyDTC_transcript.txt](../inbox/raw/20260116_210336_AlexeyDTC_transcript.txt)
-- [20260116_205911_AlexeyDTC_photo.md](../inbox/raw/20260116_205911_AlexeyDTC_photo.md)
-- [20260116_205911_AlexeyDTC.jpg](../assets/images/telegram-writing-assistant/20260116_205911_AlexeyDTC.jpg)
+- [20260116_205911_AlexeyDTC_photo.md](../inbox/used/20260116_205911_AlexeyDTC_photo.md)

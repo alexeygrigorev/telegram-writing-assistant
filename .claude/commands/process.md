@@ -39,24 +39,35 @@ Process in TWO phases:
    - **If no articles exist yet**: Defer the image
 
 3. When placing an image in an article:
+   - **Rename the image** to a descriptive name based on its content (e.g., `project-summary-slide.jpg`, `terminal-install-groq.jpg`, `claude-process-command.jpg`)
    - Move the image from `inbox/raw/` to `assets/images/{article_name}/` (create folder if needed)
-   - Update image reference in article to point to new location
+   - Update image reference in article to point to new location with new filename
+   - **Update the markdown description file** in `inbox/used/` with new frontmatter fields:
+     - `original_image: TIMESTAMP_USERNAME.jpg`
+     - `final_location: ../assets/images/{article_name}/descriptive-name.jpg`
    - Move the markdown description file to `inbox/used/`
 
-4. If image cannot be placed:
+4. Finding the RIGHT location for an image within an article:
+   - **Use timestamp as primary signal**: Look at the image's date from frontmatter and find text content that was created around the same time
+   - **Use context**: Read the image description (Type, Content, Text, Context) to understand what the image shows
+   - **Find related section**: Search the article for content that matches the image's subject matter
+   - **Place strategically**: Insert the figure NEAR the relevant text, not at the end. The text around should relate to what's in the image
+   - **Example**: If image shows a terminal screenshot of installing a dependency, place it near the section about setup/dependencies, not at the end
+
+5. If image cannot be placed:
    - Move the image to `assets/images/_unused/` (create folder if needed)
    - Move the markdown description file to `inbox/used/`
 
-5. Image placement format in articles:
+6. Image placement format in articles:
 ```html
 <figure>
-  <img src="../../../assets/images/{article_name}/filename.jpg" alt="Image description">
+  <img src="../assets/images/{article_name}/descriptive-name.jpg" alt="Image description">
   <figcaption>Short caption - what's on the image</figcaption>
   <!-- how and why this illustration is relevant to the text around -->
 </figure>
 ```
 
-6. Track which images were placed and which were deferred
+7. Track which images were placed and which were deferred
 
 # OUTPUT FORMAT
 
