@@ -8,7 +8,11 @@ You are processing materials from the Telegram writing assistant inbox. Your goa
 
 Check `inbox/raw/` for new materials (text, transcripts, photos).
 
-# PROCESSING
+# PROCESSING ORDER
+
+Process in TWO phases:
+
+## Phase 1: Text Content (voice transcripts, text messages)
 
 1. Read all files in `inbox/raw/`
 
@@ -16,15 +20,43 @@ Check `inbox/raw/` for new materials (text, transcripts, photos).
 
 3. Read `articles/_index.md` to understand what articles exist
 
-4. For each material:
+4. For each text/transcript material:
    - Translate to English if needed
-   - **Context awareness for images**: When processing a photo, look at messages sent before and after (by timestamp and filename) to understand what the image relates to. Images are often part of a sequence of related thoughts.
+   - **Preserve ALL information from voice notes** - don't summarize, keep the full content with all details, nuances, and context
    - **Decide: existing article OR new article**
    - Check each existing article's title and content to see if material relates to it
    - If no existing article matches, create a new article in `articles/`
-   - Append content to the appropriate article
+   - Incorporate the content into the appropriate article - add it meaningfully in the right section
 
-5. Update `articles/_index.md` with any new articles
+## Phase 2: Images (only after Phase 1 is complete)
+
+1. Images are located in `inbox/raw/` alongside their markdown description files (frontmatter contains `image_file: filename.jpg`)
+
+2. For each photo in `inbox/raw/`:
+   - Read its markdown description file (contains Type, Content, Text, Context) - this is the ONLY source for image content, DO NOT use any vision/analyze_image tools
+   - Look at messages sent before/after by timestamp for context
+   - **If articles exist**: Find the most relevant section and add the image
+   - **If no articles exist yet**: Defer the image
+
+3. When placing an image in an article:
+   - Move the image from `inbox/raw/` to `assets/images/{article_name}/` (create folder if needed)
+   - Update image reference in article to point to new location
+   - Move the markdown description file to `inbox/used/`
+
+4. If image cannot be placed:
+   - Move the image to `assets/images/_unused/` (create folder if needed)
+   - Move the markdown description file to `inbox/used/`
+
+5. Image placement format in articles:
+```html
+<figure>
+  <img src="../../../assets/images/{article_name}/filename.jpg" alt="Image description">
+  <figcaption>Short caption - what's on the image</figcaption>
+  <!-- how and why this illustration is relevant to the text around -->
+</figure>
+```
+
+6. Track which images were placed and which were deferred
 
 # OUTPUT FORMAT
 
@@ -36,7 +68,7 @@ Check `inbox/raw/` for new materials (text, transcripts, photos).
 - No `---` section separators
 - Use short, clear sentences - break up long sentences
 - You are a **curator**, not a writer - organize findings, don't rewrite
-- Preserve original meaning, just structure it
+- Preserve original meaning and ALL details from voice notes
 
 **Article frontmatter:**
 ```markdown
@@ -53,7 +85,46 @@ status: draft
 ```markdown
 ## Sources
 - [transcript filename](../inbox/raw/filename)
-- [image filename](../assets/images/filename)
+- [image filename](../inbox/raw/filename.jpg)
+```
+
+# SUMMARY REPORT
+
+After processing, CREATE a summary file at `inbox/summary_` + timestamp + `.md` where timestamp is obtained by running:
+```bash
+python -c "from datetime import datetime; print(datetime.now().strftime('%Y%m%d_%H%M%S'))"
+```
+
+Use this EXACT format for the summary content:
+
+```markdown
+# Processing Summary
+
+Date: YYYY-MM-DD HH:MM:SS
+
+## Statistics
+- Files processed: N
+- Articles created: N
+- Articles updated: N
+- Images processed: N
+- Images placed: N
+- Images deferred (no suitable article found): N
+
+## Articles Created
+- article-title-1.md
+- article-title-2.md
+
+## Articles Updated
+- existing-article-1.md
+- existing-article-2.md
+
+## Images Placed
+- image1.jpg -> article-title-1.md
+- image2.jpg -> article-title-2.md
+
+## Images Deferred
+- image3.jpg (reason: no related article yet)
+- image4.jpg (reason: unclear context)
 ```
 
 # CLEANUP

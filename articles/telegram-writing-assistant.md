@@ -2,43 +2,48 @@
 title: "Telegram Writing Assistant"
 created: 2026-01-16
 updated: 2026-01-16
-tags: [telegram, bot, personal-knowledge, automation]
+tags: [telegram, bot, knowledge-management, automation]
 status: draft
 ---
 
 # Telegram Writing Assistant
 
-A personal knowledge management system where thoughts are sent to Telegram and automatically organized into articles.
+A personal knowledge management system where you send thoughts to Telegram (text, voice, images) and a bot saves everything locally, processes it, and organizes it into articles.
 
-## Core Concept
+## Core Idea
 
-The system captures ideas through Telegram in multiple formats: voice notes, text, and images. The bot saves everything locally to inbox/raw/. Voice messages get transcribed. A command triggers analysis of accumulated materials to update existing articles or create new ones.
+I usually do brain dumps in the form of voice messages in Telegram. This needs to be organized. The idea is to transcribe these voice messages and add the transcription to some file. As voice messages accumulate, there may be several articles, and from each of these files there will be some article. It will gradually be filled and filled. Then, when the article is finished, we simply remove that article.
 
 ## Workflow
 
-1. Send thoughts to Telegram (text, voice, images)
-2. Bot saves everything to inbox/raw/
-3. Run /process command
-4. Materials are analyzed and organized into articles
-5. Processed files move to inbox/used/
+1. Send materials to Telegram bot (text, voice, images)
+2. Bot saves everything locally to inbox/raw/
+3. Run /process command to organize materials
+4. Claude analyzes accumulated materials
+5. Updates existing articles or creates new ones
+6. Commits to GitHub
+7. Sends commit link back to Telegram
 
 ## Language Handling
 
-Voice notes and messages can be in any language, but articles are in English. The agent translates content during processing. The user records voice notes in Russian but writes articles in English for Substack.
+The agent can understand any messages regardless of language. When I record a voice message, I want the agent to understand where to add the material from this voice message, into which existing article it relates.
 
-## Article Management
+I usually write texts in English, I have a Substack where I write in English. For voice notes, it's sometimes easier for me to speak in Russian. Since we usually communicate in Russian with Valeria, voice messages are also in Russian.
 
-Each article tracks source materials for easy cleanup. When an article is complete, it can be removed and all its source files deleted. Articles build up gradually from multiple voice notes and messages on the same topic.
+Target language for articles is English. Voice messages can be in any language, but articles should only be in English. When processing, Claude should translate everything to English.
 
-## Exception Handling
+## Article Structure
 
-When exceptions occur during bot processing, the error details are sent to the chat for immediate debugging.
+Each article must include a list of source materials. This is important for cleanup when an article is deleted, so we can easily delete old resources we no longer need, like old transcripts.
+
+<figure>
+  <img src="../assets/images/telegram-writing-assistant/20260116_205911_AlexeyDTC.jpg" alt="Project summary slide">
+  <figcaption>A summary of the Telegram to GitHub Article Assistant system showing the workflow from sending thoughts to organizing into articles</figcaption>
+  <!-- This illustrates the high-level concept of the system -->
+</figure>
 
 ## Sources
-
 - [20260116_210119_AlexeyDTC_transcript.txt](../inbox/raw/20260116_210119_AlexeyDTC_transcript.txt)
 - [20260116_210336_AlexeyDTC_transcript.txt](../inbox/raw/20260116_210336_AlexeyDTC_transcript.txt)
-- [20260116_211210_AlexeyDTC_transcript.txt](../inbox/raw/20260116_211210_AlexeyDTC_transcript.txt)
-- [20260116_213156_AlexeyDTC_transcript.txt](../inbox/raw/20260116_213156_AlexeyDTC_transcript.txt)
-- [20260116_213629_AlexeyDTC_transcript.txt](../inbox/raw/20260116_213629_AlexeyDTC_transcript.txt)
 - [20260116_205911_AlexeyDTC_photo.md](../inbox/raw/20260116_205911_AlexeyDTC_photo.md)
+- [20260116_205911_AlexeyDTC.jpg](../assets/images/telegram-writing-assistant/20260116_205911_AlexeyDTC.jpg)

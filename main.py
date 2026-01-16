@@ -170,11 +170,12 @@ async def save_voice_message(file_path: str, user_id: int, username: str = None,
 
 
 async def save_photo(file_path: str, user_id: int, username: str = None, caption: str = None, message_date: datetime = None) -> tuple[Path, str]:
-    """Save photo to assets/images and return (filename, description)."""
+    """Save photo to inbox/raw and return (filename, description)."""
     msg_date = message_date or datetime.now()
     timestamp = get_timestamp(msg_date)
     user_tag = username or f"user_{user_id}"
-    filename = ASSETS_IMAGES / f"{timestamp}_{user_tag}.jpg"
+    # Save image in inbox/raw alongside its markdown description
+    filename = INBOX_RAW / f"{timestamp}_{user_tag}.jpg"
 
     async with httpx.AsyncClient() as client:
         response = await client.get(file_path)
@@ -184,7 +185,7 @@ async def save_photo(file_path: str, user_id: int, username: str = None, caption
     # Generate image description
     description = describe_image(filename)
 
-    # Create markdown with description (no inline image since path is in frontmatter)
+    # Create markdown with description (image is in the same folder)
     md_filename = INBOX_RAW / f"{timestamp}_{user_tag}_photo.md"
     content = textwrap.dedent(f"""\
         ---
@@ -192,7 +193,7 @@ async def save_photo(file_path: str, user_id: int, username: str = None, caption
         date: {msg_date.isoformat()}
         user_id: {user_id}
         username: {username or "unknown"}
-        image_path: ../../../assets/images/{filename.name}
+        image_file: {filename.name}
         ---
 
         {description}
@@ -291,7 +292,7 @@ async def process_command(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
 
         # Run Claude Code with the custom process command in non-interactive mode
         # Use shell=True on Windows to find claude in PATH
-        cmd = "claude -p \"/process\" --allowedTools \"Read,Edit,Bash,Write\" --output-format json"
+        cmd = "claude -p \"read and execute instructions in .claude/commands/process.md\" --allowedTools \"Read,Edit,Bash,Write\" --output-format stream-json --verbose"
         print(f"[process_command] Running: {cmd}", flush=True)
 
         result = subprocess.run(
