@@ -323,8 +323,10 @@ async def process_command(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
             # Non-blocking queue put from synchronous context
             queue.put_sync(msg)
 
-        # Run Claude with progress streaming
-        returncode, stdout, stderr = runner.run_process_command(
+        # Run Claude in a thread so it doesn't block the event loop
+        # This allows the queue worker to send messages during processing
+        returncode, stdout, stderr = await asyncio.to_thread(
+            runner.run_process_command,
             on_progress=queue_progress
         )
 
@@ -367,16 +369,19 @@ async def process_command(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
         else:
             github_url = None
 
-        # Send results to chat
+        # First: stop queue and wait for all progress messages to be sent
+        await queue.stop()
+        print(f"[process_command] Queue empty, now sending summary...", flush=True)
+
+        # Now send the summary as a SEPARATE message
         if returncode == 0:
             msg = f"✅ Processing complete!\n\n"
             if github_url:
                 msg += f"📦 Commit: {github_url}\n"
             else:
                 msg += f"📦 Commit: `{commit_hash[:8]}`\n"
-            await queue.put(msg)
 
-            # Send summary content
+            # Add summary content
             summaries_dir = REPO_PATH / "inbox" / "summaries"
             summaries = sorted(summaries_dir.glob("summary_*.md"), key=lambda x: x.stat().st_mtime, reverse=True)
             if summaries:
@@ -384,22 +389,25 @@ async def process_command(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
                 with open(latest_summary, "r", encoding="utf-8") as f:
                     summary_content = f.read()
                 # Truncate if too long (Telegram limit is 4096 chars)
-                if len(summary_content) > 4000:
-                    summary_content = summary_content[:4000] + "\n... (truncated)"
-                await queue.put(f"📊 Summary:\n\n{summary_content}")
+                if len(summary_content) > 3800:
+                    summary_content = summary_content[:3800] + "\n... (truncated)"
+                msg += f"\n📊 Summary:\n\n{summary_content}"
+
+            # Send summary as direct message (not through queue)
+            await bot.send_message(chat_id=chat_id, text=msg, parse_mode=None)
         else:
-            await queue.put(f"⚠️ Claude exited with code {returncode}")
+            await bot.send_message(chat_id=chat_id, text=f"⚠️ Claude exited with code {returncode}", parse_mode=None)
 
         if stderr:
-            await queue.put(f"Stderr: `{stderr[:1000]}`")
+            await bot.send_message(chat_id=chat_id, text=f"Stderr: `{stderr[:1000]}`", parse_mode=None)
 
     except Exception as e:
         print(f"[process_command] Error: {type(e).__name__}: {e}")
-        await queue.put(f"Error during processing: {type(e).__name__}: {e}")
-
-    finally:
-        # Stop queue and drain remaining messages
-        await queue.stop()
+        # Try to send error message
+        try:
+            await bot.send_message(chat_id=chat_id, text=f"Error: {type(e).__name__}: {e}", parse_mode=None)
+        except:
+            pass
 
 
 def main() -> None:

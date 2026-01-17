@@ -14,7 +14,7 @@ class MessageQueue:
         self.queue: thread_queue.Queue[str] = thread_queue.Queue()
         self._task = None
         self._stop_event = asyncio.Event()
-        # Initialize to current time to avoid long initial delay
+        # BROKEN: Using time.time() here but loop.time() in worker
         import time
         self._last_send_time = time.time()
         self._send_interval = send_interval
@@ -42,7 +42,8 @@ class MessageQueue:
 
         while not self._stop_event.is_set():
             try:
-                # Wait for send interval
+                # BROKEN: Using loop.time() here but time.time() in __init__
+                # These have different offsets!
                 current_time = asyncio.get_event_loop().time()
                 time_since_last_send = current_time - self._last_send_time
                 wait_time = max(0, self._send_interval - time_since_last_send)
