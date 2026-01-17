@@ -176,7 +176,47 @@ The integration test validates the full flow works correctly without depending o
 
 This was a quick debugging session. The test is now part of our permanent test suite, ensuring reliability going forward.
 
+## Testing and Debugging Experience
+
+We wrote a lot of tests. I asked the code to write tests, and it wrote them. We found several deadlocks. There were many problems.
+
+I spent most of my time on the part where the message from the code is sent to Telegram. In the end, I settled on a configuration where:
+- Messages are output to the console immediately and sent
+- Then they are accumulated in a buffer
+- Every 20 seconds, they are sent to Telegram to avoid sending too many messages at once
+
+It took a lot of time to debug this. There were many problems. If the first prototype was done in about an hour and a half, this part took me about 4 hours to debug.
+
+The thing is, this feature isn't even critical for the system to work. It's not that important for the MVP. But a lot of time went into it.
+
+Now everything seems to work. I'll take a few screenshots and see how it goes from here.
+
+<figure>
+  <img src="../assets/images/processing-pipeline/integration-tests-passing.jpg" alt="All 19 integration tests passing">
+  <figcaption>Terminal output showing all 19 integration tests passing after debugging</figcaption>
+  <!-- This illustrates the successful outcome of the debugging session -->
+</figure>
+
+## Telegram Bot Interface
+
+The /process command is initiated through Telegram. Before running /process, you can check /status to see how many raw items are waiting and how many articles exist.
+
+<figure>
+  <img src="../assets/images/processing-pipeline/telegram-process-command.jpg" alt="Telegram bot showing /status and /process commands">
+  <figcaption>Telegram conversation showing the status check and process initiation</figcaption>
+  <!-- This shows the actual user interface for the processing pipeline -->
+</figure>
+
+When /process is run, the bot shows real-time progress:
+- Reading the process.md instructions
+- Finding files in inbox/raw/
+- Reading articles
+- Progress updates showing active tasks
+
+This visibility makes it clear what's happening during processing instead of a mysterious long wait.
+
 ## Sources
+- [20260117_103849_AlexeyDTC_transcript.txt](../inbox/raw/20260117_103849_AlexeyDTC_transcript.txt)
 - [20260117_085944_AlexeyDTC_transcript.txt](../inbox/raw/20260117_085944_AlexeyDTC_transcript.txt)
 - [20260117_090215_AlexeyDTC_transcript.txt](../inbox/raw/20260117_090215_AlexeyDTC_transcript.txt)
 - [20260117_091121_AlexeyDTC_transcript.txt](../inbox/raw/20260117_091121_AlexeyDTC_transcript.txt)
