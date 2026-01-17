@@ -4,9 +4,21 @@ import json
 import subprocess
 import time
 import io
+import sys
 from pathlib import Path
 from datetime import datetime
 from typing import Callable, Optional
+
+
+def _safe_print(msg: str):
+    """Print that handles encoding errors on Windows."""
+    try:
+        print(msg, flush=True)
+    except (UnicodeEncodeError, ValueError):
+        # Fallback for Windows console encoding issues - replace emojis
+        # Use ASCII encoding with replacement to remove problematic characters
+        safe_msg = msg.encode('ascii', errors='replace').decode('ascii')
+        print(safe_msg, flush=True)
 
 
 class ClaudeEvent:
@@ -118,8 +130,8 @@ class ClaudeRunner:
 
         cmd = f'claude -p "{prompt}" --allowedTools "{allowed_tools}" --output-format stream-json --verbose'
 
-        print(f"[ClaudeRunner] Running: {prompt[:60]}...", flush=True)
-        print(f"[ClaudeRunner] Log: {log_file}", flush=True)
+        _safe_print(f"[ClaudeRunner] Running: {prompt[:60]}...")
+        _safe_print(f"[ClaudeRunner] Log: {log_file}")
 
         process = subprocess.Popen(
             cmd,
@@ -134,7 +146,6 @@ class ClaudeRunner:
         )
 
         output_buffer = io.StringIO()
-        last_progress_time = None
 
         for line in process.stdout:
             line = line.strip()
@@ -156,7 +167,7 @@ class ClaudeRunner:
 
                 if event.is_system_init:
                     model = event.data.get("model", "unknown")
-                    print(f"[SYSTEM] Session started - Model: {model}", flush=True)
+                    _safe_print(f"[SYSTEM] Session started - Model: {model}")
 
                 elif event.is_assistant:
                     message = event.get_message()
@@ -168,32 +179,29 @@ class ClaudeRunner:
                             tool_input = content.get("input", {})
                             progress_msg = self.formatter.format_tool_use(tool_name, tool_input)
                             if progress_msg:
-                                print(f"[CLAUDE] {progress_msg}", flush=True)
+                                _safe_print(f"[CLAUDE] {progress_msg}")
 
                         elif content.get("type") == "text":
                             text = content.get("text", "")
                             if text:
-                                print(f"[CLAUDE] {self.formatter.format_assistant_text(text)}", flush=True)
+                                _safe_print(f"[CLAUDE] {self.formatter.format_assistant_text(text)}")
 
                 elif event.is_user:
                     tool_result = event.get_tool_use_result()
                     if tool_result:
                         progress_msg = self.formatter.format_tool_result(tool_result)
                         if progress_msg:
-                            print(f"[RESULT] {progress_msg}", flush=True)
+                            _safe_print(f"[RESULT] {progress_msg}")
 
-                # Send progress with rate limiting (max 1 message per 2 seconds)
+                # Send progress (rate limiting handled by callback if needed)
                 if progress_msg and on_progress:
-                    current_time = time.time()
-                    if last_progress_time is None or (current_time - last_progress_time) > 2:
-                        try:
-                            on_progress(progress_msg)
-                            last_progress_time = current_time
-                        except Exception as e:
-                            print(f"[ClaudeRunner] Failed to send progress: {e}", flush=True)
+                    try:
+                        on_progress(progress_msg)
+                    except Exception as e:
+                        _safe_print(f"[ClaudeRunner] Failed to send progress: {e}")
 
             except json.JSONDecodeError:
-                print(f"[RAW] {line[:100]}", flush=True)
+                _safe_print(f"[RAW] {line[:100]}")
 
         process.wait()
         returncode = process.returncode
@@ -204,7 +212,7 @@ class ClaudeRunner:
         with open(log_file, "w", encoding="utf-8") as f:
             f.write(stdout)
 
-        print(f"[ClaudeRunner] Return code: {returncode}", flush=True)
+        _safe_print(f"[ClaudeRunner] Return code: {returncode}")
 
         return returncode, stdout, stderr
 

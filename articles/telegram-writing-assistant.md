@@ -56,8 +56,19 @@ Target language for articles is English. Voice messages can be in any language, 
 
 Each article must include a list of source materials. This is important for cleanup when an article is deleted, so we can easily delete old resources we no longer need, like old transcripts.
 
+## Vision: Agent Control via Telegram
+
+I really like the approach where I can just give the agent instructions on the go. Like the scenario described in the article - at a tram stop, just telling the agent what to do, and it does it.
+
+Currently this works through GitHub Actions, which is fine. But it requires opening Copilot, opening GitHub, creating an issue, and assigning it to Copilot. That's a lot of friction.
+
+Telegram would be a much more convenient interface. Just record a voice message like "go to GitHub, look at this project, check the issues, people are complaining about X, let's fix it." Or "check Slack, there's a screenshot, let's fix that." Just giving commands to agents on the go through voice, and they execute them.
+
+This is the long-term vision. I don't know if it will work out, but it's an idea I'm exploring. Working on this writing assistant is bringing me closer to that vision of controlling my agents through Telegram. It's turning from an abstract idea into something more concrete.
+
 ## Sources
 - [20260116_210119_AlexeyDTC_transcript.txt](../inbox/raw/20260116_210119_AlexeyDTC_transcript.txt)
 - [20260116_210336_AlexeyDTC_transcript.txt](../inbox/raw/20260116_210336_AlexeyDTC_transcript.txt)
 - [20260116_205911_AlexeyDTC_photo.md](../inbox/used/20260116_205911_AlexeyDTC_photo.md)
 - [20260117_064726_AlexeyDTC_transcript.txt](../inbox/raw/20260117_064726_AlexeyDTC_transcript.txt)
+- [20260117_071038_AlexeyDTC_transcript.txt](../inbox/raw/20260117_071038_AlexeyDTC_transcript.txt)

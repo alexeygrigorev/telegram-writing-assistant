@@ -70,6 +70,12 @@ Claude does git add and git commit with a normal description. The push is done f
 
 When some exception occurs during bot processing, write the exception to the chat. That way we can debug immediately.
 
+<figure>
+  <img src="../assets/images/processing-pipeline/process-error-none-type.jpg" alt="Error during /process command">
+  <figcaption>A TypeError that occurred during processing - no visibility into what went wrong</figcaption>
+  <!-- This illustrates why real-time progress tracking is important -->
+</figure>
+
 ## Image Processing Guidelines
 
 Images are processed using ONLY the markdown description file, NOT vision/analyze_image tools. The markdown file contains Type, Content, Text, and Context. To understand where an image best fits, look at the context by checking messages before and after by timestamp - what text information is around.
@@ -86,6 +92,48 @@ Articles should follow these formatting rules:
 
 Each article section must list sources at the end.
 
+## Real-Time Progress Streaming
+
+When processing takes a long time, visibility into what's happening is crucial. I noticed that the agent could run for 10 minutes with no feedback until it either completes or errors out.
+
+The solution is to stream Claude's JSON events in real-time. The agent outputs JSON describing what tools it's using. We can:
+1. Parse these JSON events as they arrive
+2. Show what tool is being used (Read, Write, Edit, Bash, etc.)
+3. Send progress updates to Telegram with rate limiting (max 1 message per 2 seconds)
+4. Also print all progress to console
+5. Keep saving raw logs to claude_runs/
+
+<figure>
+  <img src="../assets/images/processing-pipeline/real-time-progress-telegram.jpg" alt="Real-time progress streaming to Telegram">
+  <figcaption>Example of real-time progress updates in Telegram showing what Claude is doing</figcaption>
+  <!-- This shows the feature in action - visible progress instead of a 10-minute black box -->
+</figure>
+
+This approach gives immediate visibility into the agent's work. Instead of waiting 10 minutes wondering if something is happening, you see updates like:
+- Reading: process.md
+- Read: process.md (156 lines)
+- Progress: 2/8 tasks active
+- Running: git add -A
+- Found: 6 files
+
+## Testing Strategy
+
+As the codebase grows, the risk of breaking something increases. We need tests.
+
+We should have:
+1. Unit tests where we mock external dependencies like Grok
+2. Integration tests that verify the full flow
+
+For integration tests, we can give the agent a simple task like "read the files in that folder and output the result." Since we can customize the prompt, we can test that the integration actually works.
+
+Things we can test:
+- Mock Grok to return specific transcriptions
+- Verify files are created in the right places
+- Test the full flow with a temporary test directory
+- Verify that specific inputs produce expected outputs
+
+Currently there are no tests, which is concerning. One wrong change could break the entire flow.
+
 ## Sources
 - [20260116_211210_AlexeyDTC_transcript.txt](../inbox/raw/20260116_211210_AlexeyDTC_transcript.txt)
 - [20260116_211314_AlexeyDTC_transcript.txt](../inbox/raw/20260116_211314_AlexeyDTC_transcript.txt)
@@ -97,5 +145,9 @@ Each article section must list sources at the end.
 - [20260116_220451_AlexeyDTC_transcript.txt](../inbox/raw/20260116_220451_AlexeyDTC_transcript.txt)
 - [20260117_064900_AlexeyDTC_transcript.txt](../inbox/raw/20260117_064900_AlexeyDTC_transcript.txt)
 - [20260117_065102_AlexeyDTC_transcript.txt](../inbox/raw/20260117_065102_AlexeyDTC_transcript.txt)
+- [20260117_070806_AlexeyDTC_transcript.txt](../inbox/raw/20260117_070806_AlexeyDTC_transcript.txt)
+- [20260117_073321_AlexeyDTC_transcript.txt](../inbox/raw/20260117_073321_AlexeyDTC_transcript.txt)
 - [20260116_211757_AlexeyDTC_photo.md](../inbox/used/20260116_211757_AlexeyDTC_photo.md)
 - [20260116_213322_AlexeyDTC_photo.md](../inbox/used/20260116_213322_AlexeyDTC_photo.md)
+- [20260117_070247_AlexeyDTC_photo.md](../inbox/used/20260117_070247_AlexeyDTC_photo.md)
+- [20260117_074604_AlexeyDTC_photo.md](../inbox/used/20260117_074604_AlexeyDTC_photo.md)

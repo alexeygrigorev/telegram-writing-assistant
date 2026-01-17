@@ -24,7 +24,26 @@ I'm using Grok for transcription. It's very cool. So far, everything is free, I 
 
 The .ogg files themselves should not be stored. We should only keep the transcript itself. We received the file, sent it to Whisper, made the transcription, and removed the .ogg file.
 
+## Transcript Formatting
+
+Currently transcripts are saved as a single long line. This makes them hard to read. It would be better to wrap the text at around 100 characters per line. This multiline formatting should only apply when saving to the file, not when displaying the transcript in the chat.
+
+## Screenshot Analysis
+
+When analyzing screenshots, Grok can extract text from code blocks and include it in the analysis. This is useful. For future screenshot analysis, we should:
+1. Give Grok more context about why we're asking it to analyze the screenshot
+2. Ask it to extract text from code blocks explicitly
+
+The last Grok message interpreting a screenshot was particularly good - it extracted the text from the code block on the image. This should be a standard practice for future analysis.
+
+## Markdown Frontmatter Issues
+
+The markdown files created for photos have strange indentation in the frontmatter. This needs to be investigated and fixed so the frontmatter is properly formatted.
+
 ## Sources
 - [20260116_210806_AlexeyDTC_transcript.txt](../inbox/raw/20260116_210806_AlexeyDTC_transcript.txt)
 - [20260116_211410_AlexeyDTC_transcript.txt](../inbox/raw/20260116_211410_AlexeyDTC_transcript.txt)
 - [20260116_211501_AlexeyDTC_transcript.txt](../inbox/raw/20260116_211501_AlexeyDTC_transcript.txt)
+- [20260117_072827_AlexeyDTC_transcript.txt](../inbox/raw/20260117_072827_AlexeyDTC_transcript.txt)
+- [20260117_074713_AlexeyDTC_transcript.txt](../inbox/raw/20260117_074713_AlexeyDTC_transcript.txt)
+- [20260117_074838_AlexeyDTC_transcript.txt](../inbox/raw/20260117_074838_AlexeyDTC_transcript.txt)
