@@ -31,7 +31,6 @@ INBOX_RAW = REPO_PATH / "inbox" / "raw"
 INBOX_USED = REPO_PATH / "inbox" / "used"
 ASSETS_IMAGES = REPO_PATH / "assets" / "images"
 ARTICLES_DIR = REPO_PATH / "articles"
-LOGS_DIR = REPO_PATH / "scripts" / "logs" / "claude_runs"
 
 # Initialize Groq client
 groq_client = Groq(api_key=GROQ_API_KEY) if GROQ_API_KEY else None
@@ -285,11 +284,6 @@ async def process_command(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
     await update.message.reply_text("Processing inbox with Claude... This may take a few minutes.")
 
     try:
-        # Create log file with timestamp
-        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        log_file = LOGS_DIR / f"run_{timestamp}.json"
-        LOGS_DIR.mkdir(parents=True, exist_ok=True)
-
         # Run Claude Code with the custom process command in non-interactive mode
         # Use shell=True on Windows to find claude in PATH
         cmd = "claude -p \"read and execute instructions in .claude/commands/process.md\" --allowedTools \"Read,Edit,Bash,Write\" --output-format stream-json --verbose"
@@ -310,10 +304,6 @@ async def process_command(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
             print(f"[process_command] Stdout:\n{result.stdout[:2000]}", flush=True)
         if result.stderr:
             print(f"[process_command] Stderr:\n{result.stderr}", flush=True)
-
-        # Save JSON output to log file
-        with open(log_file, "w", encoding="utf-8") as f:
-            f.write(result.stdout)
 
         # Git push
         push_result = subprocess.run(
@@ -361,7 +351,6 @@ async def process_command(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
                 msg += f"📦 Commit: {github_url}\n"
             else:
                 msg += f"📦 Commit: `{commit_hash[:8]}`\n"
-            msg += f"📝 Log: `{log_file.name}`"
             await update.message.reply_text(msg, parse_mode="Markdown")
 
             # Send summary content
@@ -376,7 +365,7 @@ async def process_command(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
                     summary_content = summary_content[:4000] + "\n... (truncated)"
                 await update.message.reply_text(f"📊 Summary:\n\n{summary_content}", parse_mode="Markdown")
         else:
-            await update.message.reply_text(f"⚠️ Claude exited with code {result.returncode}\n\nLog: `{log_file.name}`", parse_mode="Markdown")
+            await update.message.reply_text(f"⚠️ Claude exited with code {result.returncode}", parse_mode="Markdown")
 
         if result.stderr:
             await update.message.reply_text(f"Stderr: `{result.stderr[:1000]}`", parse_mode="Markdown")

@@ -7,7 +7,9 @@
       "Bash(cat:*)",
       "Bash(curl:*)",
       "Bash(gh repo create:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push)"
     ]
   }
 }

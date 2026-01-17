@@ -28,7 +28,6 @@ Thumbs.db
 
 # Logs
 *.log
-scripts/logs/
 
 # Processing summaries
 inbox/summaries/
