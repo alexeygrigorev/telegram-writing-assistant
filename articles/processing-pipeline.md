@@ -239,6 +239,50 @@ When /process is run, the bot shows real-time progress:
 
 This visibility makes it clear what's happening during processing instead of a mysterious long wait.
 
+## Future Improvements
+
+### Reducing Output Noise
+
+Looking at the Telegram output during processing, there is too much noise. Progress messages like "one of seven tasks completed" are not particularly useful. The repetitive status updates are also noise. The most useful outputs are:
+- When reading is complete (what was read)
+- Editing operations
+- mkdir and move commands
+
+The goal is to keep only genuinely useful information and reduce the noise level.
+
+### Processing Time Tracking
+
+The processing takes significant time. The code spends a lot of time analyzing. This is acceptable - speed is not the priority. The system works and saves time overall compared to manual organization.
+
+However, it would be good to add timing information - start a timer at the beginning and report how many minutes and seconds the processing took at the end. This would help set expectations and provide transparency about the process duration.
+
+### Clickable Source Links
+
+Currently, all sources are listed at the bottom of each article. It would be more convenient to have clickable inline links within the article itself. When editing and seeing something strange, it should be easy to jump directly to the original voice message to review the context.
+
+The challenge is that the .ogg files are removed after transcription. We would need a way to link back to the original Telegram message, perhaps through some identifier or timestamp that can be used to locate the message in Telegram.
+
+### Multi-Section Content Distribution
+
+A single voice note or transcript might contain content relevant to multiple articles or multiple sections within one article. When processing, content from one source should be distributed appropriately across different sections, with proper citations for each location.
+
+### URL-Only Message Handling
+
+When a message contains only a URL, we should use Jina Reader to fetch and analyze the content:
+- Use curl: `curl "https://r.jina.ai/{original_url}"`
+- This returns clean markdown content from the page
+- Then incorporate that content into the appropriate article
+
+### Context-Aware Message Grouping
+
+Short messages or unclear content should be processed in context. Look at nearby messages by timestamp (within 1-2 minutes) to understand the full picture. Check the date field in frontmatter to find messages sent around the same time. Read related voice notes, text, and photos together to get the complete picture.
+
+### Forwarded Message Handling
+
+When forwarding messages to the Telegram bot, all forwarded messages have the same timestamp. This causes files to overwrite each other. We need to add a unique identifier - perhaps the message ID - to ensure each forwarded message gets its own file.
+
+For images in forwarded messages, there is an error "Bad request cannot parse entities." We need to investigate how to properly extract images from forwarded messages.
+
 ## Sources
 - [20260117_103849_AlexeyDTC_transcript.txt](../inbox/raw/20260117_103849_AlexeyDTC_transcript.txt)
 - [20260117_085944_AlexeyDTC_transcript.txt](../inbox/raw/20260117_085944_AlexeyDTC_transcript.txt)
@@ -257,6 +301,14 @@ This visibility makes it clear what's happening during processing instead of a m
 - [20260117_065102_AlexeyDTC_transcript.txt](../inbox/raw/20260117_065102_AlexeyDTC_transcript.txt)
 - [20260117_070806_AlexeyDTC_transcript.txt](../inbox/raw/20260117_070806_AlexeyDTC_transcript.txt)
 - [20260117_073321_AlexeyDTC_transcript.txt](../inbox/raw/20260117_073321_AlexeyDTC_transcript.txt)
+- [20260117_105133_AlexeyDTC_transcript.txt](../inbox/raw/20260117_105133_AlexeyDTC_transcript.txt)
+- [20260117_105343_AlexeyDTC_transcript.txt](../inbox/raw/20260117_105343_AlexeyDTC_transcript.txt)
+- [20260117_105436_AlexeyDTC_transcript.txt](../inbox/raw/20260117_105436_AlexeyDTC_transcript.txt)
+- [20260117_110618_AlexeyDTC_transcript.txt](../inbox/raw/20260117_110618_AlexeyDTC_transcript.txt)
+- [20260117_113606_AlexeyDTC_transcript.txt](../inbox/raw/20260117_113606_AlexeyDTC_transcript.txt)
+- [20260117_113705_AlexeyDTC_transcript.txt](../inbox/raw/20260117_113705_AlexeyDTC_transcript.txt)
+- [20260117_113736_AlexeyDTC_transcript.txt](../inbox/raw/20260117_113736_AlexeyDTC_transcript.txt)
+- [20260117_113943_AlexeyDTC_transcript.txt](../inbox/raw/20260117_113943_AlexeyDTC_transcript.txt)
 - [20260116_211757_AlexeyDTC_photo.md](../inbox/used/20260116_211757_AlexeyDTC_photo.md)
 - [20260116_213322_AlexeyDTC_photo.md](../inbox/used/20260116_213322_AlexeyDTC_photo.md)
 - [20260117_070247_AlexeyDTC_photo.md](../inbox/used/20260117_070247_AlexeyDTC_photo.md)

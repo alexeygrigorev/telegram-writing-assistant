@@ -1,0 +1,9 @@
+---
+source: telegram_voice
+date: 2026-01-17T19:39:32+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260117_193932_AlexeyDTC_msg255.ogg
+---
+
+Вот, можно показать, типа, summary последних pull-request, они все copilot сделаны.

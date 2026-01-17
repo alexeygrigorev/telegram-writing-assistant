@@ -87,6 +87,13 @@ def get_timestamp(message_date: datetime) -> str:
     return message_date.strftime("%Y%m%d_%H%M%S")
 
 
+def get_filename(message_date: datetime, message_id: int, username: str = None) -> str:
+    """Get unique filename using message_id to prevent collisions."""
+    timestamp = message_date.strftime("%Y%m%d_%H%M%S")
+    user_tag = username or "unknown"
+    return f"{timestamp}_{user_tag}_msg{message_id}"
+
+
 def is_allowed_chat(update: Update) -> bool:
     """Check if message is from the allowed chat."""
     return update.effective_chat.id == TELEGRAM_CHANNEL
@@ -118,12 +125,14 @@ async def status_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
     )
 
 
-async def save_text_message(content: str, user_id: int, username: str = None, message_date: datetime = None) -> Path:
+async def save_text_message(content: str, user_id: int, username: str = None, message_date: datetime = None, message_id: int = None) -> Path:
     """Save text message as markdown file."""
     msg_date = message_date or datetime.now()
-    timestamp = get_timestamp(msg_date)
-    user_tag = username or f"user_{user_id}"
-    filename = INBOX_RAW / f"{timestamp}_{user_tag}.md"
+    if message_id:
+        base_name = get_filename(msg_date, message_id, username)
+    else:
+        base_name = f"{get_timestamp(msg_date)}_{username or f'user_{user_id}'}"
+    filename = INBOX_RAW / f"{base_name}.md"
 
     # Build content without textwrap.dedent
     metadata = "\n".join([
@@ -136,21 +145,26 @@ async def save_text_message(content: str, user_id: int, username: str = None, me
         "",
         ""
     ])
+
     with open(filename, "w", encoding="utf-8") as f:
         f.write(metadata + content)
 
     return filename
 
 
-async def save_voice_message(file_path: str, user_id: int, username: str = None, message_date: datetime = None) -> tuple[Path, Path, str]:
+async def save_voice_message(file_path: str, user_id: int, username: str = None, message_date: datetime = None, message_id: int = None) -> tuple[Path, Path, str]:
     """Save voice message file and transcribe it."""
     msg_date = message_date or datetime.now()
-    timestamp = get_timestamp(msg_date)
     user_tag = username or f"user_{user_id}"
 
+    if message_id:
+        base_name = get_filename(msg_date, message_id, username)
+    else:
+        base_name = f"{get_timestamp(msg_date)}_{user_tag}"
+
     # Download and save the audio file
-    audio_filename = INBOX_RAW / f"{timestamp}_{user_tag}.ogg"
-    transcription_filename = INBOX_RAW / f"{timestamp}_{user_tag}_transcript.txt"
+    audio_filename = INBOX_RAW / f"{base_name}.ogg"
+    transcription_filename = INBOX_RAW / f"{base_name}_transcript.txt"
 
     # Download voice file
     async with httpx.AsyncClient() as client:
@@ -190,13 +204,18 @@ async def save_voice_message(file_path: str, user_id: int, username: str = None,
     return audio_filename, transcription_filename, transcript_text
 
 
-async def save_photo(file_path: str, user_id: int, username: str = None, caption: str = None, message_date: datetime = None) -> tuple[Path, str]:
+async def save_photo(file_path: str, user_id: int, username: str = None, caption: str = None, message_date: datetime = None, message_id: int = None) -> tuple[Path, str]:
     """Save photo to inbox/raw and return (filename, description)."""
     msg_date = message_date or datetime.now()
-    timestamp = get_timestamp(msg_date)
     user_tag = username or f"user_{user_id}"
+
+    if message_id:
+        base_name = get_filename(msg_date, message_id, username)
+    else:
+        base_name = f"{get_timestamp(msg_date)}_{user_tag}"
+
     # Save image in inbox/raw alongside its markdown description
-    filename = INBOX_RAW / f"{timestamp}_{user_tag}.jpg"
+    filename = INBOX_RAW / f"{base_name}.jpg"
 
     async with httpx.AsyncClient() as client:
         response = await client.get(file_path)
@@ -207,7 +226,7 @@ async def save_photo(file_path: str, user_id: int, username: str = None, caption
     description = describe_image(filename)
 
     # Create markdown with description (image is in the same folder)
-    md_filename = INBOX_RAW / f"{timestamp}_{user_tag}_photo.md"
+    md_filename = INBOX_RAW / f"{base_name}_photo.md"
     # Build content without textwrap.dedent to avoid indentation issues
     content_lines = [
         "---",
@@ -238,11 +257,12 @@ async def handle_text_message(update: Update, context: ContextTypes.DEFAULT_TYPE
         user = update.effective_user
         text = update.message.text
         msg_date = update.message.date
+        msg_id = update.message.message_id
 
-        filename = await save_text_message(text, user.id, user.username, msg_date)
-        await update.message.reply_text(f"Saved as `{filename.name}`", parse_mode="Markdown")
+        filename = await save_text_message(text, user.id, user.username, msg_date, msg_id)
+        await update.message.reply_text(f"Saved as {filename.name}", parse_mode=None)
     except Exception as e:
-        await update.message.reply_text(f"Error: {type(e).__name__}: {e}", parse_mode="Markdown")
+        await update.message.reply_text(f"Error: {type(e).__name__}: {e}", parse_mode=None)
 
 
 async def handle_voice_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
@@ -253,16 +273,17 @@ async def handle_voice_message(update: Update, context: ContextTypes.DEFAULT_TYP
         user = update.effective_user
         voice = update.message.voice
         msg_date = update.message.date
+        msg_id = update.message.message_id
 
         # Get the file path
         file = await voice.get_file()
-        audio_file, transcript_file, transcript_text = await save_voice_message(file.file_path, user.id, user.username, msg_date)
+        audio_file, transcript_file, transcript_text = await save_voice_message(file.file_path, user.id, user.username, msg_date, msg_id)
 
         # Send transcript to chat
-        reply = f"Saved: `{audio_file.name}`\n\n{transcript_text}"
-        await update.message.reply_text(reply, parse_mode="Markdown")
+        reply = f"Saved: {audio_file.name}\n\n{transcript_text}"
+        await update.message.reply_text(reply, parse_mode=None)
     except Exception as e:
-        await update.message.reply_text(f"Error: {type(e).__name__}: {e}", parse_mode="Markdown")
+        await update.message.reply_text(f"Error: {type(e).__name__}: {e}", parse_mode=None)
 
 
 async def handle_photo_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
@@ -274,16 +295,17 @@ async def handle_photo_message(update: Update, context: ContextTypes.DEFAULT_TYP
         photo = update.message.photo[-1]  # Get largest photo
         caption = update.message.caption
         msg_date = update.message.date
+        msg_id = update.message.message_id
 
         # Get the file path
         file = await photo.get_file()
-        filename, description = await save_photo(file.file_path, user.id, user.username, caption, msg_date)
+        filename, description = await save_photo(file.file_path, user.id, user.username, caption, msg_date, msg_id)
 
-        # Reply with description
-        reply = f"Saved: `{filename.name}`\n\n{description}"
-        await update.message.reply_text(reply, parse_mode="Markdown")
+        # Reply with description (no parse_mode to avoid "cannot parse entities" error)
+        reply = f"Saved: {filename.name}\n\n{description[:500]}"  # Limit description length
+        await update.message.reply_text(reply, parse_mode=None)
     except Exception as e:
-        await update.message.reply_text(f"Error: {type(e).__name__}: {e}", parse_mode="Markdown")
+        await update.message.reply_text(f"Error: {type(e).__name__}: {e}", parse_mode=None)
 
 
 async def error_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:

@@ -2,7 +2,7 @@
 description: Check voice transcripts for tasks and create execution plan
 ---
 
-You are analyzing voice transcripts from the Telegram inbox to extract tasks and create an execution plan.
+You are scanning voice transcripts from the Telegram inbox to identify any actionable tasks or things to do.
 
 # INPUT
 
@@ -14,18 +14,13 @@ For each transcript file:
 
 1. Read the file content (skip frontmatter between `---` markers)
 
-2. Look for task indicators in Russian and English:
-   - давай / let's / let us
-   - сделай / do / make / create
-   - добавим / add / implement
-   - нужно / надо / need to / should
-   - хотелось бы / would like
+2. Scan through the text and identify any tasks, action items, or things that need to be done
 
-3. Extract the task context (the sentence or phrase containing the indicator)
+3. Look for implicit requests, ideas for improvements, bug reports, feature suggestions
 
 # OUTPUT
 
-Create a plan document at `inbox/summaries/task_plan_` + timestamp + `.md` with this format:
+Print the plan to console in this format:
 
 ```markdown
 # Task Plan
@@ -35,11 +30,11 @@ Date: YYYY-MM-DD HH:MM:SS
 ## Tasks Found
 
 ### [Source: filename]
-1. [Task description]
-2. [Task description]
+- [Task description 1]
+- [Task description 2]
 
 ### [Source: filename]
-1. [Task description]
+- [Task description]
 
 ## Execution Plan
 
@@ -54,15 +49,11 @@ Prioritized list of actionable tasks:
 [Any observations about dependencies, complexity, or suggestions]
 ```
 
-# CLEANUP
+Be smart about extracting tasks - not everything is a task. Look for genuine action items.
 
-After creating the plan:
-1. Move processed transcript files from `inbox/raw/` to `inbox/used/`
+# NOTES
 
-# GIT
-
-Claude does:
-```bash
-git add -A
-git commit -m "Extract tasks: [brief description]"
-```
+- This command does NOT create any files
+- This command does NOT commit anything to git
+- This command does NOT move files (only /process does that)
+- The plan is displayed to user only

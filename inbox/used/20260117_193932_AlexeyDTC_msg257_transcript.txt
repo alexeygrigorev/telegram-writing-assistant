@@ -1,9 +1,9 @@
 ---
 source: telegram_voice
-date: 2026-01-17T11:33:47+00:00
+date: 2026-01-17T19:39:32+00:00
 user_id: 822266080
 username: AlexeyDTC
-audio_file: 20260117_113347_AlexeyDTC.ogg
+audio_file: 20260117_193932_AlexeyDTC_msg257.ogg
 ---
 
 Можно одну строчку добавить, что если раньше я откладывал фичи и не имплементировал их, потому что

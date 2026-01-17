@@ -21,8 +21,16 @@ Process in TWO phases:
 3. Read `articles/_index.md` to understand what articles exist
 
 4. For each text/transcript material:
+   - **Context-aware grouping**: If the message is short or unclear, look at nearby messages by timestamp (within ~1-2 minutes) to understand the full context
+   - Check frontmatter `date` field to find messages sent around the same time
+   - Read related voice notes, text, and photos together to get complete picture
+   - **URL handling**: If a message contains only a URL, fetch its content using Jina Reader:
+     - Use curl: `curl "https://r.jina.ai/{original_url}"`
+     - Example: `curl "https://r.jina.ai/https://datatalks.club"`
+     - This returns clean markdown content from the page
+     - Then incorporate that content into the article
    - Translate to English if needed
-   - **Preserve ALL information from voice notes** - don't summarize, keep the full content with all details, nuances, and context
+   - **Preserve key information** - some summarization is fine as long as we don't lose important details. Keep the core ideas, context, and nuances.
    - **Decide: existing article OR new article**
    - Check each existing article's title and content to see if material relates to it
    - If no existing article matches, create a new article in `articles/`
