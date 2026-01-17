@@ -1,6 +1,8 @@
 # Telegram Writing Assistant
 
-A personal knowledge management system where you send thoughts to Telegram (text, voice, images) and a bot saves everything locally, processes it with Claude, and organizes it into articles.
+A drafting system for writers, developers, and creators who regularly publish articles or newsletters. It gets you from scattered thoughts to publishable articles.
+
+You send thoughts to a telegram bot that saves everything locally, processes it with Claude, and organizes it into articles.
 
 ## How It Works
 
@@ -11,6 +13,45 @@ A personal knowledge management system where you send thoughts to Telegram (text
 5. Updates existing articles or creates new ones
 6. Commits to GitHub
 7. Sends commit link back to Telegram
+
+## Workflow Philosophy
+
+Brain dump → Draft → Publish → Delete
+
+### 1. Brain Dump Phase
+
+When you're working on something, having ideas, or want to capture thoughts:
+
+- Send voice notes with ideas, thoughts, random bits of information
+- Drop links (they'll be fetched and summarized during processing)
+- Send screenshots or photos
+- Don't worry about organization - just get it out of your head
+
+Think of this as your "working memory" - a place to dump raw thoughts.
+
+### 2. Article Formation Phase
+
+Run `/process` - Claude automatically groups related materials into articles:
+
+- Articles form organically from your scattered inputs
+- Source citations included, so you know where each idea came from
+- Messages sent within ~1-2 minutes are analyzed together
+
+Over time, articles take shape from your accumulated brain dumps.
+
+### 3. Draft Phase
+
+When an article feels "ready":
+
+- The article is already structured (headings, sections, sources)
+- Edit it: polish the content, fix structure, add your voice
+
+### 4. Publish and Delete Phase
+
+- Publish wherever you want: blog, newsletter, documentation site
+- Once published, delete the article from this repo
+- Use the `/delete` command (planned) to remove article + all references (images, assets)
+
 
 ## Setup
 
@@ -70,7 +111,3 @@ Images are analyzed using Groq Vision to generate descriptions. When placed in a
 - Images are renamed to descriptive names based on content
 - Placed in `assets/images/{article_name}/`
 - Unused images go to `assets/images/_unused/`
-
-## License
-
-MIT
