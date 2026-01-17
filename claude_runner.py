@@ -122,6 +122,8 @@ class ClaudeRunner:
         self.repo_path = repo_path
         self.logs_dir = logs_dir
         self.formatter = ClaudeProgressFormatter()
+        # Allow overriding the command for testing
+        self.cmd: Optional[str] = None
 
     def _run_command(
         self,
@@ -135,7 +137,11 @@ class ClaudeRunner:
         log_file = self.logs_dir / f"run_{timestamp}.json"
         self.logs_dir.mkdir(parents=True, exist_ok=True)
 
-        cmd = f'claude -p "{prompt}" --allowedTools "{allowed_tools}" --output-format stream-json --verbose'
+        # Use override command if provided (for testing), otherwise use default
+        if self.cmd:
+            cmd = self.cmd
+        else:
+            cmd = f'claude -p "{prompt}" --allowedTools "{allowed_tools}" --output-format stream-json --verbose'
 
         _safe_print(f"[ClaudeRunner] Running: {prompt[:60]}...")
         _safe_print(f"[ClaudeRunner] Log: {log_file}")

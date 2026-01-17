@@ -2,6 +2,17 @@
 
 import asyncio
 import queue as thread_queue
+import sys
+
+
+def _safe_print(msg: str):
+    """Print that handles encoding errors on Windows."""
+    try:
+        print(msg, flush=True)
+    except (UnicodeEncodeError, ValueError):
+        # Fallback for Windows console encoding issues
+        safe_msg = msg.encode('ascii', errors='replace').decode('ascii')
+        print(safe_msg, flush=True)
 
 
 class MessageQueue:
@@ -14,37 +25,41 @@ class MessageQueue:
         self.queue: thread_queue.Queue[str] = thread_queue.Queue()
         self._task = None
         self._stop_event = asyncio.Event()
-        # BROKEN: Using time.time() here but loop.time() in worker
-        import time
-        self._last_send_time = time.time()
+        # Will be set to loop.time() when worker starts
+        # We can't use loop.time() here because we don't have a running event loop
+        self._last_send_time = None
         self._send_interval = send_interval
         self._total_queued = 0
         self._total_sent = 0
 
     async def _send_message(self, msg: str) -> bool:
         """Send a single message, return True if successful."""
-        print(f"[telegram poster] >>> SENDING: {msg[:100]}...", flush=True)
+        _safe_print(f"[telegram poster] >>> SENDING: {msg[:100]}...")
         try:
             await self.bot.send_message(
                 chat_id=self.chat_id,
                 text=msg,
                 parse_mode=None
             )
-            print(f"[telegram poster] >>> SENT OK ({len(msg)} chars)", flush=True)
+            _safe_print(f"[telegram poster] >>> SENT OK ({len(msg)} chars)")
             return True
         except Exception as e:
-            print(f"[telegram poster] >>> SEND ERROR: {e}", flush=True)
+            _safe_print(f"[telegram poster] >>> SEND ERROR: {e}")
             return False
 
     async def _worker(self):
         """Background worker that sends messages in batches periodically."""
-        print(f"[telegram poster] Started, interval: {self._send_interval}s", flush=True)
+        _safe_print(f"[telegram poster] Started, interval: {self._send_interval}s")
+
+        # Get the event loop and use its time consistently
+        loop = asyncio.get_event_loop()
+        # Initialize to current loop time so first send happens after send_interval
+        self._last_send_time = loop.time()
 
         while not self._stop_event.is_set():
             try:
-                # BROKEN: Using loop.time() here but time.time() in __init__
-                # These have different offsets!
-                current_time = asyncio.get_event_loop().time()
+                # Use loop.time() consistently (same time source)
+                current_time = loop.time()
                 time_since_last_send = current_time - self._last_send_time
                 wait_time = max(0, self._send_interval - time_since_last_send)
 
@@ -70,7 +85,7 @@ class MessageQueue:
 
                 if batch:
                     queue_size = self.queue.qsize()
-                    print(f"[telegram poster] Sending batch of {len(batch)} messages as ONE (queue: {queue_size} remaining)", flush=True)
+                    _safe_print(f"[telegram poster] Sending batch of {len(batch)} messages as ONE (queue: {queue_size} remaining)")
 
                     # Join all messages into one, separated by newlines
                     combined_message = "\n".join(batch)
@@ -84,12 +99,13 @@ class MessageQueue:
                     if success:
                         self._total_sent += len(batch)
 
-                    self._last_send_time = asyncio.get_event_loop().time()
+                    # Use loop.time() consistently
+                    self._last_send_time = loop.time()
 
             except Exception as e:
-                print(f"[telegram poster] Worker error: {e}", flush=True)
+                _safe_print(f"[telegram poster] Worker error: {e}")
 
-        print(f"[telegram poster] Stopped. Total sent: {self._total_sent}", flush=True)
+        _safe_print(f"[telegram poster] Stopped. Total sent: {self._total_sent}")
 
     async def start(self):
         """Start the background worker."""
@@ -104,7 +120,7 @@ class MessageQueue:
             try:
                 await asyncio.wait_for(self._task, timeout=30.0)
             except asyncio.TimeoutError:
-                print(f"[telegram poster] Worker timeout", flush=True)
+                _safe_print("[telegram poster] Worker timeout")
 
         # Send any remaining messages
         remaining = []
@@ -115,7 +131,7 @@ class MessageQueue:
                 break
 
         if remaining:
-            print(f"[telegram poster] Sending {len(remaining)} final messages...", flush=True)
+            _safe_print(f"[telegram poster] Sending {len(remaining)} final messages...")
             combined_message = "\n".join(remaining)
             if len(combined_message) > 4000:
                 combined_message = combined_message[:4000] + "\n... (truncated)"
@@ -126,13 +142,13 @@ class MessageQueue:
         """Add a message to the queue (async)."""
         self._total_queued += 1
         queue_size = self.queue.qsize()
-        print(f"[telegram poster] Queued (total: {self._total_queued}, queue: {queue_size}): {message[:50]}...", flush=True)
+        _safe_print(f"[telegram poster] Queued (total: {self._total_queued}, queue: {queue_size}): {message[:50]}...")
         await asyncio.to_thread(self.queue.put, message)
 
     def put_sync(self, message: str):
         """Add a message to the queue from synchronous context."""
         self._total_queued += 1
         queue_size = self.queue.qsize()
-        print(f"[telegram poster] Queued SYNC (total: {self._total_queued}, queue: {queue_size}): {message[:50]}...", flush=True)
+        _safe_print(f"[telegram poster] Queued SYNC (total: {self._total_queued}, queue: {queue_size}): {message[:50]}...")
         # Thread-safe put - works immediately from sync context!
         self.queue.put(message)
