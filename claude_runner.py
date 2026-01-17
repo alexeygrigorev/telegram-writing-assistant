@@ -1,0 +1,218 @@
+"""Claude Code runner with real-time event streaming."""
+
+import json
+import subprocess
+import time
+import io
+from pathlib import Path
+from datetime import datetime
+from typing import Callable, Optional
+
+
+class ClaudeEvent:
+    """Represents a single Claude event."""
+
+    def __init__(self, event_data: dict):
+        self.data = event_data
+        self.type = event_data.get("type", "")
+        self.subtype = event_data.get("subtype", "")
+
+    @property
+    def is_system_init(self) -> bool:
+        return self.type == "system" and self.subtype == "init"
+
+    @property
+    def is_assistant(self) -> bool:
+        return self.type == "assistant"
+
+    @property
+    def is_user(self) -> bool:
+        return self.type == "user"
+
+    def get_message(self) -> dict:
+        return self.data.get("message", {})
+
+    def get_tool_use_result(self) -> dict:
+        return self.data.get("tool_use_result", {})
+
+
+class ClaudeProgressFormatter:
+    """Formats Claude events into human-readable progress messages."""
+
+    @staticmethod
+    def format_tool_use(tool_name: str, tool_input: dict) -> Optional[str]:
+        """Format a tool_use event."""
+        if tool_name == "Read":
+            file_path = tool_input.get("file_path", "?")
+            return f"📖 Reading: `{Path(file_path).name}`"
+        elif tool_name == "Write":
+            file_path = tool_input.get("file_path", "?")
+            return f"✍️  Writing: `{Path(file_path).name}`"
+        elif tool_name == "Edit":
+            file_path = tool_input.get("file_path", "?")
+            return f"✏️  Editing: `{Path(file_path).name}`"
+        elif tool_name == "Bash":
+            cmd_text = tool_input.get("command", "")[:60]
+            return f"💻 Running: `{cmd_text}...`"
+        elif tool_name == "TodoWrite":
+            todos = tool_input.get("todos", [])
+            in_progress = sum(1 for t in todos if t.get("status") == "in_progress")
+            return f"📋 Progress: {in_progress}/{len(todos)} tasks active"
+        elif tool_name == "Glob":
+            pattern = tool_input.get("pattern", "?")
+            return f"🔍 Finding: {pattern}"
+        elif tool_name == "Grep":
+            pattern = tool_input.get("pattern", "?")
+            path = tool_input.get("path", "?")
+            return f"🔎 Searching: `{pattern}` in `{path}`"
+        return None
+
+    @staticmethod
+    def format_tool_result(tool_result: dict) -> Optional[str]:
+        """Format a tool_result event."""
+        result_type = tool_result.get("type", "")
+
+        if result_type == "text":
+            file_info = tool_result.get("file", {})
+            if file_info:
+                file_path = file_info.get("filePath", "")
+                num_lines = file_info.get("numLines", 0)
+                return f"✅ Read: `{Path(file_path).name}` ({num_lines} lines)"
+
+        elif tool_result.get("filenames"):
+            filenames = tool_result.get("filenames", [])
+            num_files = tool_result.get("numFiles", len(filenames))
+            return f"✅ Found: {num_files} files"
+
+        elif tool_result.get("durationMs"):
+            duration = tool_result.get("durationMs", 0)
+            return f"✅ Done in {duration}ms"
+
+        return None
+
+    @staticmethod
+    def format_assistant_text(text: str) -> str:
+        """Format assistant text output."""
+        return f"💬 {text[:200]}..."
+
+
+class ClaudeRunner:
+    """Runs Claude Code and streams events in real-time."""
+
+    def __init__(self, repo_path: Path, logs_dir: Path):
+        self.repo_path = repo_path
+        self.logs_dir = logs_dir
+        self.formatter = ClaudeProgressFormatter()
+
+    def _run_command(
+        self,
+        prompt: str,
+        on_event: Optional[Callable] = None,
+        on_progress: Optional[Callable[[str], None]] = None,
+        allowed_tools: str = "Read,Edit,Bash,Write"
+    ) -> tuple[int, str, str]:
+        """Run Claude with given prompt and stream events."""
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        log_file = self.logs_dir / f"run_{timestamp}.json"
+        self.logs_dir.mkdir(parents=True, exist_ok=True)
+
+        cmd = f'claude -p "{prompt}" --allowedTools "{allowed_tools}" --output-format stream-json --verbose'
+
+        print(f"[ClaudeRunner] Running: {prompt[:60]}...", flush=True)
+        print(f"[ClaudeRunner] Log: {log_file}", flush=True)
+
+        process = subprocess.Popen(
+            cmd,
+            cwd=self.repo_path,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True,
+            encoding='utf-8',
+            errors='replace',
+            shell=True,
+            bufsize=1
+        )
+
+        output_buffer = io.StringIO()
+        last_progress_time = None
+
+        for line in process.stdout:
+            line = line.strip()
+            if not line:
+                continue
+
+            output_buffer.write(line + "\n")
+
+            # Try to parse as JSON event
+            try:
+                event = ClaudeEvent(json.loads(line))
+
+                # Call event handler if provided
+                if on_event:
+                    on_event(event)
+
+                # Generate progress message
+                progress_msg = None
+
+                if event.is_system_init:
+                    model = event.data.get("model", "unknown")
+                    print(f"[SYSTEM] Session started - Model: {model}", flush=True)
+
+                elif event.is_assistant:
+                    message = event.get_message()
+                    content_list = message.get("content", [])
+
+                    for content in content_list:
+                        if content.get("type") == "tool_use":
+                            tool_name = content.get("name", "unknown")
+                            tool_input = content.get("input", {})
+                            progress_msg = self.formatter.format_tool_use(tool_name, tool_input)
+                            if progress_msg:
+                                print(f"[CLAUDE] {progress_msg}", flush=True)
+
+                        elif content.get("type") == "text":
+                            text = content.get("text", "")
+                            if text:
+                                print(f"[CLAUDE] {self.formatter.format_assistant_text(text)}", flush=True)
+
+                elif event.is_user:
+                    tool_result = event.get_tool_use_result()
+                    if tool_result:
+                        progress_msg = self.formatter.format_tool_result(tool_result)
+                        if progress_msg:
+                            print(f"[RESULT] {progress_msg}", flush=True)
+
+                # Send progress with rate limiting (max 1 message per 2 seconds)
+                if progress_msg and on_progress:
+                    current_time = time.time()
+                    if last_progress_time is None or (current_time - last_progress_time) > 2:
+                        try:
+                            on_progress(progress_msg)
+                            last_progress_time = current_time
+                        except Exception as e:
+                            print(f"[ClaudeRunner] Failed to send progress: {e}", flush=True)
+
+            except json.JSONDecodeError:
+                print(f"[RAW] {line[:100]}", flush=True)
+
+        process.wait()
+        returncode = process.returncode
+        stdout = output_buffer.getvalue()
+        stderr = process.stderr.read()
+
+        # Save to log file
+        with open(log_file, "w", encoding="utf-8") as f:
+            f.write(stdout)
+
+        print(f"[ClaudeRunner] Return code: {returncode}", flush=True)
+
+        return returncode, stdout, stderr
+
+    def run_process_command(self, on_progress: Optional[Callable[[str], None]] = None) -> tuple[int, str, str]:
+        """Run the /process command with optional progress callback."""
+        prompt = "read and execute instructions in .claude/commands/process.md"
+        return self._run_command(prompt, on_progress=on_progress)
+
+    def run_custom_prompt(self, prompt: str, on_progress: Optional[Callable[[str], None]] = None) -> tuple[int, str, str]:
+        """Run Claude with a custom prompt."""
+        return self._run_command(prompt, on_progress=on_progress)
