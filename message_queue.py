@@ -1,7 +1,6 @@
 """Message queue for sending Telegram updates in batches to avoid rate limits."""
 
 import asyncio
-import queue as thread_queue
 import sys
 
 
@@ -21,11 +20,13 @@ class MessageQueue:
     def __init__(self, chat_id: int, bot, send_interval: float = 5.0):
         self.chat_id = chat_id
         self.bot = bot
-        # Use thread-safe queue so sync callbacks can add messages immediately
-        self.queue: thread_queue.Queue[str] = thread_queue.Queue()
+        # Use simple list with asyncio lock instead of queue.Queue
+        # queue.Queue has mutex issues in async contexts on Windows
+        self._messages = []
+        self._lock = asyncio.Lock()
         self._task = None
         self._stop_event = asyncio.Event()
-        # Will be set to loop.time() when worker starts
+        # Will be set to loop time when worker starts
         # We can't use loop.time() here because we don't have a running event loop
         self._last_send_time = None
         self._send_interval = send_interval
@@ -34,17 +35,16 @@ class MessageQueue:
 
     async def _send_message(self, msg: str) -> bool:
         """Send a single message, return True if successful."""
-        _safe_print(f"[telegram poster] >>> SENDING: {msg[:100]}...")
         try:
             await self.bot.send_message(
                 chat_id=self.chat_id,
                 text=msg,
                 parse_mode=None
             )
-            _safe_print(f"[telegram poster] >>> SENT OK ({len(msg)} chars)")
+            _safe_print(f"[telegram poster] Sent batch ({len(msg)} chars)")
             return True
         except Exception as e:
-            _safe_print(f"[telegram poster] >>> SEND ERROR: {e}")
+            _safe_print(f"[telegram poster] Send error: {e}")
             return False
 
     async def _worker(self):
@@ -71,21 +71,21 @@ class MessageQueue:
                         wait_time -= sleep_time
 
                 # Check if we should stop
-                if self._stop_event.is_set() and self.queue.empty():
-                    break
-
-                # Collect all currently queued messages into a batch
-                batch = []
-                while not self.queue.empty():
-                    try:
-                        msg = self.queue.get_nowait()
-                        batch.append(msg)
-                    except thread_queue.Empty:
-                        break
+                if self._stop_event.is_set():
+                    async with self._lock:
+                        if not self._messages:
+                            break
+                        # Process remaining messages and exit
+                        batch = list(self._messages)
+                        self._messages.clear()
+                else:
+                    # Collect all currently queued messages into a batch
+                    async with self._lock:
+                        batch = list(self._messages)
+                        self._messages.clear()
 
                 if batch:
-                    queue_size = self.queue.qsize()
-                    _safe_print(f"[telegram poster] Sending batch of {len(batch)} messages as ONE (queue: {queue_size} remaining)")
+                    _safe_print(f"[telegram poster] Sending batch of {len(batch)} messages as ONE")
 
                     # Join all messages into one, separated by newlines
                     combined_message = "\n".join(batch)
@@ -101,9 +101,28 @@ class MessageQueue:
 
                     # Use loop.time() consistently
                     self._last_send_time = loop.time()
+                else:
+                    # No messages to send - sleep a bit to avoid tight loop
+                    # This is critical for stop() to get a chance to run
+                    await asyncio.sleep(0.1)
 
             except Exception as e:
                 _safe_print(f"[telegram poster] Worker error: {e}")
+
+        _safe_print(f"[telegram poster] Worker loop ended. Total sent: {self._total_sent}")
+
+        # Send any remaining messages before exiting
+        async with self._lock:
+            remaining = list(self._messages)
+            self._messages.clear()
+
+        if remaining:
+            _safe_print(f"[telegram poster] Sending {len(remaining)} final messages...")
+            combined_message = "\n".join(remaining)
+            if len(combined_message) > 4000:
+                combined_message = combined_message[:4000] + "\n... (truncated)"
+            await self._send_message(combined_message)
+            self._total_sent += len(remaining)
 
         _safe_print(f"[telegram poster] Stopped. Total sent: {self._total_sent}")
 
@@ -121,34 +140,21 @@ class MessageQueue:
                 await asyncio.wait_for(self._task, timeout=30.0)
             except asyncio.TimeoutError:
                 _safe_print("[telegram poster] Worker timeout")
-
-        # Send any remaining messages
-        remaining = []
-        while not self.queue.empty():
-            try:
-                remaining.append(self.queue.get_nowait())
-            except thread_queue.Empty:
-                break
-
-        if remaining:
-            _safe_print(f"[telegram poster] Sending {len(remaining)} final messages...")
-            combined_message = "\n".join(remaining)
-            if len(combined_message) > 4000:
-                combined_message = combined_message[:4000] + "\n... (truncated)"
-            await self._send_message(combined_message)
-            self._total_sent += len(remaining)
+        # Worker handles sending remaining messages before exiting
 
     async def put(self, message: str):
         """Add a message to the queue (async)."""
         self._total_queued += 1
-        queue_size = self.queue.qsize()
+        async with self._lock:
+            queue_size = len(self._messages)
+            self._messages.append(message)
         _safe_print(f"[telegram poster] Queued (total: {self._total_queued}, queue: {queue_size}): {message[:50]}...")
-        await asyncio.to_thread(self.queue.put, message)
 
     def put_sync(self, message: str):
         """Add a message to the queue from synchronous context."""
         self._total_queued += 1
-        queue_size = self.queue.qsize()
-        _safe_print(f"[telegram poster] Queued SYNC (total: {self._total_queued}, queue: {queue_size}): {message[:50]}...")
-        # Thread-safe put - works immediately from sync context!
-        self.queue.put(message)
+        # Simple list append is atomic in CPython for simple appends
+        # We rely on the GIL (Global Interpreter Lock) for thread safety here
+        self._messages.append(message)
+        queue_size = len(self._messages)
+        _safe_print(f"[telegram poster] Queued (queue: {queue_size}): {message[:50]}...")

@@ -311,7 +311,7 @@ async def process_command(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
     await update.message.reply_text("Processing inbox with Claude... This may take a few minutes.")
 
     # Create and start the message queue
-    queue = MessageQueue(chat_id, bot)
+    queue = MessageQueue(chat_id, bot, send_interval=20.0)
     await queue.start()
 
     try:
@@ -330,32 +330,46 @@ async def process_command(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
             on_progress=queue_progress
         )
 
-        # Git push
-        push_result = subprocess.run(
-            ["git", "push"],
-            cwd=REPO_PATH,
-            capture_output=True,
-            text=True
-        )
-        print(f"[process_command] Git push return code: {push_result.returncode}")
-        if push_result.stderr:
-            print(f"[process_command] Git push stderr: {push_result.stderr}")
+        # Git push (with timeout to avoid hanging)
+        print(f"[process_command] Starting git push...", flush=True)
+        try:
+            push_result = subprocess.run(
+                ["git", "push"],
+                cwd=REPO_PATH,
+                capture_output=True,
+                text=True,
+                timeout=30  # 30 second timeout
+            )
+            print(f"[process_command] Git push return code: {push_result.returncode}")
+            if push_result.stderr:
+                print(f"[process_command] Git push stderr: {push_result.stderr}")
+        except subprocess.TimeoutExpired:
+            print(f"[process_command] Git push timed out after 30 seconds", flush=True)
+            push_result = None
+        except Exception as e:
+            print(f"[process_command] Git push error: {e}", flush=True)
+            push_result = None
 
         # Get GitHub commit URL
+        print(f"[process_command] Getting commit hash...", flush=True)
         hash_result = subprocess.run(
             ["git", "rev-parse", "HEAD"],
             cwd=REPO_PATH,
             capture_output=True,
-            text=True
+            text=True,
+            timeout=5
         )
         commit_hash = hash_result.stdout.strip()
+        print(f"[process_command] Commit hash: {commit_hash[:8]}", flush=True)
 
         # Get remote URL to construct GitHub link
+        print(f"[process_command] Getting remote URL...", flush=True)
         remote_result = subprocess.run(
             ["git", "config", "--get", "remote.origin.url"],
             cwd=REPO_PATH,
             capture_output=True,
-            text=True
+            text=True,
+            timeout=5
         )
         remote_url = remote_result.stdout.strip()
 
@@ -371,7 +385,7 @@ async def process_command(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
 
         # First: stop queue and wait for all progress messages to be sent
         await queue.stop()
-        print(f"[process_command] Queue empty, now sending summary...", flush=True)
+        print(f"[process_command] Queue stopped, now sending summary...", flush=True)
 
         # Now send the summary as a SEPARATE message
         if returncode == 0:
@@ -383,9 +397,12 @@ async def process_command(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
 
             # Add summary content
             summaries_dir = REPO_PATH / "inbox" / "summaries"
+            print(f"[process_command] Checking summaries dir: {summaries_dir}", flush=True)
             summaries = sorted(summaries_dir.glob("summary_*.md"), key=lambda x: x.stat().st_mtime, reverse=True)
+            print(f"[process_command] Found {len(summaries)} summary files", flush=True)
             if summaries:
                 latest_summary = summaries[0]
+                print(f"[process_command] Reading summary: {latest_summary.name}", flush=True)
                 with open(latest_summary, "r", encoding="utf-8") as f:
                     summary_content = f.read()
                 # Truncate if too long (Telegram limit is 4096 chars)
@@ -393,9 +410,12 @@ async def process_command(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
                     summary_content = summary_content[:3800] + "\n... (truncated)"
                 msg += f"\n📊 Summary:\n\n{summary_content}"
 
+            print(f"[process_command] Sending summary message ({len(msg)} chars)", flush=True)
             # Send summary as direct message (not through queue)
             await bot.send_message(chat_id=chat_id, text=msg, parse_mode=None)
+            print(f"[process_command] Summary sent successfully", flush=True)
         else:
+            print(f"[process_command] Claude failed with returncode {returncode}", flush=True)
             await bot.send_message(chat_id=chat_id, text=f"⚠️ Claude exited with code {returncode}", parse_mode=None)
 
         if stderr:

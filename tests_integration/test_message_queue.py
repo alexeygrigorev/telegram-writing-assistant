@@ -19,8 +19,13 @@ class TestMessageQueue:
     """Integration tests for MessageQueue batching behavior."""
 
     @pytest.mark.asyncio
+    @pytest.mark.timeout(5)
     async def test_message_queue_batches_messages(self):
-        """Test that messages are batched and sent together."""
+        """Test that messages are batched and sent together.
+
+        Test must complete within 5 seconds or it fails (hanging detection).
+        """
+        start_time = time.time()
         sent_messages = []
 
         class MockBot:
@@ -48,7 +53,13 @@ class TestMessageQueue:
         # Wait for batch to be sent (0.3s interval + buffer)
         await asyncio.sleep(0.6)
 
+        print("[TEST] About to call queue.stop()...", flush=True)
         await queue.stop()
+        print("[TEST] queue.stop() returned!", flush=True)
+
+        # FAIL if test takes too long (hanging detection)
+        elapsed = time.time() - start_time
+        assert elapsed < 5.0, f"Test took {elapsed:.2f}s, likely hanging! (max 5s)"
 
         # Should have sent at least one combined message
         assert len(sent_messages) >= 1
@@ -186,7 +197,7 @@ class TestMessageQueue:
         await queue.stop()
 
         # Queue should be empty
-        assert queue.queue.empty()
+        assert len(queue._messages) == 0
 
     @pytest.mark.asyncio
     async def test_message_queue_with_asyncio_to_thread(self):
@@ -435,12 +446,12 @@ class TestMessageQueue:
         # Function that runs the subprocess and processes its output
         # This mimics what ClaudeRunner.run_process_command() does
         def run_subprocess_with_progress(on_progress):
-            mock_claude_path = Path(__file__).parent.parent / "mock_claude.py"
+            mock_claude_path = Path(__file__).parent / "mock_claude.py"
 
             # Run the mock Claude process
             proc = subprocess.run(
                 ["uv", "run", "python", str(mock_claude_path), "5"],  # speed=5x
-                cwd=Path(__file__).parent.parent,
+                cwd=Path(__file__).parent,
                 capture_output=True,
                 text=True,
             )
@@ -501,4 +512,4 @@ class TestMessageQueue:
         # All message types should be present
         combined = "\n".join(sent_messages)
         assert "Reading" in combined or "Read:" in combined
-        assert "Editing" in combined or "Edit:" in combined
+        assert "Writing" in combined or "Write:" in combined

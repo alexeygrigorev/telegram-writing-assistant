@@ -10,6 +10,24 @@ status: draft
 
 The automation workflow for organizing materials from Telegram into articles using the /process command.
 
+## User Workflow
+
+The complete workflow from the user's perspective:
+
+1. Write messages and send pictures via Telegram
+2. Check /status to see how many raw items are waiting and how many articles exist
+3. Run /process to start the processing
+4. Watch progress messages arrive in batches
+5. Receive a summary and a GitHub commit link showing exactly what was added
+
+This creates a seamless flow - dump thoughts via voice or text, then run a single command to organize everything into articles with full traceability.
+
+<figure>
+  <img src="../assets/images/processing-pipeline/processing-complete-summary.jpg" alt="Processing complete with summary and GitHub link">
+  <figcaption>After processing completes, a summary is sent with a clickable GitHub commit link to view exactly what was added</figcaption>
+  <!-- This shows the final output of the /process command - traceability is built in -->
+</figure>
+
 ## How It Works
 
 I want to write this agent using voice messages. I give instructions via voice, then on the computer, on the laptop, I ask Claude to read these instructions and enter all these instructions into a slash command. Based on this slash command, the command will be called every time I do slash-process in Telegram.
@@ -192,6 +210,12 @@ The thing is, this feature isn't even critical for the system to work. It's not 
 Now everything seems to work. I'll take a few screenshots and see how it goes from here.
 
 <figure>
+  <img src="../assets/images/processing-pipeline/testing-debugging-diff.jpg" alt="Diff view of Testing and Debugging Experience section">
+  <figcaption>IDE diff showing the content being added about the testing and debugging experience</figcaption>
+  <!-- This illustrates how the article was updated with the debugging insights -->
+</figure>
+
+<figure>
   <img src="../assets/images/processing-pipeline/integration-tests-passing.jpg" alt="All 19 integration tests passing">
   <figcaption>Terminal output showing all 19 integration tests passing after debugging</figcaption>
   <!-- This illustrates the successful outcome of the debugging session -->
@@ -237,3 +261,6 @@ This visibility makes it clear what's happening during processing instead of a m
 - [20260116_213322_AlexeyDTC_photo.md](../inbox/used/20260116_213322_AlexeyDTC_photo.md)
 - [20260117_070247_AlexeyDTC_photo.md](../inbox/used/20260117_070247_AlexeyDTC_photo.md)
 - [20260117_074604_AlexeyDTC_photo.md](../inbox/used/20260117_074604_AlexeyDTC_photo.md)
+- [20260117_104434_AlexeyDTC_transcript.txt](../inbox/used/20260117_104434_AlexeyDTC_transcript.txt)
+- [20260117_104326_AlexeyDTC.jpg](../assets/images/processing-pipeline/processing-complete-summary.jpg)
+- [20260117_104344_AlexeyDTC.jpg](../assets/images/processing-pipeline/testing-debugging-diff.jpg)
