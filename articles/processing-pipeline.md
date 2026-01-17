@@ -1,7 +1,7 @@
 ---
 title: "Processing Pipeline"
 created: 2026-01-16
-updated: 2026-01-16
+updated: 2026-01-17
 tags: [automation, claude-code, processing, github]
 status: draft
 ---
@@ -15,6 +15,18 @@ The automation workflow for organizing materials from Telegram into articles usi
 I want to write this agent using voice messages. I give instructions via voice, then on the computer, on the laptop, I ask Claude to read these instructions and enter all these instructions into a slash command. Based on this slash command, the command will be called every time I do slash-process in Telegram.
 
 The idea of the slash-process command is that I do a brain dump of everything I have. Usually, one way or another, it relates to one article. I run process, it looks at everything that is not committed in git, looks at what is there, and processes it.
+
+## Development Process
+
+The bot was created using Godfather, a Telegram bot that makes it very easy to create new bots. I quickly created a bot through Godfather, received a token, put it in the environment variables, created a group with the bot, and also saved that in the environment. I also added the Grok key.
+
+Then I gave Claude the specification with the keys and description, said "this is the most important thing, let's go," and Claude analyzed and implemented everything. We iterated on it. It took about an hour and a half yesterday evening to get to the current state.
+
+I was recording voice messages during development and testing the flow immediately. As I recorded a message, it appeared in our folder, then I would ask Claude to analyze it based on the requirements and update the code. I started testing the flow from the very beginning to ensure it would work. This saved time and confirmed that the entire flow was working.
+
+There are no tests yet, but the full flow is functional. I liked how quickly I could iterate. This relates to what we described in the article about documentation - I don't need to write a custom agent. I just describe a document with what should be in it, and that's it. Very convenient. I don't need to write a lot of code.
+
+I basically didn't look at the code at all. This is complete web-coding - I just gave specifications and watched what happened. Based on the output, I made small adjustments.
 
 ## Processing Steps
 
@@ -83,5 +95,7 @@ Each article section must list sources at the end.
 - [20260116_213156_AlexeyDTC_transcript.txt](../inbox/raw/20260116_213156_AlexeyDTC_transcript.txt)
 - [20260116_213629_AlexeyDTC_transcript.txt](../inbox/raw/20260116_213629_AlexeyDTC_transcript.txt)
 - [20260116_220451_AlexeyDTC_transcript.txt](../inbox/raw/20260116_220451_AlexeyDTC_transcript.txt)
+- [20260117_064900_AlexeyDTC_transcript.txt](../inbox/raw/20260117_064900_AlexeyDTC_transcript.txt)
+- [20260117_065102_AlexeyDTC_transcript.txt](../inbox/raw/20260117_065102_AlexeyDTC_transcript.txt)
 - [20260116_211757_AlexeyDTC_photo.md](../inbox/used/20260116_211757_AlexeyDTC_photo.md)
 - [20260116_213322_AlexeyDTC_photo.md](../inbox/used/20260116_213322_AlexeyDTC_photo.md)

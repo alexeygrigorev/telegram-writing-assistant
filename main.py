@@ -295,25 +295,42 @@ async def process_command(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
         cmd = "claude -p \"read and execute instructions in .claude/commands/process.md\" --allowedTools \"Read,Edit,Bash,Write\" --output-format stream-json --verbose"
         print(f"[process_command] Running: {cmd}", flush=True)
 
-        result = subprocess.run(
+        # Use Popen to stream output in real-time
+        import io
+        process = subprocess.Popen(
             cmd,
             cwd=REPO_PATH,
-            capture_output=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
             text=True,
-            shell=True
+            shell=True,
+            bufsize=1  # Line buffered
         )
 
-        print(f"[process_command] Return code: {result.returncode}", flush=True)
-        print(f"[process_command] Log saved to: {log_file}", flush=True)
-        print(f"[process_command] Stdout length: {len(result.stdout)}", flush=True)
-        print(f"[process_command] Stderr length: {len(result.stderr)}", flush=True)
-        print(f"[process_command] Full output:\n{result.stdout}", flush=True)
-        if result.stderr:
-            print(f"[process_command] Stderr:\n{result.stderr}", flush=True)
+        # Collect output for log file
+        output_buffer = io.StringIO()
 
-        # Save JSON output to log file
+        # Stream stdout line by line
+        for line in process.stdout:
+            print(line, end='', flush=True)  # Print immediately
+            output_buffer.write(line)  # Also save to buffer
+
+        # Wait for process to complete
+        process.wait()
+        returncode = process.returncode
+
+        # Get any stderr
+        stderr_output = process.stderr.read()
+
+        print(f"\n[process_command] Return code: {returncode}", flush=True)
+        print(f"[process_command] Log saved to: {log_file}", flush=True)
+        if stderr_output:
+            print(f"[process_command] Stderr:\n{stderr_output}", flush=True)
+
+        # Save output to log file
+        full_output = output_buffer.getvalue()
         with open(log_file, "w", encoding="utf-8") as f:
-            f.write(result.stdout)
+            f.write(full_output)
 
         # Git push
         push_result = subprocess.run(
@@ -355,7 +372,7 @@ async def process_command(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
             github_url = None
 
         # Send results to chat
-        if result.returncode == 0:
+        if returncode == 0:
             msg = f"✅ Processing complete!\n\n"
             if github_url:
                 msg += f"📦 Commit: {github_url}\n"
@@ -375,10 +392,10 @@ async def process_command(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
                     summary_content = summary_content[:4000] + "\n... (truncated)"
                 await update.message.reply_text(f"📊 Summary:\n\n{summary_content}", parse_mode="Markdown")
         else:
-            await update.message.reply_text(f"⚠️ Claude exited with code {result.returncode}", parse_mode="Markdown")
+            await update.message.reply_text(f"⚠️ Claude exited with code {returncode}", parse_mode="Markdown")
 
-        if result.stderr:
-            await update.message.reply_text(f"Stderr: `{result.stderr[:1000]}`", parse_mode="Markdown")
+        if stderr_output:
+            await update.message.reply_text(f"Stderr: `{stderr_output[:1000]}`", parse_mode="Markdown")
 
     except Exception as e:
         print(f"[process_command] Error: {type(e).__name__}: {e}")

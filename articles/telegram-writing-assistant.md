@@ -20,6 +20,20 @@ A personal knowledge management system where you send thoughts to Telegram (text
 
 I usually do brain dumps in the form of voice messages in Telegram. This needs to be organized. The idea is to transcribe these voice messages and add the transcription to some file. As voice messages accumulate, there may be several articles, and from each of these files there will be some article. It will gradually be filled and filled. Then, when the article is finished, we simply remove that article.
 
+## Origin Story
+
+The idea for this system came after realizing that writing articles took a long time because there were many messages that needed to be read and organized. It was essentially a brain dump that needed to be organized into articles. The challenge was that there was a lot of information.
+
+I thought about how I would want to process an incoming stream of information. The approach would be to analyze the information and update existing articles or notes based on that information. One by one, everything would be processed.
+
+The initial workflow concept was:
+- An input pool of tasks
+- Telegram messages transcribed
+- Images and messages organized into the input pool
+- An agent processes everything and lays it out into articles
+
+Instead of doing this manually, I wanted an agent to handle the organization. I iterated on this idea with ChatGPT, recording voice messages and reviewing responses. At the end, I would ask to save our conversation to a file called summary.md. That file, which is in the repository, concisely described what was needed. I used that file as the basis for implementing everything in code and asked the code to analyze what was inside.
+
 ## Workflow
 
 1. Send materials to Telegram bot (text, voice, images)
