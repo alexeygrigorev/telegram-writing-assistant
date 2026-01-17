@@ -3,6 +3,7 @@ import base64
 import os
 import subprocess
 import textwrap
+import time
 from datetime import datetime
 from pathlib import Path
 
@@ -310,6 +311,9 @@ async def process_command(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
 
     await update.message.reply_text("Processing inbox with Claude... This may take a few minutes.")
 
+    # Start timing
+    start_time = time.time()
+
     # Create and start the message queue
     queue = MessageQueue(chat_id, bot, send_interval=20.0)
     await queue.start()
@@ -389,7 +393,11 @@ async def process_command(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
 
         # Now send the summary as a SEPARATE message
         if returncode == 0:
-            msg = f"✅ Processing complete!\n\n"
+            # Calculate duration
+            duration = time.time() - start_time
+            duration_str = f"{int(duration // 60)}m {int(duration % 60)}s"
+
+            msg = f"✅ Processing complete! Duration: {duration_str}\n\n"
             if github_url:
                 msg += f"📦 Commit: {github_url}\n"
             else:

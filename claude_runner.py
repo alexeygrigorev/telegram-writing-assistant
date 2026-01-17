@@ -58,9 +58,12 @@ class ClaudeProgressFormatter:
         if not isinstance(tool_input, dict):
             return f"🔧 Tool: {tool_name}"
 
+        # Skip "Reading..." messages - only show "Read..." when done
         if tool_name == "Read":
-            file_path = tool_input.get("file_path", "?")
-            return f"📖 Reading: `{Path(file_path).name}`"
+            return None
+        # Skip TodoWrite progress messages - too noisy
+        elif tool_name == "TodoWrite":
+            return None
         elif tool_name == "Write":
             file_path = tool_input.get("file_path", "?")
             return f"✍️  Writing: `{Path(file_path).name}`"
@@ -70,13 +73,6 @@ class ClaudeProgressFormatter:
         elif tool_name == "Bash":
             cmd_text = tool_input.get("command", "")[:60]
             return f"💻 Running: `{cmd_text}...`"
-        elif tool_name == "TodoWrite":
-            todos = tool_input.get("todos", [])
-            # Safety check for todos
-            if not isinstance(todos, list):
-                return "📋 Updating todos"
-            in_progress = sum(1 for t in todos if isinstance(t, dict) and t.get("status") == "in_progress")
-            return f"📋 Progress: {in_progress}/{len(todos)} tasks active"
         elif tool_name == "Glob":
             pattern = tool_input.get("pattern", "?")
             return f"🔍 Finding: {pattern}"

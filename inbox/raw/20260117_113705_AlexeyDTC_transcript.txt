@@ -1,0 +1,10 @@
+---
+source: telegram_voice
+date: 2026-01-17T11:37:05+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260117_113705_AlexeyDTC.ogg
+---
+
+И когда я делаю forward картинки, там ошибка Bad request cannot parse entities Так что давай
+посмотрим, как картинки извлекать из пересланных сообщений, которые отправлены сюда в этот чат

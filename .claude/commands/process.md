@@ -92,12 +92,23 @@ status: draft
 ---
 ```
 
-**Source tracking** - each article section MUST list sources:
+**Inline source citations** - when incorporating content from a source:
+1. Add inline citation `[^N]` where the content is used
+2. List all sources at the bottom with clickable links
+
+Example:
 ```markdown
+The idea for this system came after realizing that writing articles takes time[^1].
+
+Initial workflow concept included an input pool of tasks[^2].
+
 ## Sources
-- [transcript filename](../inbox/raw/filename)
-- [image filename](../inbox/raw/filename.jpg)
+
+[^1]: [20260117_105133_AlexeyDTC_transcript.txt](../inbox/raw/20260117_105133_AlexeyDTC_transcript.txt)
+[^2]: [20260117_105343_AlexeyDTC_transcript.txt](../inbox/raw/20260117_105343_AlexeyDTC_transcript.txt)
 ```
+
+**Each article section MUST have sources listed at the bottom** with inline citations in the text.
 
 # SUMMARY REPORT
 
