@@ -31,6 +31,7 @@ INBOX_RAW = REPO_PATH / "inbox" / "raw"
 INBOX_USED = REPO_PATH / "inbox" / "used"
 ASSETS_IMAGES = REPO_PATH / "assets" / "images"
 ARTICLES_DIR = REPO_PATH / "articles"
+LOGS_DIR = REPO_PATH / "claude_runs"
 
 # Initialize Groq client
 groq_client = Groq(api_key=GROQ_API_KEY) if GROQ_API_KEY else None
@@ -284,6 +285,11 @@ async def process_command(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
     await update.message.reply_text("Processing inbox with Claude... This may take a few minutes.")
 
     try:
+        # Create log file with timestamp
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        log_file = LOGS_DIR / f"run_{timestamp}.json"
+        LOGS_DIR.mkdir(parents=True, exist_ok=True)
+
         # Run Claude Code with the custom process command in non-interactive mode
         # Use shell=True on Windows to find claude in PATH
         cmd = "claude -p \"read and execute instructions in .claude/commands/process.md\" --allowedTools \"Read,Edit,Bash,Write\" --output-format stream-json --verbose"
@@ -304,6 +310,10 @@ async def process_command(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
             print(f"[process_command] Stdout:\n{result.stdout[:2000]}", flush=True)
         if result.stderr:
             print(f"[process_command] Stderr:\n{result.stderr}", flush=True)
+
+        # Save JSON output to log file
+        with open(log_file, "w", encoding="utf-8") as f:
+            f.write(result.stdout)
 
         # Git push
         push_result = subprocess.run(

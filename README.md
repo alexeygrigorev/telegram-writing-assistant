@@ -48,15 +48,16 @@ telegram-writing-assistant/
 ├── articles/           # Generated articles
 ├── inbox/
 │   ├── raw/           # New materials (text, transcripts, photos)
-│   └── used/          # Processed materials
+│   ├── used/          # Processed materials
+│   └── summaries/     # Processing summaries (not pushed to git)
 ├── assets/
 │   └── images/        # Organized by article name
-├── scripts/
-│   └── logs/          # Claude run logs (not pushed to git)
+├── claude_runs/       # Claude run logs (not pushed to git)
 ├── .claude/
 │   └── commands/
 │       └── process.md # Claude processing instructions
-└── main.py            # Telegram bot
+├── main.py            # Telegram bot
+└── .env               # API keys (not pushed to git)
 ```
 
 ## Voice Transcription
