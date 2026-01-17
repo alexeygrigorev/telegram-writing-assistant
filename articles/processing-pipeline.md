@@ -26,7 +26,7 @@ I was recording voice messages during development and testing the flow immediate
 
 There are no tests yet, but the full flow is functional. I liked how quickly I could iterate. This relates to what we described in the article about documentation - I don't need to write a custom agent. I just describe a document with what should be in it, and that's it. Very convenient. I don't need to write a lot of code.
 
-I basically didn't look at the code at all. This is complete web-coding - I just gave specifications and watched what happened. Based on the output, I made small adjustments.
+I basically didn't look at the code at all. This is complete vibe-coding - I just gave specifications and watched what happened. Based on the output, I made small adjustments.
 
 ## Processing Steps
 
@@ -134,7 +134,26 @@ Things we can test:
 
 Currently there are no tests, which is concerning. One wrong change could break the entire flow.
 
+## Telegram Rate Limiting and Message Buffering
+
+During development, I discovered a bug where Claude would process messages but nothing was being sent to the Telegram channel. This was frustrating because there was no visibility into what was happening during processing.
+
+After debugging with verbose mode, I found that when running in verbose mode, the code outputs JSON to standard output. The Python subprocess was supposed to parse this JSON and show what was happening, but instead of showing the JSON properly, it was displaying some garbled text.
+
+There were several errors in how the output was being handled.
+
+The original idea was to reflect all messages in Telegram. However, Telegram has rate limiting - if you send too many messages, it starts doing rate limiting.
+
+The solution is message buffering:
+- Collect all messages in a buffer
+- Check the queue every 3 seconds
+- If there are messages in the buffer, send them to Telegram
+- This avoids hitting Telegram's rate limits while still providing real-time feedback
+
+This voice message was recorded specifically to test that the buffering system works correctly.
+
 ## Sources
+- [20260117_085415_AlexeyDTC_transcript.txt](../inbox/raw/20260117_085415_AlexeyDTC_transcript.txt)
 - [20260116_211210_AlexeyDTC_transcript.txt](../inbox/raw/20260116_211210_AlexeyDTC_transcript.txt)
 - [20260116_211314_AlexeyDTC_transcript.txt](../inbox/raw/20260116_211314_AlexeyDTC_transcript.txt)
 - [20260116_211932_AlexeyDTC_transcript.txt](../inbox/raw/20260116_211932_AlexeyDTC_transcript.txt)

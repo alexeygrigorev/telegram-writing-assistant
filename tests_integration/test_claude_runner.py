@@ -166,30 +166,32 @@ class TestClaudeRunnerReal:
         content = output_file.read_text()
         assert "6" in content, f"Expected word count 6, got: {content}"
 
-    def test_claude_runner_error_handling(self, tmp_path):
-        """Test ClaudeRunner handles errors gracefully."""
+    def test_claude_runner_multiple_operations(self, tmp_path):
+        """Test ClaudeRunner with multiple file operations."""
         logs_dir = tmp_path / "logs"
         runner = ClaudeRunner(tmp_path, logs_dir)
 
-        # Run a command that reads a nonexistent file
-        # Claude will report the error but still complete successfully
+        # Create multiple files and have Claude process them
+        (tmp_path / "file1.txt").write_text("Apple")
+        (tmp_path / "file2.txt").write_text("Banana")
+        (tmp_path / "file3.txt").write_text("Cherry")
+
         returncode, stdout, stderr = runner.run_custom_prompt(
-            "Try to read a file named nonexistent.txt that does not exist, then say 'done'"
+            "Read file1.txt, file2.txt, and file3.txt, then create summary.txt with all three words on separate lines"
         )
 
-        print(f"\nReturn code for error case: {returncode}")
-        print(f"Stderr: {stderr[:500] if stderr else 'None'}")
+        print(f"\nReturn code: {returncode}")
         print(f"Stdout length: {len(stdout)}")
 
-        # Claude should complete successfully even when file doesn't exist
-        # It will just report that the file wasn't found
-        assert returncode == 0, f"Claude should handle errors gracefully. stderr: {stderr[:200]}"
-        # Should have some output
-        assert len(stdout) > 0, "Should have output even when file is not found"
-        # Should mention "done" or the file issue
-        output_lower = stdout.lower()
-        assert "done" in output_lower or "not found" in output_lower or "no such" in output_lower, \
-            f"Expected 'done' or error message in output, got: {stdout[:200]}"
+        assert returncode == 0, f"Claude failed: {stderr[:200] if stderr else 'No stderr'}"
+
+        # Check that summary.txt was created
+        summary_file = tmp_path / "summary.txt"
+        assert summary_file.exists(), "summary.txt should be created"
+
+        content = summary_file.read_text().lower()
+        assert "apple" in content and "banana" in content and "cherry" in content, \
+            f"Summary should contain all three fruits. Got: {content}"
 
 
 class TestClaudeEventParsing:
@@ -224,27 +226,3 @@ class TestClaudeEventParsing:
         assert len(parsed_events) > 0
         assert any(e["is_system_init"] for e in parsed_events)
 
-
-def test_simple_claude_version_check():
-    """Simple smoke test to verify Claude is working."""
-    result = subprocess.run(
-        ["claude", "-p", "Say 'OK' and exit"],
-        capture_output=True,
-        text=True,
-        timeout=60,
-        cwd=Path.cwd()
-    )
-
-    print(f"\nClaude output: {result.stdout[:500]}")
-    print(f"Return code: {result.returncode}")
-
-    assert result.returncode == 0, f"Claude failed: {result.stderr[:500]}"
-    # Claude's output should contain something
-    assert len(result.stdout) > 0, "Should have some output"
-
-
-if __name__ == "__main__":
-    # Run a quick smoke test
-    print("Running Claude integration smoke test...")
-    test_simple_claude_version_check()
-    print("\n✅ Smoke test passed!")

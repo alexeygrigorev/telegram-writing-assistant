@@ -19,96 +19,11 @@ from telegram.ext import (
 )
 
 from claude_runner import ClaudeRunner
+from message_queue import MessageQueue
 
 # Load environment variables
 load_dotenv()
 
-
-class MessageQueue:
-    """Queues messages and sends them periodically to avoid rate limits."""
-
-    def __init__(self, chat_id: int, bot):
-        self.chat_id = chat_id
-        self.bot = bot
-        self.queue: asyncio.Queue = asyncio.Queue()
-        self._task = None
-        self._stop_event = asyncio.Event()
-        self._last_send_time = 0
-        self._send_interval = 3.0  # Minimum seconds between sends
-
-    async def _worker(self):
-        """Background worker that sends messages periodically."""
-        while not self._stop_event.is_set():
-            try:
-                # Wait for a message or the stop event
-                msg = await asyncio.wait_for(
-                    self.queue.get(),
-                    timeout=1.0
-                )
-
-                # Calculate remaining wait time
-                current_time = asyncio.get_event_loop().time()
-                time_since_last_send = current_time - self._last_send_time
-                wait_time = max(0, self._send_interval - time_since_last_send)
-
-                if wait_time > 0:
-                    await asyncio.sleep(wait_time)
-
-                # Check if we were stopped while waiting
-                if self._stop_event.is_set():
-                    # Put message back and exit
-                    self.queue.put_nowait(msg)
-                    break
-
-                # Send the message
-                try:
-                    await self.bot.send_message(
-                        chat_id=self.chat_id,
-                        text=msg,
-                        parse_mode="Markdown"
-                    )
-                    self._last_send_time = asyncio.get_event_loop().time()
-                except Exception as e:
-                    print(f"[MessageQueue] Failed to send: {e}", flush=True)
-                    # Re-queue for retry
-                    self.queue.put_nowait(msg)
-
-                self.queue.task_done()
-            except asyncio.TimeoutError:
-                # No message, continue loop
-                continue
-            except Exception as e:
-                print(f"[MessageQueue] Worker error: {e}", flush=True)
-
-    async def start(self):
-        """Start the background worker."""
-        if self._task is None or self._task.done():
-            self._stop_event.clear()
-            self._task = asyncio.create_task(self._worker())
-
-    async def stop(self):
-        """Stop the worker and drain the queue."""
-        self._stop_event.set()
-        if self._task and not self._task.done():
-            await asyncio.wait_for(self._task, timeout=5.0)
-
-        # Send any remaining messages
-        while not self.queue.empty():
-            msg = self.queue.get_nowait()
-            try:
-                await self.bot.send_message(
-                    chat_id=self.chat_id,
-                    text=msg,
-                    parse_mode="Markdown"
-                )
-                await asyncio.sleep(self._send_interval)
-            except Exception as e:
-                print(f"[MessageQueue] Failed to send final message: {e}", flush=True)
-            self.queue.task_done()
-
-    async def put(self, message: str):
-        """Add a message to the queue."""
-        await self.queue.put(message)
 
 
 # Configuration

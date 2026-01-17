@@ -54,6 +54,10 @@ class ClaudeProgressFormatter:
     @staticmethod
     def format_tool_use(tool_name: str, tool_input: dict) -> Optional[str]:
         """Format a tool_use event."""
+        # Safety check: ensure tool_input is a dict
+        if not isinstance(tool_input, dict):
+            return f"🔧 Tool: {tool_name}"
+
         if tool_name == "Read":
             file_path = tool_input.get("file_path", "?")
             return f"📖 Reading: `{Path(file_path).name}`"
@@ -68,7 +72,10 @@ class ClaudeProgressFormatter:
             return f"💻 Running: `{cmd_text}...`"
         elif tool_name == "TodoWrite":
             todos = tool_input.get("todos", [])
-            in_progress = sum(1 for t in todos if t.get("status") == "in_progress")
+            # Safety check for todos
+            if not isinstance(todos, list):
+                return "📋 Updating todos"
+            in_progress = sum(1 for t in todos if isinstance(t, dict) and t.get("status") == "in_progress")
             return f"📋 Progress: {in_progress}/{len(todos)} tasks active"
         elif tool_name == "Glob":
             pattern = tool_input.get("pattern", "?")
@@ -177,9 +184,12 @@ class ClaudeRunner:
                         if content.get("type") == "tool_use":
                             tool_name = content.get("name", "unknown")
                             tool_input = content.get("input", {})
-                            progress_msg = self.formatter.format_tool_use(tool_name, tool_input)
-                            if progress_msg:
-                                _safe_print(f"[CLAUDE] {progress_msg}")
+                            try:
+                                progress_msg = self.formatter.format_tool_use(tool_name, tool_input)
+                                if progress_msg:
+                                    _safe_print(f"[CLAUDE] {progress_msg}")
+                            except Exception as e:
+                                _safe_print(f"[CLAUDE] 🔧 Tool: {tool_name}")
 
                         elif content.get("type") == "text":
                             text = content.get("text", "")
@@ -189,9 +199,12 @@ class ClaudeRunner:
                 elif event.is_user:
                     tool_result = event.get_tool_use_result()
                     if tool_result:
-                        progress_msg = self.formatter.format_tool_result(tool_result)
-                        if progress_msg:
-                            _safe_print(f"[RESULT] {progress_msg}")
+                        try:
+                            progress_msg = self.formatter.format_tool_result(tool_result)
+                            if progress_msg:
+                                _safe_print(f"[RESULT] {progress_msg}")
+                        except Exception as e:
+                            _safe_print(f"[RESULT] ✅ Completed")
 
                 # Send progress (rate limiting handled by callback if needed)
                 if progress_msg and on_progress:
