@@ -321,7 +321,7 @@ async def process_command(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
         # Progress callback - queues messages for periodic sending
         def queue_progress(msg: str):
             # Non-blocking queue put from synchronous context
-            asyncio.create_task(queue.put(msg))
+            queue.put_sync(msg)
 
         # Run Claude with progress streaming
         returncode, stdout, stderr = runner.run_process_command(

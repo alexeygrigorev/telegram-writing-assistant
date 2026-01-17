@@ -152,7 +152,25 @@ The solution is message buffering:
 
 This voice message was recorded specifically to test that the buffering system works correctly.
 
+## Message Queue Debugging
+
+During testing, I noticed that while I could see in Telegram that the bot was doing something, messages weren't being sent. After processing completed and the report was sent, only then did messages start arriving. Something was blocking the message queue from launching.
+
+I asked Claude to debug this issue. The problem appeared to be that while processing was happening, the individual progress messages weren't being sent to Telegram. They were being queued or blocked somehow, then all arrived at once after the main process finished.
+
+## Integration Testing
+
+To ensure reliability, we need an integration test. The plan is to create a test that:
+- Uses a fake Telegram implementation to verify messages are actually being sent
+- Tests that all components work together properly
+- Then validates against the real Telegram API
+- Becomes part of our permanent test suite
+
+This integration test will verify the full flow works correctly without depending on external services. We'll mock the Telegram client, verify that messages are being sent to the queue properly, and ensure the buffering mechanism works as expected.
+
 ## Sources
+- [20260117_085944_AlexeyDTC_transcript.txt](../inbox/raw/20260117_085944_AlexeyDTC_transcript.txt)
+- [20260117_090215_AlexeyDTC_transcript.txt](../inbox/raw/20260117_090215_AlexeyDTC_transcript.txt)
 - [20260117_085415_AlexeyDTC_transcript.txt](../inbox/raw/20260117_085415_AlexeyDTC_transcript.txt)
 - [20260116_211210_AlexeyDTC_transcript.txt](../inbox/raw/20260116_211210_AlexeyDTC_transcript.txt)
 - [20260116_211314_AlexeyDTC_transcript.txt](../inbox/raw/20260116_211314_AlexeyDTC_transcript.txt)
