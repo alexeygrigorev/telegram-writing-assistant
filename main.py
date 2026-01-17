@@ -291,29 +291,128 @@ async def process_command(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
         LOGS_DIR.mkdir(parents=True, exist_ok=True)
 
         # Run Claude Code with the custom process command in non-interactive mode
-        # Use shell=True on Windows to find claude in PATH
         cmd = "claude -p \"read and execute instructions in .claude/commands/process.md\" --allowedTools \"Read,Edit,Bash,Write\" --output-format stream-json --verbose"
         print(f"[process_command] Running: {cmd}", flush=True)
 
-        # Use Popen to stream output in real-time
+        # Import for JSON parsing
+        import json
         import io
+
         process = subprocess.Popen(
             cmd,
             cwd=REPO_PATH,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             text=True,
+            encoding='utf-8',
+            errors='replace',
             shell=True,
-            bufsize=1  # Line buffered
+            bufsize=1
         )
 
         # Collect output for log file
         output_buffer = io.StringIO()
 
+        # Track last progress message to avoid spam
+        last_progress_time = None
+        progress_messages = []
+
         # Stream stdout line by line
         for line in process.stdout:
-            print(line, end='', flush=True)  # Print immediately
-            output_buffer.write(line)  # Also save to buffer
+            line = line.strip()
+            if not line:
+                continue
+
+            # Write to log
+            output_buffer.write(line + "\n")
+
+            # Try to parse as JSON event
+            try:
+                event = json.loads(line)
+
+                # Format and send progress updates
+                progress_msg = None
+
+                if event.get("type") == "system":
+                    subtype = event.get("subtype", "")
+                    if subtype == "init":
+                        model = event.get("model", "unknown")
+                        print(f"[SYSTEM] Session started - Model: {model}", flush=True)
+
+                elif event.get("type") == "assistant":
+                    message = event.get("message", {})
+                    content_list = message.get("content", [])
+
+                    for content in content_list:
+                        if content.get("type") == "tool_use":
+                            tool_name = content.get("name", "unknown")
+                            tool_input = content.get("input", {})
+
+                            if tool_name == "Read":
+                                file_path = tool_input.get("file_path", "?")
+                                progress_msg = f"📖 Reading: `{Path(file_path).name}`"
+                                print(f"[CLAUDE] {progress_msg}", flush=True)
+                            elif tool_name == "Write":
+                                file_path = tool_input.get("file_path", "?")
+                                progress_msg = f"✍️  Writing: `{Path(file_path).name}`"
+                                print(f"[CLAUDE] {progress_msg}", flush=True)
+                            elif tool_name == "Edit":
+                                file_path = tool_input.get("file_path", "?")
+                                progress_msg = f"✏️  Editing: `{Path(file_path).name}`"
+                                print(f"[CLAUDE] {progress_msg}", flush=True)
+                            elif tool_name == "Bash":
+                                cmd_text = tool_input.get("command", "")[:60]
+                                progress_msg = f"💻 Running: `{cmd_text}...`"
+                                print(f"[CLAUDE] {progress_msg}", flush=True)
+                            elif tool_name == "TodoWrite":
+                                todos = tool_input.get("todos", [])
+                                in_progress = sum(1 for t in todos if t.get("status") == "in_progress")
+                                progress_msg = f"📋 Progress: {in_progress}/{len(todos)} tasks active"
+                                print(f"[CLAUDE] {progress_msg}", flush=True)
+                            elif tool_name == "Glob":
+                                pattern = tool_input.get("pattern", "?")
+                                print(f"[CLAUDE] 🔍 Finding: {pattern}", flush=True)
+
+                        elif content.get("type") == "text":
+                            text = content.get("text", "")
+                            if text:
+                                print(f"[CLAUDE] 💬 {text[:200]}...", flush=True)
+
+                elif event.get("type") == "user":
+                    tool_use_result = event.get("tool_use_result", {})
+
+                    if tool_use_result:
+                        result_type = tool_use_result.get("type", "")
+
+                        if result_type == "text":
+                            file_info = tool_use_result.get("file", {})
+                            if file_info:
+                                file_path = file_info.get("filePath", "")
+                                num_lines = file_info.get("numLines", 0)
+                                progress_msg = f"✅ Read: `{Path(file_path).name}` ({num_lines} lines)"
+                                print(f"[RESULT] {progress_msg}", flush=True)
+
+                        elif tool_use_result.get("filenames"):
+                            filenames = tool_use_result.get("filenames", [])
+                            num_files = tool_use_result.get("numFiles", len(filenames))
+                            progress_msg = f"✅ Found: {num_files} files"
+                            print(f"[RESULT] {progress_msg}", flush=True)
+
+                # Send progress to Telegram (with rate limiting - max 1 message per 2 seconds)
+                if progress_msg:
+                    import time
+                    current_time = time.time()
+                    if last_progress_time is None or (current_time - last_progress_time) > 2:
+                        try:
+                            await update.message.reply_text(progress_msg, parse_mode="Markdown")
+                            last_progress_time = current_time
+                            progress_messages.append(progress_msg)
+                        except Exception as e:
+                            print(f"[process_command] Failed to send progress: {e}", flush=True)
+
+            except json.JSONDecodeError:
+                # Not JSON, just print raw line
+                print(f"[RAW] {line[:100]}", flush=True)
 
         # Wait for process to complete
         process.wait()
