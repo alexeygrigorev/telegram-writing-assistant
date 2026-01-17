@@ -1,7 +1,7 @@
 ---
 title: "Telegram Writing Assistant"
 created: 2026-01-16
-updated: 2026-01-16
+updated: 2026-01-17
 tags: [telegram, bot, knowledge-management, automation]
 status: draft
 ---
@@ -46,3 +46,4 @@ Each article must include a list of source materials. This is important for clea
 - [20260116_210119_AlexeyDTC_transcript.txt](../inbox/raw/20260116_210119_AlexeyDTC_transcript.txt)
 - [20260116_210336_AlexeyDTC_transcript.txt](../inbox/raw/20260116_210336_AlexeyDTC_transcript.txt)
 - [20260116_205911_AlexeyDTC_photo.md](../inbox/used/20260116_205911_AlexeyDTC_photo.md)
+- [20260117_064726_AlexeyDTC_transcript.txt](../inbox/raw/20260117_064726_AlexeyDTC_transcript.txt)

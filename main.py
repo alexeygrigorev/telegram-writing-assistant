@@ -304,10 +304,10 @@ async def process_command(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
         )
 
         print(f"[process_command] Return code: {result.returncode}", flush=True)
+        print(f"[process_command] Log saved to: {log_file}", flush=True)
         print(f"[process_command] Stdout length: {len(result.stdout)}", flush=True)
         print(f"[process_command] Stderr length: {len(result.stderr)}", flush=True)
-        if result.stdout:
-            print(f"[process_command] Stdout:\n{result.stdout[:2000]}", flush=True)
+        print(f"[process_command] Full output:\n{result.stdout}", flush=True)
         if result.stderr:
             print(f"[process_command] Stderr:\n{result.stderr}", flush=True)
 
