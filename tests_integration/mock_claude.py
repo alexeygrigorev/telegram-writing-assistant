@@ -56,11 +56,13 @@ def main():
                 }
             }))
             sys.stdout.flush()
+            time.sleep(0.2)  # Same delay as main replay
         return
 
-    speed = float(sys.argv[1]) if len(sys.argv) > 1 else 100.0
+    # Default speed 1.0 = ~10 seconds duration
+    speed = float(sys.argv[1]) if len(sys.argv) > 1 else 1.0
 
-    print(f"[MOCK CLAUDE] Replaying {log_file.name} at {speed}x speed", file=sys.stderr)
+    print(f"[MOCK CLAUDE] Replaying {log_file.name} at {speed}x speed (~{10/speed:.0f}s)", file=sys.stderr)
 
     replay_log(log_file, speed_multiplier=speed)
 

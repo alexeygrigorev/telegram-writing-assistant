@@ -22,6 +22,8 @@ class TestClaudeRunnerIntegration:
 
         This uses the actual ClaudeRunner class with a mock command that
         replays a real Claude log file, reproducing the exact production scenario.
+
+        Test runs for ~10 seconds with messages sent every 2 seconds.
         """
         sent_messages = []
         send_times = []
@@ -33,6 +35,7 @@ class TestClaudeRunnerIntegration:
                 return True
 
         bot = MockBot()
+        # Send every 2 seconds
         queue = MessageQueue(chat_id=12345, bot=bot, send_interval=2.0)
 
         await queue.start()
@@ -46,8 +49,8 @@ class TestClaudeRunnerIntegration:
         mock_claude_path = Path(__file__).parent / "mock_claude.py"
 
         runner = ClaudeRunner(repo_path, logs_dir)
-        # Override command to use our mock (replays real log)
-        runner.cmd = f'uv run python {mock_claude_path} 100'  # 100x speed
+        # Use default speed (1.0 = ~10 seconds)
+        runner.cmd = f'uv run python {mock_claude_path}'
 
         # Progress callback - queues messages
         def queue_progress(msg: str):
@@ -59,8 +62,8 @@ class TestClaudeRunnerIntegration:
             on_progress=queue_progress
         )
 
-        # Wait for pending sends
-        await asyncio.sleep(3.0)
+        # Wait for pending sends (2 more seconds for final batch)
+        await asyncio.sleep(2.5)
 
         await queue.stop()
 
@@ -72,15 +75,17 @@ class TestClaudeRunnerIntegration:
         # Messages should have been sent
         assert len(sent_messages) >= 1, f"Expected at least 1 message, got {len(sent_messages)}"
 
-        # Check timing
+        # Check timing - should have sent multiple batches
+        print(f"\n[TEST] Total time: {total_time:.2f}s")
+        print(f"[TEST] Batches sent: {len(sent_messages)}")
         if send_times:
-            first_send_time = send_times[0] - start_time
-            print(f"\n[TEST] First send at: {first_send_time:.2f}s, total: {total_time:.2f}s")
+            for i, t in enumerate(send_times):
+                print(f"[TEST] Batch {i+1} sent at: {t - start_time:.2f}s")
 
-            # First send should happen well before total time (during processing)
-            # With the time bug, it happens at the very end
-            assert first_send_time < total_time * 0.8, \
-                f"First send happened too late: {first_send_time:.2f}s >= {total_time * 0.8:.2f}s (total: {total_time:.2f}s)"
+            first_send_time = send_times[0] - start_time
+            # First send should happen around 2 seconds after start
+            assert 1.5 < first_send_time < 3.0, \
+                f"First send should be ~2s after start, was: {first_send_time:.2f}s"
 
         # Verify content - should have real tool names from the log
         combined = "\n".join(sent_messages)
