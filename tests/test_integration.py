@@ -161,6 +161,7 @@ class TestHandleTextMessage:
         message = Mock(spec=Message)
         message.text = "Test message"
         message.date = datetime(2026, 1, 17, 12, 0, 0)
+        message.message_id = 123  # Add message_id
         message.reply_text = AsyncMock()
 
         update.effective_user = user
@@ -170,8 +171,8 @@ class TestHandleTextMessage:
         with patch("main.is_allowed_chat", return_value=True):
             await handle_text_message(update, None)
 
-        # Verify save was called
-        mock_save.assert_called_once_with("Test message", 123456, "testuser", message.date)
+        # Verify save was called (now includes message_id)
+        mock_save.assert_called_once_with("Test message", 123456, "testuser", message.date, 123)
 
         # Verify reply was sent
         message.reply_text.assert_called_once()
@@ -275,5 +276,5 @@ class TestClaudeRunnerIntegration:
                         results.append(progress)
 
         assert "system_init" in results
-        assert any("Reading" in r for r in results)
+        # "Reading..." messages are now skipped to reduce noise
         assert any("Read:" in r for r in results)

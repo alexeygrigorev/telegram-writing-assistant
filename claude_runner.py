@@ -92,12 +92,12 @@ class ClaudeProgressFormatter:
             if file_info:
                 file_path = file_info.get("filePath", "")
                 num_lines = file_info.get("numLines", 0)
-                return f"✅ Read: `{Path(file_path).name}` ({num_lines} lines)"
+                return f"📖 Read: `{Path(file_path).name}` ({num_lines} lines)"
 
         elif tool_result.get("filenames"):
             filenames = tool_result.get("filenames", [])
             num_files = tool_result.get("numFiles", len(filenames))
-            return f"✅ Found: {num_files} files"
+            return f"🔍 Found: {num_files} files"
 
         elif tool_result.get("durationMs"):
             duration = tool_result.get("durationMs", 0)

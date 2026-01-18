@@ -341,6 +341,9 @@ async def process_command(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
     await queue.start()
 
     try:
+        # Start progress tracking mode - creates editable message
+        await queue.start_progress()
+
         # Create Claude runner
         runner = ClaudeRunner(REPO_PATH, LOGS_DIR)
 
@@ -355,6 +358,9 @@ async def process_command(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
             runner.run_process_command,
             on_progress=queue_progress
         )
+
+        # Finish progress tracking mode
+        await queue.finish_progress()
 
         # Git push (with timeout to avoid hanging)
         print(f"[process_command] Starting git push...", flush=True)

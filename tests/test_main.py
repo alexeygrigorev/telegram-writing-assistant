@@ -150,11 +150,11 @@ class TestClaudeRunner:
         assert event.get_tool_use_result() == {"type": "text", "content": "result"}
 
     def test_format_tool_use_read(self):
-        """Test formatting Read tool use."""
+        """Test formatting Read tool use - returns None to avoid noise."""
         from claude_runner import ClaudeProgressFormatter
 
         result = ClaudeProgressFormatter.format_tool_use("Read", {"file_path": "/path/to/file.py"})
-        assert result == "📖 Reading: `file.py`"
+        assert result is None  # Skip "Reading..." messages, only show when done
 
     def test_format_tool_use_write(self):
         """Test formatting Write tool use."""
@@ -178,7 +178,7 @@ class TestClaudeRunner:
         assert result == "💻 Running: `git status...`"
 
     def test_format_tool_use_todowrite(self):
-        """Test formatting TodoWrite tool use."""
+        """Test formatting TodoWrite tool use - returns None to avoid noise."""
         from claude_runner import ClaudeProgressFormatter
 
         todos = [
@@ -187,7 +187,7 @@ class TestClaudeRunner:
             {"status": "pending", "content": "Task 3"},
         ]
         result = ClaudeProgressFormatter.format_tool_use("TodoWrite", {"todos": todos})
-        assert result == "📋 Progress: 1/3 tasks active"
+        assert result is None  # Skip TodoWrite messages - too noisy
 
     def test_format_tool_use_glob(self):
         """Test formatting Glob tool use."""
@@ -218,7 +218,7 @@ class TestClaudeRunner:
             "type": "text",
             "file": {"filePath": "/path/to/file.py", "numLines": 100}
         })
-        assert result == "✅ Read: `file.py` (100 lines)"
+        assert result == "📖 Read: `file.py` (100 lines)"
 
     def test_format_tool_result_with_filenames(self):
         """Test formatting tool result with filenames."""
@@ -228,7 +228,7 @@ class TestClaudeRunner:
             "filenames": ["file1.py", "file2.py"],
             "numFiles": 2
         })
-        assert result == "✅ Found: 2 files"
+        assert result == "🔍 Found: 2 files"
 
     def test_format_tool_result_with_duration(self):
         """Test formatting tool result with duration."""
