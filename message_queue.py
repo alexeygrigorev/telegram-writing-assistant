@@ -172,6 +172,8 @@ class MessageQueue:
         self._total_sent = 0
         # Progress tracker mode
         self._progress_tracker: ProgressTracker | None = None
+        # Store the event loop for cross-thread calls (e.g., from asyncio.to_thread)
+        self._loop: asyncio.AbstractEventLoop | None = None
 
     async def _worker(self):
         """Background worker that sends messages in batches periodically."""
@@ -179,6 +181,8 @@ class MessageQueue:
 
         # Get the event loop and use its time consistently
         loop = asyncio.get_event_loop()
+        # Store loop reference for cross-thread calls (e.g., from asyncio.to_thread)
+        self._loop = loop
         # Initialize to current loop time so first send happens after send_interval
         self._last_send_time = loop.time()
 
@@ -262,6 +266,8 @@ class MessageQueue:
     async def start(self):
         """Start the background worker."""
         if self._task is None or self._task.done():
+            # Get and store the event loop for cross-thread calls
+            self._loop = asyncio.get_event_loop()
             self._stop_event.clear()
             self._task = asyncio.create_task(self._worker())
 
@@ -337,12 +343,16 @@ class MessageQueue:
         """Add a message to the queue from synchronous context."""
         self._total_queued += 1
 
-        # If progress tracker is active, route through it (create task)
+        # If progress tracker is active, route through it
         if self._progress_tracker:
             emoji, text, category = self._parse_progress_message(message)
-            # Schedule async call on the running loop
-            loop = asyncio.get_event_loop()
-            asyncio.create_task(self._progress_tracker.add_command(emoji, text, category))
+            # Schedule async call on the running loop from another thread
+            # Use run_coroutine_threadsafe for cross-thread calls
+            if self._loop is not None:
+                asyncio.run_coroutine_threadsafe(
+                    self._progress_tracker.add_command(emoji, text, category),
+                    self._loop
+                )
             return
 
         # Simple list append is atomic in CPython for simple appends

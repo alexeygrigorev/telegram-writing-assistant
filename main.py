@@ -4,13 +4,15 @@ import os
 import subprocess
 import textwrap
 import time
+import traceback
 from datetime import datetime
 from pathlib import Path
 
 import httpx
 from dotenv import load_dotenv
 from groq import Groq
-from telegram import Update
+from telegram import Update, MessageEntity
+from telegram.constants import MessageEntityType
 from telegram.ext import (
     Application,
     CommandHandler,
@@ -40,6 +42,40 @@ LOGS_DIR = REPO_PATH / "claude_runs"
 
 # Initialize Groq client
 groq_client = Groq(api_key=GROQ_API_KEY) if GROQ_API_KEY else None
+
+
+def create_collapsible_message(prefix: str, content: str, max_length: int = 1000) -> tuple[str, list]:
+    """Create a message with collapsible blockquote for long content.
+
+    Args:
+        prefix: The visible prefix text (e.g., "Saved: file.ogg")
+        content: The content to collapse (e.g., transcript or description)
+        max_length: Maximum length of content to include (truncated if longer)
+
+    Returns:
+        (text, entities) tuple suitable for bot.send_message()
+    """
+    # Truncate content if needed
+    if len(content) > max_length:
+        content = content[:max_length] + "... (truncated)"
+
+    # Build the full message
+    full_text = f"{prefix}\n\n{content}"
+
+    # Calculate offset for the collapsible part (after prefix and newlines)
+    # The prefix ends with "\n\n" so offset is len(prefix) + 2
+    offset = len(prefix) + 2
+
+    # Create expandable blockquote entity for the content part
+    entities = [
+        MessageEntity(
+            type=MessageEntityType.EXPANDABLE_BLOCKQUOTE,
+            offset=offset,
+            length=len(content)
+        )
+    ]
+
+    return full_text, entities
 
 
 def describe_image(image_path: Path) -> str:
@@ -279,9 +315,10 @@ async def handle_voice_message(update: Update, context: ContextTypes.DEFAULT_TYP
         file = await voice.get_file()
         audio_file, transcript_file, transcript_text = await save_voice_message(file.file_path, user.id, user.username, msg_date, msg_id)
 
-        # Send transcript to chat
-        reply = f"Saved: {audio_file.name}\n\n{transcript_text}"
-        await update.message.reply_text(reply, parse_mode=None)
+        # Send transcript to chat with collapsible blockquote
+        prefix = f"Saved: {audio_file.name}"
+        text, entities = create_collapsible_message(prefix, transcript_text, max_length=2000)
+        await update.message.reply_text(text, entities=entities)
     except Exception as e:
         await update.message.reply_text(f"Error: {type(e).__name__}: {e}", parse_mode=None)
 
@@ -301,16 +338,16 @@ async def handle_photo_message(update: Update, context: ContextTypes.DEFAULT_TYP
         file = await photo.get_file()
         filename, description = await save_photo(file.file_path, user.id, user.username, caption, msg_date, msg_id)
 
-        # Reply with description (no parse_mode to avoid "cannot parse entities" error)
-        reply = f"Saved: {filename.name}\n\n{description[:500]}"  # Limit description length
-        await update.message.reply_text(reply, parse_mode=None)
+        # Reply with description in collapsible blockquote
+        prefix = f"Saved: {filename.name}"
+        text, entities = create_collapsible_message(prefix, description, max_length=500)
+        await update.message.reply_text(text, entities=entities)
     except Exception as e:
         await update.message.reply_text(f"Error: {type(e).__name__}: {e}", parse_mode=None)
 
 
 async def error_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Log errors and send details to chat."""
-    import traceback
     error = context.error
 
     # Send error details to chat
