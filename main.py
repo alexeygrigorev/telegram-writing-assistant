@@ -23,6 +23,7 @@ from telegram.ext import (
 
 from claude_runner import ClaudeRunner
 from message_queue import MessageQueue
+from progress_tracker import ProgressTracker
 
 # Load environment variables
 load_dotenv()
@@ -373,31 +374,32 @@ async def process_command(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
     # Start timing
     start_time = time.time()
 
-    # Create and start the message queue
+    # Create and start the message queue (for regular messages)
     queue = MessageQueue(chat_id, bot, send_interval=20.0)
     await queue.start()
 
-    try:
-        # Start progress tracking mode - creates editable message
-        await queue.start_progress()
+    # Create and start the progress tracker (for editable progress display)
+    progress = ProgressTracker(bot, chat_id)
+    await progress.start()
 
+    try:
         # Create Claude runner
         runner = ClaudeRunner(REPO_PATH, LOGS_DIR)
 
-        # Progress callback - queues messages for periodic sending
-        def queue_progress(msg: str):
-            # Non-blocking queue put from synchronous context
-            queue.put_sync(msg)
+        # Progress callback - sends to progress tracker
+        def on_progress(msg: str):
+            # Thread-safe progress update
+            progress.add_message(msg)
 
         # Run Claude in a thread so it doesn't block the event loop
-        # This allows the queue worker to send messages during processing
+        # This allows the progress tracker to update during processing
         returncode, stdout, stderr = await asyncio.to_thread(
             runner.run_process_command,
-            on_progress=queue_progress
+            on_progress=on_progress
         )
 
-        # Finish progress tracking mode
-        await queue.finish_progress()
+        # Finish progress tracking
+        await progress.finish()
 
         # Git push (with timeout to avoid hanging)
         print(f"[process_command] Starting git push...", flush=True)

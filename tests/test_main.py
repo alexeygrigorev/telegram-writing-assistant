@@ -48,6 +48,91 @@ class TestIsAllowedChat:
         assert is_allowed_chat(update) is False
 
 
+class TestCreateCollapsibleMessage:
+    """Tests for create_collapsible_message function."""
+
+    def test_create_collapsible_message_basic(self):
+        """Test basic collapsible message creation."""
+        from main import create_collapsible_message
+        from telegram.constants import MessageEntityType
+
+        prefix = "Saved: audio.ogg"
+        content = "This is a transcript."
+        text, entities = create_collapsible_message(prefix, content)
+
+        # Check text structure
+        assert text == "Saved: audio.ogg\n\nThis is a transcript."
+
+        # Check entities
+        assert len(entities) == 1
+        entity = entities[0]
+        assert entity.type == MessageEntityType.EXPANDABLE_BLOCKQUOTE
+        # Offset should be after prefix and newlines (len(prefix) + 2)
+        assert entity.offset == len(prefix) + 2
+        assert entity.length == len(content)
+
+    def test_create_collapsible_message_with_long_content(self):
+        """Test that long content is truncated."""
+        from main import create_collapsible_message
+        from telegram.constants import MessageEntityType
+
+        prefix = "Saved: audio.ogg"
+        content = "x" * 1500  # Longer than default max_length
+        text, entities = create_collapsible_message(prefix, content, max_length=1000)
+
+        # Content should be truncated
+        assert "... (truncated)" in text
+        assert len(entities) == 1
+        # The entity should cover the truncated content
+        entity = entities[0]
+        assert entity.type == MessageEntityType.EXPANDABLE_BLOCKQUOTE
+
+    def test_create_collapsible_message_with_unicode(self):
+        """Test collapsible message with Unicode characters."""
+        from main import create_collapsible_message
+        from telegram.constants import MessageEntityType
+
+        prefix = "Saved: аудио.ogg"
+        content = "Это транскрипция на русском языке"
+        text, entities = create_collapsible_message(prefix, content)
+
+        assert "аудио.ogg" in text
+        assert len(entities) == 1
+        assert entities[0].type == MessageEntityType.EXPANDABLE_BLOCKQUOTE
+
+    def test_create_collapsible_message_empty_content(self):
+        """Test collapsible message with empty content."""
+        from main import create_collapsible_message
+        from telegram.constants import MessageEntityType
+
+        prefix = "Saved: audio.ogg"
+        content = ""
+        text, entities = create_collapsible_message(prefix, content)
+
+        assert text == "Saved: audio.ogg\n\n"
+        assert len(entities) == 1
+        # Entity with zero length for empty content
+        assert entities[0].length == 0
+
+    def test_create_collapsible_message_multiline_content(self):
+        """Test collapsible message with multiline content."""
+        from main import create_collapsible_message
+        from telegram.constants import MessageEntityType
+
+        prefix = "Saved: audio.ogg"
+        content = "Line 1\nLine 2\nLine 3"
+        text, entities = create_collapsible_message(prefix, content)
+
+        assert "Line 1" in text
+        assert "Line 2" in text
+        assert "Line 3" in text
+        assert len(entities) == 1
+        entity = entities[0]
+        assert entity.type == MessageEntityType.EXPANDABLE_BLOCKQUOTE
+        # Offset should be after prefix and newlines
+        assert entity.offset == len(prefix) + 2
+
+
 class TestDescribeImage:
     """Tests for describe_image function."""
 

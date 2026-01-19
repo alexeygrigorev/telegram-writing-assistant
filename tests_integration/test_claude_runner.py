@@ -97,9 +97,9 @@ class TestClaudeRunnerReal:
         assert returncode == 0, f"Claude failed: {stderr}"
         assert "dog" in stdout.lower() or "fox" in stdout.lower()
 
-        # Check for Read tool in progress messages
-        read_messages = [m for m in progress_messages if "Reading:" in m]
-        assert len(read_messages) > 0, "Should have seen a Read tool use"
+        # Check for Read result in progress messages (format is "Read: `filename` (N lines)")
+        read_messages = [m for m in progress_messages if "Read:" in m]
+        assert len(read_messages) > 0, "Should have seen a Read tool result"
 
     def test_claude_runner_event_streaming(self, tmp_path):
         """Test that ClaudeRunner correctly parses event stream."""

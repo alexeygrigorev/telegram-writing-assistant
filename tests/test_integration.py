@@ -278,3 +278,71 @@ class TestClaudeRunnerIntegration:
         assert "system_init" in results
         # "Reading..." messages are now skipped to reduce noise
         assert any("Read:" in r for r in results)
+
+
+class TestProgressTracker:
+    """Tests for ProgressTracker class."""
+
+    @pytest.mark.asyncio
+    async def test_progress_tracker_from_thread(self):
+        """Test ProgressTracker.add_message works from asyncio.to_thread."""
+        from progress_tracker import ProgressTracker
+
+        # Mock bot
+        bot = Mock()
+        bot.send_message = AsyncMock(return_value=Mock(message_id=123))
+        bot.edit_message_text = AsyncMock()
+
+        progress = ProgressTracker(bot, chat_id=123456)
+
+        try:
+            await progress.start()
+
+            # Simulate what happens in process_command: add_message is called from a thread
+            def sync_callback():
+                # This is called from within asyncio.to_thread
+                progress.add_message("📖 Read: test_file.py")
+
+            # Run the callback in a thread (like process_command does with ClaudeRunner)
+            await asyncio.to_thread(sync_callback)
+
+            # Give time for the background coroutine to be processed
+            await asyncio.sleep(1.0)
+
+            # Verify the message was edited
+            assert bot.edit_message_text.called
+
+        finally:
+            await progress.finish()
+
+    @pytest.mark.asyncio
+    async def test_progress_tracker_deduplication(self):
+        """Test that consecutive operations on same file are deduplicated."""
+        from progress_tracker import ProgressTracker
+
+        bot = Mock()
+        bot.send_message = AsyncMock(return_value=Mock(message_id=123))
+        bot.edit_message_text = AsyncMock()
+
+        progress = ProgressTracker(bot, chat_id=123456)
+
+        try:
+            await progress.start()
+
+            # Add same file read multiple times
+            await progress.add_command("📖", "Read: `test_file.py` (10 lines)", "read")
+            await progress.add_command("📖", "Read: `test_file.py` (10 lines)", "read")
+            await progress.add_command("📖", "Read: `test_file.py` (10 lines)", "read")
+
+            # Should only have 1 command (deduplicated)
+            assert len(progress.commands) == 1
+
+        finally:
+            await progress.finish()
+
+    @pytest.mark.asyncio
+    async def test_progress_tracker_max_visible(self):
+        """Test MAX_VISIBLE is set to 10."""
+        from progress_tracker import ProgressTracker
+
+        assert ProgressTracker.MAX_VISIBLE == 10
