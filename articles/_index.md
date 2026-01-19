@@ -28,8 +28,9 @@ Brief description of what this article is about.
 |-------|--------|--------------|-------------|
 | [Telegram Writing Assistant](telegram-writing-assistant.md) | draft | 2026-01-16 | Personal knowledge management system via Telegram |
 | [Voice Transcription with Grok](voice-transcription.md) | draft | 2026-01-16 | Using Grok for fast voice message transcription |
-| [Processing Pipeline](processing-pipeline.md) | draft | 2026-01-16 | Automation workflow for organizing materials into articles |
+| [Processing Pipeline](processing-pipeline.md) | draft | 2026-01-18 | Automation workflow for organizing materials into articles |
 | [Claude Code Experiments](claude-code-experiments.md) | draft | 2026-01-17 | Experiments and applications of Claude Code beyond coding |
+| [Agents Workshop](agents-workshop.md) | draft | 2026-01-19 | Two-day workshop on AI agents based on AI Bootcamp materials |
 
 ---
 

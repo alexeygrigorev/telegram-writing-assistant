@@ -1,7 +1,7 @@
 ---
 title: "Processing Pipeline"
 created: 2026-01-16
-updated: 2026-01-17
+updated: 2026-01-18
 tags: [automation, claude-code, processing, github, testing, debugging]
 status: draft
 ---
@@ -250,6 +250,29 @@ Looking at the Telegram output during processing, there is too much noise. Progr
 
 The goal is to keep only genuinely useful information and reduce the noise level.
 
+### Interactive Progress Messaging
+
+During a 14-minute processing run, the bot posts too many individual messages. While this provides useful feedback during processing, it creates too much clutter. The idea is to make this more interactive[^1]:
+
+Create a single message that updates as processing progresses, rather than posting many separate messages. The message should:
+- Be collapsible so it can be expanded and collapsed
+- Show "working" status at the start, then "done" when complete
+- Update in place instead of creating new posts
+
+This would reduce the number of messages significantly while maintaining visibility into what's happening.
+
+### Consolidating File Read Messages
+
+When the agent reads multiple files, each individual read is shown. For example, when reading 20 input files, each file appears as a separate "read" message. This could be consolidated into a single counter that updates:
+- "Read 10 input files" then "Read 12 input files" then "Read 13 input files"
+- Update every 10 seconds instead of 20
+- Remove duplicate reads of the same file
+- Fix emoji collision where Read and Found look the same
+
+### Collapsible Content for Long Responses
+
+When the agent responds with transcripts or other long content, it takes up too much space. Telegram's `messageEntityBlockquote` can be used to create collapsible quotes[^2]. This would allow long content like transcripts to be collapsed by default and expanded when needed.
+
 ### Processing Time Tracking
 
 The processing takes significant time. The code spends a lot of time analyzing. This is acceptable - speed is not the priority. The system works and saves time overall compared to manual organization.
@@ -316,3 +339,13 @@ For images in forwarded messages, there is an error "Bad request cannot parse en
 - [20260117_104434_AlexeyDTC_transcript.txt](../inbox/used/20260117_104434_AlexeyDTC_transcript.txt)
 - [20260117_104326_AlexeyDTC.jpg](../assets/images/processing-pipeline/processing-complete-summary.jpg)
 - [20260117_104344_AlexeyDTC.jpg](../assets/images/processing-pipeline/testing-debugging-diff.jpg)
+- [20260118_094158_AlexeyDTC_msg293_transcript.txt](../inbox/raw/20260118_094158_AlexeyDTC_msg293_transcript.txt)
+- [20260118_094459_AlexeyDTC_msg295_transcript.txt](../inbox/raw/20260118_094459_AlexeyDTC_msg295_transcript.txt)
+- [20260118_094509_AlexeyDTC_msg297_transcript.txt](../inbox/raw/20260118_094509_AlexeyDTC_msg297_transcript.txt)
+- [20260118_094548_AlexeyDTC_msg299.md](../inbox/raw/20260118_094548_AlexeyDTC_msg299.md)
+- [20260118_094647_AlexeyDTC_msg301_transcript.txt](../inbox/raw/20260118_094647_AlexeyDTC_msg301_transcript.txt)
+- [20260118_175651_AlexeyDTC_msg303.md](../inbox/raw/20260118_175651_AlexeyDTC_msg303.md)
+- [20260118_181053_AlexeyDTC_msg305.md](../inbox/raw/20260118_181053_AlexeyDTC_msg305.md)
+
+[^1]: [20260118_094158_AlexeyDTC_msg293_transcript.txt](../inbox/raw/20260118_094158_AlexeyDTC_msg293_transcript.txt)
+[^2]: [StackOverflow: How to send a message with collapsed long quote with Telegram API](https://stackoverflow.com/questions/79427631/how-to-send-a-message-with-collapsed-long-quote-with-telegram-api)
