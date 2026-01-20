@@ -11,7 +11,9 @@
       "Bash(git commit:*)",
       "Bash(git push)",
       "Bash(uv run pytest:*)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(git pull:*)",
+      "WebSearch"
     ]
   }
 }
