@@ -100,6 +100,16 @@ Students create multiple projects throughout the course including FAQ assistants
 
 The course focuses on PydanticAI as the primary framework. Other frameworks (LangChain, LangGraph, Google ADK, CrewAI, OpenAI Agents SDK) are included as optional materials based on student demand, but the main teaching and examples use PydanticAI.
 
+## Teaching Philosophy
+
+The agents portion starts from the very beginning: building the first agent without any frameworks. This approach ensures students understand what happens inside frameworks before using them. By seeing how tool calling works from scratch, students can:
+
+- Read and understand framework source code
+- Write their own framework if needed for specific requirements
+- Debug issues more effectively when frameworks don't behave as expected
+
+This fundamental understanding is valuable because companies sometimes need to rewrite existing frameworks when they don't support specific use cases. Starting without frameworks then transitioning to them provides both theoretical understanding and practical skills[^5].
+
 ## Sources
 
 - [20260120_135731_AlexeyDTC_msg333_transcript.txt](../inbox/raw/20260120_135731_AlexeyDTC_msg333_transcript.txt)
@@ -109,8 +119,10 @@ The course focuses on PydanticAI as the primary framework. Other frameworks (Lan
 - [20260121_091318_AlexeyDTC_msg353_transcript.txt](../inbox/raw/20260121_091318_AlexeyDTC_msg353_transcript.txt)
 - [20260121_125000_AlexeyDTC_msg359_transcript.txt](../inbox/raw/20260121_125000_AlexeyDTC_msg359_transcript.txt)
 - [20260121_123704_AlexeyDTC_msg357_photo.md](../inbox/used/20260121_123704_AlexeyDTC_msg357_photo.md)
+- [20260122_170642_AlexeyDTC_msg407_transcript.txt](../inbox/raw/20260122_170642_AlexeyDTC_msg407_transcript.txt)
 
 [^1]: [AI Bootcamp: From RAG to Agents](https://maven.com/alexey-grigorev/from-rag-to-agents)
 [^2]: [20260121_091318_AlexeyDTC_msg353_transcript.txt](../inbox/raw/20260121_091318_AlexeyDTC_msg353_transcript.txt)
 [^3]: [20260121_091318_AlexeyDTC_msg353_transcript.txt](../inbox/raw/20260121_091318_AlexeyDTC_msg353_transcript.txt)
 [^4]: [20260121_125000_AlexeyDTC_msg359_transcript.txt](../inbox/raw/20260121_125000_AlexeyDTC_msg359_transcript.txt)
+[^5]: [20260122_170642_AlexeyDTC_msg407_transcript.txt](../inbox/raw/20260122_170642_AlexeyDTC_msg407_transcript.txt)

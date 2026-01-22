@@ -32,6 +32,7 @@ Brief description of what this article is about.
 | [Claude Code Experiments](claude-code-experiments.md) | draft | 2026-01-17 | Experiments and applications of Claude Code beyond coding |
 | [Agents Workshop](agents-workshop.md) | draft | 2026-01-20 | Two-day workshop on AI agents based on AI Bootcamp materials |
 | [AI Bootcamp Course](ai-bootcamp-course.md) | draft | 2026-01-22 | Course curriculum and syllabus for AI Engineering BuildCamp |
+| [Course Material Preparation](course-material-preparation.md) | draft | 2026-01-22 | Workflow for keeping code and documentation in sync |
 
 ---
 
