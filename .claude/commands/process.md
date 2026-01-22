@@ -20,7 +20,22 @@ Process in TWO phases:
 
 3. Read `articles/_index.md` to understand what articles exist
 
-4. For each text/transcript material:
+4. **DECISION: New article or existing article?**
+
+   **Create a NEW article when:**
+   - No existing article covers the topic
+   - Content is about a fundamentally different subject
+   - Adding it would dilute the focus of existing articles
+
+   **Add to EXISTING article when:**
+   - The content extends or supplements what's already there
+   - A reader of that article would expect to find this content
+
+   **The key question:** "If someone came to read about [existing article topic], would they expect to find this new content?"
+   - If yes → add to existing article
+   - If no → create new article
+
+5. For each text/transcript material:
    - **THEMATIC COHERENCE IS CRITICAL**: Each article must have ONE clear topic. Do not mix unrelated content even if messages were sent around the same time.
    - **Content-first grouping**: Do NOT group messages just by timestamp. Group ONLY if:
      1. They were sent around the same time (within 1-2 minutes), AND
@@ -44,9 +59,7 @@ Process in TWO phases:
      - Then incorporate that content into the article
    - Translate to English if needed
    - **Preserve key information** - some summarization is fine as long as we don't lose important details. Keep the core ideas, context, and nuances.
-   - **Decide: existing article OR new article**
-   - Check each existing article's title and content to see if material relates to it
-   - If no existing article matches, create a new article in `articles/`
+   - **Apply the decision framework from step 4** to determine which article to update
    - Incorporate the content into the appropriate article - add it meaningfully in the right section
 
 ## Phase 2: Images (only after Phase 1 is complete)
