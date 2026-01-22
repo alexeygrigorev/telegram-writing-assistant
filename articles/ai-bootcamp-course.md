@@ -100,23 +100,6 @@ Students create multiple projects throughout the course including FAQ assistants
 
 The course focuses on PydanticAI as the primary framework. Other frameworks (LangChain, LangGraph, Google ADK, CrewAI, OpenAI Agents SDK) are included as optional materials based on student demand, but the main teaching and examples use PydanticAI.
 
-## Wikidata MCP Workshop
-
-A recent workshop demonstrated Wikidata MCP in action for fact-checking. The example showed how LLMs have knowledge cutoffs and may hallucinate when asked about current events (like "who is the current president"). By connecting to Wikidata through MCP, the agent can retrieve accurate, up-to-date information[^5].
-
-The workshop covered:
-- Using open language models for fact-checking
-- Retrieving facts from Wikidata as a priori truths
-- Checking how well a claim matches known facts
-- Using one model for reranking to select relevant facts
-- Using a second model to verify truthfulness
-
-In English terminology, the claim is what we're checking, and facts are what we extract from Wikidata (considered a priori true)[^6].
-
-## NOW GmbH Workshop
-
-Xia He-Bleinagel from NOW GmbH hosted a two-day AI agents training session. The workshop covered text search, semantic search, LLM agents, agent tools, and MCP. Participants found that understanding these foundations gives a completely different perspective on what's possible with AI tools. Day 2 focused on building a custom AI agent tool[^7].
-
 ## Sources
 
 - [20260120_135731_AlexeyDTC_msg333_transcript.txt](../inbox/raw/20260120_135731_AlexeyDTC_msg333_transcript.txt)
@@ -125,15 +108,9 @@ Xia He-Bleinagel from NOW GmbH hosted a two-day AI agents training session. The 
 - [20260120_135830_AlexeyDTC_msg338.md](../inbox/raw/20260120_135830_AlexeyDTC_msg338.md)
 - [20260121_091318_AlexeyDTC_msg353_transcript.txt](../inbox/raw/20260121_091318_AlexeyDTC_msg353_transcript.txt)
 - [20260121_125000_AlexeyDTC_msg359_transcript.txt](../inbox/raw/20260121_125000_AlexeyDTC_msg359_transcript.txt)
-- [20260121_114016_AlexeyDTC_msg355_transcript.txt](../inbox/raw/20260121_114016_AlexeyDTC_msg355_transcript.txt)
-- [20260120_174345_AlexeyDTC_msg351.md](../inbox/raw/20260120_174345_AlexeyDTC_msg351.md)
-- [20260122_155148_AlexeyDTC_msg395.md](../inbox/raw/20260122_155148_AlexeyDTC_msg395.md)
 - [20260121_123704_AlexeyDTC_msg357_photo.md](../inbox/used/20260121_123704_AlexeyDTC_msg357_photo.md)
 
 [^1]: [AI Bootcamp: From RAG to Agents](https://maven.com/alexey-grigorev/from-rag-to-agents)
 [^2]: [20260121_091318_AlexeyDTC_msg353_transcript.txt](../inbox/raw/20260121_091318_AlexeyDTC_msg353_transcript.txt)
 [^3]: [20260121_091318_AlexeyDTC_msg353_transcript.txt](../inbox/raw/20260121_091318_AlexeyDTC_msg353_transcript.txt)
 [^4]: [20260121_125000_AlexeyDTC_msg359_transcript.txt](../inbox/raw/20260121_125000_AlexeyDTC_msg359_transcript.txt)
-[^5]: [20260121_114016_AlexeyDTC_msg355_transcript.txt](../inbox/raw/20260121_114016_AlexeyDTC_msg355_transcript.txt)
-[^6]: [20260121_114016_AlexeyDTC_msg355_transcript.txt](../inbox/raw/20260121_114016_AlexeyDTC_msg355_transcript.txt)
-[^7]: [20260120_174345_AlexeyDTC_msg351.md](../inbox/raw/20260120_174345_AlexeyDTC_msg351.md)

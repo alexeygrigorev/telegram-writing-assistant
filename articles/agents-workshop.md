@@ -93,6 +93,19 @@ The workshop went well. Participants were engaged and the material flowed natura
   <!-- This shows the collaborative learning environment -->
 </figure>
 
+## Wikidata MCP Workshop
+
+A workshop demonstrated Wikidata MCP (Model Context Protocol) in action for fact-checking with language models. The example showed how LLMs have knowledge cutoffs and may hallucinate when asked about current events like "who is the current president". By connecting to Wikidata through MCP, the agent can retrieve accurate, up-to-date information[^1].
+
+The workshop covered:
+- Using open language models for fact-checking
+- Retrieving facts from Wikidata as a priori truths
+- Checking how well a claim matches known facts
+- Using one model for reranking to select relevant facts from Wikidata
+- Using a second model to verify truthfulness of the claim
+
+In English terminology, the claim is what is being verified, and facts are what is extracted from Wikidata (considered a priori true)[^2].
+
 ## Related Courses
 
 This workshop content is based on materials from:
@@ -105,4 +118,8 @@ This workshop content is based on materials from:
 - [20260120_135731_AlexeyDTC_msg333_transcript.txt](../inbox/raw/20260120_135731_AlexeyDTC_msg333_transcript.txt)
 - [20260120_135931_AlexeyDTC_msg341_transcript.txt](../inbox/raw/20260120_135931_AlexeyDTC_msg341_transcript.txt)
 - [20260120_140020_AlexeyDTC_msg345_transcript.txt](../inbox/raw/20260120_140020_AlexeyDTC_msg345_transcript.txt)
+- [20260121_114016_AlexeyDTC_msg355_transcript.txt](../inbox/raw/20260121_114016_AlexeyDTC_msg355_transcript.txt)
 - [now-workshop-agents](https://github.com/alexeygrigorev/now-workshop-agents)
+
+[^1]: [20260121_114016_AlexeyDTC_msg355_transcript.txt](../inbox/raw/20260121_114016_AlexeyDTC_msg355_transcript.txt)
+[^2]: [20260121_114016_AlexeyDTC_msg355_transcript.txt](../inbox/raw/20260121_114016_AlexeyDTC_msg355_transcript.txt)

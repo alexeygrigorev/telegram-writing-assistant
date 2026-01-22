@@ -21,9 +21,18 @@ Process in TWO phases:
 3. Read `articles/_index.md` to understand what articles exist
 
 4. For each text/transcript material:
+   - **THEMATIC COHERENCE IS CRITICAL**: Each article must have ONE clear topic. Do not mix unrelated content even if messages were sent around the same time.
    - **Content-first grouping**: Do NOT group messages just by timestamp. Group ONLY if:
      1. They were sent around the same time (within 1-2 minutes), AND
      2. They are THEMATICALLY RELATED (same topic, same article context)
+   - **Examples of WRONG grouping**:
+     - Putting workshop content in a course article
+     - Putting course curriculum updates in a workshop article
+     - Putting agent examples in a general Telegram assistant article
+   - **Examples of CORRECT grouping**:
+     - All course-related content (curriculum, frameworks, naming) goes in AI Bootcamp Course article
+     - All workshop-related content (any workshop) goes in Agents Workshop article
+     - Telegram assistant development goes in Telegram Writing Assistant article
    - If messages sent together are about different topics, create SEPARATE articles
    - **Context-aware grouping**: If the message is short or unclear, look at nearby messages by timestamp (within ~1-2 minutes) to understand the full context
    - Check frontmatter `date` field to find messages sent around the same time
