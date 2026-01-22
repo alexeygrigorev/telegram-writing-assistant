@@ -342,7 +342,7 @@ class TestProgressTracker:
 
     @pytest.mark.asyncio
     async def test_progress_tracker_max_visible(self):
-        """Test MAX_VISIBLE is set to 10."""
+        """Test MAX_VISIBLE is set to 7."""
         from progress_tracker import ProgressTracker
 
-        assert ProgressTracker.MAX_VISIBLE == 10
+        assert ProgressTracker.MAX_VISIBLE == 7

@@ -22,7 +22,7 @@ class ProgressTracker:
     """
 
     # Maximum visible commands before collapsing
-    MAX_VISIBLE = 10
+    MAX_VISIBLE = 7
 
     # Emojis for different operations
     EMOJI_READ = "📖"
