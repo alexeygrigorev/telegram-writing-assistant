@@ -12,7 +12,7 @@ Check `inbox/raw/` for new materials (text, transcripts, photos).
 
 Process in TWO phases:
 
-## Phase 1: Text Content (voice transcripts, text messages)
+## Phase 1: Text Content
 
 1. Read all files in `inbox/raw/`
 
@@ -20,47 +20,29 @@ Process in TWO phases:
 
 3. Read `articles/_index.md` to understand what articles exist
 
-4. **DECISION: New article or existing article?**
+4. For each text/transcript material:
 
-   **Create a NEW article when:**
-   - No existing article covers the topic
-   - Content is about a fundamentally different subject
-   - Adding it would dilute the focus of existing articles
+   Understanding context
 
-   **Add to EXISTING article when:**
-   - The content extends or supplements what's already there
-   - A reader of that article would expect to find this content
+   If a message is short or unclear:
+   - Look at nearby messages by timestamp (within 1-2 minutes)
+   - Check frontmatter date field for related messages
+   - Read related voice notes, text, and photos together
 
-   **The key question:** "If someone came to read about [existing article topic], would they expect to find this new content?"
-   - If yes → add to existing article
-   - If no → create new article
+   Handling URLs
 
-5. For each text/transcript material:
-   - **THEMATIC COHERENCE IS CRITICAL**: Each article must have ONE clear topic. Do not mix unrelated content even if messages were sent around the same time.
-   - **Content-first grouping**: Do NOT group messages just by timestamp. Group ONLY if:
-     1. They were sent around the same time (within 1-2 minutes), AND
-     2. They are THEMATICALLY RELATED (same topic, same article context)
-   - **Examples of WRONG grouping**:
-     - Putting workshop content in a course article
-     - Putting course curriculum updates in a workshop article
-     - Putting agent examples in a general Telegram assistant article
-   - **Examples of CORRECT grouping**:
-     - All course-related content (curriculum, frameworks, naming) goes in AI Bootcamp Course article
-     - All workshop-related content (any workshop) goes in Agents Workshop article
-     - Telegram assistant development goes in Telegram Writing Assistant article
-   - If messages sent together are about different topics, create SEPARATE articles
-   - **Context-aware grouping**: If the message is short or unclear, look at nearby messages by timestamp (within ~1-2 minutes) to understand the full context
-   - Check frontmatter `date` field to find messages sent around the same time
-   - Read related voice notes, text, and photos together to get complete picture
-   - **URL handling**: If a message contains only a URL, fetch its content using Jina Reader:
-     - Use curl: `curl "https://r.jina.ai/{original_url}"`
-     - Example: `curl "https://r.jina.ai/https://datatalks.club"`
-     - This returns clean markdown content from the page
-     - Then incorporate that content into the article
+   If a message contains a URL, fetch its content using Jina Reader:
+   ```bash
+   curl "https://r.jina.ai/{original_url}"
+   ```
+   Then incorporate that content into the appropriate article.
+
+   Final processing
+
    - Translate to English if needed
-   - **Preserve key information** - some summarization is fine as long as we don't lose important details. Keep the core ideas, context, and nuances.
-   - **Apply the decision framework from step 4** to determine which article to update
-   - Incorporate the content into the appropriate article - add it meaningfully in the right section
+   - Preserve key information: some summarization is fine, but keep core ideas and details
+   - Apply the grouping rules below to choose the article
+   - Incorporate content meaningfully in the right section
 
 ## Phase 2: Images (only after Phase 1 is complete)
 
@@ -69,24 +51,24 @@ Process in TWO phases:
 2. For each photo in `inbox/raw/`:
    - Read its markdown description file (contains Type, Content, Text, Context) - this is the ONLY source for image content, DO NOT use any vision/analyze_image tools
    - Look at messages sent before/after by timestamp for context
-   - **If articles exist**: Find the most relevant section and add the image
-   - **If no articles exist yet**: Defer the image
+   - If articles exist: Find the most relevant section and add the image
+   - If no articles exist yet: Defer the image
 
 3. When placing an image in an article:
-   - **Rename the image** to a descriptive name based on its content (e.g., `project-summary-slide.jpg`, `terminal-install-groq.jpg`, `claude-process-command.jpg`)
+   - Rename the image to a descriptive name based on its content (e.g., `project-summary-slide.jpg`, `terminal-install-groq.jpg`, `claude-process-command.jpg`)
    - Move the image from `inbox/raw/` to `assets/images/{article_name}/` (create folder if needed)
    - Update image reference in article to point to new location with new filename
-   - **Update the markdown description file** in `inbox/used/` with new frontmatter fields:
+   - Update the markdown description file in `inbox/used/` with new frontmatter fields:
      - `original_image: TIMESTAMP_USERNAME.jpg`
      - `final_location: ../assets/images/{article_name}/descriptive-name.jpg`
    - Move the markdown description file to `inbox/used/`
 
 4. Finding the RIGHT location for an image within an article:
-   - **Use timestamp as primary signal**: Look at the image's date from frontmatter and find text content that was created around the same time
-   - **Use context**: Read the image description (Type, Content, Text, Context) to understand what the image shows
-   - **Find related section**: Search the article for content that matches the image's subject matter
-   - **Place strategically**: Insert the figure NEAR the relevant text, not at the end. The text around should relate to what's in the image
-   - **Example**: If image shows a terminal screenshot of installing a dependency, place it near the section about setup/dependencies, not at the end
+   - Use timestamp as primary signal: Look at the image's date from frontmatter and find text content that was created around the same time
+   - Use context: Read the image description (Type, Content, Text, Context) to understand what the image shows
+   - Find related section: Search the article for content that matches the image's subject matter
+   - Place strategically: Insert the figure NEAR the relevant text, not at the end. The text around should relate to what's in the image
+   - Example: If image shows a terminal screenshot of installing a dependency, place it near the section about setup/dependencies, not at the end
 
 5. If image cannot be placed:
    - Move the image to `assets/images/_unused/` (create folder if needed)
@@ -103,19 +85,55 @@ Process in TWO phases:
 
 7. Track which images were placed and which were deferred
 
+# GROUPING RULES
+
+CORE PRINCIPLE: Each article must have ONE clear topic. Do not mix unrelated content even if messages were sent around the same time.
+
+## When to group messages together
+
+Messages should be grouped together ONLY when BOTH conditions are met:
+- Sent around the same time (within 1-2 minutes)
+- Thematically related (same topic, same article context)
+
+If messages sent together are about different topics, create SEPARATE articles.
+
+## Where content goes
+
+Read all existing articles first. For each piece of content, ask:
+
+- Does this content extend an existing article's topic?
+- Would a reader of that article expect to find this information?
+
+If yes, add it there. If no article matches, create a new one.
+
+Each article should have a single, clear focus. Don't force unrelated content into an existing article just because it exists.
+
+## New or existing article
+
+Create a NEW article when:
+- No existing article covers the topic
+- Content is about a fundamentally different subject
+- Adding it would dilute the focus of existing articles
+
+Add to EXISTING article when:
+- The content extends or supplements what's already there
+- A reader of that article would expect to find this content
+
+The key question: "If someone came to read about [existing article topic], would they expect to find this new content?"
+
 # OUTPUT FORMAT
 
-**Articles are in: `articles/` folder**
+Articles are in: `articles/` folder
 
-**Styling guidelines:**
+Styling guidelines:
 - Language: English only (translate from Russian/mixed if needed)
-- No bold formatting (`**text**`)
-- No `---` section separators
+- No bold formatting
+- No horizontal rule separators
 - Use short, clear sentences - break up long sentences
-- You are a **curator**, not a writer - organize findings, don't rewrite
+- You are a curator, not a writer - organize findings, don't rewrite
 - Preserve original meaning and ALL details from voice notes
 
-**Article frontmatter:**
+Article frontmatter:
 ```markdown
 ---
 title: "Article Title"
@@ -126,7 +144,7 @@ status: draft
 ---
 ```
 
-**Inline source citations** - when incorporating content from a source:
+Inline source citations - when incorporating content from a source:
 1. Add inline citation `[^N]` where the content is used
 2. List all sources at the bottom with clickable links
 
@@ -142,7 +160,7 @@ Initial workflow concept included an input pool of tasks[^2].
 [^2]: [20260117_105343_AlexeyDTC_transcript.txt](../inbox/raw/20260117_105343_AlexeyDTC_transcript.txt)
 ```
 
-**Each article section MUST have sources listed at the bottom** with inline citations in the text.
+Each article section MUST have sources listed at the bottom with inline citations in the text.
 
 # SUMMARY REPORT
 

@@ -70,24 +70,7 @@ uv run python manage.py test
 
 ## One-time tests and debug scripts
 
-
 One-time scripts and temporary files should be in .tmp. It's in .gitignore so we won't accidentally commit it to git.
-
-## Sources for Workshop Content
-
-All workshop content is based on materials from these repositories:
-
-Local paths (for reference):
-- ~/git/workshops
-- ~/git/ai-bootcamp
-- ~/git/toyaikit
-- ~/git/ai-book-generator
-
-URLs:
-- https://github.com/alexeygrigorev/workshops - Primary source for coding agent examples, Groq API usage, dirdotenv setup
-- https://github.com/alexeygrigorev/ai-bootcamp - RAG examples, structured output, PydanticAI patterns
-- https://github.com/alexeygrigorev/toyaikit - Anthropic/Claude API examples, toyaiakit framework usage
-- https://github.com/alexeygrigorev/ai-book-generator - Google Gemini API examples, cost tracking patterns
 
 ## Style Guide
 
