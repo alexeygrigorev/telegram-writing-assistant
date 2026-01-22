@@ -145,7 +145,8 @@ async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> N
         "Send me:\n"
         "• Text messages → saved as markdown\n"
         "• Voice messages → transcribed and saved\n"
-        "• Photos → saved to assets/images\n\n"
+        "• Photos → saved to assets/images\n"
+        "• Files → saved, text files include content\n\n"
         "Use /process to analyze accumulated materials and update articles."
     )
 
@@ -347,6 +348,88 @@ async def handle_photo_message(update: Update, context: ContextTypes.DEFAULT_TYP
         await update.message.reply_text(f"Error: {type(e).__name__}: {e}", parse_mode=None)
 
 
+async def handle_document_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Handle incoming document/file messages."""
+    if not is_allowed_chat(update):
+        return
+    try:
+        user = update.effective_user
+        document = update.message.document
+        caption = update.message.caption
+        msg_date = update.message.date
+        msg_id = update.message.message_id
+
+        # Get file info
+        file_name = document.file_name
+        file = await document.get_file()
+        file_path = file.file_path
+
+        # Create base filename
+        base_name = get_filename(msg_date, msg_id, user.username)
+        extension = Path(file_name).suffix if Path(file_name).suffix else '.txt'
+        saved_filename = INBOX_RAW / f"{base_name}{extension}"
+
+        # Download the file
+        async with httpx.AsyncClient() as client:
+            response = await client.get(file_path)
+            with open(saved_filename, "wb") as f:
+                f.write(response.content)
+
+        # For text files, read content and include in markdown
+        text_content = None
+        text_extensions = {'.txt', '.md', '.py', '.js', '.ts', '.json', '.yaml', '.yml', '.csv', '.log', '.sh', '.bash'}
+        if extension.lower() in text_extensions:
+            try:
+                with open(saved_filename, "r", encoding="utf-8") as f:
+                    text_content = f.read()
+            except UnicodeDecodeError:
+                # Binary file, skip text reading
+                pass
+
+        # Create markdown file with same format as text messages
+        md_filename = INBOX_RAW / f"{base_name}.md"
+
+        # Build frontmatter
+        frontmatter = [
+            "---",
+            "source: telegram_file",
+            f"date: {msg_date.isoformat()}",
+            f"user_id: {user.id}",
+            f"username: {user.username or 'unknown'}",
+            f"original_filename: {file_name}",
+            "---",
+            "",
+        ]
+
+        # Add caption if present
+        content_parts = []
+        if caption:
+            content_parts.append(caption)
+            content_parts.append("")
+
+        # Add file content if available
+        if text_content is not None:
+            content_parts.append(text_content)
+
+        # Write markdown file
+        with open(md_filename, "w", encoding="utf-8") as f:
+            f.write("\n".join(frontmatter))
+            if content_parts:
+                f.write("\n".join(content_parts))
+
+        # Reply with file info
+        reply_text = f"Saved: {file_name}"
+        if text_content:
+            # Include content preview in collapsible blockquote
+            preview = text_content[:500] + "..." if len(text_content) > 500 else text_content
+            text, entities = create_collapsible_message(reply_text, preview, max_length=500)
+            await update.message.reply_text(text, entities=entities)
+        else:
+            await update.message.reply_text(reply_text, parse_mode=None)
+    except Exception as e:
+        await update.message.reply_text(f"Error: {type(e).__name__}: {e}", parse_mode=None)
+
+
 async def error_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Log errors and send details to chat."""
     error = context.error
@@ -523,6 +606,7 @@ def main() -> None:
     application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_text_message))
     application.add_handler(MessageHandler(filters.VOICE, handle_voice_message))
     application.add_handler(MessageHandler(filters.PHOTO, handle_photo_message))
+    application.add_handler(MessageHandler(filters.Document.ALL, handle_document_message))
 
     # Register error handler
     application.add_error_handler(error_handler)

@@ -1,0 +1,12 @@
+---
+source: telegram_voice
+date: 2026-01-22T14:15:20+00:00
+user_id: 129835960
+username: valeriia_kuka
+audio_file: 20260122_141520_valeriia_kuka_msg380.ogg
+---
+
+Вот тут тоже речь идет про агента, который Алексей хотел сделать, Telegram Writing Assistant, и про
+его Origin Story, а потом вдруг добавляется заметка, секция про Article Structure, которая не
+касается напрямую описания самого ассистента. И отдельная заметка про Vision Agent Control via
+Telegram. То есть, вот эти две последних секции не совсем связаны с изначальной идеей статьи.

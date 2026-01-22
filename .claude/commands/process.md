@@ -21,6 +21,10 @@ Process in TWO phases:
 3. Read `articles/_index.md` to understand what articles exist
 
 4. For each text/transcript material:
+   - **Content-first grouping**: Do NOT group messages just by timestamp. Group ONLY if:
+     1. They were sent around the same time (within 1-2 minutes), AND
+     2. They are THEMATICALLY RELATED (same topic, same article context)
+   - If messages sent together are about different topics, create SEPARATE articles
    - **Context-aware grouping**: If the message is short or unclear, look at nearby messages by timestamp (within ~1-2 minutes) to understand the full context
    - Check frontmatter `date` field to find messages sent around the same time
    - Read related voice notes, text, and photos together to get complete picture

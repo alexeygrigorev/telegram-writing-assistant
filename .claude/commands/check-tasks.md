@@ -1,22 +1,40 @@
 ---
-description: Check voice transcripts for tasks and create execution plan
+description: Check all inbox materials for tasks and create execution plan
 ---
 
-You are scanning voice transcripts from the Telegram inbox to identify any actionable tasks or things to do.
+You are scanning ALL materials from the Telegram inbox to identify any actionable tasks or things to do.
 
 # INPUT
 
-Check `inbox/raw/` for transcript files (files ending in `_transcript.txt`).
+Check `inbox/raw/` for ALL files:
+- Transcript files (ending in `_transcript.txt`)
+- Text messages (ending in `.md`)
+- Photo descriptions (ending in `_photo.md`)
 
 # TASK EXTRACTION
 
-For each transcript file:
+For each file:
 
 1. Read the file content (skip frontmatter between `---` markers)
 
-2. Scan through the text and identify any tasks, action items, or things that need to be done
+2. Scan through the text and identify:
+   - Direct tasks and action items
+   - Implicit requests
+   - Ideas for improvements
+   - Bug reports
+   - Feature suggestions
+   - Content to create (posts, articles, social media)
+   - Process changes needed
 
-3. Look for implicit requests, ideas for improvements, bug reports, feature suggestions
+3. For photo descriptions: look for:
+   - Issues identified in screenshots
+   - Visual feedback on article structure
+   - Examples of problems to fix
+
+4. For text messages: look for:
+   - Links to review (LinkedIn, etc.)
+   - Questions that imply action needed
+   - Ideas and suggestions
 
 # OUTPUT
 
@@ -49,7 +67,10 @@ Prioritized list of actionable tasks:
 [Any observations about dependencies, complexity, or suggestions]
 ```
 
-Be smart about extracting tasks - not everything is a task. Look for genuine action items.
+Be smart about extracting tasks - not everything is a task. Look for genuine action items. Distinguish between:
+- Tasks requiring code/process changes
+- Content creation tasks (articles, posts)
+- Ideas for future consideration
 
 # NOTES
 
@@ -57,3 +78,5 @@ Be smart about extracting tasks - not everything is a task. Look for genuine act
 - This command does NOT commit anything to git
 - This command does NOT move files (only /process does that)
 - The plan is displayed to user only
+- Group related tasks together (e.g., all article organization fixes together)
+- Prioritize: Critical fixes > Content creation > Future ideas

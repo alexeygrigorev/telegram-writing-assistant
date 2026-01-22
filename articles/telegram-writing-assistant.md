@@ -1,14 +1,14 @@
 ---
 title: "Telegram Writing Assistant"
 created: 2026-01-16
-updated: 2026-01-17
+updated: 2026-01-22
 tags: [telegram, bot, knowledge-management, automation]
 status: draft
 ---
 
 # Telegram Writing Assistant
 
-A personal knowledge management system where you send thoughts to Telegram (text, voice, images) and a bot saves everything locally, processes it, and organizes it into articles.
+A personal knowledge management system where you send thoughts to Telegram (text, voice, images, files) and a bot saves everything locally, processes it, and organizes it into articles.
 
 ## Core Idea
 
@@ -36,13 +36,17 @@ Instead of doing this manually, I wanted an agent to handle the organization. I 
 
 ## Workflow
 
-1. Send materials to Telegram bot (text, voice, images)
+1. Send materials to Telegram bot (text, voice, images, files)
 2. Bot saves everything locally to inbox/raw/
 3. Run /process command to organize materials
 4. Claude analyzes accumulated materials
 5. Updates existing articles or creates new ones
 6. Commits to GitHub
 7. Sends commit link back to Telegram
+
+## File Processing
+
+The bot can now process files in addition to text, voice, and images. When a file is sent to the bot, it saves the file and creates an accompanying markdown file with metadata including the original filename, caption, and content. This allows the processor to incorporate file contents into articles[^1].
 
 ## Language Handling
 
@@ -52,23 +56,12 @@ I usually write texts in English, I have a Substack where I write in English. Fo
 
 Target language for articles is English. Voice messages can be in any language, but articles should only be in English. When processing, Claude should translate everything to English.
 
-## Article Structure
-
-Each article must include a list of source materials. This is important for cleanup when an article is deleted, so we can easily delete old resources we no longer need, like old transcripts.
-
-## Vision: Agent Control via Telegram
-
-I really like the approach where I can just give the agent instructions on the go. Like the scenario described in the article - at a tram stop, just telling the agent what to do, and it does it.
-
-Currently this works through GitHub Actions, which is fine. But it requires opening Copilot, opening GitHub, creating an issue, and assigning it to Copilot. That's a lot of friction.
-
-Telegram would be a much more convenient interface. Just record a voice message like "go to GitHub, look at this project, check the issues, people are complaining about X, let's fix it." Or "check Slack, there's a screenshot, let's fix that." Just giving commands to agents on the go through voice, and they execute them.
-
-This is the long-term vision. I don't know if it will work out, but it's an idea I'm exploring. Working on this writing assistant is bringing me closer to that vision of controlling my agents through Telegram. It's turning from an abstract idea into something more concrete.
-
 ## Sources
 - [20260116_210119_AlexeyDTC_transcript.txt](../inbox/raw/20260116_210119_AlexeyDTC_transcript.txt)
 - [20260116_210336_AlexeyDTC_transcript.txt](../inbox/raw/20260116_210336_AlexeyDTC_transcript.txt)
 - [20260116_205911_AlexeyDTC_photo.md](../inbox/used/20260116_205911_AlexeyDTC_photo.md)
 - [20260117_064726_AlexeyDTC_transcript.txt](../inbox/raw/20260117_064726_AlexeyDTC_transcript.txt)
 - [20260117_071038_AlexeyDTC_transcript.txt](../inbox/raw/20260117_071038_AlexeyDTC_transcript.txt)
+- [20260122_155237_AlexeyDTC_msg397.md](../inbox/raw/20260122_155237_AlexeyDTC_msg397.md)
+
+[^1]: [20260122_155237_AlexeyDTC_msg397.md](../inbox/raw/20260122_155237_AlexeyDTC_msg397.md)

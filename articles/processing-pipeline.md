@@ -300,6 +300,22 @@ When a message contains only a URL, we should use Jina Reader to fetch and analy
 
 Short messages or unclear content should be processed in context. Look at nearby messages by timestamp (within 1-2 minutes) to understand the full picture. Check the date field in frontmatter to find messages sent around the same time. Read related voice notes, text, and photos together to get the complete picture.
 
+### Content-First Grouping Principle
+
+Messages sent at the same time should not automatically be grouped together. Grouping should consider both timing AND thematic relationship. If messages sent together are about different topics, they should create separate articles[^3].
+
+For example, a message about the processing pipeline and another about the AI Bootcamp course were sent together but don't relate to each other - they should become separate articles. The processor must look at both time and content when grouping[^4].
+
+### Article Organization Principles
+
+Each article should follow a logical structure with internally consistent content. When a voice note or message discusses the Telegram Writing Assistant's origin story, the article should contain only content related to that assistant - workflow, origin story, architecture. Content about article structure or vision agents that doesn't directly relate to the assistant description should be in separate articles[^5].
+
+Materials shared for articles (experience, events, notes) can be used for Substack newsletters or social media posts. Instructions and requests to the bot should be handled separately[^6].
+
+### Social Media Posts Folder
+
+As an idea, create a separate folder on GitHub for social media posts. This would contain ideas and drafts for posts based on shared ideas and existing articles. The folder would organize content specifically for social media distribution[^7].
+
 ### Forwarded Message Handling
 
 When forwarding messages to the Telegram bot, all forwarded messages have the same timestamp. This causes files to overwrite each other. We need to add a unique identifier - perhaps the message ID - to ensure each forwarded message gets its own file.
@@ -321,68 +337,6 @@ The display should be limited to the last 10 messages instead of 15-20, to reduc
 ### Repeated Operation Filtering
 
 When the same operation appears multiple times in quick succession (like "processing-pipeline.md" appearing three times in a row), these should be consolidated. The progress tracker should detect consecutive identical operations and display them once with a count instead of repeating.
-
-## AI Bootcamp Course
-
-The AI Bootcamp "From RAG to Agents" course is a comprehensive 6-week program that takes students from core concepts to production-grade AI systems. The first iteration had 49 participants, and their feedback was incorporated into an updated syllabus[^3].
-
-### Course Structure
-
-The course is redesigned with 90% of materials re-recorded based on prior cohort feedback. It's longer but less dense, and more focused.
-
-Week 1 covers LLMs and RAG foundations:
-- Course overview and logistics
-- Environment preparation with GitHub Codespaces
-- AI-assisted development tools (ChatGPT, GitHub Copilot, Codex, Antigravity)
-- OpenAI API basics and responses
-- RAG (Retrieval-Augmented Generation) introduction
-- Building a document assistant with RAG
-- Structured output and vector search
-- Alternatives to OpenAI (Groq, Anthropic, Gemini, Z.ai)
-- Advanced chunking techniques
-
-Week 2 is a buffer week for environment setup, with optional content on other use cases and external databases.
-
-Week 3 focuses on agents:
-- Introduction to agents and agentic RAG
-- Agent tool-call loop foundation
-- Pydantic AI framework
-- Multi-agent systems (linear execution, agents as tools)
-- Model-Context Protocol (MCP) for tool integration
-
-Week 4 covers testing for agents:
-- Converting Jupyter notebooks to Python projects
-- Writing agent tests
-- Tracking usage and costs
-- Testing with structured output
-- LLM judges for agent testing
-
-Week 5 covers monitoring:
-- Pydantic Logfire for observability
-- OpenTelemetry and Jaeger
-- DIY logging and monitoring with Postgres and Streamlit
-- Grafana dashboards
-- Other observability platforms (Evidently, LangWatch)
-
-Week 6 focuses on evaluation:
-- Manual log evaluation
-- Synthetic data generation
-- Retrieval evaluation
-- LLM judges for evaluation
-- Prompt optimization with evaluator pattern
-- Selecting chunking approaches with evals
-
-Weeks 7-9 are bonus and use case materials:
-- Guardrails (input/output validation with OpenAI Agents SDK and Pydantic AI)
-- Deployment (Streamlit, Render, AWS)
-- Building a coding agent from scratch
-- Deep research agent
-- Other use cases (FAQ assistant, code explainer, book writer)
-- Project work and demos
-
-### Student Projects
-
-Students create multiple projects throughout the course including FAQ assistants, YouTube Q&A systems, documentation agents, coding agents, and deep research agents. All projects can be viewed on the course website.
 
 ## Sources
 - [20260117_103849_AlexeyDTC_transcript.txt](../inbox/raw/20260117_103849_AlexeyDTC_transcript.txt)
@@ -428,11 +382,17 @@ Students create multiple projects throughout the course including FAQ assistants
 - [20260119_170601_AlexeyDTC_msg325.md](../inbox/raw/20260119_170601_AlexeyDTC_msg325.md)
 - [20260119_170720_AlexeyDTC_msg326_transcript.txt](../inbox/raw/20260119_170720_AlexeyDTC_msg326_transcript.txt)
 - [20260119_170739_AlexeyDTC_msg327_transcript.txt](../inbox/raw/20260119_170739_AlexeyDTC_msg327_transcript.txt)
-- [20260120_135731_AlexeyDTC_msg333_transcript.txt](../inbox/raw/20260120_135731_AlexeyDTC_msg333_transcript.txt)
-- [20260120_135733_AlexeyDTC_msg334.md](../inbox/raw/20260120_135733_AlexeyDTC_msg334.md)
-- [20260120_135830_AlexeyDTC_msg337.md](../inbox/raw/20260120_135830_AlexeyDTC_msg337.md)
-- [20260120_135830_AlexeyDTC_msg338.md](../inbox/raw/20260120_135830_AlexeyDTC_msg338.md)
+- [20260122_140250_AlexeyDTC_msg377_transcript.txt](../inbox/raw/20260122_140250_AlexeyDTC_msg377_transcript.txt)
+- [20260122_141520_valeriia_kuka_msg380_transcript.txt](../inbox/raw/20260122_141520_valeriia_kuka_msg380_transcript.txt)
+- [20260122_141704_valeriia_kuka_msg381_transcript.txt](../inbox/raw/20260122_141704_valeriia_kuka_msg381_transcript.txt)
+- [20260122_141807_valeriia_kuka_msg382_transcript.txt](../inbox/raw/20260122_141807_valeriia_kuka_msg382_transcript.txt)
+- [20260122_141958_valeriia_kuka_msg384_transcript.txt](../inbox/raw/20260122_141958_valeriia_kuka_msg384_transcript.txt)
+- [20260122_142146_valeriia_kuka_msg385_transcript.txt](../inbox/raw/20260122_142146_valeriia_kuka_msg385_transcript.txt)
 
 [^1]: [20260118_094158_AlexeyDTC_msg293_transcript.txt](../inbox/raw/20260118_094158_AlexeyDTC_msg293_transcript.txt)
 [^2]: [StackOverflow: How to send a message with collapsed long quote with Telegram API](https://stackoverflow.com/questions/79427631/how-to-send-a-message-with-collapsed-long-quote-with-telegram-api)
-[^3]: [AI Bootcamp: From RAG to Agents](https://maven.com/alexey-grigorev/from-rag-to-agents)
+[^3]: [20260122_140250_AlexeyDTC_msg377_transcript.txt](../inbox/raw/20260122_140250_AlexeyDTC_msg377_transcript.txt)
+[^4]: [20260122_141958_valeriia_kuka_msg384_transcript.txt](../inbox/raw/20260122_141958_valeriia_kuka_msg384_transcript.txt)
+[^5]: [20260122_141520_valeriia_kuka_msg380_transcript.txt](../inbox/raw/20260122_141520_valeriia_kuka_msg380_transcript.txt)
+[^6]: [20260122_141704_valeriia_kuka_msg381_transcript.txt](../inbox/raw/20260122_141704_valeriia_kuka_msg381_transcript.txt)
+[^7]: [20260122_142146_valeriia_kuka_msg385_transcript.txt](../inbox/raw/20260122_142146_valeriia_kuka_msg385_transcript.txt)
