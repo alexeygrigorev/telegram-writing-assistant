@@ -1,24 +1,24 @@
 ---
-title: "Voice Transcription with Grok"
+title: "Voice Transcription with Groq"
 created: 2026-01-16
-updated: 2026-01-16
-tags: [transcription, grok, whisper, voice, telegram]
+updated: 2026-01-23
+tags: [transcription, groq, whisper, voice, telegram]
 status: draft
 ---
 
-# Voice Transcription with Grok
+# Voice Transcription with Groq
 
-Using Grok's Whisper implementation for fast voice message transcription.
+Using Groq's Whisper implementation for fast voice message transcription.
 
 ## Transcription Speed
 
-I just added a function for the bot that outputs everything I say into the chat immediately, that is, it outputs the transcript to the chat. Transcription is done using Grok, and I'm surprised at how fast it is. I only finish recording a message and immediately see the transcript.
+I just added a function for the bot that outputs everything I say into the chat immediately, that is, it outputs the transcript to the chat. Transcription is done using Groq, and I'm surprised at how fast it is. I only finish recording a message and immediately see the transcript.
 
 I just recorded a message a whole minute long, it was processed in 3-4 seconds. I just recorded it and immediately see the transcript. Telegram's built-in transcription works slowly. I'm very impressed at how fast and well the transcript from Whisper works.
 
 ## Cost
 
-I'm using Grok for transcription. It's very cool. So far, everything is free, I don't pay anything for it. I don't need to run Whisper locally myself. That would, of course, take longer and not be as cool. I just send a request to Grok, and so far the free plan is sufficient. I don't know, I might eventually exceed the free tier, but for all the voice messages I've recorded so far, they were all transcribed for free.
+I'm using Groq for transcription. It's very cool. So far, everything is free, I don't pay anything for it. I don't need to run Whisper locally myself. That would, of course, take longer and not be as cool. I just send a request to Groq, and so far the free plan is sufficient. I don't know, I might eventually exceed the free tier, but for all the voice messages I've recorded so far, they were all transcribed for free.
 
 ## File Handling
 
@@ -47,3 +47,4 @@ The markdown files created for photos have strange indentation in the frontmatte
 - [20260117_072827_AlexeyDTC_transcript.txt](../inbox/raw/20260117_072827_AlexeyDTC_transcript.txt)
 - [20260117_074713_AlexeyDTC_transcript.txt](../inbox/raw/20260117_074713_AlexeyDTC_transcript.txt)
 - [20260117_074838_AlexeyDTC_transcript.txt](../inbox/raw/20260117_074838_AlexeyDTC_transcript.txt)
+- [20260123_113207_valeriia_kuka_msg419_photo.md](../inbox/raw/20260123_113207_valeriia_kuka_msg419_photo.md) - Correction: Groq not Grok

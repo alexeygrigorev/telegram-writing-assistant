@@ -1,0 +1,9 @@
+---
+source: telegram_voice
+date: 2026-01-23T12:09:18+00:00
+user_id: 129835960
+username: valeriia_kuka
+audio_file: 20260123_120918_valeriia_kuka_msg427.ogg
+---
+
+Но для таких вещей, типа вот тебе задача, сделай и отправь пост-реквест или таких

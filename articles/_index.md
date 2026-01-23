@@ -27,12 +27,20 @@ Brief description of what this article is about.
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
 | [Telegram Writing Assistant](telegram-writing-assistant.md) | draft | 2026-01-16 | Personal knowledge management system via Telegram |
-| [Voice Transcription with Grok](voice-transcription.md) | draft | 2026-01-16 | Using Grok for fast voice message transcription |
+| [Voice Transcription with Groq](voice-transcription.md) | draft | 2026-01-23 | Using Groq for fast voice message transcription |
 | [Processing Pipeline](processing-pipeline.md) | draft | 2026-01-20 | Automation workflow for organizing materials into articles |
-| [Claude Code Experiments](claude-code-experiments.md) | draft | 2026-01-17 | Experiments and applications of Claude Code beyond coding |
-| [Agents Workshop](agents-workshop.md) | draft | 2026-01-20 | Two-day workshop on AI agents based on AI Bootcamp materials |
+| [Claude Code Experiments](claude-code-experiments.md) | draft | 2026-01-23 | Experiments and applications of Claude Code beyond coding |
+| [In-Person Agents Workshop in Berlin at NOW-GMBH](agents-workshop.md) | draft | 2026-01-23 | Two-day workshop on AI agents based on AI Bootcamp materials |
+| [Wikidata MCP Workshop](wikidata-mcp-workshop.md) | draft | 2026-01-23 | Workshop on fact-checking with Wikidata and MCP |
 | [AI Bootcamp Course](ai-bootcamp-course.md) | draft | 2026-01-22 | Course curriculum and syllabus for AI Engineering BuildCamp |
 | [Course Material Preparation](course-material-preparation.md) | draft | 2026-01-22 | Workflow for keeping code and documentation in sync |
+| [Course Management Agent](course-management-agent.md) | draft | 2026-01-23 | Automating course administration tasks with Claude Skills |
+| [Cross-Platform Environment Variable Management with dirdotenv](dirdotenv.md) | draft | 2026-01-23 | Python-based alternative to direnv |
+| [Minsearch: Simple Search for Small Datasets](minsearch-library.md) | draft | 2026-01-23 | Lightweight search library for small databases |
+| [Streaming JSON Parsing with jaxn](jaxn-streaming-json.md) | draft | 2026-01-23 | Streaming parser for LLM structured output |
+| [Generating Books with AI](ai-book-generator.md) | draft | 2026-01-23 | Using AI to generate complete books with covers |
+| [Google Stitch: Design-First AI Development](google-stitch.md) | draft | 2026-01-23 | Google's design-focused AI development tool |
+| [Bash Helpers for Claude Code](claude-bash-helpers.md) | draft | 2026-01-23 | Aliases and functions for Claude Code |
 
 ---
 

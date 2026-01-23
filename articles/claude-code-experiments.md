@@ -1,7 +1,7 @@
 ---
 title: "Claude Code Experiments"
 created: 2026-01-17
-updated: 2026-01-17
+updated: 2026-01-23
 tags: [claude-code, experiments, automation, copilot, github]
 status: draft
 ---
@@ -72,6 +72,28 @@ Both tools have their place:
 
 For example, tasks like "figure out this binary file" or "deal with this USB-connected phone" are better suited to Claude Code's terminal access and general problem-solving capabilities. Cursor can handle them too, but its strength is in coding workflows rather than general automation.
 
+### Terminal-Based vs IDE-Based AI Assistants
+
+I see Claude Code as an assistant that can execute bash commands in the terminal. This is not necessarily about coding - Claude Code handles this well, but for more thoughtful coding work, I prefer Cursor or other IDE-based assistants.
+
+With Cursor, I see all changes the agent makes. I can accept or reject each change. I have more control over what happens. When working from the terminal, I see what the agent is doing and can stop it, but it's more of a "wipe-coding" experience than AI-assisted coding[^2].
+
+For tasks like "send a POST request" or "make this pull request" where I can review the plan first, the terminal workflow works great. I can ask to see the plan first, approve it, and then the agent creates everything[^3].
+
+## Course Material Automation
+
+Beyond the platform development, I've also automated the creation of course materials. Previously, creating homework assignments and course plans required 20-30 minutes of clicking in the admin interface for each course.
+
+I created a Claude agent with skills describing how to interact with the course management platform API. Now I can describe what I want in text format - which homework assignments to create, what deadlines they should have - and the agent makes the POST requests and sends me a URL to review[^4].
+
+This same approach works for creating individual homework assignments. My previous workflow:
+1. Write homework in a Markdown document
+2. Push to repository
+3. Open the platform admin interface
+4. Manually enter questions and answers (5-10 minutes)
+
+Now I can tell the agent: "Here's a markdown document with homework, please create the homework form." Done[^5].
+
 ## Sources
 - [20260117_193932_AlexeyDTC_msg249_transcript.txt](../inbox/raw/20260117_193932_AlexeyDTC_msg249_transcript.txt)
 - [20260117_193932_AlexeyDTC_msg250_transcript.txt](../inbox/raw/20260117_193932_AlexeyDTC_msg250_transcript.txt)
@@ -82,5 +104,17 @@ For example, tasks like "figure out this binary file" or "deal with this USB-con
 - [20260117_193932_AlexeyDTC_msg255_transcript.txt](../inbox/raw/20260117_193932_AlexeyDTC_msg255_transcript.txt)
 - [20260117_193932_AlexeyDTC_msg257_transcript.txt](../inbox/raw/20260117_193932_AlexeyDTC_msg257_transcript.txt)
 - [20260117_193932_AlexeyDTC_msg256.jpg](../assets/images/claude-code-experiments/closed-pull-requests.jpg)
+- [20260123_120918_valeriia_kuka_msg424_transcript.txt](../inbox/raw/20260123_120918_valeriia_kuka_msg424_transcript.txt)
+- [20260123_120918_valeriia_kuka_msg425_transcript.txt](../inbox/raw/20260123_120918_valeriia_kuka_msg425_transcript.txt)
+- [20260123_120918_valeriia_kuka_msg426_transcript.txt](../inbox/raw/20260123_120918_valeriia_kuka_msg426_transcript.txt)
+- [20260123_120918_valeriia_kuka_msg427_transcript.txt](../inbox/raw/20260123_120918_valeriia_kuka_msg427_transcript.txt)
+- [20260123_120918_valeriia_kuka_msg428_transcript.txt](../inbox/raw/20260123_120918_valeriia_kuka_msg428_transcript.txt)
+- [20260123_120918_valeriia_kuka_msg429_transcript.txt](../inbox/raw/20260123_120918_valeriia_kuka_msg429_transcript.txt)
+- [20260123_120956_valeriia_kuka_msg436.md](../inbox/raw/20260123_120956_valeriia_kuka_msg436.md)
+- [20260123_121239_valeriia_kuka_msg438.md](../inbox/raw/20260123_121239_valeriia_kuka_msg438.md)
 
 [^1]: [PR #135 - Edit individual review criteria scores in project submission and fix message display in cadmin](https://github.com/DataTalksClub/course-management-platform/pull/135)
+[^2]: [20260123_120918_valeriia_kuka_msg426_transcript.txt](../inbox/raw/20260123_120918_valeriia_kuka_msg426_transcript.txt)
+[^3]: [20260123_120918_valeriia_kuka_msg428_transcript.txt](../inbox/raw/20260123_120918_valeriia_kuka_msg428_transcript.txt)
+[^4]: [20260123_120918_valeriia_kuka_msg424_transcript.txt](../inbox/raw/20260123_120918_valeriia_kuka_msg424_transcript.txt)
+[^5]: [20260123_120918_valeriia_kuka_msg425_transcript.txt](../inbox/raw/20260123_120918_valeriia_kuka_msg425_transcript.txt)
