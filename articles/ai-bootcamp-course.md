@@ -1,7 +1,7 @@
 ---
 title: "AI Bootcamp Course"
 created: 2026-01-22
-updated: 2026-01-22
+updated: 2026-01-23
 tags: [course, ai-bootcamp, curriculum, agents, rag]
 status: draft
 ---
@@ -96,9 +96,25 @@ While many students ask for LangChain and LangGraph, and they are among the firs
 
 Students create multiple projects throughout the course including FAQ assistants, YouTube Q&A systems, documentation agents, coding agents, and deep research agents. All projects can be viewed on the course website.
 
+### Capstone Project
+
+Starting from the first week, students begin working on their final Capstone Project. In week 1, they need to come up with an idea for what they want to build. Throughout the course, they progressively understand more about what needs to be implemented - first conceptually, then with two weeks dedicated entirely to implementation at the end[^6].
+
+In addition to the Capstone Project, students complete weekly mini-projects through homework assignments. These are smaller projects designed to reinforce learning and material absorption, separate from the final Capstone. Each module includes both in-class projects and independent homework mini-projects. By the end of the course, students have completed numerous projects ranging from guided exercises to independent builds[^7].
+
+The term "Capstone Project" is used to distinguish the final graduation project from regular weekly projects and mini-projects, avoiding confusion about project scope and importance[^8].
+
 ## Framework Approach
 
 The course focuses on PydanticAI as the primary framework. Other frameworks (LangChain, LangGraph, Google ADK, CrewAI, OpenAI Agents SDK) are included as optional materials based on student demand, but the main teaching and examples use PydanticAI.
+
+### OpenAI and Alternative Providers
+
+The course uses OpenAI as the main provider, but is not tied exclusively to it. Multiple alternatives are covered throughout including Groq, Anthropic, Gemini, and Z.ai. This multi-provider approach is important based on student feedback - one student from the first cohort requested a refund because they felt alternative frameworks and providers weren't covered sufficiently[^9].
+
+### Framework Coverage
+
+The frameworks section (Week 3) does not heavily emphasize LangChain and LangGraph, despite them being popular first choices for many entering the field. They are included as optional materials along with the full list: OpenAI Agents SDK, Google ADK, CrewAI, LangChain, and LangGraph. Approximately 10 prospective students have asked about LangChain since the course was first announced, which represents meaningful interest that's addressed through optional coverage rather than main curriculum focus[^10].
 
 ## Teaching Philosophy
 
@@ -120,9 +136,21 @@ This fundamental understanding is valuable because companies sometimes need to r
 - [20260121_125000_AlexeyDTC_msg359_transcript.txt](../inbox/raw/20260121_125000_AlexeyDTC_msg359_transcript.txt)
 - [20260121_123704_AlexeyDTC_msg357_photo.md](../inbox/used/20260121_123704_AlexeyDTC_msg357_photo.md)
 - [20260122_170642_AlexeyDTC_msg407_transcript.txt](../inbox/raw/20260122_170642_AlexeyDTC_msg407_transcript.txt)
+- [20260123_143149_AlexeyDTC_msg538_transcript.txt](../inbox/raw/20260123_143149_AlexeyDTC_msg538_transcript.txt)
+- [20260123_143149_AlexeyDTC_msg539_transcript.txt](../inbox/raw/20260123_143149_AlexeyDTC_msg539_transcript.txt)
+- [20260123_143149_AlexeyDTC_msg540_transcript.txt](../inbox/raw/20260123_143149_AlexeyDTC_msg540_transcript.txt)
+- [20260123_143149_AlexeyDTC_msg541_transcript.txt](../inbox/raw/20260123_143149_AlexeyDTC_msg541_transcript.txt)
+- [20260123_143149_AlexeyDTC_msg542_transcript.txt](../inbox/raw/20260123_143149_AlexeyDTC_msg542_transcript.txt)
+- [20260123_143149_AlexeyDTC_msg543_transcript.txt](../inbox/raw/20260123_143149_AlexeyDTC_msg543_transcript.txt)
+- [20260123_143206_AlexeyDTC_msg547_transcript.txt](../inbox/raw/20260123_143206_AlexeyDTC_msg547_transcript.txt)
 
 [^1]: [AI Bootcamp: From RAG to Agents](https://maven.com/alexey-grigorev/from-rag-to-agents)
 [^2]: [20260121_091318_AlexeyDTC_msg353_transcript.txt](../inbox/raw/20260121_091318_AlexeyDTC_msg353_transcript.txt)
 [^3]: [20260121_091318_AlexeyDTC_msg353_transcript.txt](../inbox/raw/20260121_091318_AlexeyDTC_msg353_transcript.txt)
 [^4]: [20260121_125000_AlexeyDTC_msg359_transcript.txt](../inbox/raw/20260121_125000_AlexeyDTC_msg359_transcript.txt)
 [^5]: [20260122_170642_AlexeyDTC_msg407_transcript.txt](../inbox/raw/20260122_170642_AlexeyDTC_msg407_transcript.txt)
+[^6]: [20260123_143149_AlexeyDTC_msg538_transcript.txt](../inbox/raw/20260123_143149_AlexeyDTC_msg538_transcript.txt)
+[^7]: [20260123_143149_AlexeyDTC_msg539_transcript.txt](../inbox/raw/20260123_143149_AlexeyDTC_msg539_transcript.txt)
+[^8]: [20260123_143149_AlexeyDTC_msg540_transcript.txt](../inbox/raw/20260123_143149_AlexeyDTC_msg540_transcript.txt)
+[^9]: [20260123_143149_AlexeyDTC_msg541_transcript.txt](../inbox/raw/20260123_143149_AlexeyDTC_msg541_transcript.txt)
+[^10]: [20260123_143149_AlexeyDTC_msg543_transcript.txt](../inbox/raw/20260123_143149_AlexeyDTC_msg543_transcript.txt)

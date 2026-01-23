@@ -1,9 +1,15 @@
 ---
 title: "In-Person Agents Workshop in Berlin at NOW-GMBH"
 created: 2026-01-19
+<<<<<<< HEAD
 updated: 2026-01-23
 tags: [workshop, agents, teaching, ai-bootcamp, groq, anthropic, mcp]
 status: draft
+=======
+updated: 2026-01-20
+tags: [workshop, agents, teaching, ai-bootcamp, grok, anthropic, mcp]
+status: done
+>>>>>>> b4e8f6754428194db05976dbad393176c833920c
 ---
 
 # In-Person Agents Workshop in Berlin at NOW-GMBH
