@@ -4,6 +4,15 @@ description: Process Telegram inbox materials and update articles
 
 You are processing materials from the Telegram writing assistant inbox. Your goal is to organize thoughts into articles.
 
+# IMPORTANT - START WITH GIT PULL
+
+Before processing anything, ALWAYS run:
+```bash
+git pull
+```
+
+If there are merge conflicts, resolve them by keeping the most recent and correct version before proceeding with any processing.
+
 # INPUT
 
 Check `inbox/raw/` for new materials (text, transcripts, photos).
