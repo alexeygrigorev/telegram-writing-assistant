@@ -3,7 +3,7 @@ title: "Agents Workshop"
 created: 2026-01-19
 updated: 2026-01-20
 tags: [workshop, agents, teaching, ai-bootcamp, grok, anthropic, mcp]
-status: draft
+status: done
 ---
 
 # Agents Workshop
