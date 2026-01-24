@@ -1,7 +1,7 @@
 ---
 title: "AI Bootcamp Course"
 created: 2026-01-22
-updated: 2026-01-23
+updated: 2026-01-24
 tags: [course, ai-bootcamp, curriculum, agents, rag]
 status: draft
 ---
@@ -26,6 +26,10 @@ The course outline is being redesigned to be more focused. The material remains 
 
 The course is redesigned with 90% of materials re-recorded based on prior cohort feedback. It's longer but less dense, and more focused.
 
+### Course Overview and Logistics
+
+The first section of Week 1 covers course organization and navigation. Students learn how to find videos and articles, what content is mandatory versus optional, and the overall course structure. All materials are organized with clear navigation - videos for watching, articles for reading, and hands-on exercises that must be completed[^11].
+
 ### Week 1: LLMs and RAG Foundations
 
 - Course overview and logistics
@@ -38,9 +42,20 @@ The course is redesigned with 90% of materials re-recorded based on prior cohort
 - Alternatives to OpenAI (Groq, Anthropic, Gemini, Z.ai)
 - Advanced chunking techniques
 
+The main focus of Week 1 is on RAG, which remains the workhorse of AI applications. Even though the course has an agent focus, understanding RAG is essential for building effective agents. Many solutions require only RAG, so it's covered in detail first[^15].
+
+### Course Scope and Approach
+
+The course focuses on AI engineering - integrating AI and agents into products. It does not cover:
+- Fine-tuning open source models
+- Running models locally
+- LLM internals and architecture
+
+Students use pre-trained models via API, treating LLMs as a black box that accepts requests and returns responses. The course emphasizes practical application over model training and internal architecture[^15].
+
 ### Week 2: Buffer Week
 
-This is a buffer week for environment setup, with optional content on other use cases and external databases.
+This is a buffer week for environment setup, with optional content on other use cases and external databases. Week 2 is designed as extra time for students who join later, or for those who need more time with Week 1 material since the first week can be intensive[^15].
 
 ### Week 3: Agents
 
@@ -104,6 +119,27 @@ In addition to the Capstone Project, students complete weekly mini-projects thro
 
 The term "Capstone Project" is used to distinguish the final graduation project from regular weekly projects and mini-projects, avoiding confusion about project scope and importance[^8].
 
+### Homework Structure
+
+Weekly homework consists of two parts:
+1. Small projects - to reinforce the week's material
+2. Capstone project work - ongoing development of the final project
+
+Homework is optional depending on the student's schedule, but highly recommended for solidifying course concepts. The course platform includes a leaderboard with points, and students are encouraged to actively share what they learn - this is valuable for career development and visibility[^11].
+
+### Certificates and Peer Review
+
+Certificates are awarded based on project completion. A key requirement is peer review - each student must review 3 other students' projects. This requirement ensures:
+- Students learn from seeing their peers' approaches
+- Projects are taken more seriously knowing others will review them
+- Exposure to different project ideas and implementations
+
+Without completing peer reviews, no certificate is awarded[^12].
+
+### Demo Day Webinar
+
+At the end of the course, a demo day webinar is organized where students can present what they've built. This is an open event - not just for other students - providing exposure to a wider audience. Past demo day recordings are shared as examples of what students can achieve[^12].
+
 ## Framework Approach
 
 The course focuses on PydanticAI as the primary framework. Other frameworks (LangChain, LangGraph, Google ADK, CrewAI, OpenAI Agents SDK) are included as optional materials based on student demand, but the main teaching and examples use PydanticAI.
@@ -126,6 +162,12 @@ The agents portion starts from the very beginning: building the first agent with
 
 This fundamental understanding is valuable because companies sometimes need to rewrite existing frameworks when they don't support specific use cases. Starting without frameworks then transitioning to them provides both theoretical understanding and practical skills[^5].
 
+## Student Feedback and Course Improvement
+
+Feedback from students is actively sought and used to improve the course. The first cohort's feedback was instrumental in making the course better, and students are encouraged not to hesitate in sharing their thoughts. Students who actively provide feedback are given priority access to register for the next cohort. Unlike the first cohort where this opportunity was available to everyone, subsequent cohorts limit this to those who participate actively and provide constructive feedback[^13].
+
+This approach ensures the course continues to improve while rewarding students who contribute to its development.
+
 ## Sources
 
 - [20260120_135731_AlexeyDTC_msg333_transcript.txt](../inbox/raw/20260120_135731_AlexeyDTC_msg333_transcript.txt)
@@ -143,6 +185,10 @@ This fundamental understanding is valuable because companies sometimes need to r
 - [20260123_143149_AlexeyDTC_msg542_transcript.txt](../inbox/raw/20260123_143149_AlexeyDTC_msg542_transcript.txt)
 - [20260123_143149_AlexeyDTC_msg543_transcript.txt](../inbox/raw/20260123_143149_AlexeyDTC_msg543_transcript.txt)
 - [20260123_143206_AlexeyDTC_msg547_transcript.txt](../inbox/raw/20260123_143206_AlexeyDTC_msg547_transcript.txt)
+- [20260124_183631_AlexeyDTC_msg576_transcript.txt](../inbox/raw/20260124_183631_AlexeyDTC_msg576_transcript.txt)
+- [20260124_183837_AlexeyDTC_msg578_transcript.txt](../inbox/raw/20260124_183837_AlexeyDTC_msg578_transcript.txt)
+- [20260124_184002_AlexeyDTC_msg580_transcript.txt](../inbox/raw/20260124_184002_AlexeyDTC_msg580_transcript.txt)
+- [20260124_184855_AlexeyDTC_msg582_transcript.txt](../inbox/raw/20260124_184855_AlexeyDTC_msg582_transcript.txt)
 
 [^1]: [AI Bootcamp: From RAG to Agents](https://maven.com/alexey-grigorev/from-rag-to-agents)
 [^2]: [20260121_091318_AlexeyDTC_msg353_transcript.txt](../inbox/raw/20260121_091318_AlexeyDTC_msg353_transcript.txt)
@@ -154,3 +200,8 @@ This fundamental understanding is valuable because companies sometimes need to r
 [^8]: [20260123_143149_AlexeyDTC_msg540_transcript.txt](../inbox/raw/20260123_143149_AlexeyDTC_msg540_transcript.txt)
 [^9]: [20260123_143149_AlexeyDTC_msg541_transcript.txt](../inbox/raw/20260123_143149_AlexeyDTC_msg541_transcript.txt)
 [^10]: [20260123_143149_AlexeyDTC_msg543_transcript.txt](../inbox/raw/20260123_143149_AlexeyDTC_msg543_transcript.txt)
+[^11]: [20260124_183631_AlexeyDTC_msg576_transcript.txt](../inbox/raw/20260124_183631_AlexeyDTC_msg576_transcript.txt)
+[^12]: [20260124_183837_AlexeyDTC_msg578_transcript.txt](../inbox/raw/20260124_183837_AlexeyDTC_msg578_transcript.txt)
+[^13]: [20260124_184002_AlexeyDTC_msg580_transcript.txt](../inbox/raw/20260124_184002_AlexeyDTC_msg580_transcript.txt)
+[^14]: [20260124_184855_AlexeyDTC_msg582_transcript.txt](../inbox/raw/20260124_184855_AlexeyDTC_msg582_transcript.txt)
+[^15]: [20260124_184855_AlexeyDTC_msg582_transcript.txt](../inbox/raw/20260124_184855_AlexeyDTC_msg582_transcript.txt)
