@@ -1,7 +1,7 @@
 ---
 title: "Telegram Writing Assistant"
 created: 2026-01-16
-updated: 2026-01-22
+updated: 2026-01-24
 tags: [telegram, bot, knowledge-management, automation]
 status: draft
 ---
@@ -56,6 +56,24 @@ I usually write texts in English, I have a Substack where I write in English. Fo
 
 Target language for articles is English. Voice messages can be in any language, but articles should only be in English. When processing, Claude should translate everything to English.
 
+## Git as Process Orchestrator
+
+The entire workflow is built around Git as the central orchestrator. Git serves as the storage layer and provides centralized management for all content[^2].
+
+<figure>
+  <img src="../assets/images/telegram-writing-assistant/process-git-pull-instruction.jpg" alt="Git pull instruction in process.md">
+  <figcaption>The processing command always starts with git pull to ensure the latest changes are incorporated before any work begins</figcaption>
+  <!-- This illustrates how the agent self-manages its workflow through git -->
+</figure>
+
+Using Git for everything offers several advantages:
+
+- All changes are visible through version control
+- When the `/process` command fills in content, a diff is generated showing exactly what changed
+- Everything is transparent and trackable
+
+The workflow is designed to be process-driven rather than code-heavy. Instead of hardcoding steps, you can simply describe the process in natural language and Claude executes it. For example, you can say "please do a pull" and it will execute `git pull`, then commit everything in the proper format automatically[^2].
+
 ## Sources
 - [20260116_210119_AlexeyDTC_transcript.txt](../inbox/raw/20260116_210119_AlexeyDTC_transcript.txt)
 - [20260116_210336_AlexeyDTC_transcript.txt](../inbox/raw/20260116_210336_AlexeyDTC_transcript.txt)
@@ -63,5 +81,7 @@ Target language for articles is English. Voice messages can be in any language, 
 - [20260117_064726_AlexeyDTC_transcript.txt](../inbox/raw/20260117_064726_AlexeyDTC_transcript.txt)
 - [20260117_071038_AlexeyDTC_transcript.txt](../inbox/raw/20260117_071038_AlexeyDTC_transcript.txt)
 - [20260122_155237_AlexeyDTC_msg397.md](../inbox/raw/20260122_155237_AlexeyDTC_msg397.md)
+- [20260123_144250_AlexeyDTC_msg558_transcript.txt](../inbox/raw/20260123_144250_AlexeyDTC_msg558_transcript.txt)
 
 [^1]: [20260122_155237_AlexeyDTC_msg397.md](../inbox/raw/20260122_155237_AlexeyDTC_msg397.md)
+[^2]: [20260123_144250_AlexeyDTC_msg558_transcript.txt](../inbox/raw/20260123_144250_AlexeyDTC_msg558_transcript.txt)

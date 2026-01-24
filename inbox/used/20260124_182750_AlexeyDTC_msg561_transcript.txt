@@ -1,0 +1,9 @@
+---
+source: telegram_voice
+date: 2026-01-24T18:27:50+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260124_182750_AlexeyDTC_msg561.ogg
+---
+
+Если они не могут что-то спросить, они могут спросить это в слайда, и все это будет...
