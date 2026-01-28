@@ -45,6 +45,49 @@ LOGS_DIR = REPO_PATH / "claude_runs"
 groq_client = Groq(api_key=GROQ_API_KEY) if GROQ_API_KEY else None
 
 
+async def safe_reply(message, text: str, entities=None, parse_mode=None, max_retries: int = 3):
+    """Reply to a message with retry logic for timeouts.
+
+    Args:
+        message: Telegram message object to reply to
+        text: Text to send
+        entities: Optional message entities (for collapsible blockquotes)
+        parse_mode: Parse mode (Markdown, HTML, or None)
+        max_retries: Maximum number of retry attempts
+
+    Returns:
+        The sent message, or None if all retries failed
+    """
+    for attempt in range(max_retries):
+        try:
+            return await message.reply_text(text, entities=entities, parse_mode=parse_mode)
+        except Exception as e:
+            error_name = type(e).__name__
+            error_msg = str(e)
+
+            # Don't retry on certain errors
+            if "Forbidden" in error_msg or "BadRequest" in error_msg:
+                print(f"[safe_reply] Non-retryable error: {error_name}: {error_msg}")
+                try:
+                    return await message.reply_text(f"Error: {error_name}", parse_mode=None)
+                except:
+                    return None
+
+            # Retry on timeout and network errors
+            if attempt < max_retries - 1:
+                wait_time = 2 ** attempt  # Exponential backoff: 1s, 2s, 4s
+                print(f"[safe_reply] Retry {attempt + 1}/{max_retries} after {wait_time}s: {error_name}: {error_msg}")
+                await asyncio.sleep(wait_time)
+            else:
+                print(f"[safe_reply] All retries failed: {error_name}: {error_msg}")
+                # Try to send a simple error message
+                try:
+                    return await message.reply_text(f"Saved (reply failed)", parse_mode=None)
+                except:
+                    return None
+    return None
+
+
 def create_collapsible_message(prefix: str, content: str, max_length: int = 1000) -> tuple[str, list]:
     """Create a message with collapsible blockquote for long content.
 
@@ -298,9 +341,9 @@ async def handle_text_message(update: Update, context: ContextTypes.DEFAULT_TYPE
         msg_id = update.message.message_id
 
         filename = await save_text_message(text, user.id, user.username, msg_date, msg_id)
-        await update.message.reply_text(f"Saved as {filename.name}", parse_mode=None)
+        await safe_reply(update.message, f"Saved as {filename.name}", parse_mode=None)
     except Exception as e:
-        await update.message.reply_text(f"Error: {type(e).__name__}: {e}", parse_mode=None)
+        await safe_reply(update.message, f"Error: {type(e).__name__}: {e}", parse_mode=None)
 
 
 async def handle_voice_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
@@ -320,9 +363,9 @@ async def handle_voice_message(update: Update, context: ContextTypes.DEFAULT_TYP
         # Send transcript to chat with collapsible blockquote
         prefix = f"Saved: {audio_file.name}"
         text, entities = create_collapsible_message(prefix, transcript_text, max_length=2000)
-        await update.message.reply_text(text, entities=entities)
+        await safe_reply(update.message, text, entities=entities)
     except Exception as e:
-        await update.message.reply_text(f"Error: {type(e).__name__}: {e}", parse_mode=None)
+        await safe_reply(update.message, f"Error: {type(e).__name__}: {e}", parse_mode=None)
 
 
 async def handle_photo_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
@@ -343,9 +386,9 @@ async def handle_photo_message(update: Update, context: ContextTypes.DEFAULT_TYP
         # Reply with description in collapsible blockquote
         prefix = f"Saved: {filename.name}"
         text, entities = create_collapsible_message(prefix, description, max_length=500)
-        await update.message.reply_text(text, entities=entities)
+        await safe_reply(update.message, text, entities=entities)
     except Exception as e:
-        await update.message.reply_text(f"Error: {type(e).__name__}: {e}", parse_mode=None)
+        await safe_reply(update.message, f"Error: {type(e).__name__}: {e}", parse_mode=None)
 
 
 async def handle_document_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
@@ -423,11 +466,11 @@ async def handle_document_message(update: Update, context: ContextTypes.DEFAULT_
             # Include content preview in collapsible blockquote
             preview = text_content[:500] + "..." if len(text_content) > 500 else text_content
             text, entities = create_collapsible_message(reply_text, preview, max_length=500)
-            await update.message.reply_text(text, entities=entities)
+            await safe_reply(update.message, text, entities=entities)
         else:
-            await update.message.reply_text(reply_text, parse_mode=None)
+            await safe_reply(update.message, reply_text, parse_mode=None)
     except Exception as e:
-        await update.message.reply_text(f"Error: {type(e).__name__}: {e}", parse_mode=None)
+        await safe_reply(update.message, f"Error: {type(e).__name__}: {e}", parse_mode=None)
 
 
 async def error_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:

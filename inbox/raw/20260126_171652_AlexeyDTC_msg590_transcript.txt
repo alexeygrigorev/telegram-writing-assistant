@@ -1,0 +1,9 @@
+---
+source: telegram_voice
+date: 2026-01-26T17:16:52+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260126_171652_AlexeyDTC_msg590.ogg
+---
+
+Другая проблема, что когда я записываю
