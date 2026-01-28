@@ -1,7 +1,7 @@
 ---
 title: "AI Bootcamp Course"
 created: 2026-01-22
-updated: 2026-01-24
+updated: 2026-01-28
 tags: [course, ai-bootcamp, curriculum, agents, rag]
 status: draft
 ---
@@ -168,6 +168,23 @@ Feedback from students is actively sought and used to improve the course. The fi
 
 This approach ensures the course continues to improve while rewarding students who contribute to its development.
 
+## Student Success Stories
+
+Students from the courses have gone on to achieve their career goals. One student, Revathy, landed a job as an AI Engineer at a startup after a career break of more than 7 years. She credited ML ZoomCamp and AI Hero course for helping her explain her capstone projects during the interview process[^14].
+
+Another student, Alina, completed her capstone project "GreatReading" - an app for building focused reading habits. The project uses AI dev tools including Zed IDE, Claude, and MCP integrations with GitHub, Render, and Context7[^15].
+
+These success stories demonstrate the practical value of project-based learning in helping students transition to AI engineering roles.
+
+## Related Courses
+
+The AI Engineering BuildCamp is complemented by other courses:
+- ML ZoomCamp - Starts in September annually
+- AI Hero - Always available
+- AI Dev Tools - Focused on development tools and workflows
+
+The ML ZoomCamp and AI Hero courses have helped students with career transitions, including return-to-work scenarios after extended breaks[^14].
+
 ## Sources
 
 - [20260120_135731_AlexeyDTC_msg333_transcript.txt](../inbox/raw/20260120_135731_AlexeyDTC_msg333_transcript.txt)
@@ -189,6 +206,9 @@ This approach ensures the course continues to improve while rewarding students w
 - [20260124_183837_AlexeyDTC_msg578_transcript.txt](../inbox/raw/20260124_183837_AlexeyDTC_msg578_transcript.txt)
 - [20260124_184002_AlexeyDTC_msg580_transcript.txt](../inbox/raw/20260124_184002_AlexeyDTC_msg580_transcript.txt)
 - [20260124_184855_AlexeyDTC_msg582_transcript.txt](../inbox/raw/20260124_184855_AlexeyDTC_msg582_transcript.txt)
+- [20260128_131258_AlexeyDTC_msg609_photo.md](../inbox/raw/20260128_131258_AlexeyDTC_msg609_photo.md)
+- [20260128_131338_AlexeyDTC_msg611_transcript.txt](../inbox/raw/20260128_131338_AlexeyDTC_msg611_transcript.txt)
+- [20260128_065907_AlexeyDTC_msg607.md](../inbox/raw/20260128_065907_AlexeyDTC_msg607.md)
 
 [^1]: [AI Bootcamp: From RAG to Agents](https://maven.com/alexey-grigorev/from-rag-to-agents)
 [^2]: [20260121_091318_AlexeyDTC_msg353_transcript.txt](../inbox/raw/20260121_091318_AlexeyDTC_msg353_transcript.txt)
@@ -205,3 +225,5 @@ This approach ensures the course continues to improve while rewarding students w
 [^13]: [20260124_184002_AlexeyDTC_msg580_transcript.txt](../inbox/raw/20260124_184002_AlexeyDTC_msg580_transcript.txt)
 [^14]: [20260124_184855_AlexeyDTC_msg582_transcript.txt](../inbox/raw/20260124_184855_AlexeyDTC_msg582_transcript.txt)
 [^15]: [20260124_184855_AlexeyDTC_msg582_transcript.txt](../inbox/raw/20260124_184855_AlexeyDTC_msg582_transcript.txt)
+[^16]: [20260128_131258_AlexeyDTC_msg609_photo.md](../inbox/raw/20260128_131258_AlexeyDTC_msg609_photo.md)
+[^17]: [20260128_065907_AlexeyDTC_msg607.md](../inbox/raw/20260128_065907_AlexeyDTC_msg607.md)
