@@ -110,13 +110,15 @@ When processing course-related content:
 - Each course gets its own dedicated article
 - Different aspects of the same course should also be separate articles (e.g., course structure, success stories, logistics)
 
-# VOICE TRANSCRIPTION QUALITY
+# TRANSCRIPTION QUALITY NOTE
 
-Most text content comes from transcribed voice messages. When processing:
+This applies ONLY to /process command (article generation). Most text content comes from transcribed voice messages:
 - Expect typos, missing words, and recognition errors
 - Use context to infer intended meaning
 - Fix obvious errors but preserve original meaning
 - When in doubt, keep the original wording
+
+For analyze tasks (like /check-tasks), read content as-is without trying to fix transcription errors.
 
 # GROUPING RULES
 
