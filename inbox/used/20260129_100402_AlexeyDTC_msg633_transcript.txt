@@ -1,0 +1,9 @@
+---
+source: telegram_voice
+date: 2026-01-29T10:04:02+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260129_100402_AlexeyDTC_msg633.ogg
+---
+
+Так вот, я сейчас проанализировал результаты последнего коммита и заметил, что там

@@ -94,6 +94,30 @@ Process in TWO phases:
 
 7. Track which images were placed and which were deferred
 
+# COURSE NAMING CONVENTIONS
+
+IMPORTANT: These are DIFFERENT courses and must be kept separate:
+
+- AI Buildcamp (one word, lowercase c) - formerly "AI Bootcamp", now "AI Engineering Buildcamp"
+- ML Zoomcamp (one word, lowercase c) - Machine Learning Zoomcamp
+- Data Engineering Zoomcamp (one word, lowercase c) - Data Engineering Zoomcamp
+- AI Dev Tools Zoomcamp (one word, lowercase c) - Development tools and workflows
+
+When processing course-related content:
+- Identify WHICH course the content refers to
+- Content for different courses goes to DIFFERENT articles
+- Do not mix course content even if related (e.g., ML Zoomcamp success stories should NOT be in AI Buildcamp article)
+- Each course gets its own dedicated article
+- Different aspects of the same course should also be separate articles (e.g., course structure, success stories, logistics)
+
+# VOICE TRANSCRIPTION QUALITY
+
+Most text content comes from transcribed voice messages. When processing:
+- Expect typos, missing words, and recognition errors
+- Use context to infer intended meaning
+- Fix obvious errors but preserve original meaning
+- When in doubt, keep the original wording
+
 # GROUPING RULES
 
 CORE PRINCIPLE: Each article must have ONE clear topic. Do not mix unrelated content even if messages were sent around the same time.
