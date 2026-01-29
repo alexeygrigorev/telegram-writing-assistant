@@ -16,6 +16,17 @@ The course is being renamed from "AI Bootcamp" to "AI Engineering BuildCamp". Th
 
 The course outline is being redesigned to be more focused. The material remains the same but is now better organized. Posts about the renaming should be made on social media explaining the change, with a Substack article covering the details[^3].
 
+## New Syllabus Development
+
+A completely new syllabus and curriculum are being created for the upcoming cohort. This requires re-recording most materials. Four out of five sections in Module 1 are already complete, with only the alternatives section remaining[^16].
+
+The new material includes:
+- Many new topics and examples
+- Redesigned old content for better clarity
+- A more focused approach to the subject matter
+- Some topics moved from Week 1 to Week 2
+- Streaming content now covered in the structured output section, including a newly written Jackson streaming parser[^16]
+
 <figure>
   <img src="../assets/images/ai-bootcamp-course/course-folder-structure.jpg" alt="AI Engineering BuildCamp course folder structure">
   <figcaption>Course folder structure showing the organized curriculum layout from v2 materials</figcaption>
@@ -192,6 +203,8 @@ This approach ensures the course continues to improve while rewarding students w
 - [20260128_131258_AlexeyDTC_msg609_photo.md](../inbox/raw/20260128_131258_AlexeyDTC_msg609_photo.md)
 - [20260128_131338_AlexeyDTC_msg611_transcript.txt](../inbox/raw/20260128_131338_AlexeyDTC_msg611_transcript.txt)
 - [20260128_065907_AlexeyDTC_msg607.md](../inbox/raw/20260128_065907_AlexeyDTC_msg607.md)
+- [20260129_171716_AlexeyDTC_msg642_transcript.txt](../inbox/raw/20260129_171716_AlexeyDTC_msg642_transcript.txt)
+- [20260129_173022_AlexeyDTC_msg650_transcript.txt](../inbox/raw/20260129_173022_AlexeyDTC_msg650_transcript.txt)
 
 [^1]: [AI Bootcamp: From RAG to Agents](https://maven.com/alexey-grigorev/from-rag-to-agents)
 [^2]: [20260121_091318_AlexeyDTC_msg353_transcript.txt](../inbox/raw/20260121_091318_AlexeyDTC_msg353_transcript.txt)
@@ -208,3 +221,5 @@ This approach ensures the course continues to improve while rewarding students w
 [^13]: [20260124_184002_AlexeyDTC_msg580_transcript.txt](../inbox/raw/20260124_184002_AlexeyDTC_msg580_transcript.txt)
 [^14]: [20260128_131258_AlexeyDTC_msg609_photo.md](../inbox/raw/20260128_131258_AlexeyDTC_msg609_photo.md)
 [^15]: [20260128_065907_AlexeyDTC_msg607.md](../inbox/raw/20260128_065907_AlexeyDTC_msg607.md)
+[^16]: [20260129_171716_AlexeyDTC_msg642_transcript.txt](../inbox/raw/20260129_171716_AlexeyDTC_msg642_transcript.txt)
+[^17]: [20260129_173022_AlexeyDTC_msg650_transcript.txt](../inbox/raw/20260129_173022_AlexeyDTC_msg650_transcript.txt)

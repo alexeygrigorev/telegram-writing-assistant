@@ -1,8 +1,8 @@
 ---
 title: "Course Material Preparation"
 created: 2026-01-22
-updated: 2026-01-28
-tags: [course-preparation, jupyter, markdown, workflow, automation]
+updated: 2026-01-29
+tags: [course-preparation, jupyter, markdown, workflow, automation, claude]
 status: draft
 ---
 
@@ -105,6 +105,62 @@ While automation significantly speeds up course material preparation, it require
 
 However, once automation is in place, material preparation becomes much faster. The upfront investment pays off over time, especially when running multiple iterations of a course[^7].
 
+## AI-Assisted Course Preparation Workflow
+
+The current workflow for preparing course materials leverages Claude Skills to automate repetitive tasks. Over multiple iterations of feedback and refinement, the skills have improved significantly.
+
+### The Template System
+
+Code is stored in Jupyter notebooks while content is in markdown documents. When editing the template, the markdown result updates in real-time. This allows immediate preview of changes without manual synchronization[^8].
+
+### Notebook Interaction with Claude
+
+Claude can interact with Jupyter notebooks through the console:
+- Inserting needed commands
+- Running notebooks
+- Editing cell contents
+
+The workflow:
+1. Sketch code in the notebook
+2. Ask Claude to review the prototype and leave comments
+3. Write the lesson material together
+4. Have Claude run everything to verify it works before recording
+5. Record the video using the prepared template[^8]
+
+### Post-Recording Synchronization
+
+After recording, Claude helps update the documentation:
+1. Takes the final notebook used during recording
+2. Takes the video transcript
+3. Updates the documentation to match what was actually done in the video
+4. Ensures lesson notes align with the video content[^8]
+
+This eliminates hours of manual work that was previously required to sync documentation with recorded videos.
+
+### Iterative Skill Improvement
+
+Initially, Claude made mistakes that required correction. Each time an error occurred, Claude was asked to:
+1. Analyze what went wrong
+2. Update its skills instructions to prevent future occurrences
+3. Apply the fix
+
+After 20-30 iterations of this feedback loop, the skills now work correctly about 80% of the time. Some manual fixes are still needed, but the automation saves significant time overall[^8].
+
+### Shift in Focus
+
+With this workflow, more time is spent on:
+- Writing and testing code
+- Experimenting with different approaches
+- Thinking about how to present material clearly
+- Deciding what to include or exclude
+
+Less time is spent on:
+- Manual synchronization between notebooks and documentation
+- Checking variable names and consistency
+- Technical cleanup tasks
+
+Claude handles the technical verification - ensuring variables are declared, names match, and the document is clean and ready for publication[^9].
+
 ## Sources
 
 - [20260122_170054_AlexeyDTC_msg403_transcript.txt](../inbox/raw/20260122_170054_AlexeyDTC_msg403_transcript.txt)
@@ -117,6 +173,8 @@ However, once automation is in place, material preparation becomes much faster. 
 - [20260126_173253_AlexeyDTC_msg594_transcript.txt](../inbox/raw/20260126_173253_AlexeyDTC_msg594_transcript.txt)
 - [20260126_173605_AlexeyDTC_msg595_transcript.txt](../inbox/raw/20260126_173605_AlexeyDTC_msg595_transcript.txt)
 - [20260126_180937_AlexeyDTC_msg597_transcript.txt](../inbox/raw/20260126_180937_AlexeyDTC_msg597_transcript.txt)
+- [20260129_173421_AlexeyDTC_msg651_transcript.txt](../inbox/raw/20260129_173421_AlexeyDTC_msg651_transcript.txt)
+- [20260129_173609_AlexeyDTC_msg652_transcript.txt](../inbox/raw/20260129_173609_AlexeyDTC_msg652_transcript.txt)
 
 [^1]: [20260122_170054_AlexeyDTC_msg403_transcript.txt](../inbox/raw/20260122_170054_AlexeyDTC_msg403_transcript.txt)
 [^2]: [20260122_170137_AlexeyDTC_msg405_transcript.txt](../inbox/raw/20260122_170137_AlexeyDTC_msg405_transcript.txt)
@@ -125,3 +183,5 @@ However, once automation is in place, material preparation becomes much faster. 
 [^5]: [20260126_173253_AlexeyDTC_msg594_transcript.txt](../inbox/raw/20260126_173253_AlexeyDTC_msg594_transcript.txt)
 [^6]: [20260126_173605_AlexeyDTC_msg595_transcript.txt](../inbox/raw/20260126_173605_AlexeyDTC_msg595_transcript.txt)
 [^7]: [20260126_180937_AlexeyDTC_msg597_transcript.txt](../inbox/raw/20260126_180937_AlexeyDTC_msg597_transcript.txt)
+[^8]: [20260129_173421_AlexeyDTC_msg651_transcript.txt](../inbox/raw/20260129_173421_AlexeyDTC_msg651_transcript.txt)
+[^9]: [20260129_173609_AlexeyDTC_msg652_transcript.txt](../inbox/raw/20260129_173609_AlexeyDTC_msg652_transcript.txt)

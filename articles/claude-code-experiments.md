@@ -1,7 +1,7 @@
 ---
 title: "Claude Code Experiments"
 created: 2026-01-17
-updated: 2026-01-23
+updated: 2026-01-29
 tags: [claude-code, experiments, automation, copilot, github]
 status: draft
 ---
@@ -10,19 +10,25 @@ status: draft
 
 Experiments and practical applications of Claude Code in various scenarios beyond traditional coding tasks.
 
-## USB Device Control
+## Running Code on Cloud vs Phone
 
-Claude Code has terminal access which enables interaction with connected hardware. I connected my phone via USB and asked Claude to figure out what to do. It provided step-by-step instructions for the required actions.
+I experimented with running Claude Code on different platforms. Initially, I wanted to run it on my phone to be able to work from anywhere without carrying a laptop. The idea was to install Linux on the phone and run Code Code there, connecting via SSH[^1].
 
-The experiment demonstrates that Claude has sufficient knowledge to handle various scenarios. When errors occur, it can search the internet for solutions. This opens up many possibilities - not just coding, but any action that can be performed through a terminal.
-
-### Phone as a Server Experiment
-
-I wanted to install Code Code on my phone. Not just as an application, but to install Linux on the phone to run Code Code, and then connect via SSH. The idea was to use the phone instead of renting a server instance.
+### Phone as Server Experiment
 
 The rationale: Android phones have many Google services consuming resources. My old Samsung has 2GB of RAM, with 1.8GB occupied by Google services and Android itself. Installing Linux or a minimal Android could free up resources for running a personal server.
 
-The experiment did not succeed due to Samsung's Knox protection, which prevents reflashing. The phone turned into a brick during the process. However, Claude helped me restore it to factory settings. With a different phone brand (friends say non-Samsung phones work), this approach might succeed.
+The experiment did not succeed due to Samsung's Knox protection, which prevents reflashing. The phone turned into a brick during the process. However, Claude helped me restore it to factory settings. With a different phone brand (friends say non-Samsung phones work), this approach might succeed[^1].
+
+### Why Not Cloud?
+
+GitHub Copilot Cloud can run code remotely, but it's tied to a specific project and requires a properly configured environment with tests. Claude Code can handle any task possible through a terminal - a much broader range of operations[^1].
+
+Currently, the solution is running a Telegram bot on the laptop that processes requests through Claude. This is the experiment behind the "Telegram Writing Assistant" project[^1].
+
+### Long-Term Vision
+
+The goal is to have an agent running somewhere (ideally on a personal laptop or server) that can handle any request through Telegram. Send a voice or text message, Claude processes it and executes the task. This could eliminate the need to carry a laptop for many tasks[^1].
 
 ## Learning New Products Independently
 
@@ -112,9 +118,11 @@ Now I can tell the agent: "Here's a markdown document with homework, please crea
 - [20260123_120918_valeriia_kuka_msg429_transcript.txt](../inbox/raw/20260123_120918_valeriia_kuka_msg429_transcript.txt)
 - [20260123_120956_valeriia_kuka_msg436.md](../inbox/raw/20260123_120956_valeriia_kuka_msg436.md)
 - [20260123_121239_valeriia_kuka_msg438.md](../inbox/raw/20260123_121239_valeriia_kuka_msg438.md)
+- [20260129_171140_AlexeyDTC_msg641_transcript.txt](../inbox/raw/20260129_171140_AlexeyDTC_msg641_transcript.txt)
 
-[^1]: [PR #135 - Edit individual review criteria scores in project submission and fix message display in cadmin](https://github.com/DataTalksClub/course-management-platform/pull/135)
-[^2]: [20260123_120918_valeriia_kuka_msg426_transcript.txt](../inbox/raw/20260123_120918_valeriia_kuka_msg426_transcript.txt)
-[^3]: [20260123_120918_valeriia_kuka_msg428_transcript.txt](../inbox/raw/20260123_120918_valeriia_kuka_msg428_transcript.txt)
-[^4]: [20260123_120918_valeriia_kuka_msg424_transcript.txt](../inbox/raw/20260123_120918_valeriia_kuka_msg424_transcript.txt)
-[^5]: [20260123_120918_valeriia_kuka_msg425_transcript.txt](../inbox/raw/20260123_120918_valeriia_kuka_msg425_transcript.txt)
+[^1]: [20260129_171140_AlexeyDTC_msg641_transcript.txt](../inbox/raw/20260129_171140_AlexeyDTC_msg641_transcript.txt)
+[^2]: [PR #135 - Edit individual review criteria scores in project submission and fix message display in cadmin](https://github.com/DataTalksClub/course-management-platform/pull/135)
+[^3]: [20260123_120918_valeriia_kuka_msg426_transcript.txt](../inbox/raw/20260123_120918_valeriia_kuka_msg426_transcript.txt)
+[^4]: [20260123_120918_valeriia_kuka_msg428_transcript.txt](../inbox/raw/20260123_120918_valeriia_kuka_msg428_transcript.txt)
+[^5]: [20260123_120918_valeriia_kuka_msg424_transcript.txt](../inbox/raw/20260123_120918_valeriia_kuka_msg424_transcript.txt)
+[^6]: [20260123_120918_valeriia_kuka_msg425_transcript.txt](../inbox/raw/20260123_120918_valeriia_kuka_msg425_transcript.txt)
