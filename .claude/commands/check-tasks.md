@@ -91,9 +91,9 @@ After extracting tasks from a file, you MAY move it to `inbox/used/` ONLY if ALL
 Typical files that can be moved after task extraction:
 - Voice notes with instructions/feedback (most common)
 - Text messages with pure instructions (rare)
-- Images with visual feedback (rare) - BUT only if they show issues/screenshots, not course-related content
+- Images with visual feedback (rare) - BUT only if they show issues/screenshots, not content to preserve
 
 DO NOT move:
 - Images (only /process should handle images)
-- Files containing course content, quotes, or ideas that could be used in articles
+- Files containing content, quotes, or ideas that could be used in articles
 - Files where content is unclear
