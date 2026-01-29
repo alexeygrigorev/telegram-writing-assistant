@@ -112,13 +112,11 @@ When processing course-related content:
 
 # TRANSCRIPTION QUALITY NOTE
 
-This applies ONLY to /process command (article generation). Most text content comes from transcribed voice messages:
+Most text content comes from transcribed voice messages. When processing:
 - Expect typos, missing words, and recognition errors
 - Use context to infer intended meaning
 - Fix obvious errors but preserve original meaning
 - When in doubt, keep the original wording
-
-For analyze tasks (like /check-tasks), read content as-is without trying to fix transcription errors.
 
 # GROUPING RULES
 
