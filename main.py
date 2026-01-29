@@ -58,6 +58,9 @@ async def safe_reply(message, text: str, entities=None, parse_mode=None, max_ret
     Returns:
         The sent message, or None if all retries failed
     """
+    if message is None:
+        print(f"[safe_reply] Cannot reply: message is None")
+        return None
     for attempt in range(max_retries):
         try:
             return await message.reply_text(text, entities=entities, parse_mode=parse_mode)
@@ -334,6 +337,9 @@ async def handle_text_message(update: Update, context: ContextTypes.DEFAULT_TYPE
     """Handle incoming text messages."""
     if not is_allowed_chat(update):
         return
+    if update.message is None:
+        print("[handle_text_message] Cannot process: update.message is None")
+        return
     try:
         user = update.effective_user
         text = update.message.text
@@ -349,6 +355,9 @@ async def handle_text_message(update: Update, context: ContextTypes.DEFAULT_TYPE
 async def handle_voice_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Handle incoming voice messages."""
     if not is_allowed_chat(update):
+        return
+    if update.message is None:
+        print("[handle_voice_message] Cannot process: update.message is None")
         return
     try:
         user = update.effective_user
@@ -372,6 +381,13 @@ async def handle_photo_message(update: Update, context: ContextTypes.DEFAULT_TYP
     """Handle incoming photo messages."""
     if not is_allowed_chat(update):
         return
+    # Skip edited messages - they have edited_message instead of message
+    if update.message is None:
+        if update.edited_message:
+            print("[handle_photo_message] Skipping edited message")
+        else:
+            print("[handle_photo_message] Cannot process: update.message is None")
+        return
     try:
         user = update.effective_user
         photo = update.message.photo[-1]  # Get largest photo
@@ -394,6 +410,9 @@ async def handle_photo_message(update: Update, context: ContextTypes.DEFAULT_TYP
 async def handle_document_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Handle incoming document/file messages."""
     if not is_allowed_chat(update):
+        return
+    if update.message is None:
+        print("[handle_document_message] Cannot process: update.message is None")
         return
     try:
         user = update.effective_user
@@ -655,8 +674,9 @@ def main() -> None:
     application.add_error_handler(error_handler)
 
     # Start the bot (run_polling creates its own event loop)
+    # Only listen for message updates, not reactions or other update types
     print(f"Bot running...")
-    application.run_polling(allowed_updates=Update.ALL_TYPES)
+    application.run_polling(allowed_updates=[Update.MESSAGE])
 
 
 if __name__ == "__main__":
