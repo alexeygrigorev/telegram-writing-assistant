@@ -76,7 +76,24 @@ Be smart about extracting tasks - not everything is a task. Look for genuine act
 
 - This command does NOT create any files
 - This command does NOT commit anything to git
-- This command does NOT move files (only /process does that)
 - The plan is displayed to user only
 - Group related tasks together (e.g., all article organization fixes together)
 - Prioritize: Critical fixes > Content creation > Future ideas
+
+# FILE MOVING RULES
+
+After extracting tasks from a file, you MAY move it to `inbox/used/` ONLY if ALL conditions are met:
+
+1. The file is feedback about agent performance or tasks to improve the process
+2. The file contains NO useful content for articles (no quotes, no ideas to preserve, no course content)
+3. The task has been completed or noted
+
+Typical files that can be moved after task extraction:
+- Voice notes with instructions/feedback (most common)
+- Text messages with pure instructions (rare)
+- Images with visual feedback (rare) - BUT only if they show issues/screenshots, not course-related content
+
+DO NOT move:
+- Images (only /process should handle images)
+- Files containing course content, quotes, or ideas that could be used in articles
+- Files where content is unclear
