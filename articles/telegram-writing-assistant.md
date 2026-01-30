@@ -1,7 +1,7 @@
 ---
 title: "Telegram Writing Assistant"
 created: 2026-01-16
-updated: 2026-01-24
+updated: 2026-01-30
 tags: [telegram, bot, knowledge-management, automation]
 status: draft
 ---
@@ -74,6 +74,20 @@ Using Git for everything offers several advantages:
 
 The workflow is designed to be process-driven rather than code-heavy. Instead of hardcoding steps, you can simply describe the process in natural language and Claude executes it. For example, you can say "please do a pull" and it will execute `git pull`, then commit everything in the proper format automatically[^2].
 
+## Improving the Agent Through Feedback
+
+Criticism is useful for improving the system. The bot can be configured to work better by providing specific feedback about what went wrong. For example, when the agent miswords things or loses specific details, you can point out exactly what was lost with concrete examples[^3].
+
+After using the system, some patterns emerged in how the agent processes content:
+
+- The bot analyzes and adds content to the right files
+- But it sometimes rewords things according to its own preferences
+- It structures content differently than intended
+- The nuances and emphasis from voice messages can get smoothed out
+- Content shortening may cause information loss
+
+When listening to voice messages directly, it becomes clear where emphasis should be placed. The agent tends to smooth out these important nuances. This may be due to content reduction and summarization[^4].
+
 ## Sources
 - [20260116_210119_AlexeyDTC_transcript.txt](../inbox/raw/20260116_210119_AlexeyDTC_transcript.txt)
 - [20260116_210336_AlexeyDTC_transcript.txt](../inbox/raw/20260116_210336_AlexeyDTC_transcript.txt)
@@ -82,6 +96,10 @@ The workflow is designed to be process-driven rather than code-heavy. Instead of
 - [20260117_071038_AlexeyDTC_transcript.txt](../inbox/raw/20260117_071038_AlexeyDTC_transcript.txt)
 - [20260122_155237_AlexeyDTC_msg397.md](../inbox/raw/20260122_155237_AlexeyDTC_msg397.md)
 - [20260123_144250_AlexeyDTC_msg558_transcript.txt](../inbox/raw/20260123_144250_AlexeyDTC_msg558_transcript.txt)
+- [20260130_132651_AlexeyDTC_msg703_transcript.txt](../inbox/raw/20260130_132651_AlexeyDTC_msg703_transcript.txt)
+- [20260130_132918_AlexeyDTC_msg705.md](../inbox/raw/20260130_132918_AlexeyDTC_msg705.md)
 
 [^1]: [20260122_155237_AlexeyDTC_msg397.md](../inbox/raw/20260122_155237_AlexeyDTC_msg397.md)
 [^2]: [20260123_144250_AlexeyDTC_msg558_transcript.txt](../inbox/raw/20260123_144250_AlexeyDTC_msg558_transcript.txt)
+[^3]: [20260130_132651_AlexeyDTC_msg703_transcript.txt](../inbox/raw/20260130_132651_AlexeyDTC_msg703_transcript.txt)
+[^4]: [20260130_132918_AlexeyDTC_msg705.md](../inbox/raw/20260130_132918_AlexeyDTC_msg705.md)

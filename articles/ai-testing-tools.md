@@ -55,6 +55,18 @@ The proper workflow for ensuring tests are valid:
 2. Then, ask to break the functionality being tested
 3. Run the test again - it should now fail
 
+<figure>
+  <img src="../assets/images/ai-testing-tools/test-pass-meaningful-check.jpg" alt="Test passing after verifying the fix">
+  <figcaption>After asking Claude to verify the test is meaningful, the test passes correctly</figcaption>
+  <!-- This shows step 1 - the test passes when the functionality is implemented -->
+</figure>
+
+<figure>
+  <img src="../assets/images/ai-testing-tools/test-fail-without-fix.jpg" alt="Test failing without the fix">
+  <figcaption>Commenting out the fix makes the test fail - this confirms the test is actually checking something meaningful</figcaption>
+  <!-- This shows step 2-3 - a good test should fail when the code is broken -->
+</figure>
+
 If the test doesn't fail when the code is broken, the test is bad and needs to be rewritten. Once we verify the test fails properly, we restore the functionality[^1].
 
 Through iterations, a collection of tests emerges that can be run with browser automation. This verification step is critical - it ensures tests actually catch regressions rather than giving false confidence[^3].
