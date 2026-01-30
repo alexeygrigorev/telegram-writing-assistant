@@ -43,7 +43,8 @@ Brief description of what this article is about.
 | [Bash Helpers for Claude Code](claude-bash-helpers.md) | draft | 2026-01-23 | Aliases and functions for Claude Code |
 | [Claude Skills vs AGENTS.md](claude-skills-vs-agents-md.md) | draft | 2026-01-28 | Best practices for configuring AI coding agents |
 | [DataTalks.Club SEO Growth](datatalks-club-seo-growth.md) | draft | 2026-01-28 | SEO progress and traffic milestones |
-| [AI Testing Tools for End-to-End Tests](ai-testing-tools.md) | draft | 2026-01-29 | AI-powered testing automation for websites |
+| [AI Testing Tools for End-to-End Tests](ai-testing-tools.md) | draft | 2026-01-30 | AI-powered testing automation for websites |
+| [Testing AI Agents with the Judge Pattern](testing-agents-with-judge-pattern.md) | draft | 2026-01-30 | Using agents to evaluate other agents |
 | [AI-Assisted Automation Course Idea](ai-assisted-automation-course-idea.md) | draft | 2026-01-29 | Concept for a paid course on AI-assisted automation |
 
 ---
