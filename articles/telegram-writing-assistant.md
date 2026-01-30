@@ -44,6 +44,12 @@ Instead of doing this manually, I wanted an agent to handle the organization. I 
 6. Commits to GitHub
 7. Sends commit link back to Telegram
 
+<figure>
+  <img src="../assets/images/telegram-writing-assistant/terminal-processing-logs.jpg" alt="Terminal processing logs showing the bot in action">
+  <figcaption>Terminal output showing the bot processing files, committing to git, and sending a summary message back to Telegram</figcaption>
+  <!-- This shows what the processing looks like in the terminal -->
+</figure>
+
 ## File Processing
 
 The bot can now process files in addition to text, voice, and images. When a file is sent to the bot, it saves the file and creates an accompanying markdown file with metadata including the original filename, caption, and content. This allows the processor to incorporate file contents into articles[^1].
@@ -88,6 +94,15 @@ After using the system, some patterns emerged in how the agent processes content
 
 When listening to voice messages directly, it becomes clear where emphasis should be placed. The agent tends to smooth out these important nuances. This may be due to content reduction and summarization[^4].
 
+I received specific feedback that when reading processed messages, it feels like the text is being shortened and important details may be lost. I noticed this happening as well. When translating and summarizing, certain types of information should be preserved maximally:
+
+- Sequences of actions
+- Stories about how an idea was developed
+- Bugs that were encountered and fixed
+- Insights that might be useful to readers
+
+Otherwise, I have to re-listen to all voice messages which takes a lot of time. Ideas get shortened too much and when you want more details, the information is simply lost. The agent should edit for clarity according to style guidelines, but preserve the maximum amount of information from the original voice notes[^5].
+
 ## Sources
 - [20260116_210119_AlexeyDTC_transcript.txt](../inbox/raw/20260116_210119_AlexeyDTC_transcript.txt)
 - [20260116_210336_AlexeyDTC_transcript.txt](../inbox/raw/20260116_210336_AlexeyDTC_transcript.txt)
@@ -98,8 +113,10 @@ When listening to voice messages directly, it becomes clear where emphasis shoul
 - [20260123_144250_AlexeyDTC_msg558_transcript.txt](../inbox/raw/20260123_144250_AlexeyDTC_msg558_transcript.txt)
 - [20260130_132651_AlexeyDTC_msg703_transcript.txt](../inbox/raw/20260130_132651_AlexeyDTC_msg703_transcript.txt)
 - [20260130_132918_AlexeyDTC_msg705.md](../inbox/raw/20260130_132918_AlexeyDTC_msg705.md)
+- [20260130_144046_AlexeyDTC_msg723_transcript.txt](../inbox/raw/20260130_144046_AlexeyDTC_msg723_transcript.txt)
 
 [^1]: [20260122_155237_AlexeyDTC_msg397.md](../inbox/raw/20260122_155237_AlexeyDTC_msg397.md)
 [^2]: [20260123_144250_AlexeyDTC_msg558_transcript.txt](../inbox/raw/20260123_144250_AlexeyDTC_msg558_transcript.txt)
 [^3]: [20260130_132651_AlexeyDTC_msg703_transcript.txt](../inbox/raw/20260130_132651_AlexeyDTC_msg703_transcript.txt)
 [^4]: [20260130_132918_AlexeyDTC_msg705.md](../inbox/raw/20260130_132918_AlexeyDTC_msg705.md)
+[^5]: [20260130_144046_AlexeyDTC_msg723_transcript.txt](../inbox/raw/20260130_144046_AlexeyDTC_msg723_transcript.txt)

@@ -2,7 +2,7 @@
 title: "AI Testing Tools for End-to-End Tests"
 created: 2026-01-29
 updated: 2026-01-30
-tags: [testing, ai, agents, end-to-end, automation]
+tags: [testing, ai, agents, end-to-end, automation, workshops]
 status: draft
 ---
 
@@ -73,6 +73,46 @@ Through iterations, a collection of tests emerges that can be run with browser a
 
 The problem with Playwright and Selenium scripts is that they're very difficult to read and understand. Tests can fail even when everything works due to UI/CSS selectors. Being able to describe tests in plain English is a significant advantage[^2].
 
+## Why Tests Matter for AI Agents
+
+A lot of code is now written by agents. When using AI coding assistants, tests and specifications about how code should work are incredibly helpful. They help the agent focus on the task at hand[^5].
+
+When agents are required to write tests and we verify those tests are legitimate (not sloppy shortcuts), the code the agent produces actually works. This enables an easy feedback loop:
+
+1. The agent writes code and tests
+2. The test runs
+3. If the test fails, the agent tries to fix it
+4. This continues until the test passes
+
+The test creates an environment for quick feedback. Without tests, the agent says "everything works" but when you check, nothing actually works. With a test that fails, the agent keeps trying different approaches until it fixes the issue[^5].
+
+## Testing Workshop Idea
+
+I noticed many people struggle with testing. This relates to the testing content I've been working on. The problem is that not everyone has a good understanding of:
+
+- How to use unit tests
+- How to use integration tests
+- How to write tests
+- What needs testing and what doesn't
+- Test-driven development
+
+Many developers don't have this background. Software developers typically don't struggle because testing is commonly used in development work. But people with more scientific backgrounds, data science, or analytics often lack this experience. The more I work with AI Buildcamp and workshops, the more I see the need for foundational material covering these topics[^6].
+
+I have the knowledge and accumulated material on this subject. The idea is to:
+
+1. Create a testing workshop for NOW (the company)
+2. Create testing material to promote AI Buildcamp
+3. Cover different types of tests
+4. Show how to do testing in Python
+5. Include pytest, project setup, and best practices
+
+This could even be split into multiple workshops:
+- One on testing in general
+- One on testing agents
+- One on testing data pipelines
+
+This idea is currently in the background as something close to implementation. Recording this message serves as a demonstration of how the bot works[^6].
+
 ## Collaboration
 
 This was a paid collaboration with the testing tool company. I created a demo showing how the tool works. The fact that I agreed to promote it indicates that I found genuine value in the product, not just the partnership aspect[^1].
@@ -87,3 +127,5 @@ This was a paid collaboration with the testing tool company. I created a demo sh
 [^2]: [20260129_172852_AlexeyDTC_msg648_transcript.txt](../inbox/raw/20260129_172852_AlexeyDTC_msg648_transcript.txt)
 [^3]: [20260130_090255_AlexeyDTC_msg675_transcript.txt](../inbox/raw/20260130_090255_AlexeyDTC_msg675_transcript.txt)
 [^4]: [X Post - Al_Grigor/status/2017160202525569536](https://x.com/Al_Grigor/status/2017160202525569536)
+[^5]: [20260130_170956_AlexeyDTC_msg728_transcript.txt](../inbox/raw/20260130_170956_AlexeyDTC_msg728_transcript.txt)
+[^6]: [20260130_170956_AlexeyDTC_msg727_transcript.txt](../inbox/raw/20260130_170956_AlexeyDTC_msg727_transcript.txt)
