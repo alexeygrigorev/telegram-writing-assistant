@@ -1,5 +1,8 @@
 # Telegram Writing Assistant
 
+![17698041000364903691004859085197](https://github.com/user-attachments/assets/a5c0f75b-dd1c-4ad1-965a-e1296edcb237)
+
+
 A drafting system for writers, developers, and creators who regularly publish articles or newsletters. It gets you from scattered thoughts to publishable articles.
 
 You send thoughts to a telegram bot that saves everything locally, processes it with Claude, and organizes it into articles.
