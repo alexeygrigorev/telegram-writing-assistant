@@ -1,0 +1,9 @@
+---
+source: telegram_voice
+date: 2026-01-30T14:21:46+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260130_142146_AlexeyDTC_msg711.ogg
+---
+
+you
