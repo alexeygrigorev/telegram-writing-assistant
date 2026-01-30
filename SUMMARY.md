@@ -1,55 +1,55 @@
 # Telegram → GitHub Article Assistant — Summary
 
-## Идея
+## Idea
 
-Я использую Telegram как входную точку для мыслей:
-- текстовые сообщения
-- голосовые сообщения
-- изображения
+Telegram is used as a low-friction capture interface for ideas and findings:
+- text messages
+- voice messages
+- images
 
-Бот:
-- сохраняет всё локально
-- голосовые сообщения транскрибирует (Groq Whisper)
-- складывает всё в git-репозиторий
-- по команде запускает агент (Claude Code), который:
-  - анализирует накопленные материалы
-  - обновляет существующие статьи
-  - либо создаёт новые
-  - коммитит результат в GitHub
-  - присылает ссылку на коммит обратно в Telegram
+A Telegram bot:
+- stores all incoming data locally
+- transcribes voice messages using Groq Whisper
+- saves everything into a local git repository
+- on demand, launches an offline agent (Claude Code) that:
+  - analyzes accumulated raw materials
+  - updates existing articles
+  - or creates new articles when needed
+  - commits the results to GitHub
+  - returns a link to the commit back to Telegram
 
-Цель — **накапливать находки и черновики для статей**, не думая о структуре в момент записи.
-
----
-
-## Используемые компоненты
-
-- Telegram Bot API — приём сообщений
-- Groq Whisper — транскрипция аудио (бесплатный план с лимитами)
-- Git + GitHub — хранение и контроль изменений
-- Claude Code — агент для обработки материалов и редактирования статей
-- Markdown — основной формат данных
+The goal is to **capture ideas first and structure them later**, without breaking the flow of thinking.
 
 ---
 
-## Структура репозитория (Obsidian-style)
+## Core Components
+
+- Telegram Bot API — message ingestion
+- Groq Whisper — speech-to-text (free tier with rate limits)
+- Git + GitHub — storage, history, and review via diffs
+- Claude Code — one-shot code/knowledge agent
+- Markdown — canonical storage format
+
+---
+
+## Repository Structure (Obsidian-style Markdown Vault)
 
 ```
 repo/
   articles/
-    _index.md              # список статей + краткие описания
-    article-1.md
-    article-2.md
+    _index.md              # article index with short descriptions
+    article-a.md
+    article-b.md
 
   inbox/
-    raw/                   # новые материалы (текст, аудио, картинки)
-    used/                  # уже обработанные
+    raw/                   # unprocessed inputs
+    used/                  # processed inputs
 
   assets/
     images/
 
   scripts/
-    process_inbox.py       # запуск Claude Code
+    process_inbox.py       # Claude Code runner
 
   logs/
     claude_runs/
@@ -57,66 +57,66 @@ repo/
   SUMMARY.md
 ```
 
-Принцип:
-- **одна статья = один Markdown-файл**
-- можно открыть в Obsidian, VS Code или GitHub
-- удобно анализировать агентом
+Design principles:
+- one article = one Markdown file
+- files are readable without any special tooling
+- compatible with Obsidian, VS Code, and GitHub
+- easy for an agent to reason about incrementally
 
 ---
 
-## Поток работы
+## Workflow
 
-1. Я отправляю в Telegram:
-   - текст → сохраняется как `.md`
-   - голос → `.ogg` + транскрипт `.txt`
-   - картинку → файл в `assets/images`
+1. Input via Telegram:
+   - text → saved as `.md`
+   - voice → saved as audio + transcription `.txt`
+   - images → saved as files
 
-2. Всё кладётся в `inbox/raw`
+2. All inputs are stored in `inbox/raw`
 
-3. Команда `/process`:
-   - запускает `process_inbox.py`
-   - внутри вызывается Claude Code в неинтерактивном режиме
+3. A `/process` command triggers:
+   - execution of `process_inbox.py`
+   - invocation of Claude Code in non-interactive mode
 
 4. Claude Code:
-   - читает `_index.md` и существующие статьи
-   - решает:
-     - куда добавить материал
-     - или создать новую статью
-   - аккуратно дополняет Markdown
+   - reads `_index.md` and existing articles
+   - classifies each new input
+   - appends material to relevant articles
+   - or creates a new article when no match exists
+   - avoids rewriting existing text
 
-5. Результат:
+5. Results:
    - `git add / commit / push`
-   - бот присылает ссылку на коммит
+   - bot replies with a GitHub commit link
 
 ---
 
-## Использование Claude Code
+## Claude Code Execution Model
 
-Claude Code запускается **один раз на задачу**:
+Claude Code is executed in one-shot mode:
 
 ```bash
-claude -p "Обработай inbox и обнови статьи"   --output-format json   > logs/claude_runs/run_$(date +%F_%H%M%S).json
+claude -p "Process inbox and update articles"   --output-format json   > logs/claude_runs/run_$(date +%F_%H%M%S).json
 ```
 
-Свойства:
-- не остаётся интерактивного промпта
-- процесс завершается сам
-- весь вывод сохраняется в лог
+Properties:
+- no interactive session remains
+- process exits automatically
+- full execution log is preserved
 
 ---
 
-## Принципы
+## Editorial Philosophy
 
-- агент **не пишет финальный текст**
-- агент **не переписывает стиль**
-- агент **аккуратно складывает находки**
-- все изменения видны через git diff
-- человек остаётся главным редактором
+- the agent does not write final articles
+- the agent does not rewrite authorial voice
+- the agent only organizes and appends findings
+- all changes are transparent via git diff
+- the human remains the final editor
 
 ---
 
-## Статус
+## Project Status
 
-Проект находится в стадии:
-> «персональный ассистент для накопления и структурирования знаний»
-
+Current state:
+> Personal assistant for long-term knowledge accumulation and article development
