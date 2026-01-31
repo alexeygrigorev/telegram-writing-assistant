@@ -46,6 +46,8 @@ Brief description of what this article is about.
 | [AI Testing Tools for End-to-End Tests](ai-testing-tools.md) | draft | 2026-01-30 | AI-powered testing automation for websites |
 | [Testing AI Agents with the Judge Pattern](testing-agents-with-judge-pattern.md) | draft | 2026-01-30 | Using agents to evaluate other agents |
 | [AI-Assisted Automation Course Idea](ai-assisted-automation-course-idea.md) | draft | 2026-01-29 | Concept for a paid course on AI-assisted automation |
+| [From Vague Ideas to Concrete Results with ChatGPT](idea-to-concrete-iteration.md) | draft | 2026-01-31 | Process for iterating from undefined ideas to actionable plans |
+| [Interesting Resources](interesting-resources.md) | draft | 2026-01-31 | Curated collection of tools and resources |
 
 ---
 

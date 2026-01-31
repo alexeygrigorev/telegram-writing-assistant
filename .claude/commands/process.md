@@ -46,6 +46,8 @@ Process in TWO phases:
    ```
    Then incorporate that content into the appropriate article.
 
+   If a URL is marked as "resource" or is an orphaned link (a link sent without context that doesn't relate to nearby messages), add it to the "Interesting Resources" article (interesting-resources.md).
+
    Final processing
 
    - Translate to English if needed
