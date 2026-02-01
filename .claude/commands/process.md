@@ -61,7 +61,9 @@ Process in TWO phases:
 
 2. For each photo in `inbox/raw/`:
    - Read its markdown description file (contains Type, Content, Text, Context) - this is the ONLY source for image content, DO NOT use any vision/analyze_image tools
-   - Look at messages sent before/after by timestamp for context
+   - **CRITICAL**: Pay close attention to the "Text" and "Context" fields in the markdown description - they describe what's actually in the image
+   - Look at messages sent before/after by timestamp for context (within 1-2 minutes)
+   - Check what topics were being discussed in nearby messages to understand the image's purpose
    - If articles exist: Find the most relevant section and add the image
    - If no articles exist yet: Defer the image
 
@@ -76,16 +78,26 @@ Process in TWO phases:
 
 4. Finding the RIGHT location for an image within an article:
    - Use timestamp as primary signal: Look at the image's date from frontmatter and find text content that was created around the same time
-   - Use context: Read the image description (Type, Content, Text, Context) to understand what the image shows
+   - **CRITICAL**: Read the image description (Type, Content, Text, Context) VERY carefully - this is what the user says is in the image
+   - The "Text" field in the photo description is the user's own description - treat this as authoritative for what the image contains
    - Find related section: Search the article for content that matches the image's subject matter
+   - Cross-reference with nearby messages by timestamp to understand context
    - Place strategically: Insert the figure NEAR the relevant text, not at the end. The text around should relate to what's in the image
    - Example: If image shows a terminal screenshot of installing a dependency, place it near the section about setup/dependencies, not at the end
+   - Verify the image actually matches what you're placing it near - if unsure, leave a note or defer
 
-5. If image cannot be placed:
+5. **IMAGE CATEGORIZATION BEST PRACTICES**:
+   - Not all images belong in every article even if they were sent around the same time
+   - An image showing "7 of 10" results is different from "certificate background" - they are NOT the same image
+   - Read the user's description of what's in the image (Text/Context fields) - this is critical for proper categorization
+   - Use vision/analyze tools ONLY as a last resort - the user's own description is authoritative
+   - When in doubt about where to place an image, defer rather than place incorrectly
+
+6. If image cannot be placed:
    - Move the image to `assets/images/_unused/` (create folder if needed)
    - Move the markdown description file to `inbox/used/`
 
-6. Image placement format in articles:
+7. Image placement format in articles:
 ```html
 <figure>
   <img src="../assets/images/{article_name}/descriptive-name.jpg" alt="Image description">
@@ -94,7 +106,7 @@ Process in TWO phases:
 </figure>
 ```
 
-7. Track which images were placed and which were deferred
+8. Track which images were placed and which were deferred
 
 # COURSE NAMING CONVENTIONS
 

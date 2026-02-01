@@ -1,7 +1,7 @@
 ---
 title: "AI Buildcamp Course"
 created: 2026-01-22
-updated: 2026-01-29
+updated: 2026-02-01
 tags: [course, ai-buildcamp, curriculum, agents, rag]
 status: draft
 ---
