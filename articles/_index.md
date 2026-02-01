@@ -48,6 +48,7 @@ Brief description of what this article is about.
 | [AI-Assisted Automation Course Idea](ai-assisted-automation-course-idea.md) | draft | 2026-01-29 | Concept for a paid course on AI-assisted automation |
 | [From Vague Ideas to Concrete Results with ChatGPT](idea-to-concrete-iteration.md) | draft | 2026-01-31 | Process for iterating from undefined ideas to actionable plans |
 | [Interesting Resources](interesting-resources.md) | draft | 2026-01-31 | Curated collection of tools and resources |
+| [Certificates and AI Design Experiments](certificates-and-ai-design-experiments.md) | draft | 2026-02-01 | Creating workshop certificates and experiments with image-to-HTML/CSS conversion |
 
 ---
 
