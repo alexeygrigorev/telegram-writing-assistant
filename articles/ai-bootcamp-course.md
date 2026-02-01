@@ -179,6 +179,21 @@ Feedback from students is actively sought and used to improve the course. The fi
 
 This approach ensures the course continues to improve while rewarding students who contribute to its development.
 
+## Course Recording Progress
+
+Module 1 of the course has been fully recorded. The recording covers:
+- OpenAI API basics
+- RAG (Retrieval-Augmented Generation) in detail
+- Vector search
+- Extensive coverage of OpenAI alternatives
+
+A significant amount of new material was added on alternatives to OpenAI. Previously, this content was minimal, but students have been asking about options like Bedrock. The new module includes dedicated videos for:
+- AWS Bedrock
+- Anthropic
+- Other alternative providers
+
+This expanded coverage gives students more options for choosing providers based on their needs and constraints[^18].
+
 ## Sources
 
 - [20260120_135731_AlexeyDTC_msg333_transcript.txt](../inbox/raw/20260120_135731_AlexeyDTC_msg333_transcript.txt)
@@ -223,3 +238,4 @@ This approach ensures the course continues to improve while rewarding students w
 [^15]: [20260128_065907_AlexeyDTC_msg607.md](../inbox/raw/20260128_065907_AlexeyDTC_msg607.md)
 [^16]: [20260129_171716_AlexeyDTC_msg642_transcript.txt](../inbox/raw/20260129_171716_AlexeyDTC_msg642_transcript.txt)
 [^17]: [20260129_173022_AlexeyDTC_msg650_transcript.txt](../inbox/raw/20260129_173022_AlexeyDTC_msg650_transcript.txt)
+[^18]: [20260201_113629_AlexeyDTC_msg814_transcript.txt](../inbox/raw/20260201_113629_AlexeyDTC_msg814_transcript.txt)

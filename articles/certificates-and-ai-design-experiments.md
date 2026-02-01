@@ -137,6 +137,39 @@ The certificates are done and delivered. The experiment ran while I recorded cou
 
 While the goal of full automation wasn't achieved, the human-assisted approach works. The earliest iterations were actually better - quality degraded when I integrated Gemini for automated comparison[^7].
 
+## Certificate Hosting Infrastructure
+
+### Existing Infrastructure
+
+DataTalks.Club already has a certificate hosting solution at `certificate.datatalks.club`. The workflow:
+1. Generate certificates
+2. Upload to AWS S3
+3. Download through the website
+
+However, this infrastructure is tied to DataTalks.Club courses. For workshops and courses outside the club (AI Hero, Maven courses), a separate solution is needed[^2].
+
+### Delegating Infrastructure Setup to AI
+
+Setting up certificate hosting typically involves multiple steps that would take 2-3 hours:
+- Configuring S3 buckets
+- Setting up CloudFront for HTTPS delivery
+- Configuring DNS settings at the domain registrar
+- Troubleshooting and testing
+
+By delegating this task to Claude Code, the setup time was reduced to 5-10 minutes. The workflow:
+1. Gave Claude access to the S3 bucket and CloudFlare
+2. Asked Claude to set up the infrastructure
+3. Followed instructions to add DNS records at GoDaddy (the domain registrar)
+4. Claude handled the CloudFront and HTTPS configuration
+5. When something didn't work, Claude debugged and fixed it immediately
+
+The key benefits of this approach:
+- Speed: What previously took hours of research and troubleshooting was done in minutes
+- Audit trail: All steps are documented in the chat
+- Reproducibility: The conversation serves as documentation for future setups
+
+This approach works well for infrastructure tasks where the goal is clear but the implementation details require research and trial-and-error[^2].
+
 ## Next Steps
 
 I want to return to this project to create improved certificates for AI Buildcamp. Ideas for improvement:
@@ -148,6 +181,15 @@ I want to return to this project to create improved certificates for AI Buildcam
 - Consider whether this level of automation is worth the complexity vs. just giving direct feedback
 
 The concept of converting images to code is valuable and I expect to return to it in a month or two when there's more time to refine the approach.
+
+### Community Question
+
+Before building a custom solution for certificate design and hosting, I want to learn from others who may have solved this problem. Some existing options I'm aware of:
+- Google design tools (haven't tried yet)
+- Design tools from Lava
+- Experiments with Banana for image generation followed by design conversion
+
+If anyone has experience with certificate generation systems or knows of existing solutions that avoid reinventing the wheel, I'd like to hear about it[^1].
 
 ## New Website Services Section
 
@@ -170,3 +212,5 @@ The plan is for workshop certificates to include links to this page, so when par
 [^5]: [20260201_081321_AlexeyDTC_msg790_photo.md](../inbox/raw/20260201_081321_AlexeyDTC_msg790_photo.md)
 [^6]: [20260201_104544_AlexeyDTC_msg798_photo.md](../inbox/raw/20260201_104544_AlexeyDTC_msg798_photo.md)
 [^7]: [20260201_110803_AlexeyDTC_msg802_transcript.txt](../inbox/raw/20260201_110803_AlexeyDTC_msg802_transcript.txt)
+[^8]: [20260201_112736_AlexeyDTC_msg810_transcript.txt](../inbox/raw/20260201_112736_AlexeyDTC_msg810_transcript.txt)
+[^9]: [20260201_113251_AlexeyDTC_msg812_transcript.txt](../inbox/raw/20260201_113251_AlexeyDTC_msg812_transcript.txt)

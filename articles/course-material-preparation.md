@@ -161,6 +161,43 @@ Less time is spent on:
 
 Claude handles the technical verification - ensuring variables are declared, names match, and the document is clean and ready for publication[^9].
 
+## Template Generator with Jupyter Integration
+
+The template generator tool allows working with Jupyter notebooks to create course materials. A utility exists that:
+- Takes Jupyter notebooks as input
+- Runs the entire notebook to verify it works
+- Extracts cell code and output
+- Generates markdown documents with the executed code
+
+This approach ensures code actually works before being included in materials, since the notebook runs end-to-end and only working cells are inserted into templates.
+
+### Current Limitation
+
+The current workflow requires running the entire notebook before extracting cells. This means:
+1. Write code in notebook
+2. Run full notebook to verify
+3. Extract cells to template
+4. If making changes, must re-run everything
+
+This is slow for iterative experimentation. Each small change requires re-running previous steps that are already known to work.
+
+### Desired Improvement: Jupyter Session Integration with Claude
+
+A faster workflow would connect Claude directly to IPython kernel sessions, similar to how ChatGPT handles code analysis. The idea:
+- Maintain a persistent Jupyter session
+- Claude can run code in that session directly
+- See output without re-running entire notebooks
+- Iterate faster on experiments
+
+This would accelerate the workflow significantly. Instead of waiting for Claude to edit cells, run the notebook, and extract output, the session would remain active and Claude could execute code and see results immediately.
+
+Potential approaches to explore:
+- MCP (Model Context Protocol) for Jupyter notebooks
+- Creating a custom tool that bridges Claude sessions with IPython kernels
+- Similar to how ChatGPT 5 handles code - writes code, shows it, allows feedback and iteration
+
+The goal is to reduce the time between "write code" and "see output" when working with AI assistants on course material preparation. This idea is currently being explored as a way to further speed up the course creation workflow[^10].
+
 ## Sources
 
 - [20260122_170054_AlexeyDTC_msg403_transcript.txt](../inbox/raw/20260122_170054_AlexeyDTC_msg403_transcript.txt)
@@ -185,3 +222,4 @@ Claude handles the technical verification - ensuring variables are declared, nam
 [^7]: [20260126_180937_AlexeyDTC_msg597_transcript.txt](../inbox/raw/20260126_180937_AlexeyDTC_msg597_transcript.txt)
 [^8]: [20260129_173421_AlexeyDTC_msg651_transcript.txt](../inbox/raw/20260129_173421_AlexeyDTC_msg651_transcript.txt)
 [^9]: [20260129_173609_AlexeyDTC_msg652_transcript.txt](../inbox/raw/20260129_173609_AlexeyDTC_msg652_transcript.txt)
+[^10]: [20260201_114115_AlexeyDTC_msg816_transcript.txt](../inbox/raw/20260201_114115_AlexeyDTC_msg816_transcript.txt)
