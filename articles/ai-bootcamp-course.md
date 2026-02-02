@@ -1,7 +1,7 @@
 ---
 title: "AI Buildcamp Course"
 created: 2026-01-22
-updated: 2026-02-01
+updated: 2026-02-02
 tags: [course, ai-buildcamp, curriculum, agents, rag]
 status: draft
 ---
@@ -190,9 +190,21 @@ Module 1 of the course has been fully recorded. The recording covers:
 A significant amount of new material was added on alternatives to OpenAI. Previously, this content was minimal, but students have been asking about options like Bedrock. The new module includes dedicated videos for:
 - AWS Bedrock
 - Anthropic
-- Other alternative providers
+- Groq
+- Gemini
+- Z.ai
+- Grok
+- Ollama
 
 This expanded coverage gives students more options for choosing providers based on their needs and constraints[^18].
+
+<figure>
+  <img src="../assets/images/ai-bootcamp-course/openai-alternatives-list.jpg" alt="OpenAI Alternatives section outline from Module 1">
+  <figcaption>The OpenAI Alternatives section in Module 1 covers multiple providers including Groq, Anthropic, Bedrock, Gemini, Z.ai, Grok, and Ollama</figcaption>
+  <!-- This illustrates the comprehensive alternatives content added to the course -->
+</figure>
+
+The alternatives section was newly created for Module 1, along with content on Structured Output and Streaming. The Structured Output topic was given more emphasis and moved earlier in the course because of its importance for building AI applications[^19].
 
 ## Sources
 
@@ -239,3 +251,4 @@ This expanded coverage gives students more options for choosing providers based 
 [^16]: [20260129_171716_AlexeyDTC_msg642_transcript.txt](../inbox/raw/20260129_171716_AlexeyDTC_msg642_transcript.txt)
 [^17]: [20260129_173022_AlexeyDTC_msg650_transcript.txt](../inbox/raw/20260129_173022_AlexeyDTC_msg650_transcript.txt)
 [^18]: [20260201_113629_AlexeyDTC_msg814_transcript.txt](../inbox/raw/20260201_113629_AlexeyDTC_msg814_transcript.txt)
+[^19]: [20260202_143419_valeriia_kuka_msg850_transcript.txt](../inbox/raw/20260202_143419_valeriia_kuka_msg850_transcript.txt)
