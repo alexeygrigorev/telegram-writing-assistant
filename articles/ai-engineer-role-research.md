@@ -38,6 +38,12 @@ Focuses on what the role is, what AI Engineers do in their day-to-day work, and 
 
 Covers what companies want when they hire AI and Gen AI Engineers. Based on job posting analysis, this article will detail the requirements and technologies that companies are looking for[^4].
 
+<figure>
+  <img src="../assets/images/ai-engineer-role-research/senior-ai-engineer-competencies.jpg" alt="Senior AI Engineer job competencies">
+  <figcaption>Key competencies listed in a Senior AI Engineer job posting - note that only one point specifically mentions GenAI (RAG, agentic workflows, MCP, A2A), while the rest focuses on traditional ML engineering skills like Python, PyTorch, NLP, and MLOps.</figcaption>
+  Illustrates how some companies use "AI Engineer" as a title for what is essentially an ML Engineer role with minimal GenAI requirements.
+</figure>
+
 ### Article 3: Interview Process
 
 Focuses on how interviews look for AI Engineer positions. Based on:
@@ -48,6 +54,22 @@ Focuses on how interviews look for AI Engineer positions. Based on:
 
 The focus is on real experiences rather than compiling existing question banks without clear sources[^5].
 
+### Typical Hiring Process
+
+A typical hiring process for a Staff AI Engineer position follows this pattern[^9]:
+
+Step 1: 30-minute screening call with talent partner to discuss background, motivation, experience, and practical details.
+
+Step 2: 30-minute call with founder to learn more about the candidate and share more about the product.
+
+Step 3: 45-minute call with a team member to dive deeper into experience.
+
+Step 4: Take-home assignment and 1-hour on-site panel interview with the team.
+
+Step 5: Social meeting with 3 team members to get to know each other better.
+
+Step 6: Offer.
+
 ### Article 4: Home Assignments
 
 Analyzes GitHub repositories where people share their solutions to AI Engineer home assignments. This will show:
@@ -56,6 +78,49 @@ Analyzes GitHub repositories where people share their solutions to AI Engineer h
 - What's expected in these assignments
 
 The focus is on understanding what assignments are given, not necessarily the solutions themselves[^6].
+
+### Common Assignment Patterns
+
+Based on analysis of over 60 GitHub repositories where candidates share their home assignment solutions, clear patterns emerge in what companies ask for[^7].
+
+Most Frequent Tasks:
+
+1. RAG Systems (40%+ of assignments)
+   - Document upload (PDF, DOCX, TXT, MD)
+   - Vector databases (MongoDB Atlas, Qdrant, FAISS, Pinecone)
+   - LangChain/LangGraph orchestration
+   - Citation support
+
+2. Agentic Systems (25%+)
+   - ReACT agents
+   - Tool-calling
+   - Multi-step reasoning
+   - LangGraph workflows
+
+3. Conversational AI (20%+)
+   - Chatbots
+   - Telegram/Discord bots
+   - Voice assistants
+
+4. Document Processing (15%)
+   - PDF parsing
+   - Data extraction
+   - Compliance checking
+
+Tech Stack Frequency:
+
+| Tool | Frequency |
+|------|-----------|
+| LangChain/LangGraph | 60%+ |
+| OpenAI API | 50%+ |
+| FastAPI | 40%+ |
+| MongoDB Atlas | 30%+ |
+| Streamlit | 25%+ |
+| Google Gemini | 20%+ |
+| Anthropic Claude | 15%+ |
+| FAISS | 15%+ |
+
+RAG systems dominate the assignment landscape. Wherever RAG is involved, document parsing is typically required as well[^8].
 
 ## Additional Applications
 
@@ -76,13 +141,13 @@ For Twitter and Reddit analysis, deep research agents were more helpful because:
 - People often share "just got asked this in my interview" content
 - This content is valuable for real interview preparation
 
-The current approach involves using agents to help craft search queries, then manually finding and aggregating the actual data sources for local analysis[^7].
+The current approach involves using agents to help craft search queries, then manually finding and aggregating the actual data sources for local analysis[^14].
 
 ## Industry Interview Examples
 
 ### Real Interview Questions from Industry
 
-I asked a contact at a company that hires AI engineers about their interview process. They treat AI engineers similarly to regular engineers with experience working on systems that include LLMs. Their questions focus on fundamental AI concepts rather than framework details[^8]:
+I asked a contact at a company that hires AI engineers about their interview process. They treat AI engineers similarly to regular engineers with experience working on systems that include LLMs. Their questions focus on fundamental AI concepts rather than framework details[^10]:
 
 - "Explain the function calling flow"
 - "How and why would you use structured output"
@@ -96,7 +161,7 @@ These questions test practical understanding rather than theoretical knowledge.
 
 ### A Common Interview Issue
 
-A concerning pattern from their interviews: a data engineer answered all questions about Kafka and Spark correctly, but when asked about AI, he started discussing multi-agent systems. When asked how the agents communicate with each other, he said he didn't know - "LangGraph handles it internally"[^9].
+A concerning pattern from their interviews: a data engineer answered all questions about Kafka and Spark correctly, but when asked about AI, he started discussing multi-agent systems. When asked how the agents communicate with each other, he said he didn't know - "LangGraph handles it internally"[^11].
 
 This highlights a problem: candidates may use frameworks without understanding the underlying concepts. For multi-agent systems, it's important to know how agents communicate, regardless of which framework is being used.
 
@@ -106,7 +171,7 @@ As someone teaching AI engineering courses and working with ML and AI for years,
 
 ### Core Responsibility: AI Integration
 
-The AI Engineer's role is integrating AI into products. This primarily means calling LLMs through providers like OpenAI, Anthropic, or others. Self-hosting is less common, and fine-tuning is even rarer[^10].
+The AI Engineer's role is integrating AI into products. This primarily means calling LLMs through providers like OpenAI, Anthropic, or others. Self-hosting is less common, and fine-tuning is even rarer[^12].
 
 The work involves:
 - Calling LLM APIs through providers
@@ -141,7 +206,7 @@ For more complex systems involving RAG (Retrieval Augmented Generation) or agent
 - Writing tests for agent behavior
 - Defining metrics to evaluate agent performance
 
-The core principle remains: integrate AI into products so they work reliably, and be confident they work through data-driven decisions and monitoring[^10].
+The core principle remains: integrate AI into products so they work reliably, and be confident they work through data-driven decisions and monitoring[^13].
 
 This vision guides both my teaching and my research into how the industry actually defines and hires for AI Engineer roles.
 
@@ -158,6 +223,10 @@ This vision guides both my teaching and my research into how the industry actual
 - [20260203_212101_AlexeyDTC_msg892.md](../inbox/raw/20260203_212101_AlexeyDTC_msg892.md)
 - [20260204_102339_AlexeyDTC_msg900_transcript.txt](../inbox/raw/20260204_102339_AlexeyDTC_msg900_transcript.txt)
 - [20260204_102429_AlexeyDTC_msg902_transcript.txt](../inbox/raw/20260204_102429_AlexeyDTC_msg902_transcript.txt)
+- [20260202_192519_AlexeyDTC_msg864_transcript.txt](../inbox/raw/20260202_192519_AlexeyDTC_msg864_transcript.txt)
+- [20260204_135510_AlexeyDTC_msg914.md](../inbox/raw/20260204_135510_AlexeyDTC_msg914.md)
+- [20260204_135608_AlexeyDTC_msg915_transcript.txt](../inbox/raw/20260204_135608_AlexeyDTC_msg915_transcript.txt)
+- [20260204_140153_AlexeyDTC_msg918.md](../inbox/raw/20260204_140153_AlexeyDTC_msg918.md)
 
 [^1]: [20260202_191851_AlexeyDTC_msg856_transcript.txt](../inbox/raw/20260202_191851_AlexeyDTC_msg856_transcript.txt)
 [^2]: [20260202_191851_AlexeyDTC_msg856_transcript.txt](../inbox/raw/20260202_191851_AlexeyDTC_msg856_transcript.txt)
@@ -165,7 +234,11 @@ This vision guides both my teaching and my research into how the industry actual
 [^4]: [20260202_191851_AlexeyDTC_msg856_transcript.txt](../inbox/raw/20260202_191851_AlexeyDTC_msg856_transcript.txt)
 [^5]: [20260202_192058_AlexeyDTC_msg858_transcript.txt](../inbox/raw/20260202_192058_AlexeyDTC_msg858_transcript.txt)
 [^6]: [20260202_192157_AlexeyDTC_msg860_transcript.txt](../inbox/raw/20260202_192157_AlexeyDTC_msg860_transcript.txt)
-[^7]: [20260202_192519_AlexeyDTC_msg864_transcript.txt](../inbox/raw/20260202_192519_AlexeyDTC_msg864_transcript.txt)
-[^8]: [20260203_212101_AlexeyDTC_msg891.md](../inbox/raw/20260203_212101_AlexeyDTC_msg891.md)
-[^9]: [20260203_212101_AlexeyDTC_msg892.md](../inbox/raw/20260203_212101_AlexeyDTC_msg892.md)
-[^10]: [20260204_102339_AlexeyDTC_msg900_transcript.txt](../inbox/raw/20260204_102339_AlexeyDTC_msg900_transcript.txt)
+[^7]: [20260204_135510_AlexeyDTC_msg914.md](../inbox/raw/20260204_135510_AlexeyDTC_msg914.md)
+[^8]: [20260204_135608_AlexeyDTC_msg915_transcript.txt](../inbox/raw/20260204_135608_AlexeyDTC_msg915_transcript.txt)
+[^9]: [20260204_140153_AlexeyDTC_msg918.md](../inbox/raw/20260204_140153_AlexeyDTC_msg918.md)
+[^10]: [20260203_212101_AlexeyDTC_msg891.md](../inbox/raw/20260203_212101_AlexeyDTC_msg891.md)
+[^11]: [20260203_212101_AlexeyDTC_msg892.md](../inbox/raw/20260203_212101_AlexeyDTC_msg892.md)
+[^12]: [20260204_102339_AlexeyDTC_msg900_transcript.txt](../inbox/raw/20260204_102339_AlexeyDTC_msg900_transcript.txt)
+[^13]: [20260204_102429_AlexeyDTC_msg902_transcript.txt](../inbox/raw/20260204_102429_AlexeyDTC_msg902_transcript.txt)
+[^14]: [20260202_192519_AlexeyDTC_msg864_transcript.txt](../inbox/raw/20260202_192519_AlexeyDTC_msg864_transcript.txt)
