@@ -1,7 +1,7 @@
 ---
 title: "Claude Code Experiments"
 created: 2026-01-17
-updated: 2026-01-29
+updated: 2026-02-04
 tags: [claude-code, experiments, automation, copilot, github]
 status: draft
 ---
@@ -100,6 +100,30 @@ This same approach works for creating individual homework assignments. My previo
 
 Now I can tell the agent: "Here's a markdown document with homework, please create the homework form." Done[^5].
 
+## Troubleshooting Production Issues
+
+Claude Code is particularly useful for troubleshooting production issues when time is limited. I had a situation where the bot was failing for Slack reactions in the general channel. Normally, I would:
+1. Go to CloudWatch
+2. Check logs there
+3. Try to understand what went wrong
+4. Fix the issue based on the logs
+
+Instead, I simply asked Claude Code to pull the logs from AWS for the last 2 hours and analyze what was happening. It:
+1. Figured out how to retrieve the logs using AWS CLI
+2. Found the stacktrace in the logs
+3. Identified the error from the stacktrace
+4. Fixed the error
+5. Made a git commit and push
+6. The deployment happened automatically on push
+
+I was preparing for a trip and didn't have time to sit and debug. I just gave Claude Code the task and continued with my preparations while it handled everything. This type of automation - handling urgent maintenance tasks - is where Claude Code excels. Tools like Cursor, Antigravity, and Copilot are better suited for more thoughtful, interactive coding work[^6].
+
+<figure>
+  <img src="../assets/images/claude-code-experiments/aws-logs-troubleshooting.jpg" alt="Claude Code pulling AWS logs to troubleshoot bot issue">
+  <figcaption>Claude Code analyzing AWS logs to diagnose and fix a Slack integration issue automatically</figcaption>
+  <!-- This illustrates the practical application of Claude Code for production troubleshooting -->
+</figure>
+
 ## Sources
 - [20260117_193932_AlexeyDTC_msg249_transcript.txt](../inbox/raw/20260117_193932_AlexeyDTC_msg249_transcript.txt)
 - [20260117_193932_AlexeyDTC_msg250_transcript.txt](../inbox/raw/20260117_193932_AlexeyDTC_msg250_transcript.txt)
@@ -119,10 +143,13 @@ Now I can tell the agent: "Here's a markdown document with homework, please crea
 - [20260123_120956_valeriia_kuka_msg436.md](../inbox/raw/20260123_120956_valeriia_kuka_msg436.md)
 - [20260123_121239_valeriia_kuka_msg438.md](../inbox/raw/20260123_121239_valeriia_kuka_msg438.md)
 - [20260129_171140_AlexeyDTC_msg641_transcript.txt](../inbox/raw/20260129_171140_AlexeyDTC_msg641_transcript.txt)
+- [20260204_100207_AlexeyDTC_msg898_transcript.txt](../inbox/raw/20260204_100207_AlexeyDTC_msg898_transcript.txt)
+- [20260204_100023_AlexeyDTC_msg896.jpg](../assets/images/claude-code-experiments/aws-logs-troubleshooting.jpg)
 
 [^1]: [20260129_171140_AlexeyDTC_msg641_transcript.txt](../inbox/raw/20260129_171140_AlexeyDTC_msg641_transcript.txt)
 [^2]: [PR #135 - Edit individual review criteria scores in project submission and fix message display in cadmin](https://github.com/DataTalksClub/course-management-platform/pull/135)
 [^3]: [20260123_120918_valeriia_kuka_msg426_transcript.txt](../inbox/raw/20260123_120918_valeriia_kuka_msg426_transcript.txt)
 [^4]: [20260123_120918_valeriia_kuka_msg428_transcript.txt](../inbox/raw/20260123_120918_valeriia_kuka_msg428_transcript.txt)
 [^5]: [20260123_120918_valeriia_kuka_msg424_transcript.txt](../inbox/raw/20260123_120918_valeriia_kuka_msg424_transcript.txt)
-[^6]: [20260123_120918_valeriia_kuka_msg425_transcript.txt](../inbox/raw/20260123_120918_valeriia_kuka_msg425_transcript.txt)
+[^6]: [20260204_100207_AlexeyDTC_msg898_transcript.txt](../inbox/raw/20260204_100207_AlexeyDTC_msg898_transcript.txt)
+[^7]: [20260204_100023_AlexeyDTC_msg896_photo.md](../inbox/raw/20260204_100023_AlexeyDTC_msg896_photo.md)

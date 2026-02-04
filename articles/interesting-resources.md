@@ -1,7 +1,7 @@
 ---
 title: "Interesting Resources"
 created: 2026-01-31
-updated: 2026-02-02
+updated: 2026-02-04
 tags: [resources, tools, ai, development]
 status: draft
 ---
@@ -40,6 +40,10 @@ An AI-powered CLI tool by antirez for complex debugging, code analysis, and tech
 
 ## Planning and Development Tools
 
+### Gas Town
+
+An orchestrator for managing multiple Claude Code instances simultaneously. Gas Town addresses the challenge of tracking work across many AI coding agents by providing a system for coordinating workers, managing merge queues, and maintaining persistent identities. It uses concepts from Kubernetes and Temporal, with tmux as the primary UI. The project represents a vision for what comes next after individual AI coding agents - coordinated workflows and "Kubernetes for agents"[^8].
+
 ### planning-with-files
 
 A Claude Code skill that implements Manus-style persistent markdown planning. This is the workflow pattern behind Manus, the AI agent company that Meta acquired for $2 billion. The plugin transforms your workflow to use persistent markdown files for planning, progress tracking, and knowledge storage. It supports multiple IDEs including Claude Code, Cursor, Gemini CLI, Continue, and more[^6].
@@ -57,3 +61,4 @@ A lightweight and modular framework for building AI agent pipelines and applicat
 [^5]: [20260131_194824_AlexeyDTC_msg751_transcript.txt](../inbox/raw/20260131_194824_AlexeyDTC_msg751_transcript.txt)
 [^6]: [20260202_122612_AlexeyDTC_msg848.md](../inbox/raw/20260202_122612_AlexeyDTC_msg848.md)
 [^7]: [20260202_171315_AlexeyDTC_msg854.md](../inbox/raw/20260202_171315_AlexeyDTC_msg854.md)
+[^8]: [20260203_134255_AlexeyDTC_msg884_transcript.txt](../inbox/raw/20260203_134255_AlexeyDTC_msg884_transcript.txt)

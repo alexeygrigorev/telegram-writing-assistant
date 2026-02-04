@@ -1,7 +1,7 @@
 ---
 title: "LightSearch: Persistent Search Library"
 created: 2026-02-02
-updated: 2026-02-02
+updated: 2026-02-04
 tags: [search, python, library, sqlite, lsh, vector-search]
 status: draft
 ---
@@ -10,9 +10,13 @@ status: draft
 
 A lightweight search library with persistence using SQLite, designed for small-scale projects that don't need the overhead of Elasticsearch or other heavy databases.
 
+## Note: Renamed to SQLiteSearch
+
+The library was originally named "LightSearch" but was renamed to "SQLiteSearch" before publication, as "litesearch" was already taken on PyPI. The project is now available at https://github.com/alexeygrigorev/sqlitesearch[^1].
+
 ## Motivation
 
-The idea for LightSearch came from needing to show students how to do vector search with persistence, without using heavy infrastructure. Minsearch works well for in-memory search but lacks persistence. Deploying to services like Render with Elasticsearch costs $200-300 per month, which is too much for student projects or small side projects[^1].
+The idea for LightSearch came from needing to show students how to do vector search with persistence, without using heavy infrastructure. Minsearch works well for in-memory search but lacks persistence. Deploying to services like Render with Elasticsearch costs $200-300 per month, which is too much for student projects or small side projects[^2].
 
 I wanted a solution that is:
 - Lightweight and easy to deploy
@@ -93,10 +97,26 @@ The API closely matches Minsearch's design to minimize learning curve. Users fam
 
 ## Relationship to Minsearch
 
-LightSearch complements Minsearch by addressing its main limitation: lack of persistence. While Minsearch is ideal for in-memory search scenarios, LightSearch extends the same familiar interface to use SQLite as the backend[^7].
+LightSearch complements Minsearch by addressing its main limitation: lack of persistence. While Minsearch is ideal for in-memory search scenarios, LightSearch extends the same familiar interface to use SQLite as the backend[^8].
+
+## Publication to PyPI
+
+### Release Workflow
+
+I have a standardized workflow for publishing Python packages to PyPI. I use a makefile that I copy from project to project as a template. When releasing a new library, I ask Claude Code to look at how I did it before (for example, with the gitsource library), copy the pyproject.toml file and makefile, and then run `make publish`[^3].
+
+Before publishing, I try to cover everything with tests to avoid releasing broken code. However, if something does slip through, updating the version is straightforward, so I can quickly fix any issues[^4].
+
+### Version 0.0.1
+
+The first version of SQLiteSearch (0.0.1) was published to PyPI at https://pypi.org/project/sqlitesearch/0.0.1/[^2].
 
 ## Sources
 
+- [20260202_194517_AlexeyDTC_msg872.md](../inbox/raw/20260202_194517_AlexeyDTC_msg872.md)
+- [20260203_082333_AlexeyDTC_msg874.md](../inbox/raw/20260203_082333_AlexeyDTC_msg874.md)
+- [20260203_082445_AlexeyDTC_msg876_transcript.txt](../inbox/raw/20260203_082445_AlexeyDTC_msg876_transcript.txt)
+- [20260203_082508_AlexeyDTC_msg878_transcript.txt](../inbox/raw/20260203_082508_AlexeyDTC_msg878_transcript.txt)
 - [20260202_105933_AlexeyDTC_msg830_transcript.txt](../inbox/raw/20260202_105933_AlexeyDTC_msg830_transcript.txt)
 - [20260202_105524_AlexeyDTC_msg828_photo.md](../inbox/raw/20260202_105524_AlexeyDTC_msg828_photo.md)
 - [20260202_110836_AlexeyDTC_msg834_transcript.txt](../inbox/raw/20260202_110836_AlexeyDTC_msg834_transcript.txt)
@@ -104,10 +124,11 @@ LightSearch complements Minsearch by addressing its main limitation: lack of per
 - [20260202_115555_AlexeyDTC_msg842_transcript.txt](../inbox/raw/20260202_115555_AlexeyDTC_msg842_transcript.txt)
 - [20260202_115757_AlexeyDTC_msg846_transcript.txt](../inbox/raw/20260202_115757_AlexeyDTC_msg846_transcript.txt)
 
-[^1]: [20260202_105933_AlexeyDTC_msg830_transcript.txt](../inbox/raw/20260202_105933_AlexeyDTC_msg830_transcript.txt)
-[^2]: [20260202_105524_AlexeyDTC_msg828_photo.md](../inbox/raw/20260202_105524_AlexeyDTC_msg828_photo.md)
-[^3]: [20260202_110836_AlexeyDTC_msg834_transcript.txt](../inbox/raw/20260202_110836_AlexeyDTC_msg834_transcript.txt)
-[^4]: [20260202_115757_AlexeyDTC_msg846_transcript.txt](../inbox/raw/20260202_115757_AlexeyDTC_msg846_transcript.txt)
-[^5]: [20260202_115555_AlexeyDTC_msg842_transcript.txt](../inbox/raw/20260202_115555_AlexeyDTC_msg842_transcript.txt)
-[^6]: [20260202_115757_AlexeyDTC_msg846_transcript.txt](../inbox/raw/20260202_115757_AlexeyDTC_msg846_transcript.txt)
-[^7]: [20260202_105933_AlexeyDTC_msg830_transcript.txt](../inbox/raw/20260202_105933_AlexeyDTC_msg830_transcript.txt)
+[^1]: [20260202_194517_AlexeyDTC_msg872.md](../inbox/raw/20260202_194517_AlexeyDTC_msg872.md)
+[^2]: [20260203_082333_AlexeyDTC_msg874.md](../inbox/raw/20260203_082333_AlexeyDTC_msg874.md)
+[^3]: [20260203_082445_AlexeyDTC_msg876_transcript.txt](../inbox/raw/20260203_082445_AlexeyDTC_msg876_transcript.txt)
+[^4]: [20260203_082508_AlexeyDTC_msg878_transcript.txt](../inbox/raw/20260203_082508_AlexeyDTC_msg878_transcript.txt)
+[^5]: [20260202_105933_AlexeyDTC_msg830_transcript.txt](../inbox/raw/20260202_105933_AlexeyDTC_msg830_transcript.txt)
+[^6]: [20260202_105524_AlexeyDTC_msg828_photo.md](../inbox/raw/20260202_105524_AlexeyDTC_msg828_photo.md)
+[^7]: [20260202_110836_AlexeyDTC_msg834_transcript.txt](../inbox/raw/20260202_110836_AlexeyDTC_msg834_transcript.txt)
+[^8]: [20260202_105933_AlexeyDTC_msg830_transcript.txt](../inbox/raw/20260202_105933_AlexeyDTC_msg830_transcript.txt)

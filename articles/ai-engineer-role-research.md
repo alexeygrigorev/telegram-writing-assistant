@@ -1,7 +1,7 @@
 ---
 title: "AI Engineer Role Research"
 created: 2026-02-02
-updated: 2026-02-02
+updated: 2026-02-04
 tags: [ai-engineer, career, research, interview, jobs]
 status: draft
 ---
@@ -78,6 +78,73 @@ For Twitter and Reddit analysis, deep research agents were more helpful because:
 
 The current approach involves using agents to help craft search queries, then manually finding and aggregating the actual data sources for local analysis[^7].
 
+## Industry Interview Examples
+
+### Real Interview Questions from Industry
+
+I asked a contact at a company that hires AI engineers about their interview process. They treat AI engineers similarly to regular engineers with experience working on systems that include LLMs. Their questions focus on fundamental AI concepts rather than framework details[^8]:
+
+- "Explain the function calling flow"
+- "How and why would you use structured output"
+- "Calculate the costs for this type of agent"
+- "How does prompt caching work"
+- "What information retrieval approach would you use for 10 documents vs 10 million documents"
+- "Why would you need MCP (Model Context Protocol)"
+- "Given this product, what LLMOps would you add"
+
+These questions test practical understanding rather than theoretical knowledge.
+
+### A Common Interview Issue
+
+A concerning pattern from their interviews: a data engineer answered all questions about Kafka and Spark correctly, but when asked about AI, he started discussing multi-agent systems. When asked how the agents communicate with each other, he said he didn't know - "LangGraph handles it internally"[^9].
+
+This highlights a problem: candidates may use frameworks without understanding the underlying concepts. For multi-agent systems, it's important to know how agents communicate, regardless of which framework is being used.
+
+## My Vision of the AI Engineer Role
+
+As someone teaching AI engineering courses and working with ML and AI for years, I have a clear vision of what the AI Engineer role should be. I'm collecting data to compare my vision with industry reality.
+
+### Core Responsibility: AI Integration
+
+The AI Engineer's role is integrating AI into products. This primarily means calling LLMs through providers like OpenAI, Anthropic, or others. Self-hosting is less common, and fine-tuning is even rarer[^10].
+
+The work involves:
+- Calling LLM APIs through providers
+- Integrating AI capabilities into existing products
+- Building features that leverage LLMs
+
+### Simple Example: Structured Information Extraction
+
+Consider a marketplace where users upload a photo and description instead of manually filling out forms. The AI automatically extracts: colors, materials, size, and other attributes.
+
+This seems simple - send data to OpenAI, get structured output. But the devil is in the details:
+- Prompt engineering to extract correct information
+- Evaluating prompts to ensure they work across scenarios
+- Testing locally before deploying to users
+- Evolution sets to measure prompt improvements
+- Production monitoring: how often does it fail, what edge cases exist
+- User feedback: implicit (user corrects the output) and explicit (thumbs down button)
+
+Even for simple integrations, the AI Engineer needs to handle:
+- Prompt engineering
+- Prompt versioning
+- Testing
+- Evaluation
+- Monitoring and observability
+
+### Complex Scenarios: RAG and Agents
+
+For more complex systems involving RAG (Retrieval Augmented Generation) or agents, the same responsibilities apply, just at greater scale:
+- Building RAG pipelines for knowledge bases
+- Finding uses for RAG beyond Q&A bots
+- Understanding function calling and when tools should be used
+- Writing tests for agent behavior
+- Defining metrics to evaluate agent performance
+
+The core principle remains: integrate AI into products so they work reliably, and be confident they work through data-driven decisions and monitoring[^10].
+
+This vision guides both my teaching and my research into how the industry actually defines and hires for AI Engineer roles.
+
 ## Sources
 
 - [20260202_191851_AlexeyDTC_msg856_transcript.txt](../inbox/raw/20260202_191851_AlexeyDTC_msg856_transcript.txt)
@@ -86,6 +153,11 @@ The current approach involves using agents to help craft search queries, then ma
 - [20260202_192228_AlexeyDTC_msg862_transcript.txt](../inbox/raw/20260202_192228_AlexeyDTC_msg862_transcript.txt)
 - [20260202_192519_AlexeyDTC_msg864_transcript.txt](../inbox/raw/20260202_192519_AlexeyDTC_msg864_transcript.txt)
 - [20260202_192601_AlexeyDTC_msg866_transcript.txt](../inbox/raw/20260202_192601_AlexeyDTC_msg866_transcript.txt)
+- [20260203_084951_valeriia_kuka_msg880_transcript.txt](../inbox/raw/20260203_084951_valeriia_kuka_msg880_transcript.txt)
+- [20260203_212101_AlexeyDTC_msg891.md](../inbox/raw/20260203_212101_AlexeyDTC_msg891.md)
+- [20260203_212101_AlexeyDTC_msg892.md](../inbox/raw/20260203_212101_AlexeyDTC_msg892.md)
+- [20260204_102339_AlexeyDTC_msg900_transcript.txt](../inbox/raw/20260204_102339_AlexeyDTC_msg900_transcript.txt)
+- [20260204_102429_AlexeyDTC_msg902_transcript.txt](../inbox/raw/20260204_102429_AlexeyDTC_msg902_transcript.txt)
 
 [^1]: [20260202_191851_AlexeyDTC_msg856_transcript.txt](../inbox/raw/20260202_191851_AlexeyDTC_msg856_transcript.txt)
 [^2]: [20260202_191851_AlexeyDTC_msg856_transcript.txt](../inbox/raw/20260202_191851_AlexeyDTC_msg856_transcript.txt)
@@ -94,3 +166,6 @@ The current approach involves using agents to help craft search queries, then ma
 [^5]: [20260202_192058_AlexeyDTC_msg858_transcript.txt](../inbox/raw/20260202_192058_AlexeyDTC_msg858_transcript.txt)
 [^6]: [20260202_192157_AlexeyDTC_msg860_transcript.txt](../inbox/raw/20260202_192157_AlexeyDTC_msg860_transcript.txt)
 [^7]: [20260202_192519_AlexeyDTC_msg864_transcript.txt](../inbox/raw/20260202_192519_AlexeyDTC_msg864_transcript.txt)
+[^8]: [20260203_212101_AlexeyDTC_msg891.md](../inbox/raw/20260203_212101_AlexeyDTC_msg891.md)
+[^9]: [20260203_212101_AlexeyDTC_msg892.md](../inbox/raw/20260203_212101_AlexeyDTC_msg892.md)
+[^10]: [20260204_102339_AlexeyDTC_msg900_transcript.txt](../inbox/raw/20260204_102339_AlexeyDTC_msg900_transcript.txt)

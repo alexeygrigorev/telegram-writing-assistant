@@ -1,7 +1,7 @@
 ---
 title: "Telegram Writing Assistant"
 created: 2026-01-16
-updated: 2026-01-30
+updated: 2026-02-04
 tags: [telegram, bot, knowledge-management, automation]
 status: draft
 ---
@@ -103,6 +103,29 @@ I received specific feedback that when reading processed messages, it feels like
 
 Otherwise, I have to re-listen to all voice messages which takes a lot of time. Ideas get shortened too much and when you want more details, the information is simply lost. The agent should edit for clarity according to style guidelines, but preserve the maximum amount of information from the original voice notes[^5].
 
+## Future Improvements
+
+### Resource and Article Tracking
+
+I had an idea to improve resource and draft tracking. Currently, resources are shared in the newsletter, but there's no easy way to see what has been shared and what hasn't. A potential solution:
+
+1. Create a table (CSV or similar format) on GitHub to track resources
+2. When sharing a resource link, ask the bot to categorize and add it to the table
+3. Apply the same approach to draft articles the bot creates
+
+This would create a Kanban-style tracking system with states like: To Do, Done, Backlog. It would be easier to see which articles have been worked on and which need attention[^6].
+
+### Community Website
+
+Another idea is to create a dedicated community website. The plan:
+1. Come up with a name for the community
+2. Create a simple site to aggregate articles
+3. Don't heavily promote it initially - just collect content
+4. Focus on SEO to see how to build from scratch
+5. Eventually use the site as a landing page for the community
+
+This would be a place to publish all the articles being generated through this system, with proper SEO and organization from the ground up[^7].
+
 ## Sources
 - [20260116_210119_AlexeyDTC_transcript.txt](../inbox/raw/20260116_210119_AlexeyDTC_transcript.txt)
 - [20260116_210336_AlexeyDTC_transcript.txt](../inbox/raw/20260116_210336_AlexeyDTC_transcript.txt)
@@ -114,9 +137,14 @@ Otherwise, I have to re-listen to all voice messages which takes a lot of time. 
 - [20260130_132651_AlexeyDTC_msg703_transcript.txt](../inbox/raw/20260130_132651_AlexeyDTC_msg703_transcript.txt)
 - [20260130_132918_AlexeyDTC_msg705.md](../inbox/raw/20260130_132918_AlexeyDTC_msg705.md)
 - [20260130_144046_AlexeyDTC_msg723_transcript.txt](../inbox/raw/20260130_144046_AlexeyDTC_msg723_transcript.txt)
+- [20260204_102747_AlexeyDTC_msg904_transcript.txt](../inbox/raw/20260204_102747_AlexeyDTC_msg904_transcript.txt)
+- [20260204_102747_AlexeyDTC_msg905_transcript.txt](../inbox/raw/20260204_102747_AlexeyDTC_msg905_transcript.txt)
+- [20260204_102923_AlexeyDTC_msg908_transcript.txt](../inbox/raw/20260204_102923_AlexeyDTC_msg908_transcript.txt)
 
 [^1]: [20260122_155237_AlexeyDTC_msg397.md](../inbox/raw/20260122_155237_AlexeyDTC_msg397.md)
 [^2]: [20260123_144250_AlexeyDTC_msg558_transcript.txt](../inbox/raw/20260123_144250_AlexeyDTC_msg558_transcript.txt)
 [^3]: [20260130_132651_AlexeyDTC_msg703_transcript.txt](../inbox/raw/20260130_132651_AlexeyDTC_msg703_transcript.txt)
 [^4]: [20260130_132918_AlexeyDTC_msg705.md](../inbox/raw/20260130_132918_AlexeyDTC_msg705.md)
 [^5]: [20260130_144046_AlexeyDTC_msg723_transcript.txt](../inbox/raw/20260130_144046_AlexeyDTC_msg723_transcript.txt)
+[^6]: [20260204_102747_AlexeyDTC_msg904_transcript.txt](../inbox/raw/20260204_102747_AlexeyDTC_msg904_transcript.txt)
+[^7]: [20260204_102923_AlexeyDTC_msg908_transcript.txt](../inbox/raw/20260204_102923_AlexeyDTC_msg908_transcript.txt)
