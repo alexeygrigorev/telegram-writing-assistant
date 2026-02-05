@@ -91,6 +91,9 @@ Process in TWO phases:
    ```bash
    curl "https://r.jina.ai/{original_url}"
    ```
+
+   CRITICAL: Always use Jina Reader (curl with r.jina.ai) for URL content. Do NOT use web_reader, mcp__web_reader, or other web fetch tools.
+
    Then incorporate that content into the appropriate article.
 
    If a URL is marked as "resource" or is an orphaned link (a link sent without context that doesn't relate to nearby messages), add it to the "Interesting Resources" article (interesting-resources.md).
