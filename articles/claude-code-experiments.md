@@ -132,13 +132,19 @@ Claude Code:
 
 The entire process happened without me needing to open a browser or manually navigate AWS console. This demonstrates how Claude Code excels at automation tasks where the focus is on executing actions rather than writing code[^8].
 
-## Sources
-
 <figure>
   <img src="../assets/images/claude-code-experiments/aws-logs-troubleshooting.jpg" alt="Claude Code pulling AWS logs to troubleshoot bot issue">
   <figcaption>Claude Code analyzing AWS logs to diagnose and fix a Slack integration issue automatically</figcaption>
   <!-- This illustrates the practical application of Claude Code for production troubleshooting -->
 </figure>
+
+### Future Improvements
+
+There is an unimplemented moderator folder feature for spam handling. When someone starts spamming, the bot would send a message with a button to:
+- Delete all messages from that spammer
+- Ban the spammer
+
+Currently this requires manual action. The feature was implemented but never tested or deployed[^10].
 
 ## Sources
 - [20260117_193932_AlexeyDTC_msg249_transcript.txt](../inbox/raw/20260117_193932_AlexeyDTC_msg249_transcript.txt)
@@ -170,3 +176,4 @@ The entire process happened without me needing to open a browser or manually nav
 [^6]: [20260204_100207_AlexeyDTC_msg898_transcript.txt](../inbox/raw/20260204_100207_AlexeyDTC_msg898_transcript.txt)
 [^7]: [20260204_100023_AlexeyDTC_msg896_photo.md](../inbox/raw/20260204_100023_AlexeyDTC_msg896_photo.md)
 [^8]: [20260205_122657_AlexeyDTC_msg937_transcript.txt](../inbox/raw/20260205_122657_AlexeyDTC_msg937_transcript.txt)
+[^9]: [20260205_123340_AlexeyDTC_msg940_transcript.txt](../inbox/used/20260205_123340_AlexeyDTC_msg940_transcript.txt)

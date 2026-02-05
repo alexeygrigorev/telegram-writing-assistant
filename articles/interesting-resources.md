@@ -20,45 +20,35 @@ A collection of interesting resources curated for the "Alexey On Data" newslette
 
 Each resource entry follows this simple format:
 - Title: the resource name (what it is)
+- First sentence: must include a link to the resource
 - One paragraph description: what it does and why it's useful
 - Keep it concise, 2-4 sentences max
 - No bulleted lists, no code examples, no extra sections
 
-## AI Development Tools
-
-### Claude Code and Large-Context Reasoning
-
-Materials from a hands-on O'Reilly Live Learning course by Tim Warner that teaches how to build production-ready AI-assisted development workflows with Claude Code. It covers large-context reasoning, MCP-based persistent memory, agents, and custom skills, with practical examples for code review, automation, and CI/CD[^1].
-
-### awesome-slash
-
-A curated GitHub list of tools, patterns, and projects built around slash-command interfaces. It's a practical reference for anyone designing command-driven workflows, bots, or developer tools that rely on concise, action-oriented commands instead of complex UIs[^1].
 
 ### Codex
 
-An AI-powered CLI tool by antirez for complex debugging, code analysis, and technical questions. It handles file-based input for complex problems and can help with debugging subtle bugs, analyzing algorithms against specifications, and providing detailed code reviews[^2].
-
-## Planning and Development Tools
+[Codex](https://gist.github.com/antirez/2e07727fb37e7301247e568b6634beff) is an AI-powered CLI tool by antirez for complex debugging, code analysis, and technical questions. It handles file-based input for complex problems and can help with debugging subtle bugs, analyzing algorithms against specifications, and providing detailed code reviews[^2].
 
 ### Gas Town
 
-An orchestrator for managing multiple Claude Code instances simultaneously. Gas Town addresses the challenge of tracking work across many AI coding agents by providing a system for coordinating workers, managing merge queues, and maintaining persistent identities. It uses concepts from Kubernetes and Temporal, with tmux as the primary UI. The project represents a vision for what comes next after individual AI coding agents - coordinated workflows and "Kubernetes for agents"[^8].
+[Gas Town](https://github.com/steveyegge/gastown) is an orchestrator for managing multiple Claude Code instances simultaneously. It addresses the challenge of tracking work across many AI coding agents by providing a system for coordinating workers, managing merge queues, and maintaining persistent identities. It uses concepts from Kubernetes and Temporal, with tmux as the primary UI. The project represents a vision for what comes next after individual AI coding agents - coordinated workflows and "Kubernetes for agents"[^8].
 
 ### planning-with-files
 
-A Claude Code skill that implements Manus-style persistent markdown planning. This is the workflow pattern behind Manus, the AI agent company that Meta acquired for $2 billion. The plugin transforms your workflow to use persistent markdown files for planning, progress tracking, and knowledge storage. It supports multiple IDEs including Claude Code, Cursor, Gemini CLI, Continue, and more[^6].
+[planning-with-files](https://github.com/othmanadi/planning-with-files) is a Claude Code skill that implements Manus-style persistent markdown planning. This is the workflow pattern behind Manus, the AI agent company that Meta acquired for $2 billion. The plugin transforms your workflow to use persistent markdown files for planning, progress tracking, and knowledge storage. It supports multiple IDEs including Claude Code, Cursor, Gemini CLI, Continue, and more[^6].
 
 ### Atomic Agents
 
-A lightweight and modular framework for building AI agent pipelines and applications. Built on Instructor and Pydantic, Atomic Agents focuses on atomicity where each component (agent, tool, context provider) is single-purpose, reusable, composable, and predictable. It enables creating AI applications using familiar software engineering principles with clear input and output schemas for consistent behavior[^7].
+[Atomic Agents](https://github.com/BrainBlend-AI/atomic-agents) is a lightweight and modular framework for building AI agent pipelines and applications. Built on Instructor and Pydantic, Atomic Agents focuses on atomicity where each component (agent, tool, context provider) is single-purpose, reusable, composable, and predictable. It enables creating AI applications using familiar software engineering principles with clear input and output schemas for consistent behavior[^7].
 
 ### pro-workflow
 
-Battle-tested Claude Code workflows from power users. Implements patterns like self-correcting memory, parallel worktrees, wrap-up rituals, and the 80/20 AI coding ratio. Features include agent teams, custom subagents, smart commit with quality gates, session analytics, and persistent SQLite storage for learnings with full-text search. Optimized for reducing correction cycles when working with AI coding assistants[^9].
+[pro-workflow](https://github.com/rohitg00/pro-workflow) is a collection of battle-tested Claude Code workflows from power users. It implements patterns like self-correcting memory, parallel worktrees, wrap-up rituals, and the 80/20 AI coding ratio. Features include agent teams, custom subagents, smart commit with quality gates, session analytics, and persistent SQLite storage for learnings with full-text search. Optimized for reducing correction cycles when working with AI coding assistants[^9].
 
 ### PaperBanana
 
-An agentic framework for AI researchers that automates creation of high-quality academic illustrations. Generates methodology diagrams, flowcharts, and statistical plots from text descriptions or by polishing hand-drawn sketches. Uses a multi-step process with retrieve, plan, render, and refine agents powered by state-of-the-art vision and image generation models. Includes PaperBananaBench with 292 curated test cases from NeurIPS 2025[^10].
+[PaperBanana](https://paperbanana.org/) is an agentic framework for AI researchers that automates creation of high-quality academic illustrations. It generates methodology diagrams, flowcharts, and statistical plots from text descriptions or by polishing hand-drawn sketches. Uses a multi-step process with retrieve, plan, render, and refine agents powered by state-of-the-art vision and image generation models. Includes PaperBananaBench with 292 curated test cases from NeurIPS 2025[^10].
 
 ## Sources
 

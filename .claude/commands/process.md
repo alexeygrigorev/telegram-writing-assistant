@@ -66,6 +66,14 @@ Examples of content that goes to `feedback/`:
 
 # PROCESSING ORDER
 
+## General Principles
+
+1. Assess everything before deciding - Read ALL incoming messages first. Read ALL existing articles (or at least _index.md) before making any categorization decisions.
+
+2. Content must serve the article's purpose - Only include elements (links, details, examples) that help readers understand the main point. Not every URL or detail belongs in the output.
+
+3. Review before finalizing - Check for structural issues (duplicate headings, broken formatting, inconsistent style) before considering processing complete.
+
 Process in TWO phases:
 
 ## Phase 1: Text Content
@@ -218,10 +226,13 @@ Each article should have a single, clear focus. Don't force unrelated content in
 
 ## New or existing article
 
+IMPORTANT: If content doesn't fit into any existing article, create a NEW article. Do not leave content unused or force it where it doesn't belong.
+
 Create a NEW article when:
 - No existing article covers the topic
 - Content is about a fundamentally different subject
 - Adding it would dilute the focus of existing articles
+- Content represents a complete, standalone project or story
 
 Add to EXISTING article when:
 - The content extends or supplements what's already there

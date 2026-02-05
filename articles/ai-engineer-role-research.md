@@ -122,6 +122,18 @@ Tech Stack Frequency:
 
 RAG systems dominate the assignment landscape. Wherever RAG is involved, document parsing is typically required as well[^8].
 
+## PDF Extraction Projects
+
+Document extraction, particularly from PDFs, is a frequently occurring topic in AI Engineer interviews. Through analysis of home assignments and interview questions, this pattern appears repeatedly[^17].
+
+A practical project demonstrating this skill involves extracting structured information from PDF documents using LLMs. The project covers:
+- Processing transcripts and creating summaries
+- Generating accurate timestamps (avoiding hallucination)
+- Extracting pages from documents and digitizing with LLMs
+- While OCR/USR tools exist, they are not always sufficient for complete information extraction
+
+This type of project is valuable for candidates because it directly maps to what employers are asking for in interviews and real-world applications[^17].
+
 ## Additional Applications
 
 The research material can also be used for:
@@ -259,3 +271,4 @@ The material from this research will be presented in Lightning Lessons on Maven,
 [^15]: [20260205_121704_AlexeyDTC_msg935_transcript.txt](../inbox/raw/20260205_121704_AlexeyDTC_msg935_transcript.txt)
 [^16]: [20260205_121714_AlexeyDTC_msg936_transcript.txt](../inbox/raw/20260205_121714_AlexeyDTC_msg936_transcript.txt)
 [^17]: [20260204_141838_AlexeyDTC_msg925_photo.md](../inbox/raw/20260204_141838_AlexeyDTC_msg925_photo.md)
+[^18]: [20260205_121325_AlexeyDTC_msg934_transcript.txt](../inbox/used/20260205_121325_AlexeyDTC_msg934_transcript.txt)
