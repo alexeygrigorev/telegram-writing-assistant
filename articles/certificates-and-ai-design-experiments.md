@@ -61,78 +61,68 @@ One challenge was the font. I couldn't find the exact font used in the original 
 
 ## Part 2: Automated Background Recreation (Claude + Gemini Flash)
 
-After the manual approach, I tried automating the process. Using Claude together with Gemini Flash for image analysis, I attempted to recreate just the background with HTML and CSS.
-
-Using the background template from ChatGPT, I worked with Claude to recreate it using HTML and CSS only[^3].
-
-This was an iterative process where I was in control the whole time. After each iteration, I would check the result and give feedback to Claude.
-
-### Automated Approach with Claude + Gemini Flash
-
 The manual approach worked but required me to check each iteration and provide feedback. I had an idea: what if there was something else that could check the results and provide feedback automatically? What if an AI could compare the current attempt with the original and tell Claude what to fix?
 
 This led to an experiment using Claude together with Gemini Flash for automated comparison and feedback.
 
-### Why This Approach Matters
-
-Beyond certificates, this capability would be useful for:
-- Creating improved versions of existing certificates
-- Web design work in general
-- Converting any visual design to code
+I decided to re-create the background from the certificate using HTML+CSS. 
 
 ### The Experiment Setup
 
-I chose Gemini Flash because Claude's built-in image recognition doesn't work as well. The approach was simple: give the AI the reference image and the current CSS output, ask it to compare them, and iterate until the match is 10/10.
+Claude's built-in image recognition doesn't work well for detailed design comparisons. I looked for alternatives and found Gemini Flash[^4].
+
+The approach was simple: give the AI the reference image and the current CSS output, ask it to compare them, and iterate until the match is 10/10.
+
+### Background Iterations
+
+I ran the experiment in the background while working on other tasks. The agent made several iterations on recreating the background with the gold border and lined texture[^4].
 
 <figure>
-  <img src="../assets/images/certificates-and-ai-design-experiments/certificate-recreated.jpg" alt="First certificate recreation attempt">
-  <figcaption>First attempt at recreating the certificate with AI</figcaption>
-  <!-- Early iteration that didn't match the target design -->
-</figure>
-
-### Background Recreation
-
-I first focused on recreating just the background with the gold border and lined texture. The agent made several iterations while I worked on other tasks[^3].
-
-<figure>
-  <img src="../assets/images/certificates-and-ai-design-experiments/certificate-background-claud.jpg" alt="Background created by Claude">
-  <figcaption>Background created by Claude after several iterations</figcaption>
+  <img src="../assets/images/certificates-and-ai-design-experiments/certificate-background-claud.jpg" alt="First background iteration">
+  <figcaption>First background iteration created by Claude</figcaption>
 </figure>
 
 <figure>
-  <img src="../assets/images/certificates-and-ai-design-experiments/certificate-background-iterations.jpg" alt="Background after more iterations">
-  <figcaption>Background after multiple CSS iterations</figcaption>
-</figure>
-
-<figure>
-  <img src="../assets/images/certificates-and-ai-design-experiments/certificate-background-final.jpg" alt="Final background result">
-  <figcaption>Final background result using CSS+HTML only</figcaption>
-</figure>
-
-After many iterations, Claude produced a result that the AI evaluator rated as 7/10 in similarity to the original.
-
-<figure>
-  <img src="../assets/images/certificates-and-ai-design-experiments/certificate-7of10-result.jpg" alt="Background result rated 7/10">
-  <figcaption>Background recreation rated 7/10 by AI evaluator - not quite matching the original</figcaption>
+  <img src="../assets/images/certificates-and-ai-design-experiments/certificate-background-iterations.jpg" alt="Background after several iterations">
+  <figcaption>Final background using CSS+HTML only</figcaption>
 </figure>
 
 ## Part 3: Automated Full Certificate Recreation (Claude + Gemini Flash)
 
-Using the same setup from Part 2 (Claude + Gemini Flash), I attempted to recreate the entire certificate including fonts and text.
+Using the same setup from Part 2, I attempted to recreate the entire certificate including fonts and text.
 
-Once the background was ready, I asked Claude to create the actual certificate. The agent analyzed the original certificate and created a detailed to-do list for recreating all elements[^4].
-
-At this point I introduced a rubric to standardize the evaluation. Without it, the AI would give scores like 8/10 or 9/10 even when results clearly didn't match. I created a rubric and targeted 4/10 or lower as the threshold for "more work needed"[^6].
-
-Once the background was ready, I asked Claude to create the actual certificate. The agent analyzed the original certificate and created a detailed to-do list for recreating all elements[^4].
+I asked Claude to use Gemini to analyze the original certificate and create a detailed to-do list for recreating all elements.
 
 <figure>
   <img src="../assets/images/certificates-and-ai-design-experiments/certificate-analysis-terminal.jpg" alt="Terminal showing certificate analysis">
   <figcaption>Gemini analysis of certificate design with to-do list</figcaption>
-  <!-- Using image analysis to break down certificate elements -->
 </figure>
 
-However, when I gave it the full certificate screenshot, it dropped all the background work and started from scratch. This resulted in a certificate that looked somewhat similar after 1-2 iterations, but it also overwrote the manually created version (thankfully, git allows recovery)[^5].
+The first thing Claude did was dropping all the work on the background we did previously and re-created something very simple - not even remotely close to what we had. Thankfully, git allows recovery.
+
+But eventually, the result wasn't bad:
+
+<figure>
+  <img src="../assets/images/certificates-and-ai-design-experiments/certificate-recreated.jpg" alt="First certificate recreation attempt">
+  <figcaption>First attempt at recreating the full certificate - dropped background work, started from scratch</figcaption>
+</figure>
+
+At this point I noticed a problem: I had told the AI to iterate until it's a 10/10 match. The AI would stop when it thought it was 8/10, saying that's "close enough."
+
+So I decided to a strict rubric to standardize the evaluation and define what "good enough" means[^6]. Without it, the AI would give scores like 8/10 or 9/10 even when results clearly didn't match.
+
+In my opionion the match was 4/10, so I asked it to create a rubric and iterate until gemini returns a 4/10 result.
+
+Once the rubric was defined, I switched to another task (AI Engineering Buildcamp course), and let it run unobserved. 
+
+After many iterations, the AI evaluator created this and rated the result as 7/10 in similarity to the original.
+
+<figure>
+  <img src="../assets/images/certificates-and-ai-design-experiments/certificate-7of10-result.jpg" alt="Certificate result rated 7/10">
+  <figcaption>Full certificate recreation rated 7/10 by AI evaluator - not quite matching the original</figcaption>
+</figure>
+
+Not only it was awful, but also definitely not 7/10.
 
 ### The Evaluation Problem
 
