@@ -1,7 +1,7 @@
 ---
 title: "Claude Code Experiments"
 created: 2026-01-17
-updated: 2026-02-04
+updated: 2026-02-05
 tags: [claude-code, experiments, automation, copilot, github]
 status: draft
 ---
@@ -118,6 +118,22 @@ Instead, I simply asked Claude Code to pull the logs from AWS for the last 2 hou
 
 I was preparing for a trip and didn't have time to sit and debug. I just gave Claude Code the task and continued with my preparations while it handled everything. This type of automation - handling urgent maintenance tasks - is where Claude Code excels. Tools like Cursor, Antigravity, and Copilot are better suited for more thoughtful, interactive coding work[^6].
 
+## Automator Bot Debugging
+
+I use an automator bot for community management in Discord. The bot reacts to posts based on emoji reactions I leave - for example, promotional posts in the wrong channel get moved or deleted, and the bot sends appropriate messages.
+
+Recently, the bot stopped working correctly. Posts weren't being deleted from General, and messages weren't being sent to users. Since I was preparing for a family trip and didn't have time to debug, I delegated the task to Claude Code[^8].
+
+Claude Code:
+1. Figured out how to retrieve logs from the bot
+2. Analyzed the logs to find the error
+3. Identified that I had accidentally deleted the API key
+4. Guided me to update the key in AWS directly
+
+The entire process happened without me needing to open a browser or manually navigate AWS console. This demonstrates how Claude Code excels at automation tasks where the focus is on executing actions rather than writing code[^8].
+
+## Sources
+
 <figure>
   <img src="../assets/images/claude-code-experiments/aws-logs-troubleshooting.jpg" alt="Claude Code pulling AWS logs to troubleshoot bot issue">
   <figcaption>Claude Code analyzing AWS logs to diagnose and fix a Slack integration issue automatically</figcaption>
@@ -153,3 +169,4 @@ I was preparing for a trip and didn't have time to sit and debug. I just gave Cl
 [^5]: [20260123_120918_valeriia_kuka_msg424_transcript.txt](../inbox/raw/20260123_120918_valeriia_kuka_msg424_transcript.txt)
 [^6]: [20260204_100207_AlexeyDTC_msg898_transcript.txt](../inbox/raw/20260204_100207_AlexeyDTC_msg898_transcript.txt)
 [^7]: [20260204_100023_AlexeyDTC_msg896_photo.md](../inbox/raw/20260204_100023_AlexeyDTC_msg896_photo.md)
+[^8]: [20260205_122657_AlexeyDTC_msg937_transcript.txt](../inbox/raw/20260205_122657_AlexeyDTC_msg937_transcript.txt)

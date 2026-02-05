@@ -213,6 +213,12 @@ I want to return to this project to create improved certificates for AI Buildcam
 
 The concept of converting images to code is valuable and I expect to return to it in a month or two when there's more time to refine the approach.
 
+## Current Status (February 2025)
+
+The automated certificate experiment is currently paused. The goal was to give an AI an image and have it automatically generate the HTML/CSS to recreate it, but the results were not satisfactory. While the experiment failed to achieve full automation, the manual process works well for generating certificates[^11].
+
+Focus has shifted to course content creation, but I plan to return to this when there's more time to refine the approach.
+
 ### Community Question
 
 Before building a custom solution for certificate design and hosting, I want to learn from others who may have solved this problem. Some existing options I'm aware of:
@@ -247,3 +253,4 @@ The plan is for workshop certificates to include links to this page, so when par
 [^8]: [20260201_112736_AlexeyDTC_msg810_transcript.txt](../inbox/used/20260201_112736_AlexeyDTC_msg810_transcript.txt)
 [^9]: [20260201_113251_AlexeyDTC_msg812_transcript.txt](../inbox/used/20260201_113251_AlexeyDTC_msg812_transcript.txt)
 [^10]: [20260201_115109_AlexeyDTC_msg822_transcript.txt](../inbox/used/20260201_115109_AlexeyDTC_msg822_transcript.txt)
+[^11]: [20260205_121005_AlexeyDTC_msg933_transcript.txt](../inbox/raw/20260205_121005_AlexeyDTC_msg933_transcript.txt)

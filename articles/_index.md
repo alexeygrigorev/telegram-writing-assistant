@@ -26,31 +26,31 @@ Brief description of what this article is about.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
-| [Telegram Writing Assistant](telegram-writing-assistant.md) | draft | 2026-01-16 | Personal knowledge management system via Telegram |
-| [Voice Transcription with Groq](voice-transcription.md) | draft | 2026-01-23 | Using Groq for fast voice message transcription |
-| [Processing Pipeline](processing-pipeline.md) | draft | 2026-01-20 | Automation workflow for organizing materials into articles |
-| [Claude Code Experiments](claude-code-experiments.md) | draft | 2026-01-23 | Experiments and applications of Claude Code beyond coding |
-| [In-Person Agents Workshop in Berlin at NOW-GMBH](agents-workshop.md) | draft | 2026-01-23 | Two-day workshop on AI agents based on AI Bootcamp materials |
-| [Wikidata MCP Workshop](wikidata-mcp-workshop.md) | draft | 2026-01-23 | Workshop on fact-checking with Wikidata and MCP |
-| [AI Bootcamp Course](ai-bootcamp-course.md) | draft | 2026-01-28 | Course curriculum and syllabus for AI Engineering BuildCamp |
-| [Course Material Preparation](course-material-preparation.md) | draft | 2026-01-28 | Workflow for keeping code and documentation in sync |
-| [Course Management Agent](course-management-agent.md) | draft | 2026-01-23 | Automating course administration tasks with Claude Skills |
-| [Cross-Platform Environment Variable Management with dirdotenv](dirdotenv.md) | draft | 2026-01-23 | Python-based alternative to direnv |
-| [Minsearch: Simple Search for Small Datasets](minsearch-library.md) | draft | 2026-01-23 | Lightweight search library for small databases |
-| [Streaming JSON Parsing with jaxn](jaxn-streaming-json.md) | draft | 2026-01-23 | Streaming parser for LLM structured output |
-| [Generating Books with AI](ai-book-generator.md) | draft | 2026-01-23 | Using AI to generate complete books with covers |
-| [Google Stitch: Design-First AI Development](google-stitch.md) | draft | 2026-01-23 | Google's design-focused AI development tool |
-| [Bash Helpers for Claude Code](claude-bash-helpers.md) | draft | 2026-01-23 | Aliases and functions for Claude Code |
-| [Claude Skills vs AGENTS.md](claude-skills-vs-agents-md.md) | draft | 2026-01-28 | Best practices for configuring AI coding agents |
-| [DataTalks.Club SEO Growth](datatalks-club-seo-growth.md) | draft | 2026-01-28 | SEO progress and traffic milestones |
+| [Telegram Writing Assistant](telegram-writing-assistant.md) | draft | 2026-02-04 | Personal knowledge management system via Telegram |
+| [AI Engineer Role Research](ai-engineer-role-research.md) | draft | 2026-02-04 | Research into AI Engineer positions and interview process |
+| [Interesting Resources](interesting-resources.md) | draft | 2026-02-04 | Curated collection of tools and resources |
+| [LightSearch: Persistent Search Library](lightsearch-library.md) | draft | 2026-02-02 | Lightweight search library with SQLite persistence |
+| [Certificates and AI Design Experiments](certificates-and-ai-design-experiments.md) | draft | 2026-02-02 | Creating workshop certificates and experiments with image-to-HTML/CSS conversion |
+| [From Vague Ideas to Concrete Results with ChatGPT](idea-to-concrete-iteration.md) | draft | 2026-01-31 | Process for iterating from undefined ideas to actionable plans |
 | [AI Testing Tools for End-to-End Tests](ai-testing-tools.md) | draft | 2026-01-30 | AI-powered testing automation for websites |
 | [Testing AI Agents with the Judge Pattern](testing-agents-with-judge-pattern.md) | draft | 2026-01-30 | Using agents to evaluate other agents |
 | [AI-Assisted Automation Course Idea](ai-assisted-automation-course-idea.md) | draft | 2026-01-29 | Concept for a paid course on AI-assisted automation |
-| [From Vague Ideas to Concrete Results with ChatGPT](idea-to-concrete-iteration.md) | draft | 2026-01-31 | Process for iterating from undefined ideas to actionable plans |
-| [Interesting Resources](interesting-resources.md) | draft | 2026-02-02 | Curated collection of tools and resources |
-| [Certificates and AI Design Experiments](certificates-and-ai-design-experiments.md) | draft | 2026-02-01 | Creating workshop certificates and experiments with image-to-HTML/CSS conversion |
-| [LightSearch: Persistent Search Library](lightsearch-library.md) | draft | 2026-02-02 | Lightweight search library with SQLite persistence |
-| [AI Engineer Role Research](ai-engineer-role-research.md) | draft | 2026-02-02 | Research into AI Engineer positions and interview process |
+| [Claude Skills vs AGENTS.md](claude-skills-vs-agents-md.md) | draft | 2026-01-28 | Best practices for configuring AI coding agents |
+| [DataTalks.Club SEO Growth](datatalks-club-seo-growth.md) | draft | 2026-01-28 | SEO progress and traffic milestones |
+| [Course Material Preparation](course-material-preparation.md) | draft | 2026-01-28 | Workflow for keeping code and documentation in sync |
+| [AI Bootcamp Course](ai-bootcamp-course.md) | draft | 2026-01-28 | Course curriculum and syllabus for AI Engineering BuildCamp |
+| [Bash Helpers for Claude Code](claude-bash-helpers.md) | draft | 2026-01-23 | Aliases and functions for Claude Code |
+| [Claude Code Experiments](claude-code-experiments.md) | draft | 2026-01-23 | Experiments and applications of Claude Code beyond coding |
+| [Course Management Agent](course-management-agent.md) | draft | 2026-01-23 | Automating course administration tasks with Claude Skills |
+| [Cross-Platform Environment Variable Management with dirdotenv](dirdotenv.md) | draft | 2026-01-23 | Python-based alternative to direnv |
+| [Generating Books with AI](ai-book-generator.md) | draft | 2026-01-23 | Using AI to generate complete books with covers |
+| [Google Stitch: Design-First AI Development](google-stitch.md) | draft | 2026-01-23 | Google's design-focused AI development tool |
+| [In-Person Agents Workshop in Berlin at NOW-GMBH](agents-workshop.md) | draft | 2026-01-23 | Two-day workshop on AI agents based on AI Bootcamp materials |
+| [Minsearch: Simple Search for Small Datasets](minsearch-library.md) | draft | 2026-01-23 | Lightweight search library for small databases |
+| [Streaming JSON Parsing with jaxn](jaxn-streaming-json.md) | draft | 2026-01-23 | Streaming parser for LLM structured output |
+| [Voice Transcription with Groq](voice-transcription.md) | draft | 2026-01-23 | Using Groq for fast voice message transcription |
+| [Wikidata MCP Workshop](wikidata-mcp-workshop.md) | draft | 2026-01-23 | Workshop on fact-checking with Wikidata and MCP |
+| [Processing Pipeline](processing-pipeline.md) | draft | 2026-01-20 | Automation workflow for organizing materials into articles |
 
 ---
 

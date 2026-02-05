@@ -17,6 +17,53 @@ If there are merge conflicts, resolve them by keeping the most recent and correc
 
 Check `inbox/raw/` for new materials (text, transcripts, photos).
 
+# HANDLING FEEDBACK AND META-CONTENT
+
+CRITICAL: Some messages in the inbox are feedback about the processing system itself, not content for articles.
+
+## Identifying Feedback
+
+Feedback messages typically contain:
+- Instructions on how to process materials
+- Corrections about previous processing mistakes
+- Suggestions for improving the workflow
+- Meta-commentary about the bot/agent behavior
+- Tasks related to repository maintenance (updating index, sorting, etc.)
+
+## Processing Feedback
+
+When you encounter feedback:
+
+1. Extract actionable insights: What specific change is being requested?
+2. Identify the target file: Which file should be updated based on this feedback?
+   - process.md - for workflow, categorization, and processing rules
+   - An article file - for content corrections
+   - _index.md - for index-related changes
+   - Other files as appropriate
+3. Perform root cause analysis: WHY did the mistake happen? What led to incorrect categorization?
+4. Generalize the learning: Don't create specific rules like "don't put community in Telegram". Instead, understand the underlying principle and update the process accordingly.
+5. Update the target file: Make the change to prevent recurrence.
+6. DO NOT add feedback to articles: Feedback about the system does not belong in content articles.
+
+## Common Patterns to Avoid
+
+The bot sometimes feels it MUST categorize ALL information into articles. This leads to:
+- Feedback being transcribed and added to articles inappropriately
+- Meta-discussion about the system ending up in content
+- Process instructions being treated as article content
+
+Remember: NOT everything needs to be in an article. Feedback about the system belongs in feedback/, not in articles.
+
+## Where Feedback Goes
+
+After processing feedback, move those files to `inbox/used/feedback/` folder (not `inbox/used/`).
+
+Examples of content that goes to `feedback/`:
+- Messages instructing how to process content
+- Corrections about mis-categorized content
+- Suggestions for workflow improvements
+- Repository maintenance tasks (updating _index.md, sorting, etc.)
+
 # PROCESSING ORDER
 
 Process in TWO phases:
@@ -60,10 +107,12 @@ Process in TWO phases:
 1. Images are located in `inbox/raw/` alongside their markdown description files (frontmatter contains `image_file: filename.jpg`)
 
 2. For each photo in `inbox/raw/`:
-   - Read its markdown description file (contains Type, Content, Text, Context) - this is the ONLY source for image content, DO NOT use any vision/analyze_image tools
-   - **CRITICAL**: Pay close attention to the "Text" and "Context" fields in the markdown description - they describe what's actually in the image
+   - Read its markdown description file (contains Type, Content, Text, Context)
+   - CRITICAL: The user's CAPTION is the authoritative source for what the image contains
+   - The "Text" and "Context" fields describe what's in the image - use these along with Grok vision output
    - Look at messages sent before/after by timestamp for context (within 1-2 minutes)
    - Check what topics were being discussed in nearby messages to understand the image's purpose
+   - Process images CAREFULLY and VERY THOROUGHLY - find the right place to put them
    - If articles exist: Find the most relevant section and add the image
    - If no articles exist yet: Defer the image
 
@@ -78,7 +127,7 @@ Process in TWO phases:
 
 4. Finding the RIGHT location for an image within an article:
    - Use timestamp as primary signal: Look at the image's date from frontmatter and find text content that was created around the same time
-   - **CRITICAL**: Read the image description (Type, Content, Text, Context) VERY carefully - this is what the user says is in the image
+   - CRITICAL: Read the image description (Type, Content, Text, Context) VERY carefully - this is what the user says is in the image
    - The "Text" field in the photo description is the user's own description - treat this as authoritative for what the image contains
    - Find related section: Search the article for content that matches the image's subject matter
    - Cross-reference with nearby messages by timestamp to understand context
@@ -92,6 +141,15 @@ Process in TWO phases:
    - Read the user's description of what's in the image (Text/Context fields) - this is critical for proper categorization
    - Use vision/analyze tools ONLY as a last resort - the user's own description is authoritative
    - When in doubt about where to place an image, defer rather than place incorrectly
+
+6. **CRITICAL: Processing Order for Image Attribution**:
+   - ALWAYS read voice transcripts FIRST before photo descriptions
+   - The user's caption (what they write when sending the photo) is AUTHORITATIVE for:
+     - What the image contains
+     - Who/what created it
+     - What it represents in the workflow
+   - Messages sent within 1-2 minutes are CONTEXTUALLY RELATED - read them together to understand the full workflow
+   - When uncertain about attribution, trace back to original voice messages and captions
 
 6. If image cannot be placed:
    - Move the image to `assets/images/_unused/` (create folder if needed)
@@ -251,8 +309,8 @@ Date: YYYY-MM-DD HH:MM:SS
 # CLEANUP
 
 After processing:
-1. Move all processed files from `inbox/raw/` to `inbox/used/`
-2. Only transcripts remain (no .ogg files)
+1. Move content files from `inbox/raw/` to `inbox/used/`
+2. Move feedback files from `inbox/raw/` to `inbox/used/feedback/`
 
 # GIT
 

@@ -1,0 +1,9 @@
+---
+source: telegram_voice
+date: 2026-02-05T12:17:14
+user_id: unknown
+username: AlexeyDTC
+audio_file: 20260205_121714_AlexeyDTC_msg936.ogg
+---
+
+Ну а потом мы, конечно же, по материалам этого Lightning Lessons сделаем статьи.

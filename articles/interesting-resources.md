@@ -1,7 +1,7 @@
 ---
 title: "Interesting Resources"
 created: 2026-01-31
-updated: 2026-02-04
+updated: 2026-02-05
 tags: [resources, tools, ai, development]
 status: draft
 ---
@@ -52,6 +52,14 @@ A Claude Code skill that implements Manus-style persistent markdown planning. Th
 
 A lightweight and modular framework for building AI agent pipelines and applications. Built on Instructor and Pydantic, Atomic Agents focuses on atomicity where each component (agent, tool, context provider) is single-purpose, reusable, composable, and predictable. It enables creating AI applications using familiar software engineering principles with clear input and output schemas for consistent behavior[^7].
 
+### pro-workflow
+
+Battle-tested Claude Code workflows from power users. Implements patterns like self-correcting memory, parallel worktrees, wrap-up rituals, and the 80/20 AI coding ratio. Features include agent teams, custom subagents, smart commit with quality gates, session analytics, and persistent SQLite storage for learnings with full-text search. Optimized for reducing correction cycles when working with AI coding assistants[^9].
+
+### PaperBanana
+
+An agentic framework for AI researchers that automates creation of high-quality academic illustrations. Generates methodology diagrams, flowcharts, and statistical plots from text descriptions or by polishing hand-drawn sketches. Uses a multi-step process with retrieve, plan, render, and refine agents powered by state-of-the-art vision and image generation models. Includes PaperBananaBench with 292 curated test cases from NeurIPS 2025[^10].
+
 ## Sources
 
 [^1]: [20260131_191039_AlexeyDTC_msg741_photo.md](../inbox/used/20260131_191039_AlexeyDTC_msg741_photo.md)
@@ -62,3 +70,5 @@ A lightweight and modular framework for building AI agent pipelines and applicat
 [^6]: [20260202_122612_AlexeyDTC_msg848.md](../inbox/raw/20260202_122612_AlexeyDTC_msg848.md)
 [^7]: [20260202_171315_AlexeyDTC_msg854.md](../inbox/raw/20260202_171315_AlexeyDTC_msg854.md)
 [^8]: [20260203_134255_AlexeyDTC_msg884_transcript.txt](../inbox/raw/20260203_134255_AlexeyDTC_msg884_transcript.txt)
+[^9]: [20260205_152323_AlexeyDTC_msg949.md](../inbox/raw/20260205_152323_AlexeyDTC_msg949.md)
+[^10]: [20260205_162426_AlexeyDTC_msg950.md](../inbox/raw/20260205_162426_AlexeyDTC_msg950.md)

@@ -1,7 +1,7 @@
 ---
 title: "AI Engineer Role Research"
 created: 2026-02-02
-updated: 2026-02-04
+updated: 2026-02-05
 tags: [ai-engineer, career, research, interview, jobs]
 status: draft
 ---
@@ -210,6 +210,20 @@ The core principle remains: integrate AI into products so they work reliably, an
 
 This vision guides both my teaching and my research into how the industry actually defines and hires for AI Engineer roles.
 
+## Job Scraping Analysis
+
+To gather data on AI Engineer roles, I scraped job postings from multiple cities including Los Angeles, New York, London, Amsterdam, and Berlin. The initial scrape collected approximately 1400 postings before deduplication[^15].
+
+Not all postings are for "AI Engineer" specifically - many use different titles for roles that still involve AI work. The analysis involves:
+- Deduplicating postings
+- Categorizing which roles are actually AI Engineer positions
+- Understanding how different companies use different titles for similar roles
+- Identifying which "AI Engineer" postings are actually for ML Engineer roles or other related positions
+
+After filtering, approximately 300 AI Engineer position titles remain. Additionally, there are related roles where the title differs but the job description describes what I would call AI Engineer work[^15].
+
+The material from this research will be presented in Lightning Lessons on Maven, where people can register to learn about the findings on AI Engineer roles, interview processes, and industry expectations[^15].
+
 ## Sources
 
 - [20260202_191851_AlexeyDTC_msg856_transcript.txt](../inbox/raw/20260202_191851_AlexeyDTC_msg856_transcript.txt)
@@ -242,3 +256,6 @@ This vision guides both my teaching and my research into how the industry actual
 [^12]: [20260204_102339_AlexeyDTC_msg900_transcript.txt](../inbox/raw/20260204_102339_AlexeyDTC_msg900_transcript.txt)
 [^13]: [20260204_102429_AlexeyDTC_msg902_transcript.txt](../inbox/raw/20260204_102429_AlexeyDTC_msg902_transcript.txt)
 [^14]: [20260202_192519_AlexeyDTC_msg864_transcript.txt](../inbox/raw/20260202_192519_AlexeyDTC_msg864_transcript.txt)
+[^15]: [20260205_121704_AlexeyDTC_msg935_transcript.txt](../inbox/raw/20260205_121704_AlexeyDTC_msg935_transcript.txt)
+[^16]: [20260205_121714_AlexeyDTC_msg936_transcript.txt](../inbox/raw/20260205_121714_AlexeyDTC_msg936_transcript.txt)
+[^17]: [20260204_141838_AlexeyDTC_msg925_photo.md](../inbox/raw/20260204_141838_AlexeyDTC_msg925_photo.md)
