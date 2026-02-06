@@ -1,0 +1,10 @@
+---
+source: telegram_voice
+date: 2026-02-06T12:48:34+00:00
+user_id: 129835960
+username: valeriia_kuka
+audio_file: 20260206_124834_valeriia_kuka_msg988.ogg
+---
+
+Ну и вот, как я уже в этом сообщении сказала, почему-то часть информации, которая касается Automator
+бота, она попала в Cloud Code Experiments. И получается, что статья про Automator, она не полная.

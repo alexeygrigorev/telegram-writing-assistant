@@ -94,6 +94,7 @@ Create a NEW article when:
 Add to EXISTING article when:
 - The content extends or supplements what's already there
 - A reader of that article would expect to find this content
+- CRITICAL: Keep all content about ONE topic together in ONE article. Do not split related content across multiple files. For example, if content about Automator Bot includes troubleshooting with Claude Code, that content belongs in automator-bot.md, NOT in claude-code-experiments.md.
 
 ## Step 3: Process Text Content
 
@@ -136,7 +137,9 @@ When the user mentions a project they implemented and shares a link to it (GitHu
 ### Final processing
 
 - Translate to English if needed
-- Preserve key information: some summarization is fine, but keep core ideas and details
+- CRITICAL: Preserve ALL information from voice messages. Do not summarize. Every idea, reason, and sequence of steps must be preserved.
+- Only stylistic corrections are allowed (translation, grammar fixes). Information must remain 100% intact.
+- As a final step, compare what you wrote with the original transcript to ensure nothing was forgotten.
 - Incorporate content meaningfully in the right section
 
 ## Step 4: Process Images
@@ -228,7 +231,7 @@ Styling guidelines:
 - No horizontal rule separators
 - Use short, clear sentences
 - You are a curator, not a writer - organize findings, don't rewrite
-- Preserve original meaning and ALL details from voice notes
+- CRITICAL: Preserve original meaning and ALL details from voice notes. Do not summarize. Every sequence of steps, every reason for doing something, every detail must be preserved. Only translate and fix stylistic issues.
 
 Article frontmatter:
 ```markdown

@@ -1,7 +1,7 @@
 ---
 title: "AI Engineer Role Research"
 created: 2026-02-02
-updated: 2026-02-05
+updated: 2026-02-06
 tags: [ai-engineer, career, research, interview, jobs]
 status: draft
 ---
@@ -236,6 +236,22 @@ After filtering, approximately 300 AI Engineer position titles remain. Additiona
 
 The material from this research will be presented in Lightning Lessons on Maven, where people can register to learn about the findings on AI Engineer roles, interview processes, and industry expectations[^15].
 
+## Key Findings from Job Analysis
+
+Based on analysis of AI Engineering job postings, several patterns emerge:
+
+- 70% of roles work directly on AI (RAG, agents)
+- 93% need skills beyond just GenAI - it's a full-stack role
+- 35.9% of roles mention RAG - the most common pattern in all jobs
+- 64.3% of AI Engineering roles require some ML knowledge
+- AWS (359 jobs) > Azure (214 jobs) > GCP (205 jobs)
+
+The two dominant patterns in AI Engineering are:
+- RAG - Connect LLMs to your data (documents, databases)
+- Agents - LLMs that use tools to accomplish tasks
+
+If you learn these two patterns deeply, you can handle most AI Engineering use cases[^19].
+
 ## Sources
 
 - [20260202_191851_AlexeyDTC_msg856_transcript.txt](../inbox/raw/20260202_191851_AlexeyDTC_msg856_transcript.txt)
@@ -272,3 +288,5 @@ The material from this research will be presented in Lightning Lessons on Maven,
 [^16]: [20260205_121714_AlexeyDTC_msg936_transcript.txt](../inbox/raw/20260205_121714_AlexeyDTC_msg936_transcript.txt)
 [^17]: [20260204_141838_AlexeyDTC_msg925_photo.md](../inbox/raw/20260204_141838_AlexeyDTC_msg925_photo.md)
 [^18]: [20260205_121325_AlexeyDTC_msg934_transcript.txt](../inbox/used/20260205_121325_AlexeyDTC_msg934_transcript.txt)
+[^19]: [20260206_074709_AlexeyDTC_msg974_photo.md](../inbox/raw/20260206_074709_AlexeyDTC_msg974_photo.md)
+[^20]: [20260206_074709_AlexeyDTC_msg975_photo.md](../inbox/raw/20260206_074709_AlexeyDTC_msg975_photo.md)

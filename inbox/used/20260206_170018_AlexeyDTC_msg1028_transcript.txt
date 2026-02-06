@@ -1,0 +1,9 @@
+---
+source: telegram_voice
+date: 2026-02-06T17:00:18+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260206_170018_AlexeyDTC_msg1028.ogg
+---
+
+Тут сообщение выше, я говорю про автоматор.
