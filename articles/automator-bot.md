@@ -68,6 +68,44 @@ Instead, I simply asked Claude Code to pull the logs from AWS for the last 2 hou
 I was preparing for a trip and didn't have time to sit and debug. I just gave Claude Code the task and continued with my preparations while it handled everything. This type of automation - handling urgent maintenance tasks - is where Claude Code excels. Tools like Cursor, Antigravity, and Copilot are better suited for more thoughtful, interactive coding work[^6].
 
 
+## Moderation Reactions
+
+The bot uses specific emoji reactions to trigger different moderation actions. Each reaction is designed to handle a particular type of rule violation:
+
+- **shameless-rules** - Triggered when posts don't follow the required template in shameless/self-promotion channels, or when promotional content appears outside the four allowed channels. The message is deleted.
+
+- **jobs-rules** - Similar to shameless-rules but for job postings. If a job post doesn't follow the required template or is posted in the wrong channel, it gets deleted.
+
+- **ask-in-course-channel** - When people ask course-related questions in General instead of the appropriate course channel (e.g., data engineering), the message is removed from General.
+
+- **error-log-to-thread-please** - For long messages containing code or error logs that take up too much space in the main channel. These should be moved to a thread instead.
+
+- **thread-please** - A general request to move a conversation to a thread.
+
+- **to-welcome** - When a message should be in the welcome channel but was posted elsewhere.
+
+- **delete** - A generic deletion reaction for any content that needs to be removed.
+
+All these reactions not only delete the original message but also remove the entire thread associated with it[^8].
+
+### Usage Statistics
+
+The bot has been actively moderating the community. From January 30 to February 6, 2026, it handled 101 deletions across 8 days:
+
+<figure>
+  <img src="../assets/images/automator-bot/daily-deletions-statistics.jpg" alt="Daily deletions from January 30 to February 6, 2026">
+  <figcaption>Daily deletion count over 8 days - showing consistent moderation activity[^10]</figcaption>
+</figure>
+
+Breaking down the deletions by reaction type shows the most common violations:
+
+<figure>
+  <img src="../assets/images/automator-bot/deletions-by-reaction.jpg" alt="Deletion statistics by reaction type">
+  <figcaption>Deletions by reaction - shameless-rules (36) and delete (34) were the most common triggers[^11]</figcaption>
+</figure>
+
+The most common issues were shameless/self-promotion rule violations (36) followed by general deletions (34). Job posting rules accounted for 12 deletions, and course-related questions in wrong channels accounted for 10[^9].
+
 ## Future Improvements
 
 There is an unimplemented moderator folder feature for spam handling. This feature was implemented with GitHub Copilot but has not been tested or deployed yet[^4].
@@ -92,3 +130,8 @@ This is the next step that I haven't tested yet[^3].
 - [20260206_124435_valeriia_kuka_msg985_transcript.txt](../inbox/raw/20260206_124435_valeriia_kuka_msg985_transcript.txt)
 - [20260206_124628_valeriia_kuka_msg987_transcript.txt](../inbox/raw/20260206_124628_valeriia_kuka_msg987_transcript.txt)
 - [20260206_170012_AlexeyDTC_msg1026_transcript.txt](../inbox/raw/20260206_170012_AlexeyDTC_msg1026_transcript.txt)
+- [20260206_173451_AlexeyDTC_msg1034_transcript.txt](../inbox/used/20260206_173451_AlexeyDTC_msg1034_transcript.txt)
+- [20260206_173503_AlexeyDTC_msg1036.md](../inbox/used/20260206_173503_AlexeyDTC_msg1036.md)
+- [20260206_173514_AlexeyDTC_msg1038_photo.md](../inbox/used/20260206_173514_AlexeyDTC_msg1038_photo.md)
+- [20260206_173514_AlexeyDTC_msg1039_photo.md](../inbox/used/20260206_173514_AlexeyDTC_msg1039_photo.md)
+- [20260206_173539_AlexeyDTC_msg1042.md](../inbox/used/20260206_173539_AlexeyDTC_msg1042.md)
