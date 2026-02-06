@@ -156,6 +156,17 @@ Images are located in `inbox/raw/` alongside their markdown description files (f
 - Filenames are NOT reliable for attribution
 - Messages sent within 1-2 minutes are CONTEXTUALLY RELATED - read them together
 
+### Default: PLACE images, don't defer
+
+DEFAULT: Images should be PLACED in articles. When the user sends an image, they want it included.
+
+Only defer an image if:
+- The user explicitly says in the caption to not include it
+- There is genuinely no matching article AND the content doesn't warrant creating a new one
+- The image is a duplicate of content already in the article
+
+If text content from a message is added to an article, related images should ALSO be placed.
+
 ### Processing each photo
 
 1. Read its markdown description file (contains Type, Content, Text, Context)
@@ -196,6 +207,15 @@ Images are located in `inbox/raw/` alongside their markdown description files (f
 
 - Move the image to `assets/images/_unused/`
 - Move the markdown description file to `inbox/used/`
+
+### Verification step (CRITICAL)
+
+After placing images, verify that all referenced files exist:
+```bash
+ls assets/images/{article_name}/
+```
+
+For each image reference in the article, confirm the file exists. This is just as important as checking that no information was omitted from voice messages.
 
 # COURSE NAMING CONVENTIONS
 
@@ -285,10 +305,10 @@ Date: YYYY-MM-DD HH:MM:SS
 - existing-article-1.md
 
 ## Images Placed
-- image1.jpg -> article-title-1.md
+- original.jpg -> descriptive-name.jpg -> article-title-1.md
 
 ## Images Deferred
-- image2.jpg (reason)
+- original.jpg (SPECIFIC reason: duplicate / no matching article / user said exclude / unclear context - NOT "content added to article")
 ```
 
 # CLEANUP
