@@ -246,9 +246,19 @@ Based on analysis of AI Engineering job postings, several patterns emerge:
 - 64.3% of AI Engineering roles require some ML knowledge
 - AWS (359 jobs) > Azure (214 jobs) > GCP (205 jobs)
 
+<figure>
+  <img src="../assets/images/ai-engineer-role-research/ai-engineer-stats.jpg" alt="AI Engineer job statistics">
+  <figcaption>Key statistics from analysis of AI Engineering job postings</figcaption>
+</figure>
+
 The two dominant patterns in AI Engineering are:
 - RAG - Connect LLMs to your data (documents, databases)
 - Agents - LLMs that use tools to accomplish tasks
+
+<figure>
+  <img src="../assets/images/ai-engineer-role-research/rag-agents-patterns.jpg" alt="RAG and Agents patterns">
+  <figcaption>The two dominant patterns in AI Engineering: RAG and Agents</figcaption>
+</figure>
 
 If you learn these two patterns deeply, you can handle most AI Engineering use cases[^19].
 
