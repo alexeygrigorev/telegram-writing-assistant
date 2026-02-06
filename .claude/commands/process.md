@@ -164,6 +164,7 @@ Only defer an image if:
 - The user explicitly says in the caption to not include it
 - There is genuinely no matching article AND the content doesn't warrant creating a new one
 - The image is a duplicate of content already in the article
+- The image is feedback about the system (move to `feedback/` folder instead)
 
 If text content from a message is added to an article, related images should ALSO be placed.
 
@@ -205,7 +206,8 @@ If text content from a message is added to an article, related images should ALS
 
 ### If image cannot be placed
 
-- Move the image to `assets/images/_unused/`
+- If the image is feedback about the system, move it to `inbox/used/feedback/`
+- Otherwise, move the image to `assets/images/_unused/`
 - Move the markdown description file to `inbox/used/`
 
 ### Verification step (CRITICAL)
