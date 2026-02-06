@@ -1,12 +1,12 @@
 ---
-title: "LightSearch: Persistent Search Library"
+title: "SQLiteSearch: Persistent Search Library"
 created: 2026-02-02
-updated: 2026-02-04
+updated: 2026-02-06
 tags: [search, python, library, sqlite, lsh, vector-search]
 status: draft
 ---
 
-# LightSearch: Persistent Search Library
+# SQLiteSearch: Persistent Search Library
 
 A lightweight search library with persistence using SQLite, designed for small-scale projects that don't need the overhead of Elasticsearch or other heavy databases.
 
@@ -32,7 +32,7 @@ I researched existing libraries for Locality-Sensitive Hashing (LSH) with these 
 - Supports embeddings
 
 <figure>
-  <img src="../assets/images/lightsearch-library/lsh-libraries-research.jpg" alt="LSH library research results from ChatGPT">
+  <img src="../assets/images/sqlitesearch-library/lsh-libraries-research.jpg" alt="LSH library research results from ChatGPT">
   <figcaption>ChatGPT research results showing existing LSH libraries and their limitations</figcaption>
   <!-- This illustrates the research phase where I explored existing options -->
 </figure>
@@ -58,7 +58,7 @@ The key was to separate the ideation phase (with ChatGPT) from the implementatio
 ## Technical Approach
 
 <figure>
-  <img src="../assets/images/lightsearch-library/lightsearch-plan.jpg" alt="LightSearch technical plan from ChatGPT">
+  <img src="../assets/images/sqlitesearch-library/lightsearch-plan.jpg" alt="LightSearch technical plan from ChatGPT">
   <figcaption>The technical plan for LightSearch showing the two-stage retrieval approach using SimHash and banding</figcaption>
   <!-- This shows the concrete technical specification for the library design -->
 </figure>
@@ -80,13 +80,13 @@ The target scale is 10-20k documents, which is suitable for student projects and
 The implementation was done by Claude Code based on a detailed plan. I created a GitHub repository, added the plan document (renamed from summary.md to plan.md), and instructed Claude to read the plan and start implementing. I reminded Claude to include tests, which are important for library quality[^5].
 
 <figure>
-  <img src="../assets/images/lightsearch-library/chatgpt-summary-ready.jpg" alt="ChatGPT summary ready for download">
+  <img src="../assets/images/sqlitesearch-library/chatgpt-summary-ready.jpg" alt="ChatGPT summary ready for download">
   <figcaption>ChatGPT prepared a summary document that would become the basis for implementation</figcaption>
   <!-- This illustrates how the ideation phase with ChatGPT produced a concrete specification -->
 </figure>
 
 <figure>
-  <img src="../assets/images/lightsearch-library/claude-code-implementation.jpg" alt="Claude Code reading the plan and starting implementation">
+  <img src="../assets/images/sqlitesearch-library/claude-code-implementation.jpg" alt="Claude Code reading the plan and starting implementation">
   <figcaption>Claude Code reading the plan.md file and beginning implementation with questions about approach</figcaption>
   <!-- This shows how the implementation phase kicked off after planning was complete -->
 </figure>

@@ -28,8 +28,9 @@ Brief description of what this article is about.
 |-------|--------|--------------|-------------|
 | [Telegram Writing Assistant](telegram-writing-assistant.md) | draft | 2026-02-04 | Personal knowledge management system via Telegram |
 | [AI Engineer Role Research](ai-engineer-role-research.md) | draft | 2026-02-04 | Research into AI Engineer positions and interview process |
+| [Automator Bot](automator-bot.md) | draft | 2026-02-05 | Slack bot for community management automation |
 | [Interesting Resources](interesting-resources.md) | draft | 2026-02-04 | Curated collection of tools and resources |
-| [LightSearch: Persistent Search Library](lightsearch-library.md) | draft | 2026-02-02 | Lightweight search library with SQLite persistence |
+| [SQLiteSearch: Persistent Search Library](sqlitesearch-library.md) | draft | 2026-02-06 | Lightweight search library with SQLite persistence |
 | [Certificates and AI Design Experiments](certificates-and-ai-design-experiments.md) | draft | 2026-02-02 | Creating workshop certificates and experiments with image-to-HTML/CSS conversion |
 | [From Vague Ideas to Concrete Results with ChatGPT](idea-to-concrete-iteration.md) | draft | 2026-01-31 | Process for iterating from undefined ideas to actionable plans |
 | [AI Testing Tools for End-to-End Tests](ai-testing-tools.md) | draft | 2026-01-30 | AI-powered testing automation for websites |
