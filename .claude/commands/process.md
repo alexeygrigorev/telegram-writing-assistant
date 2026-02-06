@@ -88,7 +88,8 @@ Create a NEW article when:
 - No existing article covers the topic
 - Content is about a fundamentally different subject
 - Adding it would dilute the focus of existing articles
-- Content represents a complete, standalone project or story
+- Content represents a complete, standalone project or story (e.g., a full debugging story with a specific project)
+- The content is substantial enough to stand on its own
 
 Add to EXISTING article when:
 - The content extends or supplements what's already there
@@ -105,6 +106,13 @@ If a message is short or unclear:
 - Check frontmatter date field for related messages
 - Read related voice notes, text, and photos together
 
+### Fact-checking
+
+DO NOT assume facts not explicitly stated:
+- If transcript doesn't specify the platform (Slack vs Discord), don't guess
+- If uncertain about details, check linked sources or ask
+- Better to be vague than wrong
+
 ### Handling URLs
 
 If a message contains a URL, fetch its content using Jina Reader:
@@ -117,6 +125,13 @@ CRITICAL: Always use Jina Reader for URL content. Do NOT use web_reader, mcp__we
 Then incorporate that content into the appropriate article.
 
 If a URL is marked as "resource" or is an orphaned link (sent without context, unrelated to nearby messages), add it to the "Interesting Resources" article (interesting-resources.md).
+
+### Project Links
+
+When the user mentions a project they implemented and shares a link to it (GitHub, etc.):
+- ALWAYS include the link in the article
+- Place it prominently - near the title or in the first paragraph
+- Add the link message to Sources
 
 ### Final processing
 

@@ -118,34 +118,6 @@ Instead, I simply asked Claude Code to pull the logs from AWS for the last 2 hou
 
 I was preparing for a trip and didn't have time to sit and debug. I just gave Claude Code the task and continued with my preparations while it handled everything. This type of automation - handling urgent maintenance tasks - is where Claude Code excels. Tools like Cursor, Antigravity, and Copilot are better suited for more thoughtful, interactive coding work[^6].
 
-## Automator Bot Debugging
-
-I use an automator bot for community management in Discord. The bot reacts to posts based on emoji reactions I leave - for example, promotional posts in the wrong channel get moved or deleted, and the bot sends appropriate messages.
-
-Recently, the bot stopped working correctly. Posts weren't being deleted from General, and messages weren't being sent to users. Since I was preparing for a family trip and didn't have time to debug, I delegated the task to Claude Code[^8].
-
-Claude Code:
-1. Figured out how to retrieve logs from the bot
-2. Analyzed the logs to find the error
-3. Identified that I had accidentally deleted the API key
-4. Guided me to update the key in AWS directly
-
-The entire process happened without me needing to open a browser or manually navigate AWS console. This demonstrates how Claude Code excels at automation tasks where the focus is on executing actions rather than writing code[^8].
-
-<figure>
-  <img src="../assets/images/claude-code-experiments/aws-logs-troubleshooting.jpg" alt="Claude Code pulling AWS logs to troubleshoot bot issue">
-  <figcaption>Claude Code analyzing AWS logs to diagnose and fix a Slack integration issue automatically</figcaption>
-  <!-- This illustrates the practical application of Claude Code for production troubleshooting -->
-</figure>
-
-### Future Improvements
-
-There is an unimplemented moderator folder feature for spam handling. When someone starts spamming, the bot would send a message with a button to:
-- Delete all messages from that spammer
-- Ban the spammer
-
-Currently this requires manual action. The feature was implemented but never tested or deployed[^10].
-
 ## Sources
 - [20260117_193932_AlexeyDTC_msg249_transcript.txt](../inbox/raw/20260117_193932_AlexeyDTC_msg249_transcript.txt)
 - [20260117_193932_AlexeyDTC_msg250_transcript.txt](../inbox/raw/20260117_193932_AlexeyDTC_msg250_transcript.txt)
