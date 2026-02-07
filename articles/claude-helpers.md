@@ -74,10 +74,6 @@ This function copies a master Claude configuration file to the current directory
   <!-- These helpers are added to .bashrc for quick access -->
 </figure>
 
-## Note: Claude Deleting Tests
-
-One issue to watch out for - Claude sometimes deletes tests during refactoring and then says "oops, where did they go?" This requires constant supervision[^2].
-
 ## Slash Commands
 
 The repository includes several custom slash commands that automate common workflows. These commands can be used across all projects and devices - changes to the commands are automatically synchronized.
