@@ -26,6 +26,7 @@ Brief description of what this article is about.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [FAQ System for Course Management](faq-system.md) | draft | 2026-02-07 | Community-driven FAQ with RAG-based automation and content management |
 | [ChatGPT Data Viewer](chatgpt-data-viewer.md) | draft | 2026-02-07 | Tool for visualizing and searching ChatGPT conversation history |
 | [Social Post Ideas](social-post-ideas.md) | draft | 2026-02-07 | Curated social media content ideas and inspiration |
 | [Telegram Writing Assistant](telegram-writing-assistant.md) | draft | 2026-02-04 | Personal knowledge management system via Telegram |
