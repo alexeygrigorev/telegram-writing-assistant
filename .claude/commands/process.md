@@ -219,6 +219,36 @@ ls assets/images/{article_name}/
 
 For each image reference in the article, confirm the file exists. This is just as important as checking that no information was omitted from voice messages.
 
+## Step 5: Process Videos
+
+Videos are NOT downloaded. Only metadata and Telegram link are saved in `inbox/raw/` (files ending with `_video.md`).
+
+### Processing each video
+
+1. Read the video metadata file (contains duration, resolution, file size, Telegram link)
+2. Look at messages sent before/after by timestamp for context
+3. Check the caption field - this is the user's description of what's in the video
+4. Find the most relevant section in the appropriate article
+5. If no suitable article exists, defer the video
+
+### Placing a video in an article
+
+Videos use the same `<figure>` format as images, but with text instead of an image:
+
+```html
+<figure>
+  <p>Video: Screen recording of feature demo (2m 30s, 1080p) - <a href="https://t.me/c/3688590333/1234">View on Telegram</a></p>
+  <figcaption>Short caption - what's shown in the video</figcaption>
+  <!-- how and why this video is relevant to the text around -->
+</figure>
+```
+
+Use the caption from the video metadata for the `<figcaption>` content.
+
+### If video cannot be placed
+
+Move the video metadata file to `inbox/used/` (unlike images, videos are not moved to `_unused/` since they don't take up space).
+
 # COURSE NAMING CONVENTIONS
 
 IMPORTANT: These are DIFFERENT courses and must be kept separate:
@@ -299,6 +329,9 @@ Date: YYYY-MM-DD HH:MM:SS
 - Images processed: N
 - Images placed: N
 - Images deferred: N
+- Videos processed: N
+- Videos placed: N
+- Videos deferred: N
 
 ## Articles Created
 - article-title-1.md
@@ -311,6 +344,12 @@ Date: YYYY-MM-DD HH:MM:SS
 
 ## Images Deferred
 - original.jpg (SPECIFIC reason: duplicate / no matching article / user said exclude / unclear context - NOT "content added to article")
+
+## Videos Placed
+- TIMESTAMP_USERNAME_msg1234_video.md -> article-title-1.md
+
+## Videos Deferred
+- TIMESTAMP_USERNAME_msg1234_video.md (SPECIFIC reason)
 ```
 
 # CLEANUP

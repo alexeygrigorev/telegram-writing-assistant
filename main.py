@@ -32,7 +32,7 @@ load_dotenv()
 
 # Configuration
 TELEGRAM_BOT_API_KEY = os.getenv("TELEGRAM_BOT_API_KEY")
-TELEGRAM_CHANNEL = int(os.getenv("TELEGRAM_CHANNEL"))
+TELEGRAM_CHAT_ID = int(os.getenv("TELEGRAM_CHAT_ID"))
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 REPO_PATH = Path.cwd()
 INBOX_RAW = REPO_PATH / "inbox" / "raw"
@@ -179,7 +179,7 @@ def get_filename(message_date: datetime, message_id: int, username: str = None) 
 
 def is_allowed_chat(update: Update) -> bool:
     """Check if message is from the allowed chat."""
-    return update.effective_chat.id == TELEGRAM_CHANNEL
+    return update.effective_chat.id == TELEGRAM_CHAT_ID
 
 
 async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
@@ -192,6 +192,7 @@ async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> N
         "• Text messages → saved as markdown\n"
         "• Voice messages → transcribed and saved\n"
         "• Photos → saved to assets/images\n"
+        "• Videos → metadata saved with Telegram link\n"
         "• Files → saved, text files include content\n\n"
         "Use /process to analyze accumulated materials and update articles."
     )
@@ -403,6 +404,102 @@ async def handle_photo_message(update: Update, context: ContextTypes.DEFAULT_TYP
         prefix = f"Saved: {filename.name}"
         text, entities = create_collapsible_message(prefix, description, max_length=500)
         await safe_reply(update.message, text, entities=entities)
+    except Exception as e:
+        await safe_reply(update.message, f"Error: {type(e).__name__}: {e}", parse_mode=None)
+
+
+async def handle_video_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Handle incoming video messages - saves metadata and Telegram link, does not download."""
+    if not is_allowed_chat(update):
+        return
+    if update.message is None:
+        print("[handle_video_message] Cannot process: update.message is None")
+        return
+    try:
+        user = update.effective_user
+        video = update.message.video
+        caption = update.message.caption
+        text = update.message.text
+        msg_date = update.message.date
+        msg_id = update.message.message_id
+        chat_id = update.effective_chat.id
+
+        # Create base filename
+        base_name = get_filename(msg_date, msg_id, user.username)
+        md_filename = INBOX_RAW / f"{base_name}_video.md"
+
+        # Build Telegram link to the message (group format)
+        # Format: https://t.me/c/{chat_id_without_minus}/{message_id}
+        chat_id_str = str(chat_id).lstrip('-100')
+        telegram_link = f"https://t.me/c/{chat_id_str}/{msg_id}"
+
+        # Build video metadata
+        metadata_lines = [
+            "---",
+            "source: telegram_video",
+            f"date: {msg_date.isoformat()}",
+            f"user_id: {user.id}",
+            f"username: {user.username or 'unknown'}",
+            f"message_id: {msg_id}",
+            f"chat_id: {chat_id}",
+        ]
+
+        # Add video file info if available
+        if video:
+            if video.file_name:
+                metadata_lines.append(f"file_name: {video.file_name}")
+            if video.duration:
+                metadata_lines.append(f"duration_seconds: {video.duration}")
+            if video.width:
+                metadata_lines.append(f"width: {video.width}")
+            if video.height:
+                metadata_lines.append(f"height: {video.height}")
+            if video.file_size:
+                metadata_lines.append(f"file_size_bytes: {video.file_size}")
+
+        metadata_lines.append("---")
+        metadata_lines.append("")
+
+        # Build content
+        content_parts = metadata_lines.copy()
+        content_parts.append(f"[View video on Telegram]({telegram_link})")
+        content_parts.append("")
+
+        # Add video info block
+        video_info = []
+        if video:
+            if video.duration:
+                minutes, seconds = divmod(video.duration, 60)
+                video_info.append(f"Duration: {minutes}m {seconds}s")
+            if video.width and video.height:
+                video_info.append(f"Resolution: {video.width}x{video.height}")
+            if video.file_size:
+                size_mb = video.file_size / (1024 * 1024)
+                video_info.append(f"Size: {size_mb:.1f} MB")
+            if video.file_name:
+                video_info.append(f"Filename: {video.file_name}")
+
+        if video_info:
+            content_parts.append("Video info: " + ", ".join(video_info))
+            content_parts.append("")
+
+        # Add caption if present
+        if caption:
+            content_parts.append(f"Caption: {caption}")
+            content_parts.append("")
+
+        # Add text if present (separate from caption)
+        if text:
+            content_parts.append(f"Message text: {text}")
+            content_parts.append("")
+
+        # Write markdown file
+        with open(md_filename, "w", encoding="utf-8") as f:
+            f.write("\n".join(content_parts))
+
+        # Reply with confirmation
+        reply_text = f"Saved video metadata: {md_filename.name}"
+        await safe_reply(update.message, reply_text, parse_mode=None)
     except Exception as e:
         await safe_reply(update.message, f"Error: {type(e).__name__}: {e}", parse_mode=None)
 
@@ -668,6 +765,7 @@ def main() -> None:
     application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_text_message))
     application.add_handler(MessageHandler(filters.VOICE, handle_voice_message))
     application.add_handler(MessageHandler(filters.PHOTO, handle_photo_message))
+    application.add_handler(MessageHandler(filters.VIDEO, handle_video_message))
     application.add_handler(MessageHandler(filters.Document.ALL, handle_document_message))
 
     # Register error handler
