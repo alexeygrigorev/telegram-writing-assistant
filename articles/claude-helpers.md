@@ -1,12 +1,12 @@
 ---
-title: "Bash Helpers for Claude Code"
+title: "Claude Code Helpers"
 created: 2026-01-23
 updated: 2026-02-07
 tags: [bash, claude-code, aliases, shortcuts]
 status: draft
 ---
 
-# Bash Helpers for Claude Code
+# Claude Code Helpers
 
 Simple bash aliases and functions to make working with Claude Code more convenient.
 
@@ -69,7 +69,7 @@ claude_init() {
 This function copies a master Claude configuration file to the current directory, avoiding duplication and ensuring consistent configuration across projects[^1].
 
 <figure>
-  <img src="../assets/images/claude-bash-helpers/bash-helpers-nano.jpg" alt="Nano editor showing bash helpers for Claude">
+  <img src="../assets/images/claude-helpers/bash-helpers-nano.jpg" alt="Nano editor showing Claude helpers">
   <figcaption>The bash configuration file with aliases and the claude_init function</figcaption>
   <!-- These helpers are added to .bashrc for quick access -->
 </figure>

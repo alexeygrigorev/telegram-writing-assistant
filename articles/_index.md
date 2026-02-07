@@ -42,7 +42,7 @@ Brief description of what this article is about.
 | [DataTalks.Club SEO Growth](datatalks-club-seo-growth.md) | draft | 2026-01-28 | SEO progress and traffic milestones |
 | [Course Material Preparation](course-material-preparation.md) | draft | 2026-01-28 | Workflow for keeping code and documentation in sync |
 | [AI Bootcamp Course](ai-bootcamp-course.md) | draft | 2026-01-28 | Course curriculum and syllabus for AI Engineering BuildCamp |
-| [Bash Helpers for Claude Code](claude-bash-helpers.md) | draft | 2026-02-07 | Aliases, functions, and slash commands for Claude Code |
+| [Claude Code Helpers](claude-helpers.md) | draft | 2026-02-07 | Aliases, functions, and slash commands for Claude Code |
 | [Claude Code Experiments](claude-code-experiments.md) | draft | 2026-01-23 | Experiments and applications of Claude Code beyond coding |
 | [Course Management Agent](course-management-agent.md) | draft | 2026-01-23 | Automating course administration tasks with Claude Skills |
 | [Cross-Platform Environment Variable Management with dirdotenv](dirdotenv.md) | draft | 2026-01-23 | Python-based alternative to direnv |
