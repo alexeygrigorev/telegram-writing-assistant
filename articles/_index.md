@@ -27,6 +27,7 @@ Brief description of what this article is about.
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
 | [ChatGPT Data Viewer](chatgpt-data-viewer.md) | draft | 2026-02-07 | Tool for visualizing and searching ChatGPT conversation history |
+| [Social Post Ideas](social-post-ideas.md) | draft | 2026-02-07 | Curated social media content ideas and inspiration |
 | [Telegram Writing Assistant](telegram-writing-assistant.md) | draft | 2026-02-04 | Personal knowledge management system via Telegram |
 | [AI Engineer Role Research](ai-engineer-role-research.md) | draft | 2026-02-06 | Research into AI Engineer positions and interview process |
 | [Automator Bot](automator-bot.md) | draft | 2026-02-06 | Slack bot for community management automation |
@@ -41,7 +42,7 @@ Brief description of what this article is about.
 | [DataTalks.Club SEO Growth](datatalks-club-seo-growth.md) | draft | 2026-01-28 | SEO progress and traffic milestones |
 | [Course Material Preparation](course-material-preparation.md) | draft | 2026-01-28 | Workflow for keeping code and documentation in sync |
 | [AI Bootcamp Course](ai-bootcamp-course.md) | draft | 2026-01-28 | Course curriculum and syllabus for AI Engineering BuildCamp |
-| [Bash Helpers for Claude Code](claude-bash-helpers.md) | draft | 2026-01-23 | Aliases and functions for Claude Code |
+| [Bash Helpers for Claude Code](claude-bash-helpers.md) | draft | 2026-02-07 | Aliases, functions, and slash commands for Claude Code |
 | [Claude Code Experiments](claude-code-experiments.md) | draft | 2026-01-23 | Experiments and applications of Claude Code beyond coding |
 | [Course Management Agent](course-management-agent.md) | draft | 2026-01-23 | Automating course administration tasks with Claude Skills |
 | [Cross-Platform Environment Variable Management with dirdotenv](dirdotenv.md) | draft | 2026-01-23 | Python-based alternative to direnv |

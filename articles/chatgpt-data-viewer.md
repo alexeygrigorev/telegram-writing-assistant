@@ -108,6 +108,15 @@ I discussed with Claude how the application should look. We planned both backend
 
 No tests, no TDD. I told Claude what I needed, specified the API response format, and iterated until it worked.
 
+The development workflow was:
+1. I got the data from ChatGPT export
+2. I asked Claude to look at the data
+3. We studied the data together
+4. I asked Claude questions about what's inside
+5. Claude suggested we should restructure the application
+6. I asked Claude what the API should look like, what the models should look like
+7. I did not look at the code itself - Claude handled implementation completely[^4]
+
 ## Results
 
 The first version was working properly in just 1-2 iterations. Total time spent: 2-3 hours maximum. This includes:
@@ -181,3 +190,4 @@ But it's already working - you can download your export, run the viewer, and sea
 [^1]: [20260207_073723_AlexeyDTC_msg1082_transcript.txt](../inbox/raw/20260207_073723_AlexeyDTC_msg1082_transcript.txt)
 [^2]: [20260207_070935_AlexeyDTC_msg1080_video.md](../inbox/raw/20260207_070935_AlexeyDTC_msg1080_video.md)
 [^3]: [20260207_070146_AlexeyDTC_msg1078.md](../inbox/raw/20260207_070146_AlexeyDTC_msg1078.md) - GitHub repository link
+[^4]: [20260207_092504_AlexeyDTC_msg1088_transcript.txt](../inbox/raw/20260207_092504_AlexeyDTC_msg1088_transcript.txt) - Development workflow
