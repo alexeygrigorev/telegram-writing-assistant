@@ -8,7 +8,9 @@ status: draft
 
 # FAQ System for Course Management
 
-The DataTalks.Club FAQ system is a community-driven knowledge base that uses RAG (Retrieval-Augmented Generation) to automate content management. Students can propose FAQ entries, and an AI agent intelligently triages them into new entries, updates to existing entries, or duplicates[^1].
+The DataTalks.Club FAQ system is a community-driven knowledge base.
+
+We also use RAG (Retrieval-Augmented Generation) to automate content management. Students can propose FAQ entries, and an AI agent intelligently triages them into new entries, updates to existing entries, or duplicates[^1].
 
 ## Why This System Exists
 
@@ -52,19 +54,7 @@ Code already existed to parse Google Docs into JSON. This was developed for the 
 
 ### Structuring the Content
 
-The new structure organizes FAQs by course, then module, then individual questions:
-
-```
-faq/
-  _questions/
-    machine-learning-zoomcamp/
-      _metadata.yaml
-      general/
-      module-1/
-      module-2/
-    data-engineering-zoomcamp/
-    llm-zoomcamp/
-```
+The new structure organizes FAQs by course, then module, then individual questions.
 
 Each question is a separate markdown file with frontmatter metadata.
 
@@ -82,8 +72,6 @@ Converting from Google Docs to clean markdown took several evenings of work:
 - Fixed grammar, converted code images to actual code blocks, standardized structure
 - Added proper frontmatter for each entry
 - Made everything consistent across all courses
-
-This example was used in LLM Zoomcamp and worked very well. Using real course data for the RAG example made it more relatable for students[^3].
 
 ## The Static Site Generator
 
@@ -182,7 +170,7 @@ GitHub CLI (`gh`) combined with Claude Code creates an efficient review workflow
 4. Claude makes the edit, switches to the branch, and pushes the change
 5. Merge the corrected PR and delete the branch
 
-This happened during one session: after correcting 15-20 pull requests, Claude started recognizing the pattern and suggesting fixes proactively. When it saw another incorrectly categorized question, it offered to move it without being asked[^9].
+This happened during one session: after correcting a few pull requests, Claude started recognizing the pattern and suggesting fixes proactively. When it saw another incorrectly categorized question, it offered to move it without being asked[^9].
 
 ### Benefits Over Full Automation
 
