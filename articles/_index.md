@@ -26,6 +26,7 @@ Brief description of what this article is about.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [ChatGPT Data Viewer](chatgpt-data-viewer.md) | draft | 2026-02-07 | Tool for visualizing and searching ChatGPT conversation history |
 | [Telegram Writing Assistant](telegram-writing-assistant.md) | draft | 2026-02-04 | Personal knowledge management system via Telegram |
 | [AI Engineer Role Research](ai-engineer-role-research.md) | draft | 2026-02-06 | Research into AI Engineer positions and interview process |
 | [Automator Bot](automator-bot.md) | draft | 2026-02-06 | Slack bot for community management automation |
