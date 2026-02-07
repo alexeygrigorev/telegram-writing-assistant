@@ -44,7 +44,7 @@ class TestClaudeRunnerReal:
     def test_claude_runner_simple_prompt(self, tmp_path):
         """Test ClaudeRunner with a simple prompt."""
         logs_dir = tmp_path / "logs"
-        runner = ClaudeRunner(Path.cwd(), logs_dir)
+        runner = ClaudeRunner(tmp_path, logs_dir)  # Use tmp_path to avoid libuv issues on Windows
 
         progress_messages = []
 
