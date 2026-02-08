@@ -1,7 +1,7 @@
 ---
 title: "Interesting Resources"
 created: 2026-01-31
-updated: 2026-02-06
+updated: 2026-02-08
 tags: [resources, tools, ai, development]
 status: draft
 ---
@@ -54,6 +54,10 @@ Each resource entry follows this simple format:
 
 [Dexter](https://github.com/virattt/dexter) is an autonomous financial research agent that thinks, plans, and learns as it works. It performs analysis using task planning, self-reflection, and real-time market data. Think Claude Code, but built specifically for financial research. It features intelligent task planning, autonomous execution, self-validation, real-time financial data access, and safety features like loop detection and step limits[^11].
 
+### LangExtract
+
+[LangExtract](https://github.com/google/langextract) is a library for extracting language and locale information from text. It provides a simple way to detect the language of content, which is useful for applications that need to handle multilingual text or route content based on language[^12].
+
 ## Sources
 
 [^1]: [20260131_191039_AlexeyDTC_msg741_photo.md](../inbox/used/20260131_191039_AlexeyDTC_msg741_photo.md)
@@ -67,3 +71,4 @@ Each resource entry follows this simple format:
 [^9]: [20260205_152323_AlexeyDTC_msg949.md](../inbox/raw/20260205_152323_AlexeyDTC_msg949.md)
 [^10]: [20260205_162426_AlexeyDTC_msg950.md](../inbox/raw/20260205_162426_AlexeyDTC_msg950.md)
 [^11]: [20260206_074649_valeriia_kuka_msg971.md](../inbox/raw/20260206_074649_valeriia_kuka_msg971.md)
+[^12]: [20260207_215252_AlexeyDTC_msg1182.md](../inbox/used/20260207_215252_AlexeyDTC_msg1182.md)
