@@ -124,7 +124,7 @@ RAG systems dominate the assignment landscape. Wherever RAG is involved, documen
 
 ## PDF Extraction Projects
 
-Document extraction, particularly from PDFs, is a frequently occurring topic in AI Engineer interviews. Through analysis of home assignments and interview questions, this pattern appears repeatedly[^17].
+Document extraction, particularly from PDFs, is a frequently occurring topic in AI Engineer interviews. Through analysis of home assignments and interview questions, this pattern appears repeatedly[^15].
 
 A practical project demonstrating this skill involves extracting structured information from PDF documents using LLMs. The project covers:
 - Processing transcripts and creating summaries
@@ -132,7 +132,7 @@ A practical project demonstrating this skill involves extracting structured info
 - Extracting pages from documents and digitizing with LLMs
 - While OCR/USR tools exist, they are not always sufficient for complete information extraction
 
-This type of project is valuable for candidates because it directly maps to what employers are asking for in interviews and real-world applications[^17].
+This type of project is valuable for candidates because it directly maps to what employers are asking for in interviews and real-world applications[^15].
 
 ## Additional Applications
 
@@ -153,7 +153,7 @@ For Twitter and Reddit analysis, deep research agents were more helpful because:
 - People often share "just got asked this in my interview" content
 - This content is valuable for real interview preparation
 
-The current approach involves using agents to help craft search queries, then manually finding and aggregating the actual data sources for local analysis[^14].
+The current approach involves using agents to help craft search queries, then manually finding and aggregating the actual data sources for local analysis[^12].
 
 ## Industry Interview Examples
 
@@ -177,54 +177,9 @@ A concerning pattern from their interviews: a data engineer answered all questio
 
 This highlights a problem: candidates may use frameworks without understanding the underlying concepts. For multi-agent systems, it's important to know how agents communicate, regardless of which framework is being used.
 
-## My Vision of the AI Engineer Role
-
-As someone teaching AI engineering courses and working with ML and AI for years, I have a clear vision of what the AI Engineer role should be. I'm collecting data to compare my vision with industry reality.
-
-### Core Responsibility: AI Integration
-
-The AI Engineer's role is integrating AI into products. This primarily means calling LLMs through providers like OpenAI, Anthropic, or others. Self-hosting is less common, and fine-tuning is even rarer[^12].
-
-The work involves:
-- Calling LLM APIs through providers
-- Integrating AI capabilities into existing products
-- Building features that leverage LLMs
-
-### Simple Example: Structured Information Extraction
-
-Consider a marketplace where users upload a photo and description instead of manually filling out forms. The AI automatically extracts: colors, materials, size, and other attributes.
-
-This seems simple - send data to OpenAI, get structured output. But the devil is in the details:
-- Prompt engineering to extract correct information
-- Evaluating prompts to ensure they work across scenarios
-- Testing locally before deploying to users
-- Evolution sets to measure prompt improvements
-- Production monitoring: how often does it fail, what edge cases exist
-- User feedback: implicit (user corrects the output) and explicit (thumbs down button)
-
-Even for simple integrations, the AI Engineer needs to handle:
-- Prompt engineering
-- Prompt versioning
-- Testing
-- Evaluation
-- Monitoring and observability
-
-### Complex Scenarios: RAG and Agents
-
-For more complex systems involving RAG (Retrieval Augmented Generation) or agents, the same responsibilities apply, just at greater scale:
-- Building RAG pipelines for knowledge bases
-- Finding uses for RAG beyond Q&A bots
-- Understanding function calling and when tools should be used
-- Writing tests for agent behavior
-- Defining metrics to evaluate agent performance
-
-The core principle remains: integrate AI into products so they work reliably, and be confident they work through data-driven decisions and monitoring[^13].
-
-This vision guides both my teaching and my research into how the industry actually defines and hires for AI Engineer roles.
-
 ## Job Scraping Analysis
 
-To gather data on AI Engineer roles, I scraped job postings from multiple cities including Los Angeles, New York, London, Amsterdam, and Berlin. The initial scrape collected approximately 1400 postings before deduplication[^15].
+To gather data on AI Engineer roles, I scraped job postings from multiple cities including Los Angeles, New York, London, Amsterdam, and Berlin. The initial scrape collected approximately 1400 postings before deduplication[^13].
 
 Not all postings are for "AI Engineer" specifically - many use different titles for roles that still involve AI work. The analysis involves:
 - Deduplicating postings
@@ -232,9 +187,9 @@ Not all postings are for "AI Engineer" specifically - many use different titles 
 - Understanding how different companies use different titles for similar roles
 - Identifying which "AI Engineer" postings are actually for ML Engineer roles or other related positions
 
-After filtering, approximately 300 AI Engineer position titles remain. Additionally, there are related roles where the title differs but the job description describes what I would call AI Engineer work[^15].
+After filtering, approximately 300 AI Engineer position titles remain. Additionally, there are related roles where the title differs but the job description describes what I would call AI Engineer work[^13].
 
-The material from this research will be presented in Lightning Lessons on Maven, where people can register to learn about the findings on AI Engineer roles, interview processes, and industry expectations[^15].
+The material from this research will be presented in Lightning Lessons on Maven, where people can register to learn about the findings on AI Engineer roles, interview processes, and industry expectations[^13].
 
 ## Key Findings from Job Analysis
 
@@ -260,7 +215,7 @@ The two dominant patterns in AI Engineering are:
   <figcaption>The two dominant patterns in AI Engineering: RAG and Agents</figcaption>
 </figure>
 
-If you learn these two patterns deeply, you can handle most AI Engineering use cases[^19].
+If you learn these two patterns deeply, you can handle most AI Engineering use cases[^17].
 
 ## Sources
 
@@ -273,8 +228,6 @@ If you learn these two patterns deeply, you can handle most AI Engineering use c
 - [20260203_084951_valeriia_kuka_msg880_transcript.txt](../inbox/raw/20260203_084951_valeriia_kuka_msg880_transcript.txt)
 - [20260203_212101_AlexeyDTC_msg891.md](../inbox/raw/20260203_212101_AlexeyDTC_msg891.md)
 - [20260203_212101_AlexeyDTC_msg892.md](../inbox/raw/20260203_212101_AlexeyDTC_msg892.md)
-- [20260204_102339_AlexeyDTC_msg900_transcript.txt](../inbox/raw/20260204_102339_AlexeyDTC_msg900_transcript.txt)
-- [20260204_102429_AlexeyDTC_msg902_transcript.txt](../inbox/raw/20260204_102429_AlexeyDTC_msg902_transcript.txt)
 - [20260202_192519_AlexeyDTC_msg864_transcript.txt](../inbox/raw/20260202_192519_AlexeyDTC_msg864_transcript.txt)
 - [20260204_135510_AlexeyDTC_msg914.md](../inbox/raw/20260204_135510_AlexeyDTC_msg914.md)
 - [20260204_135608_AlexeyDTC_msg915_transcript.txt](../inbox/raw/20260204_135608_AlexeyDTC_msg915_transcript.txt)
@@ -291,12 +244,10 @@ If you learn these two patterns deeply, you can handle most AI Engineering use c
 [^9]: [20260204_140153_AlexeyDTC_msg918.md](../inbox/raw/20260204_140153_AlexeyDTC_msg918.md)
 [^10]: [20260203_212101_AlexeyDTC_msg891.md](../inbox/raw/20260203_212101_AlexeyDTC_msg891.md)
 [^11]: [20260203_212101_AlexeyDTC_msg892.md](../inbox/raw/20260203_212101_AlexeyDTC_msg892.md)
-[^12]: [20260204_102339_AlexeyDTC_msg900_transcript.txt](../inbox/raw/20260204_102339_AlexeyDTC_msg900_transcript.txt)
-[^13]: [20260204_102429_AlexeyDTC_msg902_transcript.txt](../inbox/raw/20260204_102429_AlexeyDTC_msg902_transcript.txt)
-[^14]: [20260202_192519_AlexeyDTC_msg864_transcript.txt](../inbox/raw/20260202_192519_AlexeyDTC_msg864_transcript.txt)
-[^15]: [20260205_121704_AlexeyDTC_msg935_transcript.txt](../inbox/raw/20260205_121704_AlexeyDTC_msg935_transcript.txt)
-[^16]: [20260205_121714_AlexeyDTC_msg936_transcript.txt](../inbox/raw/20260205_121714_AlexeyDTC_msg936_transcript.txt)
-[^17]: [20260204_141838_AlexeyDTC_msg925_photo.md](../inbox/raw/20260204_141838_AlexeyDTC_msg925_photo.md)
-[^18]: [20260205_121325_AlexeyDTC_msg934_transcript.txt](../inbox/used/20260205_121325_AlexeyDTC_msg934_transcript.txt)
-[^19]: [20260206_074709_AlexeyDTC_msg974_photo.md](../inbox/raw/20260206_074709_AlexeyDTC_msg974_photo.md)
-[^20]: [20260206_074709_AlexeyDTC_msg975_photo.md](../inbox/raw/20260206_074709_AlexeyDTC_msg975_photo.md)
+[^12]: [20260202_192519_AlexeyDTC_msg864_transcript.txt](../inbox/raw/20260202_192519_AlexeyDTC_msg864_transcript.txt)
+[^13]: [20260205_121704_AlexeyDTC_msg935_transcript.txt](../inbox/raw/20260205_121704_AlexeyDTC_msg935_transcript.txt)
+[^14]: [20260205_121714_AlexeyDTC_msg936_transcript.txt](../inbox/raw/20260205_121714_AlexeyDTC_msg936_transcript.txt)
+[^15]: [20260204_141838_AlexeyDTC_msg925_photo.md](../inbox/raw/20260204_141838_AlexeyDTC_msg925_photo.md)
+[^16]: [20260205_121325_AlexeyDTC_msg934_transcript.txt](../inbox/used/20260205_121325_AlexeyDTC_msg934_transcript.txt)
+[^17]: [20260206_074709_AlexeyDTC_msg974_photo.md](../inbox/raw/20260206_074709_AlexeyDTC_msg974_photo.md)
+[^18]: [20260206_074709_AlexeyDTC_msg975_photo.md](../inbox/raw/20260206_074709_AlexeyDTC_msg975_photo.md)

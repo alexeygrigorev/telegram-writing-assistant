@@ -26,18 +26,18 @@ The focus has shifted from:
 - Building custom model architectures
 
 To:
-- **Engineering practices** - how to properly integrate AI into systems
-- **Evaluation** - measuring AI system performance
-- **Prompt versioning** - managing prompt evolution
-- **Experimentation** - A/B testing AI features
+- Engineering practices - how to properly integrate AI into systems
+- Evaluation - measuring AI system performance
+- Prompt versioning - managing prompt evolution
+- Experimentation - A/B testing AI features
 
 ### Data Scientists Become AI Engineers
 
 Data Scientists are well-positioned to transition to AI engineering. The skills that transfer:
 
-- **Evaluation** - Data scientists have always measured model performance
-- **Versioning** - They understand the importance of tracking experiments
-- **Experimental mindset** - A/B testing and iterative improvement
+- Evaluation - Data scientists have always measured model performance
+- Versioning - They understand the importance of tracking experiments
+- Experimental mindset - A/B testing and iterative improvement
 
 What they need to add:
 - Stronger coding skills
@@ -61,8 +61,8 @@ The path from ML Engineer or Data Scientist to AI Engineer is straightforward be
 
 Many companies don't have dedicated AI engineer roles. Instead, existing team members take on AI responsibilities:
 
-- **Data Scientists** focus on designing experiments and evaluation
-- **ML Engineers** focus more on monitoring and deployment
+- Data Scientists focus on designing experiments and evaluation
+- ML Engineers focus more on monitoring and deployment
 
 The job titles may be old, but the tasks are new. Instead of training models from scratch, they use OpenAI or similar APIs. Everything else remains the same[^3].
 

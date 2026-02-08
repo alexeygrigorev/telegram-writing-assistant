@@ -59,8 +59,8 @@ This is where the biggest change occurs. Instead of:
 - Traditional model training
 
 We have:
-- **Prompt engineering** - crafting effective prompts
-- **Experiments** - trying different approaches before the model is "ready"
+- Prompt engineering - crafting effective prompts
+- Experiments - trying different approaches before the model is "ready"
 - API-based interaction with models like OpenAI[^6]
 
 ### Evaluation
