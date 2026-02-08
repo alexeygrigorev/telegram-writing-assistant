@@ -25,7 +25,19 @@ Check `inbox/raw/` for new materials (text, transcripts, photos).
 
 3. If content doesn't fit any existing article, create a NEW article. Do not leave content unused or force it where it doesn't belong.
 
-4. Review before finalizing - Check for structural issues (duplicate headings, broken formatting, inconsistent style) before considering processing complete.
+4. Review before finalizing - Use the pre-publishing checklist at the end of Step 3 before considering any article complete. This catches formatting errors, missed move requests, and other issues.
+
+# CRITICAL STYLING REMINDERS
+
+Before creating or editing ANY article content, remember:
+
+- NO bold formatting - Do NOT use `**bold**` for emphasis
+- NO italic formatting - Do NOT use `*italic*` for emphasis
+- NO horizontal rules - Do NOT use `---` separators
+- Spaces around dashes - Use ` - ` not `-` when writing text
+- You are a CURATOR, not a writer - organize findings, don't rewrite
+
+These rules are absolute. If you catch yourself using bold or italic, you're violating the style guide.
 
 # FEEDBACK HANDLING
 
@@ -61,6 +73,40 @@ After processing feedback, move those files to `inbox/used/feedback/` folder.
 ## Common Pattern to Avoid
 
 The bot sometimes feels it MUST categorize ALL information into articles. This leads to feedback being transcribed and added to articles inappropriately. Remember: NOT everything needs to be in an article. Feedback about the system belongs in feedback/, not in articles.
+
+# CONTENT MOVE REQUESTS
+
+Some messages contain instructions to MOVE content from one article to another. This is different from feedback - it's an action item about reorganizing existing content.
+
+## Identifying Move Requests
+
+Look for phrases like (translated from Russian):
+- "you placed this in [article X], let's move it to [article Y]" - "ты поместил это в ..., давай перенесем"
+- "this should be in a separate article" - "это должно быть в отдельной статье"
+- "I already told you this, move it" - "я уже говорил, давай перенесем"
+
+## Processing Move Requests
+
+When you encounter a content move request:
+
+1. It is an ACTION ITEM, not context - treat it with the same priority as a direct instruction
+2. Read the EXISTING article mentioned to find the content to move
+3. Move the entire relevant section (not just parts of it)
+4. Update source citations in both articles accordingly
+5. The message requesting the move should still be used as a source for content from that session
+
+DO NOT treat move requests as mere "context" for categorization. They are explicit instructions to reorganize existing content.
+
+## Example
+
+If user says: "You put my vision in the research article, let's move this to a separate article"
+
+You MUST:
+1. Open the research article
+2. Find the "my vision" section
+3. Move it to the new article
+4. Update sources in both articles
+5. Do this immediately, not as a follow-up correction
 
 # PROCESSING WORKFLOW
 
@@ -141,6 +187,21 @@ When the user mentions a project they implemented and shares a link to it (GitHu
 - Only stylistic corrections are allowed (translation, grammar fixes). Information must remain 100% intact.
 - As a final step, compare what you wrote with the original transcript to ensure nothing was forgotten.
 - Incorporate content meaningfully in the right section
+
+### Pre-publishing checklist (CRITICAL)
+
+Before considering an article complete, verify:
+
+- [ ] NO bold formatting (`**text**`) anywhere in the article
+- [ ] NO italic formatting (`*text*` or `_text_`) anywhere
+- [ ] NO horizontal rules (`---`) anywhere
+- [ ] Spaces around dashes in text (` - ` not `-`)
+- [ ] All voice message content is preserved (not summarized)
+- [ ] All images referenced actually exist (run `ls assets/images/{article_name}/`)
+- [ ] All source citations are correct
+- [ ] Any move requests from messages were acted upon
+
+This checklist is NOT optional. Skipping it leads to corrections and rework.
 
 ## Step 4: Process Images
 
