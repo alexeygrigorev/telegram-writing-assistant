@@ -55,6 +55,7 @@ Brief description of what this article is about.
 | [Google Stitch: Design-First AI Development](google-stitch.md) | draft | 2026-01-23 | Google's design-focused AI development tool |
 | [In-Person Agents Workshop in Berlin at NOW-GMBH](agents-workshop.md) | draft | 2026-01-23 | Two-day workshop on AI agents based on AI Bootcamp materials |
 | [Minsearch: Simple Search for Small Datasets](minsearch-library.md) | draft | 2026-01-23 | Lightweight search library for small databases |
+| [Minsearch Benchmarking and Optimization](minsearch-benchmarking-optimization.md) | draft | 2026-02-09 | Optimizing the appendable index through iterative benchmarking |
 | [Streaming JSON Parsing with jaxn](jaxn-streaming-json.md) | draft | 2026-01-23 | Streaming parser for LLM structured output |
 | [Voice Transcription with Groq](voice-transcription.md) | draft | 2026-01-23 | Using Groq for fast voice message transcription |
 | [Wikidata MCP Workshop](wikidata-mcp-workshop.md) | draft | 2026-01-23 | Workshop on fact-checking with Wikidata and MCP |
