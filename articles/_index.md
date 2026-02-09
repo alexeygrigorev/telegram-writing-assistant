@@ -42,6 +42,7 @@ Brief description of what this article is about.
 | [AI Testing Tools for End-to-End Tests](ai-testing-tools.md) | draft | 2026-01-30 | AI-powered testing automation for websites |
 | [Testing AI Agents with the Judge Pattern](testing-agents-with-judge-pattern.md) | draft | 2026-01-30 | Using agents to evaluate other agents |
 | [AI-Assisted Automation Course Idea](ai-assisted-automation-course-idea.md) | draft | 2026-01-29 | Concept for a paid course on AI-assisted automation |
+| [Python Primer Course Idea](python-primer-course-idea.md) | draft | 2026-02-08 | Paid Python prerequisite course for AI Engineering and Zoomcamps |
 | [Claude Skills vs AGENTS.md](claude-skills-vs-agents-md.md) | draft | 2026-01-28 | Best practices for configuring AI coding agents |
 | [DataTalks.Club SEO Growth](datatalks-club-seo-growth.md) | draft | 2026-01-28 | SEO progress and traffic milestones |
 | [Course Material Preparation](course-material-preparation.md) | draft | 2026-01-28 | Workflow for keeping code and documentation in sync |

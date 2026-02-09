@@ -29,15 +29,9 @@ Check `inbox/raw/` for new materials (text, transcripts, photos).
 
 # CRITICAL STYLING REMINDERS
 
-Before creating or editing ANY article content, remember:
+Before creating or editing ANY article content, review the MARKDOWN STYLE GUIDE in CLAUDE.md.
 
-- NO bold formatting - Do NOT use `**bold**` for emphasis
-- NO italic formatting - Do NOT use `*italic*` for emphasis
-- NO horizontal rules - Do NOT use `---` separators
-- Spaces around dashes - Use ` - ` not `-` when writing text
-- You are a CURATOR, not a writer - organize findings, don't rewrite
-
-These rules are absolute. If you catch yourself using bold or italic, you're violating the style guide.
+Remember: You are a curator, not a writer - organize findings, don't rewrite.
 
 # FEEDBACK HANDLING
 
@@ -192,14 +186,11 @@ When the user mentions a project they implemented and shares a link to it (GitHu
 
 Before considering an article complete, verify:
 
-- [ ] NO bold formatting (`**text**`) anywhere in the article
-- [ ] NO italic formatting (`*text*` or `_text_`) anywhere
-- [ ] NO horizontal rules (`---`) anywhere
-- [ ] Spaces around dashes in text (` - ` not `-`)
-- [ ] All voice message content is preserved (not summarized)
-- [ ] All images referenced actually exist (run `ls assets/images/{article_name}/`)
-- [ ] All source citations are correct
-- [ ] Any move requests from messages were acted upon
+- [ ] Style guide compliance - No bold, italic, horizontal rules, or other formatting issues (see MARKDOWN STYLE GUIDE in CLAUDE.md)
+- [ ] All voice message content preserved - Nothing summarized or omitted
+- [ ] All images referenced actually exist - Run `ls assets/images/{article_name}/`
+- [ ] All source citations correct
+- [ ] Any move requests from messages acted upon
 
 This checklist is NOT optional. Skipping it leads to corrections and rework.
 

@@ -1,7 +1,7 @@
 ---
 title: "Social Post Ideas"
 created: 2026-02-07
-updated: 2026-02-07
+updated: 2026-02-09
 tags: [social-media, twitter, content-ideas, ai-engineering]
 status: draft
 ---
@@ -46,9 +46,54 @@ The roadmap covers 10 stages:
 
 This could be adapted specifically for AI Engineering Buildcamp as a roadmap variant.
 
+## Python Learning with Projects
+
+Post by Paul Iusztin: "If I had to start learning AI engineering from scratch today" - emphasizes learning Python through building real projects rather than isolated syntax exercises[^5].
+
+Key points from the post:
+
+**Gap 1: Python with real-world context**
+
+Most beginners learn Python in isolation - lists, loops, functions, dictionaries - but never build anything meaningful. The fastest way to learn Python is building small, complete tools:
+- A personal finance dashboard
+- A script that automates boring tasks
+- A mini ETL pipeline pulling data from APIs
+- A real project that organizes files, reads spreadsheets, plots charts
+
+When learning Python for AI engineering, syntax isn't the goal - building things is.
+
+**Gap 2: Understanding RAG beyond the buzzwords**
+
+Engineers jump into complex architectures without mastering basics. A reliable RAG pipeline needs only four parts:
+1. Clean data ingestion
+2. Simple chunking and metadata design
+3. A retrieval setup you can debug
+4. A UI or API layer to expose it
+
+Paul promotes two courses that teach these fundamentals: Beginner Python Primer for AI Engineering and Full-Stack AI Engineering.
+
+## AI Evals Resources
+
+Post by Paul Iusztin: "Every day, 100+ people ask me, 'How can I learn AI evals?'" - a curated list of 10 essential resources[^6].
+
+The recommended resources cover:
+1. Using LLM-as-a-judge (hamel.dev)
+2. Demystifying evals for AI agents (Anthropic)
+3. There are only 6 RAG Evals (jxnl.co)
+4. Evaluation-driven development (decodingai.com)
+5. Binary evals vs Likert scales (decodingai.com)
+6. The mirage of generic AI metrics (decodingai.com)
+7. Error analysis (YouTube)
+8. Carrying out error analysis (YouTube)
+9. Evaluating the effectiveness of LLM-evaluators (eugeneyan.com)
+10. LLM judges aren't the shortcut you think (YouTube)
+
 ## Sources
 
 [^1]: [20260207_143150_AlexeyDTC_msg1103.md](../inbox/raw/20260207_143150_AlexeyDTC_msg1103.md) - 10 AI projects post
 [^2]: [20260207_143229_AlexeyDTC_msg1104.md](../inbox/raw/20260207_143229_AlexeyDTC_msg1104.md) - LLM Engineering Roadmap
 [^3]: [20260207_143658_AlexeyDTC_msg1105_transcript.txt](../inbox/raw/20260207_143658_AlexeyDTC_msg1105_transcript.txt) - Create social post ideas article
 [^4]: [20260207_143709_AlexeyDTC_msg1106_transcript.txt](../inbox/raw/20260207_143709_AlexeyDTC_msg1106_transcript.txt) - Put in ideas like resources article
+[^5]: [20260208_155633_AlexeyDTC_msg1224.md](../inbox/raw/20260208_155633_AlexeyDTC_msg1224.md) - Paul Iusztin LinkedIn post on learning AI engineering
+[^6]: [20260209_101213_AlexeyDTC_msg1226.md](../inbox/raw/20260209_101213_AlexeyDTC_msg1226.md) - Paul Iusztin X post on AI evals
+[^7]: [20260209_101233_AlexeyDTC_msg1228.md](../inbox/raw/20260209_101233_AlexeyDTC_msg1228.md) - Additional reference to LinkedIn post
