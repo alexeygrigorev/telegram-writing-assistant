@@ -1,7 +1,7 @@
 ---
 title: "Claude Code Helpers"
 created: 2026-01-23
-updated: 2026-02-07
+updated: 2026-02-10
 tags: [bash, claude-code, aliases, shortcuts]
 status: draft
 ---
@@ -140,6 +140,43 @@ Instead of maintaining these commands in each individual repository, keeping the
 - Commands work identically everywhere
 - Easy to update and improve workflow[^9]
 
+## Subagents
+
+Claude Code supports creating subagents for specialized tasks. This is useful when a single agent's context window becomes overloaded with processing multiple articles or resources.
+
+### When to Use Subagents
+
+When processing multiple URLs or large amounts of content, a single agent reading everything can exceed its context window. This forces context compaction, which loses information and slows down processing.
+
+The solution is to create specialized subagents that handle specific types of work independently. This keeps the main agent's context focused on its primary task.
+
+### Creating Subagents
+
+Creating a subagent in Claude Code is straightforward:
+
+1. Run the `/agents` slash command
+2. Select "Create new agent"
+3. Describe what the agent should do
+4. The agent is created and available immediately
+
+The documentation claims no restart is needed, but a restart may be required for the subagent to work properly.
+
+### Example Use Cases
+
+For research workflows, two subagents can be created:
+
+- **Research agent** - Summarizes research articles for research topics
+- **Resource agent** - Summarizes interesting resources for the resources newsletter
+
+Both agents use Jina Reader to fetch web content, then process it independently. The main agent remains focused on its primary task (processing voice messages) while subagents handle external content[^10].
+
+### Benefits
+
+- Main agent context stays clean and focused
+- No context window overflow from processing external content
+- Specialized agents can be iterated on independently
+- Parallel processing of multiple URLs speeds up workflow
+
 ## Sources
 
 - [20260123_135217_AlexeyDTC_msg532_photo.md](../inbox/raw/20260123_135217_AlexeyDTC_msg532_photo.md)
@@ -154,3 +191,4 @@ Instead of maintaining these commands in each individual repository, keeping the
 [^7]: [20260207_135040_AlexeyDTC_msg1099_transcript.txt](../inbox/raw/20260207_135040_AlexeyDTC_msg1099_transcript.txt) - Init and release relationship
 [^8]: [20260207_135254_AlexeyDTC_msg1101_transcript.txt](../inbox/raw/20260207_135254_AlexeyDTC_msg1101_transcript.txt) - GitHub repo creation
 [^9]: [20260207_133907_AlexeyDTC_msg1095_transcript.txt](../inbox/raw/20260207_133907_AlexeyDTC_msg1095_transcript.txt) - Global command benefits
+[^10]: [20260210_152205_AlexeyDTC_msg1293_transcript.txt](../inbox/raw/20260210_152205_AlexeyDTC_msg1293_transcript.txt) - Subagents for research workflow
