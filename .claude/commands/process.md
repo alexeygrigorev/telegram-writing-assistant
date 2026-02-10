@@ -156,16 +156,21 @@ DO NOT assume facts not explicitly stated:
 
 ### Handling URLs
 
-If a message contains a URL, fetch its content using Jina Reader:
-```bash
-curl "https://r.jina.ai/{original_url}"
-```
+If a message contains a URL, DO NOT fetch and summarize it yourself. Use specialized subagents to avoid polluting the main agent's context.
 
-CRITICAL: Always use Jina Reader for URL content. Do NOT use web_reader, mcp__web_reader, or other web fetch tools.
+**For research articles** - Use the article-summarizer agent:
+- Launch article-summarizer subagent for each URL
+- Agent fetches content via Jina Reader and writes deep summary with key insights, actionable patterns, technical details
+- Multiple article-summarizer agents can run in parallel for different URLs targeting the same research article
+- Example: `Summarize https://github.com/user/repo for articles/research-topic.md`
 
-Then incorporate that content into the appropriate article.
+**For interesting resources** - Use the resource-describer agent:
+- Launch resource-describer subagent for each orphaned URL or URL marked as "resource"
+- Agent fetches content via Jina Reader and writes 2-4 sentence description in newsletter format
+- Multiple resource-describer agents can run in parallel
+- Example: `Add https://github.com/user/repo to interesting-resources.md`
 
-If a URL is marked as "resource" or is an orphaned link (sent without context, unrelated to nearby messages), add it to the "Interesting Resources" article (interesting-resources.md).
+**Launch subagents in parallel** when processing multiple URLs to speed up the workflow.
 
 ### Project Links
 

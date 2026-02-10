@@ -58,6 +58,10 @@ Each resource entry follows this simple format:
 
 [LangExtract](https://github.com/google/langextract) is a library for extracting language and locale information from text. It provides a simple way to detect the language of content, which is useful for applications that need to handle multilingual text or route content based on language[^12].
 
+### nao
+
+[nao](https://github.com/getnao/nao) is an open source analytics agent that combines a CLI tool for creating context with a deployable chat interface for teams. It allows data teams to set up a chat interface over their data sources, with the nao-core CLI handling context creation and indexing. The project supports self-hosting via Docker and provides a web UI for business users to interact with data through natural language queries[^17].
+
 ### Docling
 
 [Docling](https://github.com/docling-project/docling) is a document parsing library that extracts structured content from PDFs and other documents. It provides a unified API for document conversion with support for equations, tables, code, and layout analysis. The project uses the Granite Docling 258M model under the hood, a compact multimodal model that works well on CPU without requiring GPU. Installation is straightforward with pip install, making it easy to integrate into existing workflows. Resource shared by Léonore Tideman from AI Buildcamp[^13].
@@ -84,3 +88,4 @@ Each resource entry follows this simple format:
 [^14]: [20260209_170914_AlexeyDTC_msg1246_transcript.txt](../inbox/raw/20260209_170914_AlexeyDTC_msg1246_transcript.txt)
 [^15]: [20260209_171006_AlexeyDTC_msg1248.md](../inbox/raw/20260209_171006_AlexeyDTC_msg1248.md)
 [^16]: [20260210_084748_AlexeyDTC_msg1267.md](../inbox/raw/20260210_084748_AlexeyDTC_msg1267.md)
+[^17]: [20260210_150732_AlexeyDTC_msg1291.md](../inbox/raw/20260210_150732_AlexeyDTC_msg1291.md)
