@@ -301,6 +301,24 @@ Use the caption from the video metadata for the `<figcaption>` content.
 
 Move the video metadata file to `inbox/used/` (unlike images, videos are not moved to `_unused/` since they don't take up space).
 
+# RESEARCH TAG
+
+The "research" tag is used for articles about topics the user wants to investigate and learn more about. These are NOT completed work or implementations - they are collections of resources and exploration notes.
+
+When creating research articles:
+- Use "research" tag in frontmatter: `tags: [research, ...]`
+- Use filename format: `research-{topic}.md` (e.g., `research-agentic-memory.md`)
+- Status should be "draft"
+- Remove "research" tag when the investigation is complete and findings are implemented
+
+Research articles contain:
+- Links to resources (GitHub repos, blog posts, papers)
+- Summaries of what the user wants to understand
+- Notes and findings as they explore the topic
+- Sources for all referenced materials
+
+Example: "Spec-Driven Development" or "Agentic Memory" - topics to investigate, not completed implementations.
+
 # COURSE NAMING CONVENTIONS
 
 IMPORTANT: These are DIFFERENT courses and must be kept separate:

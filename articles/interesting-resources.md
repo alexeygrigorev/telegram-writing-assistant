@@ -1,7 +1,7 @@
 ---
 title: "Interesting Resources"
 created: 2026-01-31
-updated: 2026-02-08
+updated: 2026-02-10
 tags: [resources, tools, ai, development]
 status: draft
 ---
@@ -58,6 +58,14 @@ Each resource entry follows this simple format:
 
 [LangExtract](https://github.com/google/langextract) is a library for extracting language and locale information from text. It provides a simple way to detect the language of content, which is useful for applications that need to handle multilingual text or route content based on language[^12].
 
+### Docling
+
+[Docling](https://github.com/docling-project/docling) is a document parsing library that extracts structured content from PDFs and other documents. It provides a unified API for document conversion with support for equations, tables, code, and layout analysis. The project uses the Granite Docling 258M model under the hood, a compact multimodal model that works well on CPU without requiring GPU. Installation is straightforward with pip install, making it easy to integrate into existing workflows. Resource shared by Léonore Tideman from AI Buildcamp[^13].
+
+### LLM Coding Insights
+
+[2000 Hours Coding with LLMs in 2025](https://www.reddit.com/r/ClaudeAI/comments/1q3t579/i_spent_2000_hours_coding_with_llms_in_2025_here/) is a comprehensive Reddit post detailing lessons learned from extensive LLM-assisted coding. The author shares practical insights about what works, what doesn't, and how to effectively integrate AI coding assistants into real-world development workflows[^16].
+
 ## Sources
 
 [^1]: [20260131_191039_AlexeyDTC_msg741_photo.md](../inbox/used/20260131_191039_AlexeyDTC_msg741_photo.md)
@@ -72,3 +80,7 @@ Each resource entry follows this simple format:
 [^10]: [20260205_162426_AlexeyDTC_msg950.md](../inbox/raw/20260205_162426_AlexeyDTC_msg950.md)
 [^11]: [20260206_074649_valeriia_kuka_msg971.md](../inbox/raw/20260206_074649_valeriia_kuka_msg971.md)
 [^12]: [20260207_215252_AlexeyDTC_msg1182.md](../inbox/used/20260207_215252_AlexeyDTC_msg1182.md)
+[^13]: [20260209_170808_AlexeyDTC_msg1244.md](../inbox/raw/20260209_170808_AlexeyDTC_msg1244.md)
+[^14]: [20260209_170914_AlexeyDTC_msg1246_transcript.txt](../inbox/raw/20260209_170914_AlexeyDTC_msg1246_transcript.txt)
+[^15]: [20260209_171006_AlexeyDTC_msg1248.md](../inbox/raw/20260209_171006_AlexeyDTC_msg1248.md)
+[^16]: [20260210_084748_AlexeyDTC_msg1267.md](../inbox/raw/20260210_084748_AlexeyDTC_msg1267.md)
