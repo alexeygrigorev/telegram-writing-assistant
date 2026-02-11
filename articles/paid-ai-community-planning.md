@@ -1,7 +1,7 @@
 ---
 title: "Paid AI Engineers Community Planning"
 created: 2026-02-10
-updated: 2026-02-10
+updated: 2026-02-11
 tags: [community, business, ai-engineering, pricing]
 status: draft
 ---
@@ -178,6 +178,45 @@ This is important both for sustainability and for how the community appears to o
 
 The key is to learn from real members rather than assuming what they want.
 
+## Marketing and Finding the Right Audience
+
+A key challenge is marketing and finding people who can pay for the community. DataTalks Club may not be the ideal place to find paying members because:
+- The courses are free
+- Many members are from countries with lower purchasing power (India, Nigeria, etc.)
+- They may not have the ability to pay for a paid community
+
+Alternative channels to explore:
+- Social media platforms where the target audience spends time
+- Other communities where AI engineers gather
+- AI optimization and SEO strategies
+- CEO-level networking and partnerships
+
+The goal is to find people who have both the interest and the financial capacity to pay for a premium community.
+
+## Community Activity Ideas
+
+Based on research of other communities like "AI Native Engineer", potential activities include:
+
+<figure>
+  <img src="../assets/images/paid-ai-community-planning/ai-native-engineer-community.jpg" alt="AI Native Engineer community description showing key benefits">
+  <figcaption>Example from AI Native Engineer showing the key elements that communities can provide beyond courses</figcaption>
+  <!-- This illustrates direct mentorship, updated content, networking, and collaborative problem-solving -->
+</figure>
+
+**Regular content reviews**
+- Weekly or bi-weekly reviews of new research papers
+- Hot articles and tools worth exploring
+- Members can be assigned to research specific topics and share findings
+- This creates engagement and distributes content creation workload
+
+**Mentorship and guidance**
+- Direct mentorship for implementation challenges
+- Updated content based on evolving techniques
+- Networking with practitioners at various career stages
+- Collaborative problem-solving for complex issues
+
+The environment should reproduce the conditions that accelerate career growth, similar to how the founder went from self-taught to big tech senior engineer.
+
 ## Sources
 
 [^1]: [20260210_214500_AlexeyDTC_msg1295_transcript.txt](../inbox/raw/20260210_214500_AlexeyDTC_msg1295_transcript.txt)
@@ -203,3 +242,6 @@ The key is to learn from real members rather than assuming what they want.
 [^21]: [20260210_220614_AlexeyDTC_msg1335_transcript.txt](../inbox/raw/20260210_220614_AlexeyDTC_msg1335_transcript.txt)
 [^22]: [20260210_220723_AlexeyDTC_msg1337_transcript.txt](../inbox/raw/20260210_220723_AlexeyDTC_msg1337_transcript.txt)
 [^23]: [20260210_220854_AlexeyDTC_msg1339_transcript.txt](../inbox/raw/20260210_220854_AlexeyDTC_msg1339_transcript.txt)
+[^24]: [20260210_221143_AlexeyDTC_msg1344_transcript.txt](../inbox/raw/20260210_221143_AlexeyDTC_msg1344_transcript.txt)
+[^25]: [20260211_045229_AlexeyDTC_msg1368.md](../inbox/raw/20260211_045229_AlexeyDTC_msg1368.md)
+[^26]: [20260211_075557_AlexeyDTC_msg1374_photo.md](../inbox/raw/20260211_075557_AlexeyDTC_msg1374_photo.md)

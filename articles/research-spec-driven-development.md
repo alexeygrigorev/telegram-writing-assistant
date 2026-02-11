@@ -139,6 +139,46 @@ Quotes:
 
 Paper: https://arxiv.org/abs/2602.03798[^6]
 
+### Compound Engineering
+
+Source: https://every.to/guides/compound-engineering
+
+Overview: Compound Engineering is an AI-native engineering philosophy from Every where each unit of work makes subsequent units easier. Instead of codebases accumulating complexity over time, features teach the system new capabilities, bug fixes eliminate entire categories of future bugs, and codified patterns become tools for future work.
+
+Key Ideas:
+- The core philosophy flips traditional development on its head: instead of features adding complexity, they teach the system new capabilities that compound over time
+- A four-step loop forms the basis: Plan (transforms ideas to blueprints), Work (agent implements while developer monitors), Review (catches issues and captures learnings), Compound (makes gains permanent)
+- The "compound" step is what separates this from traditional AI-assisted development - it produces a system that builds features better each time, not just a single feature
+- Planning and review should comprise 80% of engineering time, with work and compound taking the other 20%
+- Every runs five products (Cora, Monologue, Sparkle, Spiral, Every.to) with primarily single-person engineering teams using this system
+
+Key Insights:
+- Traditional development stops at review but compound engineering uses the fourth step to capture what worked, make it findable with YAML frontmatter, update CLAUDE.md, and verify the learning would be caught automatically next time
+- The plugin ships with 26 specialized agents, 23 workflow commands, and 13 skills that provide domain expertise on tap
+- CLAUDE.md is the most important file - the agent reads it every session for preferences, patterns, and project context
+- docs/solutions/ builds institutional knowledge because each solved problem becomes searchable documentation that future sessions find automatically
+- First attempts have a 95% garbage rate, second attempts 50% - expecting perfection on attempt one is like expecting a junior developer to nail a complex feature without context
+
+Actionable Patterns:
+- The 50/50 rule: allocate 50% of engineering time to building features and 50% to improving the system (creating review agents, documenting patterns, building test generators)
+- Extract taste into systems: write preferences in CLAUDE.md or AGENTS.md, build specialized agents for reviewing/testing/deployting, add slash commands that encode preferred approaches
+- Parallelization is the new bottleneck: run multiple agents and features simultaneously, perform review/testing/documentation all at once
+- Plans are the new code: having a plan captures decisions before they become bugs - fixing ideas on paper is cheaper than fixing code later
+- Trust the process by building safety nets: tests, automatic review, monitoring flag issues so you don't have to watch every step
+
+Technical Details:
+- Plugin installation: `claude /plugin marketplace add https://github.com/EveryInc/every-marketplace` then `claude /plugin install compound-engineering`
+- Core commands: `/workflows:brainstorm` (when requirements are fuzzy), `/workflows:plan` (three parallel research agents), `/workflows:work` (agent writes code), `/workflows:review` (14 specialized agents), `/workflows:compound` (documents solved problems)
+- `/lfg` chains the full pipeline: plan to deepen-plan to work to review to resolve findings to browser tests to feature video to compound - spawns 50+ agents
+- Project structure: CLAUDE.md (agent instructions), docs/brainstorms/ (output), docs/solutions/ (categorized), docs/plans/ (output), todos/ (priority tracking)
+- Review agents include security-sentinel, performance-oracle, architecture-strategist, data-integrity-guardian, code-simplicity-reviewer, and framework-specific reviewers
+
+Quotes:
+- "The core philosophy of compound engineering is that each unit of engineering work should make subsequent units easier - not harder."
+- "Most codebases get harder to work with over time because each feature you add injects more complexity. Compound engineering flips this on its head."
+- "First attempts have a 95 percent garbage rate. Second attempts are still 50 percent. This isn't failure - it's the process."
+- "An hour spent creating a review agent saves 10 hours of review over the next year."
+
 ### Taskmaster
 
 Source: https://github.com/blader/taskmaster
@@ -202,6 +242,8 @@ Taskmaster solves the premature stopping problem that plagued the Ralph project.
 
 The tmc-marketplace iterative-engineering plugin demonstrates the value of explicit stage boundaries. The brainstorming stage produces PRDs with high-level direction but deliberately avoids implementation details. Tech planning describes what and where but not how - no pre-written method bodies. This separation keeps each stage focused and prevents premature optimization. For a Telegram bot, this suggests structuring commands around stages: a `/brainstorm` command for requirements gathering, a `/plan` command for technical breakdown, and an `/implement` command that executes the plan. The severity-based fix acceptance pattern is also relevant - instead of forcing the user to address all feedback, the bot could present findings grouped by severity and let the user choose what to fix.
 
+Compound Engineering from Every introduces a crucial insight: the compound step is what separates traditional AI-assisted development from a truly compounding system. After shipping a feature, you must capture what worked, make it findable with metadata, update CLAUDE.md, and verify the learning would be caught automatically next time. This maps directly to the Telegram bot goal: after the bot completes a task, it should extract patterns and add them to its knowledge base so future sessions benefit. The 50/50 rule (50% features, 50% system improvement) suggests the bot should invest time in learning from each interaction, not just executing commands.
+
 ## Sources
 
 [^1]: [20260209_220800_AlexeyDTC_msg1256.md](../inbox/raw/20260209_220800_AlexeyDTC_msg1256.md)
@@ -215,3 +257,4 @@ The tmc-marketplace iterative-engineering plugin demonstrates the value of expli
 [^9]: [20260210_082911_AlexeyDTC_msg1265.md](../inbox/raw/20260210_082911_AlexeyDTC_msg1265.md)
 [^10]: [20260210_083048_AlexeyDTC_msg1266.md](../inbox/raw/20260210_083048_AlexeyDTC_msg1266.md)
 [^11]: [https://github.com/blader/taskmaster](https://github.com/blader/taskmaster)
+[^12]: [https://every.to/guides/compound-engineering](https://every.to/guides/compound-engineering)

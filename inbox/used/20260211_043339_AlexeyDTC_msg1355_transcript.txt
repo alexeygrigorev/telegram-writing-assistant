@@ -1,0 +1,10 @@
+---
+source: telegram_voice
+date: 2026-02-11T04:33:39+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260211_043339_AlexeyDTC_msg1355.ogg
+---
+
+Ну и помимо Grace, там еще можно будет задачи для тебя, для меня, ну просто чтобы было такое
+overview по всему, что мы делаем.

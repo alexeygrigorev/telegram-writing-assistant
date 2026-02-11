@@ -92,6 +92,53 @@ Quotes:
 
 Note: The original URL (building-custom-llm-memory-layers-5f12a877881d) returns 404. This summary is based on the current article "How to Build Your Own Custom LLM Memory Layer from Scratch" which covers the same topic area. Full code repo: https://github.com/avbiswas/mem0-dspy[^5].
 
+### GitHub Blog: Building an Agentic Memory System for GitHub Copilot
+
+Source: https://github.blog/ai-and-ml/github-copilot/building-an-agentic-memory-system-for-github-copilot/
+
+Overview: GitHub's production approach to cross-agent memory that enables Copilot agents (coding agent, CLI, code review) to share learnings across the entire development workflow without explicit user instructions.
+
+Key Ideas:
+- Cross-agent memory allows agents to remember and learn from experiences across development workflows, creating a cumulative knowledge base that grows with every use
+- The core challenge is not information retrieval but ensuring stored knowledge remains valid as code evolves across branches and time
+- Instead of offline memory curation, GitHub uses just-in-time verification with citations to validate memories before use
+- Memories are scoped to repositories and only created by users with write permissions, used by users with read permissions
+- Memory is available in public preview for Copilot coding agent, CLI, and code review
+
+Key Insights:
+- Information retrieval is asymmetrical: hard to solve but easy to verify - this is the key insight that makes the citation system viable
+- The citation-based verification avoids significant LLM costs and engineering complexity of offline curation while preventing outdated information
+- Memory sharing creates a flywheel effect where each agent contributes to and benefits from shared knowledge
+- The system automatically transfers knowledge from experienced team members to newer ones through code review feedback
+- Abandoned branches and conflicting observations are handled naturally through verification rather than complex branch tracking
+
+Actionable Patterns:
+- Store memories with citations: references to specific code locations that support each fact
+- Implement memory creation as a tool call that agents invoke when discovering actionable patterns
+- At retrieval time, verify citations by checking the cited code locations still exist and support the memory
+- If code contradicts memory, store a corrected version; if citations check out, refresh the memory timestamp
+- Use the most recent memories for a repository as context inclusion in prompts
+
+Technical Details:
+- Memory structure stored as JSON objects:
+```json
+{
+  "subject": "API version synchronization",
+  "fact": "API version must match between client SDK, server routes, and documentation.",
+  "citations": ["src/client/sdk/constants.ts:12", "server/routes/api.go:8", "docs/api-reference.md:37"],
+  "reason": "If the API version is not kept properly synchronized, the integration can fail..."
+}
+```
+- Retrieval fetches recent memories for target repository at session start
+- Verification is a small number of read operations adding no significant latency
+- Adversarial memory testing showed agents consistently verified citations and self-healed the memory pool
+- A/B testing on Copilot code review showed 3% increase in precision and 4% increase in recall with memory
+
+Quotes:
+- "Cross-agent memory allows agents to remember and learn from experiences across your development workflow, without relying on explicit user instructions"
+- "Information retrieval is an asymmetrical problem: It's hard to solve, but easy to verify"
+- "If an inexperienced developer opens a pull request that updates only one of these locations, Copilot code review will flag the omission and suggest the missing updates, automatically transferring knowledge from a more experienced team member to a newer one"
+
 ### The-Vibe-Company/companion
 
 [companion](https://github.com/The-Vibe-Company/companion) is a web UI for Claude Code built on a reverse-engineered WebSocket protocol.
@@ -132,12 +179,15 @@ Quotes:
 
 The common pattern across these resources:
 
-1. Storage: Keep memories as structured text with metadata
-2. Indexing: Either BM25 (keyword-based) or embeddings (semantic)
+1. Storage: Keep memories as structured text with metadata (BM25 or embeddings, or GitHub's citation-based approach)
+2. Indexing: Either BM25 (keyword-based), embeddings (semantic), or citation references
 3. Retrieval: Query-based ranking to fetch relevant memories
-4. Consolidation: Summarize or prune older memories to manage storage
+4. Verification: GitHub's key insight - verify citations at read-time rather than complex offline curation
+5. Consolidation: Summarize or prune older memories to manage storage
 
-For a Telegram-controlled bot, the key challenge is maintaining context across command sessions while keeping the retrieval fast and relevant.
+GitHub's citation-based verification approach is particularly interesting because it solves the staleness problem differently than vector-based systems. Instead of trying to detect when code changes and update memories proactively, it simply validates that citations are still accurate at retrieval time. This turns a complex distributed consistency problem into a simple read-time verification step.
+
+For a Telegram-controlled bot, the key challenge is maintaining context across command sessions while keeping the retrieval fast and relevant. The GitHub approach suggests that storing references to source material (citations) and verifying them at use-time could be more robust than trying to keep memory perfectly synchronized.
 
 ## Sources
 
@@ -148,3 +198,4 @@ For a Telegram-controlled bot, the key challenge is maintaining context across c
 [^5]: [https://towardsdatascience.com/how-to-build-your-own-custom-llm-memory-layer-from-scratch/](https://towardsdatascience.com/how-to-build-your-own-custom-llm-memory-layer-from-scratch/) (Note: Original URL building-custom-llm-memory-layers-5f12a877881d returns 404)
 [^6]: [https://github.com/The-Vibe-Company/companion](https://github.com/The-Vibe-Company/companion)
 [^7]: [20260210_082618_AlexeyDTC_msg1262_photo.md](../inbox/raw/20260210_082618_AlexeyDTC_msg1262_photo.md)
+[^8]: [https://github.blog/ai-and-ml/github-copilot/building-an-agentic-memory-system-for-github-copilot/](https://github.blog/ai-and-ml/github-copilot/building-an-agentic-memory-system-for-github-copilot/)

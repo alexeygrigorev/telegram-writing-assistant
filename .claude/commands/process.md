@@ -29,7 +29,13 @@ Check `inbox/raw/` for new materials (text, transcripts, photos).
 
 # CRITICAL STYLING REMINDERS
 
-Before creating or editing ANY article content, review the MARKDOWN STYLE GUIDE in CLAUDE.md.
+Before creating or editing ANY article content, review STYLE.md in the root repository.
+
+The final step of processing MUST be to verify:
+1. Read STYLE.md
+2. Check the article for compliance with all formatting rules
+3. Run grep to verify no bold formatting: `grep '\*\*' articles/{article-name}.md`
+4. Verify all images exist: `ls assets/images/{article-name}/`
 
 Remember: You are a curator, not a writer - organize findings, don't rewrite.
 
@@ -323,6 +329,32 @@ Research articles contain:
 - Sources for all referenced materials
 
 Example: "Spec-Driven Development" or "Agentic Memory" - topics to investigate, not completed implementations.
+
+# WHAT I DID THIS WEEK
+
+When the user mentions "what I've been working on this week" or "what I've been doing this week", this content should go to a specific article for weekly updates.
+
+## Finding the current week number
+
+To determine which week number to use, run:
+```bash
+python -c "from datetime import datetime; print(datetime.now().strftime('%Y-W%W'))"
+```
+
+For example: 2026-W06
+
+## Adding to the weekly article
+
+The article `what-i-did-this-week.md` serves as a working draft:
+1. Add content under the current week heading
+2. Include the date when the message was sent
+3. This article accumulates unpublished content
+4. When content is published elsewhere, remove it from this article
+
+This approach provides:
+- A single place for weekly updates
+- Easy reference for current week's work
+- A system to track what has been published vs not yet published
 
 # COURSE NAMING CONVENTIONS
 

@@ -61,6 +61,8 @@ Brief description of what this article is about.
 | [Voice Transcription with Groq](voice-transcription.md) | draft | 2026-01-23 | Using Groq for fast voice message transcription |
 | [Wikidata MCP Workshop](wikidata-mcp-workshop.md) | draft | 2026-01-23 | Workshop on fact-checking with Wikidata and MCP |
 | [Processing Pipeline](processing-pipeline.md) | draft | 2026-01-20 | Automation workflow for organizing materials into articles |
+| [Task Management App Idea](task-management-app-idea.md) | draft | 2026-02-11 | Unified task management system combining Trello and todo lists |
+| [What I Did This Week](what-i-did-this-week.md) | draft | 2026-02-11 | Weekly updates on work in progress |
 
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "Claude Code Helpers"
 created: 2026-01-23
-updated: 2026-02-10
+updated: 2026-02-11
 tags: [bash, claude-code, aliases, shortcuts]
 status: draft
 ---
@@ -177,6 +177,36 @@ Both agents use Jina Reader to fetch web content, then process it independently.
 - Specialized agents can be iterated on independently
 - Parallel processing of multiple URLs speeds up workflow
 
+## Skills
+
+### Refactor Pass Skill
+
+A skill for performing a refactoring pass focused on simplicity after recent changes. This is useful when the user asks for a refactor, cleanup pass, simplification, or dead-code removal and expects build/tests to verify behavior.
+
+The workflow:
+1. Review the changes just made and identify simplification opportunities
+2. Apply refactors to:
+   - Remove dead code and dead paths
+   - Straighten logic flows
+   - Remove excessive parameters
+   - Remove premature optimization
+3. Run build/tests to verify behavior
+4. Identify optional abstractions or reusable patterns (only suggest if they clearly improve clarity)
+
+This skill should be added to the Claude configuration to handle post-coding cleanup efficiently.
+
+<figure>
+  <img src="../assets/images/claude-helpers/refactor-pass-skill.jpg" alt="Refactor pass skill configuration in SKILL.md format">
+  <figcaption>The refactor-pass skill definition showing the workflow for simplification after code changes</figcaption>
+  <!-- This skill can be added to Claude Code configuration for automated cleanup passes -->
+</figure>
+
+## Safety Hooks
+
+Hooks in Claude Code can prevent dangerous operations. A useful stop hook from AIHero.dev prevents Claude Code from running dangerous git commands[^11].
+
+The hook intercepts commands like `git push --force` and asks for confirmation before executing. This prevents accidental force pushes and other destructive git operations.
+
 ## Sources
 
 - [20260123_135217_AlexeyDTC_msg532_photo.md](../inbox/raw/20260123_135217_AlexeyDTC_msg532_photo.md)
@@ -192,3 +222,5 @@ Both agents use Jina Reader to fetch web content, then process it independently.
 [^8]: [20260207_135254_AlexeyDTC_msg1101_transcript.txt](../inbox/raw/20260207_135254_AlexeyDTC_msg1101_transcript.txt) - GitHub repo creation
 [^9]: [20260207_133907_AlexeyDTC_msg1095_transcript.txt](../inbox/raw/20260207_133907_AlexeyDTC_msg1095_transcript.txt) - Global command benefits
 [^10]: [20260210_152205_AlexeyDTC_msg1293_transcript.txt](../inbox/raw/20260210_152205_AlexeyDTC_msg1293_transcript.txt) - Subagents for research workflow
+[^11]: [20260211_053127_AlexeyDTC_msg1371.md](../inbox/raw/20260211_053127_AlexeyDTC_msg1371.md) - Safety hooks reference
+[^12]: [20260211_045044_AlexeyDTC_msg1367_photo.md](../inbox/raw/20260211_045044_AlexeyDTC_msg1367_photo.md) - Refactor pass skill
