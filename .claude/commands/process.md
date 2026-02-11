@@ -205,6 +205,24 @@ Before considering an article complete, verify:
 
 This checklist is NOT optional. Skipping it leads to corrections and rework.
 
+## Step 3.5: Content Verification (MANDATORY)
+
+After updating articles, you MUST run the verify-content subagent to ensure no content was summarized or omitted.
+
+The verify-content subagent:
+1. Checks git diff to find changed articles
+2. Cross-references each source transcript
+3. Identifies missing or summarized content
+4. Fixes issues directly by restoring full content
+
+Run the verification subagent after processing text content:
+- Use the `/agents` command to run the verify-content subagent
+- OR if you have access to subagents directly, invoke verify-content
+- Review the verification report
+- Only proceed to Step 4 after verification passes
+
+This step catches the most common error: summarizing instead of preserving voice message content.
+
 ## Step 4: Process Images
 
 Images are located in `inbox/raw/` alongside their markdown description files (frontmatter contains `image_file: filename.jpg`)
