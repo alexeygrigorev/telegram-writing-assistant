@@ -104,6 +104,9 @@ This should be the main value proposition:
 - Career advancement discussions
 - Workplace effectiveness and productivity
 
+Course requests and influence
+Since the current course catalog is limited, community members can request and influence which courses get developed. The courses offered can be shaped based on what people in the community want to learn[^33].
+
 **Key principle**: The value should come from the community, not just from the founder. Activities should work even without direct involvement.
 
 ## Tier 3: Premium Ideas
@@ -273,3 +276,4 @@ Another potential community benefit: maintain a regularly updated list of confer
 [^30]: [20260211_102558_AlexeyDTC_msg1419.md](../inbox/raw/20260211_102558_AlexeyDTC_msg1419.md)
 [^31]: [20260211_102558_AlexeyDTC_msg1420.md](../inbox/raw/20260211_102558_AlexeyDTC_msg1420.md)
 [^32]: [20260211_102633_AlexeyDTC_msg1421_transcript.txt](../inbox/raw/20260211_102633_AlexeyDTC_msg1421_transcript.txt)
+[^33]: [20260211_154156_AlexeyDTC_msg1453_transcript.txt](../inbox/raw/20260211_154156_AlexeyDTC_msg1453_transcript.txt)

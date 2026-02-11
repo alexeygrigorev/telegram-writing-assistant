@@ -1,7 +1,7 @@
 ---
 title: "AI Engineer Role Research"
 created: 2026-02-02
-updated: 2026-02-06
+updated: 2026-02-11
 tags: [ai-engineer, career, research, interview, jobs]
 status: draft
 ---
@@ -13,6 +13,14 @@ Research into the AI Engineer and Gen AI Engineer roles in the industry, coverin
 ## Research Origin
 
 The idea for this research came from an Office Hours session where a student actively asked for examples of home assignments used in AI Engineer job interviews. This type of content tends to resonate well both for the course and for social media[^1].
+
+## Why This Research
+
+Students are interested in this topic and I have experience to share. However, I decided to supplement my personal perspective with real industry data rather than relying solely on anecdotal evidence[^18].
+
+There are two reasons for this. First, I am not currently working full-time at a company, so my direct experience is now second-hand based on conversations with people in the industry. Second, I wanted to back up what I remember from my previous work with current data, not just stories from acquaintances about how they work[^18].
+
+The goal was to understand what is actually happening in the industry right now, not just rely on individual anecdotes[^19].
 
 ## Research Approach
 
@@ -251,3 +259,5 @@ If you learn these two patterns deeply, you can handle most AI Engineering use c
 [^16]: [20260205_121325_AlexeyDTC_msg934_transcript.txt](../inbox/used/20260205_121325_AlexeyDTC_msg934_transcript.txt)
 [^17]: [20260206_074709_AlexeyDTC_msg974_photo.md](../inbox/raw/20260206_074709_AlexeyDTC_msg974_photo.md)
 [^18]: [20260206_074709_AlexeyDTC_msg975_photo.md](../inbox/raw/20260206_074709_AlexeyDTC_msg975_photo.md)
+[^19]: [20260211_135815_AlexeyDTC_msg1447_transcript.txt](../inbox/raw/20260211_135815_AlexeyDTC_msg1447_transcript.txt)
+[^20]: [20260211_135838_AlexeyDTC_msg1449_transcript.txt](../inbox/raw/20260211_135838_AlexeyDTC_msg1449_transcript.txt)

@@ -1,7 +1,7 @@
 ---
 title: "Agentic Memory Systems for AI Agents"
 created: 2026-02-10
-updated: 2026-02-10
+updated: 2026-02-11
 tags: [research, agents, memory, llm, vector-search, rag]
 status: draft
 ---
@@ -139,6 +139,51 @@ Quotes:
 - "Information retrieval is an asymmetrical problem: It's hard to solve, but easy to verify"
 - "If an inexperienced developer opens a pull request that updates only one of these locations, Copilot code review will flag the omission and suggest the missing updates, automatically transferring knowledge from a more experienced team member to a newer one"
 
+### LinkedIn: Why I Stopped Letting LLMs Build My Knowledge Graphs
+
+Source: https://www.linkedin.com/pulse/why-i-stopped-letting-llms-build-my-knowledge-graphs-what-malaraju-ycxbc
+
+Overview: A case study of building an enterprise code migration platform using Fixed Entity Architecture (FEA), a three-layer approach to knowledge graphs that avoids LLMs during graph construction in favor of deterministic, math-based methods.
+
+Key Ideas:
+- LLM-based knowledge graph extraction produces noisy, duplicated entities and hallucinated relationships
+- Fixed Entity Architecture defines a curated ontology layer built by domain experts, not LLMs
+- Three layers: Fixed Entity Ontology (domain concepts), Document Layer (code chunks with embeddings), NLP-Extracted Entities (named entities via spaCy/regex)
+- Microsoft GraphRAG requires thousands of LLM calls while FEA uses only math + lightweight NLP
+- Adding new data to LLM-built graphs requires reprocessing; FEA connects new data instantly via cosine similarity
+
+Key Insights:
+- If you already understand your domain, paying an LLM to rediscover it is both wasteful and less accurate
+- The most reliable part of a retrieval system is often the part that uses no AI at all - cosine similarity, dot products, threshold-based edge creation
+- Entity duplication (PaymentService vs payment_service vs Payment_Service) is a fundamental problem with LLM extraction that FEA solves by design
+- There is an "embedding space gap" between natural language descriptions and code embeddings - direct similarity fails without bridging techniques
+- "Super-nodes" are concepts that match too much content (e.g., "Error Handling" appearing in 90% of code) and must be excluded from ontology
+
+Actionable Patterns:
+- Define ontology concepts manually with rich textual descriptions and embedding vectors
+- Use HyDE (Hypothetical Document Embeddings) to bridge semantic gaps between NL descriptions and code embeddings - generate hypothetical code snippets for each concept, embed those, and use for similarity matching
+- Exclude any concept that would match more than 50% of your content to avoid super-node degradation
+- Combine three retrieval methods with Reciprocal Rank Fusion: vector search on embeddings, full-text search, concept-guided search through ontology
+- Use cosine similarity thresholds (0.35-0.45) to create precise RELATES_TO edges between content and concepts
+
+Technical Details:
+- Author's implementation: 15 domain concepts for microservices codebase (9 business logic, 3 communication, 3 infrastructure)
+- HyDE improvement: mean cosine similarity jumped from 0.09 (essentially random) to 0.30+ (3x improvement) after bridging to code space
+- HyDE is one-time cost: 15 LLM calls for 15 concepts, then pure math for all subsequent connections
+- NLP layer uses spaCy and regex for named entity extraction (technology names, organizations, API names)
+- Entire FEA layer adds ~2 seconds to ingestion pipeline with zero LLM calls
+- Search via Reciprocal Rank Fusion combining three indexes: vector similarity, full-text, concept-guided
+
+Foundational sources referenced:
+- Dr. Irina Adamchic's Fixed Entity Architecture series (Accenture Center of Advanced AI)
+- Gao et al., "Precise Zero-Shot Dense Retrieval without Relevance Labels" (arXiv:2212.10496, 2022) - HyDE technique
+
+Quotes:
+- "If you already understand your domain, why are you paying an LLM to rediscover it poorly?"
+- "Cosine similarity, dot products, and threshold-based edge creation are boring. They are also fast, deterministic, reproducible, and free."
+- "The quality of your ontology is defined as much by what you exclude as by what you include."
+- "No single retrieval method is sufficient. Combine them with RRF and let each method compensate for the others' blind spots."
+
 ### The-Vibe-Company/companion
 
 [companion](https://github.com/The-Vibe-Company/companion) is a web UI for Claude Code built on a reverse-engineered WebSocket protocol.
@@ -175,6 +220,47 @@ Quotes:
 - "Claude Code is powerful but stuck in a terminal. You can't easily run multiple sessions, there's no visual feedback on tool calls, and if the process dies your context is gone."
 - "We reverse-engineered the undocumented WebSocket protocol hidden inside the CLI and built a web UI on top of it. No API key needed, it runs on your existing Claude Code subscription."
 
+### Reddit: Everyone's Trying Vectors and Graphs for AI Memory. We Went Back to SQL.
+
+Source: https://www.reddit.com/r/AI_Agents/comments/1nkx0bz/everyones_trying_vectors_and_graphs_for_ai_memory/
+Referenced in: [20260211_152925_AlexeyDTC_msg1451.md](../inbox/raw/20260211_152925_AlexeyDTC_msg1451.md)
+
+Overview: A Reddit discussion from the AI_Agents community debating different approaches to agentic memory. The OP (Arindam_200 from Gibson) promotes Memori, a SQL-native memory engine, arguing that relational databases are more practical than vector or graph databases for many AI memory use cases. The community response provides nuanced perspectives on when each approach shines.
+
+Key Ideas:
+- The core problem: LLMs reason well in the moment but forget everything as conversation moves on
+- Common approaches tried: prompt stuffing/fine-tuning (token explosion), vector databases/RAG (noisy retrieval), graph databases (scaling issues), hybrid systems (complexity)
+- Gibson's proposal: Use SQL for structured memory - short-term vs long-term tables, entities/rules/preferences as records, promote important facts to permanent memory
+- Memori is an open-source "multi-agent memory engine" that gives AI agents SQL-based persistent memory
+
+Key Insights:
+- The top-voted comment (caiopizzol, 121 points) argues this solves only part of the problem - different memory types need different storage
+- "Semantic recall is noisy" for vector DBs is actually a feature, not a bug - it surfaces connections like "terrified of dogs" to "what pet should I get?" without anticipating every relationship
+- Hard facts and rules work great in SQL, but fuzzy semantic matching ("this reminds me of that") requires vectors, and relationship queries ("how does everything connect") require graphs
+- Hybrid systems may seem complex but memory itself is complex - the solution should match the problem space
+- Some community members noted the marketing angle - Memori was being "spammed across Reddit" which is an interesting growth tactic for open-source projects
+
+Actionable Patterns:
+- Use SQL for structured, queryable facts: user preferences, entities, rules, explicit relationships
+- Use vector databases for semantic similarity and fuzzy matching across unstructured content
+- Use graph databases for complex entity-relationship queries and multi-hop reasoning
+- Consider Postgres with pgvector extension to get SQL + vectors in one system, avoiding multi-database complexity
+- Implement memory promotion: move important facts from short-term to long-term storage based on relevance/frequency
+- The "right tool for the job" depends on memory type, not a single winner-takes-all approach
+
+Technical Details:
+- Memori project: https://github.com/MemoriLabs/Memori (12k+ stars)
+- Stores memories as structured SQL records with joins and indexes for retrieval
+- Supports multiple SQL backends including PostgreSQL, CockroachDB, MySQL, and OceanBase
+- Can run in hosted mode with API access or self-hosted with your own database
+- The Postgres + pgvector approach emerged as a community favorite: single database for app data, vectors, and structured memory
+
+Quotes:
+- "The real story here isn't 'SQL wins.' It's that different types of memory need different storage"
+- "Semantic recall is noisy for vector DBs, but that's actually the feature, not the bug"
+- "With Postgres, you can layer on extensions like pgvector for semantic search, or graph extensions. Instead of wiring up three different systems, agents could just connect to one database"
+- "99% of software solutions can be a relational database with some batch jobs and a web server"
+
 ## Notes
 
 The common pattern across these resources:
@@ -187,7 +273,11 @@ The common pattern across these resources:
 
 GitHub's citation-based verification approach is particularly interesting because it solves the staleness problem differently than vector-based systems. Instead of trying to detect when code changes and update memories proactively, it simply validates that citations are still accurate at retrieval time. This turns a complex distributed consistency problem into a simple read-time verification step.
 
-For a Telegram-controlled bot, the key challenge is maintaining context across command sessions while keeping the retrieval fast and relevant. The GitHub approach suggests that storing references to source material (citations) and verifying them at use-time could be more robust than trying to keep memory perfectly synchronized.
+The LinkedIn article on Fixed Entity Architecture adds an important dimension: when building knowledge graphs for agentic memory, avoid letting LLMs discover your ontology from scratch. The author shows that manually curated domain concepts connected via cosine similarity produce cleaner, more reliable knowledge structures than LLM-extracted entities. The HyDE technique (generating hypothetical code snippets for each concept, then embedding those) solved a critical "embedding space gap" problem - natural language descriptions and code embeddings live in different semantic spaces and need a bridge.
+
+For a Telegram-controlled bot, the key challenge is maintaining context across command sessions while keeping the retrieval fast and relevant. The GitHub approach suggests that storing references to source material (citations) and verifying them at use-time could be more robust than trying to keep memory perfectly synchronized. The FEA approach suggests defining a small, curated ontology of conversation domains rather than letting the LLM extract entities dynamically.
+
+The Reddit discussion on SQL vs vectors vs graphs reinforces that there is no single best storage approach - different memory types require different storage engines. The community consensus favors using the right tool for each memory type: SQL for structured facts (user preferences, explicit rules), vector databases for semantic similarity, and graphs for relationship queries. A practical compromise mentioned multiple times is Postgres with pgvector extension - a single database that handles structured queries and semantic search without multi-system complexity. For a Telegram bot, this suggests starting with SQL for explicit user data and adding pgvector if fuzzy semantic retrieval becomes necessary.
 
 ## Sources
 
@@ -199,3 +289,6 @@ For a Telegram-controlled bot, the key challenge is maintaining context across c
 [^6]: [https://github.com/The-Vibe-Company/companion](https://github.com/The-Vibe-Company/companion)
 [^7]: [20260210_082618_AlexeyDTC_msg1262_photo.md](../inbox/raw/20260210_082618_AlexeyDTC_msg1262_photo.md)
 [^8]: [https://github.blog/ai-and-ml/github-copilot/building-an-agentic-memory-system-for-github-copilot/](https://github.blog/ai-and-ml/github-copilot/building-an-agentic-memory-system-for-github-copilot/)
+[^9]: [20260211_153046_AlexeyDTC_msg1452.md](../inbox/raw/20260211_153046_AlexeyDTC_msg1452.md)
+[^10]: [20260211_152925_AlexeyDTC_msg1451.md](../inbox/raw/20260211_152925_AlexeyDTC_msg1451.md)
+[^11]: [https://www.reddit.com/r/AI_Agents/comments/1nkx0bz/everyones_trying_vectors_and_graphs_for_ai_memory/](https://www.reddit.com/r/AI_Agents/comments/1nkx0bz/everyones_trying_vectors_and_graphs_for_ai_memory/)
