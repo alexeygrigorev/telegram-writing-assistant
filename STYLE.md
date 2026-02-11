@@ -35,6 +35,26 @@ Translate from Russian/mixed language to English, but preserve all information:
 - Only make stylistic corrections and grammar fixes
 - Do not summarize voice message content
 
+### Sentence Structure
+- Use short sentences
+- Avoid complex words like "further," "moreover," "additionally"
+- No passive voice - use active voice
+- No filler phrases like "let me tell you," "let me explain" - they don't add value
+
+### Organization
+- Avoid brain dump style - add structure to content
+- Use headings and lists to organize information
+- Use level 2 (##) and level 3 (###) headings only - no level 4 (####) or deeper
+- Numbered lists for steps or progressions
+- Bullet points for related items
+
+### Transcription Errors
+Watch for and fix transcription errors. Transcription often produces words that don't make sense in context:
+- Check if the word fits the surrounding content
+- When a word seems wrong, check the original transcript
+- Similar sounding words are often substituted incorrectly
+- Fix anything that doesn't make logical sense
+
 ### Fact-checking
 Do not assume facts not explicitly stated:
 - If a transcript doesn't specify the platform (Slack vs Discord), do not guess
