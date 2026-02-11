@@ -114,8 +114,8 @@ class ClaudeProgressFormatter:
 class ClaudeRunner:
     """Runs Claude Code and streams events in real-time."""
 
-    # Session tracking
-    SESSION_FILE = "claude_session_id.txt"
+    # Session tracking (stored in .tmp to avoid accidental commits)
+    SESSION_FILE = ".tmp/claude_session_id.txt"
 
     def __init__(self, repo_path: Path, logs_dir: Path):
         self.repo_path = repo_path
@@ -139,7 +139,9 @@ class ClaudeRunner:
         self.logs_dir.mkdir(parents=True, exist_ok=True)
 
         # Check for saved session to resume
-        session_file_path = self.repo_path / self.SESSION_FILE
+        tmp_dir = self.repo_path / ".tmp"
+        tmp_dir.mkdir(exist_ok=True)
+        session_file_path = tmp_dir / "claude_session_id.txt"
         resume_session_id = None
         if session_file_path.exists():
             try:
