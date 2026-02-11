@@ -1,4 +1,4 @@
-"""Test ProcessRunner with multiple interruptions.
+"""Test SessionRetrier with multiple interruptions.
 
 This test simulates Claude being interrupted multiple times
 and verifies that the auto-retry logic handles it correctly.
@@ -15,15 +15,15 @@ import pytest
 import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from process import ProcessRunner
+from session_retrier import SessionRetrier
 
 
-class TestProcessRunner:
-    """Unit tests for ProcessRunner."""
+class TestSessionRetrier:
+    """Unit tests for SessionRetrier."""
 
     def test_get_commit_hash(self, tmp_path):
         """Test getting commit hash."""
-        runner = ProcessRunner(tmp_path, tmp_path / "logs")
+        runner = SessionRetrier(tmp_path, tmp_path / "logs")
 
         # Mock git rev-parse
         with patch("subprocess.run") as mock_run:
@@ -36,7 +36,7 @@ class TestProcessRunner:
 
     def test_get_session_id_exists(self, tmp_path):
         """Test getting session ID when file exists."""
-        runner = ProcessRunner(tmp_path, tmp_path / "logs")
+        runner = SessionRetrier(tmp_path, tmp_path / "logs")
         session_file = tmp_path / ".tmp" / "claude_session_id.txt"
         session_file.parent.mkdir(parents=True, exist_ok=True)
         session_file.write_text("test-session-id-12345")
@@ -46,7 +46,7 @@ class TestProcessRunner:
 
     def test_get_session_id_missing(self, tmp_path):
         """Test getting session ID when file doesn't exist."""
-        runner = ProcessRunner(tmp_path, tmp_path / "logs")
+        runner = SessionRetrier(tmp_path, tmp_path / "logs")
 
         result = runner.get_session_id()
         assert result is None

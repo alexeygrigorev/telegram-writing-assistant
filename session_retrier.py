@@ -1,16 +1,21 @@
-"""Process command logic - handles running Claude and auto-resume on failure."""
+"""Session Retrier - handles auto-resume when Claude session fails.
+
+When a Claude session is interrupted (no commit made), this class:
+1. Detects the failure by comparing git commit hashes
+2. Reads the saved session_id
+3. Automatically retries with --resume and a continuation prompt
+4. Sends user feedback via Telegram about the retry
+"""
 
 import subprocess
-import time
 from pathlib import Path
 from typing import Callable, Optional
 
 from claude_runner import ClaudeRunner
-from progress_tracker import ProgressTracker
 
 
-class ProcessRunner:
-    """Handles running Claude with auto-retry on session failure."""
+class SessionRetrier:
+    """Handles automatic retry of interrupted Claude sessions."""
 
     MAX_RETRIES = 3
 
@@ -43,24 +48,31 @@ class ProcessRunner:
         self,
         chat_id: int,
         bot,
-        progress: ProgressTracker,
         on_progress: Callable[[str], None],
-        start_time: float
+        session_id: Optional[str] = None
     ) -> tuple[bool, Optional[str], Optional[str]]:
         """
         Run Claude with automatic retry on session failure.
+
+        Args:
+            chat_id: Telegram chat ID for sending messages
+            bot: Telegram bot instance
+            on_progress: Callback for progress updates
+            session_id: Optional session ID to resume from the start
 
         Returns:
             (success, commit_hash, error_message)
         """
         commit_before = self.get_commit_hash()
-        print(f"[ProcessRunner] Commit before: {commit_before[:8]}", flush=True)
+        print(f"[SessionRetrier] Commit before: {commit_before[:8]}", flush=True)
 
-        # First attempt
-        runner = ClaudeRunner(self.repo_path, self.logs_dir)
-        returncode, stdout, stderr = await self._run_in_thread(
+        # First attempt (or resume if session_id provided)
+        runner = ClaudeRunner(self.repo_path, self.logs_dir, session_id=session_id)
+
+        import asyncio
+        returncode, stdout, stderr = await asyncio.to_thread(
             runner.run_process_command,
-            on_progress
+            on_progress=on_progress
         )
 
         if returncode != 0:
@@ -68,7 +80,7 @@ class ProcessRunner:
 
         # Check if a commit was made
         commit_after = self.get_commit_hash()
-        print(f"[ProcessRunner] Commit after: {commit_after[:8]}", flush=True)
+        print(f"[SessionRetrier] Commit after: {commit_after[:8]}", flush=True)
 
         # If commit was made, success!
         if commit_after != commit_before:
@@ -78,25 +90,20 @@ class ProcessRunner:
         return await self._retry_loop(
             chat_id,
             bot,
-            progress,
             on_progress,
             commit_before,
-            commit_after
+            commit_after,
+            initial_session_id=session_id
         )
-
-    async def _run_in_thread(self, func, on_progress):
-        """Run a function in asyncio thread pool."""
-        import asyncio
-        return await asyncio.to_thread(func, on_progress=on_progress)
 
     async def _retry_loop(
         self,
         chat_id: int,
         bot,
-        progress: ProgressTracker,
         on_progress: Callable[[str], None],
         commit_before: str,
-        commit_after: str
+        commit_after: str,
+        initial_session_id: Optional[str] = None
     ) -> tuple[bool, Optional[str], Optional[str]]:
         """
         Retry loop for interrupted sessions.
@@ -109,30 +116,35 @@ class ProcessRunner:
 
         while commit_hash == commit_before and retry_count < self.MAX_RETRIES:
             if retry_count == 0:
-                print(f"[ProcessRunner] WARNING: No new commit was made!", flush=True)
+                print(f"[SessionRetrier] WARNING: No new commit was made!", flush=True)
             else:
-                print(f"[ProcessRunner] WARNING: Retry {retry_count} also failed!", flush=True)
+                print(f"[SessionRetrier] WARNING: Retry {retry_count} also failed!", flush=True)
 
             session_id = self.get_session_id()
             if not session_id:
                 return False, None, "No session to resume and no commit was made"
 
-            # Attempt resume
+            # Attempt resume with continuation prompt
             retry_count += 1
-            print(f"[ProcessRunner] Auto-resume attempt {retry_count}/{self.MAX_RETRIES}...", flush=True)
+            print(f"[SessionRetrier] Auto-resume attempt {retry_count}/{self.MAX_RETRIES}...", flush=True)
             await bot.send_message(
                 chat_id=chat_id,
                 text=f"Session was interrupted. Resuming... (attempt {retry_count}/{self.MAX_RETRIES})",
                 parse_mode=None
             )
 
-            # Run with resume
-            runner = ClaudeRunner(self.repo_path, self.logs_dir)
-            runner.session_id = session_id
+            # Run with resume and continuation prompt
+            runner = ClaudeRunner(
+                self.repo_path,
+                self.logs_dir,
+                session_id=session_id,
+                continuation_prompt="Please continue with the task. You were interrupted before completing it."
+            )
 
-            returncode, stdout, stderr = await self._run_in_thread(
+            import asyncio
+            returncode, stdout, stderr = await asyncio.to_thread(
                 runner.run_process_command,
-                on_progress
+                on_progress=on_progress
             )
 
             if returncode != 0:
@@ -140,11 +152,11 @@ class ProcessRunner:
 
             # Check commit after retry
             commit_hash = self.get_commit_hash()
-            print(f"[ProcessRunner] Commit after retry {retry_count}: {commit_hash[:8]}", flush=True)
+            print(f"[SessionRetrier] Commit after retry {retry_count}: {commit_hash[:8]}", flush=True)
 
         # After all retries
         if commit_hash == commit_before:
             return False, None, f"Resume attempted {self.MAX_RETRIES} times but no commit was made"
 
-        print(f"[ProcessRunner] Success after {retry_count} retries!", flush=True)
+        print(f"[SessionRetrier] Success after {retry_count} retries!", flush=True)
         return True, commit_hash, None

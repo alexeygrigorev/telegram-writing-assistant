@@ -117,7 +117,7 @@ class ClaudeRunner:
     # Session tracking (stored in .tmp to avoid accidental commits)
     SESSION_FILE = ".tmp/claude_session_id.txt"
 
-    def __init__(self, repo_path: Path, logs_dir: Path):
+    def __init__(self, repo_path: Path, logs_dir: Path, session_id: Optional[str] = None, continuation_prompt: Optional[str] = None):
         self.repo_path = repo_path
         self.logs_dir = logs_dir
         self.formatter = ClaudeProgressFormatter()
@@ -125,6 +125,10 @@ class ClaudeRunner:
         self.cmd: Optional[str] = None
         # Track the session ID from the current run
         self.session_id: Optional[str] = None
+        # Optional session to resume from (overrides file)
+        self.resume_session_id: Optional[str] = session_id
+        # Optional continuation prompt when resuming
+        self.continuation_prompt: Optional[str] = continuation_prompt
 
     def _run_command(
         self,
@@ -138,16 +142,15 @@ class ClaudeRunner:
         log_file = self.logs_dir / f"run_{timestamp}.json"
         self.logs_dir.mkdir(parents=True, exist_ok=True)
 
-        # Check for saved session to resume
+        # Determine which session to resume (explicit parameter takes precedence)
         tmp_dir = self.repo_path / ".tmp"
         tmp_dir.mkdir(exist_ok=True)
         session_file_path = tmp_dir / "claude_session_id.txt"
-        resume_session_id = None
-        if session_file_path.exists():
+
+        resume_session_id = self.resume_session_id
+        if not resume_session_id and session_file_path.exists():
             try:
                 resume_session_id = session_file_path.read_text().strip()
-                if resume_session_id:
-                    _safe_print(f"[ClaudeRunner] Resuming session: {resume_session_id[:8]}...")
             except:
                 pass
 
@@ -155,8 +158,10 @@ class ClaudeRunner:
         if self.cmd:
             cmd = self.cmd
         elif resume_session_id:
-            # Resume with continuation prompt
-            cmd = f'claude -p "{prompt}" --allowedTools "{allowed_tools}" --output-format stream-json --verbose --resume {resume_session_id}'
+            # Use continuation prompt if provided, otherwise use default prompt
+            effective_prompt = self.continuation_prompt if self.continuation_prompt else prompt
+            _safe_print(f"[ClaudeRunner] Resuming session: {resume_session_id[:8]}...")
+            cmd = f'claude -p "{effective_prompt}" --allowedTools "{allowed_tools}" --output-format stream-json --verbose --resume {resume_session_id}'
         else:
             # New session
             cmd = f'claude -p "{prompt}" --allowedTools "{allowed_tools}" --output-format stream-json --verbose'

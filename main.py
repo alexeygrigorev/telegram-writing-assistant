@@ -24,7 +24,7 @@ from telegram.ext import (
 from claude_runner import ClaudeRunner
 from message_queue import MessageQueue
 from progress_tracker import ProgressTracker
-from process import ProcessRunner
+from session_retrier import SessionRetrier
 
 # Load environment variables
 load_dotenv()
@@ -625,8 +625,8 @@ async def process_command(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
     progress = ProgressTracker(bot, chat_id)
     await progress.start()
 
-    # Use ProcessRunner to handle Claude execution with auto-retry
-    process_runner = ProcessRunner(REPO_PATH, LOGS_DIR)
+    # Use SessionRetrier to handle Claude execution with auto-retry
+    session_retrier = SessionRetrier(REPO_PATH, LOGS_DIR)
 
     # Progress callback - sends to progress tracker
     def on_progress(msg: str):
@@ -634,12 +634,10 @@ async def process_command(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
 
     try:
         # Run Claude with automatic retry on failure
-        success, commit_hash, error_msg = await process_runner.run_with_auto_retry(
+        success, commit_hash, error_msg = await session_retrier.run_with_auto_retry(
             chat_id=chat_id,
             bot=bot,
-            progress=progress,
-            on_progress=on_progress,
-            start_time=start_time
+            on_progress=on_progress
         )
 
         if not success:
