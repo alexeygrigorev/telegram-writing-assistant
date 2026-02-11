@@ -32,3 +32,4 @@ claude_runs/
 
 # Processing summaries
 inbox/summaries/
+claude_session_id.txt

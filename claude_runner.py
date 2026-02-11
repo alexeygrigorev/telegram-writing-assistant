@@ -114,12 +114,17 @@ class ClaudeProgressFormatter:
 class ClaudeRunner:
     """Runs Claude Code and streams events in real-time."""
 
+    # Session tracking
+    SESSION_FILE = "claude_session_id.txt"
+
     def __init__(self, repo_path: Path, logs_dir: Path):
         self.repo_path = repo_path
         self.logs_dir = logs_dir
         self.formatter = ClaudeProgressFormatter()
         # Allow overriding the command for testing
         self.cmd: Optional[str] = None
+        # Track the session ID from the current run
+        self.session_id: Optional[str] = None
 
     def _run_command(
         self,
@@ -133,10 +138,25 @@ class ClaudeRunner:
         log_file = self.logs_dir / f"run_{timestamp}.json"
         self.logs_dir.mkdir(parents=True, exist_ok=True)
 
-        # Use override command if provided (for testing), otherwise use default
+        # Check for saved session to resume
+        session_file_path = self.repo_path / self.SESSION_FILE
+        resume_session_id = None
+        if session_file_path.exists():
+            try:
+                resume_session_id = session_file_path.read_text().strip()
+                if resume_session_id:
+                    _safe_print(f"[ClaudeRunner] Resuming session: {resume_session_id[:8]}...")
+            except:
+                pass
+
+        # Build command
         if self.cmd:
             cmd = self.cmd
+        elif resume_session_id:
+            # Resume with continuation prompt
+            cmd = f'claude -p "{prompt}" --allowedTools "{allowed_tools}" --output-format stream-json --verbose --resume {resume_session_id}'
         else:
+            # New session
             cmd = f'claude -p "{prompt}" --allowedTools "{allowed_tools}" --output-format stream-json --verbose'
 
         _safe_print(f"[ClaudeRunner] Running: {prompt[:60]}...")
@@ -176,7 +196,15 @@ class ClaudeRunner:
 
                 if event.is_system_init:
                     model = event.data.get("model", "unknown")
-                    _safe_print(f"[SYSTEM] Session started - Model: {model}")
+                    self.session_id = event.data.get("session_id", "")
+                    _safe_print(f"[SYSTEM] Session started - Model: {model}, ID: {self.session_id[:8] if self.session_id else 'unknown'}...")
+
+                    # Save session_id for potential resume
+                    if self.session_id:
+                        try:
+                            session_file_path.write_text(self.session_id)
+                        except:
+                            pass
 
                 elif event.is_assistant:
                     message = event.get_message()
@@ -228,6 +256,14 @@ class ClaudeRunner:
             f.write(stdout)
 
         _safe_print(f"[ClaudeRunner] Return code: {returncode}")
+
+        # Clear session file on success (task completed)
+        if returncode == 0 and session_file_path.exists():
+            try:
+                session_file_path.unlink()
+                _safe_print(f"[ClaudeRunner] Session completed - cleared session file")
+            except:
+                pass
 
         return returncode, stdout, stderr
 
