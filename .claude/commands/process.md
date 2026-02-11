@@ -205,24 +205,6 @@ Before considering an article complete, verify:
 
 This checklist is NOT optional. Skipping it leads to corrections and rework.
 
-## Step 3.5: Content Verification (MANDATORY)
-
-After updating articles, you MUST run the verify-content subagent to ensure no content was summarized or omitted.
-
-The verify-content subagent:
-1. Checks git diff to find changed articles
-2. Cross-references each source transcript
-3. Identifies missing or summarized content
-4. Fixes issues directly by restoring full content
-
-Run the verification subagent after processing text content:
-- Use the `/agents` command to run the verify-content subagent
-- OR if you have access to subagents directly, invoke verify-content
-- Review the verification report
-- Only proceed to Step 4 after verification passes
-
-This step catches the most common error: summarizing instead of preserving voice message content.
-
 ## Step 4: Process Images
 
 Images are located in `inbox/raw/` alongside their markdown description files (frontmatter contains `image_file: filename.jpg`)
@@ -330,6 +312,31 @@ Use the caption from the video metadata for the `<figcaption>` content.
 
 Move the video metadata file to `inbox/used/` (unlike images, videos are not moved to `_unused/` since they don't take up space).
 
+## Step 6: Verification (MANDATORY)
+
+After processing all content, you MUST run the verify-content subagent to ensure:
+1. No transcript content was summarized or omitted
+2. All images mentioned in sources were actually placed
+3. All video metadata was properly included
+
+The verify-content subagent:
+1. Checks git diff to find changed articles
+2. Cross-references each source (transcripts, photos, videos)
+3. Identifies missing or summarized content
+4. Identifies images whose descriptions were used but images weren't placed
+5. Fixes issues directly by restoring full content and placing missing images
+
+Run the verification subagent:
+- Use the `/agents` command to run the verify-content subagent
+- OR if you have access to subagents directly, invoke verify-content
+- Review the verification report
+- Only proceed to Step 7 after verification passes
+
+This step catches the most common errors:
+- Summarizing instead of preserving voice message content
+- Using photo description content but forgetting to place the photo
+- Including video info in sources but not adding the video reference
+
 # RESEARCH TAG
 
 The "research" tag is used for articles about topics the user wants to investigate and learn more about. These are NOT completed work or implementations - they are collections of resources and exploration notes.
@@ -434,7 +441,7 @@ The idea for this system came after realizing that writing articles takes time[^
 [^1]: [20260117_105133_AlexeyDTC_transcript.txt](../inbox/raw/20260117_105133_AlexeyDTC_transcript.txt)
 ```
 
-# SUMMARY REPORT
+## Step 7: Summary Report
 
 After processing, CREATE a summary file at `inbox/summaries/summary_` + timestamp + `.md` where timestamp is obtained by running:
 ```bash
@@ -477,7 +484,7 @@ Date: YYYY-MM-DD HH:MM:SS
 - TIMESTAMP_USERNAME_msg1234_video.md (SPECIFIC reason)
 ```
 
-# CLEANUP
+## Step 8: Cleanup
 
 After processing:
 1. Move content files from `inbox/raw/` to `inbox/used/`

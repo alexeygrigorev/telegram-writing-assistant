@@ -24,6 +24,7 @@ from telegram.ext import (
 from claude_runner import ClaudeRunner
 from message_queue import MessageQueue
 from progress_tracker import ProgressTracker
+from process import ProcessRunner
 
 # Load environment variables
 load_dotenv()
@@ -624,48 +625,29 @@ async def process_command(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
     progress = ProgressTracker(bot, chat_id)
     await progress.start()
 
-    # Get commit hash BEFORE running Claude to detect if a new commit was made
-    print(f"[process_command] Getting current commit hash...", flush=True)
-    hash_before = subprocess.run(
-        ["git", "rev-parse", "HEAD"],
-        cwd=REPO_PATH,
-        capture_output=True,
-        text=True,
-        timeout=5
-    )
-    commit_before = hash_before.stdout.strip()
-    print(f"[process_command] Commit before: {commit_before[:8]}", flush=True)
+    # Use ProcessRunner to handle Claude execution with auto-retry
+    process_runner = ProcessRunner(REPO_PATH, LOGS_DIR)
+
+    # Progress callback - sends to progress tracker
+    def on_progress(msg: str):
+        progress.add_message(msg)
 
     try:
-        # Create Claude runner
-        runner = ClaudeRunner(REPO_PATH, LOGS_DIR)
-
-        # Progress callback - sends to progress tracker
-        def on_progress(msg: str):
-            # Thread-safe progress update
-            progress.add_message(msg)
-
-        # Run Claude in a thread so it doesn't block the event loop
-        # This allows the progress tracker to update during processing
-        returncode, stdout, stderr = await asyncio.to_thread(
-            runner.run_process_command,
-            on_progress=on_progress
+        # Run Claude with automatic retry on failure
+        success, commit_hash, error_msg = await process_runner.run_with_auto_retry(
+            chat_id=chat_id,
+            bot=bot,
+            progress=progress,
+            on_progress=on_progress,
+            start_time=start_time
         )
 
-        # Finish progress tracking
-        await progress.finish()
-
-        # Check if Claude succeeded BEFORE doing git operations
-        if returncode != 0:
-            print(f"[process_command] Claude failed with returncode {returncode}", flush=True)
-            # First: stop queue and wait for all progress messages to be sent
+        if not success:
             await queue.stop()
-            await bot.send_message(chat_id=chat_id, text=f"Claude session failed (exit code {returncode}). No commit was made.", parse_mode=None)
-            if stderr:
-                await bot.send_message(chat_id=chat_id, text=f"Stderr: `{stderr[:1000]}`", parse_mode=None)
+            await bot.send_message(chat_id=chat_id, text=error_msg, parse_mode=None)
             return
 
-        # Claude succeeded - now do git push
+        # Success - do git push
         print(f"[process_command] Starting git push...", flush=True)
         try:
             push_result = subprocess.run(
@@ -673,40 +655,13 @@ async def process_command(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
                 cwd=REPO_PATH,
                 capture_output=True,
                 text=True,
-                timeout=30  # 30 second timeout
+                timeout=30
             )
             print(f"[process_command] Git push return code: {push_result.returncode}")
-            if push_result.stderr:
-                print(f"[process_command] Git push stderr: {push_result.stderr}")
         except subprocess.TimeoutExpired:
-            print(f"[process_command] Git push timed out after 30 seconds", flush=True)
-            push_result = None
+            print(f"[process_command] Git push timed out", flush=True)
         except Exception as e:
             print(f"[process_command] Git push error: {e}", flush=True)
-            push_result = None
-
-        # Get commit hash AFTER Claude run
-        print(f"[process_command] Getting commit hash...", flush=True)
-        hash_result = subprocess.run(
-            ["git", "rev-parse", "HEAD"],
-            cwd=REPO_PATH,
-            capture_output=True,
-            text=True,
-            timeout=5
-        )
-        commit_after = hash_result.stdout.strip()
-        print(f"[process_command] Commit after: {commit_after[:8]}", flush=True)
-
-        # CRITICAL: Check if a new commit was actually made
-        if commit_before == commit_after:
-            print(f"[process_command] WARNING: No new commit was made!", flush=True)
-            # First: stop queue and wait for all progress messages to be sent
-            await queue.stop()
-            await bot.send_message(chat_id=chat_id, text=f"Claude session completed but no commit was made. Something went wrong.", parse_mode=None)
-            return
-
-        commit_hash = commit_after
-        print(f"[process_command] New commit: {commit_hash[:8]}", flush=True)
 
         # Get remote URL to construct GitHub link
         print(f"[process_command] Getting remote URL...", flush=True)
@@ -729,21 +684,19 @@ async def process_command(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
         else:
             github_url = None
 
-        # First: stop queue and wait for all progress messages to be sent
+        # Stop queue and wait for all progress messages to be sent
         await queue.stop()
         print(f"[process_command] Queue stopped, now sending summary...", flush=True)
 
-        # Now send the summary as a SEPARATE message
-        # (We know returncode == 0 here because we returned earlier if it wasn't)
         # Calculate duration
         duration = time.time() - start_time
         duration_str = f"{int(duration // 60)}m {int(duration % 60)}s"
 
-        msg = f"✅ Processing complete! Duration: {duration_str}\n\n"
+        msg = f"Processing complete! Duration: {duration_str}\n\n"
         if github_url:
-            msg += f"📦 Commit: {github_url}\n"
+            msg += f"Commit: {github_url}\n"
         else:
-            msg += f"📦 Commit: `{commit_hash[:8]}`\n"
+            msg += f"Commit: `{commit_hash[:8]}`\n"
 
         # Add summary content
         summaries_dir = REPO_PATH / "inbox" / "summaries"
@@ -758,7 +711,7 @@ async def process_command(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
             # Truncate if too long (Telegram limit is 4096 chars)
             if len(summary_content) > 3800:
                 summary_content = summary_content[:3800] + "\n... (truncated)"
-            msg += f"\n📊 Summary:\n\n{summary_content}"
+            msg += f"\nSummary:\n\n{summary_content}"
 
         print(f"[process_command] Sending summary message ({len(msg)} chars)", flush=True)
         # Send summary as direct message (not through queue)
