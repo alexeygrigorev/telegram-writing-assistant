@@ -69,10 +69,11 @@ For any issues found, update the article directly:
 ## Special Article Types
 
 ### "what-i-did-this-week.md" - Weekly Log
-- NEVER summarize
+- NEVER summarize - preserve ALL information
+- Transform to publishable form (clean, structured, readable)
+- NOT stream-of-consciousness style - information should be organized and polished
 - Each voice message should be a separate dated entry
-- Keep stream-of-consciousness style
-- Preserve authentic voice
+- Preserve authentic voice but in a publishable format
 
 ### Research articles
 - Some organization is expected

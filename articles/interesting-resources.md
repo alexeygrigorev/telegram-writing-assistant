@@ -1,7 +1,7 @@
 ---
 title: "Interesting Resources"
 created: 2026-01-31
-updated: 2026-02-10
+updated: 2026-02-11
 tags: [resources, tools, ai, development]
 status: draft
 ---
@@ -54,6 +54,10 @@ Each resource entry follows this simple format:
 
 [Dexter](https://github.com/virattt/dexter) is an autonomous financial research agent that thinks, plans, and learns as it works. It performs analysis using task planning, self-reflection, and real-time market data. Think Claude Code, but built specifically for financial research. It features intelligent task planning, autonomous execution, self-validation, real-time financial data access, and safety features like loop detection and step limits[^11].
 
+### LLM Interview Questions
+
+[LLM Interview Questions](https://x.com/techNmak/status/2021459379564970353) is a curated collection of 50 interview questions for LLM-related positions shared by Hao Hoang. The questions cover fundamentals like tokenization and attention mechanisms, fine-tuning techniques including LoRA and QLoRA, generation strategies like beam search and temperature sampling, advanced concepts like RAG and Chain-of-Thought, plus math and theory topics like softmax, cross-entropy loss, and KL divergence. A [PDF version](https://drive.google.com/file/d/1cUxKspEXgQ64s4OFEw0kabf_qNauOPiH/view) with detailed answers is also available[^18][^19].
+
 ### LangExtract
 
 [LangExtract](https://github.com/google/langextract) is a library for extracting language and locale information from text. It provides a simple way to detect the language of content, which is useful for applications that need to handle multilingual text or route content based on language[^12].
@@ -89,3 +93,5 @@ Each resource entry follows this simple format:
 [^15]: [20260209_171006_AlexeyDTC_msg1248.md](../inbox/raw/20260209_171006_AlexeyDTC_msg1248.md)
 [^16]: [20260210_084748_AlexeyDTC_msg1267.md](../inbox/raw/20260210_084748_AlexeyDTC_msg1267.md)
 [^17]: [20260210_150732_AlexeyDTC_msg1291.md](../inbox/raw/20260210_150732_AlexeyDTC_msg1291.md)
+[^18]: [20260211_131904_valeriia_kuka_msg1441.md](../inbox/raw/20260211_131904_valeriia_kuka_msg1441.md)
+[^19]: [20260211_130747_valeriia_kuka_msg1433.md](../inbox/raw/20260211_130747_valeriia_kuka_msg1433.md)
