@@ -34,3 +34,6 @@ claude_runs/
 inbox/summaries/
 claude_session_id.txt
 .tmp/
+
+# Mangled Windows absolute paths (backslashes stripped by some tools)
+CUsers*
