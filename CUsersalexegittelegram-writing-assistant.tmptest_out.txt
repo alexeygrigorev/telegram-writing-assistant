@@ -1,4 +1,0 @@
-============================= test session starts =============================
-collected 50 items
-
-tests\test_detect_failure.py 

@@ -317,6 +317,14 @@ Alternative channels to explore:
 
 The goal is to find people who have both the interest and the financial capacity to pay for a premium community.
 
+People who ask for mentoring in the existing community are a potential audience for the paid community. For example, a Data Scientist / ML Engineer with 2 years of experience posted in the community asking for career mentoring - both technical (interview skills) and strategic (profile positioning). These are exactly the people who could benefit from the paid community and might be interested in joining[^54].
+
+<figure>
+  <img src="../assets/images/paid-ai-community-planning/mentoring-request-thread.jpg" alt="Slack thread where a Data Scientist asks for career mentoring and guidance on positioning for tech companies">
+  <figcaption>Community member asking for mentoring - a potential audience for the paid community</figcaption>
+  <!-- This shows the type of person who could be converted from free community mentoring requests into paid community members -->
+</figure>
+
 ## Community Activity Ideas
 
 Based on research of other communities like "AI Native Engineer", potential activities include:
@@ -599,3 +607,4 @@ The plan is to have at least one big course on Maven (if time permits), while th
 [^51]: [20260212_120318_AlexeyDTC_msg1555_transcript.txt](../inbox/raw/20260212_120318_AlexeyDTC_msg1555_transcript.txt)
 [^52]: [20260212_120318_AlexeyDTC_msg1556.md](../inbox/raw/20260212_120318_AlexeyDTC_msg1556.md)
 [^53]: [20260212_122718_AlexeyDTC_msg1559_transcript.txt](../inbox/raw/20260212_122718_AlexeyDTC_msg1559_transcript.txt)
+[^54]: [20260212_201835_AlexeyDTC_msg1567_photo.md](../inbox/used/20260212_201835_AlexeyDTC_msg1567_photo.md)
