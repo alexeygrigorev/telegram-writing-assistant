@@ -41,7 +41,7 @@ def test_session_resume():
     print(f"[TEST] Test directory: {test_dir}")
 
     # Start Claude in stream-json mode
-    cmd = f'claude -p --output-format stream-json --verbose --dangerously-skip-permissions "{prompt}"'
+    cmd = f'claude -p --allowedTools "Read,Edit" --output-format stream-json --verbose --dangerously-skip-permissions "{prompt}"'
 
     process = subprocess.Popen(
         cmd,
@@ -118,7 +118,7 @@ def test_session_resume():
     print(f"[TEST] Resuming session {session_id}...")
 
     # When resuming, we need to provide a prompt to continue the task
-    resume_cmd = f'claude -p --output-format stream-json --verbose --dangerously-skip-permissions --resume {session_id} "Please continue creating the remaining files."'
+    resume_cmd = f'claude -p --allowedTools "Read,Edit" --output-format stream-json --verbose --dangerously-skip-permissions --resume {session_id} "Please continue creating the remaining files."'
 
     resumed_process = subprocess.Popen(
         resume_cmd,

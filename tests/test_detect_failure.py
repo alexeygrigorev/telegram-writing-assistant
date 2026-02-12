@@ -41,7 +41,7 @@ def test_detect_session_failure():
 
     # Start Claude with a task that creates files
     prompt = f'Create 10 files named test_1.txt through test_10.txt in {test_dir}. Each file should contain just its number.'
-    cmd = f'claude -p --output-format stream-json --verbose --dangerously-skip-permissions "{prompt}"'
+    cmd = f'claude -p --allowedTools "Read,Edit" --output-format stream-json --verbose --dangerously-skip-permissions "{prompt}"'
 
     print(f"[TEST] Starting Claude...")
     process = subprocess.Popen(
@@ -115,7 +115,7 @@ def test_detect_session_failure():
         print(f"\n[TEST] === AUTO-RESUME ===")
         print(f"[TEST] Sending message to Telegram: 'Session interrupted, resuming...'")
 
-        resume_cmd = f'claude -p --output-format stream-json --verbose --dangerously-skip-permissions --resume {session_id} "Please continue creating the remaining files."'
+        resume_cmd = f'claude -p --allowedTools "Read,Edit" --output-format stream-json --verbose --dangerously-skip-permissions --resume {session_id} "Please continue creating the remaining files."'
 
         resumed_process = subprocess.Popen(
             resume_cmd,
