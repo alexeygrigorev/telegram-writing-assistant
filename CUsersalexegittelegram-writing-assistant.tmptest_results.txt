@@ -1,0 +1,10 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.5, pytest-9.0.2, pluggy-1.6.0 -- C:\Users\alexe\git\telegram-writing-assistant\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\alexe\git\telegram-writing-assistant
+configfile: pyproject.toml
+plugins: anyio-4.12.1, asyncio-1.3.0, timeout-2.4.0
+asyncio: mode=Mode.AUTO, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collecting ... collected 50 items
+
+tests/test_detect_failure.py::test_detect_session_failure 
