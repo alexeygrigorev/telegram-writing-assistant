@@ -131,11 +131,44 @@ The challenge is ensuring the first tier is compelling and worth the monthly cos
 
 The goal is to make the 20 euros per month feel like good value, while showing there is significantly more available if they upgrade[^3].
 
+**Social media post summaries**
+
+An idea for tier 1 content: send summaries of all social media posts weekly. This is valuable because much is published across platforms and people might miss things. These summaries also help preserve this information[^46].
+
+**Research and article summaries**
+
+Currently, the audience only sees finished content, not the research that leads to it. When preparing materials for courses, many articles are read and summarized. These summaries can be shared with tier 1 members:
+
+- Access to source materials used
+- Awareness of articles and resources being discovered
+- Ready-made summaries of key resources
+
+This way, the audience learns about new things first, gets access to materials, learns about articles, and receives summaries all in one place[^47].
+
 **Decision on community access for Tier 1**
 
 There is uncertainty about whether Tier 1 should include community access. On one hand, excluding community access makes the tier purely content-focused. On the other hand, community is a major value proposition of the overall offering[^4].
 
-This is still being decided - the brain dump noted that possibly the first tier could be without community[^4].
+After discussion, the decision is: the first tier should be without community access. People at tier 1 get content but not access to the community[^49].
+
+This makes sense because community requires significant work to maintain and should be a core value proposition that people pay for. If someone paying 20 dollars got the same community access as someone paying 50 dollars, it would feel unfair. Alternatively, we could separate them into different chats, but the simpler approach is no community access for tier 1[^48].
+
+**Pricing structure**
+
+The pricing tiers are set at: 20, 50, and 100 dollars per month[^50].
+
+**Content for Tier 1**
+
+Tier 1 members receive access to results and summaries of projects and materials created, but not to people or activities:
+
+- Weekly or monthly summaries of all social media posts
+- AI-generated summaries from workshops and exclusive events
+- Articles derived from workshop content
+- Workflow documentation based on projects
+
+This content is published in the paid newsletter, giving tier 1 members visibility into what is being created. They see results and get a preview of what they could access by joining the community[^51].
+
+The goal is that tier 1 members see the value and get motivated to upgrade to tier 2 for community access and live activities[^51].
 
 ## Private Community Benefits
 
@@ -174,6 +207,28 @@ Course requests and influence
 Since the current course catalog is limited, community members can request and influence which courses get developed. The courses offered can be shaped based on what people in the community want to learn[^33].
 
 **Key principle**: The value should come from the community, not just from the founder. Activities should work even without direct involvement.
+
+The tier structure idea is good, but need to remove excessive reliance on the founder. The community should feel valuable even without direct founder involvement. This means designing activities that run themselves or are led by community members[^52].
+
+**Resume review sessions: how to select participants**
+
+When doing resume review sessions that are visible to the community as learning, there is a question of how to select participants:
+
+- Random selection from those interested
+- Premium tier members guaranteed to get reviewed
+- Waitlist system where premium members get priority
+
+One challenge: people usually need resume reviews immediately when job searching, not on a monthly schedule. A possible approach is when you join the premium tier, you get added to a waitlist, and we do a certain number per month[^53].
+
+**Tier motivation strategy**
+
+Each tier should motivate users to upgrade:
+
+- Tier 1: Sees materials created, gets preview of what community produces
+- Tier 2: Joins community, accesses people and activities, participates live
+- Tier 3: Gets exclusive access and guaranteed benefits (like guaranteed resume review)
+
+For example, tier 2 members see other people's resumes being reviewed publicly in the community. This creates motivation to upgrade to tier 3 to get their own resume reviewed. The pattern is: each tier shows value of the next tier above it[^53].
 
 ## Tier 3: Premium Ideas
 
@@ -536,3 +591,11 @@ The plan is to have at least one big course on Maven (if time permits), while th
 [^43]: [20260212_115141_AlexeyDTC_msg1531_transcript.txt](../inbox/raw/20260212_115141_AlexeyDTC_msg1531_transcript.txt)
 [^44]: [20260212_115141_AlexeyDTC_msg1532_transcript.txt](../inbox/raw/20260212_115141_AlexeyDTC_msg1532_transcript.txt)
 [^45]: [20260212_115203_AlexeyDTC_msg1539_transcript.txt](../inbox/raw/20260212_115203_AlexeyDTC_msg1539_transcript.txt)
+[^46]: [20260212_115823_AlexeyDTC_msg1545_transcript.txt](../inbox/raw/20260212_115823_AlexeyDTC_msg1545_transcript.txt)
+[^47]: [20260212_115823_AlexeyDTC_msg1546.md](../inbox/raw/20260212_115823_AlexeyDTC_msg1546.md)
+[^48]: [20260212_120008_AlexeyDTC_msg1549_transcript.txt](../inbox/raw/20260212_120008_AlexeyDTC_msg1549_transcript.txt)
+[^49]: [20260212_120008_AlexeyDTC_msg1550.md](../inbox/raw/20260212_120008_AlexeyDTC_msg1550.md)
+[^50]: [20260212_120008_AlexeyDTC_msg1551.md](../inbox/raw/20260212_120008_AlexeyDTC_msg1551.md)
+[^51]: [20260212_120318_AlexeyDTC_msg1555_transcript.txt](../inbox/raw/20260212_120318_AlexeyDTC_msg1555_transcript.txt)
+[^52]: [20260212_120318_AlexeyDTC_msg1556.md](../inbox/raw/20260212_120318_AlexeyDTC_msg1556.md)
+[^53]: [20260212_122718_AlexeyDTC_msg1559_transcript.txt](../inbox/raw/20260212_122718_AlexeyDTC_msg1559_transcript.txt)
