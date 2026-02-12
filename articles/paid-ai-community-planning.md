@@ -1,7 +1,7 @@
 ---
 title: "Paid AI Engineers Community Planning"
 created: 2026-02-10
-updated: 2026-02-11
+updated: 2026-02-12
 tags: [community, business, ai-engineering, pricing]
 status: draft
 ---
@@ -242,6 +242,174 @@ Examples of content that could be shared include behind-the-scenes work for comm
 
 Another potential community benefit: maintain a regularly updated list of conferences and help community members participate as speakers by connecting them with organizers. This provides tangible career value and public speaking experience[^29].
 
+## Origin Story
+
+The community idea evolved organically from several different threads:
+
+**Initial desire for a personal newsletter**
+The idea started with wanting to create a separate newsletter from DataTalks Club - a place to share things learned and tried every day. The DataTalks Club newsletter is about communities, but there was a desire for a space to share learning in public and build in public, continuing what gets shared on social media[^34].
+
+**Course on Maven**
+The AI Engineering course on Maven about agents became part of this vision. The people taking the course, those interested in subscription, and the desire to do something together all converged[^34].
+
+**Monetization research**
+Valeria and I researched Substack monetization methods and found that some people create communities. The community idea was appealing - doing things together, helping people, sharing knowledge beyond what gets shared in DataTalks Club[^34].
+
+**Desire for closer interaction**
+There is a desire for more intimate contact with people who are interested in these topics - live sessions where we solve things together, exchange experiences, learn from others who are also learning and want to share with everyone and get feedback[^34].
+
+**New content formats**
+The vision includes launching new content and new courses - not all as large as AI Engineering Buildcamp, but smaller, more modest courses that could be offered more frequently within the community[^34].
+
+So the idea evolved step by step: wanting a new newsletter, then a course, then everything connected organically into this community concept[^34].
+
+## Domain and Brand
+
+The domain aishippinglabs.com has been registered[^35].
+
+<figure>
+  <img src="../assets/images/paid-ai-community-planning/domain-registration.jpg" alt="Domain registration confirmation for aishippinglabs.com">
+  <figcaption>Domain registration confirmation for aishippinglabs.com</figcaption>
+  <!-- This shows the domain name for the new community -->
+</figure>
+
+## Positioning: Focus vs Breadth
+
+A key question is whether to focus narrowly on AI engineering or cast a wider net for data engineers and MLOps learners as well.
+
+**The DataTalks Club model**
+DataTalks Club has no specific focus, which is why everyone joins. Whether this approach is good or bad is unclear. There is a desire for something narrower this time[^1].
+
+**Desired focus for the new community**
+Focus on AI engineering and AI tools. While this would also be interesting for MLOps and data engineers, the preference is for a more niche area rather than broad appeal[^2].
+
+**AI is currently the draw**
+AI is interesting to many people right now, which can be leveraged to attract members. Positioning can always be changed later if needed. The MLOps community example is instructive: they started as MLOps but now focus almost exclusively on AI[^7].
+
+**Long-term trend**
+AI will reach all engineers eventually, including those working with data. It is inevitable[^8].
+
+## Target Audience Refined
+
+The ideal community member:
+- Has a desire to build but needs a push
+- Already has ideas and desire, but lacks something to sit down and do it
+- We provide both structure and this push
+- Often busy with many interests but passionate about some project they work on in the background
+- Has a main job but also a side project they cannot always find time for
+- Is passionate about this project but needs a gentle push to start making progress
+
+These are people who already have the drive and the project ideas, but need external structure and accountability to take action[^27].
+
+## Why Not DataTalks Club
+
+Several reasons for creating something separate rather than building within DataTalks Club:
+
+**Desire for a personal brand**
+Wanted something personal - a separate newsletter for sharing things learned daily. DataTalks Club's newsletter serves a different purpose[^28].
+
+**Paid course on Maven**
+The AI Engineering course on Maven is paid, while everything in DataTalks Club is free. The new community is also paid[^33].
+
+**Desire to earn from the work**
+As an entrepreneur with no employer, I want to earn money from what I create. I have already given much to DataTalks Club for free, but now want to also get paid for the work done[^33].
+
+**DataTalks Club mission remains unchanged**
+The principle of DataTalks Club - free education for everyone regardless of income or location - stays the same. The club will not become closed. I plan to continue developing DataTalks Club through 2025 and 2026[^33].
+
+**LLM Zoomcamp example**
+LLM Zoomcamp launching in summer directly competes with the paid Maven course. This does not mean neglecting LLM Zoomcamp - quite the opposite. New material gets added there, including content not in the Maven course (like rag evaluation which is covered in more detail in Zoomcamp than in Buildcamp)[^33].
+
+**Desire for closer community interaction**
+Want to try something new with closer member interaction. A more tight-knit community feel where we do things together, not necessarily related to data, but focused on AI and AI tools for development[^33].
+
+**New courses don't fit Zoomcamp calendar**
+The Zoomcamp calendar runs for a full year with ML Zoomcamp, Data Engineering Zoomcamp, AI DevTools Zoomcamp, and LLM Zoomcamp. There is no room to add additional courses in parallel[^33].
+
+**Focus: AI Shipping Labs**
+The new project (aishippinglabs.com) makes more sense as a separate entity focused on AI DevTools[^33].
+
+## Community Focus Clarity
+
+In discussion with Valeria, the community should be more focused. The two main areas:
+
+**AI Engineering**
+Everything related to building AI products
+
+**AI Assistants for Development**
+Tools and workflows that make developers more productive
+
+This is what is most interesting right now, and there is a desire for a more niche community compared to DataTalks Club's "all things data" approach. While the broad topics in DataTalks Club are interesting, the goal is more focus here - not spread across data science, ML lapses, data engineering, and everything else depending on time of year[^36].
+
+**Target audience for this focused community**
+People interested in AI engineering and AI tools who want to be more productive in what they do. The end goal is creating AI products using AI. This includes:
+- People who can currently work as ML engineers
+- Data engineers
+- Beginners just starting to learn Python with the goal of becoming data and AI engineers
+
+The aim is to attract everyone interested in these topics to one place, rather than having the spread-out focus like in DataTalks Club. This is a new attempt at something maximally focused[^36].
+
+## Tier 3: Value Beyond Courses
+
+A concern about the third tier: if people only join because of courses, they will leave when courses end. We cannot produce courses indefinitely - perhaps 2-3 per year maximum. What keeps them paying 100 euros per month when there is no active course?
+
+We need to provide something ongoing that is not courses but still keeps them engaged[^37].
+
+**One-on-one sessions approach**
+For tier 3, can offer "occasional 101 on request" - willing to do this but not regularly. Initially, want to communicate with buyers to understand what brought them and what they need. This research helps determine what content to create.
+
+Not promoting this as the main benefit, but can mention that if valuable for some people, it is available. When writing about it, need to position it carefully - not as "with me" specifically but with "someone from the team" or similar. People who know will understand, others will see it as a valuable community feature[^25].
+
+## Course Planning
+
+**Python for AI and Data Engineering**
+The Python course idea is to take all existing Zoomcamps and the Buildcamp, analyze what Python is needed there, and create a course based on that. Target audience: both AI and data engineers[^19].
+
+**AI Data Engineering course**
+Want to create a course on data engineering for AI - how all these AI tools can be used to build pipelines. This area is underserved - little content exists on how data actually gets into agents in reality. Everyone talks about having a clean dataset and building an agent, but not how the data gets there. Several modules on the new Maven course should be dedicated to this topic[^20].
+
+**Market demand**
+There seems to be less demand and less content about data engineering for AI compared to generic AI engineering. This might actually be an advantage - an underserved niche where we can create something and see how it works. The community should cover these topics to attract people interested in both areas[^21].
+
+**Student interest**
+Students are already asking about paid courses. This is a positive signal for the Python course idea[^22].
+
+<figure>
+  <img src="../assets/images/paid-ai-community-planning/course-inquiry-thread.jpg" alt="Telegram thread showing students asking about AI engineering and Python courses">
+  <figcaption>Students already inquiring about upcoming AI engineering and Python courses in the community</figcaption>
+  <!-- This shows existing demand for courses being planned -->
+</figure>
+
+**Maven course continuation**
+Want to continue the AI Engineering course on Maven with focus on creating AI products. This attracts AI engineers who will be interested and potentially buy the course[^5].
+
+**Additional course ideas**
+Beyond the AI Data Engineering course, there are several other course concepts:
+
+**CloudCode and AI Assistant Development**
+Want to create a course about CloudCode and AI Assistant Development as a supplement to the existing AI DevTools content. This would focus on:
+- How to configure and customize these tools
+- Specific tricks and workflows discovered from using these tools for two years
+- Less structured but very practical content
+- Sharing experience and knowledge with community members[^23]
+
+**Testing workshop**
+There is not much content available on testing, so want to create a mini-course on testing with focus on Python. Topics would include:
+- Simple unit tests
+- Integration tests
+- How to test agents (though this might already be covered in AI Buildcamp)
+- A course spanning several weeks[^23]
+
+**DevOps and infrastructure**
+Topics where there is not much content available:
+- Environment setup and management
+- DevOps practices
+- Terraform
+- GitHub actions[^23]
+
+**Course format strategy**
+The plan is to have at least one big course on Maven (if time permits), while the rest would be mini-courses available in the community at tier 3. Will actively ask people what they're interested in and monitor what content they engage with most[^23].
+
 ## Sources
 
 [^1]: [20260210_214500_AlexeyDTC_msg1295_transcript.txt](../inbox/raw/20260210_214500_AlexeyDTC_msg1295_transcript.txt)
@@ -277,3 +445,20 @@ Another potential community benefit: maintain a regularly updated list of confer
 [^31]: [20260211_102558_AlexeyDTC_msg1420.md](../inbox/raw/20260211_102558_AlexeyDTC_msg1420.md)
 [^32]: [20260211_102633_AlexeyDTC_msg1421_transcript.txt](../inbox/raw/20260211_102633_AlexeyDTC_msg1421_transcript.txt)
 [^33]: [20260211_154156_AlexeyDTC_msg1453_transcript.txt](../inbox/raw/20260211_154156_AlexeyDTC_msg1453_transcript.txt)
+[^34]: [20260212_092525_AlexeyDTC_msg1483_transcript.txt](../inbox/raw/20260212_092525_AlexeyDTC_msg1483_transcript.txt)
+[^35]: [20260212_072521_AlexeyDTC_msg1478_photo.md](../inbox/raw/20260212_072521_AlexeyDTC_msg1478_photo.md)
+[^1]: [20260212_070950_AlexeyDTC_msg1464_transcript.txt](../inbox/raw/20260212_070950_AlexeyDTC_msg1464_transcript.txt)
+[^2]: [20260212_070950_AlexeyDTC_msg1466_transcript.txt](../inbox/raw/20260212_070950_AlexeyDTC_msg1466_transcript.txt)
+[^7]: [20260212_071140_AlexeyDTC_msg1472_transcript.txt](../inbox/raw/20260212_071140_AlexeyDTC_msg1472_transcript.txt)
+[^8]: [20260212_071140_AlexeyDTC_msg1473.md](../inbox/raw/20260212_071140_AlexeyDTC_msg1473.md)
+[^27]: [20260212_091239_AlexeyDTC_msg1482_transcript.txt](../inbox/raw/20260212_091239_AlexeyDTC_msg1482_transcript.txt)
+[^28]: [20260212_070950_AlexeyDTC_msg1465.md](../inbox/raw/20260212_070950_AlexeyDTC_msg1465.md)
+[^36]: [20260212_095704_AlexeyDTC_msg1489_transcript.txt](../inbox/raw/20260212_095704_AlexeyDTC_msg1489_transcript.txt)
+[^37]: [20260212_073720_AlexeyDTC_msg1479_transcript.txt](../inbox/raw/20260212_073720_AlexeyDTC_msg1479_transcript.txt)
+[^25]: [20260211_045229_AlexeyDTC_msg1368.md](../inbox/raw/20260211_045229_AlexeyDTC_msg1368.md)
+[^19]: [20260212_071345_AlexeyDTC_msg1474_transcript.txt](../inbox/raw/20260212_071345_AlexeyDTC_msg1474_transcript.txt)
+[^20]: [20260212_071345_AlexeyDTC_msg1475_transcript.txt](../inbox/raw/20260212_071345_AlexeyDTC_msg1475_transcript.txt)
+[^21]: [20260212_071639_AlexeyDTC_msg1477_transcript.txt](../inbox/raw/20260212_071639_AlexeyDTC_msg1477_transcript.txt)
+[^22]: [20260212_070350_AlexeyDTC_msg1463_photo.md](../inbox/raw/20260212_070350_AlexeyDTC_msg1463_photo.md)
+[^5]: [20260212_071140_AlexeyDTC_msg1471_transcript.txt](../inbox/raw/20260212_071140_AlexeyDTC_msg1471_transcript.txt)
+[^23]: [20260212_095052_AlexeyDTC_msg1487_transcript.txt](../inbox/raw/20260212_095052_AlexeyDTC_msg1487_transcript.txt)

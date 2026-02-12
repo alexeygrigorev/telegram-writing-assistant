@@ -64,6 +64,7 @@ Brief description of what this article is about.
 | [Task Management App Idea](task-management-app-idea.md) | draft | 2026-02-11 | Unified task management system combining Trello and todo lists |
 | [What I Did This Week](what-i-did-this-week.md) | draft | 2026-02-11 | Weekly updates on work in progress |
 | [Claude Code Subagents](subagents.md) | draft | 2026-02-11 | Specialized agents for research workflows and verification |
+| [AI as Personal Analyst](ai-as-personal-analyst.md) | draft | 2026-02-12 | Talk about using AI for Excel automation, data cleaning, and scaling document review |
 
 ---
 

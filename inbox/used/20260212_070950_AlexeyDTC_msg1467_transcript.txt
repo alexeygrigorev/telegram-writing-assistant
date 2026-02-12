@@ -1,0 +1,10 @@
+---
+source: telegram_voice
+date: 2026-02-12T07:09:50+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260212_070950_AlexeyDTC_msg1467.ogg
+---
+
+Для Data Engineer я тоже думаю какой-нибудь курс сделать, но это именно AI Data Engineer. У меня
+есть такая мысль, давно уже была. Как все эти AI штуки использовать для того, чтобы делать pipeline.

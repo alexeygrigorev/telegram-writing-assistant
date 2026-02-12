@@ -1,14 +1,14 @@
 ---
 title: "Python Primer Course Idea"
 created: 2026-02-08
-updated: 2026-02-08
+updated: 2026-02-12
 tags: [course-idea, python, ai-engineering, zoomcamp, education]
 status: draft
 ---
 
 # Python Primer Course Idea
 
-An idea for a paid Python prerequisite course to prepare students for AI Engineering and Zoomcamp courses.
+An idea for a paid Python prerequisite course to prepare students for AI Engineering and Zoomcamp courses. The course will serve both AI and data engineers.
 
 ## Origin Story
 
@@ -86,6 +86,10 @@ The approach emphasizes that when learning Python for AI engineering, syntax isn
 
 If this concept works, similar prerequisite courses could be created for other tools students commonly request help with (like Git)[^8].
 
+## Additional Course Planning Notes
+
+The Python course should be based on analyzing all existing Zoomcamps and Buildcamp to determine what Python is needed, then creating the course around those requirements[^19].
+
 ## Sources
 
 [^1]: [20260208_153716_AlexeyDTC_msg1208_transcript.txt](../inbox/raw/20260208_153716_AlexeyDTC_msg1208_transcript.txt)
@@ -98,3 +102,4 @@ If this concept works, similar prerequisite courses could be created for other t
 [^8]: [20260208_154311_AlexeyDTC_msg1218_transcript.txt](../inbox/raw/20260208_154311_AlexeyDTC_msg1218_transcript.txt)
 [^9]: [20260208_154551_AlexeyDTC_msg1220_transcript.txt](../inbox/raw/20260208_154551_AlexeyDTC_msg1220_transcript.txt)
 [^10]: [20260208_154656_AlexeyDTC_msg1222_transcript.txt](../inbox/raw/20260208_154656_AlexeyDTC_msg1222_transcript.txt)
+[^19]: [20260212_071345_AlexeyDTC_msg1474_transcript.txt](../inbox/raw/20260212_071345_AlexeyDTC_msg1474_transcript.txt)
