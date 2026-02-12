@@ -92,6 +92,72 @@ Following standard pricing psychology, a three-tier structure makes sense:
 
 The third tier serves an important psychological purpose: when presented with three options, people tend to choose the middle one. This is a standard pricing tactic recommended in business books.
 
+<figure>
+  <img src="../assets/images/paid-ai-community-planning/three-tier-pricing-structure.jpg" alt="Document showing three-tier pricing structure with Basic, Main offering, and Premium tiers">
+  <figcaption>Three-tier pricing structure following standard pricing psychology principles</figcaption>
+  <!-- This illustrates how tiers are positioned to make the middle option most attractive -->
+</figure>
+
+## Tier 1: Basic Offering
+
+The first tier needs to be attractive enough to show value while motivating users to upgrade to higher tiers.
+
+**Initial approach: content-only tier**
+
+One model considered is Alexey Grigorev's Substack "Supporter" tier at 10 euros per month. This provides access to written materials and recorded content but no community access or live participation[^1].
+
+<figure>
+  <img src="../assets/images/paid-ai-community-planning/substack-supporter-tier.jpg" alt="Substack subscription page showing Supporter tier at 10 euros/month with materials access but no community">
+  <figcaption>Example of a content-only tier: Alexey Grigorev's Supporter tier provides materials without community access</figcaption>
+  <!-- This shows an alternative approach where the first tier focuses on content rather than community -->
+</figure>
+
+The caption for this image explained that in this version, the first tier has no community access - only access to materials published in closed access (such as articles after live events, or recordings of events, but no ability to ask questions during the live stream)[^1].
+
+**Alternative approach: community-only tier**
+
+A different approach considered for the first tier is to include community access but limit content access. In this model, "basic content" would include AI-generated summaries of sessions and events sent to all tier 1 members[^2].
+
+When we do sessions or events, we create AI-generated summaries and distribute them to everyone at the first tier. This gives them something valuable but keeps the more interactive and detailed content for higher tiers[^2].
+
+**Making Tier 1 attractive**
+
+The challenge is ensuring the first tier is compelling and worth the monthly cost, while also showing there is more value available at higher levels. Options include:
+
+- Monthly resource summaries: curated list of interesting resources, articles, and research discovered during the month
+- Research summaries: since Telegram bot is already used to request article research, these summaries can be shared with tier 1 members
+- Newsletter of published resources: monthly report of all resources published in the newsletter
+- AI-generated session summaries: recaps of live sessions and events[^3]
+
+The goal is to make the 20 euros per month feel like good value, while showing there is significantly more available if they upgrade[^3].
+
+**Decision on community access for Tier 1**
+
+There is uncertainty about whether Tier 1 should include community access. On one hand, excluding community access makes the tier purely content-focused. On the other hand, community is a major value proposition of the overall offering[^4].
+
+This is still being decided - the brain dump noted that possibly the first tier could be without community[^4].
+
+## Private Community Benefits
+
+One advantage of a private community is the ability to share insights and discuss topics that would not be appropriate in public channels.
+
+**Interview and career discussions**
+
+Members can share insights from interviews and discuss interview preparation questions that they might not want to discuss publicly. For example, someone might say they are interviewing somewhere and share what questions are being asked, asking for help preparing. In a public community like DataTalks Club, their current employer might see this[^5].
+
+**Learning through interviews without job seeking**
+
+Some members might want to go to interviews not because they are actively looking for a job, but to understand what the market is asking for and what skills are in demand. They might not want to discuss this publicly because:
+- Their current employer might see it and think they are leaving
+- Some people might consider it unethical to interview without serious intent to change jobs
+- Public visibility could create awkward professional situations
+
+In a private community, these kinds of discussions can happen more freely[^5].
+
+**Sharing sensitive insights**
+
+The private community enables sharing of insights and experiences from interviews, salary negotiations, and other career-related topics that people prefer not to discuss in public forums where their current employer or colleagues might see them[^5].
+
 ## Tier 2: Core Offering Ideas
 
 This should be the main value proposition:
@@ -462,3 +528,11 @@ The plan is to have at least one big course on Maven (if time permits), while th
 [^22]: [20260212_070350_AlexeyDTC_msg1463_photo.md](../inbox/raw/20260212_070350_AlexeyDTC_msg1463_photo.md)
 [^5]: [20260212_071140_AlexeyDTC_msg1471_transcript.txt](../inbox/raw/20260212_071140_AlexeyDTC_msg1471_transcript.txt)
 [^23]: [20260212_095052_AlexeyDTC_msg1487_transcript.txt](../inbox/raw/20260212_095052_AlexeyDTC_msg1487_transcript.txt)
+[^38]: [20260212_105847_AlexeyDTC_msg1519_transcript.txt](../inbox/raw/20260212_105847_AlexeyDTC_msg1519_transcript.txt)
+[^39]: [20260212_115141_AlexeyDTC_msg1527_photo.md](../inbox/raw/20260212_115141_AlexeyDTC_msg1527_photo.md)
+[^40]: [20260212_115141_AlexeyDTC_msg1528_photo.md](../inbox/raw/20260212_115141_AlexeyDTC_msg1528_photo.md)
+[^41]: [20260212_115141_AlexeyDTC_msg1529_transcript.txt](../inbox/raw/20260212_115141_AlexeyDTC_msg1529_transcript.txt)
+[^42]: [20260212_115141_AlexeyDTC_msg1530_transcript.txt](../inbox/raw/20260212_115141_AlexeyDTC_msg1530_transcript.txt)
+[^43]: [20260212_115141_AlexeyDTC_msg1531_transcript.txt](../inbox/raw/20260212_115141_AlexeyDTC_msg1531_transcript.txt)
+[^44]: [20260212_115141_AlexeyDTC_msg1532_transcript.txt](../inbox/raw/20260212_115141_AlexeyDTC_msg1532_transcript.txt)
+[^45]: [20260212_115203_AlexeyDTC_msg1539_transcript.txt](../inbox/raw/20260212_115203_AlexeyDTC_msg1539_transcript.txt)

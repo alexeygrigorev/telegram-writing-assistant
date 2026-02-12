@@ -48,8 +48,8 @@ Brief description of what this article is about.
 | [Course Material Preparation](course-material-preparation.md) | draft | 2026-01-28 | Workflow for keeping code and documentation in sync |
 | [AI Bootcamp Course](ai-bootcamp-course.md) | draft | 2026-01-28 | Course curriculum and syllabus for AI Engineering BuildCamp |
 | [Claude Code Helpers](claude-helpers.md) | draft | 2026-02-10 | Aliases, functions, slash commands, and subagents for Claude Code |
-| [Claude Code Experiments](claude-code-experiments.md) | draft | 2026-01-23 | Experiments and applications of Claude Code beyond coding |
-| [Paid AI Engineers Community Planning](paid-ai-community-planning.md) | draft | 2026-02-10 | Planning a paid community for AI Engineers including target audience, tier structure, and pricing |
+| [Claude Code Experiments](claude-code-experiments.md) | draft | 2026-02-12 | Experiments and applications of Claude Code beyond coding, including challenges with communication |
+| [Paid AI Engineers Community Planning](paid-ai-community-planning.md) | draft | 2026-02-12 | Planning a paid community for AI Engineers including target audience, tier structure, and pricing |
 | [Course Management Agent](course-management-agent.md) | draft | 2026-01-23 | Automating course administration tasks with Claude Skills |
 | [Cross-Platform Environment Variable Management with dirdotenv](dirdotenv.md) | draft | 2026-01-23 | Python-based alternative to direnv |
 | [Generating Books with AI](ai-book-generator.md) | draft | 2026-01-23 | Using AI to generate complete books with covers |
