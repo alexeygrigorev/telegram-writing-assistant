@@ -10,6 +10,8 @@ status: draft
 
 A Windows microphone booster built with OpenCode and GLM-5 using Tauri + Rust. Solves the problem of quiet USB-C microphones that the built-in Windows booster does not support.
 
+Code: https://github.com/alexeygrigorev/microboost/[^6]
+
 ## The problem
 
 At home I use regular headphones for recording and the sound is okay, though some people have complained about it in YouTube videos. The built-in Windows microphone booster works with headphones plugged into the audio jack port, but it does not boost as much as I would like. And it does not work at all with USB-C devices. I wanted a more universal solution[^1].
@@ -59,3 +61,4 @@ Right now she has to write FFmpeg commands herself and run them. Even I would no
 [^3]: [20260213_143306_AlexeyDTC_msg1601_transcript.txt](../inbox/used/20260213_143306_AlexeyDTC_msg1601_transcript.txt)
 [^4]: [20260213_143624_AlexeyDTC_msg1602_transcript.txt](../inbox/used/20260213_143624_AlexeyDTC_msg1602_transcript.txt)
 [^5]: [20260213_143701_AlexeyDTC_msg1603_transcript.txt](../inbox/used/20260213_143701_AlexeyDTC_msg1603_transcript.txt)
+[^6]: [20260213_182141_AlexeyDTC_msg1645.md](../inbox/used/20260213_182141_AlexeyDTC_msg1645.md) - GitHub repository link

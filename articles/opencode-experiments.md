@@ -53,6 +53,12 @@ I built two projects with OpenCode and GLM-5 to test the tool:
 
 Both were done in the background while I was recording course videos.
 
+## Transferring Skills and Commands from Claude Code
+
+It was very easy to transfer skills and commands from Claude Code to OpenCode. I added my code hooks and skills to the OpenCode configuration with an instruction to automatically sync them. Now all my hooks and skills from Claude Code are automatically duplicated into OpenCode too. They exist in both places. OpenCode does not read commands from Claude Code directly, so this automatic duplication is very convenient[^5][^6].
+
+The commands are automatically added to the shared repository: https://github.com/alexeygrigorev/.claude[^6]
+
 ## Overall Impressions
 
 My impression of OpenCode is positive. The desktop mode is great. As for GLM-5, it is decent but I do not really see a big difference from the previous GLM-4. All these agents cut corners and you need to watch them and set up proper processes. Right now I just used plain OpenCode with no custom processes set up. I think I need to set up proper workflows and then the results will be better[^4].
@@ -65,3 +71,5 @@ The testing challenge remains unsolved - I have no idea how to test desktop appl
 [^2]: [20260213_144434_AlexeyDTC_msg1606_transcript.txt](../inbox/used/20260213_144434_AlexeyDTC_msg1606_transcript.txt)
 [^3]: [20260213_145200_AlexeyDTC_msg1607_transcript.txt](../inbox/used/20260213_145200_AlexeyDTC_msg1607_transcript.txt)
 [^4]: [20260213_145555_AlexeyDTC_msg1608_transcript.txt](../inbox/used/20260213_145555_AlexeyDTC_msg1608_transcript.txt)
+[^5]: [20260213_164644_AlexeyDTC_msg1633_transcript.txt](../inbox/used/20260213_164644_AlexeyDTC_msg1633_transcript.txt)
+[^6]: [20260213_164714_AlexeyDTC_msg1635.md](../inbox/used/20260213_164714_AlexeyDTC_msg1635.md)

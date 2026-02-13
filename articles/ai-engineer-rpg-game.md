@@ -10,6 +10,8 @@ status: draft
 
 An RPG game for practicing AI engineering interview skills, built with OpenCode and GLM-5 in Rust. The long-term vision is to add LLM-powered NPC agents.
 
+Code: https://github.com/alexeygrigorev/game-ai-engineer/[^4]
+
 ## How the idea came about
 
 One of my friends and fellow speakers, who I know personally, is very into vibe coding - he has been doing it for a long time and is a real pro at it. I constantly discuss ideas with him. He is going to give a talk at our DataTalks Club soon[^1].
@@ -63,3 +65,4 @@ I plan to work on this after I finish the current course. I think this would be 
 [^1]: [20260213_144259_AlexeyDTC_msg1605_transcript.txt](../inbox/used/20260213_144259_AlexeyDTC_msg1605_transcript.txt)
 [^2]: [20260213_145555_AlexeyDTC_msg1608_transcript.txt](../inbox/used/20260213_145555_AlexeyDTC_msg1608_transcript.txt)
 [^3]: [20260213_145721_AlexeyDTC_msg1609_transcript.txt](../inbox/used/20260213_145721_AlexeyDTC_msg1609_transcript.txt)
+[^4]: [20260213_182206_AlexeyDTC_msg1647.md](../inbox/used/20260213_182206_AlexeyDTC_msg1647.md) - GitHub repository link

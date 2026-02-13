@@ -1,7 +1,7 @@
 ---
 title: "Claude Code Helpers"
 created: 2026-01-23
-updated: 2026-02-11
+updated: 2026-02-13
 tags: [bash, claude-code, aliases, shortcuts]
 status: draft
 ---
@@ -168,6 +168,14 @@ This skill should be added to the Claude configuration to handle post-coding cle
   <!-- This skill can be added to Claude Code configuration for automated cleanup passes -->
 </figure>
 
+### Fetch YouTube Skill
+
+A new skill that fetches YouTube video transcripts. This was needed for the Data Engineering Zoomcamp - Bruin company prepared videos for module 5, and I wanted to make a transcript of that module to create a retro video. So I created a new skill for it and tested it right away. It works great[^13][^14].
+
+Code: https://github.com/alexeygrigorev/.claude/tree/main/skills/fetch-youtube[^13]
+
+The collection of skills will keep growing over time[^14].
+
 ## Safety Hooks
 
 Hooks in Claude Code can prevent dangerous operations. A useful stop hook from AIHero.dev prevents Claude Code from running dangerous git commands[^11].
@@ -191,3 +199,5 @@ The hook intercepts commands like `git push --force` and asks for confirmation b
 [^10]: [20260210_152205_AlexeyDTC_msg1293_transcript.txt](../inbox/raw/20260210_152205_AlexeyDTC_msg1293_transcript.txt) - Subagents for research workflow
 [^11]: [20260211_053127_AlexeyDTC_msg1371.md](../inbox/raw/20260211_053127_AlexeyDTC_msg1371.md) - Safety hooks reference
 [^12]: [20260211_045044_AlexeyDTC_msg1367_photo.md](../inbox/raw/20260211_045044_AlexeyDTC_msg1367_photo.md) - Refactor pass skill
+[^13]: [20260213_180159_AlexeyDTC_msg1641.md](../inbox/used/20260213_180159_AlexeyDTC_msg1641.md) - YouTube skill link
+[^14]: [20260213_180241_AlexeyDTC_msg1643_transcript.txt](../inbox/used/20260213_180241_AlexeyDTC_msg1643_transcript.txt) - YouTube skill description
