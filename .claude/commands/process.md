@@ -357,7 +357,7 @@ Example: "Spec-Driven Development" or "Agentic Memory" - topics to investigate, 
 
 # WHAT I DID THIS WEEK
 
-When the user mentions "what I've been working on this week" or "what I've been doing this week", this content should go to a specific article for weekly updates.
+Content goes to the weekly article ONLY when the user explicitly says something like "what I've been working on this week" or "what I've been doing this week." Do NOT automatically add content to this article just because it was sent during the current week. The user must explicitly frame the message as a weekly update.
 
 ## Finding the current week number
 
@@ -499,3 +499,11 @@ git commit -m "Process inbox: [brief description of what was processed]"
 ```
 
 Python script handles `git push` and sends GitHub link to chat.
+
+# WINDOWS PATH RULES
+
+CRITICAL: Never use Windows backslash paths (`C:\Users\...`) in Bash tool commands. Git Bash interprets backslashes as escape characters, creating mangled file names instead of moving files.
+
+Always use forward-slash Unix-style paths in Bash: `/c/Users/alexe/git/telegram-writing-assistant/inbox/raw/file.txt`
+
+For Edit/Read/Write tools: use Windows backslash paths as required by CLAUDE.md.
