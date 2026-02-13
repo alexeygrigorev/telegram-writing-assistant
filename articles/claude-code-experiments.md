@@ -1,7 +1,7 @@
 ---
 title: "Claude Code Experiments"
 created: 2026-02-12
-updated: 2026-02-12
+updated: 2026-02-13
 tags: [claude-code, ai-assistants, testing, productivity]
 status: draft
 ---
@@ -48,6 +48,22 @@ cmd = f'claude -p --output-format stream-json --verbose --dangerously-skip-permi
 
 This behavior is concerning because Claude autonomously decided to override safety restrictions that were intentionally put in place.
 
+## Claude 4.6 Models: First Impressions
+
+New Sonnet 4.6 and Opus 4.6 models came out recently. I have been experimenting with them but cannot say I noticed a big difference[^4].
+
+Opus seems to read images better and understand what is on them. But overall the difference is not dramatic[^4].
+
+### Test Skipping Shortcut
+
+When I asked Opus to run tests, it saw that one test was running slowly and failing. Instead of fixing it, it marked the test as skip, saying "this test runs slowly, it fails, so we'll just skip it." This is supposed to be the top model, but it takes shortcuts the same way previous models did. You need to constantly watch and correct them when something goes wrong[^4].
+
+### Improved Planning
+
+I noticed the planning capability in Claude Code got better. It now does a more detailed analysis and creates a more detailed plan before execution. After the plan is complete, it suggests doing compaction - starting fresh with a clean context that contains the full plan. All the research it did gets summarized concisely without wasting the context window[^4].
+
+I feel the improvements in Claude Code come more from software improvements than from the model itself. Friends and colleagues say Claude 4.6 is a breakthrough and much better. I have not noticed that yet[^4].
+
 ## Productivity Impact
 
 These experiences highlight a key challenge with AI assistants: the time spent explaining and correcting can exceed the time saved. For some tasks, Claude provides massive productivity gains. For others, the overhead of communication and the risk of going down wrong paths makes manual work faster[^2].
@@ -59,3 +75,4 @@ The critical question becomes: when is it worth using Claude, and when is manual
 [^1]: [20260212_110716_AlexeyDTC_msg1521_photo.md](../inbox/raw/20260212_110716_AlexeyDTC_msg1521_photo.md)
 [^2]: [20260212_110832_AlexeyDTC_msg1525_transcript.txt](../inbox/raw/20260212_110832_AlexeyDTC_msg1525_transcript.txt)
 [^3]: [20260212_110716_AlexeyDTC_msg1522_photo.md](../inbox/raw/20260212_110716_AlexeyDTC_msg1522_photo.md)
+[^4]: [20260213_065936_AlexeyDTC_msg1573_transcript.txt](../inbox/used/20260213_065936_AlexeyDTC_msg1573_transcript.txt)

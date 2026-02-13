@@ -1,7 +1,7 @@
 ---
 title: "What I Did This Week"
 created: 2026-02-11
-updated: 2026-02-11
+updated: 2026-02-13
 tags: [weekly, updates]
 status: draft
 ---
@@ -64,7 +64,24 @@ How I prepare material:
 
 This works well during breaks from recording. When I'm going somewhere or have thoughts about the project, I dictate a voice message. The system structures everything and I use it to prepare for the event.
 
+Thursday, February 13, 2026
+
+### Course Recording
+
+Main focus this week is still course recording and video production[^3].
+
+### Nobook: Python-Based Jupyter Notebooks
+
+In parallel with course recording, I ran an experiment I had been wanting to do for a long time. I built Nobook - a tool that uses plain `.py` files as Jupyter notebooks instead of `.ipynb` JSON files. Claude Code with the latest Opus wrote all the code in one evening while I spent about an hour checking and correcting. See the separate article on [Nobook](nobook.md) for details[^3][^4].
+
+### Claude Code: Testing New Models
+
+I experimented with the new Sonnet 4.6 and Opus 4.6 models in Claude Code. The improvements seem to come more from software updates (better planning, context compaction) than from the models themselves. See [Claude Code Experiments](claude-code-experiments.md) for details[^5].
+
 ## Sources
 
 [^1]: [20260211_094131_AlexeyDTC_msg1377_transcript.txt](../inbox/raw/20260211_094131_AlexeyDTC_msg1377_transcript.txt)
 [^2]: [20260211_094212_AlexeyDTC_msg1378_transcript.txt](../inbox/raw/20260211_094212_AlexeyDTC_msg1378_transcript.txt)
+[^3]: [20260213_070408_AlexeyDTC_msg1574_transcript.txt](../inbox/used/20260213_070408_AlexeyDTC_msg1574_transcript.txt)
+[^4]: [20260213_070414_AlexeyDTC_msg1575_transcript.txt](../inbox/used/20260213_070414_AlexeyDTC_msg1575_transcript.txt)
+[^5]: [20260213_065936_AlexeyDTC_msg1573_transcript.txt](../inbox/used/20260213_065936_AlexeyDTC_msg1573_transcript.txt)
