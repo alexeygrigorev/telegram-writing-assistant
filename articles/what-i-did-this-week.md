@@ -78,6 +78,14 @@ In parallel with course recording, I ran an experiment I had been wanting to do 
 
 I experimented with the new Sonnet 4.6 and Opus 4.6 models in Claude Code. The improvements seem to come more from software updates (better planning, context compaction) than from the models themselves. See [Claude Code Experiments](claude-code-experiments.md) for details[^5].
 
+### OpenCode Experiments with GLM-5
+
+I tried OpenCode - an open-source AI coding assistant - with the new GLM-5 model. Built two things in background mode while doing course recording: a microphone booster app (Tauri + Rust) and an AI Engineering RPG game. Both took multiple iterations but ended up working. The desktop mode is nice - it is built on VS Code. See [OpenCode Experiments](opencode-experiments.md) for details[^6][^7].
+
+### Paid Community: Accountability Circles
+
+New idea for the paid community: accountability circles / mastermind groups where members meet regularly to share progress and help each other with blockers. Running them in sprints rather than continuously to maintain interest and enable promotion. Plan to redirect mentoring requests to this structure[^8].
+
 ## Sources
 
 [^1]: [20260211_094131_AlexeyDTC_msg1377_transcript.txt](../inbox/raw/20260211_094131_AlexeyDTC_msg1377_transcript.txt)
@@ -85,3 +93,6 @@ I experimented with the new Sonnet 4.6 and Opus 4.6 models in Claude Code. The i
 [^3]: [20260213_070408_AlexeyDTC_msg1574_transcript.txt](../inbox/used/20260213_070408_AlexeyDTC_msg1574_transcript.txt)
 [^4]: [20260213_070414_AlexeyDTC_msg1575_transcript.txt](../inbox/used/20260213_070414_AlexeyDTC_msg1575_transcript.txt)
 [^5]: [20260213_065936_AlexeyDTC_msg1573_transcript.txt](../inbox/used/20260213_065936_AlexeyDTC_msg1573_transcript.txt)
+[^6]: [20260213_145200_AlexeyDTC_msg1607_transcript.txt](../inbox/used/20260213_145200_AlexeyDTC_msg1607_transcript.txt)
+[^7]: [20260213_145555_AlexeyDTC_msg1608_transcript.txt](../inbox/used/20260213_145555_AlexeyDTC_msg1608_transcript.txt)
+[^8]: [20260213_152027_AlexeyDTC_msg1610_transcript.txt](../inbox/used/20260213_152027_AlexeyDTC_msg1610_transcript.txt)

@@ -1,7 +1,7 @@
 ---
 title: "Paid AI Engineers Community Planning"
 created: 2026-02-10
-updated: 2026-02-12
+updated: 2026-02-13
 tags: [community, business, ai-engineering, pricing]
 status: draft
 ---
@@ -493,6 +493,56 @@ People who ask for mentoring in the existing community are a potential audience 
 - Plans should evolve based on real members
 - Don't over-plan before seeing who is interested
 
+## Accountability Circles and Mentoring
+
+### The mentoring demand
+
+People often ask me if I can mentor them. I usually say no, but suggest they use the community as a mentor - ask questions in the right channels at DataTalks Club and we can help with plans and implementation. Usually people do not do this. They want something more personal - someone to guide them by hand and watch what they are doing[^68].
+
+### Accountability circles idea
+
+I thought about how to address this within the new paid community. The idea came while riding a tram: create accountability groups or accountability circles. These are groups where people have their own tasks and plans - everyone has different goals - but they meet together regularly[^68].
+
+This is similar to mastermind groups where people are roughly at the same level but have slightly different problems. Together they are better than each person individually - they complement each other and the collective level ends up one or two notches higher than any individual[^68].
+
+These groups can be organized by focus area:
+- Career-focused groups (meeting once a month)
+- Project-focused groups (meeting once a week)
+
+What happens in these groups: people share progress, talk about blockers, and get help from each other. It works like a regular standup at a company - you say what you did, what your plans are, and what blockers you have. Team members help resolve blockers and suggest solutions[^68].
+
+### Why this works
+
+The same mechanism that makes mentoring effective applies here. A person knows a session is coming in two days, realizes they have done nothing, and sits down to make progress. With group calls, the same effect kicks in - they know the meeting is coming, so they sit down and do the work to have something to show, a demo or progress to discuss[^68].
+
+Scrum masters are usually not technical people. The real help comes from everyone in the team - "you could do this, you could try that." This is essentially group mentoring. The right term is mastermind groups - people at roughly the same level but with slightly different problems who complement each other[^68].
+
+### Redirecting mentoring requests
+
+I want to send all people who ask me for mentoring to this community. I will say: "Look, here is what we do. We create these groups. I will not mentor you personally, but I will give you a structure to follow." We can discuss their plan together. This does not have to be synchronous - we do not have to schedule calls[^69].
+
+A framework can be designed where people describe their problem and I provide a solution. They could record a voice message or video describing their problem. I run it through an LLM, and based on ready-made plans, select the most suitable one and send it to them. Their task is to follow that plan[^69].
+
+This starts as one-on-one but can be automated over time. Initially it takes a lot of my involvement, but as more ready-made plans accumulate, the task becomes just selecting a similar plan and adjusting it for the person[^69].
+
+### Validating the idea
+
+I will write to everyone who has recently asked me for mentoring and ask how interested they would be in this. A woman recently reached out wanting help with AI skills - she seems like an ideal candidate for this. Once we formulate this better and launch the community, I will reach out, offer a call, and tell her about this idea[^70].
+
+My hypothesis is that people who ask for mentoring actually need an accountability partner or accountability structure - someone to report progress to. This is a hypothesis that can be tested[^68].
+
+### Sprint-based format
+
+Instead of running these groups continuously (like "every Tuesday"), a more organized approach would be to run them in sprints or cohorts[^71].
+
+Benefits of sprints:
+- Promotion opportunity - "our 10th sprint is starting, here are results from sprint 9" to attract new members
+- Easier to plan vacations and breaks
+- Clear understanding of participation numbers - if 10 people sign up, expect 7 to start and 3 to finish
+- Ongoing social media promotion - "new cohort starting" creates regular marketing moments[^71]
+
+Continuous activities lose interest over time, like "Book of the Week" or "Project of the Week" where interest fades. Running in sprints with periodic pauses helps avoid this. Sprints can have different focus areas. Taking breaks to rethink and adjust is valuable[^71].
+
 ## Next Steps
 
 1. Start with AI Buildcamp students (free access for course alumni)
@@ -573,3 +623,7 @@ The key is to learn from real members rather than assuming what they want.
 [^65]: [20260211_045229_AlexeyDTC_msg1368.md](../inbox/raw/20260211_045229_AlexeyDTC_msg1368.md)
 [^66]: [20260212_091239_AlexeyDTC_msg1482_transcript.txt](../inbox/raw/20260212_091239_AlexeyDTC_msg1482_transcript.txt)
 [^67]: [20260212_070950_AlexeyDTC_msg1465.md](../inbox/raw/20260212_070950_AlexeyDTC_msg1465.md)
+[^68]: [20260213_152027_AlexeyDTC_msg1610_transcript.txt](../inbox/used/20260213_152027_AlexeyDTC_msg1610_transcript.txt)
+[^69]: [20260213_152227_AlexeyDTC_msg1611_transcript.txt](../inbox/used/20260213_152227_AlexeyDTC_msg1611_transcript.txt)
+[^70]: [20260213_152303_AlexeyDTC_msg1612_transcript.txt](../inbox/used/20260213_152303_AlexeyDTC_msg1612_transcript.txt)
+[^71]: [20260213_153009_AlexeyDTC_msg1623_transcript.txt](../inbox/used/20260213_153009_AlexeyDTC_msg1623_transcript.txt)

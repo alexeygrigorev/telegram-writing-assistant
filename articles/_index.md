@@ -67,6 +67,7 @@ Brief description of what this article is about.
 | [AI as Personal Analyst](ai-as-personal-analyst.md) | draft | 2026-02-12 | Talk about using AI for Excel automation, data cleaning, and scaling document review |
 | [ML System Design Case Studies](research-ml-system-design.md) | draft | 2026-02-12 | Curated selection of 10 most interesting ML system design case studies from 300+ collection |
 | [Nobook: Plain Python Files as Jupyter Notebooks](nobook.md) | draft | 2026-02-13 | Tool that uses plain .py files as Jupyter notebooks instead of .ipynb JSON |
+| [OpenCode Experiments with GLM-5](opencode-experiments.md) | draft | 2026-02-13 | Trying OpenCode AI assistant with GLM-5 model - microphone booster and RPG game projects |
 
 ---
 
