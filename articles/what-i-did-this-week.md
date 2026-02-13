@@ -80,7 +80,7 @@ I experimented with the new Sonnet 4.6 and Opus 4.6 models in Claude Code. The i
 
 ### OpenCode Experiments with GLM-5
 
-I tried OpenCode - an open-source AI coding assistant - with the new GLM-5 model. Built two things in background mode while doing course recording: a microphone booster app (Tauri + Rust) and an AI Engineering RPG game. Both took multiple iterations but ended up working. The desktop mode is nice - it is built on VS Code. See [OpenCode Experiments](opencode-experiments.md) for details[^6][^7].
+I tried OpenCode - an open-source AI coding assistant - with the new GLM-5 model. Built two things in background mode while doing course recording. The desktop mode is nice - it is built on VS Code. See [OpenCode Experiments](opencode-experiments.md), [Microphone Booster App](microphone-booster-app.md), and [AI Engineer RPG Game](ai-engineer-rpg-game.md) for details[^6][^7].
 
 ### Paid Community: Accountability Circles
 
