@@ -112,6 +112,9 @@ telegram-writing-assistant/
 ├── .claude/
 │   └── commands/
 │       └── process.md # Claude processing instructions
+├── scripts/
+│   ├── check-links.py # Broken link checker
+│   └── cleanup.py     # Orphaned file cleanup
 ├── main.py            # Telegram bot
 └── .env               # API keys (not pushed to git)
 ```
@@ -136,3 +139,25 @@ Videos are NOT downloaded (to save storage and bandwidth). Instead:
 - Context from surrounding messages helps identify video content
 
 The Telegram link format is `https://t.me/c/{chat_id}/{message_id}` - this allows you to quickly jump to the original video in Telegram to view it when needed.
+
+## Link Checking
+
+Articles reference source files in `inbox/used/` and images in `assets/images/`. Run the link checker to find broken references:
+
+```bash
+python scripts/check-links.py          # report broken links
+python scripts/check-links.py --fix    # auto-fix where the file is found elsewhere
+```
+
+The script categorizes broken links as fixable (file found in a different location), not found (file missing from the repo), or ambiguous (multiple matches).
+
+## Cleanup
+
+Over time, inbox files and images accumulate that are no longer referenced by any article. Run the cleanup script to find and remove them:
+
+```bash
+python scripts/cleanup.py              # dry-run: show orphaned files
+python scripts/cleanup.py --delete     # actually delete them
+python scripts/cleanup.py --older-than 14          # only files older than 14 days
+python scripts/cleanup.py --mode git --since HEAD~10  # focus on recently orphaned files
+```
