@@ -1,7 +1,7 @@
 ---
 title: "Agentic Memory Systems for AI Agents"
 created: 2026-02-10
-updated: 2026-02-11
+updated: 2026-02-14
 tags: [research, agents, memory, llm, vector-search, rag]
 status: draft
 ---
@@ -18,7 +18,7 @@ How to build effective memory layers for agents that can persist context across 
 
 ### Eric Tramel: Searchable Agent Memory
 
-**Status: URL Not Found (404)**
+Status: URL Not Found (404)
 
 The original URL [https://eric-tramel.github.io/llm/2024/11/14/memory.html](https://eric-tramel.github.io/llm/2024/11/14/memory.html) returns a 404 error. The content may have been moved, deleted, or the URL structure changed.
 
@@ -32,7 +32,7 @@ Key insights:
 
 The advantage over vector databases: no embedding computation, simpler infrastructure, and interpretable ranking based on term frequency.
 
-**Action needed**: Verify correct URL or locate an archived version of this content[^4].
+Action needed: Verify correct URL or locate an archived version of this content[^4].
 
 ### TowardsDataScience: Custom LLM Memory Layers
 
@@ -261,6 +261,46 @@ Quotes:
 - "With Postgres, you can layer on extensions like pgvector for semantic search, or graph extensions. Instead of wiring up three different systems, agents could just connect to one database"
 - "99% of software solutions can be a relational database with some batch jobs and a web server"
 
+### Reddit: Please Stop Creating "Memory for Your Agent" Frameworks
+
+Source: https://www.reddit.com/r/ClaudeCode/comments/1r4asf6/please_stop_creating_memory_for_your_agent/[^12][^13]
+
+Overview: A provocative post in r/ClaudeCode by u/thurn2 (61 upvotes, 86% upvote ratio) arguing that the proliferation of third-party "agent memory" frameworks and MCP plugins is unnecessary because Claude Code already ships with comprehensive memory capabilities. The post sparked a nuanced community debate about where built-in memory ends and where custom solutions become necessary, revealing a spectrum of opinions from "documentation is all you need" to "memory is the biggest unsolved problem in the agentic world."
+
+### Key Ideas
+
+- Claude Code already provides multiple layers of memory: CLAUDE.md files (project-scoped and directory-scoped), MEMORY.md files, SKILL.md files, README files, a tasks system, a planning system, and an auto-memory system
+- The OP's core argument is that writing documentation is the right form of memory for agents - these are files the agent can read and write, scoped to the right level, and they serve double duty as human-readable docs
+- Many third-party memory plugins bloat the context window, increase token usage, and can cause hallucinations - the cure is worse than the disease
+- A counter-argument emerged from users working at scale (500k+ lines across 6 repos): simple file-based memory breaks down for large codebases where you need semantic search across massive amounts of code context
+- Some users pointed out that Claude's auto-memory system, while well-designed in principle, does not trigger reliably enough on its own - it needs periodic system-level reminders (similar to how Anthropic already uses reminders for the TodoWrite tool)
+
+### Key Insights
+
+- File-based memory (markdown docs in the repo) is a surprisingly effective memory system for coding agents because it is version-controlled, human-readable, scoped to directories, and requires zero infrastructure
+- The real failure mode of agent memory is not storage or retrieval but context window management - every memory system that injects context must justify its token cost against the degradation in reasoning quality
+- Auto-memory features that rely on the agent spontaneously deciding to save or retrieve information are unreliable - they need explicit periodic reminders inserted into the conversation to trigger consistently
+- There is a significant gap between small/medium projects (where file-based memory works fine) and large codebases or multi-repo setups (where semantic search, vector embeddings, or structured databases become necessary)
+- Commit history itself can serve as a form of memory - it records what changed, when, and why, and is already indexed and searchable
+- Context window size is a hard constraint on memory usefulness: beyond approximately 150k tokens, models enter "hallucination and lying territory" regardless of how good the memory system is
+
+### Community Perspectives
+
+The community split roughly into three camps:
+
+1. Minimalists (aligned with OP): File-based memory in CLAUDE.md, MEMORY.md, and documentation is sufficient. The problem is not tooling but discipline - writing good docs and keeping them updated.
+
+2. Pragmatic middle ground: Built-in memory works for most projects, but the auto-memory system needs improvement. u/lucianw pointed out that Anthropic's auto-memory is well-designed but under-triggered, and shared a hook-based reminder system that significantly improved auto-memory usage. u/coloradical5280 noted that MEMORY.md set up as a table of contents linking to other memory files "works wonderfully" and is even followed more reliably by competing agents like Codex.
+
+3. Scale-aware skeptics: Users like u/25th__Baam (500k+ lines of code across 6 repos) and u/Parking-Bet-3798 pushed back hard, arguing that file-based memory simply does not scale. u/skeetd described using Qdrant with HuggingFace text embeddings for semantic search over coding preferences, keeping the CLAUDE.md file lightweight (about 1k tokens) with just references to the vector store.
+
+Quotes:
+
+- "Claude Code already has all the memory features you could ever need. Want to remember something? Write documentation!" - u/thurn2
+- "Memory is the biggest problem that needs to be solved still. Anyone who is deep into agentic world knows this. We need as much innovation as we can get." - u/Parking-Bet-3798
+- "I almost never see Claude use it [auto-memory], even at times it should. [...] With these reminders, I found myself benefiting from much better Claude-initiated auto-memory updates." - u/lucianw
+- "If you've reached compaction, you've already messed up. [...] If you want to maximize intelligence you need to keep things at 100k context window. More than 150k and you're entering hallucinations and lying territory." - u/james__jam
+
 ## Notes
 
 The common pattern across these resources:
@@ -279,6 +319,8 @@ For a Telegram-controlled bot, the key challenge is maintaining context across c
 
 The Reddit discussion on SQL vs vectors vs graphs reinforces that there is no single best storage approach - different memory types require different storage engines. The community consensus favors using the right tool for each memory type: SQL for structured facts (user preferences, explicit rules), vector databases for semantic similarity, and graphs for relationship queries. A practical compromise mentioned multiple times is Postgres with pgvector extension - a single database that handles structured queries and semantic search without multi-system complexity. For a Telegram bot, this suggests starting with SQL for explicit user data and adding pgvector if fuzzy semantic retrieval becomes necessary.
 
+The r/ClaudeCode discussion on "stop creating memory frameworks" adds an important practical dimension: for coding agents specifically, file-based memory (markdown documents in the repo) is a viable and often sufficient memory system. It is version-controlled, human-readable, directory-scoped, and requires zero infrastructure. The key limitation is scale - this approach breaks down for large codebases (500k+ lines, multi-repo) where semantic search becomes necessary. The discussion also highlights a crucial implementation detail: auto-memory features that rely on the agent deciding to save/retrieve on its own are unreliable without explicit periodic reminders. This echoes the broader pattern that even well-designed agent capabilities need prompting infrastructure (hooks, system reminders) to trigger reliably. For context window management, the community consensus is that memory injection must justify its token cost - beyond 150k tokens, reasoning quality degrades regardless of memory quality.
+
 ## Sources
 
 [^1]: [20260209_221323_AlexeyDTC_msg1259.md](../inbox/raw/20260209_221323_AlexeyDTC_msg1259.md)
@@ -292,3 +334,5 @@ The Reddit discussion on SQL vs vectors vs graphs reinforces that there is no si
 [^9]: [20260211_153046_AlexeyDTC_msg1452.md](../inbox/raw/20260211_153046_AlexeyDTC_msg1452.md)
 [^10]: [20260211_152925_AlexeyDTC_msg1451.md](../inbox/raw/20260211_152925_AlexeyDTC_msg1451.md)
 [^11]: [https://www.reddit.com/r/AI_Agents/comments/1nkx0bz/everyones_trying_vectors_and_graphs_for_ai_memory/](https://www.reddit.com/r/AI_Agents/comments/1nkx0bz/everyones_trying_vectors_and_graphs_for_ai_memory/)
+[^12]: [https://www.reddit.com/r/ClaudeCode/comments/1r4asf6/please_stop_creating_memory_for_your_agent/](https://www.reddit.com/r/ClaudeCode/comments/1r4asf6/please_stop_creating_memory_for_your_agent/)
+[^13]: [20260214_063525_AlexeyDTC_msg1657.md](../inbox/used/20260214_063525_AlexeyDTC_msg1657.md)

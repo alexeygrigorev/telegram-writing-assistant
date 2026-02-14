@@ -71,6 +71,9 @@ Brief description of what this article is about.
 | [Microphone Booster App](microphone-booster-app.md) | draft | 2026-02-13 | Windows microphone booster built with OpenCode/GLM-5 using Tauri + Rust |
 | [AI Engineer RPG Game](ai-engineer-rpg-game.md) | draft | 2026-02-13 | RPG game for interview practice built with OpenCode/GLM-5 in Rust |
 | [Telegram Bot Server Migration](telegram-bot-server-migration.md) | draft | 2026-02-13 | Moving the Telegram writing assistant bot from local computer to a dedicated server |
+| [Design with AI: Beating the Default Look](research-design-with-ai.md) | draft | 2026-02-14 | Research on producing high-quality AI-generated UI using intent-driven design skills and systematic design memory |
+| [Claude Pilot: Quality Automation for Claude Code](research-claude-pilot.md) | draft | 2026-02-14 | Research on Claude Pilot wrapper that enforces quality guardrails on Claude Code sessions |
+| [AI Coding Agents for Note-Taking](research-ai-note-taking-tools.md) | draft | 2026-02-14 | Research on using Claude Code and OpenCode inside Obsidian and Logseq for knowledge management |
 
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "Interesting Resources"
 created: 2026-01-31
-updated: 2026-02-11
+updated: 2026-02-14
 tags: [resources, tools, ai, development]
 status: draft
 ---
@@ -74,6 +74,14 @@ Each resource entry follows this simple format:
 
 [2000 Hours Coding with LLMs in 2025](https://www.reddit.com/r/ClaudeAI/comments/1q3t579/i_spent_2000_hours_coding_with_llms_in_2025_here/) is a comprehensive Reddit post detailing lessons learned from extensive LLM-assisted coding. The author shares practical insights about what works, what doesn't, and how to effectively integrate AI coding assistants into real-world development workflows[^16].
 
+### Claude Pilot
+
+[Claude Pilot](https://github.com/maxritter/claude-pilot) is a quality automation layer built on top of Claude Code that enforces production-grade quality on every coding session through automated linting, formatting, type checking, and mandatory test-driven development. It adds spec-driven planning with verifier sub-agents, persistent memory across sessions, isolated git worktrees for safe experimentation, and an "Endless Mode" that handles session continuity automatically. The idea is simple: start a task, walk away, and come back to tested, verified code ready to ship[^20].
+
+### RTK (Rust Token Killer)
+
+[RTK](https://github.com/rtk-ai/rtk) is a CLI proxy that cuts Claude Code token usage by 89% by filtering and compressing command output before it reaches the LLM context. Most of what Claude Code reads from commands like test runs, git status, and logs is noise - passing tests, verbose output, status bars - and RTK strips it down to just the essentials. The author reported saving 10.2 million tokens over two weeks, with compressions like cargo test going from 155 lines to 3 lines[^21].
+
 ## Sources
 
 [^1]: [20260131_191039_AlexeyDTC_msg741_photo.md](../inbox/used/20260131_191039_AlexeyDTC_msg741_photo.md)
@@ -95,3 +103,5 @@ Each resource entry follows this simple format:
 [^17]: [20260210_150732_AlexeyDTC_msg1291.md](../inbox/raw/20260210_150732_AlexeyDTC_msg1291.md)
 [^18]: [20260211_131904_valeriia_kuka_msg1441.md](../inbox/raw/20260211_131904_valeriia_kuka_msg1441.md)
 [^19]: [20260211_130747_valeriia_kuka_msg1433.md](../inbox/raw/20260211_130747_valeriia_kuka_msg1433.md)
+[^20]: [20260214_060731_AlexeyDTC_msg1653.md](../inbox/used/20260214_060731_AlexeyDTC_msg1653.md)
+[^21]: [20260214_063326_AlexeyDTC_msg1656.md](../inbox/used/20260214_063326_AlexeyDTC_msg1656.md)
