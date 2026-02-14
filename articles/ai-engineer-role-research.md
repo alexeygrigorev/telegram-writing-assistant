@@ -254,7 +254,7 @@ If you learn these two patterns deeply, you can handle most AI Engineering use c
 [^11]: [20260203_212101_AlexeyDTC_msg892.md](../inbox/used/20260203_212101_AlexeyDTC_msg892.md)
 [^12]: [20260202_192519_AlexeyDTC_msg864_transcript.txt](../inbox/used/20260202_192519_AlexeyDTC_msg864_transcript.txt)
 [^13]: [20260205_121704_AlexeyDTC_msg935_transcript.txt](../inbox/used/20260205_121704_AlexeyDTC_msg935_transcript.txt)
-[^14]: [20260205_121714_AlexeyDTC_msg936_transcript.txt](../inbox/used/20260205_121714_AlexeyDTC_msg936_transcript.txt)
+[^14]: [20260205_121714_AlexeyDTC_msg936_transcript.txt](../feedback/20260205_121714_AlexeyDTC_msg936_transcript.txt)
 [^15]: [20260204_141838_AlexeyDTC_msg925_photo.md](../inbox/used/20260204_141838_AlexeyDTC_msg925_photo.md)
 [^16]: [20260205_121325_AlexeyDTC_msg934_transcript.txt](../inbox/used/20260205_121325_AlexeyDTC_msg934_transcript.txt)
 [^17]: [20260206_074709_AlexeyDTC_msg974_photo.md](../inbox/used/20260206_074709_AlexeyDTC_msg974_photo.md)

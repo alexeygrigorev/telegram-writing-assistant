@@ -128,7 +128,7 @@ This is the next step that I haven't tested yet[^3].
 - [20260205_123340_AlexeyDTC_msg940_transcript.txt](../inbox/used/20260205_123340_AlexeyDTC_msg940_transcript.txt)
 - [20260206_112027_AlexeyDTC_msg980_transcript.txt](../inbox/used/20260206_112027_AlexeyDTC_msg980_transcript.txt)
 - [20260206_124435_valeriia_kuka_msg985_transcript.txt](../inbox/used/20260206_124435_valeriia_kuka_msg985_transcript.txt)
-- [20260206_124628_valeriia_kuka_msg987_transcript.txt](../inbox/used/20260206_124628_valeriia_kuka_msg987_transcript.txt)
+- [20260206_124628_valeriia_kuka_msg987_transcript.txt](../inbox/used/feedback/20260206_124628_valeriia_kuka_msg987_transcript.txt)
 - [20260206_170012_AlexeyDTC_msg1026_transcript.txt](../inbox/used/20260206_170012_AlexeyDTC_msg1026_transcript.txt)
 - [20260206_173451_AlexeyDTC_msg1034_transcript.txt](../inbox/used/20260206_173451_AlexeyDTC_msg1034_transcript.txt)
 - [20260206_173503_AlexeyDTC_msg1036.md](../inbox/used/20260206_173503_AlexeyDTC_msg1036.md)
