@@ -61,9 +61,10 @@ class ClaudeProgressFormatter:
         # Skip "Reading..." messages - only show "Read..." when done
         if tool_name == "Read":
             return None
-        # Skip TodoWrite progress messages - too noisy
         elif tool_name == "TodoWrite":
-            return None
+            return ClaudeProgressFormatter._format_todo_write(tool_input)
+        elif tool_name == "Task":
+            return ClaudeProgressFormatter._format_task(tool_input)
         elif tool_name == "Write":
             file_path = tool_input.get("file_path", "?")
             return f"✍️  Writing: `{Path(file_path).name}`"
@@ -81,6 +82,32 @@ class ClaudeProgressFormatter:
             path = tool_input.get("path", "?")
             return f"🔎 Searching: `{pattern}` in `{path}`"
         return None
+
+    @staticmethod
+    def _format_task(tool_input: dict) -> Optional[str]:
+        """Format a Task (subagent) tool use."""
+        description = tool_input.get("description", "")
+        if not description:
+            return None
+        bg = " (bg)" if tool_input.get("run_in_background") else ""
+        return f"🤖 Agent{bg}: {description}"
+
+    @staticmethod
+    def _format_todo_write(tool_input: dict) -> Optional[str]:
+        """Format a TodoWrite tool use showing current task progress."""
+        todos = tool_input.get("todos", [])
+        if not todos:
+            return None
+        completed = sum(1 for t in todos if t.get("status") == "completed")
+        total = len(todos)
+        # Find the in_progress task
+        in_progress = next(
+            (t.get("content", "") for t in todos if t.get("status") == "in_progress"),
+            None
+        )
+        if in_progress:
+            return f"📋 Tasks [{completed}/{total}]: {in_progress}"
+        return f"📋 Tasks [{completed}/{total}]"
 
     @staticmethod
     def format_tool_result(tool_result: dict) -> Optional[str]:

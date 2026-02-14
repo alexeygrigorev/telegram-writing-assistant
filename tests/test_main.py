@@ -262,17 +262,68 @@ class TestClaudeRunner:
         result = ClaudeProgressFormatter.format_tool_use("Bash", {"command": "git status"})
         assert result == "💻 Running: `git status...`"
 
-    def test_format_tool_use_todowrite(self):
-        """Test formatting TodoWrite tool use - returns None to avoid noise."""
+    def test_format_tool_use_todowrite_with_in_progress(self):
+        """Test formatting TodoWrite shows current task progress."""
         from claude_runner import ClaudeProgressFormatter
 
         todos = [
-            {"status": "pending", "content": "Task 1"},
-            {"status": "in_progress", "content": "Task 2"},
+            {"status": "completed", "content": "Task 1"},
+            {"status": "in_progress", "content": "Process text content"},
             {"status": "pending", "content": "Task 3"},
         ]
         result = ClaudeProgressFormatter.format_tool_use("TodoWrite", {"todos": todos})
-        assert result is None  # Skip TodoWrite messages - too noisy
+        assert result == "📋 Tasks [1/3]: Process text content"
+
+    def test_format_tool_use_todowrite_all_completed(self):
+        """Test formatting TodoWrite when all tasks are done."""
+        from claude_runner import ClaudeProgressFormatter
+
+        todos = [
+            {"status": "completed", "content": "Task 1"},
+            {"status": "completed", "content": "Task 2"},
+        ]
+        result = ClaudeProgressFormatter.format_tool_use("TodoWrite", {"todos": todos})
+        assert result == "📋 Tasks [2/2]"
+
+    def test_format_tool_use_todowrite_empty(self):
+        """Test formatting TodoWrite with empty todos returns None."""
+        from claude_runner import ClaudeProgressFormatter
+
+        result = ClaudeProgressFormatter.format_tool_use("TodoWrite", {"todos": []})
+        assert result is None
+
+    def test_format_tool_use_task(self):
+        """Test formatting Task (subagent) tool use."""
+        from claude_runner import ClaudeProgressFormatter
+
+        result = ClaudeProgressFormatter.format_tool_use("Task", {
+            "description": "Research claude-pilot repo",
+            "subagent_type": "general-purpose",
+            "prompt": "Fetch the content..."
+        })
+        assert result == "🤖 Agent: Research claude-pilot repo"
+
+    def test_format_tool_use_task_background(self):
+        """Test formatting background Task shows (bg) suffix."""
+        from claude_runner import ClaudeProgressFormatter
+
+        result = ClaudeProgressFormatter.format_tool_use("Task", {
+            "description": "Summarize article",
+            "subagent_type": "general-purpose",
+            "run_in_background": True,
+            "prompt": "..."
+        })
+        assert result == "🤖 Agent (bg): Summarize article"
+
+    def test_format_tool_use_task_no_description(self):
+        """Test formatting Task with no description returns None."""
+        from claude_runner import ClaudeProgressFormatter
+
+        result = ClaudeProgressFormatter.format_tool_use("Task", {
+            "subagent_type": "general-purpose",
+            "prompt": "..."
+        })
+        assert result is None
 
     def test_format_tool_use_glob(self):
         """Test formatting Glob tool use."""

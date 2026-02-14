@@ -30,6 +30,8 @@ class ProgressTracker:
     EMOJI_EDIT = "✏️"
     EMOJI_WRITE = "✍️"
     EMOJI_RUNNING = "💻"
+    EMOJI_AGENT = "🤖"
+    EMOJI_TASKS = "📋"
     EMOJI_ERROR = "❌"
 
     def __init__(self, bot, chat_id: int):
@@ -113,6 +115,8 @@ class ProgressTracker:
             (r"✏️  Editing: (.*)", self.EMOJI_EDIT, "edit"),
             (r"✍️  Writing: (.*)", self.EMOJI_WRITE, "write"),
             (r"💻 Running: (.*)", self.EMOJI_RUNNING, None),
+            (r"🤖 Agent(?:\s*\(bg\))?: (.*)", self.EMOJI_AGENT, "agent"),
+            (r"📋 Tasks (.*)", self.EMOJI_TASKS, "tasks"),
             (r"⚠️ (.*)", self.EMOJI_ERROR, "error"),
         ]
 
@@ -124,7 +128,7 @@ class ProgressTracker:
         # Unknown pattern - try to extract emoji
         emoji = ""
         text = message
-        if message and message[0] in ("📖", "🔍", "✏️", "✍️", "💻", "❌"):
+        if message and message[0] in ("📖", "🔍", "✏️", "✍️", "💻", "🤖", "📋", "❌"):
             emoji = message[0] + message[1] if len(message) > 1 and ord(message[1]) > 127 else message[0]
             text = message[len(emoji):].strip()
 
@@ -159,6 +163,8 @@ class ProgressTracker:
             counter_lines.append(f"{self.EMOJI_EDIT} Edited {self.counters['edit']} files")
         if self.counters.get("found", 0) > 1:
             counter_lines.append(f"{self.EMOJI_FOUND} Found {self.counters['found']} items")
+        if self.counters.get("agent", 0) > 0:
+            counter_lines.append(f"{self.EMOJI_AGENT} Launched {self.counters['agent']} agents")
 
         summary = "\n".join(counter_lines)
         if summary:
