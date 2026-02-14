@@ -1,0 +1,10 @@
+---
+source: telegram_voice
+date: 2026-02-14T10:43:16+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260214_104316_AlexeyDTC_msg1681.ogg
+---
+
+Эти сообщения от Валерии, это ее ответ на мой вопрос про то, как мы будем продвигать. Давай сделаем
+статью «Paid Community Marketing Plan» и постепенно все идеи туда будем записывать.

@@ -82,6 +82,10 @@ Each resource entry follows this simple format:
 
 [RTK](https://github.com/rtk-ai/rtk) is a CLI proxy that cuts Claude Code token usage by 89% by filtering and compressing command output before it reaches the LLM context. Most of what Claude Code reads from commands like test runs, git status, and logs is noise - passing tests, verbose output, status bars - and RTK strips it down to just the essentials. The author reported saving 10.2 million tokens over two weeks, with compressions like cargo test going from 155 lines to 3 lines[^21].
 
+### You Could've Invented OpenClaw
+
+[You Could've Invented OpenClaw](https://gist.github.com/dabit3/bc60d3bea0b02927995cd9bf53c3db32) is a tutorial by Nader Dabit that walks through building a persistent AI assistant from scratch, starting with a simple Telegram bot using the Anthropic API. It incrementally adds sessions, personality, tool use, multi-channel support, memory, and scheduled tasks, arriving at a ~400-line "mini OpenClaw" clone. I already built my own Telegram bot - this is an interesting look at how someone else approached the same problem[^22][^23].
+
 ## Sources
 
 [^1]: [20260131_191039_AlexeyDTC_msg741_photo.md](../inbox/used/20260131_191039_AlexeyDTC_msg741_photo.md)
@@ -105,3 +109,5 @@ Each resource entry follows this simple format:
 [^19]: [20260211_130747_valeriia_kuka_msg1433.md](../inbox/used/20260211_130747_valeriia_kuka_msg1433.md)
 [^20]: [20260214_060731_AlexeyDTC_msg1653.md](../inbox/used/20260214_060731_AlexeyDTC_msg1653.md)
 [^21]: [20260214_063326_AlexeyDTC_msg1656.md](../inbox/used/20260214_063326_AlexeyDTC_msg1656.md)
+[^22]: [20260214_103313_AlexeyDTC_msg1673.md](../inbox/used/20260214_103313_AlexeyDTC_msg1673.md)
+[^23]: [20260214_103407_AlexeyDTC_msg1675_transcript.txt](../inbox/used/20260214_103407_AlexeyDTC_msg1675_transcript.txt)

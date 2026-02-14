@@ -1,7 +1,7 @@
 ---
 title: "Paid AI Engineers Community Planning"
 created: 2026-02-10
-updated: 2026-02-13
+updated: 2026-02-14
 tags: [community, business, ai-engineering, pricing]
 status: draft
 ---
@@ -271,6 +271,13 @@ This is the main value proposition at $50 per month. Members get full community 
 - Resume review sessions (visible to all as community learning)
 - Career advancement discussions
 - Workplace effectiveness and productivity
+- Group course study - when a new course comes out (e.g. from Andrej Karpathy), we go through it together as a group, creating structure for people to learn together[^72]
+- Seminars - like university seminars where each person gets assigned a topic (an article, a technology, a new tool) to research, and then presents their findings on a call. Everyone learns from each other's research[^72]
+- Book Reading Club - reading and discussing books together[^72]
+
+These are three ideas that came up at once. Which tier they belong to still needs to be figured out. We can ask people what interests them and what resonates, and then build from there[^72].
+
+These activities also help cut through the noise. There is a lot of noise on social media right now. People open social media and see others talking about many things, which creates FOMO. The community can help people focus on what is actually important instead of chasing everything[^72].
 
 Course requests and influence: since the current course catalog is limited, community members can request and influence which courses get developed. The courses offered can be shaped based on what people in the community want to learn[^33].
 
@@ -627,3 +634,4 @@ The key is to learn from real members rather than assuming what they want.
 [^69]: [20260213_152227_AlexeyDTC_msg1611_transcript.txt](../inbox/used/20260213_152227_AlexeyDTC_msg1611_transcript.txt)
 [^70]: [20260213_152303_AlexeyDTC_msg1612_transcript.txt](../inbox/used/20260213_152303_AlexeyDTC_msg1612_transcript.txt)
 [^71]: [20260213_153009_AlexeyDTC_msg1623_transcript.txt](../inbox/used/20260213_153009_AlexeyDTC_msg1623_transcript.txt)
+[^72]: [20260214_092313_AlexeyDTC_msg1669_transcript.txt](../inbox/used/20260214_092313_AlexeyDTC_msg1669_transcript.txt)

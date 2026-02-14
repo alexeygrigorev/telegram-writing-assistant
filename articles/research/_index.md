@@ -17,3 +17,4 @@ See [All Articles](../_index.md) for the main articles index.
 | [ML System Design Case Studies](ml-system-design.md) | draft | 2026-02-12 | Curated selection of 10 most interesting ML system design case studies from 300+ collection |
 | [Spec-Driven Development](spec-driven-development.md) | draft | 2026-02-10 | Research on spec-driven development and task management for AI agents |
 | [YC Guide to Vibe Coding](yc-vibe-coding.md) | draft | 2026-02-10 | Research on YC's guide to vibe coding and AI workflow optimization |
+| [OpenClaw: Building a Persistent AI Assistant](openclaw-telegram-bot-architecture.md) | draft | 2026-02-14 | Research on building persistent AI assistants from a Telegram bot using the Anthropic API |

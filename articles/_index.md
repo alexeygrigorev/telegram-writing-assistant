@@ -70,6 +70,7 @@ Brief description of what this article is about.
 | [Microphone Booster App](microphone-booster-app.md) | draft | 2026-02-13 | Windows microphone booster built with OpenCode/GLM-5 using Tauri + Rust |
 | [AI Engineer RPG Game](ai-engineer-rpg-game.md) | draft | 2026-02-13 | RPG game for interview practice built with OpenCode/GLM-5 in Rust |
 | [Telegram Bot Server Migration](telegram-bot-server-migration.md) | draft | 2026-02-13 | Moving the Telegram writing assistant bot from local computer to a dedicated server |
+| [Paid Community Marketing Plan](paid-community-marketing-plan.md) | draft | 2026-02-14 | Marketing plan and funnel for promoting the paid community |
 
 See [Research Articles](research/_index.md) for research and investigation topics.
 
