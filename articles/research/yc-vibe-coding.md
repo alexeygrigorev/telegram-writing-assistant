@@ -132,9 +132,9 @@ Key insight: complexity in the system, simplicity in the workflow. Spend time up
 
 ## Sources
 
-[^1]: [20260209_183721_AlexeyDTC_msg1251_photo.md](../../inbox/raw/20260209_183721_AlexeyDTC_msg1251_photo.md)
-[^2]: [20260209_183728_AlexeyDTC_msg1252_photo.md](../../inbox/raw/20260209_183728_AlexeyDTC_msg1252_photo.md)
-[^3]: [20260209_183733_AlexeyDTC_msg1253.md](../../inbox/raw/20260209_183733_AlexeyDTC_msg1253.md)
-[^4]: [20260209_183752_AlexeyDTC_msg1254_transcript.txt](../../inbox/raw/20260209_183752_AlexeyDTC_msg1254_transcript.txt)
-[^5]: [20260209_183811_AlexeyDTC_msg1255_transcript.txt](../../inbox/raw/20260209_183811_AlexeyDTC_msg1255_transcript.txt)
-[^6]: [20260210_082618_AlexeyDTC_msg1262_photo.md](../../inbox/raw/20260210_082618_AlexeyDTC_msg1262_photo.md)
+[^1]: [20260209_183721_AlexeyDTC_msg1251_photo.md](../../inbox/used/20260209_183721_AlexeyDTC_msg1251_photo.md)
+[^2]: [20260209_183728_AlexeyDTC_msg1252_photo.md](../../inbox/used/20260209_183728_AlexeyDTC_msg1252_photo.md)
+[^3]: [20260209_183733_AlexeyDTC_msg1253.md](../../inbox/used/20260209_183733_AlexeyDTC_msg1253.md)
+[^4]: [20260209_183752_AlexeyDTC_msg1254_transcript.txt](../../inbox/used/20260209_183752_AlexeyDTC_msg1254_transcript.txt)
+[^5]: [20260209_183811_AlexeyDTC_msg1255_transcript.txt](../../inbox/used/20260209_183811_AlexeyDTC_msg1255_transcript.txt)
+[^6]: [20260210_082618_AlexeyDTC_msg1262_photo.md](../../inbox/used/20260210_082618_AlexeyDTC_msg1262_photo.md)

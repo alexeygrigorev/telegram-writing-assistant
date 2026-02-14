@@ -246,15 +246,15 @@ Compound Engineering from Every introduces a crucial insight: the compound step 
 
 ## Sources
 
-[^1]: [20260209_220800_AlexeyDTC_msg1256.md](../../inbox/raw/20260209_220800_AlexeyDTC_msg1256.md)
-[^2]: [20260209_220915_AlexeyDTC_msg1257.md](../../inbox/raw/20260209_220915_AlexeyDTC_msg1257.md)
-[^3]: [20260209_221149_AlexeyDTC_msg1258.md](../../inbox/raw/20260209_221149_AlexeyDTC_msg1258.md)
+[^1]: [20260209_220800_AlexeyDTC_msg1256.md](../../inbox/used/20260209_220800_AlexeyDTC_msg1256.md)
+[^2]: [20260209_220915_AlexeyDTC_msg1257.md](../../inbox/used/20260209_220915_AlexeyDTC_msg1257.md)
+[^3]: [20260209_221149_AlexeyDTC_msg1258.md](../../inbox/used/20260209_221149_AlexeyDTC_msg1258.md)
 [^4]: [https://github.com/gsd-build/get-shit-done](https://github.com/gsd-build/get-shit-done)
 [^5]: [https://github.com/tmchow/tmc-marketplace/tree/main/plugins/iterative-engineering](https://github.com/tmchow/tmc-marketplace/tree/main/plugins/iterative-engineering)
 [^6]: [https://x.com/omarsar0/status/2020891961511809456](https://x.com/omarsar0/status/2020891961511809456)
-[^7]: [20260210_082645_AlexeyDTC_msg1263.md](../../inbox/raw/20260210_082645_AlexeyDTC_msg1263.md)
-[^8]: [20260210_082759_AlexeyDTC_msg1264_transcript.txt](../../inbox/raw/20260210_082759_AlexeyDTC_msg1264_transcript.txt)
-[^9]: [20260210_082911_AlexeyDTC_msg1265.md](../../inbox/raw/20260210_082911_AlexeyDTC_msg1265.md)
-[^10]: [20260210_083048_AlexeyDTC_msg1266.md](../../inbox/raw/20260210_083048_AlexeyDTC_msg1266.md)
+[^7]: [20260210_082645_AlexeyDTC_msg1263.md](../../inbox/used/20260210_082645_AlexeyDTC_msg1263.md)
+[^8]: [20260210_082759_AlexeyDTC_msg1264_transcript.txt](../../inbox/used/20260210_082759_AlexeyDTC_msg1264_transcript.txt)
+[^9]: [20260210_082911_AlexeyDTC_msg1265.md](../../inbox/used/20260210_082911_AlexeyDTC_msg1265.md)
+[^10]: [20260210_083048_AlexeyDTC_msg1266.md](../../inbox/used/20260210_083048_AlexeyDTC_msg1266.md)
 [^11]: [https://github.com/blader/taskmaster](https://github.com/blader/taskmaster)
 [^12]: [https://every.to/guides/compound-engineering](https://every.to/guides/compound-engineering)

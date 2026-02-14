@@ -51,8 +51,8 @@ This is a brainstorm/braindump format - some ideas may be developed further, oth
 
 ## Sources
 
-- [20260129_173919_AlexeyDTC_msg653_transcript.txt](../inbox/raw/20260129_173919_AlexeyDTC_msg653_transcript.txt)
-- [20260129_174124_AlexeyDTC_msg654_transcript.txt](../inbox/raw/20260129_174124_AlexeyDTC_msg654_transcript.txt)
+- [20260129_173919_AlexeyDTC_msg653_transcript.txt](../inbox/used/20260129_173919_AlexeyDTC_msg653_transcript.txt)
+- [20260129_174124_AlexeyDTC_msg654_transcript.txt](../inbox/used/20260129_174124_AlexeyDTC_msg654_transcript.txt)
 
-[^1]: [20260129_173919_AlexeyDTC_msg653_transcript.txt](../inbox/raw/20260129_173919_AlexeyDTC_msg653_transcript.txt)
-[^2]: [20260129_174124_AlexeyDTC_msg654_transcript.txt](../inbox/raw/20260129_174124_AlexeyDTC_msg654_transcript.txt)
+[^1]: [20260129_173919_AlexeyDTC_msg653_transcript.txt](../inbox/used/20260129_173919_AlexeyDTC_msg653_transcript.txt)
+[^2]: [20260129_174124_AlexeyDTC_msg654_transcript.txt](../inbox/used/20260129_174124_AlexeyDTC_msg654_transcript.txt)

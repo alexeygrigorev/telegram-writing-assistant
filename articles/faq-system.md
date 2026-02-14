@@ -205,15 +205,15 @@ The pattern is consistent: search for relevant context, then use an LLM to proce
 
 ## Sources
 
-[^1]: [20260207_171105_AlexeyDTC_msg1128.md](../inbox/raw/20260207_171105_AlexeyDTC_msg1128.md) - RAG for Content Management course material
-[^2]: [20260207_170725_AlexeyDTC_msg1126_transcript.txt](../inbox/raw/20260207_170725_AlexeyDTC_msg1126_transcript.txt) - Voice message explaining the FAQ bot workflow
-[^3]: [20260207_172620_AlexeyDTC_msg1139_transcript.txt](../inbox/raw/20260207_172620_AlexeyDTC_msg1139_transcript.txt) - Using FAQ data for RAG examples in LLM Zoomcamp
-[^4]: [20260207_173142_AlexeyDTC_msg1156_transcript.txt](../inbox/raw/20260207_173142_AlexeyDTC_msg1156_transcript.txt) - Jekyll vs Jinja template conflicts
-[^5]: [20260207_173456_AlexeyDTC_msg1162_transcript.txt](../inbox/raw/20260207_173456_AlexeyDTC_msg1162_transcript.txt) - JSON export for AI Engineering Buildcamp
-[^6]: [20260207_171105_AlexeyDTC_msg1128.md](../inbox/raw/20260207_171105_AlexeyDTC_msg1128.md) - FAQ automation workflow documentation
-[^7]: [20260207_171156_AlexeyDTC_msg1129_transcript.txt](../inbox/raw/20260207_171156_AlexeyDTC_msg1129_transcript.txt) - Hacktoberfest contribution story
-[^8]: [20260207_170725_AlexeyDTC_msg1126_transcript.txt](../inbox/raw/20260207_170725_AlexeyDTC_msg1126_transcript.txt) - FAQ bot makes mistakes with categorization
-[^9]: [20260207_171552_AlexeyDTC_msg1132_transcript.txt](../inbox/raw/20260207_171552_AlexeyDTC_msg1132_transcript.txt) - Using Claude Code to review and fix PRs interactively
-[^10]: [20260207_171552_AlexeyDTC_msg1132_transcript.txt](../inbox/raw/20260207_171552_AlexeyDTC_msg1132_transcript.txt) - Bot uses simpler model, Claude uses better model during review
-[^11]: [20260207_170725_AlexeyDTC_msg1126_transcript.txt](../inbox/raw/20260207_170725_AlexeyDTC_msg1126_transcript.txt) - Learning from mistakes to improve the agent
-[^12]: [20260207_171105_AlexeyDTC_msg1128.md](../inbox/raw/20260207_171105_AlexeyDTC_msg1128.md) - Other RAG applications beyond QA
+[^1]: [20260207_171105_AlexeyDTC_msg1128.md](../inbox/used/20260207_171105_AlexeyDTC_msg1128.md) - RAG for Content Management course material
+[^2]: [20260207_170725_AlexeyDTC_msg1126_transcript.txt](../inbox/used/20260207_170725_AlexeyDTC_msg1126_transcript.txt) - Voice message explaining the FAQ bot workflow
+[^3]: [20260207_172620_AlexeyDTC_msg1139_transcript.txt](../inbox/used/20260207_172620_AlexeyDTC_msg1139_transcript.txt) - Using FAQ data for RAG examples in LLM Zoomcamp
+[^4]: [20260207_173142_AlexeyDTC_msg1156_transcript.txt](../inbox/used/20260207_173142_AlexeyDTC_msg1156_transcript.txt) - Jekyll vs Jinja template conflicts
+[^5]: [20260207_173456_AlexeyDTC_msg1162_transcript.txt](../inbox/used/20260207_173456_AlexeyDTC_msg1162_transcript.txt) - JSON export for AI Engineering Buildcamp
+[^6]: [20260207_171105_AlexeyDTC_msg1128.md](../inbox/used/20260207_171105_AlexeyDTC_msg1128.md) - FAQ automation workflow documentation
+[^7]: [20260207_171156_AlexeyDTC_msg1129_transcript.txt](../inbox/used/20260207_171156_AlexeyDTC_msg1129_transcript.txt) - Hacktoberfest contribution story
+[^8]: [20260207_170725_AlexeyDTC_msg1126_transcript.txt](../inbox/used/20260207_170725_AlexeyDTC_msg1126_transcript.txt) - FAQ bot makes mistakes with categorization
+[^9]: [20260207_171552_AlexeyDTC_msg1132_transcript.txt](../inbox/used/20260207_171552_AlexeyDTC_msg1132_transcript.txt) - Using Claude Code to review and fix PRs interactively
+[^10]: [20260207_171552_AlexeyDTC_msg1132_transcript.txt](../inbox/used/20260207_171552_AlexeyDTC_msg1132_transcript.txt) - Bot uses simpler model, Claude uses better model during review
+[^11]: [20260207_170725_AlexeyDTC_msg1126_transcript.txt](../inbox/used/20260207_170725_AlexeyDTC_msg1126_transcript.txt) - Learning from mistakes to improve the agent
+[^12]: [20260207_171105_AlexeyDTC_msg1128.md](../inbox/used/20260207_171105_AlexeyDTC_msg1128.md) - Other RAG applications beyond QA

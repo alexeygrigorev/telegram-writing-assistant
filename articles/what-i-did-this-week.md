@@ -80,8 +80,8 @@ I experimented with the new Sonnet 4.6 and Opus 4.6 models in Claude Code. The i
 
 ## Sources
 
-[^1]: [20260211_094131_AlexeyDTC_msg1377_transcript.txt](../inbox/raw/20260211_094131_AlexeyDTC_msg1377_transcript.txt)
-[^2]: [20260211_094212_AlexeyDTC_msg1378_transcript.txt](../inbox/raw/20260211_094212_AlexeyDTC_msg1378_transcript.txt)
+[^1]: [20260211_094131_AlexeyDTC_msg1377_transcript.txt](../inbox/used/20260211_094131_AlexeyDTC_msg1377_transcript.txt)
+[^2]: [20260211_094212_AlexeyDTC_msg1378_transcript.txt](../inbox/used/20260211_094212_AlexeyDTC_msg1378_transcript.txt)
 [^3]: [20260213_070408_AlexeyDTC_msg1574_transcript.txt](../inbox/used/20260213_070408_AlexeyDTC_msg1574_transcript.txt)
 [^4]: [20260213_070414_AlexeyDTC_msg1575_transcript.txt](../inbox/used/20260213_070414_AlexeyDTC_msg1575_transcript.txt)
 [^5]: [20260213_065936_AlexeyDTC_msg1573_transcript.txt](../inbox/used/20260213_065936_AlexeyDTC_msg1573_transcript.txt)

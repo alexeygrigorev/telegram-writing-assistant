@@ -444,7 +444,7 @@ The idea for this system came after realizing that writing articles takes time[^
 
 ## Sources
 
-[^1]: [20260117_105133_AlexeyDTC_transcript.txt](../inbox/raw/20260117_105133_AlexeyDTC_transcript.txt)
+[^1]: [20260117_105133_AlexeyDTC_transcript.txt](../inbox/used/20260117_105133_AlexeyDTC_transcript.txt)
 ```
 
 ## Step 7: Summary Report

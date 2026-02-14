@@ -187,7 +187,7 @@ But it's already working - you can download your export, run the viewer, and sea
 
 ## Sources
 
-[^1]: [20260207_073723_AlexeyDTC_msg1082_transcript.txt](../inbox/raw/20260207_073723_AlexeyDTC_msg1082_transcript.txt)
-[^2]: [20260207_070935_AlexeyDTC_msg1080_video.md](../inbox/raw/20260207_070935_AlexeyDTC_msg1080_video.md)
-[^3]: [20260207_070146_AlexeyDTC_msg1078.md](../inbox/raw/20260207_070146_AlexeyDTC_msg1078.md) - GitHub repository link
-[^4]: [20260207_092504_AlexeyDTC_msg1088_transcript.txt](../inbox/raw/20260207_092504_AlexeyDTC_msg1088_transcript.txt) - Development workflow
+[^1]: [20260207_073723_AlexeyDTC_msg1082_transcript.txt](../inbox/used/20260207_073723_AlexeyDTC_msg1082_transcript.txt)
+[^2]: [20260207_070935_AlexeyDTC_msg1080_video.md](../inbox/used/20260207_070935_AlexeyDTC_msg1080_video.md)
+[^3]: [20260207_070146_AlexeyDTC_msg1078.md](../inbox/used/20260207_070146_AlexeyDTC_msg1078.md) - GitHub repository link
+[^4]: [20260207_092504_AlexeyDTC_msg1088_transcript.txt](../inbox/used/20260207_092504_AlexeyDTC_msg1088_transcript.txt) - Development workflow

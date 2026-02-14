@@ -90,10 +90,10 @@ The recommended resources cover:
 
 ## Sources
 
-[^1]: [20260207_143150_AlexeyDTC_msg1103.md](../inbox/raw/20260207_143150_AlexeyDTC_msg1103.md) - 10 AI projects post
-[^2]: [20260207_143229_AlexeyDTC_msg1104.md](../inbox/raw/20260207_143229_AlexeyDTC_msg1104.md) - LLM Engineering Roadmap
-[^3]: [20260207_143658_AlexeyDTC_msg1105_transcript.txt](../inbox/raw/20260207_143658_AlexeyDTC_msg1105_transcript.txt) - Create social post ideas article
-[^4]: [20260207_143709_AlexeyDTC_msg1106_transcript.txt](../inbox/raw/20260207_143709_AlexeyDTC_msg1106_transcript.txt) - Put in ideas like resources article
-[^5]: [20260208_155633_AlexeyDTC_msg1224.md](../inbox/raw/20260208_155633_AlexeyDTC_msg1224.md) - Paul Iusztin LinkedIn post on learning AI engineering
-[^6]: [20260209_101213_AlexeyDTC_msg1226.md](../inbox/raw/20260209_101213_AlexeyDTC_msg1226.md) - Paul Iusztin X post on AI evals
-[^7]: [20260209_101233_AlexeyDTC_msg1228.md](../inbox/raw/20260209_101233_AlexeyDTC_msg1228.md) - Additional reference to LinkedIn post
+[^1]: [20260207_143150_AlexeyDTC_msg1103.md](../inbox/used/20260207_143150_AlexeyDTC_msg1103.md) - 10 AI projects post
+[^2]: [20260207_143229_AlexeyDTC_msg1104.md](../inbox/used/20260207_143229_AlexeyDTC_msg1104.md) - LLM Engineering Roadmap
+[^3]: [20260207_143658_AlexeyDTC_msg1105_transcript.txt](../inbox/used/20260207_143658_AlexeyDTC_msg1105_transcript.txt) - Create social post ideas article
+[^4]: [20260207_143709_AlexeyDTC_msg1106_transcript.txt](../inbox/used/20260207_143709_AlexeyDTC_msg1106_transcript.txt) - Put in ideas like resources article
+[^5]: [20260208_155633_AlexeyDTC_msg1224.md](../inbox/used/20260208_155633_AlexeyDTC_msg1224.md) - Paul Iusztin LinkedIn post on learning AI engineering
+[^6]: [20260209_101213_AlexeyDTC_msg1226.md](../inbox/used/20260209_101213_AlexeyDTC_msg1226.md) - Paul Iusztin X post on AI evals
+[^7]: [20260209_101233_AlexeyDTC_msg1228.md](../inbox/used/20260209_101233_AlexeyDTC_msg1228.md) - Additional reference to LinkedIn post

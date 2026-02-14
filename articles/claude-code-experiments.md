@@ -72,7 +72,7 @@ The critical question becomes: when is it worth using Claude, and when is manual
 
 ## Sources
 
-[^1]: [20260212_110716_AlexeyDTC_msg1521_photo.md](../inbox/raw/20260212_110716_AlexeyDTC_msg1521_photo.md)
-[^2]: [20260212_110832_AlexeyDTC_msg1525_transcript.txt](../inbox/raw/20260212_110832_AlexeyDTC_msg1525_transcript.txt)
-[^3]: [20260212_110716_AlexeyDTC_msg1522_photo.md](../inbox/raw/20260212_110716_AlexeyDTC_msg1522_photo.md)
+[^1]: [20260212_110716_AlexeyDTC_msg1521_photo.md](../inbox/used/20260212_110716_AlexeyDTC_msg1521_photo.md)
+[^2]: [20260212_110832_AlexeyDTC_msg1525_transcript.txt](../inbox/used/20260212_110832_AlexeyDTC_msg1525_transcript.txt)
+[^3]: [20260212_110716_AlexeyDTC_msg1522_photo.md](../inbox/used/20260212_110716_AlexeyDTC_msg1522_photo.md)
 [^4]: [20260213_065936_AlexeyDTC_msg1573_transcript.txt](../inbox/used/20260213_065936_AlexeyDTC_msg1573_transcript.txt)

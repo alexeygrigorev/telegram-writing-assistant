@@ -78,6 +78,6 @@ What we teach in AI Engineering Buildcamp covers exactly what's needed for this 
 ## Sources
 
 [^1]: [Data Team Roles Explained](https://datatalks.club/blog/data-roles.html) - Original article on data team roles
-[^2]: [20260208_114623_AlexeyDTC_msg1188_transcript.txt](../inbox/raw/20260208_114623_AlexeyDTC_msg1188_transcript.txt)
-[^3]: [20260208_114707_AlexeyDTC_msg1190_transcript.txt](../inbox/raw/20260208_114707_AlexeyDTC_msg1190_transcript.txt)
-[^4]: [20260208_115417_AlexeyDTC_msg1200_transcript.txt](../inbox/raw/20260208_115417_AlexeyDTC_msg1200_transcript.txt)
+[^2]: [20260208_114623_AlexeyDTC_msg1188_transcript.txt](../inbox/used/20260208_114623_AlexeyDTC_msg1188_transcript.txt)
+[^3]: [20260208_114707_AlexeyDTC_msg1190_transcript.txt](../inbox/used/20260208_114707_AlexeyDTC_msg1190_transcript.txt)
+[^4]: [20260208_115417_AlexeyDTC_msg1200_transcript.txt](../inbox/used/20260208_115417_AlexeyDTC_msg1200_transcript.txt)

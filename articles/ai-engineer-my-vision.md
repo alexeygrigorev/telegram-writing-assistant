@@ -89,6 +89,6 @@ This vision guides both my teaching and my research into how the industry actual
 
 ## Sources
 
-[^1]: [20260208_114623_AlexeyDTC_msg1188_transcript.txt](../inbox/raw/20260208_114623_AlexeyDTC_msg1188_transcript.txt)
-[^2]: [20260204_102339_AlexeyDTC_msg900_transcript.txt](../inbox/raw/20260204_102339_AlexeyDTC_msg900_transcript.txt)
-[^3]: [20260204_102429_AlexeyDTC_msg902_transcript.txt](../inbox/raw/20260204_102429_AlexeyDTC_msg902_transcript.txt)
+[^1]: [20260208_114623_AlexeyDTC_msg1188_transcript.txt](../inbox/used/20260208_114623_AlexeyDTC_msg1188_transcript.txt)
+[^2]: [20260204_102339_AlexeyDTC_msg900_transcript.txt](../inbox/used/20260204_102339_AlexeyDTC_msg900_transcript.txt)
+[^3]: [20260204_102429_AlexeyDTC_msg902_transcript.txt](../inbox/used/20260204_102429_AlexeyDTC_msg902_transcript.txt)

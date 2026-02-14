@@ -60,6 +60,6 @@ This demonstrates how AI coding assistants can handle iterative optimization wor
 
 ## Sources
 
-[^1]: [20260209_143545_AlexeyDTC_msg1234_transcript.txt](../inbox/raw/20260209_143545_AlexeyDTC_msg1234_transcript.txt)
-[^2]: [20260209_143545_AlexeyDTC_msg1234_transcript.txt](../inbox/raw/20260209_143545_AlexeyDTC_msg1234_transcript.txt)
-[^3]: [20260209_143545_AlexeyDTC_msg1234_transcript.txt](../inbox/raw/20260209_143545_AlexeyDTC_msg1234_transcript.txt)
+[^1]: [20260209_143545_AlexeyDTC_msg1234_transcript.txt](../inbox/used/20260209_143545_AlexeyDTC_msg1234_transcript.txt)
+[^2]: [20260209_143545_AlexeyDTC_msg1234_transcript.txt](../inbox/used/20260209_143545_AlexeyDTC_msg1234_transcript.txt)
+[^3]: [20260209_143545_AlexeyDTC_msg1234_transcript.txt](../inbox/used/20260209_143545_AlexeyDTC_msg1234_transcript.txt)

@@ -122,5 +122,5 @@ The token cost consideration is important. Each teammate is a separate Claude se
 ## Sources
 
 [^1]: [https://code.claude.com/docs/en/agent-teams](https://code.claude.com/docs/en/agent-teams)
-[^2]: [20260212_092849_AlexeyDTC_msg1484.md](../../inbox/raw/20260212_092849_AlexeyDTC_msg1484.md)
-[^3]: [20260212_092906_AlexeyDTC_msg1485.md](../../inbox/raw/20260212_092906_AlexeyDTC_msg1485.md)
+[^2]: [20260212_092849_AlexeyDTC_msg1484.md](../../inbox/used/20260212_092849_AlexeyDTC_msg1484.md)
+[^3]: [20260212_092906_AlexeyDTC_msg1485.md](../../inbox/used/20260212_092906_AlexeyDTC_msg1485.md)

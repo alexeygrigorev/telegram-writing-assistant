@@ -57,5 +57,5 @@ This article collects examples of the ideation and iteration process. As new exa
 
 ## Sources
 
-[^1]: [20260130_223606_AlexeyDTC_msg737_transcript.txt](../inbox/raw/20260130_223606_AlexeyDTC_msg737_transcript.txt)
-[^2]: [20260201_114115_AlexeyDTC_msg816_transcript.txt](../inbox/raw/20260201_114115_AlexeyDTC_msg816_transcript.txt)
+[^1]: [20260130_223606_AlexeyDTC_msg737_transcript.txt](../inbox/used/20260130_223606_AlexeyDTC_msg737_transcript.txt)
+[^2]: [20260201_114115_AlexeyDTC_msg816_transcript.txt](../inbox/used/20260201_114115_AlexeyDTC_msg816_transcript.txt)

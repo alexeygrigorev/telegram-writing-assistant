@@ -57,5 +57,5 @@ This two-step process ensures complete preservation of voice message content[^1]
 
 ## Sources
 
-[^1]: [20260211_103047_AlexeyDTC_msg1427_transcript.txt](../inbox/raw/20260211_103047_AlexeyDTC_msg1427_transcript.txt)
-[^2]: [20260210_152205_AlexeyDTC_msg1293_transcript.txt](../inbox/raw/20260210_152205_AlexeyDTC_msg1293_transcript.txt)
+[^1]: [20260211_103047_AlexeyDTC_msg1427_transcript.txt](../inbox/used/20260211_103047_AlexeyDTC_msg1427_transcript.txt)
+[^2]: [20260210_152205_AlexeyDTC_msg1293_transcript.txt](../inbox/used/20260210_152205_AlexeyDTC_msg1293_transcript.txt)

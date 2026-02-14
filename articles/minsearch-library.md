@@ -35,10 +35,10 @@ Available as a Python library for simple search needs.
 
 ## Sources
 
-- [20260123_121456_valeriia_kuka_msg456.md](../inbox/raw/20260123_121456_valeriia_kuka_msg456.md)
-- [20260123_121456_valeriia_kuka_msg457.md](../inbox/raw/20260123_121456_valeriia_kuka_msg457.md)
-- [20260123_121456_valeriia_kuka_msg458_transcript.txt](../inbox/raw/20260123_121456_valeriia_kuka_msg458_transcript.txt)
+- [20260123_121456_valeriia_kuka_msg456.md](../inbox/used/20260123_121456_valeriia_kuka_msg456.md)
+- [20260123_121456_valeriia_kuka_msg457.md](../inbox/used/20260123_121456_valeriia_kuka_msg457.md)
+- [20260123_121456_valeriia_kuka_msg458_transcript.txt](../inbox/used/20260123_121456_valeriia_kuka_msg458_transcript.txt)
 
-[^1]: [20260123_121456_valeriia_kuka_msg458_transcript.txt](../inbox/raw/20260123_121456_valeriia_kuka_msg458_transcript.txt)
-[^2]: [20260123_121456_valeriia_kuka_msg458_transcript.txt](../inbox/raw/20260123_121456_valeriia_kuka_msg458_transcript.txt)
-[^3]: [20260123_121456_valeriia_kuka_msg458_transcript.txt](../inbox/raw/20260123_121456_valeriia_kuka_msg458_transcript.txt)
+[^1]: [20260123_121456_valeriia_kuka_msg458_transcript.txt](../inbox/used/20260123_121456_valeriia_kuka_msg458_transcript.txt)
+[^2]: [20260123_121456_valeriia_kuka_msg458_transcript.txt](../inbox/used/20260123_121456_valeriia_kuka_msg458_transcript.txt)
+[^3]: [20260123_121456_valeriia_kuka_msg458_transcript.txt](../inbox/used/20260123_121456_valeriia_kuka_msg458_transcript.txt)

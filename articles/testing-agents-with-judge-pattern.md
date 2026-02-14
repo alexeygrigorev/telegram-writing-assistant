@@ -136,8 +136,8 @@ This approach can be integrated with GitHub Actions for continuous integration. 
 
 ## Sources
 
-[^1]: [20260130_090909_AlexeyDTC_msg679.md](../inbox/raw/20260130_090909_AlexeyDTC_msg679.md)
-[^2]: [20260130_091056_AlexeyDTC_msg683_transcript.txt](../inbox/raw/20260130_091056_AlexeyDTC_msg683_transcript.txt)
+[^1]: [20260130_090909_AlexeyDTC_msg679.md](../inbox/used/20260130_090909_AlexeyDTC_msg679.md)
+[^2]: [20260130_091056_AlexeyDTC_msg683_transcript.txt](../inbox/used/20260130_091056_AlexeyDTC_msg683_transcript.txt)
 
 ## References
 

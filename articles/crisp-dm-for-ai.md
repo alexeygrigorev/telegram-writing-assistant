@@ -86,12 +86,12 @@ The processes data scientists have always used - evaluation, versioning, experim
 
 ## Sources
 
-[^1]: [20260208_114819_AlexeyDTC_msg1192_transcript.txt](../inbox/raw/20260208_114819_AlexeyDTC_msg1192_transcript.txt)
+[^1]: [20260208_114819_AlexeyDTC_msg1192_transcript.txt](../inbox/used/20260208_114819_AlexeyDTC_msg1192_transcript.txt)
 [^2]: [CRISP-DM Article at ML Bookcamp](https://mlbookcamp.com/article/crisp-dm) - Original article explaining the CRISP-DM methodology
-[^3]: [20260208_115250_AlexeyDTC_msg1198_transcript.txt](../inbox/raw/20260208_115250_AlexeyDTC_msg1198_transcript.txt)
-[^4]: [20260208_115250_AlexeyDTC_msg1198_transcript.txt](../inbox/raw/20260208_115250_AlexeyDTC_msg1198_transcript.txt)
-[^5]: [20260208_115250_AlexeyDTC_msg1198_transcript.txt](../inbox/raw/20260208_115250_AlexeyDTC_msg1198_transcript.txt)
-[^6]: [20260208_115250_AlexeyDTC_msg1198_transcript.txt](../inbox/raw/20260208_115250_AlexeyDTC_msg1198_transcript.txt)
-[^7]: [20260208_115250_AlexeyDTC_msg1198_transcript.txt](../inbox/raw/20260208_115250_AlexeyDTC_msg1198_transcript.txt)
-[^8]: [20260208_115250_AlexeyDTC_msg1198_transcript.txt](../inbox/raw/20260208_115250_AlexeyDTC_msg1198_transcript.txt)
-[^9]: [20260208_114623_AlexeyDTC_msg1188_transcript.txt](../inbox/raw/20260208_114623_AlexeyDTC_msg1188_transcript.txt)
+[^3]: [20260208_115250_AlexeyDTC_msg1198_transcript.txt](../inbox/used/20260208_115250_AlexeyDTC_msg1198_transcript.txt)
+[^4]: [20260208_115250_AlexeyDTC_msg1198_transcript.txt](../inbox/used/20260208_115250_AlexeyDTC_msg1198_transcript.txt)
+[^5]: [20260208_115250_AlexeyDTC_msg1198_transcript.txt](../inbox/used/20260208_115250_AlexeyDTC_msg1198_transcript.txt)
+[^6]: [20260208_115250_AlexeyDTC_msg1198_transcript.txt](../inbox/used/20260208_115250_AlexeyDTC_msg1198_transcript.txt)
+[^7]: [20260208_115250_AlexeyDTC_msg1198_transcript.txt](../inbox/used/20260208_115250_AlexeyDTC_msg1198_transcript.txt)
+[^8]: [20260208_115250_AlexeyDTC_msg1198_transcript.txt](../inbox/used/20260208_115250_AlexeyDTC_msg1198_transcript.txt)
+[^9]: [20260208_114623_AlexeyDTC_msg1188_transcript.txt](../inbox/used/20260208_114623_AlexeyDTC_msg1188_transcript.txt)

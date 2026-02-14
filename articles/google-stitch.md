@@ -24,12 +24,12 @@ https://blog.google/technology/google-labs/stitch-gemini-3/
 
 ## Sources
 
-- [20260123_121239_valeriia_kuka_msg438.md](../inbox/raw/20260123_121239_valeriia_kuka_msg438.md)
-- [20260123_121239_valeriia_kuka_msg439.md](../inbox/raw/20260123_121239_valeriia_kuka_msg439.md)
-- [20260123_121239_valeriia_kuka_msg440.md](../inbox/raw/20260123_121239_valeriia_kuka_msg440.md)
-- [20260123_121239_valeriia_kuka_msg441.md](../inbox/raw/20260123_121239_valeriia_kuka_msg441.md)
-- [20260123_121239_valeriia_kuka_msg442_transcript.txt](../inbox/raw/20260123_121239_valeriia_kuka_msg442_transcript.txt)
-- [20260123_121239_valeriia_kuka_msg443_transcript.txt](../inbox/raw/20260123_121239_valeriia_kuka_msg443_transcript.txt)
+- [20260123_121239_valeriia_kuka_msg438.md](../inbox/used/20260123_121239_valeriia_kuka_msg438.md)
+- [20260123_121239_valeriia_kuka_msg439.md](../inbox/used/20260123_121239_valeriia_kuka_msg439.md)
+- [20260123_121239_valeriia_kuka_msg440.md](../inbox/used/20260123_121239_valeriia_kuka_msg440.md)
+- [20260123_121239_valeriia_kuka_msg441.md](../inbox/used/20260123_121239_valeriia_kuka_msg441.md)
+- [20260123_121239_valeriia_kuka_msg442_transcript.txt](../inbox/used/20260123_121239_valeriia_kuka_msg442_transcript.txt)
+- [20260123_121239_valeriia_kuka_msg443_transcript.txt](../inbox/used/20260123_121239_valeriia_kuka_msg443_transcript.txt)
 
-[^1]: [20260123_121239_valeriia_kuka_msg442_transcript.txt](../inbox/raw/20260123_121239_valeriia_kuka_msg442_transcript.txt)
-[^2]: [20260123_121239_valeriia_kuka_msg443_transcript.txt](../inbox/raw/20260123_121239_valeriia_kuka_msg443_transcript.txt)
+[^1]: [20260123_121239_valeriia_kuka_msg442_transcript.txt](../inbox/used/20260123_121239_valeriia_kuka_msg442_transcript.txt)
+[^2]: [20260123_121239_valeriia_kuka_msg443_transcript.txt](../inbox/used/20260123_121239_valeriia_kuka_msg443_transcript.txt)
