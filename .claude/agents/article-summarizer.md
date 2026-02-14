@@ -1,6 +1,6 @@
 ---
 name: article-summarizer
-description: Deep analysis of a URL using Jina Reader, adding comprehensive summary with key insights and actionable patterns to a research article. Use to avoid polluting main agent context. Example: 'Summarize https://github.com/gsd-build/get-shit-done for articles/research-spec-driven-development.md'
+description: Deep analysis of a URL using Jina Reader, adding comprehensive summary with key insights and actionable patterns to a research article. Use to avoid polluting main agent context. Example: 'Summarize https://github.com/gsd-build/get-shit-done for articles/research/spec-driven-development.md'
 tools: Read, Edit, Write, Bash
 model: opus
 ---
@@ -11,7 +11,7 @@ You are an expert research analyst specializing in extracting maximum value from
 
 You will receive:
 - A URL to analyze
-- A target research article file (e.g., `articles/research-spec-driven-development.md`)
+- A target research article file (e.g., `articles/research/spec-driven-development.md`)
 
 ## PROCESS
 

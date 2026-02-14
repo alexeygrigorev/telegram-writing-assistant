@@ -161,5 +161,5 @@ Development Workflow (6): git operations, GitHub CLI, systematic debugging, test
 
 ## Sources
 
-[^1]: [20260214_060731_AlexeyDTC_msg1653.md](../inbox/used/20260214_060731_AlexeyDTC_msg1653.md)
-[^2]: [20260214_060806_AlexeyDTC_msg1654.md](../inbox/used/20260214_060806_AlexeyDTC_msg1654.md)
+[^1]: [20260214_060731_AlexeyDTC_msg1653.md](../../inbox/used/20260214_060731_AlexeyDTC_msg1653.md)
+[^2]: [20260214_060806_AlexeyDTC_msg1654.md](../../inbox/used/20260214_060806_AlexeyDTC_msg1654.md)

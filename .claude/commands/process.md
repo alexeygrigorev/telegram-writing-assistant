@@ -114,7 +114,8 @@ You MUST:
 
 1. Read all files in `inbox/raw/`
 2. Read `articles/_index.md` to understand what articles exist
-3. For each piece of content, ask: Does this extend an existing article's topic? Would a reader of that article expect to find this information?
+3. Read `articles/research/_index.md` to understand what research articles exist
+4. For each piece of content, ask: Does this extend an existing article's topic? Would a reader of that article expect to find this information?
 
 ## Step 2: Categorize
 
@@ -168,7 +169,7 @@ If a message contains a URL, DO NOT fetch and summarize it yourself. Use special
 - Launch article-summarizer subagent for each URL
 - Agent fetches content via Jina Reader and writes deep summary with key insights, actionable patterns, technical details
 - Multiple article-summarizer agents can run in parallel for different URLs targeting the same research article
-- Example: `Summarize https://github.com/user/repo for articles/research-topic.md`
+- Example: `Summarize https://github.com/user/repo for articles/research/topic.md`
 
 **For interesting resources** - Use the resource-describer agent:
 - Launch resource-describer subagent for each orphaned URL or URL marked as "resource"
@@ -177,6 +178,8 @@ If a message contains a URL, DO NOT fetch and summarize it yourself. Use special
 - Example: `Add https://github.com/user/repo to interesting-resources.md`
 
 **Launch subagents in parallel** when processing multiple URLs to speed up the workflow.
+
+**Check subagent results**: Subagents sometimes write results directly to article files and _index.md instead of just returning text. After subagents complete, run `git status` or `git diff` to see what they changed. Review their edits for style compliance, correct source citations, and proper formatting before moving on. Do not blindly trust subagent file edits - they may miss source references to inbox files, use bold formatting, or make other style violations.
 
 ### Project Links
 
@@ -341,10 +344,13 @@ This step catches the most common errors:
 
 The "research" tag is used for articles about topics the user wants to investigate and learn more about. These are NOT completed work or implementations - they are collections of resources and exploration notes.
 
+Research articles live in `articles/research/` with their own index at `articles/research/_index.md`.
+
 When creating research articles:
 - Use "research" tag in frontmatter: `tags: [research, ...]`
-- Use filename format: `research-{topic}.md` (e.g., `research-agentic-memory.md`)
+- Place in `articles/research/` folder with filename `{topic}.md` (e.g., `articles/research/agentic-memory.md`)
 - Status should be "draft"
+- Update `articles/research/_index.md` when creating new research articles
 - Remove "research" tag when the investigation is complete and findings are implemented
 
 Research articles contain:

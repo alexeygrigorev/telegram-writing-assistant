@@ -223,7 +223,7 @@ Quotes:
 ### Reddit: Everyone's Trying Vectors and Graphs for AI Memory. We Went Back to SQL.
 
 Source: https://www.reddit.com/r/AI_Agents/comments/1nkx0bz/everyones_trying_vectors_and_graphs_for_ai_memory/
-Referenced in: [20260211_152925_AlexeyDTC_msg1451.md](../inbox/raw/20260211_152925_AlexeyDTC_msg1451.md)
+Referenced in: [20260211_152925_AlexeyDTC_msg1451.md](../../inbox/raw/20260211_152925_AlexeyDTC_msg1451.md)
 
 Overview: A Reddit discussion from the AI_Agents community debating different approaches to agentic memory. The OP (Arindam_200 from Gibson) promotes Memori, a SQL-native memory engine, arguing that relational databases are more practical than vector or graph databases for many AI memory use cases. The community response provides nuanced perspectives on when each approach shines.
 
@@ -323,16 +323,16 @@ The r/ClaudeCode discussion on "stop creating memory frameworks" adds an importa
 
 ## Sources
 
-[^1]: [20260209_221323_AlexeyDTC_msg1259.md](../inbox/raw/20260209_221323_AlexeyDTC_msg1259.md)
-[^2]: [20260209_221536_AlexeyDTC_msg1260.md](../inbox/raw/20260209_221536_AlexeyDTC_msg1260.md)
-[^3]: [20260210_075929_AlexeyDTC_msg1261_transcript.txt](../inbox/raw/20260210_075929_AlexeyDTC_msg1261_transcript.txt)
+[^1]: [20260209_221323_AlexeyDTC_msg1259.md](../../inbox/raw/20260209_221323_AlexeyDTC_msg1259.md)
+[^2]: [20260209_221536_AlexeyDTC_msg1260.md](../../inbox/raw/20260209_221536_AlexeyDTC_msg1260.md)
+[^3]: [20260210_075929_AlexeyDTC_msg1261_transcript.txt](../../inbox/raw/20260210_075929_AlexeyDTC_msg1261_transcript.txt)
 [^4]: [https://eric-tramel.github.io/llm/2024/11/14/memory.html](https://eric-tramel.github.io/llm/2024/11/14/memory.html)
 [^5]: [https://towardsdatascience.com/how-to-build-your-own-custom-llm-memory-layer-from-scratch/](https://towardsdatascience.com/how-to-build-your-own-custom-llm-memory-layer-from-scratch/) (Note: Original URL building-custom-llm-memory-layers-5f12a877881d returns 404)
 [^6]: [https://github.com/The-Vibe-Company/companion](https://github.com/The-Vibe-Company/companion)
-[^7]: [20260210_082618_AlexeyDTC_msg1262_photo.md](../inbox/raw/20260210_082618_AlexeyDTC_msg1262_photo.md)
+[^7]: [20260210_082618_AlexeyDTC_msg1262_photo.md](../../inbox/raw/20260210_082618_AlexeyDTC_msg1262_photo.md)
 [^8]: [https://github.blog/ai-and-ml/github-copilot/building-an-agentic-memory-system-for-github-copilot/](https://github.blog/ai-and-ml/github-copilot/building-an-agentic-memory-system-for-github-copilot/)
-[^9]: [20260211_153046_AlexeyDTC_msg1452.md](../inbox/raw/20260211_153046_AlexeyDTC_msg1452.md)
-[^10]: [20260211_152925_AlexeyDTC_msg1451.md](../inbox/raw/20260211_152925_AlexeyDTC_msg1451.md)
+[^9]: [20260211_153046_AlexeyDTC_msg1452.md](../../inbox/raw/20260211_153046_AlexeyDTC_msg1452.md)
+[^10]: [20260211_152925_AlexeyDTC_msg1451.md](../../inbox/raw/20260211_152925_AlexeyDTC_msg1451.md)
 [^11]: [https://www.reddit.com/r/AI_Agents/comments/1nkx0bz/everyones_trying_vectors_and_graphs_for_ai_memory/](https://www.reddit.com/r/AI_Agents/comments/1nkx0bz/everyones_trying_vectors_and_graphs_for_ai_memory/)
 [^12]: [https://www.reddit.com/r/ClaudeCode/comments/1r4asf6/please_stop_creating_memory_for_your_agent/](https://www.reddit.com/r/ClaudeCode/comments/1r4asf6/please_stop_creating_memory_for_your_agent/)
-[^13]: [20260214_063525_AlexeyDTC_msg1657.md](../inbox/used/20260214_063525_AlexeyDTC_msg1657.md)
+[^13]: [20260214_063525_AlexeyDTC_msg1657.md](../../inbox/used/20260214_063525_AlexeyDTC_msg1657.md)

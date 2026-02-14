@@ -89,8 +89,8 @@ For a Telegram-controlled agent:
 
 ## Sources
 
-[^1]: [20260210_084748_AlexeyDTC_msg1267.md](../inbox/raw/20260210_084748_AlexeyDTC_msg1267.md)
-[^2]: [20260210_090458_AlexeyDTC_msg1268.md](../inbox/raw/20260210_090458_AlexeyDTC_msg1268.md)
+[^1]: [20260210_084748_AlexeyDTC_msg1267.md](../../inbox/raw/20260210_084748_AlexeyDTC_msg1267.md)
+[^2]: [20260210_090458_AlexeyDTC_msg1268.md](../../inbox/raw/20260210_090458_AlexeyDTC_msg1268.md)
 [^3]: [https://github.com/gsd-build/get-shit-done](https://github.com/gsd-build/get-shit-done)
 [^4]: [https://github.com/tmchow/tmc-marketplace/tree/main/plugins/iterative-engineering](https://github.com/tmchow/tmc-marketplace/tree/main/plugins/iterative-engineering)
 [^5]: [https://github.com/The-Vibe-Company/companion](https://github.com/The-Vibe-Company/companion)

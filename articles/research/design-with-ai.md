@@ -180,4 +180,4 @@ Each example demonstrates how the same underlying principles produce visually di
 [^3]: [GitHub repository: dammyjay93/interface-design](https://github.com/dammyjay93/interface-design)
 [^4]: [Interface-design examples dashboard](https://interface-design.dev/examples.html)
 [^5]: [Interface-design.dev project page](https://interface-design.dev/)
-[^6]: [20260214_063929_AlexeyDTC_msg1658.md](../inbox/used/20260214_063929_AlexeyDTC_msg1658.md)
+[^6]: [20260214_063929_AlexeyDTC_msg1658.md](../../inbox/used/20260214_063929_AlexeyDTC_msg1658.md)

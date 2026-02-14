@@ -109,4 +109,4 @@ The Telegram assistant uses subagents for specialized tasks: article-summarizer,
 
 ## Sources
 
-[^1]: [20260214_061215_AlexeyDTC_msg1655.md](../inbox/used/20260214_061215_AlexeyDTC_msg1655.md)
+[^1]: [20260214_061215_AlexeyDTC_msg1655.md](../../inbox/used/20260214_061215_AlexeyDTC_msg1655.md)

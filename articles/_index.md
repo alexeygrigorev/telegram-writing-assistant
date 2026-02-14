@@ -65,17 +65,13 @@ Brief description of what this article is about.
 | [What I Did This Week](what-i-did-this-week.md) | draft | 2026-02-11 | Weekly updates on work in progress |
 | [Claude Code Subagents](subagents.md) | draft | 2026-02-11 | Specialized agents for research workflows and verification |
 | [AI as Personal Analyst](ai-as-personal-analyst.md) | draft | 2026-02-12 | Talk about using AI for Excel automation, data cleaning, and scaling document review |
-| [ML System Design Case Studies](research-ml-system-design.md) | draft | 2026-02-12 | Curated selection of 10 most interesting ML system design case studies from 300+ collection |
 | [Nobook: Plain Python Files as Jupyter Notebooks](nobook.md) | draft | 2026-02-13 | Tool that uses plain .py files as Jupyter notebooks instead of .ipynb JSON |
 | [OpenCode Experiments with GLM-5](opencode-experiments.md) | draft | 2026-02-13 | Trying OpenCode AI assistant with GLM-5 model |
 | [Microphone Booster App](microphone-booster-app.md) | draft | 2026-02-13 | Windows microphone booster built with OpenCode/GLM-5 using Tauri + Rust |
 | [AI Engineer RPG Game](ai-engineer-rpg-game.md) | draft | 2026-02-13 | RPG game for interview practice built with OpenCode/GLM-5 in Rust |
 | [Telegram Bot Server Migration](telegram-bot-server-migration.md) | draft | 2026-02-13 | Moving the Telegram writing assistant bot from local computer to a dedicated server |
-| [Design with AI: Beating the Default Look](research-design-with-ai.md) | draft | 2026-02-14 | Research on producing high-quality AI-generated UI using intent-driven design skills and systematic design memory |
-| [Claude Pilot: Quality Automation for Claude Code](research-claude-pilot.md) | draft | 2026-02-14 | Research on Claude Pilot wrapper that enforces quality guardrails on Claude Code sessions |
-| [AI Coding Agents for Note-Taking](research-ai-note-taking-tools.md) | draft | 2026-02-14 | Research on using Claude Code and OpenCode inside Obsidian and Logseq for knowledge management |
 
----
+See [Research Articles](research/_index.md) for research and investigation topics.
 
 ## How to Use
 

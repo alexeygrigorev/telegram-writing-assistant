@@ -88,4 +88,4 @@ ML use cases span recommendation systems, search ranking, fraud detection, deman
 
 ## Sources
 
-[^1]: [20260212_171745_AlexeyDTC_msg1565.md](../inbox/used/20260212_171745_AlexeyDTC_msg1565.md)
+[^1]: [20260212_171745_AlexeyDTC_msg1565.md](../../inbox/used/20260212_171745_AlexeyDTC_msg1565.md)
