@@ -1,0 +1,19 @@
+---
+source: telegram_voice
+date: 2026-02-16T13:27:50+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260216_132750_AlexeyDTC_msg1749.ogg
+---
+
+Now let's talk about data scientists. So for data scientists, what's the difference between data
+scientists and AI engineers? So data scientists, they focus on training models, experimenting with
+models, like running conducting experiments, translating the requirements from product to machine
+learning terms, right? So they actually you work on creating this, creating data and so on, right?
+So when it comes to AI, and by AI, I mean now using these LLMs, the model is already there. People
+from OpenAI trained the model, so they went through the process. We don't need this. So in cases
+when we do something simple, when we don't need to fine tune, when we don't need to like do anything
+else. We don't really need data scientists in this case, right? It depends on the size of the
+organization, but if we talk about a small AI team, don't really need data scientists here. However,
+I wanna also talk about cases where data scientists actually do this. And I'm talking about bigger
+organizations.

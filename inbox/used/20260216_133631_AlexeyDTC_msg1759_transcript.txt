@@ -1,0 +1,15 @@
+---
+source: telegram_voice
+date: 2026-02-16T13:36:31+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260216_133631_AlexeyDTC_msg1759.ogg
+---
+
+And also here the role of AI engineer would be to work with product manager to understand do we
+actually need AI here or there is something simpler we can do, right? So previously for machine
+learning, because machine learning is building a machine learning model is more expensive, takes
+more time, right? So there sometimes you could solve the problem by using like rules. Here in case
+of AI, yeah, testing hypothesis is cheaper, but we still need to understand, cheaper in sense of
+time. We still need to understand if it's worth solving with AI or we have something else. We can
+use something else.

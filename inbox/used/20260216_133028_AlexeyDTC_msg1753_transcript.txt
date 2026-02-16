@@ -1,0 +1,17 @@
+---
+source: telegram_voice
+date: 2026-02-16T13:30:28+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260216_133028_AlexeyDTC_msg1753.ogg
+---
+
+Yeah, but also like in this case the company might decide to hire an AI engineer, right, who will
+work together with data scientists, the data scientists on these things, right. But the data
+scientists will also have these responsibilities of taking care of traditional machine learning,
+maybe some legacy systems, but also some systems that they need now because because LLM is not the
+answer to all the questions, right? So AI now is very good at solving a subset of some problems, but
+there are so many problems that don't need LLMs, right? So we still need data scientists, we still
+need machine learning engineers. They still need to work on what we, what they have been working on
+many things. But some problems are of course simpler, like NLP is simpler, many things are simpler
+now with LLMs.

@@ -1,0 +1,13 @@
+---
+source: telegram_voice
+date: 2026-02-16T13:38:02+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260216_133802_AlexeyDTC_msg1761.ogg
+---
+
+Okay, second step, data understanding step. So at this point, we want to understand if there is data
+that we can rely on to build our model. So in case of data science, in case of machine learning,
+here we need to determine if we have training data. In case of AI, I don't really remember what I
+said last time, so let me check. I think I had a nice idea of what I wanted to say. Okay, AI
+engineer process. I can't find it. Just one second.

@@ -1,0 +1,19 @@
+---
+source: telegram_voice
+date: 2026-02-16T12:56:34+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260216_125634_AlexeyDTC_msg1727.ogg
+---
+
+Okay, so what I think AI engineer is doing is the goal, the purpose, like let's say the main
+responsibility of AI engineer is to integrate AI into the product, whatever it means, right?
+Whatever it means. And let me find this article, AI engineer, my vision. so it may mean many things
+but typically in principle in practice integrating AI into product means that you have some sort of
+LLM provider which is like OpenAI, Anthropic or or something else. And you interact with this API,
+you know how to do this. And yeah, and then it returns something and then you integrate these
+results into whatever product you're working on. working on. And I want to talk about an example. So
+in this example, what we will have is we will have a web interface. I'll create it with Lovable in
+this web interface. So this This is going to be online classifieds website where you can upload
+anything. And then based on what you upload, it will classify like the type, what exactly is there
+and things like that. So let me quickly create this website.

@@ -1,0 +1,47 @@
+---
+source: telegram_voice
+date: 2026-02-16T13:35:39+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260216_133539_AlexeyDTC_msg1757.ogg
+---
+
+And the last thing I am going to talk about is CrispDM and processes. I already sent you the link
+for CrispDM. So I want to go through this from the machine learning point of view. So here we have
+an example, spam, non-spam. Let's take a different example. We want to understand, we want to
+classify categories into, like, let's take this example. So we, in machine learning, we will have a
+particular classification, right? Here in AI case, we will have the same case, right? So we upload
+an image and from this image, we wanna reliably extract the information we want, right? So let's see
+how we can solve this problem with Chris BM, how it helps us structure the problem. So the first
+thing is business understanding. So we need, we don't need to, We don't just solve the problem for
+the sake of solving problems. Like hey like we have AI how about we use it And we start thinking of
+different use cases where AI would work No like it should come from a real user problem user problem
+problem that user experience Maybe we already know about this problem. We already tried to solve it
+differently, but now we think, okay, now we wanna try to solve it with AI, right? So we need to have
+this business understanding. What is the problem? Why do we want to do this? Not just because we
+wanna have a cool new feature, but because like there is a real problem that users have with our
+product that we will solve it. It's like usual work that product managers do, user experience
+researchers do. So there should be like a real problem or a hypothesis that this problem exists and
+we wanna verify this hypothesis, right? So we need to have some business understanding. Like we
+really need to understand what is the problem we're solving? Like how many people it is affecting?
+Like, and at this point, we think more about the problem. Okay, this is the problem. We might have a
+solution for this problem but right now we just need to focus on the problem How many users
+experience this problem How we can measure like what could be the metric for solving this problem
+Like, okay, this is the problem. These users are affected. Let's say we wanna improve the time for
+posting. Users complain that it takes so much time to fill the form, right? So, and of course there
+is some existing user research that confirms this. Otherwise we will need to conduct this research
+to find out that this is actually the problem, a problem worth solving, right? So maybe users don't
+really complain about this. If we solve this problem that doesn't exist, nobody will care, right?
+And then we'll just waste money and time, right? So we understand that, okay, now users take time to
+fill in the form. We wanna make this process faster. So then our goal is first goal is to reduce the
+time, let say from seven seconds to no no let say right now it takes one minute And we think that we
+can reduce this time to 30 seconds or right now it takes five minutes we can reduce this time to one
+minute right So then it's clear, right? So we have this clear, very clear metric. We can also have
+secondary metrics, right? Like users who started filling the form and didn't finish because it was
+too complex, right now is, let's say, 15%, but we want to drop it to 5%, right? So that could be a
+secondary metric, like second way of measuring success. But the important part is we need to have
+this research. We need to understand that there is a problem. We need to understand that this is a
+way to solve it, right? So this is very important for machine learning, but also for AI, right?
+Because we don't want to spend time on solving a problem that doesn't exist, right? So for
+integrating AI into products, this is very important. And then here, AI engineers would work with
+closely, work with product managers to assist them in understanding the problem.

@@ -1,0 +1,12 @@
+---
+source: telegram_voice
+date: 2026-02-16T14:02:04+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260216_140204_AlexeyDTC_msg1779.ogg
+---
+
+Okay, so here we will have tests in this example, we will have tests, we will have CI-CD, you can
+see everything that is implemented. So please add placeholders throughout the articles where we can
+illustrate these things, we can show that. And this is for my view on the AI engineering role. So
+this is where I want to have these placeholders to show that, yeah, this is what they do, right?

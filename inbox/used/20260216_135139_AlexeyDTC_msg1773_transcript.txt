@@ -1,0 +1,25 @@
+---
+source: telegram_voice
+date: 2026-02-16T13:51:39+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260216_135139_AlexeyDTC_msg1773.ogg
+---
+
+Let's think about the roles, who exactly is involved there. So business understanding is product
+managers, data understanding is data analysts and product managers, data preparation, data
+engineers, modeling is strictly AI engineers, evaluation is AI engineers, product managers and
+analysts, deployment is AI engineers. Here I didn't mention any backend engineers, but they are of
+course there. also platform engineers. Also for business understanding, data understanding, we have
+AI engineers. So AI engineers are involved in pretty much every step. So the first step, they help
+PM to understand if it's something AI can solve. They can, together with analysts, they help to come
+up with a good metric. Data understanding is together with analysts, AI engineers, they try to
+understand, or could be anyone, could be backend engineers too are also involved. So pretty much the
+entire team is involved. You can also involve, and will probably involve people from other teams if
+you need data from there. Data preparation, as I said, data engineers and AI engineers. If you don't
+have a data engineer in the team, AI engineer will need to do this. Now modeling strictly data
+engineer, or AI engineer, sorry, evaluation AI engineer with some input from, Oh no, it's analyst
+and the engineer together. So analysts will help to set up this AAB test. PM also needs to be
+involved because they need to double check that we track the right metrics, right? So like we need
+to set up the experiment properly. Yeah, in teams where we don't have AI engineers, these
+responsibilities would be split between AI engineers and ML engineers.

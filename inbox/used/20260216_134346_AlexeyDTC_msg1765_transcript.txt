@@ -1,0 +1,16 @@
+---
+source: telegram_voice
+date: 2026-02-16T13:43:46+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260216_134346_AlexeyDTC_msg1765.ogg
+---
+
+Data preparation step is in case of machine learning, we just need to fetch the data from different
+sources. We need to prepare it in the right format. So for this particular case, it's less
+important, but let's say if we wanna use AI for recommendations or search or things like that, of
+course we need to have data available. And yeah, by the way, we can also mention that in the
+previous section that in some cases, and where we want to integrate into products like and things
+like search, recommendation, we need to be able to access this data, right? So, and then add a to do
+there to brainstorm on that a little bit of what kind of other projects, like how can this step look
+like for other projects, for other things.

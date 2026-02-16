@@ -1,0 +1,21 @@
+---
+source: telegram_voice
+date: 2026-02-16T12:53:41+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260216_125341_AlexeyDTC_msg1721.ogg
+---
+
+Okay, now I want to rehearse a little for our upcoming event today that I have about Day of AI
+Engineer. So in that there I'll talk about defining the AI engineering role, how AI engineers
+collaborate with others and about processes. so we already i think have a few articles about that so
+analyze these articles and this is going to be probably a long quest message or a bunch of messages
+so uh i have two goals right now so first i wanna rehearse what i'm saying and second is i wanna
+update the materials that we already have about these rules so i'm going to start with uh
+understanding the course of responsibilities of of the AI engineering role. How this position
+bridges the gap between software engineering and ML research. Let me actually try to find what I
+already have because I frankly don't remember. I need to now think what I'm going to say. The core
+responsibilities and how this position bridges. So basically this, we are talking about the role of
+the AI engineer. And what I wanna start with is I want to go to our DataTalks.club, and I wanna open
+articles and data roles. We have an article about roles, data team roles explained. I'm going to
+send this now to our chat. Yeah, let me stop right now.

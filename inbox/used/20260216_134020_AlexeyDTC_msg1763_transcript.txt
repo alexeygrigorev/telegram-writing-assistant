@@ -1,0 +1,21 @@
+---
+source: telegram_voice
+date: 2026-02-16T13:40:20+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260216_134020_AlexeyDTC_msg1763.ogg
+---
+
+Okay, so I'm looking at the article we wrote before, Chris DM for AI. So here, data understanding,
+we need to understand what data we have available. So in case of machine learning, of course, we
+need to train our model. So without data, we cannot do anything. But here, it's equally important
+because we need to send something to AI, right? And do we have everything we need for that? Yeah, so
+we wanna understand like how difficult it would be to integrate what we need. In case of our, in our
+example, when we send data to AI, we need to make sure that the front end can send all the data,
+right, that we need. That's one thing. But let's say we are talking about integrating AI into
+something else. It could be, yeah, Yeah, let's think, we can think what else, because sometimes you
+run things on the backend, this is not user facing thing, right? So you can use AI to optimize some
+processes, right? And there it's very important that you have some data for AI to act on, because it
+needs to get in some data. So in our case, the input will be picture, right? Of course, yeah, in our
+case, it's easy. We already have the picture. But then another thing is like, how are we going to
+evaluate this, right? Do we have... Okay, let's think of this more, but I'll go to the next step.

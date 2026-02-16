@@ -1,0 +1,15 @@
+---
+source: telegram_voice
+date: 2026-02-16T13:26:30+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260216_132630_AlexeyDTC_msg1747.ogg
+---
+
+So there are many tools for serving LLMs, like VLLM, but it doesn't really matter. Like the tools
+are secondary, just knowing that, okay, you need to do this. And then they require special hardware.
+And then you also need to know how to provision infrastructure for this hardware, right? So
+typically this is also on the AI engineer, right? For a male engineer, it could be similar because
+like, let's say you need to serve a neural network model, right? the difference is that LLMs require
+a lot more power, a lot more like bigger GPUs. So yeah, this is the main difference with ML
+engineers.

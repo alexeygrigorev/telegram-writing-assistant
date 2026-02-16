@@ -1,0 +1,22 @@
+---
+source: telegram_voice
+date: 2026-02-16T13:29:34+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260216_132934_AlexeyDTC_msg1751.ogg
+---
+
+So in bigger organizations where we have also classical machine learning, so the setup is data
+scientists working on a model, on translating the requirements into the machine learning terms and
+machine learning engineer, they work together with data scientists to productionize it, right? So
+engineer focuses more on serving the model, CICD tests, best engineering practices, infrastructure,
+things like that. Data scientists focus more on modeling, on testing, experimenting, things like
+that, right? So that's how they work. And this is traditional ML. And now let's say that there is
+already a team that's been doing machine learning for quite some time, but now they have AI use
+case, right? So in this setup, they both, again, data scientists and ML engineer would work. Data
+scientists would focus more on interacting with the model, understanding how to call it, how to tune
+the prompt, how to set up the validation framework, things like that. How to make sure that the
+model, the agent is behaving the way it should behave. And the ML engineer would focus more on the
+engineering aspects. So this would be the setup in teams where there is not necessarily an AI
+engineer yet. So they would split these responsibilities of AI engineer into both. And frankly, if
+we talk about a bigger project, bigger company, they will both have so much work.

@@ -1,0 +1,13 @@
+---
+source: telegram_voice
+date: 2026-02-16T12:54:38+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260216_125438_AlexeyDTC_msg1725.ogg
+---
+
+In this article I talk about the roles in a data team. And here this is a pretty old article. So in
+this article, it's like, I don't know, five years old or if not more. So there I look at the roles
+in a team. And I think what I'm actually saying right now is second, right? So this would be the
+second part of this talk. So you'll have to rearrange these things. Okay, so let me take a step back
+and now talk about the role of the AI engineer.

@@ -1,0 +1,68 @@
+---
+source: telegram_voice
+date: 2026-02-16T13:17:24+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260216_131724_AlexeyDTC_msg1737.ogg
+---
+
+Okay, while the cloud is working, I want to show that, okay, this is the simple example. And let's
+see what AI engineer will do. So we have a marketplace, we upload a picture. And instead of writing
+everything else, instead of writing the title, the description, the category, it should
+automatically extract everything we need, right? And this looks pretty straightforward. And I'm
+going to show the code for that. All we need to do is define the schema, send the request to OpenAI,
+describe a prompt, right, in the prompt, and test locally that things works, and that's it, right?
+But not quite. So the first thing is the prompt, right? How good is this prompt? we need to test it,
+right? So we need to make sure that the agent is actually doing what we want. So we need to create a
+test where we sent an image and we verify that. So we can do this for a few tests, but we can also
+have an evaluation set where we have a bunch of images and we run this extraction process and we
+verify that every time we run with the prompt that we currently have, we get what we want. So right,
+this becomes our evaluation dataset. So we have our tests, we have our evaluation set. In tests,
+when we write tests, we want to make sure that these tests always pass, right? Evaluation dataset
+gives us a metric, how good our model is doing So if sometimes our model describes something
+incorrectly it not the end of the world right Sometimes sometimes it really important right So we
+define all that. And then we can start iterating on the prompt. So we change something in the
+prompt, we run the revelation set, we see that the model is not degrading. It's very important to
+have all these things. And if everything works, then we can roll it out to users. But how do we roll
+it? We need to make sure there are no regressions so that the user experience stays good. So we need
+to split this to do A-B test. So we only roll it out to a small portion of people. First, we observe
+that there are no errors. So it's very important to have proper production monitoring, in which
+cases it, like, are there bugs, like does it fail in a way that it doesn't return anything? So this
+is more like reliability testing. And reliability monitoring to see in how many cases our endpoint
+does not return anything, right? It breaks. So then we have, we need to have a dashboard for that,
+right, where we can monitor that. That's one thing, but we also need to know in how many cases we
+need to collect logs. And we also need to know in how many cases this doesn't work. So we need to be
+able to inspect the results, they inspect the input, inspect the output and see if things
+misaligned, right? So that if there is any problems there. And also here what we can do is we can
+add humans here human annotators that regularly sample data from this monitoring system and verify
+things work And let's say we deploy this. So we saw that, okay, our system works. So we rolled out
+to all the users. We have monitoring, we have our relations set, we have testing, things work,
+right? And then OpenAI releases a new model, right? and then we need to update to the new model,
+right? So we start updating and we run it on the evaluation set and we see that things don't work so
+well as before, but because we have evaluations that we can actually determine this, we can evaluate
+that, right? We start improving the prompt or maybe even before that, right? So then it's one thing,
+but even before that, So let's say we rolled this out to some users and we detected some issues. So
+now we can iterate on the prompt. How do we do this? We change the prompt. We apply the prompt to
+our evaluation data set, to our test first, then to the relation data set. And we make sure that
+nothing breaks, right? Then we need version control for the prompts. Like how do we control the
+version of the prompt? So we need to have a proper experimentation system in place. Could be ML
+flow, could be just keeping things in Git, but it's something also important, right? So when we
+evaluate something, we need to know what we changed. Did we change our prompt? Or maybe if we're
+working on an agent, like maybe we changed some tools, maybe we changed the model. So we need to
+know what exactly we changed. So we need to properly set the experiment, right? This is the change
+and this is the result, right? So we need to be able to do this offline Okay so then we saw a few
+cases And of course like when humans evaluate when humans evaluate our like when we roll it out to
+some users, humans evaluate this, we can see some problematic cases. We can actually add this to our
+evaluation set. Okay, then we fix it. We roll it out and then new version is released. then we wanna
+make sure that before we switch to the new version, that things work. And we can see, okay,
+performance changed, but we know that this model is better, maybe we need to update the prompt,
+right? And then this is how we experiment. And that's, I just outlined what exactly AI engineers are
+doing. So they are, we can see that they need to do, to know how to interact with API. They need to
+know how to create web services. They need to know how to create tests. They need to have this
+evaluation strategy. They need to set production monitoring, production monitoring like endpoint
+monitoring, web service monitoring, and also AI monitoring, right? So they need to collect all the
+logs. They need to have proper system then also adding humans in the loop for evaluating so they
+need to be able to set up processes like that and they need to be able to collect feedback from
+users so feedback could be implicit right so if we add thumbs up button and or thumbs down button
+and user click on that then we clearly see that this is explicit feedback, right? But also implicit,
+so maybe user corrects the output. So we need to think about all these things.

@@ -1,0 +1,17 @@
+---
+source: telegram_voice
+date: 2026-02-16T13:25:15+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260216_132515_AlexeyDTC_msg1745.ogg
+---
+
+Okay and let's compare this role with ML engineers. I mentioned before ML engineer and the role, the
+task of an ML engineer is to integrate machine learning into the product. and the task of AI
+engineers is to integrate AI into the product. What's the difference? The difference between
+traditional AI, traditional machine learning and AI is, well, typically if we talk about LLM
+providers, then the difference is that you already have an LLM, you just call the web service versus
+actually having the weights own in the model, right? In some cases, yes, we have open source LLMs.
+There are cases where you need to serve the LLM yourself. So then this becomes your responsibility
+as AI engineer too. In traditional ML, it's always the responsibility of the ML engineer to actually
+serve the model.

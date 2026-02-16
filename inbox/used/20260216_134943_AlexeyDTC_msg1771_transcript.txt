@@ -1,0 +1,15 @@
+---
+source: telegram_voice
+date: 2026-02-16T13:49:43+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260216_134943_AlexeyDTC_msg1771.ogg
+---
+
+And if we think about this, so at this point, yeah, by the way, for data preparation, we also, if we
+talk about RAC, so we need to add this data understanding, data preparation. So in our case, it's a
+very simple case, right? But what if we talk about RAC? What if we talk about agents that need to
+finish things? things so we need to think about like whether we have all the data we need and also
+whether we have the integrations we need right so because uh like maybe some services it's not so
+easy to integrate to them or to access to them right so this is something we also need to keep in
+mind when we talk about data understanding and data preparation

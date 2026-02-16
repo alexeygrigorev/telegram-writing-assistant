@@ -34,9 +34,9 @@ Brief description of what this article is about.
 | [Automator Bot](automator-bot.md) | draft | 2026-02-06 | Slack bot for community management automation |
 | [Interesting Resources](interesting-resources.md) | draft | 2026-02-16 | Curated collection of tools and resources |
 | [SQLiteSearch: Persistent Search Library](sqlitesearch-library.md) | draft | 2026-02-06 | Lightweight search library with SQLite persistence |
-| [AI Engineer My Vision](ai-engineer-my-vision.md) | draft | 2026-02-08 | Personal perspective on the AI engineer role based on direct experience |
-| [AI Roles Now and Then](ai-roles-now-and-then.md) | draft | 2026-02-08 | Evolution of data roles and how Data Scientists and ML Engineers transition to AI engineering |
-| [CRISP-DM for AI](crisp-dm-for-ai.md) | draft | 2026-02-08 | Applying the classic CRISP-DM methodology to modern AI projects |
+| [AI Engineer My Vision](ai-engineer-my-vision.md) | draft | 2026-02-16 | Personal perspective on the AI engineer role based on direct experience |
+| [AI Roles Now and Then](ai-roles-now-and-then.md) | draft | 2026-02-16 | Evolution of data roles and how Data Scientists and ML Engineers transition to AI engineering |
+| [CRISP-DM for AI](crisp-dm-for-ai.md) | draft | 2026-02-16 | Applying the classic CRISP-DM methodology to modern AI projects |
 | [Certificates and AI Design Experiments](certificates-and-ai-design-experiments.md) | draft | 2026-02-16 | Creating workshop certificates and experiments with image-to-HTML/CSS conversion |
 | [From Vague Ideas to Concrete Results with ChatGPT](idea-to-concrete-iteration.md) | draft | 2026-01-31 | Process for iterating from undefined ideas to actionable plans |
 | [AI Testing Tools for End-to-End Tests](ai-testing-tools.md) | draft | 2026-01-30 | AI-powered testing automation for websites |

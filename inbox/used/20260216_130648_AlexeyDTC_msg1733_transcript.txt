@@ -1,0 +1,10 @@
+---
+source: telegram_voice
+date: 2026-02-16T13:06:48+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260216_130648_AlexeyDTC_msg1733.ogg
+---
+
+Okay, so now what I'm going to do is I'm going to export this thing from lovable and add backend
+support with clot.

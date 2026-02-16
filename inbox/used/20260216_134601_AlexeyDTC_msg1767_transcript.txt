@@ -1,0 +1,26 @@
+---
+source: telegram_voice
+date: 2026-02-16T13:46:01+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260216_134601_AlexeyDTC_msg1767.ogg
+---
+
+We are talking about data preparation steps. So here we need to prepare data in such a way that we
+can add, put this into the model. In our case, it's an image, it's text. This is fairly simple. So
+we just fetch whatever image was sent to us from the front-end. We send it to OpenAI, we process, we
+get data, and we send it back. So there is not much data pre-processing, there is not much modeling
+step, but for the modeling step here, I would classify it, I would change it a little. So there, in
+case of ML, here we do the actual training, here we train the actual model, right? So here we also
+evaluate the model. So we do cross validation, we do all these sorts of things. So here modeling is,
+it's of course here. So here we have the prompt here we have our output class Right so this pydentic
+model Then we have input and then we set up the validation framework we set up the tests for our AI
+system right, so and then we need to collect this evaluation data, we need to evaluate our model, so
+this is a process that is very similar to what we would do with the machine learning, but except we
+don't train the model, we try to, we have other criteria, we have other things we are optimizing,
+right? But the important thing here is that we have a metric that is not necessarily a business
+metric, but more like technical metric for how many images we are able to extract this thing, right?
+And then we change our prompt, we tune our prompt, we do other things, right? And on the after that,
+we are ready for evaluation. And here, important thing in CRIFDM, also for machine learning,
+evaluation that we do with cross-validation and metrics like accuracy is not evaluation in CRIFDM.
+So this belongs to the modeling step. So let's talk about evaluation now.

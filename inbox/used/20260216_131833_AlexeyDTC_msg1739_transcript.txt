@@ -1,0 +1,17 @@
+---
+source: telegram_voice
+date: 2026-02-16T13:18:33+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260216_131833_AlexeyDTC_msg1739.ogg
+---
+
+So as you can see, even for this simplest example, there are so many things that need to happen. So
+it's not enough to just define this PyIdentic class, send it to OpenAI and call it today. There is a
+lot of things that need to happen to properly integrate this into the product. And we didn't even
+talk about the UI changes, right? Because there also need to be UI changes. So typically I would say
+front-end engineers do this, but in some cases, if you work at a startup, AI engineers might also do
+that. Because with tools like with AI assistance, now it doesn't really matter if your TypeScript
+knowledge is not the best, right? So with Cloud Assistant, with Cloud Code or things like that, AI
+engineers or any engineer for that matter, can make these changes, they can integrate this into the
+product. But typically in bigger companies, it would be a front-end engineer.

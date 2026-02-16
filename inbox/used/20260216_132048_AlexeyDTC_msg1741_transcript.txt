@@ -1,0 +1,28 @@
+---
+source: telegram_voice
+date: 2026-02-16T13:20:48+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260216_132048_AlexeyDTC_msg1741.ogg
+---
+
+And that was just a very simple thing, right? But imagine that we go from this simple thing to RAC,
+right? So we make our process more complex. So now we have a search engine that we need to use,
+right? So something like Elasticsearch. So here we need to ingest the data. So we need to actually
+know how to build data pipelines, right? and how to build data pipelines reliably because the data
+is coming from somewhere. We need to put it into our search engine. This could be a vector search
+engine. That could be a tech search engine, right? So we need to be able to do that, right?
+Sometimes, oftentimes, we need to be able to provision the infrastructure for that. And by the way,
+also add before that, so when we talk about testing, when we talk about deployment, And also CI-CD
+is important, right? Because we want when we run tests we want to be able to run these tests on push
+to our Git When we deploy we want to be able to deploy to staging environment right When our tests
+on staging environment pass, we want to roll out to production. So setting this up, of course, AI
+engineer wouldn't be doing this alone. So typically there could be some platform engineers that help
+but if it's a startup knowing how to do these things will certainly help again i'm just talking uh
+it's very similar to data science right so if you think about data science what data science tests
+need to do they need to integrate machine learning into or ml engineers they need to integrate
+machine learning into the product here everything is similar and by the way this is something you
+can mention at the very beginning here it's very similar so So what they do is they make sure that
+everything is integrated. So I'm going to make parallels between these roles, between ML engineer
+and the AI engineer, because at the end, the roles are very different, very similar, right? Not
+different, but similar.

@@ -1,0 +1,12 @@
+---
+source: telegram_voice
+date: 2026-02-16T13:52:19+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260216_135219_AlexeyDTC_msg1775.ogg
+---
+
+Okay, I think that's all. So what I want to ask you is to go through all the content and systematize
+it. We have some articles that need updating. Please put these things there. and yeah, make sure
+that, so when I was recording all these messages, maybe order didn't really make sense. So adjust
+some things and then we will review together the content.

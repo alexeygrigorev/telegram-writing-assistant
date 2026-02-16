@@ -1,0 +1,19 @@
+---
+source: telegram_voice
+date: 2026-02-16T13:22:14+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260216_132214_AlexeyDTC_msg1743.ogg
+---
+
+Yeah, I was talking about RAC. So for RAC we need to have this pipeline, right? So we need to run it
+reliably. But then also, let's say we have an agent, right? So for agents, we need to know tool
+calling and things like that, right? So and when we have tools, we need to make sure that agents can
+use these tools reliably. So we need to be able to write tests for tools. and for the agent
+behavior, right? And then with these tools, everything becomes more complex. So we need to be able
+to, we need to be able to, yeah, adjust our, write our tests and write our evaluation, update our
+evaluation framework, evaluation criteria in such a way that we, okay, in this scenario, these tools
+are used, right? So agent must use these tools in this scenario, things like that, right? So in
+simple case, we saw that it's already a lot of work, but in more complex cases, when we have RAC,
+when we have agents, the complexity is, I don't know, 10 times more than before. So all these things
+are solved by AI engineers.

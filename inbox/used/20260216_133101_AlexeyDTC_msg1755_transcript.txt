@@ -1,0 +1,12 @@
+---
+source: telegram_voice
+date: 2026-02-16T13:31:01+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260216_133101_AlexeyDTC_msg1755.ogg
+---
+
+So yeah, this is the roles in the data team. I already talked about this. I am not going to talk
+about probably, yeah, maybe I should, but like we will see if I should spend time on talking about
+data analysts and so on, data scientists, data engineers. Yeah, but we will definitely refer to this
+article as I go through the event.

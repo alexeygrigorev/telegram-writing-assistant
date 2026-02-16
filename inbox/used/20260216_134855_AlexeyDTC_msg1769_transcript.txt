@@ -1,0 +1,31 @@
+---
+source: telegram_voice
+date: 2026-02-16T13:48:55+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260216_134855_AlexeyDTC_msg1769.ogg
+---
+
+At the evaluation we actually see how it affects the product, right? How it affects the users. So we
+take the thing we developed and we roll it out to the users, right? And then, so we run some sort of
+A-B tests and we see how these tests, like if they... We remember at the business understanding step
+we defined the metric. So here we see if this metric is good, right? We also collect feedback from
+people. Like we see like this implicit feedback, right? At the beginning, we set this, like how
+often the model is, yeah, maybe we'll also set it here, right? We see how often people change the
+output, like how good it is. but the important thing is if users were able to do this earlier than
+before, right? So here we can introduce some extra metrics to measure the performance of our model,
+but the main metric we defined in business understanding. So here we can see if this is good or not.
+And then, so typically these days, so QSBM is a fairly old model So before evaluation deployment we
+were kind of separate but now they are almost the same right So because you kind of deploy to a part
+of users and then if everything works, you say, okay, it's good. We can roll everything to, we can
+roll this to everyone, right? But if during the evaluation, we see that something is off, then we go
+to, we either refine our business understanding Or we can say, okay, with what we have right now, it
+doesn't seem valuable to continue with this project, so we are parking it for now. So this could be
+an outcome too, saying that we cannot achieve what we wanted. And this is an outcome too. And
+between the initial idea and this outcome, ideally you wanna spend as little time as possible. So
+this would be the first iteration, but on the second iteration, you would spend more time And the
+goal is to iterate. So this process is very iterative. So you iterate as many times as possible,
+right? And that's the idea between, and so that's the idea behind CRISPR-EM. And I think this is a
+valid framework for AI projects too. And you don't necessarily have to follow like each step, but I
+think it just gives a good mental model to understand how you can approach not only machine learning
+projects, but also AI projects. Thank you.
