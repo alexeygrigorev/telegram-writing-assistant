@@ -257,7 +257,7 @@ class TestMultipleInterruptions:
         # Create a marker file first, then sleep, then create result files
         prompt = f'Run this: cd {test_dir} && echo "start" > status.txt && sleep 60 && for i in {{1..20}}; do echo $i > test_$i.txt; sleep 0.5; done'
 
-        cmd = f'claude -p --allowedTools "Read,Edit" --output-format stream-json --verbose --dangerously-skip-permissions "{prompt}"'
+        cmd = f'claude -p --allowedTools "Read,Edit" --output-format stream-json --verbose "{prompt}"'
 
         print(f"\n[TEST] Starting Claude (will interrupt multiple times)...")
         process = subprocess.Popen(
@@ -312,7 +312,7 @@ class TestMultipleInterruptions:
 
         # Resume - interrupt again
         print(f"\n[TEST] === Resume 1 ===")
-        cmd = f'claude -p --allowedTools "Read,Edit" --output-format stream-json --verbose --dangerously-skip-permissions --resume {session_id} "Please continue creating the remaining files."'
+        cmd = f'claude -p --allowedTools "Read,Edit" --output-format stream-json --verbose --resume {session_id} "Please continue creating the remaining files."'
 
         process = subprocess.Popen(
             cmd,
@@ -357,7 +357,7 @@ class TestMultipleInterruptions:
 
         # Final resume - let it complete
         print(f"\n[TEST] === Final Resume ===")
-        cmd = f'claude -p --allowedTools "Read,Edit" --output-format stream-json --verbose --dangerously-skip-permissions --resume {session_id} "Please continue creating the remaining test files."'
+        cmd = f'claude -p --allowedTools "Read,Edit" --output-format stream-json --verbose --resume {session_id} "Please continue creating the remaining test files."'
 
         process = subprocess.Popen(
             cmd,
