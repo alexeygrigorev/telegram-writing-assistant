@@ -1,14 +1,11 @@
-"""Test SessionRetrier with multiple interruptions.
+"""Test SessionRetrier logic.
 
-This test simulates Claude being interrupted multiple times
-and verifies that the auto-retry logic handles it correctly.
+Unit tests using mocks to verify retry behavior without needing Claude CLI.
 """
 
-import json
-import subprocess
-import time
+import asyncio
 from pathlib import Path
-from unittest.mock import AsyncMock, Mock, patch
+from unittest.mock import AsyncMock, Mock, patch, MagicMock
 
 import pytest
 
@@ -19,13 +16,12 @@ from session_retrier import SessionRetrier
 
 
 class TestSessionRetrier:
-    """Unit tests for SessionRetrier."""
+    """Unit tests for SessionRetrier helpers."""
 
     def test_get_commit_hash(self, tmp_path):
         """Test getting commit hash."""
         runner = SessionRetrier(tmp_path, tmp_path / "logs")
 
-        # Mock git rev-parse
         with patch("subprocess.run") as mock_run:
             mock_result = Mock()
             mock_result.stdout = "abc123def456\n"
@@ -52,185 +48,178 @@ class TestSessionRetrier:
         assert result is None
 
 
-class TestMultipleInterruptions:
-    """Test that multiple interruptions are handled correctly."""
+class TestAutoRetry:
+    """Test run_with_auto_retry logic."""
 
-    def test_resume_multiple_times(self):
-        """Test simulating Claude being interrupted 2 times, then succeeding."""
-        repo_path = Path.cwd()
-        test_dir = repo_path / ".tmp" / "multi_interrupt_test"
-        test_dir.mkdir(parents=True, exist_ok=True)
+    def _make_retrier(self, tmp_path):
+        retrier = SessionRetrier(tmp_path, tmp_path / "logs")
+        bot = AsyncMock()
+        progress = Mock()
+        return retrier, bot, progress
 
-        # Clean up any previous test files
-        for f in test_dir.glob("test_*.txt"):
-            f.unlink()
+    @pytest.mark.asyncio
+    async def test_success_with_commit(self, tmp_path):
+        """returncode 0 + new commit = success with commit hash."""
+        retrier, bot, progress = self._make_retrier(tmp_path)
 
-        # Get commit hash BEFORE
-        result_before = subprocess.run(
-            ["git", "rev-parse", "HEAD"],
-            cwd=repo_path,
-            capture_output=True,
-            text=True
-        )
-        commit_before = result_before.stdout.strip()
-        print(f"\n[TEST] Commit BEFORE: {commit_before[:8]}")
+        with patch.object(retrier, "get_commit_hash", side_effect=["aaa", "bbb"]), \
+             patch("session_retrier.ClaudeRunner") as MockRunner:
+            MockRunner.return_value.run_process_command.return_value = (0, "", "")
 
-        # Start with sleep to give us time to interrupt
-        # Create a marker file first, then sleep, then create result files
-        prompt = f'Run this: cd {test_dir} && echo "start" > status.txt && sleep 60 && for i in {{1..20}}; do echo $i > test_$i.txt; sleep 0.5; done'
+            success, commit, error = await retrier.run_with_auto_retry(
+                chat_id=1, bot=bot, on_progress=progress
+            )
 
-        cmd = f'claude -p --allowedTools "Read,Edit" --output-format stream-json --verbose --dangerously-skip-permissions "{prompt}"'
+        assert success is True
+        assert commit == "bbb"
+        assert error is None
 
-        print(f"\n[TEST] Starting Claude (will interrupt multiple times)...")
-        process = subprocess.Popen(
-            cmd,
-            cwd=repo_path,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-            text=True,
-            shell=True,
-            bufsize=1
-        )
+    @pytest.mark.asyncio
+    async def test_success_no_commit(self, tmp_path):
+        """returncode 0 + same commit = success with no commit (nothing to process)."""
+        retrier, bot, progress = self._make_retrier(tmp_path)
 
-        session_id = None
-        interrupt_count = 0
-        MAX_INTERRUPTS = 2
-        file_count = 0
-        start_time = time.time()
+        with patch.object(retrier, "get_commit_hash", return_value="aaa"), \
+             patch("session_retrier.ClaudeRunner") as MockRunner:
+            MockRunner.return_value.run_process_command.return_value = (0, "", "")
 
-        while time.time() - start_time < 90:
-            line = process.stdout.readline()
-            if not line:
-                if process.poll() is not None:
-                    break
-                time.sleep(0.1)
-                continue
+            success, commit, error = await retrier.run_with_auto_retry(
+                chat_id=1, bot=bot, on_progress=progress
+            )
 
-            line = line.strip()
-            if not line:
-                continue
+        assert success is True
+        assert commit is None
+        assert error is None
+        # Should NOT have sent any retry messages
+        bot.send_message.assert_not_called()
 
-            # Extract session_id from first line
-            if session_id is None:
-                try:
-                    data = json.loads(line)
-                    if data.get("type") == "system" and data.get("subtype") == "init":
-                        session_id = data.get("session_id")
-                        print(f"[TEST] Session ID: {session_id}")
-                except:
-                    pass
+    @pytest.mark.asyncio
+    async def test_crash_then_retry_succeeds_with_commit(self, tmp_path):
+        """Crash on first run, retry succeeds with a commit."""
+        retrier, bot, progress = self._make_retrier(tmp_path)
 
-            # Wait for status.txt to appear (bash started sleeping)
-            if (test_dir / "status.txt").exists() and interrupt_count == 0:
-                time.sleep(1)  # Give it a moment in the sleep
-                interrupt_count += 1
-                print(f"[TEST] INTERRUPTION #{interrupt_count}: Killing during sleep phase...")
-                process.kill()
-                process.wait(timeout=5)
-                break
+        # Write session ID file so retry can find it
+        session_file = tmp_path / ".tmp" / "claude_session_id.txt"
+        session_file.parent.mkdir(parents=True, exist_ok=True)
+        session_file.write_text("sess-123")
 
-        # First interruption done
-        assert interrupt_count == 1, "Should have interrupted once"
+        call_count = 0
+        def mock_run_process(**kwargs):
+            nonlocal call_count
+            call_count += 1
+            if call_count == 1:
+                return (1, "", "crash")  # First run crashes
+            return (0, "", "")  # Retry succeeds
 
-        # Resume - interrupt again
-        print(f"\n[TEST] === Resume 1 ===")
-        cmd = f'claude -p --allowedTools "Read,Edit" --output-format stream-json --verbose --dangerously-skip-permissions --resume {session_id} "Please continue creating the remaining files."'
+        with patch.object(retrier, "get_commit_hash", side_effect=["aaa", "bbb"]), \
+             patch("session_retrier.ClaudeRunner") as MockRunner:
+            MockRunner.return_value.run_process_command.side_effect = mock_run_process
 
-        process = subprocess.Popen(
-            cmd,
-            cwd=repo_path,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-            text=True,
-            shell=True,
-            bufsize=1
-        )
+            success, commit, error = await retrier.run_with_auto_retry(
+                chat_id=1, bot=bot, on_progress=progress
+            )
 
-        # Check for existing files
-        existing_files = list(test_dir.glob("test_*.txt"))
-        file_count = len(existing_files)
-        print(f"[TEST] Found {file_count} existing files")
+        assert success is True
+        assert commit == "bbb"
+        assert error is None
+        bot.send_message.assert_called_once()
 
-        start_time = time.time()
-        while time.time() - start_time < 90:
-            line = process.stdout.readline()
-            if not line:
-                if process.poll() is not None:
-                    break
-                time.sleep(0.1)
-                continue
+    @pytest.mark.asyncio
+    async def test_crash_then_retry_succeeds_no_commit(self, tmp_path):
+        """Crash on first run, retry succeeds but nothing to commit."""
+        retrier, bot, progress = self._make_retrier(tmp_path)
 
-            # Check for new files
-            current_files = list(test_dir.glob("test_*.txt"))
-            if len(current_files) > file_count:
-                file_count = len(current_files)
-                print(f"[TEST] Files created: {file_count}/20")
+        session_file = tmp_path / ".tmp" / "claude_session_id.txt"
+        session_file.parent.mkdir(parents=True, exist_ok=True)
+        session_file.write_text("sess-123")
 
-                # Interrupt after we have at least 5 more files
-                if file_count >= 5:
-                    interrupt_count += 1
-                    print(f"[TEST] INTERRUPTION #{interrupt_count}: Killing during file creation...")
-                    process.kill()
-                    process.wait(timeout=5)
-                    break
+        call_count = 0
+        def mock_run_process(**kwargs):
+            nonlocal call_count
+            call_count += 1
+            if call_count == 1:
+                return (1, "", "crash")
+            return (0, "", "")
 
-        # Second interruption done
-        assert interrupt_count == 2, "Should have interrupted twice"
+        with patch.object(retrier, "get_commit_hash", return_value="aaa"), \
+             patch("session_retrier.ClaudeRunner") as MockRunner:
+            MockRunner.return_value.run_process_command.side_effect = mock_run_process
 
-        # Final resume - let it complete
-        print(f"\n[TEST] === Final Resume ===")
-        cmd = f'claude -p --allowedTools "Read,Edit" --output-format stream-json --verbose --dangerously-skip-permissions --resume {session_id} "Please continue creating the remaining test files."'
+            success, commit, error = await retrier.run_with_auto_retry(
+                chat_id=1, bot=bot, on_progress=progress
+            )
 
-        process = subprocess.Popen(
-            cmd,
-            cwd=repo_path,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-            text=True,
-            shell=True,
-            bufsize=1
-        )
+        assert success is True
+        assert commit is None
+        assert error is None
 
-        # Wait for completion or timeout
-        start_time = time.time()
-        while time.time() - start_time < 90:
-            line = process.stdout.readline()
-            if not line:
-                if process.poll() is not None:
-                    break
-                time.sleep(0.1)
-                continue
+    @pytest.mark.asyncio
+    async def test_crash_no_session_id(self, tmp_path):
+        """Crash with no session ID saved = failure, no retry."""
+        retrier, bot, progress = self._make_retrier(tmp_path)
 
-            # Check for files
-            current_files = list(test_dir.glob("test_*.txt"))
-            if len(current_files) > file_count:
-                file_count = len(current_files)
-                print(f"[TEST] Files created: {file_count}/20")
+        with patch.object(retrier, "get_commit_hash", return_value="aaa"), \
+             patch("session_retrier.ClaudeRunner") as MockRunner:
+            MockRunner.return_value.run_process_command.return_value = (1, "", "crash")
 
-                if file_count >= 20:
-                    time.sleep(1)
-                    break
+            success, commit, error = await retrier.run_with_auto_retry(
+                chat_id=1, bot=bot, on_progress=progress
+            )
 
-        process.wait(timeout=5)
+        assert success is False
+        assert commit is None
+        assert "no session ID" in error
+        bot.send_message.assert_not_called()
 
-        # Verify all 20 files exist (since the bash loop creates 20, not 10)
-        final_files = list(test_dir.glob("test_*.txt"))
-        final_files.sort(key=lambda x: int(x.stem.split("_")[1]))
+    @pytest.mark.asyncio
+    async def test_all_retries_crash(self, tmp_path):
+        """All retries crash = failure after MAX_RETRIES."""
+        retrier, bot, progress = self._make_retrier(tmp_path)
 
-        print(f"\n[TEST] Final file count: {len(final_files)}")
-        assert len(final_files) >= 20, f"Expected at least 20 files, got {len(final_files)}"
+        session_file = tmp_path / ".tmp" / "claude_session_id.txt"
+        session_file.parent.mkdir(parents=True, exist_ok=True)
+        session_file.write_text("sess-123")
 
-        # Clean up
-        import shutil
-        shutil.rmtree(test_dir)
+        with patch.object(retrier, "get_commit_hash", return_value="aaa"), \
+             patch("session_retrier.ClaudeRunner") as MockRunner:
+            MockRunner.return_value.run_process_command.return_value = (1, "", "crash")
 
-        print(f"\n[TEST] PASSED - Handled {MAX_INTERRUPTS} interruptions successfully!")
+            success, commit, error = await retrier.run_with_auto_retry(
+                chat_id=1, bot=bot, on_progress=progress
+            )
 
+        assert success is False
+        assert commit is None
+        assert "crashed" in error
+        # Should have sent MAX_RETRIES retry messages
+        assert bot.send_message.call_count == retrier.MAX_RETRIES
 
-def test_multiple_interruptions_integration():
-    """Run the multiple interruptions test."""
-    TestMultipleInterruptions().test_resume_multiple_times()
+    @pytest.mark.asyncio
+    async def test_crash_twice_then_succeed(self, tmp_path):
+        """Two crashes then success on third retry."""
+        retrier, bot, progress = self._make_retrier(tmp_path)
 
+        session_file = tmp_path / ".tmp" / "claude_session_id.txt"
+        session_file.parent.mkdir(parents=True, exist_ok=True)
+        session_file.write_text("sess-123")
 
-if __name__ == "__main__":
-    test_multiple_interruptions_integration()
+        call_count = 0
+        def mock_run_process(**kwargs):
+            nonlocal call_count
+            call_count += 1
+            if call_count <= 3:  # First run + 2 retries crash
+                return (1, "", "crash")
+            return (0, "", "")  # 3rd retry succeeds
+
+        with patch.object(retrier, "get_commit_hash", side_effect=["aaa", "bbb"]), \
+             patch("session_retrier.ClaudeRunner") as MockRunner:
+            MockRunner.return_value.run_process_command.side_effect = mock_run_process
+
+            success, commit, error = await retrier.run_with_auto_retry(
+                chat_id=1, bot=bot, on_progress=progress
+            )
+
+        assert success is True
+        assert commit == "bbb"
+        assert error is None
+        assert bot.send_message.call_count == 3
