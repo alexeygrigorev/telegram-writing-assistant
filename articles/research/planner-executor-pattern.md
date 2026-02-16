@@ -30,12 +30,29 @@ The idea behind Ralphex is appealing, but the implementation did not work so wel
 
 3. Review phase - launches 5 specialized review agents in parallel via Claude Code's Task tool, covering quality assessment, implementation correctness, testing adequacy, over-engineering detection, and documentation completeness
 
+### Key Architectural Decisions
+
+Fresh session per task is the central design decision. Rather than running a single long Claude Code session, Ralphex launches a new process for each task iteration, each review iteration, and each external review evaluation. This prevents context window degradation and keeps the model sharp. State is communicated through the file system (plan file checkboxes, git commits) rather than through conversational context[^3].
+
+Signal-based communication: Claude communicates its status back to Ralphex through special signal strings embedded in its output (like ALL_TASKS_DONE, TASK_FAILED, REVIEW_DONE). The Go code parses the streaming JSON output and detects these signals, allowing the outer orchestration loop to make decisions about flow control[^3].
+
+Four-phase pipeline with iteration loops: Phase 1 (task execution loop), Phase 2 (first comprehensive code review with 5 parallel agents), Phase 3 (external review via Codex or custom tool), Phase 4 (second focused review with 2 agents). Each phase can iterate multiple times[^3].
+
+Parallel review agents via Claude's Task tool: during code review, a single Claude session uses Claude Code's built-in Task tool to launch 5 sub-agents in parallel covering quality, implementation fidelity, testing, simplification, and documentation[^3].
+
+No-commit detection for review convergence: the review loop captures the git HEAD hash before each Claude session and compares it after. If HEAD hasn't changed, Claude found nothing to fix and the loop terminates[^3].
+
 ### Key Advantages
 
 - No context degradation - each task executes in a separate Claude session, maintaining fresh context throughout long feature implementations
 - Atomic progress - commits after each completed task, so failed executions don't lose completed work
 - Parallel review - multi-agent code review with specialized reviewers happens simultaneously
 - Structured planning - unlike simple ralph loops that re-run the same prompt, Ralphex manages explicit structured plans
+- Resumable - if interrupted mid-execution, completed tasks remain committed on the feature branch and re-running continues from the first incomplete task
+
+### Technical Details
+
+Written in Go. Uses Claude Code's `--output-format stream-json` for streaming output parsing. Supports Docker isolation for sandboxed execution. Configuration cascades: CLI flags > project-local config > global config > embedded defaults. Template-driven prompts with variable expansion and agent references[^3].
 
 ## Connection to Teaching
 
