@@ -1,7 +1,7 @@
 ---
 title: "Paid AI Engineers Community Planning"
 created: 2026-02-10
-updated: 2026-02-14
+updated: 2026-02-16
 tags: [community, business, ai-engineering, pricing]
 status: draft
 ---
@@ -550,6 +550,14 @@ Benefits of sprints:
 
 Continuous activities lose interest over time, like "Book of the Week" or "Project of the Week" where interest fades. Running in sprints with periodic pauses helps avoid this. Sprints can have different focus areas. Taking breaks to rethink and adjust is valuable[^71].
 
+## Content Reuse System
+
+I want to build a system for myself that helps achieve different formats by reusing existing content. The goal is to understand where content lives and what can be pulled from it for different purposes[^73].
+
+## Community Content Plan
+
+For the community, the goal is to create an events plan and content plan. Once we conduct research and understand what people need, we can build a calendar showing how often different events happen and what content to expect. This way people can set their expectations based on a clear schedule[^73].
+
 ## Next Steps
 
 1. Start with AI Buildcamp students (free access for course alumni)
@@ -635,3 +643,4 @@ The key is to learn from real members rather than assuming what they want.
 [^70]: [20260213_152303_AlexeyDTC_msg1612_transcript.txt](../inbox/used/20260213_152303_AlexeyDTC_msg1612_transcript.txt)
 [^71]: [20260213_153009_AlexeyDTC_msg1623_transcript.txt](../inbox/used/20260213_153009_AlexeyDTC_msg1623_transcript.txt)
 [^72]: [20260214_092313_AlexeyDTC_msg1669_transcript.txt](../inbox/used/20260214_092313_AlexeyDTC_msg1669_transcript.txt)
+[^73]: [20260214_111721_AlexeyDTC_msg1687.md](../inbox/used/20260214_111721_AlexeyDTC_msg1687.md)

@@ -1,7 +1,7 @@
 ---
 title: "Spec-Driven Development and Task Management for AI Agents"
 created: 2026-02-10
-updated: 2026-02-10
+updated: 2026-02-16
 tags: [research, claude-code, agents, task-management, spec-driven-development]
 status: draft
 ---
@@ -224,6 +224,48 @@ Quotes:
 - "If work remains, the agent continues. If truly done, the agent confirms and the hook allows the stop on the next cycle."
 - "IMPORTANT: The user's latest instructions always take priority. If the user said to stop, move on, or skip something, respect that - do not force completion of work the user no longer wants."
 
+### Superpowers
+
+Source: https://github.com/obra/superpowers
+
+Overview: Superpowers is an agentic skills framework and software development methodology created by Jesse Vincent (obra) that provides a complete, structured workflow for AI coding agents. Rather than letting AI agents jump directly into writing code, Superpowers enforces a disciplined pipeline: first brainstorm and produce a design spec through Socratic dialogue with the human, then generate a detailed implementation plan with bite-sized tasks, then execute those tasks through fresh subagents with two-stage code review after each one. The system is built as a set of composable "skills" that trigger automatically when relevant conditions are detected, turning suggestions into mandatory workflows[^13].
+
+The framework is available as a plugin for Claude Code, Codex, and OpenCode. Its core philosophy treats spec-driven development not as an optional best practice but as an enforceable constraint. The skills are written using the same Test-Driven Development methodology they enforce: each skill is pressure-tested against AI agents to document their natural rationalizations, then hardened with explicit counters to those rationalizations. The result is a system where an AI agent can work autonomously for hours at a time without deviating from the human-approved plan.
+
+Key Ideas:
+- The entire development process is structured as a pipeline: brainstorming produces a design spec, the spec produces a plan, the plan drives subagent-driven execution, and execution includes automated review gates before completion
+- A hard gate prevents any code from being written until a human has reviewed and approved a design document. The system explicitly calls out "this is too simple to need a design" as the exact rationalization agents use to skip the process
+- Implementation plans are broken into bite-sized tasks of 2-5 minutes each, where every step has exact file paths, complete code, exact commands to run, and expected output
+- Subagent-driven development dispatches a fresh AI subagent for each task to prevent context pollution, then runs a two-stage review: first a spec compliance reviewer, then a code quality reviewer
+- Test-Driven Development is treated as an iron law: no production code without a failing test first. Code written before tests must be deleted, not kept as reference
+- The skills themselves are developed using TDD for documentation: pressure scenarios are run against agents without the skill (RED), the skill is written to address observed failures (GREEN), and then new rationalizations are identified and plugged (REFACTOR)
+
+Key Insights:
+- AI agents are highly susceptible to the same rationalizations that human developers use to skip process. The framework treats this as a first-class engineering problem and builds explicit rationalization tables with counters into every skill
+- Description fields in skill metadata must describe only when to use a skill, never what the skill does. Testing revealed that when descriptions summarize workflow, agents follow the description shortcut instead of reading the full skill
+- Fresh subagent context per task is critical. When a single agent session accumulates context across multiple tasks, it becomes "context polluted" and begins making decisions based on stale or irrelevant state
+- The spec compliance reviewer is explicitly instructed not to trust the implementer's self-report. The prompt says: "The implementer finished suspiciously quickly. Their report may be incomplete, inaccurate, or optimistic. You MUST verify everything independently"
+- Systematic debugging follows a strict four-phase process with an escape hatch: if three or more fixes fail, the system demands questioning the architecture rather than attempting another fix
+- The "verification before completion" skill requires fresh verification evidence in the same message as any success claim, and explicitly forbids words like "should," "probably," or "seems to"
+
+Actionable Patterns:
+- When starting any feature or change, enforce a brainstorming phase that asks one question at a time, proposes 2-3 approaches with trade-offs, presents the design in digestible sections for incremental approval, and saves the validated design to a versioned document before any implementation begins
+- Write implementation plans with the "enthusiastic junior engineer" standard: every task includes exact file paths, complete runnable code, exact shell commands with expected output, and explicit verification steps
+- Use a two-stage review gate after every task: first verify spec compliance (was exactly what was requested built, with nothing missing and nothing extra?), then verify code quality
+- Build rationalization tables into any process documentation where discipline matters. Capture the exact excuses agents produce under pressure and provide concrete rebuttals for each one
+- When debugging, invest in diagnostic instrumentation at component boundaries before proposing any fix
+- After any claimed completion, run the actual verification command fresh and include the output as evidence
+
+Technical Details:
+- Superpowers is distributed as a Claude Code plugin installable via `/plugin marketplace add obra/superpowers-marketplace` followed by `/plugin install superpowers@superpowers-marketplace`. It also supports Codex and OpenCode
+- Skills are stored as SKILL.md files in a flat `skills/` directory with YAML frontmatter containing only `name` and `description` fields
+- The framework uses a session-start hook (synchronous, not async) that loads the `using-superpowers` skill
+- Subagent dispatch uses three prompt templates: `implementer-prompt.md`, `spec-reviewer-prompt.md`, and `code-quality-reviewer-prompt.md`
+- Git worktrees are used to create isolated workspaces on new branches before implementation begins
+- The `using-superpowers` skill intercepts Claude's native plan mode (EnterPlanMode) and routes through the brainstorming skill instead
+- Skills are classified as either rigid (TDD, debugging, verification: follow exactly, no adaptation) or flexible (patterns: adapt principles to context)
+- The project is MIT licensed and currently at v4.3.0 (as of February 2026)
+
 ## Notes
 
 Previously worked with stop hooks in the Ralph project, but it was quite useless - just "continue" and that's it. The goal is to make this more intelligent:
@@ -258,3 +300,4 @@ Compound Engineering from Every introduces a crucial insight: the compound step 
 [^10]: [20260210_083048_AlexeyDTC_msg1266.md](../../inbox/used/20260210_083048_AlexeyDTC_msg1266.md)
 [^11]: [https://github.com/blader/taskmaster](https://github.com/blader/taskmaster)
 [^12]: [https://every.to/guides/compound-engineering](https://every.to/guides/compound-engineering)
+[^13]: [20260216_072217_AlexeyDTC_msg1703.md](../../inbox/used/20260216_072217_AlexeyDTC_msg1703.md)

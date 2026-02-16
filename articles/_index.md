@@ -32,12 +32,12 @@ Brief description of what this article is about.
 | [Telegram Writing Assistant](telegram-writing-assistant.md) | draft | 2026-02-04 | Personal knowledge management system via Telegram |
 | [AI Engineer Role Research](ai-engineer-role-research.md) | draft | 2026-02-06 | Research into AI Engineer positions and interview process |
 | [Automator Bot](automator-bot.md) | draft | 2026-02-06 | Slack bot for community management automation |
-| [Interesting Resources](interesting-resources.md) | draft | 2026-02-08 | Curated collection of tools and resources |
+| [Interesting Resources](interesting-resources.md) | draft | 2026-02-16 | Curated collection of tools and resources |
 | [SQLiteSearch: Persistent Search Library](sqlitesearch-library.md) | draft | 2026-02-06 | Lightweight search library with SQLite persistence |
 | [AI Engineer My Vision](ai-engineer-my-vision.md) | draft | 2026-02-08 | Personal perspective on the AI engineer role based on direct experience |
 | [AI Roles Now and Then](ai-roles-now-and-then.md) | draft | 2026-02-08 | Evolution of data roles and how Data Scientists and ML Engineers transition to AI engineering |
 | [CRISP-DM for AI](crisp-dm-for-ai.md) | draft | 2026-02-08 | Applying the classic CRISP-DM methodology to modern AI projects |
-| [Certificates and AI Design Experiments](certificates-and-ai-design-experiments.md) | draft | 2026-02-06 | Creating workshop certificates and experiments with image-to-HTML/CSS conversion |
+| [Certificates and AI Design Experiments](certificates-and-ai-design-experiments.md) | draft | 2026-02-16 | Creating workshop certificates and experiments with image-to-HTML/CSS conversion |
 | [From Vague Ideas to Concrete Results with ChatGPT](idea-to-concrete-iteration.md) | draft | 2026-01-31 | Process for iterating from undefined ideas to actionable plans |
 | [AI Testing Tools for End-to-End Tests](ai-testing-tools.md) | draft | 2026-01-30 | AI-powered testing automation for websites |
 | [Testing AI Agents with the Judge Pattern](testing-agents-with-judge-pattern.md) | draft | 2026-01-30 | Using agents to evaluate other agents |
@@ -49,7 +49,7 @@ Brief description of what this article is about.
 | [AI Bootcamp Course](ai-bootcamp-course.md) | draft | 2026-01-28 | Course curriculum and syllabus for AI Engineering BuildCamp |
 | [Claude Code Helpers](claude-helpers.md) | draft | 2026-02-10 | Aliases, functions, slash commands, and subagents for Claude Code |
 | [Claude Code Experiments](claude-code-experiments.md) | draft | 2026-02-12 | Experiments and applications of Claude Code beyond coding, including challenges with communication |
-| [Paid AI Engineers Community Planning](paid-ai-community-planning.md) | draft | 2026-02-12 | Planning a paid community for AI Engineers including target audience, tier structure, and pricing |
+| [Paid AI Engineers Community Planning](paid-ai-community-planning.md) | draft | 2026-02-16 | Planning a paid community for AI Engineers including target audience, tier structure, and pricing |
 | [Course Management Agent](course-management-agent.md) | draft | 2026-01-23 | Automating course administration tasks with Claude Skills |
 | [Cross-Platform Environment Variable Management with dirdotenv](dirdotenv.md) | draft | 2026-01-23 | Python-based alternative to direnv |
 | [Generating Books with AI](ai-book-generator.md) | draft | 2026-01-23 | Using AI to generate complete books with covers |
@@ -71,6 +71,7 @@ Brief description of what this article is about.
 | [AI Engineer RPG Game](ai-engineer-rpg-game.md) | draft | 2026-02-13 | RPG game for interview practice built with OpenCode/GLM-5 in Rust |
 | [Telegram Bot Server Migration](telegram-bot-server-migration.md) | draft | 2026-02-13 | Moving the Telegram writing assistant bot from local computer to a dedicated server |
 | [Paid Community Marketing Plan](paid-community-marketing-plan.md) | draft | 2026-02-14 | Marketing plan and funnel for promoting the paid community |
+| [Services Website Testimonials](services-testimonials.md) | draft | 2026-02-15 | Collection of testimonials for the services website |
 
 See [Research Articles](research/_index.md) for research and investigation topics.
 

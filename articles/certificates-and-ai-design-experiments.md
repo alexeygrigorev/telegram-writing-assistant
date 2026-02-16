@@ -1,7 +1,7 @@
 ---
 title: "Certificates and AI Design Experiments"
 created: 2026-02-01
-updated: 2026-02-06
+updated: 2026-02-16
 tags: [certificates, ai-design, automation, gemini, claude-code]
 status: draft
 ---
@@ -249,13 +249,73 @@ I want to return to this project to create improved certificates for AI Buildcam
 
 The concept of converting images to code is valuable and I expect to return to it in a month or two when there's more time to refine the approach.
 
-## Current Status (February 2025)
+## Part 4: Certificate Recreation with Claude Opus 4.6
 
-The automated certificate experiment is currently paused. The goal was to give an AI an image and have it automatically generate the HTML/CSS to recreate it, but the results were not satisfactory. While the experiment failed to achieve full automation, the manual process works well for generating certificates[^11].
+I saw a tip in Claude Code suggesting the frontend-design plugin for HTML/CSS work and decided to try the certificate recreation experiment again. This time with Opus 4.6, letting it read the reference images directly[^25].
 
-Focus has shifted to course content creation, but I plan to return to this when there's more time to refine the approach.
+<figure>
+  <img src="../assets/images/certificates-and-ai-design-experiments/opus46-frontend-plugin-tip.jpg" alt="Claude Code showing frontend-design plugin suggestion">
+  <figcaption>Claude Code tip about the frontend-design plugin that inspired the new attempt</figcaption>
+  <!-- The plugin suggestion appeared while working on HTML/CSS and triggered another round of certificate experiments -->
+</figure>
 
-### Community Question
+### Certificate Recreation Attempt
+
+Opus 4.6 started by reading the reference images, analyzing the background and certificate layout, reading the signature SVG, and then creating a pure CSS certificate. The process took about 2 minutes with 60 seconds of thinking time[^26].
+
+<figure>
+  <img src="../assets/images/certificates-and-ai-design-experiments/opus46-certificate-cooking.jpg" alt="Claude Opus 4.6 working on certificate recreation">
+  <figcaption>Claude Opus 4.6 analyzing references and creating the pure CSS certificate</figcaption>
+  <!-- Shows the step-by-step process: reading references, analyzing layout, creating HTML -->
+</figure>
+
+The design analysis was accurate. It correctly identified all the background elements and typography details from the reference[^27].
+
+<figure>
+  <img src="../assets/images/certificates-and-ai-design-experiments/opus46-design-analysis.jpg" alt="Detailed design analysis of certificate elements">
+  <figcaption>Opus 4.6 design analysis of the reference certificate - background and typography details</figcaption>
+  <!-- Gemini also detected these elements well previously, so this is not unique to Opus -->
+</figure>
+
+The second iteration produced a reasonable result. However, it clearly peeked into the previous results from earlier experiments despite being asked to start from scratch[^28].
+
+<figure>
+  <img src="../assets/images/certificates-and-ai-design-experiments/opus46-certificate-second-iteration.jpg" alt="Second iteration of certificate recreation by Opus 4.6">
+  <figcaption>Second iteration of the certificate - looks good but borrowed from previous work</figcaption>
+  <!-- The model was asked to start from scratch but appears to have used context from prior experiments -->
+</figure>
+
+### Comparison with Original
+
+Comparing the original ChatGPT certificate with the Opus 4.6 recreation side by side, the result was okay but it borrowed a lot from the previous work, making it hard to judge. I asked it to focus on the background only instead[^29].
+
+<figure>
+  <img src="../assets/images/certificates-and-ai-design-experiments/opus46-original-vs-recreated.jpg" alt="Side by side comparison of original and recreated certificates">
+  <figcaption>Original (left) vs Opus 4.6 recreation (right) - close but borrowed from previous work</figcaption>
+  <!-- Hard to judge the quality since it may have used context from earlier experiments -->
+</figure>
+
+### Background-Only Experiment
+
+The background generation experiment continued with many iterations. After 44 iterations of background comparison screenshots, the results were not converging to anything meaningful - just randomly trying different approaches[^30][^31].
+
+<figure>
+  <img src="../assets/images/certificates-and-ai-design-experiments/opus46-background-44-iterations.jpg" alt="File explorer showing 44 background comparison iterations">
+  <figcaption>44 iterations of background comparison - the experiment did not converge</figcaption>
+  <!-- Shows bg-comparison-v2 through bg-comparison-v44, plus the certificate files -->
+</figure>
+
+<figure>
+  <p>Video: Screen recording of background evolution across iterations (bg-comparison-evolution.mp4) - shows how the background changes randomly without converging</p>
+  <figcaption>The background changes across iterations - not converging, just randomly trying things</figcaption>
+  <!-- This video shows the progression of all 44 background iterations -->
+</figure>
+
+### Experiment Results
+
+With Claude Opus 4.6 and the original instructions, the background could not be recreated successfully. The certificate recreation was close, but it peeked into previous results, so it is hard to judge the quality independently. The background iterations did not converge - they kept randomly trying different things without making progress toward the reference[^32].
+
+## Community Question
 
 Before building a custom solution for certificate design and hosting, I want to learn from others who may have solved this problem. Some existing options I'm aware of:
 - Google design tools (haven't tried yet)
@@ -291,3 +351,11 @@ If anyone has experience with certificate generation systems or knows of existin
 [^22]: [20260206_151508_AlexeyDTC_msg992_transcript.txt](../inbox/used/20260206_151508_AlexeyDTC_msg992_transcript.txt)
 [^23]: [20260206_151622_AlexeyDTC_msg993_transcript.txt](../inbox/used/20260206_151622_AlexeyDTC_msg993_transcript.txt)
 [^24]: [20260206_151915_AlexeyDTC_msg994_transcript.txt](../inbox/used/20260206_151915_AlexeyDTC_msg994_transcript.txt)
+[^25]: [20260215_052728_AlexeyDTC_msg1689_photo.md](../inbox/used/20260215_052728_AlexeyDTC_msg1689_photo.md)
+[^26]: [20260215_052822_AlexeyDTC_msg1690_photo.md](../inbox/used/20260215_052822_AlexeyDTC_msg1690_photo.md)
+[^27]: [20260215_053301_AlexeyDTC_msg1693_photo.md](../inbox/used/20260215_053301_AlexeyDTC_msg1693_photo.md)
+[^28]: [20260215_055432_AlexeyDTC_msg1695_photo.md](../inbox/used/20260215_055432_AlexeyDTC_msg1695_photo.md)
+[^29]: [20260215_060526_AlexeyDTC_msg1697_photo.md](../inbox/used/20260215_060526_AlexeyDTC_msg1697_photo.md)
+[^30]: [20260216_080444_AlexeyDTC_msg1707_photo.md](../inbox/used/20260216_080444_AlexeyDTC_msg1707_photo.md)
+[^31]: [20260216_081159_AlexeyDTC_msg1709.md](../inbox/used/20260216_081159_AlexeyDTC_msg1709.md)
+[^32]: [20260216_081225_AlexeyDTC_msg1711.md](../inbox/used/20260216_081225_AlexeyDTC_msg1711.md)

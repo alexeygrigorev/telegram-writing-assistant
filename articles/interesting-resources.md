@@ -1,7 +1,7 @@
 ---
 title: "Interesting Resources"
 created: 2026-01-31
-updated: 2026-02-14
+updated: 2026-02-16
 tags: [resources, tools, ai, development]
 status: draft
 ---
@@ -86,6 +86,10 @@ Each resource entry follows this simple format:
 
 [You Could've Invented OpenClaw](https://gist.github.com/dabit3/bc60d3bea0b02927995cd9bf53c3db32) is a tutorial by Nader Dabit that walks through building a persistent AI assistant from scratch, starting with a simple Telegram bot using the Anthropic API. It incrementally adds sessions, personality, tool use, multi-channel support, memory, and scheduled tasks, arriving at a ~400-line "mini OpenClaw" clone. I already built my own Telegram bot - this is an interesting look at how someone else approached the same problem[^22][^23].
 
+### Zvec
+
+[Zvec](https://github.com/alibaba/zvec) is an open-source, in-process vector database from Alibaba, built on their battle-tested Proxima vector search engine. It can search billions of vectors in milliseconds while supporting both dense and sparse embeddings, hybrid search with structured filters, and multi-vector queries. Unlike client-server vector databases, Zvec embeds directly into your application with no infrastructure overhead, making it a compelling option for RAG pipelines and similarity search on notebooks, servers, or edge devices. I was looking for something like this very recently[^24].
+
 ## Sources
 
 [^1]: [20260131_191039_AlexeyDTC_msg741_photo.md](../inbox/used/20260131_191039_AlexeyDTC_msg741_photo.md)
@@ -111,3 +115,4 @@ Each resource entry follows this simple format:
 [^21]: [20260214_063326_AlexeyDTC_msg1656.md](../inbox/used/20260214_063326_AlexeyDTC_msg1656.md)
 [^22]: [20260214_103313_AlexeyDTC_msg1673.md](../inbox/used/20260214_103313_AlexeyDTC_msg1673.md)
 [^23]: [20260214_103407_AlexeyDTC_msg1675_transcript.txt](../inbox/used/20260214_103407_AlexeyDTC_msg1675_transcript.txt)
+[^24]: [20260215_214321_AlexeyDTC_msg1701.md](../inbox/used/20260215_214321_AlexeyDTC_msg1701.md)
