@@ -1,7 +1,7 @@
-"""Session Retrier - handles auto-resume when Claude session fails.
+"""Session Retrier - handles auto-resume when Claude session crashes.
 
-When a Claude session is interrupted (no commit made), this class:
-1. Detects the failure by comparing git commit hashes
+When a Claude session is interrupted (non-zero exit code), this class:
+1. Detects the crash via exit code
 2. Reads the saved session_id
 3. Automatically retries with --resume and a continuation prompt
 4. Sends user feedback via Telegram about the retry
@@ -15,7 +15,7 @@ from claude_runner import ClaudeRunner
 
 
 class SessionRetrier:
-    """Handles automatic retry of interrupted Claude sessions."""
+    """Handles automatic retry of crashed Claude sessions."""
 
     MAX_RETRIES = 3
 
@@ -52,13 +52,11 @@ class SessionRetrier:
         session_id: Optional[str] = None
     ) -> tuple[bool, Optional[str], Optional[str]]:
         """
-        Run Claude with automatic retry on session failure.
+        Run Claude with automatic retry on session crash.
 
-        Args:
-            chat_id: Telegram chat ID for sending messages
-            bot: Telegram bot instance
-            on_progress: Callback for progress updates
-            session_id: Optional session ID to resume from the start
+        Only retries when Claude crashes (non-zero exit code).
+        A successful exit (code 0) with no commit is treated as
+        "nothing to process" - not a failure.
 
         Returns:
             (success, commit_hash, error_message)
@@ -75,25 +73,18 @@ class SessionRetrier:
             on_progress=on_progress
         )
 
-        if returncode != 0:
-            return False, None, f"Claude session failed (exit code {returncode})"
+        if returncode == 0:
+            commit_after = self.get_commit_hash()
+            print(f"[SessionRetrier] Commit after: {commit_after[:8]}", flush=True)
+            if commit_after != commit_before:
+                return True, commit_after, None
+            print(f"[SessionRetrier] Session completed successfully with no new commit (nothing to process)", flush=True)
+            return True, None, None
 
-        # Check if a commit was made
-        commit_after = self.get_commit_hash()
-        print(f"[SessionRetrier] Commit after: {commit_after[:8]}", flush=True)
-
-        # If commit was made, success!
-        if commit_after != commit_before:
-            return True, commit_after, None
-
-        # No commit made - enter retry loop
+        # Session crashed - enter retry loop
+        print(f"[SessionRetrier] Session crashed (exit code {returncode}), will attempt resume", flush=True)
         return await self._retry_loop(
-            chat_id,
-            bot,
-            on_progress,
-            commit_before,
-            commit_after,
-            initial_session_id=session_id
+            chat_id, bot, on_progress, commit_before, returncode
         )
 
     async def _retry_loop(
@@ -102,38 +93,21 @@ class SessionRetrier:
         bot,
         on_progress: Callable[[str], None],
         commit_before: str,
-        commit_after: str,
-        initial_session_id: Optional[str] = None
+        last_returncode: int,
     ) -> tuple[bool, Optional[str], Optional[str]]:
-        """
-        Retry loop for interrupted sessions.
-
-        Returns:
-            (success, commit_hash, error_message)
-        """
-        retry_count = 0
-        commit_hash = commit_after
-
-        while commit_hash == commit_before and retry_count < self.MAX_RETRIES:
-            if retry_count == 0:
-                print(f"[SessionRetrier] WARNING: No new commit was made!", flush=True)
-            else:
-                print(f"[SessionRetrier] WARNING: Retry {retry_count} also failed!", flush=True)
-
+        """Retry loop for crashed sessions."""
+        for attempt in range(1, self.MAX_RETRIES + 1):
             session_id = self.get_session_id()
             if not session_id:
-                return False, None, "No session to resume and no commit was made"
+                return False, None, f"Session crashed (exit code {last_returncode}) and no session ID saved to resume"
 
-            # Attempt resume with continuation prompt
-            retry_count += 1
-            print(f"[SessionRetrier] Auto-resume attempt {retry_count}/{self.MAX_RETRIES}...", flush=True)
+            print(f"[SessionRetrier] Auto-resume attempt {attempt}/{self.MAX_RETRIES}...", flush=True)
             await bot.send_message(
                 chat_id=chat_id,
-                text=f"Session was interrupted. Resuming... (attempt {retry_count}/{self.MAX_RETRIES})",
+                text=f"Session crashed. Resuming... (attempt {attempt}/{self.MAX_RETRIES})",
                 parse_mode=None
             )
 
-            # Run with resume and continuation prompt
             runner = ClaudeRunner(
                 self.repo_path,
                 self.logs_dir,
@@ -147,16 +121,16 @@ class SessionRetrier:
                 on_progress=on_progress
             )
 
-            if returncode != 0:
-                return False, None, f"Resume failed (exit code {returncode})"
+            if returncode == 0:
+                commit_after = self.get_commit_hash()
+                print(f"[SessionRetrier] Commit after retry {attempt}: {commit_after[:8]}", flush=True)
+                if commit_after != commit_before:
+                    print(f"[SessionRetrier] Success after {attempt} retries!", flush=True)
+                    return True, commit_after, None
+                print(f"[SessionRetrier] Session completed with no new commit after retry {attempt}", flush=True)
+                return True, None, None
 
-            # Check commit after retry
-            commit_hash = self.get_commit_hash()
-            print(f"[SessionRetrier] Commit after retry {retry_count}: {commit_hash[:8]}", flush=True)
+            last_returncode = returncode
+            print(f"[SessionRetrier] Retry {attempt} also crashed (exit code {returncode})", flush=True)
 
-        # After all retries
-        if commit_hash == commit_before:
-            return False, None, f"Resume attempted {self.MAX_RETRIES} times but no commit was made"
-
-        print(f"[SessionRetrier] Success after {retry_count} retries!", flush=True)
-        return True, commit_hash, None
+        return False, None, f"Session crashed {self.MAX_RETRIES + 1} times (last exit code {last_returncode})"
