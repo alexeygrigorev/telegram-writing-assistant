@@ -1,7 +1,7 @@
 ---
 title: "Paid AI Engineers Community Planning"
 created: 2026-02-10
-updated: 2026-02-16
+updated: 2026-02-17
 tags: [community, business, ai-engineering, pricing]
 status: draft
 ---
@@ -81,6 +81,8 @@ The Zoomcamp calendar runs for a full year with ML Zoomcamp, Data Engineering Zo
 ### Focus: AI Shipping Labs
 
 The new project (aishippinglabs.com) makes more sense as a separate entity focused on AI DevTools[^33].
+
+The existing AI Hero course is being rebranded to fit under AI Shipping Labs. See [AI Hero Course Rebranding for AI Shipping Labs](ai-hero-rebranding.md) for details on the transition plan[^76].
 
 ## Community Focus and Positioning
 
@@ -538,6 +540,22 @@ I will write to everyone who has recently asked me for mentoring and ask how int
 
 My hypothesis is that people who ask for mentoring actually need an accountability partner or accountability structure - someone to report progress to. This is a hypothesis that can be tested[^68].
 
+Another confirmation of this hypothesis: a community member wrote asking for a mentorship program. They built their career from a data analyst to a senior role at their company but want to transition to Data Engineering. They admit they keep "slacking" and need the push. This person is more interested in Data Engineering, but there are likely people in the same situation who are interested specifically in AI Engineering[^74].
+
+<figure>
+  <img src="../assets/images/paid-ai-community-planning/mentorship-request-accountability.jpg" alt="Telegram message from a community member asking for mentorship program to transition to Data Engineering">
+  <figcaption>Community member asking for mentorship - admits to slacking without accountability</figcaption>
+  <!-- Another validation of the accountability hypothesis - the person explicitly says they need structure to stop slacking -->
+</figure>
+
+The same day, two people wrote asking for career consultations. One said even 50 euros is too much, the other seemed fine with the price. Both are data engineers. For people who want consultations, the community could provide value and some form of help[^75].
+
+<figure>
+  <img src="../assets/images/paid-ai-community-planning/career-consultation-request.jpg" alt="Slack conversation showing a career consultation request from a community member">
+  <figcaption>Second career consultation request in one day - asking to connect on a call for career guidance</figcaption>
+  <!-- Shows demand for career consultations and how the paid community could serve these people -->
+</figure>
+
 ### Sprint-based format
 
 Instead of running these groups continuously (like "every Tuesday"), a more organized approach would be to run them in sprints or cohorts[^71].
@@ -644,3 +662,6 @@ The key is to learn from real members rather than assuming what they want.
 [^71]: [20260213_153009_AlexeyDTC_msg1623_transcript.txt](../inbox/used/20260213_153009_AlexeyDTC_msg1623_transcript.txt)
 [^72]: [20260214_092313_AlexeyDTC_msg1669_transcript.txt](../inbox/used/20260214_092313_AlexeyDTC_msg1669_transcript.txt)
 [^73]: [20260214_111721_AlexeyDTC_msg1687.md](../inbox/used/20260214_111721_AlexeyDTC_msg1687.md)
+[^74]: [20260217_092429_AlexeyDTC_msg1885_transcript.txt](../inbox/used/20260217_092429_AlexeyDTC_msg1885_transcript.txt), [20260217_092405_AlexeyDTC_msg1883_photo.md](../inbox/used/20260217_092405_AlexeyDTC_msg1883_photo.md)
+[^75]: [20260217_100942_AlexeyDTC_msg1894_transcript.txt](../inbox/used/20260217_100942_AlexeyDTC_msg1894_transcript.txt), [20260217_095600_AlexeyDTC_msg1891_photo.md](../inbox/used/20260217_095600_AlexeyDTC_msg1891_photo.md)
+[^76]: [20260217_102556_AlexeyDTC_msg1909_transcript.txt](../inbox/used/20260217_102556_AlexeyDTC_msg1909_transcript.txt)

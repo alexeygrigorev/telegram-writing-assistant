@@ -26,18 +26,19 @@ Brief description of what this article is about.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [AI Hero Course Rebranding for AI Shipping Labs](ai-hero-rebranding.md) | draft | 2026-02-17 | Rebranding the existing AI Hero course to fit under the new AI Shipping Labs community |
 | [How Researchers Can Transition to AI Engineering](researcher-to-ai-engineer-transition.md) | draft | 2026-02-17 | Guide for researchers transitioning from university labs to AI engineering |
 | [Writing Assistant Feedback](writing-assistant-feedback.md) | draft | 2026-02-17 | Feedback and improvement ideas for the Telegram writing assistant bot |
 | [How a Data Engineer Can Transition to AI Engineering](de-to-ai-engineer-transition.md) | draft | 2026-02-17 | Guide for data engineers looking to move into AI engineering roles |
-| [AI Engineer Webinar Q&A](ai-engineer-webinar-qa.md) | draft | 2026-02-16 | Questions and answers from the Day in the Life of an AI Engineer webinar |
-| [Paid AI Engineers Community Planning](paid-ai-community-planning.md) | draft | 2026-02-16 | Planning a paid community for AI Engineers including target audience, tier structure, and pricing |
+| [AI Engineer Webinar Q&A](ai-engineer-webinar-qa.md) | draft | 2026-02-17 | Questions and answers from the Day in the Life of an AI Engineer webinar |
+| [Paid AI Engineers Community Planning](paid-ai-community-planning.md) | draft | 2026-02-17 | Planning a paid community for AI Engineers including target audience, tier structure, and pricing |
+| [Paid Community Marketing Plan](paid-community-marketing-plan.md) | draft | 2026-02-17 | Marketing plan and funnel for promoting the paid community |
 | [Interesting Resources](interesting-resources.md) | draft | 2026-02-16 | Curated collection of tools and resources |
 | [AI Engineer My Vision](ai-engineer-my-vision.md) | draft | 2026-02-16 | Personal perspective on the AI engineer role based on direct experience |
 | [AI Roles Now and Then](ai-roles-now-and-then.md) | draft | 2026-02-16 | Evolution of data roles and how Data Scientists and ML Engineers transition to AI engineering |
 | [CRISP-DM for AI](crisp-dm-for-ai.md) | draft | 2026-02-16 | Applying the classic CRISP-DM methodology to modern AI projects |
 | [Certificates and AI Design Experiments](certificates-and-ai-design-experiments.md) | draft | 2026-02-16 | Creating workshop certificates and experiments with image-to-HTML/CSS conversion |
 | [Services Website Testimonials](services-testimonials.md) | draft | 2026-02-15 | Collection of testimonials for the services website |
-| [Paid Community Marketing Plan](paid-community-marketing-plan.md) | draft | 2026-02-14 | Marketing plan and funnel for promoting the paid community |
 | [Nobook: Plain Python Files as Jupyter Notebooks](nobook.md) | draft | 2026-02-13 | Tool that uses plain .py files as Jupyter notebooks instead of .ipynb JSON |
 | [OpenCode Experiments with GLM-5](opencode-experiments.md) | draft | 2026-02-13 | Trying OpenCode AI assistant with GLM-5 model |
 | [Microphone Booster App](microphone-booster-app.md) | draft | 2026-02-13 | Windows microphone booster built with OpenCode/GLM-5 using Tauri + Rust |

@@ -1,0 +1,9 @@
+---
+source: telegram_voice
+date: 2026-02-17T09:28:42+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260217_092842_AlexeyDTC_msg1889.ogg
+---
+
+Вот недавно меня спросили про governance. Давай добавим ответ Лены туда, в Q&A, который был недавно.
