@@ -1,7 +1,7 @@
 ---
 title: "Social Post Ideas"
 created: 2026-02-07
-updated: 2026-02-09
+updated: 2026-02-17
 tags: [social-media, twitter, content-ideas, ai-engineering]
 status: draft
 ---
@@ -88,6 +88,14 @@ The recommended resources cover:
 9. Evaluating the effectiveness of LLM-evaluators (eugeneyan.com)
 10. LLM judges aren't the shortcut you think (YouTube)
 
+## Data Engineering vs AI Engineering Market Comparison
+
+Post idea: scrape current job postings for data engineering and AI engineering positions and compare them. Look at which field has more stable market demand, which has more positions available, and which is more remote-friendly. This could be a data-driven analysis project - scrape the data and analyze it[^8].
+
+## How to Select a Portfolio Project
+
+Post idea: guide on how to choose projects for your portfolio. I've talked about this many times but never made a dedicated article. This would cover how to pick projects that showcase relevant skills, stand out to employers, and align with career goals in AI engineering[^8].
+
 ## Sources
 
 [^1]: [20260207_143150_AlexeyDTC_msg1103.md](../inbox/used/20260207_143150_AlexeyDTC_msg1103.md) - 10 AI projects post
@@ -97,3 +105,4 @@ The recommended resources cover:
 [^5]: [20260208_155633_AlexeyDTC_msg1224.md](../inbox/used/20260208_155633_AlexeyDTC_msg1224.md) - Paul Iusztin LinkedIn post on learning AI engineering
 [^6]: [20260209_101213_AlexeyDTC_msg1226.md](../inbox/used/20260209_101213_AlexeyDTC_msg1226.md) - Paul Iusztin X post on AI evals
 [^7]: [20260209_101233_AlexeyDTC_msg1228.md](../inbox/used/20260209_101233_AlexeyDTC_msg1228.md) - Additional reference to LinkedIn post
+[^8]: [20260216_183357_AlexeyDTC_msg1801_transcript.txt](../inbox/used/20260216_183357_AlexeyDTC_msg1801_transcript.txt) - Post ideas from AI engineer webinar Q&A

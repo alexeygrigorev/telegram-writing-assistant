@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Day of AI Engineer</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css">
+  <style>
+    .reveal h1, .reveal h2 { text-transform: none; }
+    .reveal ul, .reveal ol { text-align: left; }
+    .reveal li { margin-bottom: 0.4em; }
+    .reveal .slides section { font-size: 0.85em; }
+    .reveal table { font-size: 0.8em; margin: 0 auto; }
+    .reveal td, .reveal th { padding: 0.3em 0.8em; }
+    .two-col { display: flex; gap: 2em; }
+    .two-col > div { flex: 1; }
+    .reveal img { max-height: 450px; }
+  </style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+<!-- ==================== TITLE ==================== -->
+<section>
+  <h1>Day of AI Engineer</h1>
+  <p>My vision of the AI Engineer role</p>
+</section>
+
+<!-- ==================== PART 1 ==================== -->
+<section>
+  <h2>About This Talk</h2>
+  <ul>
+    <li class="fragment">My personal vision, based on direct experience</li>
+    <li class="fragment">Teaching AI engineering courses, working with ML/AI for years</li>
+    <li class="fragment">PM, DA, DS, DE, MLE, MLOps &mdash; how do these map to AI engineering?</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Core Responsibility: AI Integration</h2>
+  <ul>
+    <li class="fragment">AI Engineer = integrating AI into the product</li>
+    <li class="fragment">In practice: calling LLM APIs (OpenAI, Anthropic, etc.)</li>
+    <li class="fragment">Get response, integrate results into your product</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Simple Example: Online Classifieds</h2>
+  <div class="two-col">
+    <div>
+      <ul>
+        <li class="fragment">Upload image, AI extracts title/description/category automatically</li>
+      </ul>
+    </div>
+    <div>
+      <img src="../assets/images/ai-engineer-my-vision/lovable-bazaar-marketplace.jpg" alt="Lovable marketplace">
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>"That's it, right?"</h2>
+  <p>Define a Pydantic class, send to OpenAI, done?</p>
+  <p class="fragment">Not quite. <strong>10 things</strong> need to happen.</p>
+</section>
+
+<section>
+  <h2>The 10 Things (1/2)</h2>
+  <ol>
+    <li class="fragment">Prompt testing &mdash; verify the output works</li>
+    <li class="fragment">Iterating on prompt &mdash; change prompt, run evals, no degradation</li>
+    <li class="fragment">Evaluation dataset &mdash; bunch of images, measure quality</li>
+    <li class="fragment">Rolling out &mdash; A/B test, small portion first</li>
+    <li class="fragment">Production monitoring &mdash; dashboard for errors, failures</li>
+  </ol>
+</section>
+
+<section>
+  <h2>The 10 Things (2/2)</h2>
+  <ol start="6">
+    <li class="fragment">Collecting logs &mdash; inspect input/output for misalignment</li>
+    <li class="fragment">User feedback &mdash; explicit (thumbs up/down) and implicit (corrections)</li>
+    <li class="fragment">Human annotators &mdash; sample and verify, add to eval set</li>
+    <li class="fragment">Model updates &mdash; new model from OpenAI, run evals, compare</li>
+    <li class="fragment">Prompt versioning &mdash; experiment tracking (MLflow/Git)</li>
+  </ol>
+</section>
+
+<section>
+  <h2>Even Simple = A Lot of Work</h2>
+  <ul>
+    <li class="fragment">Not enough to define a Pydantic class and call OpenAI</li>
+    <li class="fragment">UI changes needed too (frontend engineers, or AI engineers at startups)</li>
+    <li class="fragment">CI/CD: tests on push, staging, production rollout</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Complex Scenarios: RAG and Agents</h2>
+  <ul>
+    <li class="fragment">RAG: search engine, data pipelines, infrastructure provisioning</li>
+    <li class="fragment">Agents: tool calling, testing tools, evaluation criteria for tool usage</li>
+    <li class="fragment">Complexity is 10x compared to the simple case</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Key Skills</h2>
+  <ol>
+    <li class="fragment">Interacting with APIs, creating agents, RAG</li>
+    <li class="fragment">Testing and evaluation</li>
+    <li class="fragment">Production monitoring</li>
+    <li class="fragment">AI observability</li>
+  </ol>
+</section>
+
+<section>
+  <h2>What AI Engineers Don't Do</h2>
+  <ul>
+    <li class="fragment">Don't create custom models from scratch</li>
+    <li class="fragment">Don't build custom model architectures</li>
+    <li class="fragment">Don't focus on traditional feature engineering</li>
+  </ul>
+  <p class="fragment">Instead: engineering best practices, prompt design/versioning, product integration</p>
+</section>
+
+<!-- ==================== PART 2 ==================== -->
+<section>
+  <h1>Part 2: Comparing Roles</h1>
+  <p>AI Engineer vs ML Engineer vs Data Scientist</p>
+</section>
+
+<section>
+  <h2>AI Engineer vs ML Engineer</h2>
+  <ul>
+    <li class="fragment">ML Engineer: integrate machine learning into product</li>
+    <li class="fragment">AI Engineer: integrate AI into product</li>
+    <li class="fragment">Key difference: call a web service vs own the model weights</li>
+    <li class="fragment">Sometimes AI engineers serve open-source LLMs too (vLLM, bigger GPUs)</li>
+  </ul>
+</section>
+
+<section>
+  <h2>AI Engineer vs Data Scientist</h2>
+  <ul>
+    <li class="fragment">DS: training models, experiments, translating requirements to ML terms</li>
+    <li class="fragment">With LLMs: the model is already there (OpenAI trained it)</li>
+    <li class="fragment">For simple cases without fine-tuning: don't really need DS</li>
+    <li class="fragment">Small AI team: DS role less needed</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Bigger Organizations</h2>
+  <p>Organizations that don't have AI engineers yet, but have MLE and Data Scientists</p>
+  <ul>
+    <li class="fragment">New AI use case arrives: both DS and MLE work on it
+      <ul>
+        <li>DS: prompt tuning, validation framework, agent behavior</li>
+        <li>MLE: engineering aspects, serving, CI/CD</li>
+      </ul>
+    </li>
+    <li class="fragment">They split AI engineer responsibilities between them</li>
+  </ul>
+</section>
+
+<section>
+  <h2>LLM is Not the Answer to Everything</h2>
+  <ul>
+    <li class="fragment">Still need DS and MLE for traditional ML</li>
+    <li class="fragment">Legacy systems, problems that don't need LLMs</li>
+    <li class="fragment">But some things are simpler now (NLP especially)</li>
+    <li class="fragment">Company might hire dedicated AI engineer alongside DS/MLE</li>
+  </ul>
+</section>
+
+<section>
+  <h2>The Disappearing Data Scientist</h2>
+  <p class="fragment">Before: model training, feature engineering, custom architectures</p>
+  <p class="fragment">Now: engineering practices, evaluation, prompt versioning, A/B testing</p>
+  <p class="fragment">The focus shifted from modeling to engineering.</p>
+</section>
+
+<section>
+  <h2>Career Paths to AI Engineer</h2>
+  <div class="two-col">
+    <div class="fragment">
+      <p><strong>Data Scientist path:</strong></p>
+      <ul>
+        <li>Has: evaluation, versioning, experimental mindset</li>
+        <li>Needs: stronger coding, AI APIs, production practices</li>
+      </ul>
+    </div>
+    <div class="fragment">
+      <p><strong>ML Engineer path:</strong></p>
+      <ul>
+        <li>Has: productionization, engineering practices, team collaboration</li>
+        <li>Needs: prompt engineering, AI evaluation patterns</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Teams Without "AI" in the Name</h2>
+  <ul>
+    <li class="fragment">Many companies: no dedicated AI engineer role</li>
+    <li class="fragment">DS + MLE split the responsibilities</li>
+    <li class="fragment">Job titles are old, tasks are new</li>
+    <li class="fragment">Using OpenAI APIs instead of training models</li>
+  </ul>
+</section>
+
+<!-- ==================== PART 3 ==================== -->
+<section>
+  <h1>Part 3: CRISP-DM for AI</h1>
+  <p>A 1996 framework that still works</p>
+</section>
+
+<section>
+  <h2>CRISP-DM</h2>
+  <div class="two-col">
+    <div>
+      <p>Cross-Industry Standard Process for Data Mining (1996)</p>
+      <p class="fragment">Six phases: Business Understanding, Data Understanding, Data Preparation, Modeling, Evaluation, Deployment</p>
+    </div>
+    <div>
+      <img src="../assets/images/crisp-dm-for-ai/crisp-dm-cycle.jpg" alt="CRISP-DM cycle">
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Running Example</h2>
+  <p>Same classifieds platform:</p>
+  <ul>
+    <li class="fragment">ML framing: classification problem</li>
+    <li class="fragment">AI framing: upload image, extract information reliably</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Business Understanding</h2>
+  <ul>
+    <li class="fragment">Start from a real user problem, not "we have AI, let's use it"</li>
+    <li class="fragment">What is the problem? Why solve it? Who does it affect?</li>
+    <li class="fragment">Example: form takes 5 min, we want 1 min</li>
+    <li class="fragment">Secondary metric: 15% abandon rate, target 5%</li>
+    <li class="fragment">AI engineer + PM: do we need AI, or something simpler?</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Data Understanding</h2>
+  <ul>
+    <li class="fragment">Do we have the data we need to send to AI?</li>
+    <li class="fragment">Our case: image from frontend (easy)</li>
+    <li class="fragment">Backend AI: need data for AI to act on</li>
+    <li class="fragment">RAG: do we have all data and integrations?</li>
+    <li class="fragment">Some services are hard to integrate</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Data Preparation</h2>
+  <ul>
+    <li class="fragment">ML: fetch from sources, prepare format</li>
+    <li class="fragment">Our case: image + text, fairly simple</li>
+    <li class="fragment">For search/recommendations: need data pipelines</li>
+    <li class="fragment">For agents: need integrations with external services</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Modeling (Reframed for AI)</h2>
+  <ul>
+    <li class="fragment">ML: train model, cross-validation</li>
+    <li class="fragment">AI: prompt + Pydantic output class + input</li>
+    <li class="fragment">Set up validation framework and tests</li>
+    <li class="fragment">Collect evaluation data, define technical metrics</li>
+    <li class="fragment">Tune prompt, iterate</li>
+    <li class="fragment">Note: this is "modeling" in CRISP-DM, not the "evaluation" step</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Evaluation</h2>
+  <ul>
+    <li class="fragment">Roll out to users, run A/B tests</li>
+    <li class="fragment">Check the business metric defined earlier</li>
+    <li class="fragment">Collect implicit feedback (do users change the output?)</li>
+    <li class="fragment">Evaluation and deployment are almost the same now</li>
+    <li class="fragment">Possible outcome: park the project if it doesn't work</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Deployment</h2>
+  <ul>
+    <li class="fragment">Put system into production</li>
+    <li class="fragment">Iterative: cycle through all steps until satisfactory</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Who is Involved at Each Step</h2>
+  <table>
+    <tr><th>Step</th><th>Roles</th></tr>
+    <tr class="fragment"><td>Business understanding</td><td>PM, AI engineer</td></tr>
+    <tr class="fragment"><td>Data understanding</td><td>DA, PM, AI engineer, backend</td></tr>
+    <tr class="fragment"><td>Data preparation</td><td>DE, AI engineer</td></tr>
+    <tr class="fragment"><td>Modeling</td><td>AI engineer</td></tr>
+    <tr class="fragment"><td>Evaluation</td><td>AI engineer, DA, PM</td></tr>
+    <tr class="fragment"><td>Deployment</td><td>AI engineer, platform engineer</td></tr>
+  </table>
+  <p class="fragment">AI engineers are in every step.</p>
+</section>
+
+<section>
+  <h2>The Iterative Nature</h2>
+  <ul>
+    <li class="fragment">Never truly "finish" &mdash; iterate until satisfactory</li>
+    <li class="fragment">User behavior unpredictable</li>
+    <li class="fragment">Prompts need refinement</li>
+    <li class="fragment">Evaluation metrics may need adjustment</li>
+    <li class="fragment">Framework from 1996 still works because fundamentals don't change</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Closing</h2>
+  <ul>
+    <li class="fragment">Tools change (training models to API calls), process stays constant</li>
+    <li class="fragment">DS processes (evaluation, versioning, experimentation) = what AI engineers need</li>
+    <li class="fragment">DS and MLE make excellent AI engineers with additional practice</li>
+  </ul>
+</section>
+
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: true,
+    transition: 'slide'
+  });
+</script>
+</body>
+</html>

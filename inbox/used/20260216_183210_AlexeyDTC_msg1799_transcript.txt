@@ -1,0 +1,12 @@
+---
+source: telegram_voice
+date: 2026-02-16T18:32:10+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260216_183210_AlexeyDTC_msg1799.ogg
+---
+
+Короче, следующий вопрос про Resource Pipeline Book when taking a Bayesian ML approach combined with
+Hybrid ML, LLM approach. Короче, на этот вопрос я не знаю, как ответить, мне нужно больше данных.
+Ну, короче, это сложно. Это скорее надо ко мне на консультацию записаться, чтобы со всем
+разобраться.

@@ -72,6 +72,7 @@ Brief description of what this article is about.
 | [Telegram Bot Server Migration](telegram-bot-server-migration.md) | draft | 2026-02-13 | Moving the Telegram writing assistant bot from local computer to a dedicated server |
 | [Paid Community Marketing Plan](paid-community-marketing-plan.md) | draft | 2026-02-14 | Marketing plan and funnel for promoting the paid community |
 | [Services Website Testimonials](services-testimonials.md) | draft | 2026-02-15 | Collection of testimonials for the services website |
+| [AI Engineer Webinar Q&A](ai-engineer-webinar-qa.md) | draft | 2026-02-16 | Questions and answers from the Day in the Life of an AI Engineer webinar |
 
 See [Research Articles](research/_index.md) for research and investigation topics.
 

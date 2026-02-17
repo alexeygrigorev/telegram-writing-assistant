@@ -41,6 +41,10 @@ Translate from Russian/mixed language to English, but preserve all information:
 - No passive voice - use active voice
 - No filler phrases like "let me tell you," "let me explain" - they don't add value
 
+### Inclusive Language
+- Use gender-neutral terms: "person," "someone," "they" instead of "guy," "man," "he"
+- Example: "marketing person" not "marketing guy"
+
 ### Organization
 - Avoid brain dump style - add structure to content
 - Use headings and lists to organize information

@@ -165,17 +165,23 @@ DO NOT assume facts not explicitly stated:
 
 If a message contains a URL, DO NOT fetch and summarize it yourself. Use specialized subagents to avoid polluting the main agent's context.
 
+**For GitHub URLs** - Use `gh` CLI or raw GitHub URLs:
+- Do NOT use Jina Reader for GitHub repos. Use `gh api` or fetch raw.githubusercontent.com URLs instead
+- For repo structure: `gh api repos/owner/repo/contents/path`
+- For file content: fetch `https://raw.githubusercontent.com/owner/repo/main/path/to/file`
+- For repo overview: `gh repo view owner/repo`
+
 **For research articles** - Use the article-summarizer agent:
 - Launch article-summarizer subagent for each URL
-- Agent fetches content via Jina Reader and writes deep summary with key insights, actionable patterns, technical details
+- Agent fetches content via Jina Reader (for non-GitHub URLs) and writes deep summary with key insights, actionable patterns, technical details
 - Multiple article-summarizer agents can run in parallel for different URLs targeting the same research article
-- Example: `Summarize https://github.com/user/repo for articles/research/topic.md`
+- Example: `Summarize https://example.com/article for articles/research/topic.md`
 
 **For interesting resources** - Use the resource-describer agent:
 - Launch resource-describer subagent for each orphaned URL or URL marked as "resource"
-- Agent fetches content via Jina Reader and writes 2-4 sentence description in newsletter format
+- Agent fetches content via Jina Reader (for non-GitHub URLs) and writes 2-4 sentence description in newsletter format
 - Multiple resource-describer agents can run in parallel
-- Example: `Add https://github.com/user/repo to interesting-resources.md`
+- Example: `Add https://example.com/tool to interesting-resources.md`
 
 **Launch subagents in parallel** when processing multiple URLs to speed up the workflow.
 

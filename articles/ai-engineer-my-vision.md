@@ -1,7 +1,7 @@
 ---
 title: "AI Engineer My Vision"
 created: 2026-02-08
-updated: 2026-02-16
+updated: 2026-02-17
 tags: [ai-engineering, roles, career]
 status: draft
 ---
@@ -22,12 +22,13 @@ I also have a reference article about data team roles at DataTalks.Club[^4]. It 
 
 The main responsibility of the AI Engineer is integrating AI into the product, whatever that means[^6]. In practice, integrating AI into a product typically means interacting with an LLM provider like OpenAI, Anthropic, or others through their API. You know how to call this API, it returns something, and then you integrate these results into whatever product you are working on.
 
-The work involves:
-- Calling LLM APIs through providers
-- Integrating AI capabilities into existing products
-- Building features that leverage LLMs
+AI engineers communicate with product managers. Product managers interact with users and know what user problems are. Together, the product manager and AI engineer identify whether AI could be the solution. It's not like we heard AI is cool and decided to integrate it. There is some problem that users have, and we realize we can help solve it with AI[^17].
+
+Having OpenAI simplifies things compared to traditional ML engineering. ML engineers don't have the luxury of a provider with an existing platform. For AI engineers, 85-90% of the work is sending requests to OpenAI, Anthropic, or some other LLM provider, and then coming up with the right prompt[^17].
 
 ## Simple Example: Online Classifieds with AI Pre-filling
+
+GitHub: https://github.com/alexeygrigorev/simple-sell/[^16]
 
 To illustrate what AI engineers do, consider this example. We have a web interface for an online classifieds website where you can upload anything. Based on what you upload, it classifies the type, extracts the details, and fills everything automatically[^6].
 
@@ -59,11 +60,60 @@ I asked Claude Code to create a simple FastAPI backend that takes care of listin
 
 ### What the AI engineer does with this example
 
-This looks pretty straightforward. We upload a picture. Instead of writing the title, the description, the category - it should automatically extract everything we need. All we need to do is define the schema, send the request to OpenAI, describe a prompt, and test locally that things work. That's it, right?[^10]
+<figure>
+  <img src="../assets/images/ai-engineer-my-vision/headphones-ai-prefill-demo.png" alt="Create Listing form showing AI-prefilled fields after uploading a headphones photo: title, description, price, and category">
+  <figcaption>AI pre-filling the listing form after uploading a photo of headphones</figcaption>
+  <!-- Demonstrates the core AI engineer task: upload image, get structured data back from the LLM, auto-fill the form -->
+</figure>
+
+The prototype: I uploaded a picture of headphones. The LLM returned "Comfortable wired headphones - experience crisp sound quality and comfort." This sounds like a marketing person wrote it. For an online classifieds platform, the description should be more like "comfortable headphones, I didn't wear them for long, just get them right now." As AI engineers, we can go back to the prompt, edit and modify it to get the right tone[^17].
+
+The simple implementation is literally 56 lines of code ([ai.py](https://github.com/alexeygrigorev/simple-sell/blob/main/backend/app/services/ai.py)):
+
+```python
+class AIAnalysisResult(BaseModel):
+    title: str
+    description: str
+    category: str
+    price: float
+
+SYSTEM_PROMPT = f"""
+You are an assistant that analyzes images of items for
+a marketplace listing.
+
+Given an image, suggest:
+- A concise, appealing title
+- A detailed description (2-3 sentences)
+- A category from this list: {", ".join(CATEGORIES)}
+- A fair price in euros
+""".strip()
+
+async def analyze_image_with_ai(image_bytes: bytes) -> AIAnalysisResult:
+    client = AsyncOpenAI()
+    b64 = base64.b64encode(image_bytes).decode("utf-8")
+    messages = [
+        {"role": "system", "content": SYSTEM_PROMPT},
+        {"role": "user", "content": [
+            {"type": "input_image",
+             "image_url": f"data:image/jpeg;base64,{b64}",
+             "detail": "low"},
+            {"type": "input_text",
+             "text": "Analyze this item for a marketplace listing."},
+        ]},
+    ]
+    response = await client.responses.parse(
+        model="gpt-4o-mini",
+        input=messages,
+        text_format=AIAnalysisResult,
+    )
+    return response.output_parsed
+```
+
+You may think: all they need to do is send a request to OpenAI and call it a day?[^17][^10]
 
 But not quite. Here is everything that needs to happen:
 
-1. The prompt - how good is this prompt? We need to test it. We need to make sure that the agent is actually doing what we want. We create a test where we send an image and verify the output[^10].
+1. The prompt - how good is this prompt? We need to test it. We need to make sure that the agent is actually doing what we want. We create a test where we send an image and verify the output ([test_ai.py](https://github.com/alexeygrigorev/simple-sell/blob/main/backend/tests/test_ai.py))[^10].
 
 2. Evaluation dataset - we can have a few tests, but we can also have an evaluation set where we have a bunch of images. We run this extraction process and verify that every time we run with the current prompt, we get what we want. This becomes our evaluation dataset. Tests must always pass. The evaluation dataset gives us a metric of how good our model is doing. Sometimes the model describes something incorrectly - it is not the end of the world. Sometimes it is really important. We define all that[^10].
 
@@ -87,17 +137,13 @@ Even for this simplest example, there are so many things that need to happen. It
 
 We did not even talk about UI changes. There also need to be UI changes. Typically front-end engineers do this, but in some cases, if you work at a startup, AI engineers might also do that. With AI assistance like Claude Code, it doesn't really matter if your TypeScript knowledge is not the best. AI engineers or any engineer can make these changes, they can integrate this into the product. But typically in bigger companies, it would be a front-end engineer[^11].
 
-<!-- TODO: Add screenshot of the completed backend tests here -->
-<!-- TODO: Add screenshot of the evaluation framework in action -->
-<!-- TODO: Add screenshot of the monitoring dashboard -->
-
 <figure>
   <img src="../assets/images/ai-engineer-my-vision/claude-code-backend-progress.jpg" alt="Claude Code todo list showing backend implementation progress with completed tasks">
   <figcaption>Claude Code working on the example project - backend structure, API endpoints, AI service, and tests</figcaption>
   <!-- Shows the Claude Code task list with completed items: restructure into monorepo, initialize backend, implement database layer, API endpoints, AI image analysis service, update frontend, and currently writing backend tests -->
 </figure>
 
-In this example, we have tests, we have CI/CD, you can see everything that is implemented. These are placeholders throughout the article where we can illustrate these things, to show what AI engineers do[^12][^13].
+In this example, we have tests ([test_listings.py](https://github.com/alexeygrigorev/simple-sell/blob/main/backend/tests/test_listings.py), [test_ai.py](https://github.com/alexeygrigorev/simple-sell/blob/main/backend/tests/test_ai.py)), we have CI/CD ([test-backend.yml](https://github.com/alexeygrigorev/simple-sell/blob/main/.github/workflows/test-backend.yml)), you can see everything that is implemented[^12][^13].
 
 ### Also CI/CD
 
@@ -107,15 +153,51 @@ When we talk about testing and deployment, CI/CD is important. When we run tests
 
 That was just a very simple thing. But imagine we go from this simple thing to RAG. We make our process more complex. Now we have a search engine that we need to use, something like Elasticsearch. We need to ingest the data. We need to know how to build data pipelines, and how to build data pipelines reliably, because the data is coming from somewhere. We need to put it into our search engine. This could be a vector search engine or a text search engine. We need to be able to do that. Sometimes, oftentimes, we need to be able to provision the infrastructure for that[^14].
 
-<!-- TODO: Add diagram showing RAG pipeline architecture -->
+```mermaid
+graph TB
+    subgraph Simple["Simple: LLM API Call"]
+        U1[User Input] --> P[Prompt + LLM API]
+        P --> R1[Response]
+    end
 
-For agents, we need to know tool calling and things like that. When we have tools, we need to make sure agents can use these tools reliably. We need to be able to write tests for tools and for the agent behavior. With tools, everything becomes more complex. We need to write our tests and update our evaluation framework, evaluation criteria - in this scenario, these tools must be used, things like that[^15].
+    subgraph RAG["RAG: 5x more complex"]
+        DS[Data Sources] --> DP[Data Pipeline]
+        DP --> SE[Search Engine<br/>vector / text]
+        U2[User Query] --> RET[Retrieval]
+        SE --> RET
+        RET --> P2[Prompt + Context + LLM API]
+        P2 --> R2[Response]
+        SE -.-> MON2[Infrastructure<br/>Monitoring]
+    end
 
-In the simple case, it is already a lot of work. In more complex cases with RAG and agents, the complexity is maybe 10 times more than before. All these things are solved by AI engineers[^15].
+    subgraph Agents["Agents: 10x more complex"]
+        U3[User Request] --> AG[Agent Loop]
+        AG --> TC[Tool Calls]
+        TC --> T1[Tool 1]
+        TC --> T2[Tool 2]
+        TC --> T3[Tool N]
+        T1 & T2 & T3 --> AG
+        AG --> P3[LLM API<br/>multiple rounds]
+        P3 --> R3[Response]
+        AG -.-> EV[Eval: correct tools?<br/>correct sequence?]
+    end
+```
+
+We also need to handle reliability: what if the database goes down? What if it's slow? We need to think about all of these scenarios[^17].
+
+Just adding RAG makes things maybe 5 times more difficult than the simple case[^17].
+
+For agents, we need to know tool calling and things like that. When we have tools, we need to make sure agents can use these tools reliably. We need to be able to write tests for tools and for the agent behavior. With tools, everything becomes more complex. We need to write our tests and update our evaluation framework, evaluation criteria - in this scenario, these tools must be used, things like that. The evaluation dataset becomes more difficult because we need to verify the correct tool is called for each scenario and that tool combinations work correctly. The interaction becomes multiple requests instead of one[^15][^17].
+
+Adding agents makes it even more complex on top of RAG. In the simple case, it is already a lot of work. In more complex cases with RAG and agents, the complexity is maybe 10 times more than before. All these things are solved by AI engineers[^15].
 
 ## The Role is Similar to ML Engineering
 
 It is very similar to data science. If you think about data science - what data scientists need to do, what ML engineers need to do - they need to integrate machine learning into the product. Here everything is similar. The roles of ML engineer and AI engineer are very similar[^14].
+
+Data scientists focus on creating the model: translating business requirements to ML, designing evaluation datasets, designing training sets, training the model, testing and loading it. ML engineers focus on bringing models into production. AI engineers need to do both, but there is no real modeling since the model already exists. Most of the effort goes to prompt tuning. So AI teams don't necessarily need a separate data scientist role - the AI engineer can handle both parts and focus on everything around it[^17].
+
+For ML engineers, the transition is easy: you just replace a call to a locally hosted model with a call to OpenAI. The rest is the same. ML engineers would need to work a bit on the evaluation side. Data scientists would need to work on the engineering side. For ML engineers, it's probably the easiest transition[^17].
 
 ## Solving Real Problems with AI
 
@@ -142,11 +224,13 @@ What AI engineers need to know[^10]:
 ## What AI Engineers Don't Focus On
 
 Unlike traditional ML engineers, AI engineers typically don't:
-- Fine-tune models from scratch
+- Create models from scratch
 - Build custom model architectures
 - Focus heavily on feature engineering in the traditional ML sense
 
-Instead, they focus on:
+Sometimes using the API is too complicated and you might need to replace it with a traditional ML model. But ML knowledge is not necessarily something AI engineers automatically should know. Being a "full-stack role" doesn't mean automatically knowing ML[^17].
+
+Instead, AI engineers focus on:
 - Engineering best practices for AI systems
 - Effective prompt design and versioning
 - Integration of AI capabilities into products
@@ -170,3 +254,5 @@ This vision guides both my teaching and my research into how the industry actual
 [^13]: [20260216_140204_AlexeyDTC_msg1779_transcript.txt](../inbox/used/20260216_140204_AlexeyDTC_msg1779_transcript.txt)
 [^14]: [20260216_132048_AlexeyDTC_msg1741_transcript.txt](../inbox/used/20260216_132048_AlexeyDTC_msg1741_transcript.txt)
 [^15]: [20260216_132214_AlexeyDTC_msg1743_transcript.txt](../inbox/used/20260216_132214_AlexeyDTC_msg1743_transcript.txt)
+[^16]: [20260216_181218_AlexeyDTC_msg1787.md](../inbox/used/20260216_181218_AlexeyDTC_msg1787.md)
+[^17]: Webinar recording: "A Day in the Life of an AI Engineer" (2026-02-16)
