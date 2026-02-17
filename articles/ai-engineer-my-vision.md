@@ -26,6 +26,14 @@ AI engineers communicate with product managers. Product managers interact with u
 
 Having OpenAI simplifies things compared to traditional ML engineering. ML engineers don't have the luxury of a provider with an existing platform. For AI engineers, 85-90% of the work is sending requests to OpenAI, Anthropic, or some other LLM provider, and then coming up with the right prompt[^17].
 
+## The Role is Similar to ML Engineering
+
+It is very similar to data science. If you think about data science - what data scientists need to do, what ML engineers need to do - they need to integrate machine learning into the product. Here everything is similar. The roles of ML engineer and AI engineer are very similar[^14].
+
+Data scientists focus on creating the model: translating business requirements to ML, designing evaluation datasets, designing training sets, training the model, testing and loading it. ML engineers focus on bringing models into production. AI engineers need to do both, but there is no real modeling since the model already exists. Most of the effort goes to prompt tuning. So AI teams don't necessarily need a separate data scientist role - the AI engineer can handle both parts and focus on everything around it[^17].
+
+For ML engineers, the transition is easy: you just replace a call to a locally hosted model with a call to OpenAI. The rest is the same. ML engineers would need to work a bit on the evaluation side. Data scientists would need to work on the engineering side. For ML engineers, it's probably the easiest transition[^17].
+
 ## Simple Example: Online Classifieds with AI Pre-filling
 
 GitHub: https://github.com/alexeygrigorev/simple-sell/[^16]
@@ -36,24 +44,24 @@ I created this website with Lovable. The prompt was: create an online classified
 
 <figure>
   <img src="../assets/images/ai-engineer-my-vision/lovable-bazaar-marketplace.jpg" alt="Screenshot of Lovable creating the Bazaar marketplace with the prompt visible on the left and the marketplace preview on the right">
-  <figcaption>Creating the marketplace with Lovable - first prompt created the initial "Bazaar" version</figcaption>
-  <!-- Shows the Lovable interface with the initial prompt on the left and the resulting marketplace with product categories and listings on the right -->
+  <figcaption>Prep: creating the example marketplace with Lovable in one prompt</figcaption>
+  <!-- My preparation for the webinar - building the demo project with Lovable -->
 </figure>
 
 With a second prompt, I asked Lovable to rename the website and switch to EUR pricing[^8].
 
 <figure>
   <img src="../assets/images/ai-engineer-my-vision/lovable-trova-rename.jpg" alt="Screenshot of Lovable renaming the marketplace to Trova and switching to euro pricing">
-  <figcaption>Second prompt: renamed to "Trova" and switched currency to euros</figcaption>
-  <!-- Shows the conversation with Lovable on the left asking to rename and switch currency, and the updated Trova marketplace on the right -->
+  <figcaption>Prep: second prompt renamed to "Trova" and switched currency to euros</figcaption>
+  <!-- My preparation for the webinar - adjusting the demo project -->
 </figure>
 
 Then I exported this from Lovable and added backend support with Claude Code[^9].
 
 <figure>
   <img src="../assets/images/ai-engineer-my-vision/claude-code-backend-start.jpg" alt="Claude Code v2.1.42 interface showing the prompt to create a FastAPI backend for the marketplace">
-  <figcaption>Using Claude Code to create the FastAPI backend for the marketplace</figcaption>
-  <!-- Shows Claude Code receiving the instruction to create a FastAPI backend with listing endpoints and AI pre-filling -->
+  <figcaption>Prep: using Claude Code to add a FastAPI backend to the example project</figcaption>
+  <!-- My preparation for the webinar - adding backend with Claude Code -->
 </figure>
 
 I asked Claude Code to create a simple FastAPI backend that takes care of listings and pre-filling with AI. It should return the content, and there would be two endpoints: one for adding a listing and another for pre-filling it with AI[^9].
@@ -139,8 +147,8 @@ We did not even talk about UI changes. There also need to be UI changes. Typical
 
 <figure>
   <img src="../assets/images/ai-engineer-my-vision/claude-code-backend-progress.jpg" alt="Claude Code todo list showing backend implementation progress with completed tasks">
-  <figcaption>Claude Code working on the example project - backend structure, API endpoints, AI service, and tests</figcaption>
-  <!-- Shows the Claude Code task list with completed items: restructure into monorepo, initialize backend, implement database layer, API endpoints, AI image analysis service, update frontend, and currently writing backend tests -->
+  <figcaption>Prep: Claude Code building out the example project - backend, API, AI service, tests</figcaption>
+  <!-- My preparation for the webinar - Claude Code task list showing the demo project build progress -->
 </figure>
 
 In this example, we have tests ([test_listings.py](https://github.com/alexeygrigorev/simple-sell/blob/main/backend/tests/test_listings.py), [test_ai.py](https://github.com/alexeygrigorev/simple-sell/blob/main/backend/tests/test_ai.py)), we have CI/CD ([test-backend.yml](https://github.com/alexeygrigorev/simple-sell/blob/main/.github/workflows/test-backend.yml)), you can see everything that is implemented[^12][^13].
@@ -153,73 +161,47 @@ When we talk about testing and deployment, CI/CD is important. When we run tests
 
 That was just a very simple thing. But imagine we go from this simple thing to RAG. We make our process more complex. Now we have a search engine that we need to use, something like Elasticsearch. We need to ingest the data. We need to know how to build data pipelines, and how to build data pipelines reliably, because the data is coming from somewhere. We need to put it into our search engine. This could be a vector search engine or a text search engine. We need to be able to do that. Sometimes, oftentimes, we need to be able to provision the infrastructure for that[^14].
 
+Simple case - just call the LLM API:
+
 ```mermaid
-graph TB
-    subgraph Simple["Simple: LLM API Call"]
-        U1[User Input] --> P[Prompt + LLM API]
-        P --> R1[Response]
-    end
+graph LR
+    U[User Input] --> P[Prompt + LLM API]
+    P --> R[Response]
+```
 
-    subgraph RAG["RAG: 5x more complex"]
-        DS[Data Sources] --> DP[Data Pipeline]
-        DP --> SE[Search Engine<br/>vector / text]
-        U2[User Query] --> RET[Retrieval]
-        SE --> RET
-        RET --> P2[Prompt + Context + LLM API]
-        P2 --> R2[Response]
-        SE -.-> MON2[Infrastructure<br/>Monitoring]
-    end
+With RAG, things get maybe 5 times more difficult[^17]. Now we need a search engine, data pipelines, infrastructure:
 
-    subgraph Agents["Agents: 10x more complex"]
-        U3[User Request] --> AG[Agent Loop]
-        AG --> TC[Tool Calls]
-        TC --> T1[Tool 1]
-        TC --> T2[Tool 2]
-        TC --> T3[Tool N]
-        T1 & T2 & T3 --> AG
-        AG --> P3[LLM API<br/>multiple rounds]
-        P3 --> R3[Response]
-        AG -.-> EV[Eval: correct tools?<br/>correct sequence?]
-    end
+```mermaid
+graph LR
+    DS[Data Sources] --> DP[Data Pipeline]
+    DP --> SE[Search Engine<br/>vector / text]
+    U[User Query] --> RET[Retrieval]
+    SE --> RET
+    RET --> P[Prompt + Context<br/>+ LLM API]
+    P --> R[Response]
+    SE -.-> MON[Infrastructure<br/>Monitoring]
 ```
 
 We also need to handle reliability: what if the database goes down? What if it's slow? We need to think about all of these scenarios[^17].
 
-Just adding RAG makes things maybe 5 times more difficult than the simple case[^17].
+With agents, complexity grows to maybe 10 times the simple case[^17]. Multiple tool calls, multiple LLM rounds, evaluation of tool correctness:
 
-For agents, we need to know tool calling and things like that. When we have tools, we need to make sure agents can use these tools reliably. We need to be able to write tests for tools and for the agent behavior. With tools, everything becomes more complex. We need to write our tests and update our evaluation framework, evaluation criteria - in this scenario, these tools must be used, things like that. The evaluation dataset becomes more difficult because we need to verify the correct tool is called for each scenario and that tool combinations work correctly. The interaction becomes multiple requests instead of one[^15][^17].
+```mermaid
+graph LR
+    U[User Request] --> AG[Agent Loop]
+    AG --> TC[Tool Calls]
+    TC --> T1[Tool 1]
+    TC --> T2[Tool 2]
+    TC --> TN[Tool N]
+    T1 & T2 & TN --> AG
+    AG --> LLM[LLM API<br/>multiple rounds]
+    LLM --> R[Response]
+    AG -.-> EV[Eval: correct tools?<br/>correct sequence?]
+```
 
-Adding agents makes it even more complex on top of RAG. In the simple case, it is already a lot of work. In more complex cases with RAG and agents, the complexity is maybe 10 times more than before. All these things are solved by AI engineers[^15].
+We need to make sure agents can use tools reliably. We need to write tests for tools and for agent behavior. We need to update our evaluation framework and criteria - in this scenario, these tools must be used, things like that. The evaluation dataset becomes more difficult because we need to verify the correct tool is called for each scenario and that tool combinations work correctly[^15][^17].
 
-## The Role is Similar to ML Engineering
-
-It is very similar to data science. If you think about data science - what data scientists need to do, what ML engineers need to do - they need to integrate machine learning into the product. Here everything is similar. The roles of ML engineer and AI engineer are very similar[^14].
-
-Data scientists focus on creating the model: translating business requirements to ML, designing evaluation datasets, designing training sets, training the model, testing and loading it. ML engineers focus on bringing models into production. AI engineers need to do both, but there is no real modeling since the model already exists. Most of the effort goes to prompt tuning. So AI teams don't necessarily need a separate data scientist role - the AI engineer can handle both parts and focus on everything around it[^17].
-
-For ML engineers, the transition is easy: you just replace a call to a locally hosted model with a call to OpenAI. The rest is the same. ML engineers would need to work a bit on the evaluation side. Data scientists would need to work on the engineering side. For ML engineers, it's probably the easiest transition[^17].
-
-## Solving Real Problems with AI
-
-The AI engineer's approach involves:
-
-1. Understanding the problem - What exactly are we trying to solve? What would success look like?
-
-2. Prompt engineering - Crafting effective prompts to get the desired behavior from AI models
-
-3. Experimentation - This is critical. AI engineering requires continuous experimentation through A/B testing. We show a new feature to a portion of traffic, measure how users respond, and iterate based on results
-
-## Key Skills
-
-What AI engineers need to know[^10]:
-- How to interact with API
-- How to create web services
-- How to create tests
-- Evaluation strategy
-- Production monitoring (endpoint monitoring, web service monitoring, AI monitoring)
-- Collecting logs
-- Adding humans in the loop for evaluation
-- Setting up processes for collecting user feedback (explicit and implicit)
+In the simple case, it is already a lot of work. All these things are solved by AI engineers[^15].
 
 ## What AI Engineers Don't Focus On
 

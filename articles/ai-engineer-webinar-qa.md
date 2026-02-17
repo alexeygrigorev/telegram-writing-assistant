@@ -40,7 +40,7 @@ The most important parts to focus on:
 5. Monitoring - AI-specific monitoring aspects
 6. Evaluation - this is the most important part[^23]
 
-This covers the most important 20% that accounts for 80% of the work[^23].
+I cover all of this in [my course](https://maven.com/alexey-grigorev/from-rag-to-agents). This covers the most important 20% that accounts for 80% of the work[^23].
 
 For projects: pick a specific domain, like e-commerce or online classifieds. Go to their website, see what problems they solve, think about how to solve them, and create a small project showing you can do it. Do this multiple times, then go to interviews and talk about these projects[^23].
 
@@ -72,7 +72,7 @@ Even though my title was data scientist, I called myself an engineer all the tim
 
 Question: Is traditional NLP/ML engineering now effectively legacy tech?
 
-Probably yes. GPT-4O Mini is insanely cheap. In my course, I use GPT-4O Mini and I haven't managed to spend a dollar yet. For structured text processing, it's nearly free. The effort calculation is obvious: how much effort do you need for traditional NLP models versus just sending your stuff to GPT-4O Mini?[^23]
+Probably yes. gpt-4o-mini is insanely cheap. In my course, I use gpt-4o-mini and I haven't managed to spend a dollar yet. For structured text processing, it's nearly free. The effort calculation is obvious: how much effort do you need for traditional NLP models versus just sending your stuff to gpt-4o-mini?[^23]
 
 There are probably still some cases where traditional NLP makes sense. Simple cases like a spellchecker. Or in search, when you have a typo, you still want to retrieve results, and you don't want to add extra latency - search needs to be very fast. But in general, the answer is clear[^23].
 
@@ -130,7 +130,7 @@ Right now many people know how to make a request to OpenAI, but not everyone kno
 
 Question: As a CEO, what does the investment and resource pipeline look like when taking a Bayesian ML approach combined with a hybrid LLM approach?[^2]
 
-I don't know how to answer this question - I need more data. This is complex. This would require signing up for a one-on-one consultation to figure everything out[^6].
+I don't know how to answer this question - I need more data. This is complex. This would require a [one-on-one consultation](https://alexeygrigorev.com/services/consulting.html) to figure everything out[^6].
 
 ## Data Engineering vs AI Engineering
 
