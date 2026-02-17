@@ -73,6 +73,7 @@ Brief description of what this article is about.
 | [Paid Community Marketing Plan](paid-community-marketing-plan.md) | draft | 2026-02-14 | Marketing plan and funnel for promoting the paid community |
 | [Services Website Testimonials](services-testimonials.md) | draft | 2026-02-15 | Collection of testimonials for the services website |
 | [AI Engineer Webinar Q&A](ai-engineer-webinar-qa.md) | draft | 2026-02-16 | Questions and answers from the Day in the Life of an AI Engineer webinar |
+| [How a Data Engineer Can Transition to AI Engineering](de-to-ai-engineer-transition.md) | draft | 2026-02-17 | Guide for data engineers looking to move into AI engineering roles |
 
 See [Research Articles](research/_index.md) for research and investigation topics.
 
