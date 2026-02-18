@@ -1,0 +1,9 @@
+---
+source: telegram_voice
+date: 2026-02-18T15:59:01+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260218_155901_AlexeyDTC_msg1952.ogg
+---
+
+Видео и текст, я имею в виду.

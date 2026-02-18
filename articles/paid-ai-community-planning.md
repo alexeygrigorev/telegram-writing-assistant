@@ -1,7 +1,7 @@
 ---
 title: "Paid AI Engineers Community Planning"
 created: 2026-02-10
-updated: 2026-02-17
+updated: 2026-02-18
 tags: [community, business, ai-engineering, pricing]
 status: draft
 ---
@@ -195,25 +195,25 @@ Current naming challenge: existing names like "AI Builders" and "AI Engineering"
 
 ## Tier Structure Overview
 
-Following standard pricing psychology, a three-tier structure makes sense. The pricing tiers are set at $20, $50, and $100 per month[^50].
+Following standard pricing psychology, a three-tier structure makes sense. The original plan was $20, $50, and $100 per month[^50]. The current pricing on aishippinglabs.com is annual[^77]:
 
-### Tier 1: Basic ($20/month)
+### Tier 1: Basic (200 EUR/year)
 
-- Content access only
-- No community access
-- Summaries and written materials
+- Content only - no community access
+- Substack content access, tutorials, tool breakdowns, research, curated social posts
 
-### Tier 2: Main Offering ($50/month)
+### Tier 2: Main (500 EUR/year)
 
-- Most members should land here
-- Maximum perceived value
-- Community access, project work, content sharing, learning together
+- Marked as "Most Popular"
+- Everything in Basic plus closed community access
+- Group coding sessions, hackathons, guided project-based learning
+- Career discussions, personal brand guidance, topic voting
 
-### Tier 3: Premium ($100/month)
+### Tier 3: Premium (1000 EUR/year)
 
-- Makes Tier 2 look more reasonable by comparison
-- Courses, exclusive content, guaranteed benefits
-- Limited time commitment from founder
+- Everything in Main plus access to all mini-courses
+- Upcoming Python for Data and AI Engineering course
+- Resume/LinkedIn/GitHub teardowns, mini-course topic voting
 
 The third tier serves an important psychological purpose: when presented with three options, people tend to choose the middle one. This is a standard pricing tactic recommended in business books.
 
@@ -665,3 +665,4 @@ The key is to learn from real members rather than assuming what they want.
 [^74]: [20260217_092429_AlexeyDTC_msg1885_transcript.txt](../inbox/used/20260217_092429_AlexeyDTC_msg1885_transcript.txt), [20260217_092405_AlexeyDTC_msg1883_photo.md](../inbox/used/20260217_092405_AlexeyDTC_msg1883_photo.md)
 [^75]: [20260217_100942_AlexeyDTC_msg1894_transcript.txt](../inbox/used/20260217_100942_AlexeyDTC_msg1894_transcript.txt), [20260217_095600_AlexeyDTC_msg1891_photo.md](../inbox/used/20260217_095600_AlexeyDTC_msg1891_photo.md)
 [^76]: [20260217_102556_AlexeyDTC_msg1909_transcript.txt](../inbox/used/20260217_102556_AlexeyDTC_msg1909_transcript.txt)
+[^77]: [20260218_161244_AlexeyDTC_msg1975.md](../inbox/used/20260218_161244_AlexeyDTC_msg1975.md), [aishippinglabs.com](https://aishippinglabs.com)

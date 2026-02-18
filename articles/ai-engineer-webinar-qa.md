@@ -232,17 +232,7 @@ It depends on the specific situation. But as a rule, for all such things: stakeh
 
 I realize this is a very generic answer. I don't have a better one. If you want something more specific, describe a concrete problem you're trying to solve, and we can think more specifically about it[^17].
 
-### Community perspective on governance
-
-This question came up again in a separate conversation. Governance in the context of large, slow-moving companies means having checkboxes that everything is verified and secured, with processes controlled by someone. There are specific people and roles within the company responsible for this[^24].
-
-Lena's answer: understand the domain to understand the risks, not just in a vacuum. You need domain knowledge to properly assess what risks exist and how to mitigate them[^24].
-
-<figure>
-  <img src="../assets/images/ai-engineer-webinar-qa/governance-discussion.jpg" alt="Telegram conversation about governance in AI systems">
-  <figcaption>Discussion about governance - Lena suggests understanding the domain to understand risks</figcaption>
-  <!-- Screenshot showing the community conversation where governance is explained and Lena provides her perspective -->
-</figure>
+That said, governance in the context of large, slow-moving companies typically means having checkboxes that everything is verified and secured, with processes controlled by specific people and roles within the company[^24]. In that context, the most important skill is understanding the domain to understand the risks - not just in a vacuum. You need domain knowledge to properly assess what risks exist and how to mitigate them[^24].
 
 ## Frontend Engineers Transitioning to AI
 

@@ -1,7 +1,7 @@
 ---
 title: "Interesting Resources"
 created: 2026-01-31
-updated: 2026-02-16
+updated: 2026-02-18
 tags: [resources, tools, ai, development]
 status: draft
 ---
@@ -70,6 +70,10 @@ Each resource entry follows this simple format:
 
 [Docling](https://github.com/docling-project/docling) is a document parsing library that extracts structured content from PDFs and other documents. It provides a unified API for document conversion with support for equations, tables, code, and layout analysis. The project uses the Granite Docling 258M model under the hood, a compact multimodal model that works well on CPU without requiring GPU. Installation is straightforward with pip install, making it easy to integrate into existing workflows. Resource shared by Léonore Tideman from AI Buildcamp[^13].
 
+### Locality Sensitive Hashing: The Illustrated Guide
+
+[Locality Sensitive Hashing: The Illustrated Guide](https://www.pinecone.io/learn/series/faiss/locality-sensitive-hashing/) is an in-depth tutorial from Pinecone's FAISS learning series that walks through the theory and Python implementation of LSH, one of the foundational algorithms for approximate nearest neighbor search. It covers the full traditional pipeline of shingling, MinHashing, and banding with clear diagrams at every step. A great resource for understanding how similarity search engines at companies like Google, Spotify, and Amazon work under the hood[^26].
+
 ### LLM Coding Insights
 
 [2000 Hours Coding with LLMs in 2025](https://www.reddit.com/r/ClaudeAI/comments/1q3t579/i_spent_2000_hours_coding_with_llms_in_2025_here/) is a comprehensive Reddit post detailing lessons learned from extensive LLM-assisted coding. The author shares practical insights about what works, what doesn't, and how to effectively integrate AI coding assistants into real-world development workflows[^16].
@@ -81,6 +85,10 @@ Each resource entry follows this simple format:
 ### RTK (Rust Token Killer)
 
 [RTK](https://github.com/rtk-ai/rtk) is a CLI proxy that cuts Claude Code token usage by 89% by filtering and compressing command output before it reaches the LLM context. Most of what Claude Code reads from commands like test runs, git status, and logs is noise - passing tests, verbose output, status bars - and RTK strips it down to just the essentials. The author reported saving 10.2 million tokens over two weeks, with compressions like cargo test going from 155 lines to 3 lines[^21].
+
+### Voicebox
+
+[Voicebox](https://github.com/jamiepine/voicebox) is an open-source, local-first voice cloning studio powered by Qwen3-TTS. It provides DAW-like features including a multi-track timeline editor, voice profile management, and a REST API for integrating voice synthesis into other applications. Think of it as a local, free alternative to ElevenLabs - download models, clone voices from a few seconds of audio, and generate speech entirely on your machine with no cloud dependency[^25].
 
 ### You Could've Invented OpenClaw
 
@@ -116,3 +124,5 @@ Each resource entry follows this simple format:
 [^22]: [20260214_103313_AlexeyDTC_msg1673.md](../inbox/used/20260214_103313_AlexeyDTC_msg1673.md)
 [^23]: [20260214_103407_AlexeyDTC_msg1675_transcript.txt](../inbox/used/20260214_103407_AlexeyDTC_msg1675_transcript.txt)
 [^24]: [20260215_214321_AlexeyDTC_msg1701.md](../inbox/used/20260215_214321_AlexeyDTC_msg1701.md)
+[^25]: [20260218_141744_AlexeyDTC_msg1945.md](../inbox/used/20260218_141744_AlexeyDTC_msg1945.md)
+[^26]: [20260218_145313_valeriia_kuka_msg1949.md](../inbox/used/20260218_145313_valeriia_kuka_msg1949.md)

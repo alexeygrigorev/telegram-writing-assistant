@@ -1,7 +1,7 @@
 ---
 title: "Social Post Ideas"
 created: 2026-02-07
-updated: 2026-02-17
+updated: 2026-02-18
 tags: [social-media, twitter, content-ideas, ai-engineering]
 status: draft
 ---
@@ -96,6 +96,24 @@ Post idea: scrape current job postings for data engineering and AI engineering p
 
 Post idea: guide on how to choose projects for your portfolio. I've talked about this many times but never made a dedicated article. This would cover how to pick projects that showcase relevant skills, stand out to employers, and align with career goals in AI engineering[^8].
 
+## GitHub Resources for Prompting and LLM Fundamentals
+
+Post by aditya (@adxtyahq): "Complete GitHub Resources to Learn Prompting and LLM Fundamentals" - a curated list of GitHub repositories for learning prompt engineering and LLM fundamentals[^9].
+
+The repositories are organized into categories:
+
+Fundamentals:
+1. dair-ai/Prompt-Engineering-Guide - comprehensive prompt engineering guide
+2. promptslab/Awesome-Prompt-Engineering - curated list of prompt engineering resources
+3. snwfdhmp/awesome-gpt-prompt-engineering - GPT-focused prompt engineering list
+
+Prompting Techniques and Hands-On:
+4. NirDiamant/Prompt_Engineering - prompt engineering techniques
+5. brexhq/prompt-engineering - Brex's prompt engineering guide
+6. anthropics/prompt-eng-interactive-tutorial - Anthropic's interactive prompt engineering tutorial
+
+Plus a roadmaps section.
+
 ## Sources
 
 [^1]: [20260207_143150_AlexeyDTC_msg1103.md](../inbox/used/20260207_143150_AlexeyDTC_msg1103.md) - 10 AI projects post
@@ -106,3 +124,4 @@ Post idea: guide on how to choose projects for your portfolio. I've talked about
 [^6]: [20260209_101213_AlexeyDTC_msg1226.md](../inbox/used/20260209_101213_AlexeyDTC_msg1226.md) - Paul Iusztin X post on AI evals
 [^7]: [20260209_101233_AlexeyDTC_msg1228.md](../inbox/used/20260209_101233_AlexeyDTC_msg1228.md) - Additional reference to LinkedIn post
 [^8]: [20260216_183357_AlexeyDTC_msg1801_transcript.txt](../inbox/used/20260216_183357_AlexeyDTC_msg1801_transcript.txt) - Post ideas from AI engineer webinar Q&A
+[^9]: [20260217_211618_AlexeyDTC_msg1923.md](../inbox/used/20260217_211618_AlexeyDTC_msg1923.md) - GitHub resources for prompting/LLM fundamentals

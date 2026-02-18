@@ -586,6 +586,8 @@ It depends on the specific situation. But as a rule, for all such things: stakeh
 
 I realize this is a very generic answer. I don't have a better one. If you want something more specific, describe a concrete problem you're trying to solve, and we can think more specifically about it.
 
+That said, governance in the context of large, slow-moving companies typically means having checkboxes that everything is verified and secured, with processes controlled by specific people and roles within the company. In that context, the most important skill is understanding the domain to understand the risks - not just in a vacuum. You need domain knowledge to properly assess what risks exist and how to mitigate them.
+
 ### Frontend Engineers Transitioning to AI
 
 Question: How can frontend engineers transition into AI engineers?

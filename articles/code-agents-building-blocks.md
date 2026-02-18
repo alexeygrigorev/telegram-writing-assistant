@@ -326,6 +326,33 @@ This way skills evolve through real usage. Each correction makes the next run be
 - Build incrementally: start with one skill and one subagent. Add more as you discover what your workflow needs
 - Always verify: even the best models take shortcuts. Skills encode the "right way" and subagent reviewers catch what the implementer missed
 
+## The Meetup Talk
+
+This talk was presented at a meetup. The preparation process itself was a demonstration of the skills and subagents workflow described above[^6].
+
+<figure>
+  <img src="../assets/images/code-agents-building-blocks/meetup-presentation.jpg" alt="Alexey presenting at a meetup with a projector screen showing GitHub links to the claude and telegram-writing-assistant repos">
+  <figcaption>Presenting the talk at the meetup with links to the project repos on the screen</figcaption>
+  <!-- Photo from the actual meetup where this talk was delivered -->
+</figure>
+
+### How the Talk Was Prepared
+
+The whole preparation took about an hour. The process went like this[^7]:
+
+1. Opened the Telegram writing assistant and said: "let's create an article based on which we will then prepare a talk." Gave it the talk plan and pointed it to several sources - the AI DevTools course, the Substack posts, and what had been written in this repository
+2. The assistant gathered everything and created the article. The content was enough for about 50 minutes, but the talk slot was 20 minutes, so it needed to be cut down
+3. Then said: "now let's make slides." The agent created slides using reveal.js
+4. Went through the slides during rehearsal. While rehearsing, spoke the text which Claude Code recognized and used to update the article and the slides
+5. For missing illustrations, took screenshots and sent them to the agent saying "this slide needs an illustration, here take this"
+6. Iterated on the slides until they were ready
+
+The whole approach is: dictate first or use sources to make an article, review the article, then turn the article into slides, and iterate on the slides. No need to waste time transferring everything into Google Docs manually. The focus stays on content, not on making slides[^7].
+
+### Slides from Articles as a Reusable Skill
+
+Making slides from articles turned out to be a great reusable skill. This should be packaged as a proper skill that can be reused for future talks[^8].
+
 ## Resources
 
 - [AI Dev Tools Zoomcamp](https://github.com/DataTalksClub/ai-dev-tools-zoomcamp) (free course)
@@ -347,3 +374,6 @@ This way skills evolve through real usage. Each correction makes the next run be
 [^3]: [20260213_065936_AlexeyDTC_msg1573_transcript.txt](../inbox/used/20260213_065936_AlexeyDTC_msg1573_transcript.txt)
 [^4]: [20260216_154857_AlexeyDTC_msg1785_transcript.txt](../inbox/used/20260216_154857_AlexeyDTC_msg1785_transcript.txt)
 [^5]: [20260216_182231_AlexeyDTC_msg1789_transcript.txt](../inbox/used/20260216_182231_AlexeyDTC_msg1789_transcript.txt)
+[^6]: [20260217_132807_AlexeyDTC_msg1915_transcript.txt](../inbox/used/20260217_132807_AlexeyDTC_msg1915_transcript.txt)
+[^7]: [20260217_205850_AlexeyDTC_msg1919_transcript.txt](../inbox/used/20260217_205850_AlexeyDTC_msg1919_transcript.txt)
+[^8]: [20260217_205927_AlexeyDTC_msg1921_transcript.txt](../inbox/used/20260217_205927_AlexeyDTC_msg1921_transcript.txt)

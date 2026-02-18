@@ -14,6 +14,8 @@ See [All Articles](../_index.md) for the main articles index.
 | [Advanced Claude Code Patterns](claude-hidden-protocol.md) | draft | 2026-02-16 | Research on advanced Claude Code patterns, prompts, and protocols |
 | [Claude Pilot: Quality Automation for Claude Code](claude-pilot.md) | draft | 2026-02-14 | Research on Claude Pilot wrapper that enforces quality guardrails on Claude Code sessions |
 | [Design with AI: Beating the Default Look](design-with-ai.md) | draft | 2026-02-14 | Research on producing high-quality AI-generated UI using intent-driven design skills and systematic design memory |
+| [Graph RAG](graph-rag.md) | draft | 2026-02-18 | Research on using knowledge graphs to enhance RAG for AI agents, with a production engineer incident response use case |
+| [Instructional Design for Online Courses](instructional-design.md) | draft | 2026-02-18 | Research on instructional design principles for improving course completion rates and student engagement |
 | [ML System Design Case Studies](ml-system-design.md) | draft | 2026-02-12 | Curated selection of 10 most interesting ML system design case studies from 300+ collection |
 | [Spec-Driven Development](spec-driven-development.md) | draft | 2026-02-16 | Research on spec-driven development and task management for AI agents |
 | [YC Guide to Vibe Coding](yc-vibe-coding.md) | draft | 2026-02-10 | Research on YC's guide to vibe coding and AI workflow optimization |
