@@ -26,6 +26,7 @@ Brief description of what this article is about.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Building Blocks of Modern Code Agents](code-agents-building-blocks.md) | draft | 2026-02-17 | Map of code agent types and the two key building blocks: skills and subagents |
 | [AI Hero Course Rebranding for AI Shipping Labs](ai-hero-rebranding.md) | draft | 2026-02-17 | Rebranding the existing AI Hero course to fit under the new AI Shipping Labs community |
 | [How Researchers Can Transition to AI Engineering](researcher-to-ai-engineer-transition.md) | draft | 2026-02-17 | Guide for researchers transitioning from university labs to AI engineering |
 | [Writing Assistant Feedback](writing-assistant-feedback.md) | draft | 2026-02-17 | Feedback and improvement ideas for the Telegram writing assistant bot |
