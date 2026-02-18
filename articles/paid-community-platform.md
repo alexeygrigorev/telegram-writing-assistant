@@ -156,23 +156,25 @@ The platform needs to host:
 
 ## Feature Comparison
 
-Requirements checklist across platforms. Legend: + supported, - not supported, ? unclear or needs verification.
+Requirements checklist across platforms. Legend: + supported, - not supported.
+
+Sources: Ghost features from [Ghost docs](https://ghost.org/docs/), [Ghost help](https://ghost.org/help/), and [Ghost forum](https://forum.ghost.org/). Ghost LMS theme from [Themeix](https://themeix.com/product/learn-premium-lms-theme-for-ghost-cms/). Maven from [Maven help center](https://help.maven.com/). Custom build assumes Stripe + MoR (Paddle/Polar) + standard web stack.
 
 ### Payments
 
 | Requirement | Ghost | Ghost+LMS | Maven | Custom |
 |---|---|---|---|---|
 | Stripe payment integration | + | + | + (own) | + |
-| Annual and monthly billing | + | + | ? | + |
+| Annual and monthly billing | + | + | - (one-time only) | + |
 | Tier upgrades and downgrades | + | + | - | + |
-| VAT handling / merchant of record | + | + | ? | ? |
+| VAT handling / merchant of record | - (Stripe Tax collects, you file) | - | + (Maven remits VAT) | + (via Paddle/Polar as MoR) |
 
 ### Access Control
 
 | Requirement | Ghost | Ghost+LMS | Maven | Custom |
 |---|---|---|---|---|
 | Flexible multi-tier membership (arbitrary tiers) | + | + | - | + |
-| Per-item content gating by tier | + | + | ? | + |
+| Per-item content gating by tier | + | + | - (by enrollment only) | + |
 | Mixed access (open / registered / paid per item) | + | + | - | + |
 
 ### Content Types
@@ -180,25 +182,25 @@ Requirements checklist across platforms. Legend: + supported, - not supported, ?
 | Requirement | Ghost | Ghost+LMS | Maven | Custom |
 |---|---|---|---|---|
 | Articles and blog posts | + | + | - | + |
-| Event recordings library | + | ? | + | + |
-| Project showcase (member portfolios) | ? | ? | - | + |
-| Curated resource directory (links, tools, repos) | ? | - | - | + |
-| Downloadable resources and lead magnets | ? | ? | ? | + |
-| Reusable signup/download CTAs across articles | ? | ? | - | + |
+| Event recordings library | + (via tag collection) | - (no template) | + | + |
+| Project showcase (member portfolios) | + (via routes.yaml + custom template) | - (no template) | - | + |
+| Curated resource directory (links, tools, repos) | + (via custom template + canonical URLs) | - | - | + |
+| Downloadable resources and lead magnets | + (file uploads + membership gating) | + (Ghost native) | - (no file hosting) | + |
+| Reusable signup/download CTAs across articles | + (Snippets + Signup card) | + (Ghost native) | - | + |
 
 ### Courses
 
 | Requirement | Ghost | Ghost+LMS | Maven | Custom |
 |---|---|---|---|---|
-| Course catalog visible to everyone | ? | + | + | + |
-| Gated signup (join button for non-subscribers) | + | + | ? | + |
-| Modules and units structure | - | + | + | + |
-| Video + text + homework per unit | - | - | + | + |
-| Free courses (lead magnet) | ? | ? | + | + |
-| On-demand courses | ? | ? | + | + |
+| Course catalog visible to everyone | + (via routes.yaml) | + | + | + |
+| Gated signup (join button for non-subscribers) | + (public preview + gating) | + | - (application-based, not plan-based) | + |
+| Modules and units structure | - | + (tag-based lessons) | + | + |
+| Video + text + homework per unit | - | - (text + embedded video, no homework) | + | + |
+| Free courses (lead magnet) | + (free membership tier) | + | + (Lightning Lessons) | + |
+| On-demand courses | + (no progress tracking) | + (no progress tracking) | + | + |
 | Cohorts with start/end dates (free and paid) | - | - | + | + |
 | Course discussions integration | - | - | + | + |
-| Email-based drip courses (nice to have) | ? | ? | - | + |
+| Email-based drip courses (nice to have) | - (needs Loops/Kit/Zapier) | - | - | + |
 | Progress tracking / completion status | - | - | + | + |
 
 ### Events
@@ -207,22 +209,22 @@ Requirements checklist across platforms. Legend: + supported, - not supported, ?
 |---|---|---|---|---|
 | Live and async events | - | - | + | + |
 | Tier-differentiated events | - | - | + | + |
-| Zoom (or alternative) integration | - | - | ? | + |
-| Auto-upload and publish recording after event | - | - | + | + |
+| Zoom (or alternative) integration | - | - | + (native deep integration) | + |
+| Auto-upload and publish recording after event | - | - | + (via Zoom integration) | + |
 
 ### Event Calendar
 
 | Requirement | Ghost | Ghost+LMS | Maven | Custom |
 |---|---|---|---|---|
-| Activity calendar visible to everyone | ? | ? | - | + |
-| Gated event signup | ? | ? | + | + |
+| Activity calendar visible to everyone | - (no native calendar) | - | - | + |
+| Gated event signup | +/- (gated content, no RSVP) | - (no events system) | + | + |
 
 ### Video
 
 | Requirement | Ghost | Ghost+LMS | Maven | Custom |
 |---|---|---|---|---|
-| Embed YouTube / Loom / self-uploaded | ? | - | + | + |
-| Clickable timestamps and descriptions | ? | - | + | + |
+| Embed YouTube / Loom / self-uploaded | + (native OEmbed + HTML card) | + (Ghost native) | + | + |
+| Clickable timestamps and descriptions | - (no native support) | - | + | + |
 
 ### Community
 
@@ -236,15 +238,15 @@ Requirements checklist across platforms. Legend: + supported, - not supported, ?
 
 | Requirement | Ghost | Ghost+LMS | Maven | Custom |
 |---|---|---|---|---|
-| Topic voting for members | - | - | ? | + |
-| Mini-course topic voting | - | - | ? | + |
+| Topic voting for members | - | - | - (surveys only) | + |
+| Mini-course topic voting | - | - | - | + |
 
 ### Email
 
 | Requirement | Ghost | Ghost+LMS | Maven | Custom |
 |---|---|---|---|---|
-| Tier-granular mailing (send to tier and above) | + | + | ? | + |
-| Unsubscribe link in every email | + | + | ? | + |
+| Tier-granular mailing (send to tier and above) | + | + | - (by enrollment, not tier) | + |
+| Unsubscribe link in every email | + | + | + | + |
 | Newsletter signup (free subscribers) | + | + | - | + |
 | Lead magnet flow (email -> free member -> download) | + | + | - | + |
 
@@ -261,7 +263,7 @@ Requirements checklist across platforms. Legend: + supported, - not supported, ?
 | Requirement | Ghost | Ghost+LMS | Maven | Custom |
 |---|---|---|---|---|
 | Tag-based content organization | + | + | - | + |
-| Tag-based conditional components | ? | ? | - | + |
+| Tag-based conditional components | + ({{#has}} helper) | + | - | + |
 | Custom structured data (JSON-LD, OpenGraph) | + | + | - | + |
 
 ## Platform Evaluations
