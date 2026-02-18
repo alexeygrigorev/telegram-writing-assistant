@@ -165,11 +165,22 @@ DO NOT assume facts not explicitly stated:
 
 If a message contains a URL, DO NOT fetch and summarize it yourself. Use specialized subagents to avoid polluting the main agent's context.
 
+CRITICAL: Before launching any subagents, create an explicit list of ALL URLs across ALL messages. Every URL must be assigned to a subagent type. Do not process URLs ad-hoc as you work through content groups - this leads to URLs being missed.
+
+CRITICAL: All subagents MUST use Jina Reader (`curl -L "https://r.jina.ai/{URL}"`) for fetching content. Do NOT use WebFetch. Only fall back to WebFetch if Jina Reader fails for a specific URL.
+
 **For GitHub URLs** - Use `gh` CLI or raw GitHub URLs:
 - Do NOT use Jina Reader for GitHub repos. Use `gh api` or fetch raw.githubusercontent.com URLs instead
 - For repo structure: `gh api repos/owner/repo/contents/path`
 - For file content: fetch `https://raw.githubusercontent.com/owner/repo/main/path/to/file`
 - For repo overview: `gh repo view owner/repo`
+
+**For ChatGPT conversation links** (chatgpt.com/share/...):
+- Always fetch and summarize via a subagent using Jina Reader
+- Extract the key discussion points, conclusions, and any specific requirements mentioned
+- If the surrounding messages contain instructions about where to put the content, follow those instructions
+- Otherwise treat the conversation content as regular input and categorize it by topic
+- ChatGPT conversations are full content sources, not just reference links to cite
 
 **For research articles** - Use the article-summarizer agent:
 - Launch article-summarizer subagent for each URL
