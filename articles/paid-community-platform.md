@@ -101,6 +101,24 @@ In our case, since the goal is to use a subscription model with mini-courses for
 
 There is a Ghost theme specifically designed for learning management: [Ghost Learning Management System theme](https://explore.ghost.org/p/ghost-learning-management-system). This could potentially be integrated as part of the site alongside other content[^7].
 
+The theme is made by Themeix and turns a standard Ghost site into a course platform. It provides course catalog pages, course detail pages with structured lesson sidebars, and individual lesson pages with breadcrumb navigation. Courses are organized using Ghost's tag system, and access is gated through Ghost's native membership tiers.
+
+What it does well:
+- Course catalog with category browsing
+- Structured lesson navigation within courses
+- Membership gating using Ghost's built-in tiers
+- Blog section alongside courses
+- Responsive design, three homepage variants
+
+What it lacks:
+- No quizzes, assessments, or grading
+- No progress tracking or completion status
+- No certificates
+- No video hosting (text-based lessons only, though videos can be embedded manually)
+- No per-course pricing - access is all-or-nothing based on Ghost tier
+- Course structure is manually maintained through Ghost tags
+- Third-party theme, so long-term maintenance depends on developer
+
 ### Maven Evaluation
 
 Maven is convenient as a course platform with a lot of built-in functionality. The issue is student registration automation. There does not seem to be an API for adding students programmatically. Payment would go through our platform, then a webhook should fire, and we would add the student to the Maven course. There appears to be only a manual way to add students, not an API for it[^8].
@@ -109,7 +127,27 @@ Can check in the Maven community or search further, but it seems Maven is not th
 
 ### Valeria's Platform Research
 
-Valeria shared her discussion with ChatGPT about platform requirements: [ChatGPT conversation](https://chatgpt.com/share/6995e377-ca94-8013-afab-c44b21967400)[^5b].
+Valeria explored platform requirements in a [ChatGPT conversation](https://chatgpt.com/share/6995e377-ca94-8013-afab-c44b21967400)[^5b]. The key findings:
+
+Ghost was selected as the recommended platform. The architecture: Ghost acts as CMS, membership system, payment integration (via Stripe), email capture engine, newsletter sender, and content gating layer. Ghost themes (Handlebars templates) provide layout and SEO control, developed in an IDE like normal code. Slack remains the community platform. Local development is possible (ghost install local), similar to standard web development workflow[^5b].
+
+Specific feature requirements discussed:
+- Workshop pages with video embeds, clickable timestamps, tools used, learning outcomes, and resource lists
+- Resource directory displayed as a grid of tools/courses/models with external links
+- Recording library with gated archives based on tier
+- Tag-based content organization using internal tags (#resource, #workshop, #recording, #article)
+- Custom structured data (JSON-LD, schema markup, OpenGraph) for SEO
+- Tag-based conditional components (e.g., "if article is tagged ai-engineer, show roadmap signup form")
+- Content gating by tier
+- Lead magnet flow: user enters email, becomes free member, download is unlocked
+- Downloadable resources (PDFs, templates, slides, code bundles) gated behind email signup or paid membership
+- Reusable signup/download CTAs that can be embedded across multiple related articles
+
+Acknowledged limitations of Ghost:
+- No true custom content types or database fields (simulated through tags and structured content blocks)
+- Not a React app runtime (server-rendered Handlebars templates with optional JS)
+- Not suitable for app-like dashboards, learning progress tracking, or heavy automation pipelines
+- Roughly 80% flexibility compared to a fully custom system, but with much faster launch
 
 ### Building Custom
 
