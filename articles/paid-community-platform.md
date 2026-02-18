@@ -8,71 +8,265 @@ status: draft
 
 # Paid Community Platform Requirements
 
-Technical requirements and platform evaluation for hosting the AI Shipping Labs paid community at aishippinglabs.com. This covers what features are needed, what platforms were considered, and the current state of the discussion.
+Technical requirements and platform evaluation for hosting the AI Shipping Labs paid community at aishippinglabs.com. This covers the current plans, what features are needed, and what platforms were considered.
 
-## Current Setup
+## Current Plans
 
 The community site is live at [aishippinglabs.com](https://aishippinglabs.com). It is currently invite-only and positions itself as a "technical community for action-oriented builders interested in AI engineering and AI tools." The tagline is "Turn AI ideas into real projects"[^9].
 
-Current tier structure on the site[^9]:
+### Philosophy
 
-- Basic (200 EUR/year) - content only. Substack content access, tutorials, tool breakdowns, research, curated social posts. No community access.
-- Main (500 EUR/year) - live learning + community. Everything in Basic plus closed community access, group coding sessions, hackathons, guided project-based learning, career discussions, personal brand guidance, topic voting.
-- Premium (1000 EUR/year) - courses + personalized feedback. Everything in Main plus access to all mini-courses, upcoming Python for Data and AI Engineering course, resume/LinkedIn/GitHub teardowns, mini-course topic voting.
+"Learn by building, together" - designed for motivated learners who prefer learning by doing:
+
+- Learning by doing: no passive consumption, every activity is designed around building, shipping, and getting feedback on real work
+- Production-ready: focus on what actually works in production, move from prototypes to reliable systems with battle-tested patterns
+- Build together: work alongside other practitioners through hackathons, projects, and group problem-solving instead of isolated learning
+- Calibrate your judgment: develop better instincts through peer feedback, expert guidance, and exposure to real-world decision-making patterns
+
+### Membership Tiers
+
+#### Basic (200 EUR/year) - Content Only
+
+Educational content without community access. For self-directed builders who learn at their own pace.
+
+- Full access to exclusive Substack content
+- Hands-on tutorials with code examples you can implement
+- Curated breakdowns of new AI tools and workflows
+- Behind-the-scenes access to ongoing research and experiments
+- Curated collection of valuable social posts you might have missed
+
+#### Main (500 EUR/year) - Live Learning + Community
+
+Everything in Basic, plus the structure, accountability, and peer support to ship AI projects consistently. Marked as "Most Popular."
+
+- Everything in Basic
+- Closed community access to connect and interact with practitioners
+- Collaborative problem-solving and mentorship for implementation challenges
+- Interactive group coding sessions led by a host
+- Guided project-based learning with curated resources
+- Community hackathons
+- Career advancement discussions and feedback
+- Personal brand development guidance and content
+- Developer productivity tips and workflows
+- Propose and vote on future topics
+
+#### Premium (1000 EUR/year) - Courses + Personalized Feedback
+
+Everything in Main, plus structured learning paths through mini-courses and personalized career guidance.
+
+- Everything in Main
+- Access to all mini-courses on specialized topics
+- Collection regularly updated with new courses
+- Upcoming: Python for Data and AI Engineering
+- Propose and vote on mini-course topics
+- Resume, LinkedIn, and GitHub teardowns
 
 ## Platform Requirements
 
-### Access Control by Tier
+### Payments
 
-The platform needs to differentiate access between the three tiers[^4]:
+- Accept payments for membership tiers via Stripe (or alternative)
+- Support annual and potentially monthly billing
+- Handle upgrades and downgrades between tiers
+- Must handle VAT and act as merchant of record
 
-- Basic members: receive content by email only. No community access. Tutorials, examples, and materials are sent by email. All members (Basic, Main, and Premium) can receive these mailings.
-- Main members: community access plus everything in Basic. They can view materials on the site, but materials should be gated between tiers.
-- Premium members: access to everything including mini-courses and voting on course topics.
+### Access Control
 
-Materials on the site should be access-controlled between plans. Basic has access to certain materials, Main to others, and Premium to all[^4].
+- Flexible tier-based access control, should support arbitrary number of tiers (currently three: Basic, Main, Premium)[^4]
+- Per-item gating on all content types - each piece of content can be:
+  - Open to everyone (for SEO and lead generation)
+  - Open to registered free users
+  - Open to specific paid tiers
 
-### Events and Calendar
+### Content Types
 
-Events should be tier-differentiated[^4]:
+The platform needs to host:
 
-- Some events accessible to everyone (to attract new people)
-- Some events only for Premium
-- Some events for Premium + Main
-- Some events for Premium + Main + Basic
-- Basic probably will not have many events, but the differentiation should be possible
+- Articles and blog posts - per-article access control, not a blanket paywall. Nice to have: community members can contribute articles (with a moderation process before publishing)
+- Courses (see dedicated section below)
+- Event recordings - browsable library of past recordings, gated by tier. Each recording has video embed, timestamps, description, and materials/resources used[^4]
+- Project ideas - community members share projects and portfolios with descriptions, difficulty levels, tags, and links to source code
+- Curated links - browsable collection of GitHub repos, model hubs, tools, and learning resources displayed as a grid or list with external links[^5b]
+- Downloadable resources and lead magnets - PDFs, templates, slides, code bundles gated behind email signup or paid membership. Reusable signup/download CTAs embeddable across multiple articles[^5b]
 
-A calendar is needed, ideally with integration with Luma. Luma already has calendar features and it could avoid reimplementing this. There may be a paid Luma plan with API features that would be useful[^4].
+### Courses
 
-Ideally: a button to create an event, everything gets set up automatically, and after the event it records and gets posted to the platform. This is how Maven works now - press a button, everything is created, then it auto-records and publishes[^4].
+- Catalog and course details visible to everyone (for SEO and discoverability)
+- Signup requires appropriate plan - non-subscribers get a "Join" button that leads to signup
+- Some courses can be free (lead magnet, e.g. AI Hero)
+- Inside a course: modules and units, each with video, text content, and homework
+- Courses are on-demand by default
+- Possibility to run cohorts with clear start and end dates, for both free and paid courses (cohorts increase engagement)
+- Course discussions: for paid courses - integrated with the community. For free courses outside the community - link to external platforms (GitHub, Slack, etc.)
+- Nice to have: email-based drip courses (access opens gradually)
+- Nice to have: some course parts shared openly as a preview[^4][^13]
 
-### Course Hosting
+### Events
 
-Courses are a core Premium feature. The platform needs[^4]:
+- Can be live (Zoom sessions, workshops, hackathons) or async (community challenges, project sprints)
+- Tier-differentiated: some for everyone (lead magnet), some for specific tiers
+- For live events: Zoom (or alternative) meeting set up automatically on event creation
+- After a live event: recording automatically uploaded and published with video embed, timestamps, description, and materials[^4]
 
-- A course catalog visible to all users
-- People not subscribed can see the courses but get a "Join" button that leads to Premium signup
-- Inside a course: modules and units
-- Each unit can have video, text content, and homework
-- Cohort support should be considered (whether to run cohorts or not). Can add cohort functionality in advance to make future implementation easier
+### Event Calendar
 
-One idea: host all courses on a private GitHub repository. The course catalog shows what is available, and the actual content lives on GitHub[^4].
+- Activity calendar visible to everyone (upcoming and past events, event details)
+- Calendar and event pages serve as discovery
+- To sign up for an event, the user needs to be on the appropriate plan[^4]
 
-### Video Hosting
+### Video
 
-Ghost does not allow hosting large videos in the current subscription tier. The recommendation is to use specialized services like YouTube with unlisted/private links[^3][^5].
+- Video can be YouTube, Loom, or self-uploaded
+- Embed with clickable timestamps and descriptions[^3b][^5]
 
-This is actually similar to how the Maven course works - videos are recorded on YouTube and then shared via private links with students[^5].
+### Community
 
-The platform needs to support both video and text content[^3b].
+- Main and Premium tiers include closed community access
+- Either host discussions or integrate with an external community tool (currently Slack)
+- Members need a way to interact, ask questions, and collaborate
+- Member lifecycle automation:
+  - On purchase: platform sends a community invite
+  - On cancellation: profile deactivated when payment cycle ends
+  - On re-subscribe: profile re-activated
 
-### Email and Newsletters
+### Voting and Polls
 
-Need the ability to send emails to all members. Announcements in Slack, in newsletters, and potentially a Telegram channel[^4].
+- Members can vote on future topics and mini-course topics
+- Voting or polling mechanism for members to influence content direction
 
-If building a custom platform, emails can be sent through Amazon Simple Email Service (SES). This requires some setup but is doable[^6].
+### Email
 
-### Ghost as Platform
+- Mailing list with tier-granular sending: can target all members, or specific tiers and above (e.g. sending to "Main" includes Main and Premium)
+- When sending to the broadest tier, everyone including free subscribers receives it
+- Every email must include an unsubscribe link
+- Newsletter: visitors can subscribe without joining a paid tier, converting them into free subscribers who can later be upgraded
+- Lead magnet flow: user enters email, becomes free member, gets access to downloads or content[^4][^5b][^13]
+
+### Notifications
+
+- Announcements in Slack
+- Potentially a Telegram channel
+- On-platform notifications (new content, events, course updates)[^4]
+
+### Content Organization and SEO
+
+- Tag-based content organization using internal tags (#resource, #workshop, #recording, #article)[^5b]
+- Tag-based conditional components (e.g., "if article is tagged ai-engineer, show roadmap signup form")[^5b]
+- Custom structured data (JSON-LD, schema markup, OpenGraph) for discoverability[^5b]
+
+## Feature Comparison
+
+Requirements checklist across platforms. Legend: + supported, - not supported, ? unclear or needs verification.
+
+### Payments
+
+| Requirement | Ghost | Ghost+LMS | Maven | Custom |
+|---|---|---|---|---|
+| Stripe payment integration | + | + | + (own) | + |
+| Annual and monthly billing | + | + | ? | + |
+| Tier upgrades and downgrades | + | + | - | + |
+| VAT handling / merchant of record | + | + | ? | ? |
+
+### Access Control
+
+| Requirement | Ghost | Ghost+LMS | Maven | Custom |
+|---|---|---|---|---|
+| Flexible multi-tier membership (arbitrary tiers) | + | + | - | + |
+| Per-item content gating by tier | + | + | ? | + |
+| Mixed access (open / registered / paid per item) | + | + | - | + |
+
+### Content Types
+
+| Requirement | Ghost | Ghost+LMS | Maven | Custom |
+|---|---|---|---|---|
+| Articles and blog posts | + | + | - | + |
+| Event recordings library | + | ? | + | + |
+| Project showcase (member portfolios) | ? | ? | - | + |
+| Curated resource directory (links, tools, repos) | ? | - | - | + |
+| Downloadable resources and lead magnets | ? | ? | ? | + |
+| Reusable signup/download CTAs across articles | ? | ? | - | + |
+
+### Courses
+
+| Requirement | Ghost | Ghost+LMS | Maven | Custom |
+|---|---|---|---|---|
+| Course catalog visible to everyone | ? | + | + | + |
+| Gated signup (join button for non-subscribers) | + | + | ? | + |
+| Modules and units structure | - | + | + | + |
+| Video + text + homework per unit | - | - | + | + |
+| Free courses (lead magnet) | ? | ? | + | + |
+| On-demand courses | ? | ? | + | + |
+| Cohorts with start/end dates (free and paid) | - | - | + | + |
+| Course discussions integration | - | - | + | + |
+| Email-based drip courses (nice to have) | ? | ? | - | + |
+| Progress tracking / completion status | - | - | + | + |
+
+### Events
+
+| Requirement | Ghost | Ghost+LMS | Maven | Custom |
+|---|---|---|---|---|
+| Live and async events | - | - | + | + |
+| Tier-differentiated events | - | - | + | + |
+| Zoom (or alternative) integration | - | - | ? | + |
+| Auto-upload and publish recording after event | - | - | + | + |
+
+### Event Calendar
+
+| Requirement | Ghost | Ghost+LMS | Maven | Custom |
+|---|---|---|---|---|
+| Activity calendar visible to everyone | ? | ? | - | + |
+| Gated event signup | ? | ? | + | + |
+
+### Video
+
+| Requirement | Ghost | Ghost+LMS | Maven | Custom |
+|---|---|---|---|---|
+| Embed YouTube / Loom / self-uploaded | ? | - | + | + |
+| Clickable timestamps and descriptions | ? | - | + | + |
+
+### Community
+
+| Requirement | Ghost | Ghost+LMS | Maven | Custom |
+|---|---|---|---|---|
+| Closed community access by tier | - | - | + | + |
+| Integration with external community (Slack) | - | - | - | + |
+| Member lifecycle (invite / deactivate / reactivate) | - | - | - | + |
+
+### Voting and Polls
+
+| Requirement | Ghost | Ghost+LMS | Maven | Custom |
+|---|---|---|---|---|
+| Topic voting for members | - | - | ? | + |
+| Mini-course topic voting | - | - | ? | + |
+
+### Email
+
+| Requirement | Ghost | Ghost+LMS | Maven | Custom |
+|---|---|---|---|---|
+| Tier-granular mailing (send to tier and above) | + | + | ? | + |
+| Unsubscribe link in every email | + | + | ? | + |
+| Newsletter signup (free subscribers) | + | + | - | + |
+| Lead magnet flow (email -> free member -> download) | + | + | - | + |
+
+### Notifications
+
+| Requirement | Ghost | Ghost+LMS | Maven | Custom |
+|---|---|---|---|---|
+| Slack announcements | - | - | - | + |
+| Telegram channel | - | - | - | + |
+| On-platform notifications | - | - | + | + |
+
+### Content Organization and SEO
+
+| Requirement | Ghost | Ghost+LMS | Maven | Custom |
+|---|---|---|---|---|
+| Tag-based content organization | + | + | - | + |
+| Tag-based conditional components | ? | ? | - | + |
+| Custom structured data (JSON-LD, OpenGraph) | + | + | - | + |
+
+## Platform Evaluations
+
+### Ghost
 
 Ghost has login functionality and closed content sections accessible only to members on specific plans. The question is whether Ghost is sufficient out of the box or if custom development is needed[^3].
 
@@ -97,6 +291,15 @@ According to Ghost community feedback (from 2021, but the platform has not chang
 
 In our case, since the goal is to use a subscription model with mini-courses for community members (not standalone course purchases), Ghost could work. The main limitation is video hosting in our tier[^5].
 
+Valeria's evaluation of Ghost[^5b]: Ghost acts as CMS, membership system, payment integration (via Stripe), email capture engine, newsletter sender, and content gating layer. Ghost themes (Handlebars templates) provide layout and SEO control, developed in an IDE like normal code. Slack remains the community platform. Local development is possible (ghost install local), similar to standard web development workflow.
+
+Acknowledged limitations of Ghost:
+
+- No true custom content types or database fields (simulated through tags and structured content blocks)
+- Not a React app runtime (server-rendered Handlebars templates with optional JS)
+- Not suitable for app-like dashboards, learning progress tracking, or heavy automation pipelines
+- Roughly 80% flexibility compared to a fully custom system, but with much faster launch
+
 ### Ghost LMS Theme
 
 There is a Ghost theme specifically designed for learning management: [Ghost Learning Management System theme](https://explore.ghost.org/p/ghost-learning-management-system). This could potentially be integrated as part of the site alongside other content[^7].
@@ -104,6 +307,7 @@ There is a Ghost theme specifically designed for learning management: [Ghost Lea
 The theme is made by Themeix and turns a standard Ghost site into a course platform. It provides course catalog pages, course detail pages with structured lesson sidebars, and individual lesson pages with breadcrumb navigation. Courses are organized using Ghost's tag system, and access is gated through Ghost's native membership tiers.
 
 What it does well:
+
 - Course catalog with category browsing
 - Structured lesson navigation within courses
 - Membership gating using Ghost's built-in tiers
@@ -111,6 +315,7 @@ What it does well:
 - Responsive design, three homepage variants
 
 What it lacks:
+
 - No quizzes, assessments, or grading
 - No progress tracking or completion status
 - No certificates
@@ -119,35 +324,11 @@ What it lacks:
 - Course structure is manually maintained through Ghost tags
 - Third-party theme, so long-term maintenance depends on developer
 
-### Maven Evaluation
+### Maven
 
 Maven is convenient as a course platform with a lot of built-in functionality. The issue is student registration automation. There does not seem to be an API for adding students programmatically. Payment would go through our platform, then a webhook should fire, and we would add the student to the Maven course. There appears to be only a manual way to add students, not an API for it[^8].
 
 Can check in the Maven community or search further, but it seems Maven is not the right fit. On the other hand, all the needed functionality could be coded with Claude Code in about 2 hours[^8].
-
-### Valeria's Platform Research
-
-Valeria explored platform requirements in a [ChatGPT conversation](https://chatgpt.com/share/6995e377-ca94-8013-afab-c44b21967400)[^5b]. The key findings:
-
-Ghost was selected as the recommended platform. The architecture: Ghost acts as CMS, membership system, payment integration (via Stripe), email capture engine, newsletter sender, and content gating layer. Ghost themes (Handlebars templates) provide layout and SEO control, developed in an IDE like normal code. Slack remains the community platform. Local development is possible (ghost install local), similar to standard web development workflow[^5b].
-
-Specific feature requirements discussed:
-- Workshop pages with video embeds, clickable timestamps, tools used, learning outcomes, and resource lists
-- Resource directory displayed as a grid of tools/courses/models with external links
-- Recording library with gated archives based on tier
-- Tag-based content organization using internal tags (#resource, #workshop, #recording, #article)
-- Custom structured data (JSON-LD, schema markup, OpenGraph) for SEO
-- Tag-based conditional components (e.g., "if article is tagged ai-engineer, show roadmap signup form")
-- Content gating by tier
-- Lead magnet flow: user enters email, becomes free member, download is unlocked
-- Downloadable resources (PDFs, templates, slides, code bundles) gated behind email signup or paid membership
-- Reusable signup/download CTAs that can be embedded across multiple related articles
-
-Acknowledged limitations of Ghost:
-- No true custom content types or database fields (simulated through tags and structured content blocks)
-- Not a React app runtime (server-rendered Handlebars templates with optional JS)
-- Not suitable for app-like dashboards, learning progress tracking, or heavy automation pipelines
-- Roughly 80% flexibility compared to a fully custom system, but with much faster launch
 
 ### Building Custom
 
@@ -157,12 +338,20 @@ Estimated hosting cost: about 50 EUR. The issue is with emails, but Amazon SES c
 
 This is not rocket science to implement. If dedicated time is allocated (one week), everything can be built. With Claude Code help, it is realistic[^6].
 
+## Current State
+
+Static site at aishippinglabs.com with Stripe payment links. No integrations - if a purchase happens on Stripe, there is no automated notification or onboarding. Members are manually added to Slack. Course participants from previous courses can be added to the community[^13].
+
 ## Next Steps
 
 1. Document all the features needed (this article)
 2. Evaluate what Ghost can and cannot do out of the box
 3. Decide whether to use Ghost + custom code, or build everything from scratch
 4. If custom: estimate the development effort for an MVP
+5. Prioritize features - which are most important, which can wait
+6. Start with lean setup (current site + Slack + manual onboarding) and gradually add features
+
+Idea: document the entire decision-making process and platform selection journey as a blog post[^13].
 
 ## Sources
 
@@ -178,4 +367,5 @@ This is not rocket science to implement. If dedicated time is allocated (one wee
 [^9]: [20260218_161244_AlexeyDTC_msg1975.md](../inbox/used/20260218_161244_AlexeyDTC_msg1975.md), [aishippinglabs.com](https://aishippinglabs.com)
 [^10]: [20260218_161109_AlexeyDTC_msg1973_transcript.txt](../inbox/used/20260218_161109_AlexeyDTC_msg1973_transcript.txt)
 [^11]: [20260218_160017_valeriia_kuka_msg1957_photo.md](../inbox/used/20260218_160017_valeriia_kuka_msg1957_photo.md)
+[^13]: [20260218_173034_AlexeyDTC_msg1984_transcript.txt](../inbox/used/20260218_173034_AlexeyDTC_msg1984_transcript.txt), [20260218_173034_AlexeyDTC_msg1985_transcript.txt](../inbox/used/20260218_173034_AlexeyDTC_msg1985_transcript.txt), [20260218_173034_AlexeyDTC_msg1986_transcript.txt](../inbox/used/20260218_173034_AlexeyDTC_msg1986_transcript.txt), [20260218_173034_AlexeyDTC_msg1987_transcript.txt](../inbox/used/20260218_173034_AlexeyDTC_msg1987_transcript.txt)
 [^12]: [20260218_160017_valeriia_kuka_msg1958_photo.md](../inbox/used/20260218_160017_valeriia_kuka_msg1958_photo.md)
