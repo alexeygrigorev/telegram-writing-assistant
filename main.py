@@ -535,6 +535,20 @@ async def handle_document_message(update: Update, context: ContextTypes.DEFAULT_
             with open(saved_filename, "wb") as f:
                 f.write(response.content)
 
+        # Audio files: transcribe like voice messages
+        audio_extensions = {'.m4a', '.mp3', '.wav', '.ogg', '.flac', '.webm'}
+        if extension.lower() in audio_extensions:
+            audio_file, transcript_file, transcript_text = await save_voice_message(
+                file_path, user.id, user.username, msg_date, msg_id
+            )
+            # Delete the downloaded file since save_voice_message downloads its own copy
+            if saved_filename.exists():
+                saved_filename.unlink()
+            prefix = f"Saved: {file_name}"
+            text, entities = create_collapsible_message(prefix, transcript_text, max_length=2000)
+            await safe_reply(update.message, text, entities=entities)
+            return
+
         # For text files, read content and include in markdown
         text_content = None
         text_extensions = {'.txt', '.md', '.py', '.js', '.ts', '.json', '.yaml', '.yml', '.csv', '.log', '.sh', '.bash'}
