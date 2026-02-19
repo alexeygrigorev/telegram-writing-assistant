@@ -1,7 +1,7 @@
 ---
 title: "AI Engineer Role Research"
 created: 2026-02-02
-updated: 2026-02-11
+updated: 2026-02-19
 tags: [ai-engineer, career, research, interview, jobs]
 status: draft
 ---
@@ -225,6 +225,22 @@ The two dominant patterns in AI Engineering are:
 
 If you learn these two patterns deeply, you can handle most AI Engineering use cases[^17].
 
+## AI Engineer Role in 2026 - Event Series
+
+The research is being presented as a 3-part live event series (virtual, free on Zoom)[^21]:
+
+- Session 1: Defining the Role (Feb 24, 2026, 5:00 PM CET) - insights from 1,500+ job descriptions, AI engineers vs. ML researchers, a typical day in the role
+- Session 2: The Interview Process (Mar 3, 2026, 5:00 PM CET) - interview questions from recent candidates, explaining architecture and model choices, coding and system design tasks
+- Session 3: Take-Home Assignments (Mar 9, 2026, 6:00 PM CET) - examples from Q4 2025 and Q1 2026, what reviewers look for, end-to-end document processing task
+
+<figure>
+  <img src="../assets/images/ai-engineer-role-research/event-series-tweet.jpg" alt="AI Engineer event series announcement with community response about job description vs reality gap">
+  <figcaption>Event series announcement and a response from @thewhychain about the gap between job descriptions and actual AI engineer work</figcaption>
+  <!-- Tweet from Dmitrii Malakhov sharing that his AI engineer roles turned out to be 80% prompt engineering + glue code, noting that JDs describe ambition, not daily work -->
+</figure>
+
+Community response from Dmitrii Malakhov (@thewhychain): "hired for 'AI engineer' roles twice. the job description said RAG and embeddings. the job turned out to be 80% prompt engineering + glue code + monitoring. the 1500 JDs probably have the same problem - they describe ambition, not what you do all day"[^21].
+
 ## Sources
 
 - [20260202_191851_AlexeyDTC_msg856_transcript.txt](../inbox/used/20260202_191851_AlexeyDTC_msg856_transcript.txt)
@@ -261,3 +277,4 @@ If you learn these two patterns deeply, you can handle most AI Engineering use c
 [^18]: [20260206_074709_AlexeyDTC_msg975_photo.md](../inbox/used/20260206_074709_AlexeyDTC_msg975_photo.md)
 [^19]: [20260211_135815_AlexeyDTC_msg1447_transcript.txt](../inbox/used/20260211_135815_AlexeyDTC_msg1447_transcript.txt)
 [^20]: [20260211_135838_AlexeyDTC_msg1449_transcript.txt](../inbox/used/20260211_135838_AlexeyDTC_msg1449_transcript.txt)
+[^21]: [20260219_073229_AlexeyDTC_msg2016_photo.md](../inbox/used/20260219_073229_AlexeyDTC_msg2016_photo.md)

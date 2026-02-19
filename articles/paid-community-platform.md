@@ -1,7 +1,7 @@
 ---
 title: "Paid Community Platform Requirements"
 created: 2026-02-18
-updated: 2026-02-18
+updated: 2026-02-19
 tags: [community, platform, ghost, courses, infrastructure]
 status: draft
 ---
@@ -98,6 +98,7 @@ The platform needs to host:
 - Courses are on-demand by default
 - Possibility to run cohorts with clear start and end dates, for both free and paid courses (cohorts increase engagement)
 - Course discussions: for paid courses - integrated with the community. For free courses outside the community - link to external platforms (GitHub, Slack, etc.)
+- FAQ/Q&A section under each lesson - users can ask questions and get answers. Easy way to transfer FAQ content into course material[^14]
 - Nice to have: email-based drip courses (access opens gradually)
 - Nice to have: some course parts shared openly as a preview[^4][^13]
 
@@ -124,6 +125,8 @@ The platform needs to host:
 - Main and Premium tiers include closed community access
 - Either host discussions or integrate with an external community tool (currently Slack)
 - Members need a way to interact, ask questions, and collaborate
+- Likes and comments on content for logged-in users (interactivity with articles, courses, recordings)[^14b]
+- Profile sync between the site and Slack[^15]
 - Member lifecycle automation:
   - On purchase: platform sends a community invite
   - On cancellation: profile deactivated when payment cycle ends
@@ -200,6 +203,7 @@ Sources: Ghost features from [Ghost docs](https://ghost.org/docs/), [Ghost help]
 | On-demand courses | + (no progress tracking) | + (no progress tracking) | + | + |
 | Cohorts with start/end dates (free and paid) | - | - | + | + |
 | Course discussions integration | - | - | + | + |
+| FAQ/Q&A section under each lesson | - | - | + (discussions) | + |
 | Email-based drip courses (nice to have) | - (needs Loops/Kit/Zapier) | - | - | + |
 | Progress tracking / completion status | - | - | + | + |
 
@@ -232,6 +236,8 @@ Sources: Ghost features from [Ghost docs](https://ghost.org/docs/), [Ghost help]
 |---|---|---|---|---|
 | Closed community access by tier | - | - | + | + |
 | Integration with external community (Slack) | - | - | - | + |
+| Likes and comments on content | + (Ghost native comments) | + | + | + |
+| Profile sync between site and Slack | - | - | - | + |
 | Member lifecycle (invite / deactivate / reactivate) | - | - | - | + |
 
 ### Voting and Polls
@@ -371,3 +377,6 @@ Idea: document the entire decision-making process and platform selection journey
 [^11]: [20260218_160017_valeriia_kuka_msg1957_photo.md](../inbox/used/20260218_160017_valeriia_kuka_msg1957_photo.md)
 [^13]: [20260218_173034_AlexeyDTC_msg1984_transcript.txt](../inbox/used/20260218_173034_AlexeyDTC_msg1984_transcript.txt), [20260218_173034_AlexeyDTC_msg1985_transcript.txt](../inbox/used/20260218_173034_AlexeyDTC_msg1985_transcript.txt), [20260218_173034_AlexeyDTC_msg1986_transcript.txt](../inbox/used/20260218_173034_AlexeyDTC_msg1986_transcript.txt), [20260218_173034_AlexeyDTC_msg1987_transcript.txt](../inbox/used/20260218_173034_AlexeyDTC_msg1987_transcript.txt)
 [^12]: [20260218_160017_valeriia_kuka_msg1958_photo.md](../inbox/used/20260218_160017_valeriia_kuka_msg1958_photo.md)
+[^14]: [20260219_090139_AlexeyDTC_msg2018_transcript.txt](../inbox/used/20260219_090139_AlexeyDTC_msg2018_transcript.txt)
+[^14b]: [20260219_072851_AlexeyDTC_msg2014.md](../inbox/used/20260219_072851_AlexeyDTC_msg2014.md), [20260219_072924_AlexeyDTC_msg2015_transcript.txt](../inbox/used/20260219_072924_AlexeyDTC_msg2015_transcript.txt)
+[^15]: [20260219_090155_AlexeyDTC_msg2019_transcript.txt](../inbox/used/20260219_090155_AlexeyDTC_msg2019_transcript.txt)

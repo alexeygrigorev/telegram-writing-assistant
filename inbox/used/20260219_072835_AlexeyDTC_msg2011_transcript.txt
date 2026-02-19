@@ -1,0 +1,12 @@
+---
+source: telegram_voice
+date: 2026-02-19T07:28:35+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260219_072835_AlexeyDTC_msg2011.ogg
+---
+
+Так, ну давай вот по всему этому материалу, что я записывал вчера, скриншоты, которые я прислал,
+сделаем статью, которую назовем Paid Community Platform Implementation, что-нибудь такое.
+Implementation with Cloud Code. Ну, короче, придумай название, чтобы это было новой статьей, а не
+то, что мы уже делали до этого. Вот.

@@ -26,7 +26,11 @@ Brief description of what this article is about.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
-| [Paid Community Platform Requirements](paid-community-platform.md) | draft | 2026-02-18 | Technical requirements and platform evaluation for hosting the AI Shipping Labs community |
+| [Building a Community Platform with Claude Code's Multi-Agent System](community-platform-implementation.md) | draft | 2026-02-19 | Experiment building the AI Shipping Labs platform using Claude Code with orchestrator, implementer, QA, and pipeline fixer agents |
+| [What's New in the Telegram Writing Assistant](telegram-writing-assistant-updates.md) | draft | 2026-02-19 | Article idea: subagents, research section, link summaries, and QA agent improvements |
+| [Paid Community Platform Requirements](paid-community-platform.md) | draft | 2026-02-19 | Technical requirements and platform evaluation for hosting the AI Shipping Labs community |
+| [Paid Community Marketing Plan](paid-community-marketing-plan.md) | draft | 2026-02-19 | Marketing plan and funnel for promoting the paid community |
+| [AI Engineer Role Research](ai-engineer-role-research.md) | draft | 2026-02-19 | Research into AI Engineer positions and interview process |
 | [Building Blocks of Modern Code Agents](code-agents-building-blocks.md) | draft | 2026-02-18 | Map of code agent types and the two key building blocks: skills and subagents |
 | [AI Hero Course Rebranding for AI Shipping Labs](ai-hero-rebranding.md) | draft | 2026-02-17 | Rebranding the existing AI Hero course to fit under the new AI Shipping Labs community |
 | [How Researchers Can Transition to AI Engineering](researcher-to-ai-engineer-transition.md) | draft | 2026-02-17 | Guide for researchers transitioning from university labs to AI engineering |
@@ -34,7 +38,6 @@ Brief description of what this article is about.
 | [How a Data Engineer Can Transition to AI Engineering](de-to-ai-engineer-transition.md) | draft | 2026-02-17 | Guide for data engineers looking to move into AI engineering roles |
 | [AI Engineer Webinar Q&A](ai-engineer-webinar-qa.md) | draft | 2026-02-17 | Questions and answers from the Day in the Life of an AI Engineer webinar |
 | [Paid AI Engineers Community Planning](paid-ai-community-planning.md) | draft | 2026-02-18 | Planning a paid community for AI Engineers including target audience, tier structure, and pricing |
-| [Paid Community Marketing Plan](paid-community-marketing-plan.md) | draft | 2026-02-17 | Marketing plan and funnel for promoting the paid community |
 | [Interesting Resources](interesting-resources.md) | draft | 2026-02-18 | Curated collection of tools and resources |
 | [AI Engineer My Vision](ai-engineer-my-vision.md) | draft | 2026-02-16 | Personal perspective on the AI engineer role based on direct experience |
 | [AI Roles Now and Then](ai-roles-now-and-then.md) | draft | 2026-02-16 | Evolution of data roles and how Data Scientists and ML Engineers transition to AI engineering |
@@ -57,7 +60,6 @@ Brief description of what this article is about.
 | [FAQ System for Course Management](faq-system.md) | draft | 2026-02-07 | Community-driven FAQ with RAG-based automation and content management |
 | [ChatGPT Data Viewer](chatgpt-data-viewer.md) | draft | 2026-02-07 | Tool for visualizing and searching ChatGPT conversation history |
 | [Social Post Ideas](social-post-ideas.md) | draft | 2026-02-18 | Curated social media content ideas and inspiration |
-| [AI Engineer Role Research](ai-engineer-role-research.md) | draft | 2026-02-06 | Research into AI Engineer positions and interview process |
 | [Automator Bot](automator-bot.md) | draft | 2026-02-06 | Slack bot for community management automation |
 | [SQLiteSearch: Persistent Search Library](sqlitesearch-library.md) | draft | 2026-02-06 | Lightweight search library with SQLite persistence |
 | [Telegram Writing Assistant](telegram-writing-assistant.md) | draft | 2026-02-04 | Personal knowledge management system via Telegram |
