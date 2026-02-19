@@ -1,0 +1,12 @@
+---
+source: telegram_voice
+date: 2026-02-19T11:06:55+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260219_110655_AlexeyDTC_msg2062.ogg
+---
+
+Дальше про Ralph Loop. Да, все классно. С Ральфом were instructions for us like keep improving until
+the computer shuts down. Я хотел тут specifics. То есть сначала я хотел декомпозировать, а потом уже
+я хотел, чтобы агент из декомпозированного, из пула декомпозированных задач брал задачи и работал,
+пока они закончатся. Вот так, давай поправим этот параграф про Ральф. Да, все дальше хорошо.

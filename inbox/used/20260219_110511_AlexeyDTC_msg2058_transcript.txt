@@ -1,0 +1,12 @@
+---
+source: telegram_voice
+date: 2026-02-19T11:05:11+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260219_110511_AlexeyDTC_msg2058.ogg
+---
+
+Я вот сейчас читаю статью про Community Platform Implementation и там choosing Django, the agent
+initially considerate Next.js and Django. Короче, нет, не так. У нас проект уже был на Next.js, я
+решил его переписать на Django. Это было мое решение, потому что я знал его. Вот, а Next.js там
+JavaScript, TypeScript, короче, я могу не справиться.

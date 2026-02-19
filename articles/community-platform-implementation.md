@@ -46,15 +46,15 @@ Plus the tasks had no acceptance criteria, no clear format[^4].
 
 ### Choosing Django
 
-The agent initially considered Next.js and Django. I chose Django because I know it. If something breaks, it is easier for me to understand the code. I can read JavaScript but I am not proficient - it takes mental effort. Python code is easier. I have known Django since 2010. Plus the course management platform is on Django, and I have done other Django projects recently. It was a safe choice - if something goes wrong, I can always fix it and tell the agent "here, you are doing this wrong, here are the best practices"[^4].
+The project was already on Next.js. I decided to rewrite it to Django. This was my decision because I knew Django. Next.js uses JavaScript and TypeScript, and I might not be able to handle it. If something breaks, it is easier for me to understand Python code. I have known Django since 2010. Plus the course management platform is on Django, and I have done other Django projects recently. It was a safe choice - if something goes wrong, I can always fix it and tell the agent "here, you are doing this wrong, here are the best practices"[^4][^18].
 
 ### First Task: Migrate to Django
 
-The first task was to migrate the existing site from Next.js to Django. I supervised this, told the agent how things work in Django. It wanted to make an app for every small thing, so I said no, explained how to structure it properly. I decomposed everything with the agent, figured out what goes where. The task had clear acceptance criteria: the site must fully preserve the existing design and functionality[^4].
+The first task was to migrate the existing site from Next.js to Django. A Django project consists of multiple applications. These applications are fairly independent of each other and work within one project. I supervised this, told the agent how things work in Django. The problem was that the agent decided to create too many apps - it wanted to make an app for every small thing. I said no, explained how to structure it properly. I decomposed everything with the agent, figured out what goes where. The task had clear acceptance criteria: the site must fully preserve the existing design and functionality[^4][^19].
 
 ### Iterating on Task Format
 
-For the first task, I decided to try a different approach. I wanted something like the Ralph Loop (my previous experiment) - where the agent takes tasks and solves them in a loop. But unlike Ralph, where the instruction was just "keep improving until the computer shuts down" (very vague), here I wanted specifics - decompose everything into clear tasks that the agent can execute[^5].
+For the first task, I decided to try a different approach. I wanted something like the Ralph Loop (my previous experiment). With Ralph, the instructions were like "keep improving until the computer shuts down." Here I wanted specifics. First I wanted to decompose everything into clear tasks. Then I wanted the agent to take tasks from the pool of decomposed tasks and work until they are done[^5][^20].
 
 I set the first task, then based on all the specs and how I framed the first task, I said: "now create the remaining tasks." I told the agent to put them in the filesystem first - just a "tasks" folder. Tasks that cannot be verified automatically should be tagged with "human." Acceptance criteria that cannot be checked automatically should be tagged "human" too[^5].
 
@@ -88,6 +88,14 @@ The orchestrator looks at GitHub Issues, pulls two tasks. I open a Claude Code s
   <img src="../assets/images/community-platform-implementation/claude-code-task-list.jpg" alt="Claude Code task list showing 11 tasks with implementer and QA agents running in parallel">
   <figcaption>Claude Code orchestrator managing parallel tasks - implementer and QA agents working on different features simultaneously</figcaption>
   <!-- First screenshot showing the multi-agent system in action with task list -->
+</figure>
+
+When the orchestrator picks the next tasks, it checks dependencies to decide which ones are available. It filters out issues that are blocked by other tasks or require human input, then selects from what remains[^21].
+
+<figure>
+  <img src="../assets/images/community-platform-implementation/agent-picking-issues.jpg" alt="Agent listing remaining open issues with blocking dependencies and deciding which to pick next">
+  <figcaption>The agent analyzing remaining issues and their dependencies to decide which tasks to pick up next</figcaption>
+  <!-- Screenshot showing the agent's reasoning about issue selection based on dependency chains -->
 </figure>
 
 I wanted the orchestrator to keep working until the backlog is empty. The trick: I add a task that says "when you finish all current tasks, go to GitHub, pull the next two issues, and add them to the todo list." This creates a loop - when work finishes, it picks the next two tasks and assigns them to the implementer and QA cycle. It keeps going until there are no more tasks on GitHub[^7].
@@ -134,6 +142,14 @@ The agent worked all night. I have not looked at the code yet. My goal today is 
   <!-- Screenshot showing the agent still working after 12 hours, with 51 of 56 tasks done -->
 </figure>
 
+I do not know if it is a good idea to let the agents work on projects completely without supervision, but that is what I do. I do not have time to check the results. After 16 hours it was still going - two implementer agents running in parallel on background jobs infrastructure and email authentication, with SEO tasks already completed[^22].
+
+<figure>
+  <img src="../assets/images/community-platform-implementation/unsupervised-agents-16-hours.jpg" alt="Two implementer agents running background jobs and email auth tasks, with 10 tasks tracked - 5 done, 2 in progress, 3 open">
+  <figcaption>After 16 hours of unsupervised work - two implementer agents still running, picking up new tasks automatically</figcaption>
+  <!-- Screenshot showing the agents continuing to work autonomously after 16 hours -->
+</figure>
+
 ## Slack Integration
 
 People voted for Slack as the community platform. We set up a new Slack workspace for AI Shipping Labs, and the agents are already working on integrating Slack into the site[^15][^16].
@@ -164,3 +180,8 @@ People voted for Slack as the community platform. We set up a new Slack workspac
 [^15]: [20260219_091611_AlexeyDTC_msg2022_transcript.txt](../inbox/used/20260219_091611_AlexeyDTC_msg2022_transcript.txt)
 [^16]: [20260219_072835_AlexeyDTC_msg2011_transcript.txt](../inbox/used/20260219_072835_AlexeyDTC_msg2011_transcript.txt)
 [^17]: [20260219_072844_AlexeyDTC_msg2012_transcript.txt](../inbox/used/20260219_072844_AlexeyDTC_msg2012_transcript.txt)
+[^18]: [20260219_110511_AlexeyDTC_msg2058_transcript.txt](../inbox/used/20260219_110511_AlexeyDTC_msg2058_transcript.txt)
+[^19]: [20260219_110549_AlexeyDTC_msg2060_transcript.txt](../inbox/used/20260219_110549_AlexeyDTC_msg2060_transcript.txt)
+[^20]: [20260219_110655_AlexeyDTC_msg2062_transcript.txt](../inbox/used/20260219_110655_AlexeyDTC_msg2062_transcript.txt)
+[^21]: [20260219_104931_AlexeyDTC_msg2055_photo.md](../inbox/used/20260219_104931_AlexeyDTC_msg2055_photo.md)
+[^22]: [20260219_142441_AlexeyDTC_msg2072_photo.md](../inbox/used/20260219_142441_AlexeyDTC_msg2072_photo.md)

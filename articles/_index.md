@@ -54,12 +54,12 @@ Brief description of what this article is about.
 | [Task Management App Idea](task-management-app-idea.md) | draft | 2026-02-11 | Unified task management system combining Trello and todo lists |
 | [What I Did This Week](what-i-did-this-week.md) | draft | 2026-02-11 | Weekly updates on work in progress |
 | [Claude Code Subagents](subagents.md) | draft | 2026-02-11 | Specialized agents for research workflows and verification |
-| [Claude Code Helpers](claude-helpers.md) | draft | 2026-02-10 | Aliases, functions, slash commands, and subagents for Claude Code |
+| [Claude Code Helpers](claude-helpers.md) | draft | 2026-02-19 | Aliases, functions, slash commands, and subagents for Claude Code |
 | [Minsearch Benchmarking and Optimization](minsearch-benchmarking-optimization.md) | draft | 2026-02-09 | Optimizing the appendable index through iterative benchmarking |
 | [Python Primer Course Idea](python-primer-course-idea.md) | draft | 2026-02-08 | Paid Python prerequisite course for AI Engineering and Zoomcamps |
 | [FAQ System for Course Management](faq-system.md) | draft | 2026-02-07 | Community-driven FAQ with RAG-based automation and content management |
 | [ChatGPT Data Viewer](chatgpt-data-viewer.md) | draft | 2026-02-07 | Tool for visualizing and searching ChatGPT conversation history |
-| [Social Post Ideas](social-post-ideas.md) | draft | 2026-02-18 | Curated social media content ideas and inspiration |
+| [Social Post Ideas](social-post-ideas.md) | draft | 2026-02-19 | Curated social media content ideas and inspiration |
 | [Automator Bot](automator-bot.md) | draft | 2026-02-06 | Slack bot for community management automation |
 | [SQLiteSearch: Persistent Search Library](sqlitesearch-library.md) | draft | 2026-02-06 | Lightweight search library with SQLite persistence |
 | [Telegram Writing Assistant](telegram-writing-assistant.md) | draft | 2026-02-04 | Personal knowledge management system via Telegram |

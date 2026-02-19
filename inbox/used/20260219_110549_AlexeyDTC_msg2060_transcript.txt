@@ -1,0 +1,12 @@
+---
+source: telegram_voice
+date: 2026-02-19T11:05:49+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260219_110549_AlexeyDTC_msg2060.ogg
+---
+
+Следующая, first task, migrate to Django. Можно объяснить, что такое app в Django. То есть Django
+проект состоит из нескольких applications, и по идее эти applications, они достаточно независимы
+друг от друга, и они работают внутри одного проекта. И, короче, он слишком много проектов решил
+сделать. Такая проблема.

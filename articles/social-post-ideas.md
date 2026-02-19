@@ -1,7 +1,7 @@
 ---
 title: "Social Post Ideas"
 created: 2026-02-07
-updated: 2026-02-18
+updated: 2026-02-19
 tags: [social-media, twitter, content-ideas, ai-engineering]
 status: draft
 ---
@@ -52,7 +52,7 @@ Post by Paul Iusztin: "If I had to start learning AI engineering from scratch to
 
 Key points from the post:
 
-**Gap 1: Python with real-world context**
+Gap 1: Python with real-world context
 
 Most beginners learn Python in isolation - lists, loops, functions, dictionaries - but never build anything meaningful. The fastest way to learn Python is building small, complete tools:
 - A personal finance dashboard
@@ -62,7 +62,7 @@ Most beginners learn Python in isolation - lists, loops, functions, dictionaries
 
 When learning Python for AI engineering, syntax isn't the goal - building things is.
 
-**Gap 2: Understanding RAG beyond the buzzwords**
+Gap 2: Understanding RAG beyond the buzzwords
 
 Engineers jump into complex architectures without mastering basics. A reliable RAG pipeline needs only four parts:
 1. Clean data ingestion
@@ -96,6 +96,12 @@ Post idea: scrape current job postings for data engineering and AI engineering p
 
 Post idea: guide on how to choose projects for your portfolio. I've talked about this many times but never made a dedicated article. This would cover how to pick projects that showcase relevant skills, stand out to employers, and align with career goals in AI engineering[^8].
 
+People very often ask at office hours how to prepare a portfolio project. This needs to become a post because I always have to repeat the same things[^10].
+
+## Office Hours FAQ Analysis
+
+Idea: analyze all past office hours since the beginning and see what the most frequently asked questions are, what questions come up in general. Writing a pipeline in code that would do this is not that hard. A small mini-project[^11].
+
 ## GitHub Resources for Prompting and LLM Fundamentals
 
 Post by aditya (@adxtyahq): "Complete GitHub Resources to Learn Prompting and LLM Fundamentals" - a curated list of GitHub repositories for learning prompt engineering and LLM fundamentals[^9].
@@ -125,3 +131,5 @@ Plus a roadmaps section.
 [^7]: [20260209_101233_AlexeyDTC_msg1228.md](../inbox/used/20260209_101233_AlexeyDTC_msg1228.md) - Additional reference to LinkedIn post
 [^8]: [20260216_183357_AlexeyDTC_msg1801_transcript.txt](../inbox/used/20260216_183357_AlexeyDTC_msg1801_transcript.txt) - Post ideas from AI engineer webinar Q&A
 [^9]: [20260217_211618_AlexeyDTC_msg1923.md](../inbox/used/20260217_211618_AlexeyDTC_msg1923.md) - GitHub resources for prompting/LLM fundamentals
+[^10]: [20260219_121518_AlexeyDTC_msg2064_transcript.txt](../inbox/used/20260219_121518_AlexeyDTC_msg2064_transcript.txt) - Portfolio project post idea
+[^11]: [20260219_121518_AlexeyDTC_msg2065_transcript.txt](../inbox/used/20260219_121518_AlexeyDTC_msg2065_transcript.txt) - Office hours FAQ analysis idea
