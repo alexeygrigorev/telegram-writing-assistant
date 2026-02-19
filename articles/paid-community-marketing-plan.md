@@ -45,21 +45,6 @@ There will be a closed repository of event recordings from the community, writte
 
 The paid newsletter publishes these materials gradually for tier 1 members - not all at once, but in portions[^3].
 
-## Newsletter Content Ideas
-
-### Slack Announcement and Early Subscriber Incentive
-
-Content for the next newsletter[^7]:
-
-- Announce that Stripe payments are connected and working
-- Announce that Slack was chosen as the community platform (people voted for it)
-- Thank people for voting
-- While still working on everything, payments already work
-- Early subscriber incentive for Premium tier: a one-on-one conversation/consultation to understand how to help them personally
-  - Goal: understand their problems so we can help them and people with similar problems
-  - If they have career questions or need mentoring - they can subscribe and book a session
-- For Main tier: will reach out and talk to them personally anyway
-- Do not overpromise for Main tier right away[^7]
 
 ## Sources
 
