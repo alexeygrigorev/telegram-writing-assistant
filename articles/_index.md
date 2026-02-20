@@ -26,19 +26,22 @@ Brief description of what this article is about.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
-| [Building a Community Platform with Claude Code's Multi-Agent System](community-platform-implementation.md) | draft | 2026-02-19 | Experiment building the AI Shipping Labs platform using Claude Code with orchestrator, implementer, QA, and pipeline fixer agents |
-| [What's New in the Telegram Writing Assistant](telegram-writing-assistant-updates.md) | draft | 2026-02-19 | Article idea: subagents, research section, link summaries, and QA agent improvements |
+| [Telegram Bot Server Migration](telegram-bot-server-migration.md) | draft | 2026-02-20 | Moving the Telegram writing assistant bot and other workloads from local computer to a dedicated Hetzner server |
+| [Building a Community Platform with Claude Code's Multi-Agent System](community-platform-implementation.md) | draft | 2026-02-20 | Experiment building the AI Shipping Labs platform using Claude Code with orchestrator, implementer, QA, and pipeline fixer agents |
+| [What's New in the Telegram Writing Assistant](telegram-writing-assistant-updates.md) | draft | 2026-02-20 | Article idea: subagents, research section, link summaries, and QA agent improvements |
+| [Writing Assistant Feedback](writing-assistant-feedback.md) | draft | 2026-02-20 | Feedback and improvement ideas for the Telegram writing assistant bot |
 | [Paid Community Platform Requirements](paid-community-platform.md) | draft | 2026-02-19 | Technical requirements and platform evaluation for hosting the AI Shipping Labs community |
 | [Paid Community Marketing Plan](paid-community-marketing-plan.md) | draft | 2026-02-19 | Marketing plan and funnel for promoting the paid community |
 | [AI Engineer Role Research](ai-engineer-role-research.md) | draft | 2026-02-19 | Research into AI Engineer positions and interview process |
+| [Claude Code Helpers](claude-helpers.md) | draft | 2026-02-19 | Aliases, functions, slash commands, and subagents for Claude Code |
+| [Social Post Ideas](social-post-ideas.md) | draft | 2026-02-19 | Curated social media content ideas and inspiration |
 | [Building Blocks of Modern Code Agents](code-agents-building-blocks.md) | draft | 2026-02-18 | Map of code agent types and the two key building blocks: skills and subagents |
-| [AI Hero Course Rebranding for AI Shipping Labs](ai-hero-rebranding.md) | draft | 2026-02-17 | Rebranding the existing AI Hero course to fit under the new AI Shipping Labs community |
-| [How Researchers Can Transition to AI Engineering](researcher-to-ai-engineer-transition.md) | draft | 2026-02-17 | Guide for researchers transitioning from university labs to AI engineering |
-| [Writing Assistant Feedback](writing-assistant-feedback.md) | draft | 2026-02-17 | Feedback and improvement ideas for the Telegram writing assistant bot |
-| [How a Data Engineer Can Transition to AI Engineering](de-to-ai-engineer-transition.md) | draft | 2026-02-17 | Guide for data engineers looking to move into AI engineering roles |
-| [AI Engineer Webinar Q&A](ai-engineer-webinar-qa.md) | draft | 2026-02-17 | Questions and answers from the Day in the Life of an AI Engineer webinar |
 | [Paid AI Engineers Community Planning](paid-ai-community-planning.md) | draft | 2026-02-18 | Planning a paid community for AI Engineers including target audience, tier structure, and pricing |
 | [Interesting Resources](interesting-resources.md) | draft | 2026-02-18 | Curated collection of tools and resources |
+| [AI Hero Course Rebranding for AI Shipping Labs](ai-hero-rebranding.md) | draft | 2026-02-17 | Rebranding the existing AI Hero course to fit under the new AI Shipping Labs community |
+| [How Researchers Can Transition to AI Engineering](researcher-to-ai-engineer-transition.md) | draft | 2026-02-17 | Guide for researchers transitioning from university labs to AI engineering |
+| [How a Data Engineer Can Transition to AI Engineering](de-to-ai-engineer-transition.md) | draft | 2026-02-17 | Guide for data engineers looking to move into AI engineering roles |
+| [AI Engineer Webinar Q&A](ai-engineer-webinar-qa.md) | draft | 2026-02-17 | Questions and answers from the Day in the Life of an AI Engineer webinar |
 | [AI Engineer My Vision](ai-engineer-my-vision.md) | draft | 2026-02-16 | Personal perspective on the AI engineer role based on direct experience |
 | [AI Roles Now and Then](ai-roles-now-and-then.md) | draft | 2026-02-16 | Evolution of data roles and how Data Scientists and ML Engineers transition to AI engineering |
 | [CRISP-DM for AI](crisp-dm-for-ai.md) | draft | 2026-02-16 | Applying the classic CRISP-DM methodology to modern AI projects |
@@ -48,18 +51,15 @@ Brief description of what this article is about.
 | [OpenCode Experiments with GLM-5](opencode-experiments.md) | draft | 2026-02-13 | Trying OpenCode AI assistant with GLM-5 model |
 | [Microphone Booster App](microphone-booster-app.md) | draft | 2026-02-13 | Windows microphone booster built with OpenCode/GLM-5 using Tauri + Rust |
 | [AI Engineer RPG Game](ai-engineer-rpg-game.md) | draft | 2026-02-13 | RPG game for interview practice built with OpenCode/GLM-5 in Rust |
-| [Telegram Bot Server Migration](telegram-bot-server-migration.md) | draft | 2026-02-13 | Moving the Telegram writing assistant bot from local computer to a dedicated server |
 | [Claude Code Experiments](claude-code-experiments.md) | draft | 2026-02-12 | Experiments and applications of Claude Code beyond coding, including challenges with communication |
 | [AI as Personal Analyst](ai-as-personal-analyst.md) | draft | 2026-02-12 | Talk about using AI for Excel automation, data cleaning, and scaling document review |
-| [Task Management App Idea](task-management-app-idea.md) | draft | 2026-02-11 | Unified task management system combining Trello and todo lists |
 | [What I Did This Week](what-i-did-this-week.md) | draft | 2026-02-11 | Weekly updates on work in progress |
 | [Claude Code Subagents](subagents.md) | draft | 2026-02-11 | Specialized agents for research workflows and verification |
-| [Claude Code Helpers](claude-helpers.md) | draft | 2026-02-19 | Aliases, functions, slash commands, and subagents for Claude Code |
+| [Task Management App Idea](task-management-app-idea.md) | draft | 2026-02-11 | Unified task management system combining Trello and todo lists |
 | [Minsearch Benchmarking and Optimization](minsearch-benchmarking-optimization.md) | draft | 2026-02-09 | Optimizing the appendable index through iterative benchmarking |
 | [Python Primer Course Idea](python-primer-course-idea.md) | draft | 2026-02-08 | Paid Python prerequisite course for AI Engineering and Zoomcamps |
 | [FAQ System for Course Management](faq-system.md) | draft | 2026-02-07 | Community-driven FAQ with RAG-based automation and content management |
 | [ChatGPT Data Viewer](chatgpt-data-viewer.md) | draft | 2026-02-07 | Tool for visualizing and searching ChatGPT conversation history |
-| [Social Post Ideas](social-post-ideas.md) | draft | 2026-02-19 | Curated social media content ideas and inspiration |
 | [Automator Bot](automator-bot.md) | draft | 2026-02-06 | Slack bot for community management automation |
 | [SQLiteSearch: Persistent Search Library](sqlitesearch-library.md) | draft | 2026-02-06 | Lightweight search library with SQLite persistence |
 | [Telegram Writing Assistant](telegram-writing-assistant.md) | draft | 2026-02-04 | Personal knowledge management system via Telegram |

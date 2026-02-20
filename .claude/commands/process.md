@@ -464,6 +464,12 @@ The idea for this system came after realizing that writing articles takes time[^
 [^1]: [20260117_105133_AlexeyDTC_transcript.txt](../inbox/used/20260117_105133_AlexeyDTC_transcript.txt)
 ```
 
+## Step 6b: Index Maintenance
+
+After processing, update `articles/_index.md` so that recently changed articles appear at the top of the table. When an article is created or updated during this processing session, move its row to the top of the table (or add it at the top for new articles). This keeps the index sorted by last updated, with the most recently changed articles first.
+
+Do the same for `articles/research/_index.md` if any research articles were changed.
+
 ## Step 7: Summary Report
 
 After processing, CREATE a summary file at `inbox/summaries/summary_` + timestamp + `.md` where timestamp is obtained by running:

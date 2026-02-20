@@ -1,14 +1,14 @@
 ---
 title: "Writing Assistant Feedback"
 created: 2026-02-17
-updated: 2026-02-17
+updated: 2026-02-20
 tags: [telegram-writing-assistant, feedback, improvements]
 status: draft
 ---
 
 # Writing Assistant Feedback
 
-Collection of feedback and improvement ideas for the Telegram writing assistant bot. Saved here so nothing gets lost and can be acted upon later. There is already a GitHub issue for this work - just need to sit down and deal with all of it.[^5]
+Collection of feedback and improvement ideas for the Telegram writing assistant bot. Saved here so nothing gets lost and can be acted upon later. There is already a [GitHub issue](https://github.com/alexeygrigorev/telegram-writing-assistant/issues/1) tracking this work - just need to sit down and deal with all of it.[^5][^6]
 
 ## Article Index Navigation
 
@@ -43,6 +43,28 @@ The concern is that LLMs tend to want an answer for everything, which might lead
 
 The most useful improvement would be making it easier to understand what each article relates to.[^4]
 
+## Content Routing and Categorization (GitHub Issue #1)
+
+The agent processes voice messages from Telegram, transcribes them, and writes output into the articles/ folder. It also attempts to categorize content into articles, update existing articles if a new message is related, and create new articles if no related one exists.[^6]
+
+### Current issues
+
+1. Feedback and meta-comments are treated as articles. Messages containing feedback on how the agent behaves, instructions on how it should work, or comments about system behavior get written into articles/, even though they are not content.[^6]
+
+2. Raw ideas are indistinguishable from active work. Some messages are early, unstructured ideas, notes not connected to any existing article, or thoughts that should be stored for later and not developed immediately. These end up as new articles or merged into existing ones, which is misleading.[^6]
+
+3. The articles/ folder is overloaded. It currently contains drafts meant for newsletters or social media, meta feedback, and raw idea dumps. This makes it harder to reason about what content is production-bound vs exploratory vs meta.[^6]
+
+### Desired behavior
+
+Separate content by intent:[^6]
+
+1. articles/ - Only content related to active ideas or processes already being worked on. Content that will be edited further and used primarily for the newsletter, and possibly for social media. New messages should update an existing article only if they clearly relate to an ongoing article. New articles should be created only if the content represents a concrete idea or process, not meta discussion or raw brainstorming.
+
+2. feedback/ - Store all feedback, comments, and instructions directed at the agent. Includes comments about how the agent works or should work, requests to change behavior or logic, and meta discussion about the system. These messages should never be merged into articles. They should be stored as standalone notes for later review.
+
+3. ideas/ (or ideas marker inside articles/) - Store raw, undeveloped ideas that are not yet part of any active article. Includes brain dumps, early thoughts, and standalone ideas without a clear process or structure. These should not automatically become full articles. They should be stored for future reference. If kept inside articles/, they must be clearly marked as "idea" or similar.
+
 ## Sources
 
 [^1]: [20260217_083630_AlexeyDTC_msg1867_transcript.txt](../inbox/used/20260217_083630_AlexeyDTC_msg1867_transcript.txt)
@@ -50,3 +72,4 @@ The most useful improvement would be making it easier to understand what each ar
 [^3]: [20260217_083630_AlexeyDTC_msg1869_transcript.txt](../inbox/used/20260217_083630_AlexeyDTC_msg1869_transcript.txt)
 [^4]: [20260217_083630_AlexeyDTC_msg1870_transcript.txt](../inbox/used/20260217_083630_AlexeyDTC_msg1870_transcript.txt)
 [^5]: [20260217_083710_AlexeyDTC_msg1871_transcript.txt](../inbox/used/20260217_083710_AlexeyDTC_msg1871_transcript.txt)
+[^6]: [20260219_145821_AlexeyDTC_msg2083.md](../inbox/used/20260219_145821_AlexeyDTC_msg2083.md) / [GitHub Issue #1](https://github.com/alexeygrigorev/telegram-writing-assistant/issues/1)
