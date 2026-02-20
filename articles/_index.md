@@ -26,10 +26,10 @@ Brief description of what this article is about.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Writing Assistant Improvement Ideas](writing-assistant-improvement-ideas.md) | draft | 2026-02-20 | Improvement ideas for the Telegram writing assistant bot: content routing, resource index, folder restructuring |
 | [Telegram Bot Server Migration](telegram-bot-server-migration.md) | draft | 2026-02-20 | Moving the Telegram writing assistant bot and other workloads from local computer to a dedicated Hetzner server |
 | [Building a Community Platform with Claude Code's Multi-Agent System](community-platform-implementation.md) | draft | 2026-02-20 | Experiment building the AI Shipping Labs platform using Claude Code with orchestrator, implementer, QA, and pipeline fixer agents |
 | [What's New in the Telegram Writing Assistant](telegram-writing-assistant-updates.md) | draft | 2026-02-20 | Article idea: subagents, research section, link summaries, and QA agent improvements |
-| [Writing Assistant Feedback](writing-assistant-feedback.md) | draft | 2026-02-20 | Feedback and improvement ideas for the Telegram writing assistant bot |
 | [Paid Community Platform Requirements](paid-community-platform.md) | draft | 2026-02-19 | Technical requirements and platform evaluation for hosting the AI Shipping Labs community |
 | [Paid Community Marketing Plan](paid-community-marketing-plan.md) | draft | 2026-02-19 | Marketing plan and funnel for promoting the paid community |
 | [AI Engineer Role Research](ai-engineer-role-research.md) | draft | 2026-02-19 | Research into AI Engineer positions and interview process |
