@@ -64,6 +64,8 @@ Even if someone sees the IP and tries to get in through port 22, they will not s
 
 The most important thing - I ask Claude to document everything. This seems like a key practice. Claude did some things, not always on the first try - it needed to figure things out. It is important to understand what specifically worked and what did not, and document all of it. If I ever need to reset this server or stop using it and create a new one, I can repeat everything quickly because all the steps are documented. The documentation is useful for both humans and any agent that can read and repeat the instructions[^6].
 
+I did not want to create a separate repo for the documentation, so I published it as a gist: [Hetzner AX41-NVMe Server Setup Documentation](https://gist.github.com/alexeygrigorev/78283d0ed394d3166fba7c7a6fca5ea9). It covers everything: OS and hardware setup, SSH and user configuration, networking and firewall, dev tools installation (nvm, Node, rvm, Ruby, uv, Docker, GitHub CLI), shell config, web terminal with ttyd and tmux, Claude Code setup, PyPI publishing config, and bot migration details with crontab[^12].
+
 ## Package Security
 
 I have not heard stories about people running Claude Code, it installing an infected library, and credentials leaking as a result. But I think it is a good idea to rewrite certain things yourself rather than using small unknown libraries, because it is not that hard. The ones worth writing yourself are generally small. I have not heard about infected Python packages, but I have heard about JavaScript ones. Big libraries like React are reliable enough that nothing will happen with them. I do not use small unknown libraries[^8].
@@ -97,3 +99,4 @@ It seems nothing happened - need to check the logs to see what went wrong. I wil
 [^9]: [20260220_070425_AlexeyDTC_msg2103_transcript.txt](../inbox/used/20260220_070425_AlexeyDTC_msg2103_transcript.txt)
 [^10]: [20260220_070616_AlexeyDTC_msg2106_transcript.txt](../inbox/used/20260220_070616_AlexeyDTC_msg2106_transcript.txt)
 [^11]: [20260220_081450_AlexeyDTC_msg2140_photo.md](../inbox/used/20260220_081450_AlexeyDTC_msg2140_photo.md)
+[^12]: [20260220_150400_AlexeyDTC_msg2166.md](../inbox/used/20260220_150400_AlexeyDTC_msg2166.md)

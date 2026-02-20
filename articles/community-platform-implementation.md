@@ -199,6 +199,16 @@ Looks like something important is happening - 15 tasks total with 10 done, 2 in 
 
 Here is an example of what a task for the agent looks like - [GitHub Issue #84: Zoom Integration](https://github.com/AI-Shipping-Labs/website/issues/84). It has a clear scope describing what needs to be implemented (Zoom API integration, webhook endpoint, recording handling) and acceptance criteria with checkboxes, including a "HUMAN" tag for criteria that cannot be verified automatically.[^25]
 
+## First Look at the Results
+
+This is what Claude did for the website after 1.5 days of work. The first time I tried to log in was yesterday. I made the login and noticed there was no homepage for authenticated users. I told it to make one. A day later I came back - and this is what I saw[^30].
+
+<figure>
+  <p>Video: Screen recording of the site after 1.5 days of Claude's autonomous work (1m 51s, 2146x1258) - <a href="https://t.me/c/3688590333/2168">View on Telegram</a></p>
+  <figcaption>Reviewing what Claude built for the website - first look after telling it to add a homepage for authenticated users</figcaption>
+  <!-- Screen recording showing the state of the community platform after 1.5 days of autonomous agent work -->
+</figure>
+
 ## Reflection: You Still Need to Manage the Agents
 
 About vibe coding - I have the same experience as others. Even if you create as many sub-agents as you want, you still need to manage them. Phil Winder [wrote about migrating a Python codebase to Go using Claude Code](https://www.linkedin.com/posts/drphilwinder_i-just-migrated-a-production-python-codebase-activity-7430343296205459456-eXUm) and concluded: "Claude is a powerful but literal executor. The gaps in your design become the bugs in your system." This matches what I see - without control, agents do not produce good results on their own[^29].
@@ -241,3 +251,4 @@ About vibe coding - I have the same experience as others. Even if you create as 
 [^27]: [20260220_135351_AlexeyDTC_msg2146_transcript.txt](../inbox/used/20260220_135351_AlexeyDTC_msg2146_transcript.txt)
 [^28]: [20260220_135418_AlexeyDTC_msg2148_transcript.txt](../inbox/used/20260220_135418_AlexeyDTC_msg2148_transcript.txt)
 [^29]: [20260220_143527_AlexeyDTC_msg2156_photo.md](../inbox/used/20260220_143527_AlexeyDTC_msg2156_photo.md)
+[^30]: [20260220_155647_AlexeyDTC_msg2169.md](../inbox/used/20260220_155647_AlexeyDTC_msg2169.md), [20260220_155647_AlexeyDTC_msg2168_video.md](../inbox/used/20260220_155647_AlexeyDTC_msg2168_video.md)

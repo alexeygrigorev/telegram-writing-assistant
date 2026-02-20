@@ -1,12 +1,14 @@
 ---
-title: "SSH Auto-Tunnel: Automatic Port Forwarding Tool"
+title: "SSH Auto Forward: Automatic Port Forwarding Tool"
 created: 2026-02-20
 updated: 2026-02-20
 tags: [claude-code, tools, automation, remote-development, python]
 status: draft
 ---
 
-# SSH Auto-Tunnel: Automatic Port Forwarding Tool
+# SSH Auto Forward: Automatic Port Forwarding Tool
+
+GitHub: [alexeygrigorev/ssh-auto-forward](https://github.com/alexeygrigorev/ssh-auto-forward)
 
 I built an automatic SSH port forwarding tool with Claude Code. The tool connects to a remote machine via SSH, detects open ports, and automatically forwards them to localhost. This article describes why I needed it and how I built it[^3].
 
@@ -53,9 +55,24 @@ First the implementation was on Hetzner directly. Then I said: "We do not need H
 
 I worked on it in parallel with other tasks. About every 30 minutes I would check in, give some commands, then continue with my other work. In the end I have a working application[^3].
 
-## Release Plans
+## Released on PyPI
 
-I need to release it on PyPI so I can run it via `uvx`. The usage would be: `uvx <package-name> <server-name>` where the server name comes from SSH config. SSH config must be present for it to work. This is specifically for my use case - I do not need a more generic solution[^3].
+The tool is now published on GitHub and PyPI. It can be run directly via `uvx ssh-auto-forward hetzner` where `hetzner` is the server name from SSH config[^4][^5].
+
+<figure>
+  <img src="../assets/images/ssh-auto-forward/ssh-auto-forward-dashboard.jpg" alt="SSH Auto Forward TUI dashboard showing forwarded ports from a Hetzner server">
+  <figcaption>The SSH Auto Forward dashboard - connected to Hetzner, showing forwarded ports with process names and local URLs</figcaption>
+  <!-- Screenshot of the tool running, showing the TUI with port list, process info, and log panel -->
+</figure>
+
+Features of the released version:
+
+- Interactive TUI dashboard with port list, process names, and log panel
+- Auto-discovers listening ports on remote servers via `ss -tlnp`
+- Forwards ports via SSH tunneling, handles port conflicts by incrementing
+- Skips well-known ports (< 1000), configurable max auto-forward port (default: 10000)
+- Dashboard controls: X/Enter to toggle ports, O to open URL in browser, L for logs, Q to quit
+- Also supports CLI mode (`--cli`) for non-interactive use[^4]
 
 ## Why Build Instead of Search
 
@@ -73,3 +90,5 @@ The flow is great. I start a session, dictate what I want, and it gets built. Id
 [^1]: [20260220_140034_AlexeyDTC_msg2150_transcript.txt](../inbox/used/20260220_140034_AlexeyDTC_msg2150_transcript.txt)
 [^2]: [20260220_140646_AlexeyDTC_msg2152_transcript.txt](../inbox/used/20260220_140646_AlexeyDTC_msg2152_transcript.txt)
 [^3]: [20260220_141400_AlexeyDTC_msg2154_transcript.txt](../inbox/used/20260220_141400_AlexeyDTC_msg2154_transcript.txt)
+[^4]: [20260220_172712_AlexeyDTC_msg2172_photo.md](../inbox/used/20260220_172712_AlexeyDTC_msg2172_photo.md)
+[^5]: [20260220_173002_AlexeyDTC_msg2174_transcript.txt](../inbox/used/20260220_173002_AlexeyDTC_msg2174_transcript.txt)
