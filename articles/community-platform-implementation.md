@@ -76,17 +76,17 @@ Two observations led to this:
 
 ### The Architecture
 
-I ended up with two core subagents: one implementer and one QA tester. The implementer implements a feature, says "I am done." Then verification passes to QA. QA tests and says "you messed up here, here, and here." This goes back to the implementer. They iterate until both agree the task is done - the implementer says "ready" and QA accepts[^6].
+I ended up with two core subagents: one Software Engineer and one Tester. The Software Engineer implements a feature, says "I am done." Then verification passes to the Tester. The Tester checks and says "you messed up here, here, and here." This goes back to the Software Engineer. They iterate until both agree the task is done - the Software Engineer says "ready" and the Tester accepts[^6].
 
-I made an agent-orchestrator (manager) that calls these subagents. The orchestrator purely manages - it has no biased relationship with the code. If I ran everything in the main session and then ran a tester in the same session, the tester might say "nah, it is fine" and do nothing. With separate subagents, the orchestrator calls the implementer, the implementer implements, then the orchestrator calls QA, QA tests, and the orchestrator passes QA feedback back to the implementer. Since these are subagents, they can work in parallel[^6].
+I made an agent-orchestrator (manager) that calls these subagents. The orchestrator purely manages - it has no biased relationship with the code. If I ran everything in the main session and then ran a tester in the same session, the tester might say "nah, it is fine" and do nothing. With separate subagents, the orchestrator calls the Software Engineer, the Software Engineer implements, then the orchestrator calls the Tester, the Tester tests, and the orchestrator passes Tester feedback back to the Software Engineer. Since these are subagents, they can work in parallel[^6].
 
 ### The Work Loop
 
-The orchestrator looks at GitHub Issues, pulls two tasks. I open a Claude Code session, say "look at what tasks are in GitHub, sort them, pick two by some criteria." For each task it launches an implementer, and after the implementer finishes, it launches a tester. The two tasks should ideally be independent so they can run in parallel[^7].
+The orchestrator looks at GitHub Issues, pulls two tasks. I open a Claude Code session, say "look at what tasks are in GitHub, sort them, pick two by some criteria." For each task it launches a Software Engineer, and after the Software Engineer finishes, it launches a Tester. The two tasks should ideally be independent so they can run in parallel[^7].
 
 <figure>
-  <img src="../assets/images/community-platform-implementation/claude-code-task-list.jpg" alt="Claude Code task list showing 11 tasks with implementer and QA agents running in parallel">
-  <figcaption>Claude Code orchestrator managing parallel tasks - implementer and QA agents working on different features simultaneously</figcaption>
+  <img src="../assets/images/community-platform-implementation/claude-code-task-list.jpg" alt="Claude Code task list showing 11 tasks with Software Engineer and Tester agents running in parallel">
+  <figcaption>Claude Code orchestrator managing parallel tasks - Software Engineer and Tester agents working on different features simultaneously</figcaption>
   <!-- First screenshot showing the multi-agent system in action with task list -->
 </figure>
 
@@ -98,13 +98,30 @@ When the orchestrator picks the next tasks, it checks dependencies to decide whi
   <!-- Screenshot showing the agent's reasoning about issue selection based on dependency chains -->
 </figure>
 
-I wanted the orchestrator to keep working until the backlog is empty. The trick: I add a task that says "when you finish all current tasks, go to GitHub, pull the next two issues, and add them to the todo list." This creates a loop - when work finishes, it picks the next two tasks and assigns them to the implementer and QA cycle. It keeps going until there are no more tasks on GitHub[^7].
+I wanted the orchestrator to keep working until the backlog is empty. The trick: I add a task that says "when you finish all current tasks, go to GitHub, pull the next two issues, and add them to the todo list." This creates a loop - when work finishes, it picks the next two tasks and assigns them to the Software Engineer and Tester cycle. It keeps going until there are no more tasks on GitHub[^7].
 
-### The Pipeline Fixer (On-Call Engineer)
+### The On-Call Engineer
 
-The second task was to set up CI/CD - so that tests run automatically. I added a third subagent whose job is to monitor CI/CD status after each push. If something breaks, this agent finds who is responsible, opens an issue, documents what broke, and tries to fix it. Basically an on-call engineer[^8].
+The second task was to set up CI/CD - so that tests run automatically. I added a third subagent whose job is to monitor CI/CD status after each push. If something breaks, this agent finds who is responsible, opens an issue, documents what broke, and tries to fix it[^8].
 
-The orchestrator coordinates: if the pipeline fixer says "something is broken" but the implementer is currently working on that area, the orchestrator says "calm down, the implementer is working on this, wait." But if the implementer finished a feature and pushed it, and that broke something else - the on-call engineer fixes it independently. Its job is to keep CI/CD green[^8].
+The orchestrator coordinates: if the On-Call Engineer says "something is broken" but the Software Engineer is currently working on that area, the orchestrator says "calm down, the Software Engineer is working on this, wait." But if the Software Engineer finished a feature and pushed it, and that broke something else - the On-Call Engineer fixes it independently. Its job is to keep CI/CD green[^8].
+
+### Adding the Product Manager
+
+I renamed the agents. The implementer became "Software Engineer" because it sounds better. I also added a Product Manager role. I want to be able to create an issue myself and then tell the PM: "now figure out how this should look in practice, how to properly implement it." In real work, the PM usually has the final say in acceptance - not just the Tester. The Tester checks everything from the user's perspective, but the PM should have the last word[^26][^27].
+
+The Product Manager's responsibilities:
+
+- Grooming tasks and decomposing them into actionable issues
+- Writing issues with clear requirements
+- Creating test scenarios (the current scenarios were not great)
+- Having the final say in acceptance - either accepting or rejecting the result[^27][^28]
+
+<figure>
+  <img src="../assets/images/community-platform-implementation/agent-roles-renamed.jpg" alt="Table showing renamed agents: Product Manager, Software Engineer, Tester, On-Call Engineer with their config file paths">
+  <figcaption>The renamed agent roles and their configuration files</figcaption>
+  <!-- Screenshot showing the new agent naming convention -->
+</figure>
 
 ### Why Not Ralph Loop
 
@@ -114,7 +131,7 @@ Ralph Loop would not work well here because the subagents run in the background.
 
 No deployment yet - everything runs locally. I ask the agents to write tests: unit tests, integration tests, and end-to-end tests with Playwright[^11].
 
-At first it was funny - QA looked at the implementer's work and said "yes, everything looks great, I will not run tests because I need a browser, so sorry, I accept everything." I said "wait a minute, install the browser" and tightened the QA acceptance criteria to be more strict. After that fix, both QA and the implementer know how to run end-to-end tests. If they get lazy and skip tests, CI/CD will catch it and they will get feedback that something does not work[^11].
+At first it was funny - the Tester looked at the Software Engineer's work and said "yes, everything looks great, I will not run tests because I need a browser, so sorry, I accept everything." I said "wait a minute, install the browser" and tightened the Tester acceptance criteria to be more strict. After that fix, both the Tester and the Software Engineer know how to run end-to-end tests. If they get lazy and skip tests, CI/CD will catch it and they will get feedback that something does not work[^11].
 
 ## Communication via GitHub
 
@@ -142,11 +159,11 @@ The agent worked all night. I have not looked at the code yet. My goal today is 
   <!-- Screenshot showing the agent still working after 12 hours, with 51 of 56 tasks done -->
 </figure>
 
-I do not know if it is a good idea to let the agents work on projects completely without supervision, but that is what I do. I do not have time to check the results. After 16 hours it was still going - two implementer agents running in parallel on background jobs infrastructure and email authentication, with SEO tasks already completed[^22].
+I do not know if it is a good idea to let the agents work on projects completely without supervision, but that is what I do. I do not have time to check the results. After 16 hours it was still going - two Software Engineer agents running in parallel on background jobs infrastructure and email authentication, with SEO tasks already completed[^22].
 
 <figure>
-  <img src="../assets/images/community-platform-implementation/unsupervised-agents-16-hours.jpg" alt="Two implementer agents running background jobs and email auth tasks, with 10 tasks tracked - 5 done, 2 in progress, 3 open">
-  <figcaption>After 16 hours of unsupervised work - two implementer agents still running, picking up new tasks automatically</figcaption>
+  <img src="../assets/images/community-platform-implementation/unsupervised-agents-16-hours.jpg" alt="Two Software Engineer agents running background jobs and email auth tasks, with 10 tasks tracked - 5 done, 2 in progress, 3 open">
+  <figcaption>After 16 hours of unsupervised work - two Software Engineer agents still running, picking up new tasks automatically</figcaption>
   <!-- Screenshot showing the agents continuing to work autonomously after 16 hours -->
 </figure>
 
@@ -182,6 +199,16 @@ Looks like something important is happening - 15 tasks total with 10 done, 2 in 
 
 Here is an example of what a task for the agent looks like - [GitHub Issue #84: Zoom Integration](https://github.com/AI-Shipping-Labs/website/issues/84). It has a clear scope describing what needs to be implemented (Zoom API integration, webhook endpoint, recording handling) and acceptance criteria with checkboxes, including a "HUMAN" tag for criteria that cannot be verified automatically.[^25]
 
+## Reflection: You Still Need to Manage the Agents
+
+About vibe coding - I have the same experience as others. Even if you create as many sub-agents as you want, you still need to manage them. Phil Winder [wrote about migrating a Python codebase to Go using Claude Code](https://www.linkedin.com/posts/drphilwinder_i-just-migrated-a-production-python-codebase-activity-7430343296205459456-eXUm) and concluded: "Claude is a powerful but literal executor. The gaps in your design become the bugs in your system." This matches what I see - without control, agents do not produce good results on their own[^29].
+
+<figure>
+  <img src="../assets/images/community-platform-implementation/linkedin-vibe-coding-post.jpg" alt="LinkedIn post by Phil Winder about migrating Python to Go with Claude Code, discussing dead code accumulation, phantom features, and context window limits">
+  <figcaption>Phil Winder's post about the challenges of AI-driven cross-language migration</figcaption>
+  <!-- LinkedIn post that resonates with the experience of needing to manage AI agents -->
+</figure>
+
 ## Sources
 
 [^1]: [20260219_062529_AlexeyDTC_msg1997_transcript.txt](../inbox/used/20260219_062529_AlexeyDTC_msg1997_transcript.txt)
@@ -210,3 +237,7 @@ Here is an example of what a task for the agent looks like - [GitHub Issue #84: 
 [^23]: [20260219_162515_AlexeyDTC_msg2085_photo.md](../inbox/used/20260219_162515_AlexeyDTC_msg2085_photo.md)
 [^24]: [20260219_162528_AlexeyDTC_msg2087_photo.md](../inbox/used/20260219_162528_AlexeyDTC_msg2087_photo.md)
 [^25]: [20260219_164639_AlexeyDTC_msg2089.md](../inbox/used/20260219_164639_AlexeyDTC_msg2089.md)
+[^26]: [20260220_131018_AlexeyDTC_msg2142_photo.md](../inbox/used/20260220_131018_AlexeyDTC_msg2142_photo.md)
+[^27]: [20260220_135351_AlexeyDTC_msg2146_transcript.txt](../inbox/used/20260220_135351_AlexeyDTC_msg2146_transcript.txt)
+[^28]: [20260220_135418_AlexeyDTC_msg2148_transcript.txt](../inbox/used/20260220_135418_AlexeyDTC_msg2148_transcript.txt)
+[^29]: [20260220_143527_AlexeyDTC_msg2156_photo.md](../inbox/used/20260220_143527_AlexeyDTC_msg2156_photo.md)

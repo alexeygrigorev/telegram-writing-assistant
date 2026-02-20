@@ -26,9 +26,12 @@ Brief description of what this article is about.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
-| [Writing Assistant Improvement Ideas](writing-assistant-improvement-ideas.md) | draft | 2026-02-20 | Improvement ideas for the Telegram writing assistant bot: content routing, resource index, folder restructuring |
+| [SSH Auto-Tunnel: Automatic Port Forwarding Tool](ssh-auto-tunnel.md) | draft | 2026-02-20 | Automatic SSH port forwarding tool built with Claude Code for remote development workflow |
+| [Voice-Controlled Development Bot](voice-controlled-dev-bot.md) | draft | 2026-02-20 | Idea for a general-purpose Telegram bot that executes development commands via voice |
+| [Building a Community Platform with Claude Code's Multi-Agent System](community-platform-implementation.md) | draft | 2026-02-20 | Experiment building the AI Shipping Labs platform using Claude Code with Product Manager, Software Engineer, Tester, and On-Call Engineer agents |
+| [Interesting Resources](interesting-resources.md) | draft | 2026-02-20 | Curated collection of tools and resources |
 | [Telegram Bot Server Migration](telegram-bot-server-migration.md) | draft | 2026-02-20 | Moving the Telegram writing assistant bot and other workloads from local computer to a dedicated Hetzner server |
-| [Building a Community Platform with Claude Code's Multi-Agent System](community-platform-implementation.md) | draft | 2026-02-20 | Experiment building the AI Shipping Labs platform using Claude Code with orchestrator, implementer, QA, and pipeline fixer agents |
+| [Writing Assistant Improvement Ideas](writing-assistant-improvement-ideas.md) | draft | 2026-02-20 | Improvement ideas for the Telegram writing assistant bot: content routing, resource index, folder restructuring |
 | [What's New in the Telegram Writing Assistant](telegram-writing-assistant-updates.md) | draft | 2026-02-20 | Article idea: subagents, research section, link summaries, and QA agent improvements |
 | [Paid Community Platform Requirements](paid-community-platform.md) | draft | 2026-02-19 | Technical requirements and platform evaluation for hosting the AI Shipping Labs community |
 | [Paid Community Marketing Plan](paid-community-marketing-plan.md) | draft | 2026-02-19 | Marketing plan and funnel for promoting the paid community |
@@ -37,7 +40,6 @@ Brief description of what this article is about.
 | [Social Post Ideas](social-post-ideas.md) | draft | 2026-02-19 | Curated social media content ideas and inspiration |
 | [Building Blocks of Modern Code Agents](code-agents-building-blocks.md) | draft | 2026-02-18 | Map of code agent types and the two key building blocks: skills and subagents |
 | [Paid AI Engineers Community Planning](paid-ai-community-planning.md) | draft | 2026-02-18 | Planning a paid community for AI Engineers including target audience, tier structure, and pricing |
-| [Interesting Resources](interesting-resources.md) | draft | 2026-02-18 | Curated collection of tools and resources |
 | [AI Hero Course Rebranding for AI Shipping Labs](ai-hero-rebranding.md) | draft | 2026-02-17 | Rebranding the existing AI Hero course to fit under the new AI Shipping Labs community |
 | [How Researchers Can Transition to AI Engineering](researcher-to-ai-engineer-transition.md) | draft | 2026-02-17 | Guide for researchers transitioning from university labs to AI engineering |
 | [How a Data Engineer Can Transition to AI Engineering](de-to-ai-engineer-transition.md) | draft | 2026-02-17 | Guide for data engineers looking to move into AI engineering roles |

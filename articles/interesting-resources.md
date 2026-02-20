@@ -1,7 +1,7 @@
 ---
 title: "Interesting Resources"
 created: 2026-01-31
-updated: 2026-02-18
+updated: 2026-02-20
 tags: [resources, tools, ai, development]
 status: draft
 ---
@@ -61,6 +61,14 @@ Each resource entry follows this simple format:
 
 [Zvec](https://github.com/alibaba/zvec) is an open-source, in-process vector database from Alibaba, built on their battle-tested Proxima vector search engine. It can search billions of vectors in milliseconds while supporting both dense and sparse embeddings, hybrid search with structured filters, and multi-vector queries. Unlike client-server vector databases, Zvec embeds directly into your application with no infrastructure overhead, making it a compelling option for RAG pipelines and similarity search on notebooks, servers, or edge devices. I was looking for something like this very recently[^24].
 
+### Marketing for Founders
+
+[Marketing for Founders](https://github.com/EdoStra/Marketing-for-Founders) is a curated collection of practical, budget-friendly marketing resources for technical founders and indie hackers. It covers 18+ topics including places to launch a startup, Product Hunt strategy, social media marketing, SEO (including LLM/AEO/GEO), cold outreach, Reddit marketing, content marketing, email marketing, landing pages, pricing, and idea validation. The advice focuses on actionable zero-cost or low-cost tactics rather than VC-scale growth strategies. Might be useful for us[^27].
+
+### Automated GTM Pipeline
+
+[Matthew Berman's GTM automation system](https://x.com/TheMattBerman/status/2024678503598235963) describes replacing a $200K/year Go-To-Market hire with an automated outbound sales pipeline costing roughly $130/month in APIs. The pipeline uses OpenClaw for orchestration, RapidAPI for LinkedIn scraping, Hunter/Apollo for lead enrichment, Claude for personalized outreach, and Perplexity-style deep research for pre-call briefings - all stitched together into a 6-step workflow from mining LinkedIn engagement to booking meetings. Interesting for future automation[^28].
+
 ## Sources
 
 [^1]: [20260131_191039_AlexeyDTC_msg741_photo.md](../inbox/used/20260131_191039_AlexeyDTC_msg741_photo.md)
@@ -89,3 +97,5 @@ Each resource entry follows this simple format:
 [^24]: [20260215_214321_AlexeyDTC_msg1701.md](../inbox/used/20260215_214321_AlexeyDTC_msg1701.md)
 [^25]: [20260218_141744_AlexeyDTC_msg1945.md](../inbox/used/20260218_141744_AlexeyDTC_msg1945.md)
 [^26]: [20260218_145313_valeriia_kuka_msg1949.md](../inbox/used/20260218_145313_valeriia_kuka_msg1949.md)
+[^27]: [20260220_143643_AlexeyDTC_msg2158.md](../inbox/used/20260220_143643_AlexeyDTC_msg2158.md)
+[^28]: [20260220_143801_AlexeyDTC_msg2160.md](../inbox/used/20260220_143801_AlexeyDTC_msg2160.md)

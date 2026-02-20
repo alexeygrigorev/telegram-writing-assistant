@@ -72,7 +72,13 @@ I have not heard stories about people running Claude Code, it installing an infe
 
 I wanted to check that the bot works after the migration. "1, 2, 3" - a connection check. I moved the bot to the new server. Now it lives not locally but on Hetzner. Interesting to see how well it works[^3].
 
-It works. The voice messages I am recording are now being processed by the bot running on Hetzner. I no longer need to keep my laptop always on and running. It can finally breathe freely. I am moving all heavy tasks to the remote server[^7].
+It works. The voice messages I am recording are now being processed by the bot running on Hetzner. I no longer need to keep my laptop always on and running. It can finally breathe freely. I am moving all heavy tasks to the remote server[^7][^11].
+
+<figure>
+  <img src="../assets/images/telegram-bot-server-migration/hetzner-htop.jpg" alt="htop showing the Hetzner server with 64GB RAM, ai-shippi processes running at 100% CPU, Claude process, and VS Code server">
+  <figcaption>The new Hetzner server running - htop showing 64GB RAM, active processes including AI workloads and VS Code server</figcaption>
+  <!-- Screenshot of htop on the new Hetzner dedicated server showing the machine in action -->
+</figure>
 
 I tried running the process to check how everything works. There were unprocessed messages from the day before. I recorded voice messages and was interested to see how the processing would go. I also added code to handle custom audio files (mp4, m4a) - not just voice notes. I tried sending a voice message recorded from another app to see how it would be processed[^9].
 
@@ -90,3 +96,4 @@ It seems nothing happened - need to check the logs to see what went wrong. I wil
 [^8]: [20260220_070341_AlexeyDTC_msg2101_transcript.txt](../inbox/used/20260220_070341_AlexeyDTC_msg2101_transcript.txt)
 [^9]: [20260220_070425_AlexeyDTC_msg2103_transcript.txt](../inbox/used/20260220_070425_AlexeyDTC_msg2103_transcript.txt)
 [^10]: [20260220_070616_AlexeyDTC_msg2106_transcript.txt](../inbox/used/20260220_070616_AlexeyDTC_msg2106_transcript.txt)
+[^11]: [20260220_081450_AlexeyDTC_msg2140_photo.md](../inbox/used/20260220_081450_AlexeyDTC_msg2140_photo.md)
