@@ -126,10 +126,10 @@ Also known as: Dynamic Dispatch (AWS[^aws]), Coordinator/Dispatcher (Google ADK[
 
 A classifier or router agent interprets the intent of an input and directs it to a specialized downstream handler. The router performs a one-time classification and dispatch - it does not synthesize results or maintain ongoing coordination[^anthropic].
 
-How different frameworks implement it:
+Framework implementations:
 
-- Google ADK implements it with an `LlmAgent` using `AutoFlow` to route via `transfer_to_agent()` calls[^google_adk]
-- OpenAI SDK implements it as "Structured Output Routing" - the LLM classifies a task into a structured output (e.g., `{"category": "billing"}`), then code selects the next agent based on that classification[^openai]
+- Google ADK uses an `LlmAgent` with `AutoFlow` to route via `transfer_to_agent()` calls[^google_adk]
+- OpenAI SDK uses "Structured Output Routing" - the LLM classifies a task into a structured output (e.g., `{"category": "billing"}`), then code selects the next agent based on that classification[^openai]
 
 #### Conference example
 
@@ -174,13 +174,11 @@ The name "Agents as Tools" comes from the OpenAI Agents SDK[^openai].
 
 Also known as: Subagent (this is how I prefer to call this pattern), Nested Chat (AutoGen[^autogen]), Hierarchical Decomposition (Google ADK[^google_adk]).
 
-An agent uses another agent as a tool call - the sub-agent runs in isolation, returns a result, and the parent agent continues with that result. The parent retains control throughout.
+An agent uses another agent as a tool call. The subagent runs in isolation with its own context window, processes a subtask, returns a result, and the parent agent continues. The parent retains control throughout[^4].
 
-The main idea: the problem the subagent solves is that all agents have a context window. The problem is that this context window gets full and the agent can no longer perform its task properly. For context-heavy tasks, we can launch a subagent. For example, an exploration task - we need to explore something. We can launch a subagent to do that[^1].
+The core problem this solves is context management. Every agent has a finite context window, and complex tasks can fill it quickly. By delegating context-heavy subtasks to subagents, the main agent's context stays clean[^1]. The subagent handles the heavy lifting - reading thousands of issues, exploring a large codebase, processing raw API data - and returns only a concise summary.
 
-The subagents take on these heavy contextual tasks so that the main agent's context does not get bloated[^1]. We define agents as tools - an agent is just another tool that we can launch. This is how we build multi-agent systems[^4].
-
-In Claude Code, there is a subagent that does exploration - this is a real-world example of this pattern[^3]. Google ADK implements this with `AgentTool`: a sub-agent is wrapped and included in a parent agent's `tools` list. The parent calls it synchronously, gets results back, and continues[^google_adk].
+Claude Code uses this pattern: an exploration subagent searches the codebase and returns findings to the main coding agent[^3]. Google ADK implements it with `AgentTool` - a subagent is wrapped and included in the parent agent's `tools` list. The parent calls it synchronously, gets results back, and continues[^google_adk].
 
 #### Conference example
 
@@ -200,7 +198,6 @@ The main processing agent delegates to specialized subagents:
 
 #### Other examples
 
-- In Claude Code, the exploration subagent searches the codebase and returns findings to the main coding agent[^anthropic]
 - A ReportWriter agent delegates research to a ResearchAssistant subagent, which itself manages WebSearchAgent and SummarizerAgent[^google_adk]
 
 
@@ -271,9 +268,7 @@ The name "Prompt Chaining" comes from Anthropic's "Building Effective Agents" ar
 
 Also known as: Sequential Pipeline (Google ADK[^google_adk]), Agent Chaining / Pipeline (OpenAI[^openai]), Sequential Chat (AutoGen[^autogen]), Prompt Chaining Saga (AWS[^aws]).
 
-Programmatic checks called "gates" can be inserted between steps to verify the process stays on track[^anthropic]. AWS frames it as "Prompt Chaining Saga" - drawing a parallel to saga choreography in distributed systems, where each "thought" is a transaction that can be revisited[^aws].
-
-The key difference from Orchestrator-Workers: in prompt chaining the sequence is fixed and predefined, not determined dynamically by a central agent.
+Programmatic checks called "gates" can be inserted between steps to verify the process stays on track[^anthropic]. The key difference from Orchestrator-Workers: the sequence is fixed and predefined, not determined dynamically by a central agent.
 
 #### Conference example
 
@@ -328,14 +323,12 @@ The work is separated into two phases:
 1. A planner generates a multi-step plan
 2. Executor(s) carry out individual steps
 
-In the static variant, the plan is created once and then executed without changes. There are two execution strategies:
+In the static variant, the plan is created once and then executed without changes. The rationale: agents handle complex tasks better when the work is decomposed into granular steps rather than tackled all at once in a single context window[^2]. Claude Code uses this approach - given a task, it writes a plan first, then passes it to the executor[^3].
+
+There are two execution strategies:
 
 - Hand off the entire plan to a single executor as one prompt. The executor receives the full list of steps and works through them in its own context. This works well when the task fits in one context window - e.g., "here are 6 things to analyze about this repo, go."
 - Iterate through steps in a for loop, running each step as a separate LLM call. Each step either starts with fresh context (just the step instructions plus a summary from the previous step) or continues in the same context. Use this when individual steps are large enough to need their own context window.
-
-The idea is to split things into two steps: planning and execution. The execution can happen in multiple steps, so the tasks are more granular for the agent. Because of the context window, the agent cannot just do a big task with 10 steps all at once. If you first plan, decompose it into 10 small steps, and then run each step separately, the agent handles it much better[^2].
-
-In Claude Code, there is also planning - you give it a task, it writes a plan, then passes it to a regular agent[^3].
 
 Benefits: faster execution (avoiding LLM calls between each action), cost reductions (using lighter models for sub-tasks), improved performance through explicit reasoning about complete task requirements[^langchain].
 
@@ -392,9 +385,7 @@ The executor runs through all 6 steps in order without replanning.
 
 ### 2c. Dynamic Plan-and-Execute `*` `orchestrated`
 
-The dynamic variant adds replanning: after each step, the planner reassesses and can add, remove, or modify remaining steps based on what the executor discovered.
-
-LangChain's Plan-and-Execute with replanning fits here - the planner reassesses after each step[^langchain]. LLMCompiler takes this further by streaming a DAG of tasks with dependencies, enabling parallel execution of independent steps (claims 3.6x speedup)[^langchain].
+The dynamic variant adds replanning: after each step, the planner reassesses and can add, remove, or modify remaining steps based on what the executor discovered[^langchain]. LLMCompiler takes this further by streaming a DAG of tasks with dependencies, enabling parallel execution of independent steps (claims 3.6x speedup)[^langchain].
 
 #### Conference example
 
@@ -427,13 +418,11 @@ The name "Evaluator-Optimizer" comes from Anthropic's "Building Effective Agents
 
 Also known as: Reflection (Andrew Ng[^ng]), Generator-Critic (Google ADK[^google_adk]), Evaluator Reflect-Refine Loop (AWS[^aws]), Evaluation Looping (OpenAI[^openai]).
 
-In the fixed variant, the loop is hardcoded: run generator → run evaluator → check result in code → loop or break. Google ADK calls this "Generator-Critic" and implements it with `LoopAgent` wrapping a `SequentialAgent` - the critic applies hard, binary pass/fail checks (syntax validity, compliance rules)[^google_adk].
+In the fixed variant, the loop is hardcoded: run generator → run evaluator → check result in code → loop or break[^3]. Google ADK calls this "Generator-Critic" and implements it with `LoopAgent` wrapping a `SequentialAgent` - the critic applies hard, binary pass/fail checks (syntax validity, compliance rules)[^google_adk].
 
-We have a loop: one agent does something, a second one checks whether there are errors or not. The second agent can run things depending on the situation. They iterate until the result is good[^3].
+A common use case is QA loops at the end of a task: a coding agent writes code, a verification agent runs tests and checks correctness, and they iterate until the code passes[^3].
 
-This is how I use it: at the end of a task there is a QA loop. I have a task to write code, I have a coding agent, and I want the code to be verified and working. I create a separate agent whose main focus is specifically verification[^3].
-
-Andrew Ng highlights that this is the most accessible pattern to adopt: "relatively quick to implement" yet yields "surprising performance gains". He showed that GPT-3.5 with an agentic Reflection workflow achieves 95.1% on HumanEval, compared to GPT-4 zero-shot at 67.0%[^ng].
+Andrew Ng highlights this as the most accessible pattern: "relatively quick to implement" yet yields "surprising performance gains." He showed that GPT-3.5 with a Reflection workflow achieves 95.1% on HumanEval, compared to GPT-4 zero-shot at 67.0%[^ng].
 
 #### Conference example
 
@@ -488,11 +477,11 @@ The orchestrator generates the onboarding guide. The evaluator says "the archite
 
 The name "Human-in-the-Loop" comes from Google ADK[^google_adk], which defines it as a pattern where agents pause execution at defined checkpoints to request human authorization.
 
-Also known as: Human Input Modes (AutoGen[^autogen]). AutoGen implements the same concept via human input modes (`NEVER`, `ALWAYS`, `TERMINATE`) on `ConversableAgent`[^autogen].
+Also known as: Human Input Modes (AutoGen[^autogen]).
 
-Agents handle routine work autonomously but pause execution at defined checkpoints to request human authorization for high-stakes decisions.
+Agents handle routine work autonomously but pause at defined checkpoints to request human authorization for high-stakes decisions - financial transactions, production deployments, sensitive data operations, or any action that is irreversible and requires accountability[^google_adk]. This is a safety and governance pattern, not a performance or quality pattern.
 
-When to use: critical decisions such as financial transactions, production deployments, sensitive data operations - any action that is irreversible and requires accountability[^google_adk]. This is a safety and governance pattern, not a performance or quality pattern.
+AutoGen implements this via human input modes (`NEVER`, `ALWAYS`, `TERMINATE`) on `ConversableAgent`[^autogen].
 
 #### Conference example
 
@@ -525,12 +514,15 @@ The name "Parallelization" comes from Anthropic's "Building Effective Agents" ar
 
 Also known as: Fan-Out/Gather (Google ADK[^google_adk]), Scatter-Gather (AWS[^aws]), Parallel Execution (OpenAI[^openai]).
 
-Multiple agents or LLM calls run simultaneously and their outputs are aggregated. Anthropic distinguishes two sub-variants:
+Multiple agents or LLM calls run simultaneously and their outputs are aggregated[^anthropic]. Anthropic distinguishes two sub-variants:
 
 - Sectioning: breaking a task into independent subtasks that run in parallel
 - Voting: running the same task multiple times to get diverse outputs
 
-Google ADK calls this "Parallel Fan-Out/Gather" and implements it with `ParallelAgent` - agents run in separate threads sharing `session.state`, each writing to a unique `output_key` to prevent race conditions[^google_adk]. AWS calls it "Parallelization Scatter-Gather" and emphasizes that the aggregation step can itself involve semantic reasoning - identifying themes, contradictions, rather than simple merging[^aws]. OpenAI SDK implements this via Python's `asyncio.gather`[^openai].
+The aggregation step can itself involve semantic reasoning - identifying themes and contradictions, rather than simple merging[^aws]. Framework implementations:
+
+- Google ADK uses `ParallelAgent` - agents run in separate threads sharing `session.state`, each writing to a unique `output_key` to prevent race conditions[^google_adk]
+- OpenAI SDK implements this via Python's `asyncio.gather`[^openai]
 
 #### Conference example
 
@@ -586,13 +578,9 @@ The name "Orchestrator-Workers" comes from Anthropic's "Building Effective Agent
 
 Also known as: Supervisor (LangGraph[^langgraph]), Manager Agent (CrewAI), Saga Orchestration (AWS[^aws]).
 
-A central LLM dynamically breaks down tasks, delegates them to worker LLMs, and synthesizes their results. LangGraph calls this "Agent Supervisor" - "an agent whose tools are other agents" - and implements it with `create_supervisor`[^langgraph]. AWS frames it as the agentic evolution of Step Functions-style central orchestration[^aws].
+A central LLM dynamically breaks down tasks, delegates them to worker LLMs, and synthesizes their results[^4]. Unlike Parallelization, the subtasks are not predefined - the orchestrator determines them on-the-fly based on the specific input, decides which worker to invoke next, and adapts based on each worker's output[^anthropic].
 
-The key difference from Parallelization: in orchestrator-workers, the subtasks are not pre-defined. The orchestrator determines them on-the-fly based on the specific input[^anthropic].
-
-When we have agents running, the main agent gets output from one agent and the second agent and decides who to run at what moment. This is the orchestration pattern[^4].
-
-LangGraph also defines a "Hierarchical Agent Teams" extension - a multi-tier architecture where supervisors connect to agents that are themselves full LangGraph graphs with their own teams. This creates tree-like structures for complex task decomposition[^langgraph].
+LangGraph calls this "Agent Supervisor" - "an agent whose tools are other agents" - and implements it with `create_supervisor`[^langgraph]. AWS frames it as the agentic evolution of Step Functions-style central orchestration[^aws]. LangGraph also defines a "Hierarchical Agent Teams" extension - a multi-tier architecture where supervisors connect to agents that are themselves full LangGraph graphs with their own teams, creating tree-like structures for complex task decomposition[^langgraph].
 
 #### Conference example
 
@@ -635,13 +623,11 @@ The orchestrator adapts based on what it discovers - it does not follow a fixed 
 
 The name "Multi-Agent Collaboration" comes from Andrew Ng's agentic design patterns[^ng], where he defines it as: "More than one AI agent work together, splitting up tasks and discussing and debating ideas, to come up with better solutions than a single agent would."
 
-Also known as: Group Chat (AutoGen[^autogen]), Shared Scratchpad (LangGraph[^langgraph]). LangGraph uses the same name and calls the implementation "Shared Scratchpad"[^langgraph]. AutoGen implements it as "Group Chat" with a `GroupChatManager`[^autogen].
+Also known as: Group Chat (AutoGen[^autogen]), Shared Scratchpad (LangGraph[^langgraph]).
 
-Multiple agents participate in a shared conversation where all agents see each other's intermediate work. There is no single supervisor that decomposes and delegates - instead, agents collaborate as peers with a speaker selection mechanism determining who acts next. AutoGen supports four speaker selection strategies: `auto` (LLM decides), `round_robin`, `random`, and `manual`[^autogen].
+Multiple agents participate in a shared conversation where all agents see each other's intermediate work. There is no single supervisor - agents collaborate as peers, with a speaker selection mechanism determining who acts next. AutoGen implements this as "Group Chat" with a `GroupChatManager` and supports four selection strategies: `auto` (LLM decides), `round_robin`, `random`, and `manual`[^autogen].
 
-The key distinction from Orchestrator-Workers: in orchestrator-workers, a central agent decomposes the task and delegates. In multi-agent collaboration, agents are peers - no one agent owns the decomposition. The shared scratchpad means full transparency but higher verbosity[^langgraph].
-
-LangChain explicitly contrasts the two: the supervisor pattern uses independent scratchpads with only final outputs shared, while multi-agent collaboration uses a shared scratchpad where all intermediate steps are visible to everyone[^langgraph].
+The key distinction from Orchestrator-Workers: the supervisor pattern uses independent scratchpads where only final outputs are shared, while multi-agent collaboration uses a shared scratchpad where all intermediate steps are visible to everyone[^langgraph]. This means full transparency but higher verbosity.
 
 #### Conference example
 
