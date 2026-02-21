@@ -1,14 +1,14 @@
 ---
-title: "Telegram Bot Server Migration"
+title: "Hetzner Server Setup"
 created: 2026-02-13
-updated: 2026-02-20
-tags: [telegram-bot, infrastructure, deployment, hetzner, claude-code]
+updated: 2026-02-21
+tags: [infrastructure, deployment, hetzner, claude-code]
 status: draft
 ---
 
-# Telegram Bot Server Migration
+# Hetzner Server Setup
 
-Moving the Telegram writing assistant bot and other workloads from a local computer to a dedicated Hetzner server.
+Setting up a dedicated Hetzner server for running bots, AI workloads, and development environments.
 
 ## The Problem
 
@@ -77,7 +77,7 @@ I wanted to check that the bot works after the migration. "1, 2, 3" - a connecti
 It works. The voice messages I am recording are now being processed by the bot running on Hetzner. I no longer need to keep my laptop always on and running. It can finally breathe freely. I am moving all heavy tasks to the remote server[^7][^11].
 
 <figure>
-  <img src="../assets/images/telegram-bot-server-migration/hetzner-htop.jpg" alt="htop showing the Hetzner server with 64GB RAM, ai-shippi processes running at 100% CPU, Claude process, and VS Code server">
+  <img src="../assets/images/hetzner-server-setup/hetzner-htop.jpg" alt="htop showing the Hetzner server with 64GB RAM, ai-shippi processes running at 100% CPU, Claude process, and VS Code server">
   <figcaption>The new Hetzner server running - htop showing 64GB RAM, active processes including AI workloads and VS Code server</figcaption>
   <!-- Screenshot of htop on the new Hetzner dedicated server showing the machine in action -->
 </figure>
@@ -100,3 +100,4 @@ It seems nothing happened - need to check the logs to see what went wrong. I wil
 [^10]: [20260220_070616_AlexeyDTC_msg2106_transcript.txt](../inbox/used/20260220_070616_AlexeyDTC_msg2106_transcript.txt)
 [^11]: [20260220_081450_AlexeyDTC_msg2140_photo.md](../inbox/used/20260220_081450_AlexeyDTC_msg2140_photo.md)
 [^12]: [20260220_150400_AlexeyDTC_msg2166.md](../inbox/used/20260220_150400_AlexeyDTC_msg2166.md)
+[^13]: [20260220_175706_AlexeyDTC_msg2182_transcript.txt](../inbox/used/20260220_175706_AlexeyDTC_msg2182_transcript.txt)

@@ -1,7 +1,7 @@
 ---
 title: "SSH Auto Forward: Automatic Port Forwarding Tool"
 created: 2026-02-20
-updated: 2026-02-20
+updated: 2026-02-21
 tags: [claude-code, tools, automation, remote-development, python]
 status: draft
 ---
@@ -85,6 +85,12 @@ I did not even check if such a tool already exists. A few reasons:
 
 The flow is great. I start a session, dictate what I want, and it gets built. Ideas often come on the go when I am not at a computer. Now I have a way to act on them. I am leveling up my AI-assisted development skills in the process[^3].
 
+## Real-World Usage and Optimization
+
+I tried using the SSH auto-forward tunnel while working on the course, recording videos. I have a web service that serves files and generates HTML that I paste into Maven. It suddenly started lagging badly. The connection kept dropping, it was unreliable. Possibly the connection between me (in Germany) and Hetzner (in Finland) is not great[^6].
+
+I gave Claude the task to figure it out. I had Claude open 1 HTML file per second and also try 10 per second - a less realistic but useful stress test to verify it works. I asked Claude to run this benchmark. Claude optimized things and it started working better. It was not a case of giving one command and getting a perfect result right away - I had to keep using it, find issues, and ask Claude to rewrite parts. But it would be naive to expect everything perfect on the first try. After using it for a bit, giving feedback, and asking Claude to benchmark, the results were quite good[^6].
+
 ## Sources
 
 [^1]: [20260220_140034_AlexeyDTC_msg2150_transcript.txt](../inbox/used/20260220_140034_AlexeyDTC_msg2150_transcript.txt)
@@ -92,3 +98,4 @@ The flow is great. I start a session, dictate what I want, and it gets built. Id
 [^3]: [20260220_141400_AlexeyDTC_msg2154_transcript.txt](../inbox/used/20260220_141400_AlexeyDTC_msg2154_transcript.txt)
 [^4]: [20260220_172712_AlexeyDTC_msg2172_photo.md](../inbox/used/20260220_172712_AlexeyDTC_msg2172_photo.md)
 [^5]: [20260220_173002_AlexeyDTC_msg2174_transcript.txt](../inbox/used/20260220_173002_AlexeyDTC_msg2174_transcript.txt)
+[^6]: [20260221_184553_AlexeyDTC_msg2184_transcript.txt](../inbox/used/20260221_184553_AlexeyDTC_msg2184_transcript.txt)

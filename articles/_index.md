@@ -26,11 +26,13 @@ Brief description of what this article is about.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
-| [SSH Auto Forward: Automatic Port Forwarding Tool](ssh-auto-forward.md) | draft | 2026-02-20 | Automatic SSH port forwarding tool built with Claude Code for remote development workflow, now published on GitHub and PyPI |
+| [Multi-Agent Patterns for the Course](multi-agent-patterns-course.md) | draft | 2026-02-21 | Multi-agent patterns for the AI Buildcamp course module: evaluation, subagent, planner-executor, orchestration |
+| [Benchmarking SQLiteSearch](benchmarking-sqlitesearch.md) | draft | 2026-02-21 | Benchmarking SQLiteSearch with Simple Wikipedia and vector search benchmarks from Milvus/Zilliz |
+| [SSH Auto Forward: Automatic Port Forwarding Tool](ssh-auto-forward.md) | draft | 2026-02-21 | Automatic SSH port forwarding tool built with Claude Code for remote development workflow, now published on GitHub and PyPI |
+| [Hetzner Server Setup](hetzner-server-setup.md) | draft | 2026-02-21 | Setting up a dedicated Hetzner server for running bots, AI workloads, and development environments |
+| [Interesting Resources](interesting-resources.md) | draft | 2026-02-21 | Curated collection of tools and resources |
 | [Building a Community Platform with Claude Code's Multi-Agent System](community-platform-implementation.md) | draft | 2026-02-20 | Experiment building the AI Shipping Labs platform using Claude Code with Product Manager, Software Engineer, Tester, and On-Call Engineer agents |
-| [Telegram Bot Server Migration](telegram-bot-server-migration.md) | draft | 2026-02-20 | Moving the Telegram writing assistant bot and other workloads from local computer to a dedicated Hetzner server |
 | [Voice-Controlled Development Bot](voice-controlled-dev-bot.md) | draft | 2026-02-20 | Idea for a general-purpose Telegram bot that executes development commands via voice |
-| [Interesting Resources](interesting-resources.md) | draft | 2026-02-20 | Curated collection of tools and resources |
 | [Writing Assistant Improvement Ideas](writing-assistant-improvement-ideas.md) | draft | 2026-02-20 | Improvement ideas for the Telegram writing assistant bot: content routing, resource index, folder restructuring |
 | [What's New in the Telegram Writing Assistant](telegram-writing-assistant-updates.md) | draft | 2026-02-20 | Article idea: subagents, research section, link summaries, and QA agent improvements |
 | [Paid Community Platform Requirements](paid-community-platform.md) | draft | 2026-02-19 | Technical requirements and platform evaluation for hosting the AI Shipping Labs community |

@@ -67,7 +67,7 @@ Separate content by intent:[^6]
 
 ### Examples of mixed content
 
-The articles folder currently has content that arguably belongs elsewhere. For example, [task-management-app-idea.md](task-management-app-idea.md) and [telegram-bot-server-migration.md](telegram-bot-server-migration.md) - these are internal ideas and implementation stories that sit alongside articles meant for the newsletter. They won't be shared publicly, and there won't be newsletter issues about them. Currently, embryonic ideas and ready articles live in the same place, mixed with ideas that will probably never be published - like detailed marketing plans for the paid community.[^10][^11][^12]
+The articles folder currently has content that arguably belongs elsewhere. For example, [task-management-app-idea.md](task-management-app-idea.md) and [hetzner-server-setup.md](hetzner-server-setup.md) - these are internal ideas and implementation stories that sit alongside articles meant for the newsletter. They won't be shared publicly, and there won't be newsletter issues about them. Currently, embryonic ideas and ready articles live in the same place, mixed with ideas that will probably never be published - like detailed marketing plans for the paid community.[^10][^11][^12]
 
 On the other hand, some of these internal ideas might eventually become published articles, so the line isn't always clear-cut. There are feedback and articles categories but no ideas category. It works as is for now.[^13][^14]
 

@@ -1,7 +1,7 @@
 ---
 title: "Interesting Resources"
 created: 2026-01-31
-updated: 2026-02-20
+updated: 2026-02-21
 tags: [resources, tools, ai, development]
 status: draft
 ---
@@ -69,6 +69,10 @@ Each resource entry follows this simple format:
 
 [Matthew Berman's GTM automation system](https://x.com/TheMattBerman/status/2024678503598235963) describes replacing a $200K/year Go-To-Market hire with an automated outbound sales pipeline costing roughly $130/month in APIs. The pipeline uses OpenClaw for orchestration, RapidAPI for LinkedIn scraping, Hunter/Apollo for lead enrichment, Claude for personalized outreach, and Perplexity-style deep research for pre-call briefings - all stitched together into a 6-step workflow from mining LinkedIn engagement to booking meetings. Interesting for future automation[^28].
 
+### Humanizer
+
+[Humanizer](https://github.com/blader/humanizer) is a Claude Code skill that removes signs of AI-generated writing from text. Based on Wikipedia's "Signs of AI writing" guide, it detects 24 patterns across 5 categories: content patterns (significance inflation, promotional language), language patterns (AI vocabulary, synonym cycling), style patterns (em dash overuse, boldface), communication patterns (chatbot artifacts, sycophantic tone), and filler/hedging. Install it into `~/.claude/skills/humanizer/` and invoke via `/humanizer` in Claude Code[^29].
+
 ## Sources
 
 [^1]: [20260131_191039_AlexeyDTC_msg741_photo.md](../inbox/used/20260131_191039_AlexeyDTC_msg741_photo.md)
@@ -99,3 +103,4 @@ Each resource entry follows this simple format:
 [^26]: [20260218_145313_valeriia_kuka_msg1949.md](../inbox/used/20260218_145313_valeriia_kuka_msg1949.md)
 [^27]: [20260220_143643_AlexeyDTC_msg2158.md](../inbox/used/20260220_143643_AlexeyDTC_msg2158.md)
 [^28]: [20260220_143801_AlexeyDTC_msg2160.md](../inbox/used/20260220_143801_AlexeyDTC_msg2160.md)
+[^29]: [20260220_174948_AlexeyDTC_msg2180.md](../inbox/used/20260220_174948_AlexeyDTC_msg2180.md)
