@@ -8,6 +8,7 @@ See [All Articles](../_index.md) for the main articles index.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Rowboat: Open-Source AI Coworker with Memory](rowboat.md) | draft | 2026-02-22 | Research on Rowboat, an open-source local-first AI coworker that builds a knowledge graph from email and meetings |
 | [Agentic Memory Systems for AI Agents](agentic-memory.md) | draft | 2026-02-14 | Research on memory architectures and vector search for AI agents |
 | [AI Coding Agents for Note-Taking](ai-note-taking-tools.md) | draft | 2026-02-14 | Research on using Claude Code and OpenCode inside Obsidian and Logseq for knowledge management |
 | [Claude Agent Teams Research](claude-agent-teams.md) | draft | 2026-02-12 | Research on parallel agent workflows and team coordination in Claude Code |

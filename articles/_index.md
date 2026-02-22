@@ -26,9 +26,9 @@ Brief description of what this article is about.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Multi-Agent Patterns for the Course](multi-agent-patterns-course.md) | draft | 2026-02-22 | Multi-agent patterns for the AI Buildcamp course module: evaluation, subagent, planner-executor, orchestration |
 | [AI Engineer Role Survey](ai-engineer-role-survey.md) | draft | 2026-02-22 | Survey collecting first-hand accounts from AI Engineer practitioners about their roles, tools, and interview experiences |
 | [Interesting Resources](interesting-resources.md) | draft | 2026-02-22 | Curated collection of tools and resources |
-| [Multi-Agent Patterns for the Course](multi-agent-patterns-course.md) | draft | 2026-02-21 | Multi-agent patterns for the AI Buildcamp course module: evaluation, subagent, planner-executor, orchestration |
 | [Benchmarking SQLiteSearch](benchmarking-sqlitesearch.md) | draft | 2026-02-21 | Benchmarking SQLiteSearch with Simple Wikipedia and vector search benchmarks from Milvus/Zilliz |
 | [SSH Auto Forward: Automatic Port Forwarding Tool](ssh-auto-forward.md) | draft | 2026-02-21 | Automatic SSH port forwarding tool built with Claude Code for remote development workflow, now published on GitHub and PyPI |
 | [Hetzner Server Setup](hetzner-server-setup.md) | draft | 2026-02-21 | Setting up a dedicated Hetzner server for running bots, AI workloads, and development environments |

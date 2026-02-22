@@ -1,7 +1,7 @@
 ---
 title: "Multi-Agent Patterns for the Course"
 created: 2026-02-21
-updated: 2026-02-21
+updated: 2026-02-22
 tags: [ai-buildcamp, agents, multi-agent, course-content]
 status: draft
 ---
@@ -408,11 +408,38 @@ The planner creates an initial plan for the onboarding guide. After step 2 (iden
 
 All three patterns check output quality. The difference is how the checking works.
 
-- Fixed Evaluator-Optimizer: a while loop in your code. Run generator, run evaluator, check pass/fail, loop or break. The loop logic is hardcoded.
-- Dynamic Evaluator-Optimizer: an orchestrator decides when to invoke evaluation, what to evaluate, and what to do with the feedback.
 - Human-in-the-Loop: the agent pauses at critical checkpoints and asks a human to review and approve before proceeding.
+- Fixed Evaluator-Optimizer: instead of a human, an agent evaluates the output. A while loop in your code: run generator, run evaluator, check pass/fail, loop or break.
+- Dynamic Evaluator-Optimizer: an orchestrator decides when to invoke evaluation, what to evaluate, and what to do with the feedback.
 
-### 3a. Fixed Evaluator-Optimizer `*` `workflow`
+### 3a. Human-in-the-Loop `workflow`
+
+The name "Human-in-the-Loop" comes from Google ADK[^google_adk], which defines it as a pattern where agents pause execution at defined checkpoints to request human authorization.
+
+Also known as: Human Input Modes (AutoGen[^autogen]).
+
+Agents handle routine work autonomously but pause at defined checkpoints to request human authorization for high-stakes decisions - financial transactions, production deployments, sensitive data operations, or any action that is irreversible and requires accountability[^google_adk]. This is a safety and governance pattern, not a performance or quality pattern.
+
+AutoGen implements this via human input modes (`NEVER`, `ALWAYS`, `TERMINATE`) on `ConversableAgent`[^autogen].
+
+#### Conference example
+
+The agent researches venues and negotiates pricing autonomously. When it is ready to sign a contract and put down a deposit (irreversible financial commitment), it pauses and presents the recommendation to the human organizer for approval. Same for speaker invitations - the agent drafts the invitation but pauses before sending, since a sent invitation represents a commitment.
+
+#### YouTube example
+
+The agent processes the video and generates a blog post. Before publishing to the website or sending a newsletter, it pauses for human review. The human checks that the summary accurately represents the video and that no claims are misattributed.
+
+#### Other examples
+
+- A TransactionAgent processes routine analysis but invokes ApprovalTool before executing high-value transfers[^google_adk]
+- Deployment pipelines: automated tests run, but a human must approve production deployment[^aws]
+
+#### Codebase onboarding example (implemented)
+
+The agent generates the onboarding guide for scikit-learn automatically. Before sharing it with the new contributor, it pauses for a senior maintainer to review: "Is the architecture description accurate? Are these really the best first issues to recommend? Is the contribution workflow up to date?" The maintainer corrects one outdated section about the CI setup (they migrated from Travis to GitHub Actions), approves the rest, and the guide is shared.
+
+### 3b. Fixed Evaluator-Optimizer `*` `workflow`
 
 The name "Evaluator-Optimizer" comes from Anthropic's "Building Effective Agents" article[^anthropic], which defines it as: "one LLM call generates a response while another provides evaluation and feedback in a loop." Andrew Ng uses the broader term "Reflection", which also covers the single-agent variant where an agent critiques its own output[^ng].
 
@@ -448,7 +475,7 @@ A timestamp generator creates chapter timestamps for the video. A verifier agent
 
 The guide generator writes a section about scikit-learn's module structure. The evaluator checks it against the actual repo: does the file path `sklearn/ensemble/` actually exist? Is the API description correct - does `RandomForestClassifier` really inherit from `BaseEnsemble`? It calls `gh api` to verify file paths and reads actual source files to check class hierarchies. If the guide says something wrong, the evaluator feeds back corrections and the generator rewrites. The loop is hardcoded: generate section → verify facts → loop until all facts check out.
 
-### 3b. Dynamic Evaluator-Optimizer `*` `orchestrated`
+### 3c. Dynamic Evaluator-Optimizer `*` `orchestrated`
 
 Also known as: Iterative Refinement (Google ADK[^google_adk]).
 
@@ -472,33 +499,6 @@ The orchestrator generates a blog post from the video. The evaluator says "the s
 #### Codebase onboarding example (implemented)
 
 The orchestrator generates the onboarding guide. The evaluator says "the architecture section is accurate but too dense for newcomers." The orchestrator decides to split it into a quick-start overview and a detailed deep-dive, rather than just simplifying. It re-invokes the generator with different instructions for each section.
-
-### 3c. Human-in-the-Loop `workflow`
-
-The name "Human-in-the-Loop" comes from Google ADK[^google_adk], which defines it as a pattern where agents pause execution at defined checkpoints to request human authorization.
-
-Also known as: Human Input Modes (AutoGen[^autogen]).
-
-Agents handle routine work autonomously but pause at defined checkpoints to request human authorization for high-stakes decisions - financial transactions, production deployments, sensitive data operations, or any action that is irreversible and requires accountability[^google_adk]. This is a safety and governance pattern, not a performance or quality pattern.
-
-AutoGen implements this via human input modes (`NEVER`, `ALWAYS`, `TERMINATE`) on `ConversableAgent`[^autogen].
-
-#### Conference example
-
-The agent researches venues and negotiates pricing autonomously. When it is ready to sign a contract and put down a deposit (irreversible financial commitment), it pauses and presents the recommendation to the human organizer for approval. Same for speaker invitations - the agent drafts the invitation but pauses before sending, since a sent invitation represents a commitment.
-
-#### YouTube example
-
-The agent processes the video and generates a blog post. Before publishing to the website or sending a newsletter, it pauses for human review. The human checks that the summary accurately represents the video and that no claims are misattributed.
-
-#### Other examples
-
-- A TransactionAgent processes routine analysis but invokes ApprovalTool before executing high-value transfers[^google_adk]
-- Deployment pipelines: automated tests run, but a human must approve production deployment[^aws]
-
-#### Codebase onboarding example (implemented)
-
-The agent generates the onboarding guide for scikit-learn automatically. Before sharing it with the new contributor, it pauses for a senior maintainer to review: "Is the architecture description accurate? Are these really the best first issues to recommend? Is the contribution workflow up to date?" The maintainer corrects one outdated section about the CI setup (they migrated from Travis to GitHub Actions), approves the rest, and the guide is shared.
 
 ## Group 4: Coordination Patterns `*`
 
@@ -671,9 +671,9 @@ Andrew Ng defines Tool Use as one of his four foundational agentic patterns: the
 | Pipeline | Prompt Chaining | Prompt Chaining | Agent Chaining | Sequential Pipeline | Prompt Chaining Saga | - | Sequential Chat | - |
 | Pipeline | Static Plan-and-Execute | - | - | - | - | Plan-and-Execute | - | Planning |
 | Pipeline | Dynamic Plan-and-Execute | - | - | - | - | Plan-and-Execute (replanning) | - | Planning |
+| Feedback | Human-in-the-Loop | - | - | Human-in-the-Loop | - | - | Human Input Modes | - |
 | Feedback | Fixed Evaluator-Optimizer | Evaluator-Optimizer | Evaluation Looping | Generator-Critic | Evaluator Reflect-Refine Loop | - | - | Reflection |
 | Feedback | Dynamic Evaluator-Optimizer | Evaluator-Optimizer | Evaluation Looping | Iterative Refinement | Evaluator Reflect-Refine Loop | - | - | Reflection |
-| Feedback | Human-in-the-Loop | - | - | Human-in-the-Loop | - | - | Human Input Modes | - |
 | Coordination | Parallelization | Parallelization | Parallel Execution | Parallel Fan-Out/Gather | Scatter-Gather | - | - | - |
 | Coordination | Orchestrator-Workers | Orchestrator-Workers | - | - | Saga Orchestration | Supervisor | - | - |
 | Coordination | Multi-Agent Collaboration | - | - | - | - | Multi-Agent Collaboration | Group Chat | Multi-Agent Collaboration |
@@ -691,9 +691,9 @@ Andrew Ng defines Tool Use as one of his four foundational agentic patterns: the
    - 2c. Dynamic Plan-and-Execute `*` (replan after each step)
 
 3. Feedback Patterns `*`
-   - 3a. Fixed Evaluator-Optimizer `*` (while loop: generate, evaluate, loop)
-   - 3b. Dynamic Evaluator-Optimizer `*` (orchestrator decides when/how to evaluate)
-   - 3c. Human-in-the-Loop (human approval)
+   - 3a. Human-in-the-Loop (human approval)
+   - 3b. Fixed Evaluator-Optimizer `*` (while loop: generate, evaluate, loop)
+   - 3c. Dynamic Evaluator-Optimizer `*` (orchestrator decides when/how to evaluate)
 
 4. Coordination Patterns `*`
    - 4a. Parallelization (fixed fan-out/gather)
@@ -702,12 +702,35 @@ Andrew Ng defines Tool Use as one of his four foundational agentic patterns: the
 
 I will iterate further with Claude Code on how to best decompose this into units[^4].
 
+## How This Article Was Created
+
+The process went through several stages[^5]:
+
+1. Brain dump first. I dictated my thoughts about multi-agent patterns - what I think about the topic, how agents can interact with each other. Quite a lot came out.
+2. Asked the Telegram writing assistant to process the brain dump into structured text.
+3. Research phase. Looked at what the industry says about these patterns. I had given my own names to the patterns, but then thought that the industry might call them differently. Searched for existing pattern names and frameworks.
+4. Some patterns I split into two variants - rigid (Anthropic calls them "workflows," where you control through code) and flexible (where the agent makes decisions). This gave us 4 groups, 12 patterns total.
+5. Code collection. I already had some code, but I asked Claude to go through my entire course repository and collect all the code for these patterns into one place. Many patterns were already implemented there using the OpenAI Agents SDK. The result is a very good resource.
+
+## Monetization Ideas
+
+This resource turned out well - good for the course, but also potentially valuable on its own[^5].
+
+Options considered:
+
+- Could sell it separately as a downloadable or even a book
+- Could make it a mini-course for people in the paid community - not the full AI Engineering Buildcamp course, just the multi-agent piece
+- But I spent too much time on this to just give it away for free
+
+The plan: make it a webinar where I briefly cover all the patterns and say that on the course we have all of these implemented with code. This works as a lead magnet - explain the patterns without code, and the code is on the course. The course is either AI Engineering Buildcamp, or I can put the full multi-agent systems module in the paid community.
+
 ## Sources
 
 [^1]: [20260221_193111_AlexeyDTC_msg2190_transcript.txt](../inbox/used/20260221_193111_AlexeyDTC_msg2190_transcript.txt)
 [^2]: [20260221_193257_AlexeyDTC_msg2192_transcript.txt](../inbox/used/20260221_193257_AlexeyDTC_msg2192_transcript.txt)
 [^3]: [20260221_193907_AlexeyDTC_msg2194_transcript.txt](../inbox/used/20260221_193907_AlexeyDTC_msg2194_transcript.txt)
 [^4]: [20260221_194006_AlexeyDTC_msg2196_transcript.txt](../inbox/used/20260221_194006_AlexeyDTC_msg2196_transcript.txt)
+[^5]: [20260222_102956_AlexeyDTC_msg2216_transcript.txt](../inbox/used/20260222_102956_AlexeyDTC_msg2216_transcript.txt)
 
 ## References
 
