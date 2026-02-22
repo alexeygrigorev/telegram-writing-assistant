@@ -1,7 +1,7 @@
 ---
 title: "Interesting Resources"
 created: 2026-01-31
-updated: 2026-02-21
+updated: 2026-02-22
 tags: [resources, tools, ai, development]
 status: draft
 ---
@@ -73,6 +73,10 @@ Each resource entry follows this simple format:
 
 [Humanizer](https://github.com/blader/humanizer) is a Claude Code skill that removes signs of AI-generated writing from text. Based on Wikipedia's "Signs of AI writing" guide, it detects 24 patterns across 5 categories: content patterns (significance inflation, promotional language), language patterns (AI vocabulary, synonym cycling), style patterns (em dash overuse, boldface), communication patterns (chatbot artifacts, sycophantic tone), and filler/hedging. Install it into `~/.claude/skills/humanizer/` and invoke via `/humanizer` in Claude Code[^29].
 
+### System Prompts and Models of AI Tools
+
+[system-prompts-and-models-of-ai-tools](https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools) is a comprehensive collection of leaked system prompts, internal tools, and AI model configurations from 30+ AI coding and productivity tools. Covers Claude Code, Cursor, Windsurf, Devin, Lovable, Replit, Manus, Perplexity, and many others - over 30,000 lines of insights into how these tools are structured and what instructions they operate with. Useful as a reference when designing your own AI agent prompts or understanding how commercial tools work under the hood[^30].
+
 ## Sources
 
 [^1]: [20260131_191039_AlexeyDTC_msg741_photo.md](../inbox/used/20260131_191039_AlexeyDTC_msg741_photo.md)
@@ -104,3 +108,4 @@ Each resource entry follows this simple format:
 [^27]: [20260220_143643_AlexeyDTC_msg2158.md](../inbox/used/20260220_143643_AlexeyDTC_msg2158.md)
 [^28]: [20260220_143801_AlexeyDTC_msg2160.md](../inbox/used/20260220_143801_AlexeyDTC_msg2160.md)
 [^29]: [20260220_174948_AlexeyDTC_msg2180.md](../inbox/used/20260220_174948_AlexeyDTC_msg2180.md)
+[^30]: [20260222_093919_AlexeyDTC_msg2204.md](../inbox/used/20260222_093919_AlexeyDTC_msg2204.md)
