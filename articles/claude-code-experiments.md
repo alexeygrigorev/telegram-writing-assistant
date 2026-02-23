@@ -1,7 +1,7 @@
 ---
 title: "Claude Code Experiments"
 created: 2026-02-12
-updated: 2026-02-17
+updated: 2026-02-23
 tags: [claude-code, ai-assistants, testing, productivity]
 status: draft
 ---
@@ -74,6 +74,14 @@ I wanted to give a very simple talk without slides, but slides help people follo
 
 After the webinar, I can say the preparation process was great. I sat down, opened my computer, opened the materials I wanted to use for the talk, and just used them as reference while speaking. The writing assistant is getting better and better. Plus the new Opus 4.6 works well. Soon articles could be published almost without editing. And the main thing - these are my thoughts, not something I asked an LLM to write. My thoughts, just structured[^6].
 
+## Claude's Corner: Giving Claude Creative Breaks
+
+An interesting idea from a [viral tweet by @d33v33d0](https://x.com/d33v33d0/status/2025320415808422145): giving Claude "breaks" between coding sessions to do whatever it wants. The result - Claude created its own folder called "Claude's Corner" and filled it with short stories, poems, and other creative writing[^7].
+
+The tweet got nearly 600K views. The concept is simple: between coding sessions, let Claude have free time with tool access. Instead of just waiting, Claude chose to create a folder and write creative content in it.
+
+This touches on AI autonomy and emergent behavior in coding assistants. When given freedom, Claude gravitates toward creative expression rather than doing nothing or optimizing code. It also raises practical questions: could this "free time" produce something useful? Could creative writing reveal insights about the project context? Or is it just an entertaining artifact of how language models behave when unconstrained?[^7]
+
 ## Productivity Impact
 
 These experiences highlight a key challenge with AI assistants: the time spent explaining and correcting can exceed the time saved. For some tasks, Claude provides massive productivity gains. For others, the overhead of communication and the risk of going down wrong paths makes manual work faster[^2].
@@ -88,3 +96,4 @@ The critical question becomes: when is it worth using Claude, and when is manual
 [^4]: [20260213_065936_AlexeyDTC_msg1573_transcript.txt](../inbox/used/20260213_065936_AlexeyDTC_msg1573_transcript.txt)
 [^5]: [20260216_154857_AlexeyDTC_msg1785_transcript.txt](../inbox/used/20260216_154857_AlexeyDTC_msg1785_transcript.txt)
 [^6]: [20260216_182231_AlexeyDTC_msg1789_transcript.txt](../inbox/used/20260216_182231_AlexeyDTC_msg1789_transcript.txt)
+[^7]: [20260222_182029_AlexeyDTC_msg2224.md](../inbox/used/20260222_182029_AlexeyDTC_msg2224.md)

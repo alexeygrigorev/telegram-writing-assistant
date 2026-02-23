@@ -1,7 +1,7 @@
 ---
 title: "Task Management App Idea"
 created: 2026-02-11
-updated: 2026-02-11
+updated: 2026-02-23
 tags: [project-idea, productivity, task-management]
 status: draft
 ---
@@ -10,11 +10,47 @@ status: draft
 
 An idea for a unified task management application that combines the best aspects of Trello and todo lists, specifically designed for the needs of community managers and small teams.
 
+## Implementation Requirements
+
+Some time ago we discussed the todo list app idea. Now I want to return to it and implement it[^19].
+
+The main goal: make it maximally cheap. No hosting costs at all.
+
+### Architecture
+
+- Backend: AWS Lambda with JavaScript
+- Database: DynamoDB
+- Frontend: vanilla JavaScript (no React), served from the Lambda on the index request
+- Multiple JS files that get packaged together
+
+### Local Development
+
+The setup should be maximally lightweight:
+
+- Use a local DynamoDB alternative that works like SQLite - no need for the real DynamoDB locally
+- No Docker required for development
+- Run and test everything locally without hassle
+- Local environment should be as close to Lambda as possible
+
+### Deployment
+
+- Deploy through Lambda and DynamoDB
+- If Docker is needed for packaging the deployment, that is acceptable
+- Fewer dependencies the better
+- If everything fits in one Lambda - perfect
+- Could put JavaScript files on S3, but probably not needed
+- Simple zip archive deployment would be ideal
+
+### Testing
+
+- Local testing should be easy and straightforward
+- Integration testing: run Lambda in Docker and test through that
+
 ## The Problem
 
 The current workflow for Grace (community manager at DataTalks Club) involves multiple disjointed systems:
 
-**Multiple task sources**
+Multiple task sources:
 - Google Spreadsheet for todo list
 - Trello for project cards
 - Individual tasks inside Trello cards
@@ -22,8 +58,7 @@ The current workflow for Grace (community manager at DataTalks Club) involves mu
 - Email forwarding creates additional tasks
 - Regular recurring tasks (weekly mailchimp dumps, etc.)
 
-**Inefficiency**
-To see what needs to be done today, Grace must:
+Inefficiency: to see what needs to be done today, Grace must:
 1. Check the Google Spreadsheet
 2. Go through each Trello card
 3. Look at tasks inside each card
@@ -34,7 +69,7 @@ This scattered approach means significant time spent just gathering information 
 
 ## Why Existing Tools Don't Work
 
-**Trello limitations**
+Trello limitations:
 - Ad hoc tasks cannot be easily added to Trello
 - Would need to create a separate card for each small task (overkill)
 - Tasks are trapped inside cards - no unified view of all tasks across cards
@@ -47,7 +82,7 @@ This scattered approach means significant time spent just gathering information 
   <!-- The screenshot shows available integrations like Export for Trello, n8n.cloud, Toggl, Corrello, Zapier, and Evernote -->
 </figure>
 
-**Other tools**
+Other tools:
 - Monday, Asana, Jira - don't quite fit this specific use case
 - Trello's power-ups and integrations are limited to what they support
 - Need something simple and customizable
@@ -62,36 +97,35 @@ A unified task management system that combines:
 
 ### Core Concepts
 
-**Templates (Playbooks)**
+Templates (Playbooks):
 - Newsletter template
 - Course template
 - Event template
 - Each template contains a set of related tasks with relative deadlines
 
-**Anchor Date**
-Each card/project has an anchor date (e.g., event date, launch date)
+Anchor Date: each card/project has an anchor date (e.g., event date, launch date)
 - Tasks have relative deadlines: "2 weeks before", "1 week before", "1 week after"
 - System automatically calculates actual due dates based on anchor date
 - All tasks from the project appear in the unified task list
 
-**Two Views**
+Two views:
 1. Project/Card View - Like Trello, high-level organization
 2. Task List View - All tasks from all projects in a simple table
 
 ### Task Types
 
-**Template-based tasks**
+Template-based tasks:
 - Created automatically when a project is instantiated from a template
 - Have relative deadlines calculated from anchor date
 - Appear in both the project card and the unified task list
 
-**Ad hoc tasks**
+Ad hoc tasks:
 - Created via Telegram slash command
 - Created via email forwarding
 - Standalone tasks not part of any project
 - Appear in the unified task list
 
-**Recurring tasks**
+Recurring tasks:
 - Regular tasks like "weekly mailchimp dump" on Wednesdays
 - Automatically added to the task list on schedule
 - Configurable schedule
@@ -108,8 +142,7 @@ When Grace completes a task (like converting a Loom video to a process document)
 
 ## Technical Considerations
 
-**Static site approach**
-The user is considering building this as a static site (GitHub Pages) to avoid database costs. This would mean:
+Static site approach: the user is considering building this as a static site (GitHub Pages) to avoid database costs. This would mean:
 - No backend database
 - All data stored in Git
 - Jekyll or similar static site generator
@@ -119,8 +152,7 @@ This approach works for simple sites but may not be ideal for a dynamic task man
 - Build with a database first for functionality
 - Later adapt to static generation if needed
 
-**Lovable for prototyping**
-The idea could be quickly prototyped using Lovable:
+Lovable for prototyping: the idea could be quickly prototyped using Lovable:
 1. Brainstorm all requirements into a document
 2. Use ChatGPT to formalize into a detailed specification
 3. Use Lovable with a few prompts to create a working mock
@@ -137,8 +169,7 @@ This tool could be useful for others:
 
 ## Potential Extensions
 
-**Invoice tracking**
-The user also mentioned forgetting to send invoices. The system could include:
+Invoice tracking: the user also mentioned forgetting to send invoices. The system could include:
 - Invoice tracking functionality
 - Reminders for pending invoices
 - Could be separate or integrated into the task system
@@ -163,3 +194,4 @@ The user also mentioned forgetting to send invoices. The system could include:
 [^16]: [20260211_043339_AlexeyDTC_msg1365_transcript.txt](../inbox/used/20260211_043339_AlexeyDTC_msg1365_transcript.txt)
 [^17]: [20260211_043431_AlexeyDTC_msg1366.md](../inbox/used/20260211_043431_AlexeyDTC_msg1366.md)
 [^18]: [20260211_074754_AlexeyDTC_msg1372_transcript.txt](../inbox/used/20260211_074754_AlexeyDTC_msg1372_transcript.txt)
+[^19]: [20260223_192235_AlexeyDTC_msg2226_transcript.txt](../inbox/used/20260223_192235_AlexeyDTC_msg2226_transcript.txt)

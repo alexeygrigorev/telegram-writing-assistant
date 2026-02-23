@@ -26,6 +26,8 @@ Brief description of what this article is about.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Task Management App Idea](task-management-app-idea.md) | draft | 2026-02-23 | Unified task management system combining Trello and todo lists, with serverless AWS implementation requirements |
+| [Claude Code Experiments](claude-code-experiments.md) | draft | 2026-02-23 | Experiments and applications of Claude Code beyond coding, including challenges with communication |
 | [Multi-Agent Patterns for the Course](multi-agent-patterns-course.md) | draft | 2026-02-22 | Multi-agent patterns for the AI Buildcamp course module: evaluation, subagent, planner-executor, orchestration |
 | [AI Engineer Role Survey](ai-engineer-role-survey.md) | draft | 2026-02-22 | Survey collecting first-hand accounts from AI Engineer practitioners about their roles, tools, and interview experiences |
 | [Interesting Resources](interesting-resources.md) | draft | 2026-02-22 | Curated collection of tools and resources |
@@ -44,23 +46,16 @@ Brief description of what this article is about.
 | [Building Blocks of Modern Code Agents](code-agents-building-blocks.md) | draft | 2026-02-18 | Map of code agent types and the two key building blocks: skills and subagents |
 | [Paid AI Engineers Community Planning](paid-ai-community-planning.md) | draft | 2026-02-18 | Planning a paid community for AI Engineers including target audience, tier structure, and pricing |
 | [AI Hero Course Rebranding for AI Shipping Labs](ai-hero-rebranding.md) | draft | 2026-02-17 | Rebranding the existing AI Hero course to fit under the new AI Shipping Labs community |
-| [How Researchers Can Transition to AI Engineering](researcher-to-ai-engineer-transition.md) | draft | 2026-02-17 | Guide for researchers transitioning from university labs to AI engineering |
-| [How a Data Engineer Can Transition to AI Engineering](de-to-ai-engineer-transition.md) | draft | 2026-02-17 | Guide for data engineers looking to move into AI engineering roles |
 | [AI Engineer Webinar Q&A](ai-engineer-webinar-qa.md) | draft | 2026-02-17 | Questions and answers from the Day in the Life of an AI Engineer webinar |
-| [AI Engineer My Vision](ai-engineer-my-vision.md) | draft | 2026-02-16 | Personal perspective on the AI engineer role based on direct experience |
-| [AI Roles Now and Then](ai-roles-now-and-then.md) | draft | 2026-02-16 | Evolution of data roles and how Data Scientists and ML Engineers transition to AI engineering |
-| [CRISP-DM for AI](crisp-dm-for-ai.md) | draft | 2026-02-16 | Applying the classic CRISP-DM methodology to modern AI projects |
 | [Certificates and AI Design Experiments](certificates-and-ai-design-experiments.md) | draft | 2026-02-16 | Creating workshop certificates and experiments with image-to-HTML/CSS conversion |
 | [Services Website Testimonials](services-testimonials.md) | draft | 2026-02-15 | Collection of testimonials for the services website |
 | [Nobook: Plain Python Files as Jupyter Notebooks](nobook.md) | draft | 2026-02-13 | Tool that uses plain .py files as Jupyter notebooks instead of .ipynb JSON |
 | [OpenCode Experiments with GLM-5](opencode-experiments.md) | draft | 2026-02-13 | Trying OpenCode AI assistant with GLM-5 model |
 | [Microphone Booster App](microphone-booster-app.md) | draft | 2026-02-13 | Windows microphone booster built with OpenCode/GLM-5 using Tauri + Rust |
 | [AI Engineer RPG Game](ai-engineer-rpg-game.md) | draft | 2026-02-13 | RPG game for interview practice built with OpenCode/GLM-5 in Rust |
-| [Claude Code Experiments](claude-code-experiments.md) | draft | 2026-02-12 | Experiments and applications of Claude Code beyond coding, including challenges with communication |
 | [AI as Personal Analyst](ai-as-personal-analyst.md) | draft | 2026-02-12 | Talk about using AI for Excel automation, data cleaning, and scaling document review |
 | [What I Did This Week](what-i-did-this-week.md) | draft | 2026-02-11 | Weekly updates on work in progress |
 | [Claude Code Subagents](subagents.md) | draft | 2026-02-11 | Specialized agents for research workflows and verification |
-| [Task Management App Idea](task-management-app-idea.md) | draft | 2026-02-11 | Unified task management system combining Trello and todo lists |
 | [Minsearch Benchmarking and Optimization](minsearch-benchmarking-optimization.md) | draft | 2026-02-09 | Optimizing the appendable index through iterative benchmarking |
 | [Python Primer Course Idea](python-primer-course-idea.md) | draft | 2026-02-08 | Paid Python prerequisite course for AI Engineering and Zoomcamps |
 | [FAQ System for Course Management](faq-system.md) | draft | 2026-02-07 | Community-driven FAQ with RAG-based automation and content management |
