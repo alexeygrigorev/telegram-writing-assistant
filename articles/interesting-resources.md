@@ -25,57 +25,10 @@ Each resource entry follows this simple format:
 - Keep it concise, 2-4 sentences max
 - No bulleted lists, no code examples, no extra sections
 
-### pro-workflow
-
-[pro-workflow](https://github.com/rohitg00/pro-workflow) is a collection of battle-tested Claude Code workflows from power users. It implements patterns like self-correcting memory, parallel worktrees, wrap-up rituals, and the 80/20 AI coding ratio. Features include agent teams, custom subagents, smart commit with quality gates, session analytics, and persistent SQLite storage for learnings with full-text search. Optimized for reducing correction cycles when working with AI coding assistants[^9].
-
-### PaperBanana
-
-[PaperBanana](https://paperbanana.org/) is an agentic framework for AI researchers that automates creation of high-quality academic illustrations. It generates methodology diagrams, flowcharts, and statistical plots from text descriptions or by polishing hand-drawn sketches. Uses a multi-step process with retrieve, plan, render, and refine agents powered by state-of-the-art vision and image generation models. Includes PaperBananaBench with 292 curated test cases from NeurIPS 2025[^10].
-
-### Dexter
-
-[Dexter](https://github.com/virattt/dexter) is an autonomous financial research agent that thinks, plans, and learns as it works. It performs analysis using task planning, self-reflection, and real-time market data. Think Claude Code, but built specifically for financial research. It features intelligent task planning, autonomous execution, self-validation, real-time financial data access, and safety features like loop detection and step limits[^11].
-
-### nao
-
-[nao](https://github.com/getnao/nao) is an open source analytics agent that combines a CLI tool for creating context with a deployable chat interface for teams. It allows data teams to set up a chat interface over their data sources, with the nao-core CLI handling context creation and indexing. The project supports self-hosting via Docker and provides a web UI for business users to interact with data through natural language queries[^17].
-
-### Claude Pilot
-
-[Claude Pilot](https://github.com/maxritter/claude-pilot) is a quality automation layer built on top of Claude Code that enforces production-grade quality on every coding session through automated linting, formatting, type checking, and mandatory test-driven development. It adds spec-driven planning with verifier sub-agents, persistent memory across sessions, isolated git worktrees for safe experimentation, and an "Endless Mode" that handles session continuity automatically. The idea is simple: start a task, walk away, and come back to tested, verified code ready to ship[^20].
-
-### RTK (Rust Token Killer)
-
-[RTK](https://github.com/rtk-ai/rtk) is a CLI proxy that cuts Claude Code token usage by 89% by filtering and compressing command output before it reaches the LLM context. Most of what Claude Code reads from commands like test runs, git status, and logs is noise - passing tests, verbose output, status bars - and RTK strips it down to just the essentials. The author reported saving 10.2 million tokens over two weeks, with compressions like cargo test going from 155 lines to 3 lines[^21].
-
-### Voicebox
-
-[Voicebox](https://github.com/jamiepine/voicebox) is an open-source, local-first voice cloning studio powered by Qwen3-TTS. It provides DAW-like features including a multi-track timeline editor, voice profile management, and a REST API for integrating voice synthesis into other applications. Think of it as a local, free alternative to ElevenLabs - download models, clone voices from a few seconds of audio, and generate speech entirely on your machine with no cloud dependency[^25].
-
-### You Could've Invented OpenClaw
-
-[You Could've Invented OpenClaw](https://gist.github.com/dabit3/bc60d3bea0b02927995cd9bf53c3db32) is a tutorial by Nader Dabit that walks through building a persistent AI assistant from scratch, starting with a simple Telegram bot using the Anthropic API. It incrementally adds sessions, personality, tool use, multi-channel support, memory, and scheduled tasks, arriving at a ~400-line "mini OpenClaw" clone. I already built my own Telegram bot - this is an interesting look at how someone else approached the same problem[^22][^23].
-
-### Zvec
-
-[Zvec](https://github.com/alibaba/zvec) is an open-source, in-process vector database from Alibaba, built on their battle-tested Proxima vector search engine. It can search billions of vectors in milliseconds while supporting both dense and sparse embeddings, hybrid search with structured filters, and multi-vector queries. Unlike client-server vector databases, Zvec embeds directly into your application with no infrastructure overhead, making it a compelling option for RAG pipelines and similarity search on notebooks, servers, or edge devices. I was looking for something like this very recently[^24].
-
-### Marketing for Founders
-
-[Marketing for Founders](https://github.com/EdoStra/Marketing-for-Founders) is a curated collection of practical, budget-friendly marketing resources for technical founders and indie hackers. It covers 18+ topics including places to launch a startup, Product Hunt strategy, social media marketing, SEO (including LLM/AEO/GEO), cold outreach, Reddit marketing, content marketing, email marketing, landing pages, pricing, and idea validation. The advice focuses on actionable zero-cost or low-cost tactics rather than VC-scale growth strategies. Might be useful for us[^27].
-
 ### Automated GTM Pipeline
 
 [Matthew Berman's GTM automation system](https://x.com/TheMattBerman/status/2024678503598235963) describes replacing a $200K/year Go-To-Market hire with an automated outbound sales pipeline costing roughly $130/month in APIs. The pipeline uses OpenClaw for orchestration, RapidAPI for LinkedIn scraping, Hunter/Apollo for lead enrichment, Claude for personalized outreach, and Perplexity-style deep research for pre-call briefings - all stitched together into a 6-step workflow from mining LinkedIn engagement to booking meetings. Interesting for future automation[^28].
 
-### Humanizer
-
-[Humanizer](https://github.com/blader/humanizer) is a Claude Code skill that removes signs of AI-generated writing from text. Based on Wikipedia's "Signs of AI writing" guide, it detects 24 patterns across 5 categories: content patterns (significance inflation, promotional language), language patterns (AI vocabulary, synonym cycling), style patterns (em dash overuse, boldface), communication patterns (chatbot artifacts, sycophantic tone), and filler/hedging. Install it into `~/.claude/skills/humanizer/` and invoke via `/humanizer` in Claude Code[^29].
-
-### System Prompts and Models of AI Tools
-
-[system-prompts-and-models-of-ai-tools](https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools) is a comprehensive collection of leaked system prompts, internal tools, and AI model configurations from 30+ AI coding and productivity tools. Covers Claude Code, Cursor, Windsurf, Devin, Lovable, Replit, Manus, Perplexity, and many others - over 30,000 lines of insights into how these tools are structured and what instructions they operate with. Useful as a reference when designing your own AI agent prompts or understanding how commercial tools work under the hood[^30].
 
 ## Sources
 
