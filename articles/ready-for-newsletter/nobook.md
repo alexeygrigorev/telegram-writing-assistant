@@ -12,6 +12,8 @@ https://github.com/alexeygrigorev/nobook
 
 I wanted Jupyter notebooks that use plain `.py` files instead of `.ipynb` JSON. The standard `.ipynb` format is a huge JSON file that is hard to read, hard to diff, and inconvenient for both humans and AI assistants[^1].
 
+I ran an experiment I had been wanting to do for a long time. I built Nobook - a tool that uses plain `.py` files as Jupyter notebooks instead of `.ipynb` JSON files. Claude Code with the latest Opus wrote all the code in one evening while I spent about an hour checking and correcting. See the separate article on [Nobook](nobook.md) for details[^3][^4].
+
 ## Why I Built This
 
 I want code in my documentation to come from Python files so I can cover them with tests. I need to be sure that the code I include in documentation - whether it's a course, a book, or anything else - always executes correctly, has no syntax errors, and produces output[^1].
