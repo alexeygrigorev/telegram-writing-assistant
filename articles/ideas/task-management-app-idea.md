@@ -1,7 +1,7 @@
 ---
 title: "Task Management App Idea"
 created: 2026-02-11
-updated: 2026-02-23
+updated: 2026-02-24
 tags: [project-idea, productivity, task-management]
 status: draft
 ---
@@ -77,7 +77,7 @@ Trello limitations:
 - Integrations exist (Zapier, n8n, etc.) but may be paid and limited
 
 <figure>
-  <img src="../assets/images/task-management-app-idea/trello-power-ups.jpg" alt="Trello power-ups and integrations available">
+  <img src="../../assets/images/task-management-app-idea/trello-power-ups.jpg" alt="Trello power-ups and integrations available">
   <figcaption>Trello offers various power-ups and integrations, but they are typically paid and limited to supported services</figcaption>
   <!-- The screenshot shows available integrations like Export for Trello, n8n.cloud, Toggl, Corrello, Zapier, and Evernote -->
 </figure>
@@ -174,24 +174,48 @@ Invoice tracking: the user also mentioned forgetting to send invoices. The syste
 - Reminders for pending invoices
 - Could be separate or integrated into the task system
 
+## Starting the Implementation: DataTasks
+
+The project is called "datatasks." There was already a repo created two years ago, so the decision was to reuse it: [github.com/alexeygrigorev/datatasks](https://github.com/alexeygrigorev/datatasks)[^22].
+
+The implementation started using Claude Code (Opus 4.6). The prompt instructed Claude to copy agents, skills, and PROCESS.md from the ai-shipping-lab project, get the task manager description from the telegram-writing-assistant repo, copy it to docs/specs.md, decompose it into individual issues on GitHub, and create the repo. An additional instruction: it should be a single page application on the frontend, all serverless[^20].
+
+<figure>
+  <img src="../../assets/images/task-management-app-idea/claude-code-datatasks-prompt.jpg" alt="Claude Code session creating the datatasks project">
+  <figcaption>The initial prompt to Claude Code to set up the datatasks project, exploring source directories with parallel subagents</figcaption>
+  <!-- Shows Claude Code Opus 4.6 in ~/git/datatasks, running explore agents to find the ai-shipping-lab structure and task manager description -->
+</figure>
+
+Claude Code immediately started following the PROCESS.md workflow - grooming issues first, then implementing in batches of 2. It launched parallel PM agents to groom the two foundational issues (#1 Project scaffold and local dev setup, #2 DynamoDB table design and data layer)[^21].
+
+<figure>
+  <img src="../../assets/images/task-management-app-idea/claude-code-issue-grooming.jpg" alt="Claude Code grooming GitHub issues for datatasks">
+  <figcaption>Claude Code grooming issues #1 and #2 in parallel, showing the todo list with implementation steps and dependencies</figcaption>
+  <!-- Shows the PM grooming workflow: groom issues, implement, QA, PM review, commit and push, pick next issues - all with dependency tracking -->
+</figure>
+
 ## Sources
 
-[^1]: [20260211_043338_AlexeyDTC_msg1350.md](../inbox/used/20260211_043338_AlexeyDTC_msg1350.md)
-[^2]: [20260211_043339_AlexeyDTC_msg1351_transcript.txt](../inbox/used/20260211_043339_AlexeyDTC_msg1351_transcript.txt)
-[^3]: [20260211_043339_AlexeyDTC_msg1352_transcript.txt](../inbox/used/20260211_043339_AlexeyDTC_msg1352_transcript.txt)
-[^4]: [20260211_043339_AlexeyDTC_msg1353_transcript.txt](../inbox/used/20260211_043339_AlexeyDTC_msg1353_transcript.txt)
-[^5]: [20260211_043339_AlexeyDTC_msg1354_transcript.txt](../inbox/used/20260211_043339_AlexeyDTC_msg1354_transcript.txt)
-[^6]: [20260211_043339_AlexeyDTC_msg1355_transcript.txt](../inbox/used/20260211_043339_AlexeyDTC_msg1355_transcript.txt)
-[^7]: [20260211_043339_AlexeyDTC_msg1356_transcript.txt](../inbox/used/20260211_043339_AlexeyDTC_msg1356_transcript.txt)
-[^8]: [20260211_043339_AlexeyDTC_msg1357.md](../inbox/used/20260211_043339_AlexeyDTC_msg1357.md)
-[^9]: [20260211_043339_AlexeyDTC_msg1358.md](../inbox/used/20260211_043339_AlexeyDTC_msg1358.md)
-[^10]: [20260211_043339_AlexeyDTC_msg1359_transcript.txt](../inbox/used/20260211_043339_AlexeyDTC_msg1359_transcript.txt)
-[^11]: [20260211_043339_AlexeyDTC_msg1360_transcript.txt](../inbox/used/20260211_043339_AlexeyDTC_msg1360_transcript.txt)
-[^12]: [20260211_043339_AlexeyDTC_msg1361_transcript.txt](../inbox/used/20260211_043339_AlexeyDTC_msg1361_transcript.txt)
-[^13]: [20260211_043339_AlexeyDTC_msg1362_photo.md](../inbox/used/20260211_043339_AlexeyDTC_msg1362_photo.md)
-[^14]: [20260211_043339_AlexeyDTC_msg1363_transcript.txt](../inbox/used/20260211_043339_AlexeyDTC_msg1363_transcript.txt)
-[^15]: [20260211_043339_AlexeyDTC_msg1364_transcript.txt](../inbox/used/20260211_043339_AlexeyDTC_msg1364_transcript.txt)
-[^16]: [20260211_043339_AlexeyDTC_msg1365_transcript.txt](../inbox/used/20260211_043339_AlexeyDTC_msg1365_transcript.txt)
-[^17]: [20260211_043431_AlexeyDTC_msg1366.md](../inbox/used/20260211_043431_AlexeyDTC_msg1366.md)
-[^18]: [20260211_074754_AlexeyDTC_msg1372_transcript.txt](../inbox/used/20260211_074754_AlexeyDTC_msg1372_transcript.txt)
-[^19]: [20260223_192235_AlexeyDTC_msg2226_transcript.txt](../inbox/used/20260223_192235_AlexeyDTC_msg2226_transcript.txt)
+[^1]: [20260211_043338_AlexeyDTC_msg1350.md](../../inbox/used/20260211_043338_AlexeyDTC_msg1350.md)
+[^2]: [20260211_043339_AlexeyDTC_msg1351_transcript.txt](../../inbox/used/20260211_043339_AlexeyDTC_msg1351_transcript.txt)
+[^3]: [20260211_043339_AlexeyDTC_msg1352_transcript.txt](../../inbox/used/20260211_043339_AlexeyDTC_msg1352_transcript.txt)
+[^4]: [20260211_043339_AlexeyDTC_msg1353_transcript.txt](../../inbox/used/20260211_043339_AlexeyDTC_msg1353_transcript.txt)
+[^5]: [20260211_043339_AlexeyDTC_msg1354_transcript.txt](../../inbox/used/20260211_043339_AlexeyDTC_msg1354_transcript.txt)
+[^6]: [20260211_043339_AlexeyDTC_msg1355_transcript.txt](../../inbox/used/20260211_043339_AlexeyDTC_msg1355_transcript.txt)
+[^7]: [20260211_043339_AlexeyDTC_msg1356_transcript.txt](../../inbox/used/20260211_043339_AlexeyDTC_msg1356_transcript.txt)
+[^8]: [20260211_043339_AlexeyDTC_msg1357.md](../../inbox/used/20260211_043339_AlexeyDTC_msg1357.md)
+[^9]: [20260211_043339_AlexeyDTC_msg1358.md](../../inbox/used/20260211_043339_AlexeyDTC_msg1358.md)
+[^10]: [20260211_043339_AlexeyDTC_msg1359_transcript.txt](../../inbox/used/20260211_043339_AlexeyDTC_msg1359_transcript.txt)
+[^11]: [20260211_043339_AlexeyDTC_msg1360_transcript.txt](../../inbox/used/20260211_043339_AlexeyDTC_msg1360_transcript.txt)
+[^12]: [20260211_043339_AlexeyDTC_msg1361_transcript.txt](../../inbox/used/20260211_043339_AlexeyDTC_msg1361_transcript.txt)
+[^13]: [20260211_043339_AlexeyDTC_msg1362_photo.md](../../inbox/used/20260211_043339_AlexeyDTC_msg1362_photo.md)
+[^14]: [20260211_043339_AlexeyDTC_msg1363_transcript.txt](../../inbox/used/20260211_043339_AlexeyDTC_msg1363_transcript.txt)
+[^15]: [20260211_043339_AlexeyDTC_msg1364_transcript.txt](../../inbox/used/20260211_043339_AlexeyDTC_msg1364_transcript.txt)
+[^16]: [20260211_043339_AlexeyDTC_msg1365_transcript.txt](../../inbox/used/20260211_043339_AlexeyDTC_msg1365_transcript.txt)
+[^17]: [20260211_043431_AlexeyDTC_msg1366.md](../../inbox/used/20260211_043431_AlexeyDTC_msg1366.md)
+[^18]: [20260211_074754_AlexeyDTC_msg1372_transcript.txt](../../inbox/used/20260211_074754_AlexeyDTC_msg1372_transcript.txt)
+[^19]: [20260223_192235_AlexeyDTC_msg2226_transcript.txt](../../inbox/used/20260223_192235_AlexeyDTC_msg2226_transcript.txt)
+[^20]: [20260223_220022_AlexeyDTC_msg2232_photo.md](../../inbox/used/20260223_220022_AlexeyDTC_msg2232_photo.md)
+[^21]: [20260223_220046_AlexeyDTC_msg2234_photo.md](../../inbox/used/20260223_220046_AlexeyDTC_msg2234_photo.md)
+[^22]: [20260223_220135_AlexeyDTC_msg2238.md](../../inbox/used/20260223_220135_AlexeyDTC_msg2238.md)
+[^23]: [20260223_220104_AlexeyDTC_msg2236.md](../../inbox/used/20260223_220104_AlexeyDTC_msg2236.md)

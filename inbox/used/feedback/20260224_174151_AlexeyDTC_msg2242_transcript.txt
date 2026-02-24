@@ -1,0 +1,11 @@
+---
+source: telegram_voice
+date: 2026-02-24T17:41:51+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260224_174151_AlexeyDTC_msg2242.ogg
+---
+
+Вот, потом я в части Interesting Resources я поделила, сделала там секции Tools, Resources, Project
+Ideas. То есть агент может смотреть на то, какой это ресурс, которым мы делимся, и категоризировать
+либо в Tools, либо в Resources, либо в Project Ideas.

@@ -27,6 +27,33 @@ Check `inbox/raw/` for new materials (text, transcripts, photos).
 
 4. Review before finalizing - Use the pre-publishing checklist at the end of Step 3 before considering any article complete. This catches formatting errors, missed move requests, and other issues.
 
+# ARTICLE FOLDER STRUCTURE
+
+Articles live in `articles/` and are organized into subfolders by category. When processing, read `articles/_index.md` to see the full index with paths to all articles across all folders.
+
+## Folder categories
+
+- `articles/ideas/` - Recorded ideas without much detail. Just "it would be cool to do this." No implementation, no deep research - just the idea itself. Useful for not forgetting ideas and reviewing them later.
+
+- `articles/work-in-progress/` - Unfinished articles that need more information, experimentation, or testing before they are ready. These require additional content before they can become newsletter material.
+
+- `articles/ready-for-newsletter/` - Articles that are mostly ready for the newsletter. All the necessary content is already inside. They may need a final review or light editing, but the substance is complete.
+
+- `articles/research/` - Collections of resources and exploration notes on a single topic. Used for gathering links, summaries, and findings when investigating something. Has its own index at `articles/research/_index.md`.
+
+- `articles/talks/` - Notes and preparation materials for upcoming presentations and talks. Not originally meant for articles, but could become one later.
+
+- `articles/` (root) - Files that don't fit neatly into the above categories. Also the default location for new articles. The following stay at the root level:
+  - `interesting-resources.md` - curated resource collection for the newsletter (has sections: Tools, Resources, Project Ideas)
+  - `writing-assistant-improvement-ideas.md` - feedback and improvement ideas for this bot/system
+
+## How the bot should handle folders
+
+- When creating a NEW article, place it in `articles/` root by default. The user will manually move it to the right subfolder later.
+- When updating an EXISTING article, find it wherever it currently lives (any subfolder) and update it in place.
+- When looking for existing articles, search ALL subfolders, not just the root.
+- Source citation paths depend on the article's depth: articles in subfolders use `../../inbox/used/` while articles in the root use `../inbox/used/`. Similarly for image paths to `assets/images/`.
+
 # CRITICAL STYLING REMINDERS
 
 Before creating or editing ANY article content, review STYLE.md in the root repository.
@@ -377,32 +404,6 @@ Research articles contain:
 - Sources for all referenced materials
 
 Example: "Spec-Driven Development" or "Agentic Memory" - topics to investigate, not completed implementations.
-
-# WHAT I DID THIS WEEK
-
-Content goes to the weekly article ONLY when the user explicitly says something like "what I've been working on this week" or "what I've been doing this week." Do NOT automatically add content to this article just because it was sent during the current week. The user must explicitly frame the message as a weekly update.
-
-## Finding the current week number
-
-To determine which week number to use, run:
-```bash
-python -c "from datetime import datetime; print(datetime.now().strftime('%Y-W%W'))"
-```
-
-For example: 2026-W06
-
-## Adding to the weekly article
-
-The article `what-i-did-this-week.md` serves as a working draft:
-1. Add content under the current week heading
-2. Include the date when the message was sent
-3. This article accumulates unpublished content
-4. When content is published elsewhere, remove it from this article
-
-This approach provides:
-- A single place for weekly updates
-- Easy reference for current week's work
-- A system to track what has been published vs not yet published
 
 # COURSE NAMING CONVENTIONS
 
