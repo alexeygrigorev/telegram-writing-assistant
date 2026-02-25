@@ -1,0 +1,11 @@
+---
+source: telegram_voice
+date: 2026-02-25T07:28:53+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260225_072853_AlexeyDTC_msg2382.ogg
+---
+
+Please tell me where I can access your previous video session. Это всё в GitHub репозитории. Я уже
+показывал это. Короче, в GitHub репозитории первая ссылка. Я приложу её сюда ещё раз. Ссылку на
+GitHub репозиторий и ссылку на первую сессию.

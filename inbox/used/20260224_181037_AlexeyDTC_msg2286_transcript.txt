@@ -1,0 +1,9 @@
+---
+source: telegram_voice
+date: 2026-02-24T18:10:37+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260224_181037_AlexeyDTC_msg2286.ogg
+---
+
+Как-то странно распозналась European Engineer's Rolls. Там и я, конечно же.

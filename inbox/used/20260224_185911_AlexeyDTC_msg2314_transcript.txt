@@ -1,0 +1,10 @@
+---
+source: telegram_voice
+date: 2026-02-24T18:59:11+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260224_185911_AlexeyDTC_msg2314.ogg
+---
+
+Насчет end-to-end проектов и экспериментальных ноутбуков, я думаю, тут ответ очевиден.
+Комментировать нечего.

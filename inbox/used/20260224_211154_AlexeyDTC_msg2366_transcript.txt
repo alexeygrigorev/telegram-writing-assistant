@@ -1,0 +1,10 @@
+---
+source: telegram_voice
+date: 2026-02-24T21:11:54+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260224_211154_AlexeyDTC_msg2366.ogg
+---
+
+Так, следующий вопрос про Typical Stages of AI Interview. Короче, про это будет событие скоро, два
+события. Поэтому вот сейчас я оставлю ссылки, подписывайтесь на них.

@@ -1,0 +1,13 @@
+---
+source: telegram_voice
+date: 2026-02-24T17:57:55+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260224_175755_AlexeyDTC_msg2266.ogg
+---
+
+Can you give an example of job role and breakdown of the expectations and the skills used? Ну да,
+это можно сделать. Ну давай я... Слушай, ну вот там в этом репозитории, поройся, о котором я тебе
+говорил, возьми какую-нибудь... несколько вакансий, там в принципе разберешься, они в job research,
+по-моему, лежат. Вот, и посмотри, я тебе сейчас, я тебе кину папку, возьми несколько вакансий и
+сделай анализ.

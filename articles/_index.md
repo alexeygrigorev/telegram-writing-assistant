@@ -97,6 +97,7 @@ Files at the articles root that don't fit into the above categories.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Defining the Role of AI Engineer: Webinar Q&A](ai-engineer-role-definition-qa.md) | draft | 2026-02-25 | Q&A from the Defining the Role of AI Engineer webinar covering career transitions, GitHub portfolios, role comparisons, and job market insights |
 | [Interesting Resources](interesting-resources.md) | draft | 2026-02-22 | Curated collection of tools, resources, and project ideas for the newsletter |
 | [Writing Assistant Improvement Ideas](writing-assistant-improvement-ideas.md) | draft | 2026-02-20 | Feedback and improvement ideas for the Telegram writing assistant bot |
 

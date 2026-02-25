@@ -1,0 +1,9 @@
+---
+source: telegram_voice
+date: 2026-02-24T17:57:11+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260224_175711_AlexeyDTC_msg2264.ogg
+---
+
+Вот на предыдущий вопрос, тут должен был быть ответ по языкам программирования.
