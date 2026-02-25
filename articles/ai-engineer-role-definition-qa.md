@@ -8,7 +8,7 @@ status: draft
 
 # Defining the Role of AI Engineer: Webinar Q&A
 
-After the "Defining the Role of AI Engineer" webinar, there were many questions from the audience. I answered all of them here[^1].
+After the "Defining the Role of AI Engineer" webinar, there were many questions from the audience. I answered all of them here[^1]. 200 people were on the call. It went great - lots of questions, and people liked it[^64].
 
 The [AI Engineering Field Guide](https://github.com/alexeygrigorev/ai-engineering-field-guide) repository contains all the data and analysis referenced in this article[^4]. The first session recording and summary is available at the [AI Shipping Labs blog](https://aishippinglabs.com/blog/what-is-an-ai-engineer-alexey-grigorev-perspective)[^48]. The second session recording is on [YouTube](https://www.youtube.com/watch?v=7NijlAdqk9U)[^63].
 
@@ -700,3 +700,4 @@ On the other hand, local models are gradually catching up with cloud models. You
 [^61]: [20260225_073217_AlexeyDTC_msg2390_transcript.txt](../inbox/used/20260225_073217_AlexeyDTC_msg2390_transcript.txt)
 [^62]: [20260224_175839_AlexeyDTC_msg2272_transcript.txt](../inbox/used/20260224_175839_AlexeyDTC_msg2272_transcript.txt)
 [^63]: [YouTube: Defining the Role of AI Engineer](https://www.youtube.com/watch?v=7NijlAdqk9U), [20260225_084641_AlexeyDTC_msg2396.md](../inbox/used/20260225_084641_AlexeyDTC_msg2396.md)
+[^64]: [20260225_201000_AlexeyDTC_msg2445_transcript.txt](../inbox/used/20260225_201000_AlexeyDTC_msg2445_transcript.txt)

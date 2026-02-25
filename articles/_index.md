@@ -26,8 +26,10 @@ Articles that are mostly ready for the newsletter. All necessary content is insi
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Testing AI Agents with the Judge Pattern](ready-for-newsletter/testing-agents-with-judge-pattern.md) | draft | 2026-02-25 | Using agents to evaluate other agents |
+| [Benchmarking SQLiteSearch](ready-for-newsletter/benchmarking-sqlitesearch.md) | draft | 2026-02-25 | Benchmarking SQLiteSearch with Simple Wikipedia and vector search benchmarks from Milvus/Zilliz |
+| [Course Material Preparation](ready-for-newsletter/course-material-preparation.md) | draft | 2026-02-25 | Workflow for keeping code and documentation in sync |
 | [Claude Code Experiments](ready-for-newsletter/claude-code-experiments.md) | draft | 2026-02-23 | Experiments and applications of Claude Code beyond coding, including challenges with communication |
-| [Benchmarking SQLiteSearch](ready-for-newsletter/benchmarking-sqlitesearch.md) | draft | 2026-02-21 | Benchmarking SQLiteSearch with Simple Wikipedia and vector search benchmarks from Milvus/Zilliz |
 | [SSH Auto Forward: Automatic Port Forwarding Tool](ready-for-newsletter/ssh-auto-forward.md) | draft | 2026-02-21 | Automatic SSH port forwarding tool built with Claude Code for remote development workflow, now published on GitHub and PyPI |
 | [What's New in the Telegram Writing Assistant](ready-for-newsletter/telegram-writing-assistant-updates.md) | draft | 2026-02-20 | Article idea: subagents, research section, link summaries, and QA agent improvements |
 | [Claude Code Helpers](ready-for-newsletter/claude-helpers.md) | draft | 2026-02-19 | Aliases, functions, slash commands, and subagents for Claude Code |
@@ -37,8 +39,6 @@ Articles that are mostly ready for the newsletter. All necessary content is insi
 | [Microphone Booster App](ready-for-newsletter/microphone-booster-app.md) | draft | 2026-02-13 | Windows microphone booster built with OpenCode/GLM-5 using Tauri + Rust |
 | [Minsearch Benchmarking and Optimization](ready-for-newsletter/minsearch-benchmarking-optimization.md) | draft | 2026-02-09 | Optimizing the appendable index through iterative benchmarking |
 | [FAQ System for Course Management](ready-for-newsletter/faq-system.md) | draft | 2026-02-07 | Community-driven FAQ with RAG-based automation and content management |
-| [Testing AI Agents with the Judge Pattern](ready-for-newsletter/testing-agents-with-judge-pattern.md) | draft | 2026-01-30 | Using agents to evaluate other agents |
-| [Course Material Preparation](ready-for-newsletter/course-material-preparation.md) | draft | 2026-01-28 | Workflow for keeping code and documentation in sync |
 | [Course Management Agent](ready-for-newsletter/course-management-agent.md) | draft | 2026-01-23 | Automating course administration tasks with Claude Skills |
 | [Cross-Platform Environment Variable Management with dirdotenv](ready-for-newsletter/dirdotenv.md) | draft | 2026-01-23 | Python-based alternative to direnv |
 | [Generating Books with AI](ready-for-newsletter/ai-book-generator.md) | draft | 2026-01-23 | Using AI to generate complete books with covers |

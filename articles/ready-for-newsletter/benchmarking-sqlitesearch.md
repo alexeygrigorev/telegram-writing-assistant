@@ -1,7 +1,7 @@
 ---
 title: "Benchmarking SQLiteSearch"
 created: 2026-02-21
-updated: 2026-02-21
+updated: 2026-02-25
 tags: [sqlitesearch, benchmarking, performance, python]
 status: draft
 ---
@@ -30,7 +30,20 @@ This can be a separate article - benchmarking SQLiteSearch. People asked for it,
 
 When I run benchmarks, I tell Claude: "We are benchmarking now, please remember how it works right now. Tune it so that the exact same IDs are returned, so there is no situation where we tuned something and everything broke." I take this into account in the benchmarks - the results must stay the same[^2].
 
+## Scaling Issues and HNSW
+
+I continued benchmarking SQLiteSearch. I first decided to benchmark it, then noticed that on benchmarks it was slow and performed poorly. For text search it works fine, but for vector search the results were bad[^3].
+
+I asked Claude what to do. It said it tested on a dataset of 1 million records. On 100,000 records it works fine, but on 1 million it breaks. The LSH approach in its current form just does not work at that scale. Claude said everyone uses other methods like HNSW. I said go ahead and implement them, and let us see what happens. I do not really understand how they work and have not looked into it, but that is something to explore later[^3].
+
+I implemented the new approach and indexed 1 million records. One of the approaches took over an hour to index - too much. It should take around 10 minutes[^3].
+
+The benchmark dataset has a gold standard, so you can calculate recall and precision. We need to optimize recall - when recall is bad, retrieval is bad and needs to be optimized[^3].
+
+Of course it is not entirely fair to compare my library with Qdrant and others, because those are multithreaded and production-ready. This is just a hobby project. But I like that I can tell Claude "make it better," check twice a day what it is doing, and say "no, make it better"[^3].
+
 ## Sources
 
 [^1]: [20260221_184914_AlexeyDTC_msg2186_transcript.txt](../inbox/used/20260221_184914_AlexeyDTC_msg2186_transcript.txt)
 [^2]: [20260221_185007_AlexeyDTC_msg2188_transcript.txt](../inbox/used/20260221_185007_AlexeyDTC_msg2188_transcript.txt)
+[^3]: [20260225_201829_AlexeyDTC_msg2447_transcript.txt](../inbox/used/20260225_201829_AlexeyDTC_msg2447_transcript.txt)

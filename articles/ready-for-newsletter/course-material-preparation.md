@@ -1,7 +1,7 @@
 ---
 title: "Course Material Preparation"
 created: 2026-01-22
-updated: 2026-01-29
+updated: 2026-02-25
 tags: [course-preparation, jupyter, markdown, workflow, automation, claude]
 status: draft
 ---
@@ -198,6 +198,12 @@ Potential approaches to explore:
 
 The goal is to reduce the time between "write code" and "see output" when working with AI assistants on course material preparation. This idea is currently being explored as a way to further speed up the course creation workflow[^10].
 
+## Monitoring Module
+
+This week is easier for the course - covering monitoring. Since I use Langfuse and Pydantic AI in this cohort, and they have a great integration, integrating Langfuse is very easy. I expanded what was in the previous cohort. I added how to add more data to Langfuse and how to retrieve data from it to build evaluation on top of that[^11].
+
+I also plan to do the DIY self-monitoring part, like in the previous cohort, where we build the entire log collection infrastructure ourselves and show the logs in Grafana. That was a cool thing too. But I need to re-record it because I want to do it a bit differently this time[^11].
+
 ## Sources
 
 - [20260122_170054_AlexeyDTC_msg403_transcript.txt](../inbox/used/20260122_170054_AlexeyDTC_msg403_transcript.txt)
@@ -223,3 +229,4 @@ The goal is to reduce the time between "write code" and "see output" when workin
 [^8]: [20260129_173421_AlexeyDTC_msg651_transcript.txt](../inbox/used/20260129_173421_AlexeyDTC_msg651_transcript.txt)
 [^9]: [20260129_173609_AlexeyDTC_msg652_transcript.txt](../inbox/used/20260129_173609_AlexeyDTC_msg652_transcript.txt)
 [^10]: [20260201_114115_AlexeyDTC_msg816_transcript.txt](../inbox/used/20260201_114115_AlexeyDTC_msg816_transcript.txt)
+[^11]: [20260225_200842_AlexeyDTC_msg2443_transcript.txt](../inbox/used/20260225_200842_AlexeyDTC_msg2443_transcript.txt)

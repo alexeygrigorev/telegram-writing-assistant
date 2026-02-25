@@ -1,7 +1,7 @@
 ---
 title: "Testing AI Agents with the Judge Pattern"
 created: 2026-01-30
-updated: 2026-01-30
+updated: 2026-02-25
 tags: [testing, ai, agents, judge, evaluation]
 status: draft
 ---
@@ -134,10 +134,23 @@ The judge evaluates each criterion and reports whether it passed. This is much m
 
 This approach can be integrated with GitHub Actions for continuous integration. The agent runs in a session with a described sequence of steps to test. This is more interesting than manually writing complex test code[^2].
 
+## Generating Tests from Usage Sessions
+
+A workflow for generating tests that I really like. The idea: you use your agent for 10-15 minutes on video, commenting as you go - "this I don't like," "this I don't like," "here we could do this," "here everything works well." Then you take the transcript of that session, feed it to ChatGPT, and say: "generate test scenarios based on this." Then you write test code based on those scenarios[^3].
+
+This approach saves a lot of time. You just record yourself using the agent, Whisper transcribes the recording, and the tests get generated. You fix them one test at a time, and each time something breaks, you know about it. It took some time to prepare everything nicely, but the approach is great[^3].
+
+I also made a nice testing library for this. First you write the tests, then you build the evaluation library on top[^3].
+
+## Homework: SQL Analytics Agent Testing
+
+I gave students a homework assignment to implement an agent that converts user queries to SQL. They use New York taxi data, and the agent's job is to do analytics on this data. You talk to the agent, it turns your request into SQL, and returns the results. The homework is to write tests for this agent[^3].
+
 ## Sources
 
 [^1]: [20260130_090909_AlexeyDTC_msg679.md](../inbox/used/20260130_090909_AlexeyDTC_msg679.md)
 [^2]: [20260130_091056_AlexeyDTC_msg683_transcript.txt](../inbox/used/20260130_091056_AlexeyDTC_msg683_transcript.txt)
+[^3]: [20260225_200726_AlexeyDTC_msg2441_transcript.txt](../inbox/used/20260225_200726_AlexeyDTC_msg2441_transcript.txt)
 
 ## References
 
