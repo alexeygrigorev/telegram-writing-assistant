@@ -74,10 +74,12 @@ Some messages are feedback about the processing system itself, not content for a
 
 Feedback messages typically contain:
 - Instructions on how to process materials
-- Corrections about previous processing mistakes
+- Corrections about previous processing mistakes (e.g., "this was transcribed wrong, fix it")
 - Suggestions for improving the workflow
 - Meta-commentary about the bot/agent behavior
 - Tasks related to repository maintenance (updating index, sorting, etc.)
+
+IMPORTANT: When the user mentions corrections to make (e.g., fixing a transcription error, removing something that does not make sense), apply the correction but do NOT add notes about the correction itself to the article. Correction instructions are for the bot only - the article should read as if the error never existed.
 
 ## Processing Feedback
 
@@ -187,6 +189,16 @@ DO NOT assume facts not explicitly stated:
 - If transcript doesn't specify the platform (Slack vs Discord), don't guess
 - If uncertain about details, check linked sources or ask
 - Better to be vague than wrong
+
+### Handling YouTube URLs
+
+If a message contains a YouTube URL, fetch its transcript using the youtube script:
+
+```bash
+uv run python scripts/youtube.py <video-url-or-id>
+```
+
+The script returns timestamped subtitles. Use the transcript content as source material for the article, just like voice message transcripts. Cite the YouTube URL in sources.
 
 ### Handling URLs
 
