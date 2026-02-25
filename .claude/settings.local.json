@@ -14,7 +14,9 @@
       "Bash(ls:*)",
       "Bash(git pull:*)",
       "WebSearch",
-      "Bash(python -m py_compile:*)"
+      "Bash(python -m py_compile:*)",
+      "Bash(python *)",
+      "Bash(pip install *)"
     ]
   }
 }

@@ -51,8 +51,8 @@ Unfinished articles that need more information, experimentation, or testing befo
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Building a Community Platform with Claude Code's Multi-Agent System](work-in-progress/community-platform-implementation.md) | draft | 2026-02-25 | Experiment building the AI Shipping Labs platform using Claude Code with Product Manager, Software Engineer, Tester, and On-Call Engineer agents |
 | [AI Engineer Role Survey](work-in-progress/ai-engineer-role-survey.md) | draft | 2026-02-22 | Survey collecting first-hand accounts from AI Engineer practitioners about their roles, tools, and interview experiences |
-| [Building a Community Platform with Claude Code's Multi-Agent System](work-in-progress/community-platform-implementation.md) | draft | 2026-02-20 | Experiment building the AI Shipping Labs platform using Claude Code with Product Manager, Software Engineer, Tester, and On-Call Engineer agents |
 | [AI Engineer Role Research](work-in-progress/ai-engineer-role-research.md) | draft | 2026-02-19 | Research into AI Engineer positions and interview process |
 | [Services Website Testimonials](work-in-progress/services-testimonials.md) | draft | 2026-02-15 | Collection of testimonials for the services website |
 | [AI Engineer RPG Game](work-in-progress/ai-engineer-rpg-game.md) | draft | 2026-02-13 | RPG game for interview practice built with OpenCode/GLM-5 in Rust |

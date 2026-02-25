@@ -119,6 +119,22 @@ telegram-writing-assistant/
 └── .env               # API keys (not pushed to git)
 ```
 
+## YouTube Transcripts
+
+Fetch YouTube video transcripts via the `/fetch-youtube` command:
+
+```
+/fetch-youtube https://www.youtube.com/watch?v=VIDEO_ID
+```
+
+Transcripts are cached locally in `~/.cache/youtube_transcripts/`.
+
+If YouTube blocks requests from your server's IP, set `OXYLABS_PROXY_URL` in `.env` to route requests through an Oxylabs residential proxy:
+
+```env
+OXYLABS_PROXY_URL=http://username:password@pr.oxylabs.io:7777
+```
+
 ## Voice Transcription
 
 Voice messages are transcribed using Groq's Whisper API. The `.ogg` files are deleted after transcription - only the text transcript is kept.

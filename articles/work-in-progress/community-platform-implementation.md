@@ -1,7 +1,7 @@
 ---
 title: "Building a Community Platform with Claude Code's Multi-Agent System"
 created: 2026-02-19
-updated: 2026-02-20
+updated: 2026-02-25
 tags: [claude-code, agents, community, implementation, vibe-coding]
 status: draft
 ---
@@ -219,6 +219,77 @@ About vibe coding - I have the same experience as others. Even if you create as 
   <!-- LinkedIn post that resonates with the experience of needing to manage AI agents -->
 </figure>
 
+## Testing the Features
+
+I finally got around to checking the features on the Labs site. Some things had been sitting with the "human" tag. By the process I asked the agent to follow, features that require human verification are marked with the "human" tag and not closed automatically. I started going through the GitHub issues tagged "human"[^31].
+
+### OAuth Tokens
+
+I needed to create OAuth tokens for Gmail and GitHub so the sign-in buttons would work. I generated tokens for both. Claude told me to add them to the .env file[^31].
+
+### Zoom Integration
+
+The Zoom integration worked, but initially not the way I wanted to use it. It was not fully configured. You had to create events through the admin panel, and then it would make a Zoom meeting. I said I want a button instead. It was remade a bit, and everything worked[^31][^32].
+
+<figure>
+  <img src="../../assets/images/community-platform-implementation/create-zoom-meeting-button.jpg" alt="Interface showing no Zoom meeting linked to an event, with a Create Zoom Meeting button">
+  <figcaption>The "Create Zoom Meeting" button on an event page</figcaption>
+  <!-- Shows the button that triggers Zoom meeting creation for an event -->
+</figure>
+
+I press "Create Meeting" and it creates a meeting. Zoom automatically creates a meeting when an event is created[^32][^36].
+
+<figure>
+  <img src="../../assets/images/community-platform-implementation/zoom-meeting-created.jpg" alt="Zoom meeting invitation popup showing Meeting ID and Join URL">
+  <figcaption>Zoom meeting automatically created for an event</figcaption>
+  <!-- Shows the result after clicking Create Meeting - a Zoom meeting with ID and join URL -->
+</figure>
+
+I left some remarks about the interface - things I did not like. But those are about comfort, not functionality. The functionality works. I asked the agent to create GitHub issues for the UI improvements, and asked another agent to start implementing them[^32].
+
+### New Features: Recordings to S3 and YouTube
+
+I created a new feature request: Zoom recordings should automatically go to S3. I do not want to store recordings only in Zoom. They should automatically end up in S3, and people who missed events can watch them from there. All automatically, without any manual work. I also asked to set up automatic upload of everything to YouTube. I do not know if it will work, but it is cool[^32].
+
+### The Admin Panel and User Dashboard
+
+This is what the admin panel looks like - a course management dashboard showing courses, their status, instructors, and access levels[^37].
+
+<figure>
+  <img src="../../assets/images/community-platform-implementation/admin-panel-courses.jpg" alt="Course management dashboard showing MLOps, RAG in Production, and LLM Agents courses with their status and access levels">
+  <figcaption>The admin panel (Studio) showing course management</figcaption>
+  <!-- Screenshot of the admin dashboard with course list, demonstrating what the agent built -->
+</figure>
+
+And this is the home screen that a user sees after logging in. It shows sections for continuing learning, active polls, upcoming events, and quick actions[^38].
+
+<figure>
+  <img src="../../assets/images/community-platform-implementation/user-dashboard.jpg" alt="AI Shipping Labs dashboard showing Welcome back message, Continue Learning, Active Polls, Upcoming Events, and Quick Actions sections">
+  <figcaption>User home screen after logging in to AI Shipping Labs</figcaption>
+  <!-- Shows the authenticated user experience that the agent built -->
+</figure>
+
+### Remaining Work
+
+What is still left to check:
+
+- Email sending - I need to set this up myself
+- Stripe integration - I do not know yet how to test automatic upgrades. When someone pays, their account should upgrade automatically
+- Slack auto-add - when someone pays, Slack access should be added automatically
+- Deployment - still need to figure out how to organize this[^32][^33]
+
+The specific flow I want to test now: make a purchase in Stripe and get automatically added to Slack. Currently there are only two people in Slack. I want to verify that after paying, a new account becomes the third person[^34].
+
+### Content Management Vision
+
+I want articles stored on GitHub because it is much simpler to manage them in markdown than through the site interface. My vision: you work in GitHub, push, and a GitHub Action fires that automatically updates the site. I prefer this to going to the site and editing there. First, I can use all the tools I already use for this. Second, automation. Right now when I write courses, everything is in GitHub and then I have to manually transfer it to the site. I want to just commit to GitHub and have it automatically appear on the site. This still needs to be finalized[^33].
+
+### Overall Impressions
+
+I am surprised that things just work out of the box. I have only checked two features so far (OAuth and Zoom), but I already like the result. I was worried the agent would produce garbage since it worked for a long time. But the process of having features well-planned first, with multiple agents with different roles - this setup seems to work[^31].
+
+There is a lot of work and not much time. I will test Stripe now so we can launch and people can start joining[^33].
+
 ## Sources
 
 [^1]: [20260219_062529_AlexeyDTC_msg1997_transcript.txt](../inbox/used/20260219_062529_AlexeyDTC_msg1997_transcript.txt)
@@ -252,3 +323,11 @@ About vibe coding - I have the same experience as others. Even if you create as 
 [^28]: [20260220_135418_AlexeyDTC_msg2148_transcript.txt](../inbox/used/20260220_135418_AlexeyDTC_msg2148_transcript.txt)
 [^29]: [20260220_143527_AlexeyDTC_msg2156_photo.md](../inbox/used/20260220_143527_AlexeyDTC_msg2156_photo.md)
 [^30]: [20260220_155647_AlexeyDTC_msg2169.md](../inbox/used/20260220_155647_AlexeyDTC_msg2169.md), [20260220_155647_AlexeyDTC_msg2168_video.md](../inbox/used/20260220_155647_AlexeyDTC_msg2168_video.md)
+[^31]: [20260225_163430_AlexeyDTC_msg2408_transcript.txt](../../inbox/used/20260225_163430_AlexeyDTC_msg2408_transcript.txt)
+[^32]: [20260225_163608_AlexeyDTC_msg2410_transcript.txt](../../inbox/used/20260225_163608_AlexeyDTC_msg2410_transcript.txt)
+[^33]: [20260225_163818_AlexeyDTC_msg2412_transcript.txt](../../inbox/used/20260225_163818_AlexeyDTC_msg2412_transcript.txt)
+[^34]: [20260225_164017_AlexeyDTC_msg2414_transcript.txt](../../inbox/used/20260225_164017_AlexeyDTC_msg2414_transcript.txt)
+[^35]: [20260225_164039_AlexeyDTC_msg2416_transcript.txt](../../inbox/used/20260225_164039_AlexeyDTC_msg2416_transcript.txt)
+[^36]: [20260225_164129_AlexeyDTC_msg2418_photo.md](../../inbox/used/20260225_164129_AlexeyDTC_msg2418_photo.md), [20260225_164203_AlexeyDTC_msg2420_photo.md](../../inbox/used/20260225_164203_AlexeyDTC_msg2420_photo.md)
+[^37]: [20260225_164233_AlexeyDTC_msg2422_photo.md](../../inbox/used/20260225_164233_AlexeyDTC_msg2422_photo.md)
+[^38]: [20260225_164305_AlexeyDTC_msg2424_photo.md](../../inbox/used/20260225_164305_AlexeyDTC_msg2424_photo.md)
