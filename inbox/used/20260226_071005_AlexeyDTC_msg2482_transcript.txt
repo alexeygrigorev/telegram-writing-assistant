@@ -1,0 +1,10 @@
+---
+source: telegram_voice
+date: 2026-02-26T07:10:05+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260226_071005_AlexeyDTC_msg2482.ogg
+---
+
+This is an audio file I was talking about. I want to save it for transcription so that it could be
+processed.

@@ -172,6 +172,16 @@ Add to EXISTING article when:
 - A reader of that article would expect to find this content
 - CRITICAL: Keep all content about ONE topic together in ONE article. Do not split related content across multiple files. For example, if content about Automator Bot includes troubleshooting with Claude Code, that content belongs in automator-bot.md, NOT in claude-code-experiments.md.
 
+### Weekly log
+
+There is a special article `articles/weekly-log.md` that tracks what was done each week. When the user says "what I did this week" or similar:
+
+- If the topic already has its own detailed article, add a short summary with a link to the weekly log
+- If the topic does not have a separate article and the content is brief, add the details directly to the weekly log
+- If the content is substantial enough, create a separate article for it and add a summary link to the weekly log
+
+The weekly log is organized by week headers (e.g., "## Week of 2026-02-24"). Always add content to the current week section.
+
 ## Step 3: Process Text Content
 
 For each text/transcript material:

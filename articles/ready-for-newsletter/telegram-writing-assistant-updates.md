@@ -1,7 +1,7 @@
 ---
 title: "What's New in the Telegram Writing Assistant"
 created: 2026-02-19
-updated: 2026-02-25
+updated: 2026-02-26
 tags: [telegram-bot, claude-code, agents, tools]
 status: draft
 ---
@@ -79,9 +79,15 @@ This two-step process ensures complete preservation of voice message content[^1]
 
 ## Audio File Processing
 
-Currently when Telegram receives files (not voice notes), the bot does not do anything with them. We want it to handle audio files too - when it receives audio that is not a voice note, it most likely contains speech, so it should transcribe it the same way and process it as a regular voice note. This is a task that needs to be implemented.[^2]
+The problem is that Telegram cannot record voice notes in the background - when I switch away from the app, recording stops. But I want to record in the background. The solution: record the audio elsewhere and just send the file to the bot[^6].
 
-Code was added to handle custom audio files (mp4, m4a), but the first test did not work. Need to check the logs to see what happened.[^3][^4]
+When the bot receives a file (not a voice note), it should handle audio files too - when it receives audio that is not a voice note, it most likely contains speech, so it should transcribe it the same way and process it as a regular voice note[^2].
+
+Code was added to handle custom audio files (mp4, m4a). The first test did not work[^3][^4]. I tried to make this work earlier but the process did not go through. Now everything works - I debugged everything and the whole pipeline runs correctly[^6].
+
+## YouTube Transcript Processing
+
+The bot can now process YouTube files. When a message contains a YouTube URL, the bot fetches the video transcript and processes it as source material, just like voice message transcripts[^6].
 
 ## Video Download Support
 
@@ -94,3 +100,4 @@ I taught the bot to download YouTube videos. When running on my local computer, 
 [^3]: [20260220_070425_AlexeyDTC_msg2103_transcript.txt](../inbox/used/20260220_070425_AlexeyDTC_msg2103_transcript.txt)
 [^4]: [20260220_070616_AlexeyDTC_msg2106_transcript.txt](../inbox/used/20260220_070616_AlexeyDTC_msg2106_transcript.txt)
 [^5]: [20260225_210831_AlexeyDTC_msg2463_transcript.txt](../../inbox/used/20260225_210831_AlexeyDTC_msg2463_transcript.txt)
+[^6]: [20260226_071301_AlexeyDTC_msg2486_transcript.txt](../../inbox/used/20260226_071301_AlexeyDTC_msg2486_transcript.txt)
