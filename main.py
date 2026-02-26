@@ -379,6 +379,37 @@ async def handle_voice_message(update: Update, context: ContextTypes.DEFAULT_TYP
         await safe_reply(update.message, f"Error: {type(e).__name__}: {e}", parse_mode=None)
 
 
+async def handle_audio_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Handle incoming audio messages (music/audio files sent with player UI).
+
+    Telegram distinguishes between voice recordings (filters.VOICE) and audio files
+    (filters.AUDIO). This handler catches the latter and transcribes them the same way.
+    """
+    if not is_allowed_chat(update):
+        return
+    if update.message is None:
+        print("[handle_audio_message] Cannot process: update.message is None")
+        return
+    try:
+        user = update.effective_user
+        audio = update.message.audio
+        msg_date = update.message.date
+        msg_id = update.message.message_id
+
+        # Get the file path
+        file = await audio.get_file()
+        audio_file, transcript_file, transcript_text = await save_voice_message(
+            file.file_path, user.id, user.username, msg_date, msg_id
+        )
+
+        # Send transcript to chat with collapsible blockquote
+        prefix = f"Saved: {audio.file_name or audio_file.name}"
+        text, entities = create_collapsible_message(prefix, transcript_text, max_length=2000)
+        await safe_reply(update.message, text, entities=entities)
+    except Exception as e:
+        await safe_reply(update.message, f"Error: {type(e).__name__}: {e}", parse_mode=None)
+
+
 async def handle_photo_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Handle incoming photo messages."""
     if not is_allowed_chat(update):
@@ -405,6 +436,101 @@ async def handle_photo_message(update: Update, context: ContextTypes.DEFAULT_TYP
         prefix = f"Saved: {filename.name}"
         text, entities = create_collapsible_message(prefix, description, max_length=500)
         await safe_reply(update.message, text, entities=entities)
+    except Exception as e:
+        await safe_reply(update.message, f"Error: {type(e).__name__}: {e}", parse_mode=None)
+
+
+async def handle_animation_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Handle incoming animation/GIF messages - saves metadata and Telegram link, does not download.
+
+    Telegram auto-converts small soundless videos to animations (GIFs).
+    We treat them the same as videos: save metadata only.
+    """
+    if not is_allowed_chat(update):
+        return
+    if update.message is None:
+        print("[handle_animation_message] Cannot process: update.message is None")
+        return
+    try:
+        user = update.effective_user
+        animation = update.message.animation
+        caption = update.message.caption
+        text = update.message.text
+        msg_date = update.message.date
+        msg_id = update.message.message_id
+        chat_id = update.effective_chat.id
+
+        # Create base filename
+        base_name = get_filename(msg_date, msg_id, user.username)
+        md_filename = INBOX_RAW / f"{base_name}_video.md"
+
+        # Build Telegram link to the message (group format)
+        chat_id_str = str(chat_id).lstrip('-100')
+        telegram_link = f"https://t.me/c/{chat_id_str}/{msg_id}"
+
+        # Build video metadata
+        metadata_lines = [
+            "---",
+            "source: telegram_video",
+            f"date: {msg_date.isoformat()}",
+            f"user_id: {user.id}",
+            f"username: {user.username or 'unknown'}",
+            f"message_id: {msg_id}",
+            f"chat_id: {chat_id}",
+        ]
+
+        if animation:
+            if animation.file_name:
+                metadata_lines.append(f"file_name: {animation.file_name}")
+            if animation.duration:
+                metadata_lines.append(f"duration_seconds: {animation.duration}")
+            if animation.width:
+                metadata_lines.append(f"width: {animation.width}")
+            if animation.height:
+                metadata_lines.append(f"height: {animation.height}")
+            if animation.file_size:
+                metadata_lines.append(f"file_size_bytes: {animation.file_size}")
+
+        metadata_lines.append("---")
+        metadata_lines.append("")
+
+        # Build content
+        content_parts = metadata_lines.copy()
+        content_parts.append(f"[View video on Telegram]({telegram_link})")
+        content_parts.append("")
+
+        # Add video info block
+        video_info = []
+        if animation:
+            if animation.duration:
+                minutes, seconds = divmod(animation.duration, 60)
+                video_info.append(f"Duration: {minutes}m {seconds}s")
+            if animation.width and animation.height:
+                video_info.append(f"Resolution: {animation.width}x{animation.height}")
+            if animation.file_size:
+                size_mb = animation.file_size / (1024 * 1024)
+                video_info.append(f"Size: {size_mb:.1f} MB")
+            if animation.file_name:
+                video_info.append(f"Filename: {animation.file_name}")
+
+        if video_info:
+            content_parts.append("Video info: " + ", ".join(video_info))
+            content_parts.append("")
+
+        if caption:
+            content_parts.append(f"Caption: {caption}")
+            content_parts.append("")
+
+        if text:
+            content_parts.append(f"Message text: {text}")
+            content_parts.append("")
+
+        # Write markdown file
+        with open(md_filename, "w", encoding="utf-8") as f:
+            f.write("\n".join(content_parts))
+
+        reply_text = f"Saved video metadata: {md_filename.name}"
+        await safe_reply(update.message, reply_text, parse_mode=None)
     except Exception as e:
         await safe_reply(update.message, f"Error: {type(e).__name__}: {e}", parse_mode=None)
 
@@ -521,12 +647,51 @@ async def handle_document_message(update: Update, context: ContextTypes.DEFAULT_
 
         # Get file info
         file_name = document.file_name
+        extension = Path(file_name).suffix if Path(file_name).suffix else '.txt'
+
+        # Video files: save metadata only, same as handle_video_message
+        video_extensions = {'.mp4', '.mov', '.avi', '.mkv', '.webm'}
+        if extension.lower() in video_extensions:
+            chat_id = update.effective_chat.id
+            base_name = get_filename(msg_date, msg_id, user.username)
+            md_filename = INBOX_RAW / f"{base_name}_video.md"
+
+            chat_id_str = str(chat_id).lstrip('-100')
+            telegram_link = f"https://t.me/c/{chat_id_str}/{msg_id}"
+
+            metadata_lines = [
+                "---",
+                "source: telegram_video",
+                f"date: {msg_date.isoformat()}",
+                f"user_id: {user.id}",
+                f"username: {user.username or 'unknown'}",
+                f"message_id: {msg_id}",
+                f"chat_id: {chat_id}",
+                f"file_name: {file_name}",
+                "---",
+                "",
+            ]
+
+            content_parts = metadata_lines.copy()
+            content_parts.append(f"[View video on Telegram]({telegram_link})")
+            content_parts.append("")
+
+            if caption:
+                content_parts.append(f"Caption: {caption}")
+                content_parts.append("")
+
+            with open(md_filename, "w", encoding="utf-8") as f:
+                f.write("\n".join(content_parts))
+
+            reply_text = f"Saved video metadata: {md_filename.name}"
+            await safe_reply(update.message, reply_text, parse_mode=None)
+            return
+
         file = await document.get_file()
         file_path = file.file_path
 
         # Create base filename
         base_name = get_filename(msg_date, msg_id, user.username)
-        extension = Path(file_name).suffix if Path(file_name).suffix else '.txt'
         saved_filename = INBOX_RAW / f"{base_name}{extension}"
 
         # Download the file
@@ -756,8 +921,10 @@ def main() -> None:
     # Register message handlers
     application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_text_message))
     application.add_handler(MessageHandler(filters.VOICE, handle_voice_message))
+    application.add_handler(MessageHandler(filters.AUDIO, handle_audio_message))
     application.add_handler(MessageHandler(filters.PHOTO, handle_photo_message))
     application.add_handler(MessageHandler(filters.VIDEO, handle_video_message))
+    application.add_handler(MessageHandler(filters.ANIMATION, handle_animation_message))
     application.add_handler(MessageHandler(filters.Document.ALL, handle_document_message))
 
     # Register error handler

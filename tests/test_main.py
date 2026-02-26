@@ -653,3 +653,221 @@ class TestHandleVideoMessage:
         assert "Duration: 2m 30s" in content
         assert "Resolution: 3840x2160" in content
         assert "Size: 100.0 MB" in content
+
+
+class TestHandleAnimationMessage:
+    """Tests for handle_animation_message function."""
+
+    @patch("main.INBOX_RAW", Path("/fake/inbox/raw"))
+    @patch("main.TELEGRAM_CHAT_ID", -1001234567890)
+    @pytest.mark.asyncio
+    async def test_animation_saves_metadata_only(self):
+        """Test that animation handler saves metadata without downloading."""
+        from main import handle_animation_message
+
+        written_content = []
+        def mock_write(content):
+            written_content.append(content)
+
+        mock_open = MagicMock()
+        mock_open.return_value.__enter__ = MagicMock(return_value=MagicMock(write=mock_write))
+        mock_open.return_value.__exit__ = MagicMock(return_value=False)
+
+        update = Mock(spec=Update)
+        update.effective_chat.id = -1001234567890
+        update.effective_user.id = 12345
+        update.effective_user.username = "testuser"
+        update.message.message_id = 200
+        update.message.date = datetime(2026, 2, 26, 7, 0, 0)
+
+        animation = MagicMock()
+        animation.duration = 5
+        animation.width = 640
+        animation.height = 480
+        animation.file_size = 284339
+        animation.file_name = "progress.mp4"
+        update.message.animation = animation
+        update.message.caption = "SVG translation demo"
+        update.message.text = None
+
+        update.message.reply_text = AsyncMock(return_value=MagicMock())
+
+        with patch("builtins.open", mock_open):
+            await handle_animation_message(update, MagicMock())
+
+        # Verify metadata was written
+        content = written_content[0] if written_content else ""
+        assert "source: telegram_video" in content
+        assert "duration_seconds: 5" in content
+        assert "width: 640" in content
+        assert "Caption: SVG translation demo" in content
+        assert "https://t.me/c/" in content
+
+        # Verify reply mentions metadata, not file download
+        call_args = update.message.reply_text.call_args
+        assert "Saved video metadata:" in call_args[0][0]
+        assert "_video.md" in call_args[0][0]
+
+    @patch("main.INBOX_RAW")
+    @patch("main.TELEGRAM_CHAT_ID", -1001234567890)
+    @pytest.mark.asyncio
+    async def test_animation_rejects_wrong_chat(self, mock_inbox_raw):
+        """Test that animation from wrong chat is rejected."""
+        from main import handle_animation_message
+
+        update = Mock(spec=Update)
+        update.effective_chat.id = -9999999999
+        update.message.reply_text = AsyncMock()
+
+        await handle_animation_message(update, MagicMock())
+        update.message.reply_text.assert_not_called()
+
+
+class TestHandleAudioMessage:
+    """Tests for handle_audio_message function."""
+
+    @patch("main.save_voice_message")
+    @patch("main.INBOX_RAW")
+    @patch("main.TELEGRAM_CHAT_ID", -1001234567890)
+    @pytest.mark.asyncio
+    async def test_audio_transcribes_like_voice(self, mock_inbox_raw, mock_save_voice):
+        """Test that audio messages are transcribed like voice messages."""
+        from main import handle_audio_message
+
+        # Mock save_voice_message return
+        mock_save_voice.return_value = (
+            Path("/fake/audio.m4a"),
+            Path("/fake/transcript.txt"),
+            "This is the transcribed text."
+        )
+
+        update = Mock(spec=Update)
+        update.effective_chat.id = -1001234567890
+        update.effective_user.id = 12345
+        update.effective_user.username = "testuser"
+        update.message.message_id = 300
+        update.message.date = datetime(2026, 2, 26, 8, 0, 0)
+
+        audio = MagicMock()
+        audio.file_name = "recording.m4a"
+        file_mock = AsyncMock()
+        file_mock.file_path = "https://api.telegram.org/file/bot123/audio.m4a"
+        audio.get_file = AsyncMock(return_value=file_mock)
+        update.message.audio = audio
+
+        update.message.reply_text = AsyncMock(return_value=MagicMock())
+
+        await handle_audio_message(update, MagicMock())
+
+        # Verify save_voice_message was called
+        mock_save_voice.assert_called_once()
+
+        # Verify reply was sent
+        update.message.reply_text.assert_called_once()
+
+    @patch("main.INBOX_RAW")
+    @patch("main.TELEGRAM_CHAT_ID", -1001234567890)
+    @pytest.mark.asyncio
+    async def test_audio_rejects_wrong_chat(self, mock_inbox_raw):
+        """Test that audio from wrong chat is rejected."""
+        from main import handle_audio_message
+
+        update = Mock(spec=Update)
+        update.effective_chat.id = -9999999999
+        update.message.reply_text = AsyncMock()
+
+        await handle_audio_message(update, MagicMock())
+        update.message.reply_text.assert_not_called()
+
+
+class TestDocumentVideoShortcut:
+    """Tests for video file detection in handle_document_message."""
+
+    @patch("main.INBOX_RAW")
+    @patch("main.TELEGRAM_CHAT_ID", -1001234567890)
+    @pytest.mark.asyncio
+    async def test_mp4_document_saves_metadata_only(self, mock_inbox_raw):
+        """Test that MP4 sent as document saves metadata without downloading."""
+        from main import handle_document_message
+
+        mock_inbox_path = MagicMock()
+        mock_inbox_raw.__truediv__ = MagicMock(return_value=mock_inbox_path)
+
+        written_content = []
+        def mock_write(content):
+            written_content.append(content)
+
+        mock_open = MagicMock()
+        mock_open.return_value.__enter__ = MagicMock(return_value=MagicMock(write=mock_write))
+        mock_open.return_value.__exit__ = MagicMock(return_value=False)
+
+        update = Mock(spec=Update)
+        update.effective_chat.id = -1001234567890
+        update.effective_user.id = 12345
+        update.effective_user.username = "testuser"
+        update.message.message_id = 400
+        update.message.date = datetime(2026, 2, 26, 9, 0, 0)
+
+        document = MagicMock()
+        document.file_name = "screen_recording.mp4"
+        # get_file should NOT be called for video documents
+        document.get_file = AsyncMock()
+        update.message.document = document
+        update.message.caption = "Demo recording"
+
+        update.message.reply_text = AsyncMock(return_value=MagicMock())
+
+        with patch("builtins.open", mock_open):
+            await handle_document_message(update, MagicMock())
+
+        # Verify metadata was written with video source
+        content = written_content[0] if written_content else ""
+        assert "source: telegram_video" in content
+        assert "https://t.me/c/" in content
+
+        # Verify file was NOT downloaded
+        document.get_file.assert_not_called()
+
+        # Verify reply mentions metadata
+        call_args = update.message.reply_text.call_args
+        assert "Saved video metadata:" in call_args[0][0]
+
+    @patch("main.INBOX_RAW")
+    @patch("main.TELEGRAM_CHAT_ID", -1001234567890)
+    @pytest.mark.asyncio
+    async def test_mov_document_saves_metadata_only(self, mock_inbox_raw):
+        """Test that MOV sent as document also triggers video shortcut."""
+        from main import handle_document_message
+
+        mock_inbox_path = MagicMock()
+        mock_inbox_raw.__truediv__ = MagicMock(return_value=mock_inbox_path)
+
+        written_content = []
+        def mock_write(content):
+            written_content.append(content)
+
+        mock_open = MagicMock()
+        mock_open.return_value.__enter__ = MagicMock(return_value=MagicMock(write=mock_write))
+        mock_open.return_value.__exit__ = MagicMock(return_value=False)
+
+        update = Mock(spec=Update)
+        update.effective_chat.id = -1001234567890
+        update.effective_user.id = 12345
+        update.effective_user.username = "testuser"
+        update.message.message_id = 401
+        update.message.date = datetime(2026, 2, 26, 9, 0, 0)
+
+        document = MagicMock()
+        document.file_name = "video.mov"
+        document.get_file = AsyncMock()
+        update.message.document = document
+        update.message.caption = None
+
+        update.message.reply_text = AsyncMock(return_value=MagicMock())
+
+        with patch("builtins.open", mock_open):
+            await handle_document_message(update, MagicMock())
+
+        content = written_content[0] if written_content else ""
+        assert "source: telegram_video" in content
+        document.get_file.assert_not_called()
