@@ -26,12 +26,12 @@ Articles that are mostly ready for the newsletter. All necessary content is insi
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [What's New in the Telegram Writing Assistant](ready-for-newsletter/telegram-writing-assistant-updates.md) | draft | 2026-02-25 | Article idea: subagents, research section, link summaries, and QA agent improvements |
 | [Testing AI Agents with the Judge Pattern](ready-for-newsletter/testing-agents-with-judge-pattern.md) | draft | 2026-02-25 | Using agents to evaluate other agents |
 | [Benchmarking SQLiteSearch](ready-for-newsletter/benchmarking-sqlitesearch.md) | draft | 2026-02-25 | Benchmarking SQLiteSearch with Simple Wikipedia and vector search benchmarks from Milvus/Zilliz |
 | [Course Material Preparation](ready-for-newsletter/course-material-preparation.md) | draft | 2026-02-25 | Workflow for keeping code and documentation in sync |
 | [Claude Code Experiments](ready-for-newsletter/claude-code-experiments.md) | draft | 2026-02-23 | Experiments and applications of Claude Code beyond coding, including challenges with communication |
 | [SSH Auto Forward: Automatic Port Forwarding Tool](ready-for-newsletter/ssh-auto-forward.md) | draft | 2026-02-21 | Automatic SSH port forwarding tool built with Claude Code for remote development workflow, now published on GitHub and PyPI |
-| [What's New in the Telegram Writing Assistant](ready-for-newsletter/telegram-writing-assistant-updates.md) | draft | 2026-02-20 | Article idea: subagents, research section, link summaries, and QA agent improvements |
 | [Claude Code Helpers](ready-for-newsletter/claude-helpers.md) | draft | 2026-02-19 | Aliases, functions, slash commands, and subagents for Claude Code |
 | [Certificates and AI Design Experiments](ready-for-newsletter/certificates-and-ai-design-experiments.md) | draft | 2026-02-16 | Creating workshop certificates and experiments with image-to-HTML/CSS conversion |
 | [Nobook: Plain Python Files as Jupyter Notebooks](ready-for-newsletter/nobook.md) | draft | 2026-02-13 | Tool that uses plain .py files as Jupyter notebooks instead of .ipynb JSON |
@@ -97,6 +97,7 @@ Files at the articles root that don't fit into the above categories.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Recreating a PNG Logo as SVG with Claude Code](svg-logo-recreation.md) | draft | 2026-02-25 | Converting a ChatGPT-generated PNG logo to SVG using Claude Code with OpenCV and potrace |
 | [Defining the Role of AI Engineer: Webinar Q&A](ai-engineer-role-definition-qa.md) | draft | 2026-02-25 | Q&A from the Defining the Role of AI Engineer webinar covering career transitions, GitHub portfolios, role comparisons, and job market insights |
 | [Interesting Resources](interesting-resources.md) | draft | 2026-02-22 | Curated collection of tools, resources, and project ideas for the newsletter |
 | [Writing Assistant Improvement Ideas](writing-assistant-improvement-ideas.md) | draft | 2026-02-20 | Feedback and improvement ideas for the Telegram writing assistant bot |

@@ -1,7 +1,7 @@
 ---
 title: "What's New in the Telegram Writing Assistant"
 created: 2026-02-19
-updated: 2026-02-20
+updated: 2026-02-25
 tags: [telegram-bot, claude-code, agents, tools]
 status: draft
 ---
@@ -83,9 +83,14 @@ Currently when Telegram receives files (not voice notes), the bot does not do an
 
 Code was added to handle custom audio files (mp4, m4a), but the first test did not work. Need to check the logs to see what happened.[^3][^4]
 
+## Video Download Support
+
+I taught the bot to download YouTube videos. When running on my local computer, regular requests work fine. But since all the bots moved to Hetzner, it is a data center, not a regular computer, so standard downloads do not work. I had to add proxy support to the regular script. It was not particularly difficult since I had done it before, but I had to re-implement it for the new setup.[^5]
+
 ## Sources
 
 [^1]: [20260219_081802_AlexeyDTC_msg2017_transcript.txt](../inbox/used/20260219_081802_AlexeyDTC_msg2017_transcript.txt)
 [^2]: [20260219_144023_AlexeyDTC_msg2079_transcript.txt](../inbox/used/20260219_144023_AlexeyDTC_msg2079_transcript.txt)
 [^3]: [20260220_070425_AlexeyDTC_msg2103_transcript.txt](../inbox/used/20260220_070425_AlexeyDTC_msg2103_transcript.txt)
 [^4]: [20260220_070616_AlexeyDTC_msg2106_transcript.txt](../inbox/used/20260220_070616_AlexeyDTC_msg2106_transcript.txt)
+[^5]: [20260225_210831_AlexeyDTC_msg2463_transcript.txt](../../inbox/used/20260225_210831_AlexeyDTC_msg2463_transcript.txt)
