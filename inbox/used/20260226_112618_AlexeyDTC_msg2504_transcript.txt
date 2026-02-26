@@ -1,0 +1,18 @@
+---
+source: telegram_voice
+date: 2026-02-26T11:26:18+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260226_112618_AlexeyDTC_msg2504.ogg
+---
+
+I just had another idea. So you can implement an agent that creates you, helps you identify agents
+that you can do. So probably kind of similar to remember this kid parent stuff, so the kid, these
+clout slash commands that we wrote about in Substack. Yeah, so for that we can create something that
+helps people select nice projects, simple projects like an agent that is like I don't know what
+exactly kind of tools this agent will need to have. Could be just simple conversational agent, like
+not really an agent, like just a chatbot that helps people come up with original ideas. That's also
+a very nice idea. First of all, it's a nice project idea, but then And it's also a nice project for
+us to have in the community where, yeah, people can try playing with this. And by the way, so this
+could be actually a good lead magnet for the community. So they will have to sign up to interact
+with the agent. And then the agent can suggest different ideas. Oh, that's actually really nice.

@@ -1,0 +1,30 @@
+---
+source: telegram_voice
+date: 2026-02-26T11:32:17+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260226_113217_AlexeyDTC_msg2510.ogg
+---
+
+Just another idea, right? So we have a lot of questions about the role of AI engineer. So it would
+be nice if there was an agent that scrapes new jobs, right, from different locations, so you can set
+this up and then it sends you different trends about these jobs, like new positions, right, then
+different new jobs, different trends, then you can talk about about the trends in data with your
+agent, right? So, yeah, and then you can also personalize it. So if you have your own profile, then
+it can quickly highlight jobs that you are a good match for. And then it can also highlight you
+things, areas for improvement, right? So you can say, here, I already know this, this, and this,
+what else do I need to know, right? And then it can help you select things based on data. So it can
+do some sort of research. And this is actually a pretty interesting project. And I think this is
+something that we can also implement for AI shipping build camp. So I would just need to understand
+what kind of data we can scrape what would be the best resource for that in order to provide this
+data right but then it actually a very nice idea right so you can have a personalized thing that
+helps you understand and then it also can cluster different jobs into different clusters it can help
+you select domain it can help you select project ideas for these jobs. Right, so yeah, that's a
+really cool idea. So based on the data that I already have, we can continue collecting this data,
+right? That's idea. But another idea is like, okay, you have all this data set. What can you do
+about this to help you yourself upskill yourself, right? and then just include a link to this recent
+AI engineering field guide there where the data is so then they can actually build build a rack on
+top of that that can help them right and then if they also specify the profile this is a cool
+project so there are actually two things that they recorded here so first of all So it's an idea for
+people, what they can implement. And second is, yeah, what exactly, what we can add to the website
+to our community.

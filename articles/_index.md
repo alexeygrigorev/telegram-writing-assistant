@@ -26,9 +26,9 @@ Articles that are mostly ready for the newsletter. All necessary content is insi
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Benchmarking SQLiteSearch](ready-for-newsletter/benchmarking-sqlitesearch.md) | draft | 2026-02-26 | Benchmarking SQLiteSearch with Simple Wikipedia and vector search benchmarks from Milvus/Zilliz, HNSW and IVF implementations, v0.0.3 release |
 | [What's New in the Telegram Writing Assistant](ready-for-newsletter/telegram-writing-assistant-updates.md) | draft | 2026-02-26 | Article idea: subagents, research section, link summaries, QA agent, YouTube and audio file processing |
 | [Testing AI Agents with the Judge Pattern](ready-for-newsletter/testing-agents-with-judge-pattern.md) | draft | 2026-02-25 | Using agents to evaluate other agents |
-| [Benchmarking SQLiteSearch](ready-for-newsletter/benchmarking-sqlitesearch.md) | draft | 2026-02-25 | Benchmarking SQLiteSearch with Simple Wikipedia and vector search benchmarks from Milvus/Zilliz |
 | [Course Material Preparation](ready-for-newsletter/course-material-preparation.md) | draft | 2026-02-25 | Workflow for keeping code and documentation in sync |
 | [Claude Code Experiments](ready-for-newsletter/claude-code-experiments.md) | draft | 2026-02-23 | Experiments and applications of Claude Code beyond coding, including challenges with communication |
 | [SSH Auto Forward: Automatic Port Forwarding Tool](ready-for-newsletter/ssh-auto-forward.md) | draft | 2026-02-21 | Automatic SSH port forwarding tool built with Claude Code for remote development workflow, now published on GitHub and PyPI |
@@ -97,6 +97,8 @@ Files at the articles root that don't fit into the above categories.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [AI Agent Project Ideas](agent-project-ideas.md) | draft | 2026-02-26 | Collection of AI agent project ideas for AI Buildcamp students: GitHub issue bot, idea generator, job analytics, knowledge management, journaling |
+| [Community Platform Feature Ideas](community-platform-features.md) | draft | 2026-02-26 | Feature ideas for the AI Shipping Labs site: business case simulator, career help tools, data collection |
 | [Weekly Log](weekly-log.md) | draft | 2026-02-26 | Running log of weekly activities with links to detailed articles |
 | [Recreating a PNG Logo as SVG with Claude Code](svg-logo-recreation.md) | draft | 2026-02-26 | Converting a ChatGPT-generated PNG logo to SVG using Claude Code with OpenCV and potrace |
 | [Defining the Role of AI Engineer: Webinar Q&A](ai-engineer-role-definition-qa.md) | draft | 2026-02-25 | Q&A from the Defining the Role of AI Engineer webinar covering career transitions, GitHub portfolios, role comparisons, and job market insights |

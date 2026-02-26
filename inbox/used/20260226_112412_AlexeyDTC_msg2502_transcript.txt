@@ -1,0 +1,14 @@
+---
+source: telegram_voice
+date: 2026-02-26T11:24:12+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260226_112412_AlexeyDTC_msg2502.ogg
+---
+
+So this was my reply to this person. So based on that, let's, we can structure it not as a reply,
+but as a project idea and what exactly the agent should do there. Yeah. And then I will be adding
+more and more ideas. Of course we can list the projects and this is what we should do. We should
+list the projects that people will implement during AI build camp. So this is also a promotion to
+the course because they are actually going to implement many of them, many projects, but also, yeah,
+let's start collecting different ideas. So let's create an article for that.

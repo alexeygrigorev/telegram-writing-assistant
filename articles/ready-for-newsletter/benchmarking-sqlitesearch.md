@@ -1,7 +1,7 @@
 ---
 title: "Benchmarking SQLiteSearch"
 created: 2026-02-21
-updated: 2026-02-25
+updated: 2026-02-26
 tags: [sqlitesearch, benchmarking, performance, python]
 status: draft
 ---
@@ -42,8 +42,36 @@ The benchmark dataset has a gold standard, so you can calculate recall and preci
 
 Of course it is not entirely fair to compare my library with Qdrant and others, because those are multithreaded and production-ready. This is just a hobby project. But I like that I can tell Claude "make it better," check twice a day what it is doing, and say "no, make it better"[^3].
 
+## Benchmark Results
+
+The benchmark results are published on GitHub: [sqlitesearch/benchmark](https://github.com/alexeygrigorev/sqlitesearch/tree/main/benchmark) with a detailed [writeup](https://github.com/alexeygrigorev/sqlitesearch/blob/main/benchmark/WRITEUP.md)[^4].
+
+Last week someone asked to do benchmarks. The results were not great at first. The original choice was LSH because it was easy to understand and implement. But LSH turned out to be completely unsuitable for large volumes[^5].
+
+Claude did most of the work. Two additional implementations appeared. The current best implementation is HNSW. It builds the index in about 10 minutes. Its recall is slightly worse than IVF, but it is much faster - 6 milliseconds query speed compared to 219 milliseconds for the next fastest (IVF). On one million vectors it is extremely fast. The benchmarks turned out really good[^5].
+
+<figure>
+  <img src="../../assets/images/benchmarking-sqlitesearch/vdbbench-comparison-table.jpg" alt="Benchmark comparison table showing sqlitesearch performance against cloud vector databases">
+  <figcaption>VDBBench comparison - sqlitesearch vs cloud vector databases on Cohere-1M dataset. VDBBench numbers are multi-process concurrent QPS on dedicated cloud hardware ($1,000/month). sqlitesearch is serial single-process in pure Python - recall and per-query latency are more meaningful for comparison.</figcaption>
+  <!-- Benchmark comparison screenshot showing sqlitesearch HNSW, IVF, and LSH results alongside ZillizCloud, Milvus, OpenSearch, ElasticCloud, QdrantCloud, and Pinecone -->
+</figure>
+
+If anyone asks about benchmarks, they are all available now[^5].
+
+## Version 0.0.3 Release
+
+SQLiteSearch version 0.0.3 was just released to PyPI[^6].
+
+Despite the benchmarks showing reasonably good results on one million vectors, the recommendation is to not use it at that scale. The code is completely vibe-coded - written entirely by Claude, without personal involvement in the implementation. The million-vector benchmark was done just for fun, out of curiosity - first to see what the code is capable of, and second because it was interesting to add the new functionality[^6].
+
+The recommendation is to use it for datasets up to 100,000 items, maybe even fewer. If you have more data, you should use other databases that are more production-ready. This is for pet projects and student projects, not production solutions. If you have a million data points, choose something else[^6].
+
 ## Sources
 
 [^1]: [20260221_184914_AlexeyDTC_msg2186_transcript.txt](../inbox/used/20260221_184914_AlexeyDTC_msg2186_transcript.txt)
 [^2]: [20260221_185007_AlexeyDTC_msg2188_transcript.txt](../inbox/used/20260221_185007_AlexeyDTC_msg2188_transcript.txt)
 [^3]: [20260225_201829_AlexeyDTC_msg2447_transcript.txt](../inbox/used/20260225_201829_AlexeyDTC_msg2447_transcript.txt)
+[^4]: [20260226_133553_AlexeyDTC_msg2530.md](../inbox/used/20260226_133553_AlexeyDTC_msg2530.md)
+[^5]: [20260226_133811_AlexeyDTC_msg2532_transcript.txt](../inbox/used/20260226_133811_AlexeyDTC_msg2532_transcript.txt)
+[^6]: [20260226_134356_AlexeyDTC_msg2534_transcript.txt](../inbox/used/20260226_134356_AlexeyDTC_msg2534_transcript.txt)
+[^7]: [20260226_134849_AlexeyDTC_msg2536_photo.md](../inbox/used/20260226_134849_AlexeyDTC_msg2536_photo.md)

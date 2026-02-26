@@ -1,0 +1,15 @@
+---
+source: telegram_voice
+date: 2026-02-26T11:23:22+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260226_112322_AlexeyDTC_msg2498.ogg
+---
+
+One of the students from AIBuild.com just wrote me asking if I can give him a suggestion for a
+course project. He doesn't have any ideas and he wants to work on something like something that is,
+I don't know, something like, let me check how he actually wrote it. specific customer or business
+requirement rather than the one he defines himself. In my opinion, the best customer for these kind
+of projects is you yourself, but I know that sometimes you don't really have ideas. That's why I
+want to start an article where I suggest ideas that people can use for implementing their agents. or
+like for upskilling in the core AI engineering skills.

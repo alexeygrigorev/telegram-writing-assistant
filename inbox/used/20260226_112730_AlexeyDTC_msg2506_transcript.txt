@@ -1,0 +1,12 @@
+---
+source: telegram_voice
+date: 2026-02-26T11:27:30+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260226_112730_AlexeyDTC_msg2506.ogg
+---
+
+This could be even a category that people can access on the website, right? For our... We already
+actually have it, so we can continue adding more things to projects, right? So then people can see
+what other people implemented and also just have project ideas there. Oh, that's good. Yeah, let's
+do that.

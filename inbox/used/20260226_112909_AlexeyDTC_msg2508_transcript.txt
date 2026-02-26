@@ -1,0 +1,18 @@
+---
+source: telegram_voice
+date: 2026-02-26T11:29:09+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260226_112909_AlexeyDTC_msg2508.ogg
+---
+
+In general, I want to come up with a framework for people to help them discover problems that need
+solving. So I want them to think about what kind of things require automation in what they do right
+now. So I want to come up with a list of questions that you can ask them in order to identify the
+problems they can solve with AI and automation and agents. This could be just opportunities for
+automation, for opportunities for being more effective, but this could be also nice portfolio
+projects because I think the best customer, as I said, the best customer is you yourself, right? So
+if you have a problem and you want to solve this problem, then you will be the user and you will be
+the most interested person in making this work, right? So you'll be your own customer. So this is
+the ideal scenario. So yeah, let's, you can also already start putting some suggestions, like what
+kind of questions we can ask, like and start putting together a framework for that.

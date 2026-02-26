@@ -28,6 +28,12 @@ Course materials: working on the monitoring module for AI Buildcamp. Using Langf
 
 DataTasks: started implementing the task management app using Claude Code (Opus 4.6). Reused an existing repo. Claude Code followed the PROCESS.md workflow - grooming issues first, then implementing in batches of 2 with parallel PM agents. See [Task Management App Idea](ideas/task-management-app-idea.md)[^11].
 
+AI agent project ideas: started collecting project ideas for AI Buildcamp students. Ideas include a GitHub issue creator bot, project idea generator agent, problem discovery framework, job market analytics agent, knowledge management bot, and journaling agent. See [AI Agent Project Ideas](agent-project-ideas.md)[^12].
+
+Community platform features: started a new article for feature ideas for the AI Shipping Labs site. Includes a business case simulator inspired by Karpov.Courses, career help and job search tools, and data collection strategy. See [Community Platform Feature Ideas](community-platform-features.md)[^13].
+
+SQLiteSearch v0.0.3 released: published version 0.0.3 to PyPI with HNSW and IVF implementations. HNSW is the best performer at 6ms query speed on 1M vectors. Recommended for up to 100K items. See [Benchmarking SQLiteSearch](ready-for-newsletter/benchmarking-sqlitesearch.md)[^14].
+
 ## Sources
 
 [^1]: [20260226_071301_AlexeyDTC_msg2486_transcript.txt](../inbox/used/20260226_071301_AlexeyDTC_msg2486_transcript.txt)
@@ -41,3 +47,6 @@ DataTasks: started implementing the task management app using Claude Code (Opus 
 [^9]: [20260225_201829_AlexeyDTC_msg2447_transcript.txt](../inbox/used/20260225_201829_AlexeyDTC_msg2447_transcript.txt)
 [^10]: [20260225_200842_AlexeyDTC_msg2443_transcript.txt](../inbox/used/20260225_200842_AlexeyDTC_msg2443_transcript.txt)
 [^11]: [20260223_192235_AlexeyDTC_msg2226_transcript.txt](../inbox/used/20260223_192235_AlexeyDTC_msg2226_transcript.txt)
+[^12]: [20260226_112322_AlexeyDTC_msg2498_transcript.txt](../inbox/used/20260226_112322_AlexeyDTC_msg2498_transcript.txt)
+[^13]: [20260226_113315_AlexeyDTC_msg2512_transcript.txt](../inbox/used/20260226_113315_AlexeyDTC_msg2512_transcript.txt)
+[^14]: [20260226_134356_AlexeyDTC_msg2534_transcript.txt](../inbox/used/20260226_134356_AlexeyDTC_msg2534_transcript.txt)
