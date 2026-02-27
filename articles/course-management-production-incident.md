@@ -8,6 +8,21 @@ status: draft
 
 # Course Management Production Incident Report
 
+## Incident Summary
+
+On Thursday February 26 at ~10 PM, a Terraform destroy command with auto-approve accidentally wiped all production infrastructure, including the RDS database. All automated snapshots were deleted along with the database. AWS Business support found a snapshot on their side and restored it. Full recovery took approximately 24 hours.
+
+Timeline:
+
+- Thu Feb 26, ~10:00 PM: Started deploying website changes via Terraform without the state file (it was on the old computer)
+- Thu Feb 26, ~10:30 PM: Terraform destroy with auto-approve wiped all production infrastructure including the database
+- Thu Feb 26, ~11:00 PM: Discovered database and all snapshots gone, filed AWS support ticket
+- Fri Feb 27, ~12:00 AM: Upgraded to AWS Business support for faster response
+- Fri Feb 27, ~12:30 AM: Support confirmed a snapshot exists on their side
+- Fri Feb 27, ~1:00-2:00 AM: Phone call with AWS support, escalated to internal team for restoration
+- Fri Feb 27, during the day: Set up preventive measures (backup Lambda, deletion protection, S3 backups, moved Terraform state to S3)
+- Fri Feb 27, ~10:00 PM: Database fully restored, 1,943,200 rows recovered, platform back online[^13]
+
 ## What Happened
 
 Around 10 PM on February 26, I thought it was a good idea to work on deploying the new website. The site is currently on Django, and I wanted to deploy it on AWS. The plan was: right now it is hosted on GitHub Pages, I want to move the current GitHub Pages version to S3 so it is hosted from there, and switch DNS to AWS so everything is managed through AWS DNS. Then the next step would be rolling out the Django site on, say, prod.eishippinglabs.com, and when everything works, I just swap them, and it all happens seamlessly within AWS. That was the plan.[^1]
@@ -29,18 +44,10 @@ It first checked everything through CLI and says: here are the duplicated resour
 It turned out that in this Terraform destroy there was an auto-approve flag, because I did not think to check what could go wrong. And as a result everything got destroyed. I still do not know what is happening at that point, I think everything is under control. I go to our site, it is down. I think, what is this? I go to check the database, go to the console to see what is going on with the resources, I see there is no database. I ask where is my database. It says: oh sorry, the database is gone.[^2]
 
 <figure>
-  <img src="../assets/images/course-management-production-incident/terraform-destroy-no-backups.jpg" alt="Terminal showing critical alert about destroyed production database with no backups found">
-  <figcaption>The agent reports the production database is gone and finds no snapshots</figcaption>
-  <!-- First screenshot showing the initial discovery - the agent checking for RDS snapshots and finding nothing -->
-</figure>
-
-<figure>
   <img src="../assets/images/course-management-production-incident/terraform-destroy-infrastructure-list.jpg" alt="Terminal showing the full list of destroyed infrastructure including VPC, RDS, ECS, load balancers, and bastion host">
   <figcaption>The full list of destroyed production infrastructure - VPC, RDS, ECS cluster, load balancers, bastion host</figcaption>
-  <!-- Second screenshot showing what Terraform destroy deleted: the entire production infrastructure was in the state file -->
+  <!-- Screenshot showing what Terraform destroy deleted: the entire production infrastructure was in the state file -->
 </figure>
-
-The caption on the first screenshot: "this was bound to happen eventually."[^3]
 
 ## Searching for Backups
 
@@ -55,6 +62,12 @@ I create a support ticket explaining that the database was accidentally deleted 
 I think, okay, this is very important to me. I subscribe to Business support, create another ticket. Support appeared after I upgraded. I describe what happened, gave all the details - database name, backup name, what it was called. They responded in about 40 minutes. They said the backup exists, they can see it. They confirmed that there was indeed a deletion event. Why it happened was strange - when the database was deleted, it was deleted together with all snapshots. Very unexpected behavior for me - that when a database is deleted, the snapshots get deleted too.[^3]
 
 They showed me the API request that came in for the deletion - it said to delete it all. They say they can see the snapshot on their side, but I cannot see it. I reply that I do not have it. They immediately respond: let's get on a call.[^4]
+
+<figure>
+  <img src="../assets/images/course-management-production-incident/aws-support-snapshot-found.jpg" alt="AWS support response confirming the cluster deletion and finding an available snapshot">
+  <figcaption>First response from AWS support - they confirmed the deletion and found a snapshot that was not visible in my console[^11]</figcaption>
+  <!-- The support response shows the API call that deleted the cluster with skipFinalSnapshot: true and deleteAutomatedBackups: true, and identifies a remaining snapshot -->
+</figure>
 
 ## The Call with AWS Support
 
@@ -90,6 +103,12 @@ Why I did this: first, I want to test that I can actually restore the database f
 
 In Terraform there is an option to prohibit deleting a resource. In AWS there is also a flag to prohibit deleting a resource. I enabled both. The thing is, the agent can remove all these flags through AWS CLI. So the protection is mainly against a scenario where I fall asleep again and the agent does something - at least there are additional barriers.[^6]
 
+<figure>
+  <img src="../assets/images/course-management-production-incident/terraform-deletion-protection-setup.jpg" alt="Claude Code explaining deletion_protection vs prevent_destroy and running terraform plan with permission prompt">
+  <figcaption>Setting up deletion protection - now every Terraform action requires explicit approval[^14]</figcaption>
+  <!-- The assistant explains the difference between deletion_protection (AWS level, prevents deletion from anywhere) and prevent_destroy (Terraform level, only prevents terraform destroy), then runs terraform plan with full permission controls -->
+</figure>
+
 ### S3 Backup Protection
 
 S3 backups are also more reliable in this regard. You cannot just delete an S3 bucket with files - you first need to delete all the files, then the bucket. That is additional protection. If something happens, you can at least stop and add retention with versioning. If you delete, the old version before deletion remains. I added a 10-day retention. Deploying to production at 10 PM is not a great idea in the first place, though I have done it so many times before without problems that it did not feel risky.[^6]
@@ -114,17 +133,7 @@ That confidence let me down. And over-reliance on agents let me down too. I was 
 
 Exactly 24 hours after the database was dropped, everything was restored.[^8]
 
-### AWS Support Response
-
-The first response from support confirmed the deletion and found an available snapshot - even though I could not see it in my console.[^11]
-
-<figure>
-  <img src="../assets/images/course-management-production-incident/aws-support-snapshot-found.jpg" alt="AWS support response confirming the cluster deletion and finding an available snapshot">
-  <figcaption>First response from AWS support - they confirmed the deletion and found a snapshot that was not visible in my console</figcaption>
-  <!-- The support response shows the API call that deleted the cluster with skipFinalSnapshot: true and deleteAutomatedBackups: true, and identifies a remaining snapshot -->
-</figure>
-
-Then I received the email confirming the snapshot restoration was complete and ready for use.[^10]
+I received the email from AWS support confirming the snapshot restoration was complete and ready for use.[^10]
 
 <figure>
   <img src="../assets/images/course-management-production-incident/aws-support-restoration-complete.jpg" alt="AWS support email confirming snapshot restoration is complete">
@@ -172,3 +181,5 @@ The lesson is learned.[^7]
 [^10]: [20260227_212650_AlexeyDTC_msg2588_photo.md](../inbox/used/20260227_212650_AlexeyDTC_msg2588_photo.md)
 [^11]: [20260227_212536_AlexeyDTC_msg2586_photo.md](../inbox/used/20260227_212536_AlexeyDTC_msg2586_photo.md)
 [^12]: [20260227_211935_AlexeyDTC_msg2582_photo.md](../inbox/used/20260227_211935_AlexeyDTC_msg2582_photo.md)
+[^13]: [20260227_214027_AlexeyDTC_msg2594_transcript.txt](../inbox/used/20260227_214027_AlexeyDTC_msg2594_transcript.txt)
+[^14]: [20260227_214122_AlexeyDTC_msg2596_photo.md](../inbox/used/20260227_214122_AlexeyDTC_msg2596_photo.md)

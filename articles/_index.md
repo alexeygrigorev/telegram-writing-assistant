@@ -97,7 +97,7 @@ Files at the articles root that don't fit into the above categories.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
-| [Course Management Production Incident Report](course-management-production-incident.md) | draft | 2026-02-27 | Accidentally destroyed production database via Terraform destroy, AWS support recovered snapshot, full resolution with preventive measures |
+| [Course Management Production Incident Report](course-management-production-incident.md) | draft | 2026-02-27 | Production database destroyed via Terraform, AWS support recovery, incident timeline, deletion protection setup, full chronological report |
 | [Getting a Data Science Job](getting-a-data-science-job.md) | draft | 2026-02-27 | Summary of a presentation on the full data science job search process: networking, applying, interviewing, and negotiating offers |
 | [Weekly Log](weekly-log.md) | draft | 2026-02-27 | Running log of weekly activities with links to detailed articles |
 | [AI Agent Project Ideas](agent-project-ideas.md) | draft | 2026-02-26 | Collection of AI agent project ideas for AI Buildcamp students: GitHub issue bot, idea generator, job analytics, knowledge management, journaling |
