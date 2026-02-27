@@ -1,7 +1,7 @@
 ---
 title: "Weekly Log"
 created: 2026-02-26
-updated: 2026-02-26
+updated: 2026-02-27
 tags: [weekly, log]
 status: draft
 ---
@@ -34,6 +34,8 @@ Community platform features: started a new article for feature ideas for the AI 
 
 SQLiteSearch v0.0.3 released: published version 0.0.3 to PyPI with HNSW and IVF implementations. HNSW is the best performer at 6ms query speed on 1M vectors. Recommended for up to 100K items. See [Benchmarking SQLiteSearch](ready-for-newsletter/benchmarking-sqlitesearch.md)[^14].
 
+Production incident: accidentally destroyed the course management platform production database via Terraform destroy. The agent ran terraform destroy with auto-approve, wiping the entire production infrastructure including VPC, RDS, ECS, and load balancers. Backups were deleted along with the database. Upgraded to AWS Business support, got on a call with support at 2 AM. Still waiting for data recovery. Implemented multiple preventive measures: backups outside Terraform state, S3 backups, automated daily Lambda/Step Functions backup pipeline, deletion protection flags, and migrated Terraform state to S3. See [Course Management Production Incident Report](course-management-production-incident.md)[^15].
+
 ## Sources
 
 [^1]: [20260226_071301_AlexeyDTC_msg2486_transcript.txt](../inbox/used/20260226_071301_AlexeyDTC_msg2486_transcript.txt)
@@ -50,3 +52,4 @@ SQLiteSearch v0.0.3 released: published version 0.0.3 to PyPI with HNSW and IVF 
 [^12]: [20260226_112322_AlexeyDTC_msg2498_transcript.txt](../inbox/used/20260226_112322_AlexeyDTC_msg2498_transcript.txt)
 [^13]: [20260226_113315_AlexeyDTC_msg2512_transcript.txt](../inbox/used/20260226_113315_AlexeyDTC_msg2512_transcript.txt)
 [^14]: [20260226_134356_AlexeyDTC_msg2534_transcript.txt](../inbox/used/20260226_134356_AlexeyDTC_msg2534_transcript.txt)
+[^15]: [20260227_073053_AlexeyDTC_msg2546_transcript.txt](../inbox/used/20260227_073053_AlexeyDTC_msg2546_transcript.txt)

@@ -1,0 +1,9 @@
+---
+source: telegram_voice
+date: 2026-02-27T09:13:25+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260227_091325_AlexeyDTC_msg2560.ogg
+---
+
+Это все в одну статью Курс менеджмент продакшн инцидент репорт Давай запиши

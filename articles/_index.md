@@ -97,9 +97,10 @@ Files at the articles root that don't fit into the above categories.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Course Management Production Incident Report](course-management-production-incident.md) | draft | 2026-02-27 | Accidentally destroyed production database via Terraform destroy, AWS support engagement, preventive measures implemented |
+| [Weekly Log](weekly-log.md) | draft | 2026-02-27 | Running log of weekly activities with links to detailed articles |
 | [AI Agent Project Ideas](agent-project-ideas.md) | draft | 2026-02-26 | Collection of AI agent project ideas for AI Buildcamp students: GitHub issue bot, idea generator, job analytics, knowledge management, journaling |
 | [Community Platform Feature Ideas](community-platform-features.md) | draft | 2026-02-26 | Feature ideas for the AI Shipping Labs site: business case simulator, career help tools, data collection |
-| [Weekly Log](weekly-log.md) | draft | 2026-02-26 | Running log of weekly activities with links to detailed articles |
 | [Recreating a PNG Logo as SVG with Claude Code](svg-logo-recreation.md) | draft | 2026-02-26 | Converting a ChatGPT-generated PNG logo to SVG using Claude Code with OpenCV and potrace |
 | [Defining the Role of AI Engineer: Webinar Q&A](ai-engineer-role-definition-qa.md) | draft | 2026-02-25 | Q&A from the Defining the Role of AI Engineer webinar covering career transitions, GitHub portfolios, role comparisons, and job market insights |
 | [Interesting Resources](interesting-resources.md) | draft | 2026-02-22 | Curated collection of tools, resources, and project ideas for the newsletter |
