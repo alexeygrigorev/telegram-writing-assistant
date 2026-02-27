@@ -110,9 +110,49 @@ Prod access to the database schema is secured - the password is hidden, the agen
 
 That confidence let me down. And over-reliance on agents let me down too. I was controlling things, but as soon as I looked away for a moment, it was done. So for me, Terraform plan and Terraform apply - I will probably do those outside of agents from now on. But even if I do automate some things, I want this protection in place 24/7. It will cost more on my bill, but data is the most important thing.[^7]
 
-## Current Status and Lessons Learned
+## Resolution
 
-I am waiting for AWS support to respond about data recovery. The worst case scenario is that all data disappears from the course management platform. That is upsetting, but I will have to deal with it. The lesson is learned.[^7]
+Exactly 24 hours after the database was dropped, everything was restored.[^8]
+
+### AWS Support Response
+
+The first response from support confirmed the deletion and found an available snapshot - even though I could not see it in my console.[^11]
+
+<figure>
+  <img src="../assets/images/course-management-production-incident/aws-support-snapshot-found.jpg" alt="AWS support response confirming the cluster deletion and finding an available snapshot">
+  <figcaption>First response from AWS support - they confirmed the deletion and found a snapshot that was not visible in my console</figcaption>
+  <!-- The support response shows the API call that deleted the cluster with skipFinalSnapshot: true and deleteAutomatedBackups: true, and identifies a remaining snapshot -->
+</figure>
+
+Then I received the email confirming the snapshot restoration was complete and ready for use.[^10]
+
+<figure>
+  <img src="../assets/images/course-management-production-incident/aws-support-restoration-complete.jpg" alt="AWS support email confirming snapshot restoration is complete">
+  <figcaption>The email from AWS support confirming the snapshot was restored and available</figcaption>
+  <!-- This was a relief - the restoration process was handled by the AWS internal team -->
+</figure>
+
+### Restoring the Database
+
+I found the snapshot in the AWS console. I carefully recreated the database from it via Terraform. Now when working with Terraform through the assistant, I have all permissions disabled - every action, even file writes. I will make a plan first, then run each step myself and review it. I do not know how long I will keep this up, but for now that is how it will be. I will be careful.[^8]
+
+The data was back - 1,943,200 rows in the courses_answer table.[^9][^12]
+
+<figure>
+  <img src="../assets/images/course-management-production-incident/database-restored-row-count.jpg" alt="Terminal showing PostgreSQL query with 1,943,200 rows restored in courses_answer table">
+  <figcaption>Data is back - 1,943,200 rows in the courses_answer table</figcaption>
+  <!-- The terminal shows connecting to the prod database and verifying the row count, followed by deploying with Claude -->
+</figure>
+
+<figure>
+  <img src="../assets/images/course-management-production-incident/course-dashboard-back-online.jpg" alt="Data Engineering Zoomcamp 2026 course dashboard showing all homework assignments">
+  <figcaption>The course management platform is back online with all homework assignments visible</figcaption>
+  <!-- The course dashboard shows the full list of homework assignments for Data Engineering Zoomcamp 2026, confirming the platform is operational again -->
+</figure>
+
+The next step was to configure this new database with the same backup settings I had set up for the old one. The old empty database that was created during the incident needed to be deleted carefully - the main thing was not to confuse which one to delete.[^8]
+
+## Lessons Learned
 
 All the best practices I discovered, I plan to keep implementing. Maybe for AI Shipping Labs I will allocate money to do things properly with separate dev and prod accounts. For now I am using the same Terraform state approach. I will see, maybe I will create a separate account for it. But this is all for the future - nothing is launched there yet.[^7]
 
@@ -127,3 +167,8 @@ The lesson is learned.[^7]
 [^5]: [20260227_091311_AlexeyDTC_msg2558_transcript.txt](../inbox/used/20260227_091311_AlexeyDTC_msg2558_transcript.txt)
 [^6]: [20260227_084130_AlexeyDTC_msg2554_transcript.txt](../inbox/used/20260227_084130_AlexeyDTC_msg2554_transcript.txt)
 [^7]: [20260227_084716_AlexeyDTC_msg2556_transcript.txt](../inbox/used/20260227_084716_AlexeyDTC_msg2556_transcript.txt)
+[^8]: [20260227_212335_AlexeyDTC_msg2584_transcript.txt](../inbox/used/20260227_212335_AlexeyDTC_msg2584_transcript.txt)
+[^9]: [20260227_211829_AlexeyDTC_msg2580_photo.md](../inbox/used/20260227_211829_AlexeyDTC_msg2580_photo.md)
+[^10]: [20260227_212650_AlexeyDTC_msg2588_photo.md](../inbox/used/20260227_212650_AlexeyDTC_msg2588_photo.md)
+[^11]: [20260227_212536_AlexeyDTC_msg2586_photo.md](../inbox/used/20260227_212536_AlexeyDTC_msg2586_photo.md)
+[^12]: [20260227_211935_AlexeyDTC_msg2582_photo.md](../inbox/used/20260227_211935_AlexeyDTC_msg2582_photo.md)
