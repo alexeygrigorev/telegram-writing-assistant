@@ -174,7 +174,11 @@ Add to EXISTING article when:
 
 ### Weekly log
 
-There is a special article `articles/weekly-log.md` that tracks what was done each week. When the user says "what I did this week" or similar:
+There is a special article `articles/weekly-log.md` that tracks what was done each week.
+
+IMPORTANT: Only add content to the weekly log when the user EXPLICITLY says this is what they worked on this week. Look for phrases like "this week I did...", "here's what I did this week", "what I worked on this week", etc. If the user does not explicitly frame the content as a weekly update, do NOT add it to the weekly log - even if the content describes work they did.
+
+When the user explicitly provides weekly log content:
 
 - If the topic already has its own detailed article, add a short summary with a link to the weekly log
 - If the topic does not have a separate article and the content is brief, add the details directly to the weekly log
