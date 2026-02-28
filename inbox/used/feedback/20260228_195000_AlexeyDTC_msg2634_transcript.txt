@@ -1,0 +1,10 @@
+---
+source: telegram_voice
+date: 2026-02-28T19:50:00+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260228_195000_AlexeyDTC_msg2634.ogg
+---
+
+You still didn't run the agent as I asked. Please check 4 last commits and 3 commits ago or
+whatever, like I asked you to process resources and do research. It still wasn't done.

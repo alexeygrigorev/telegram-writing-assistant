@@ -30,13 +30,13 @@ Each resource entry follows this simple format:
 
 ### Scrapling
 
-[Scrapling](https://github.com/D4Vinci/Scrapling) is an adaptive Python web scraping framework that handles everything from single requests to full-scale crawls. Its parser learns from website changes and automatically relocates elements when pages update, its fetchers bypass anti-bot systems like Cloudflare Turnstile out of the box, and its spider framework supports concurrent multi-session crawls with pause/resume and automatic proxy rotation. Could be useful for collecting data from Twitter, Reddit, Blind, and other sites where Playwright-based scraping struggles[^31].
+[Scrapling](https://github.com/D4Vinci/Scrapling) (18k+ stars) is an adaptive Python web scraping framework that covers everything from one-off requests to full concurrent crawls. Its standout feature is an adaptive parser that learns from website changes and automatically relocates CSS/XPath selectors when pages redesign, so scraping scripts don't silently break. It also includes stealth fetchers that bypass Cloudflare Turnstile out of the box, a Scrapy-like spider framework with pause/resume and proxy rotation, and a built-in MCP server for AI-assisted data extraction. Could be useful for collecting data from Twitter, Reddit, Blind, and other sites where Playwright-based scraping struggles[^31].
 
 ## Resources
 
 ### Production Agentic RAG Course
 
-[Production Agentic RAG Course](https://github.com/jamwithai/production-agentic-rag-course) is a free 7-week hands-on course that walks you through building a production-grade RAG system from scratch. You start with infrastructure (Docker, FastAPI, PostgreSQL, OpenSearch), progress through data ingestion, BM25 keyword search, hybrid search with embeddings, complete RAG with a local LLM, production monitoring with Langfuse and Redis caching, and finish with agentic RAG using LangGraph plus a Telegram bot[^32].
+[Production Agentic RAG Course](https://github.com/jamwithai/production-agentic-rag-course) (2.8k stars) is a free 7-week hands-on course that teaches you to build a production-grade RAG system by constructing an arXiv research paper assistant from scratch. It takes a "foundations first" approach - starting with infrastructure setup (Docker, FastAPI, PostgreSQL, OpenSearch), then building BM25 keyword search before adding semantic embeddings for hybrid retrieval, and progressively layering on a local LLM, Langfuse monitoring, Redis caching, and finally agentic RAG with LangGraph and a Telegram bot. Each week has a companion blog post, Jupyter notebook, and tagged code release[^32].
 
 ## Project ideas
 
