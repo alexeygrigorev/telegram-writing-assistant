@@ -1,7 +1,7 @@
 ---
 title: "Getting a Data Science Job"
 created: 2026-02-27
-updated: 2026-02-27
+updated: 2026-02-28
 tags: [data-science, career, job-search, interviews]
 status: draft
 ---
@@ -27,6 +27,18 @@ The algorithm is simple in steps but requires a lot of work:
 3. Build - do pet projects, share them online
 4. Interview - note what they ask, improve
 5. Repeat
+
+Andrej Karpathy's advice on how to become an expert at something complements this well[^3]:
+
+1. Iteratively take on concrete projects and accomplish them depth-wise, learning "on demand" (do not learn bottom-up breadth-wise)
+2. Teach and summarize everything you learn in your own words
+3. Only compare yourself to your younger self, never to others
+
+<figure>
+  <img src="../assets/images/getting-a-data-science-job/karpathy-how-to-become-expert.jpg" alt="Andrej Karpathy's tweet on how to become an expert at something">
+  <figcaption>Andrej Karpathy on becoming an expert - learn by doing projects, teach what you learn, compare only to yourself</figcaption>
+  <!-- Karpathy's three rules: depth-first projects, teach/summarize in own words, self-comparison only -->
+</figure>
 
 ## Networking
 
@@ -155,3 +167,4 @@ If you already named a salary number in the initial interview and they offer tha
 
 [^1]: [Getting a Data Science Job - YouTube](https://www.youtube.com/watch?v=jYYR1fH8k7o)
 [^2]: [20260227_140004_AlexeyDTC_msg2572_photo.md](../inbox/used/20260227_140004_AlexeyDTC_msg2572_photo.md) and [20260227_140020_AlexeyDTC_msg2574.md](../inbox/used/20260227_140020_AlexeyDTC_msg2574.md)
+[^3]: [20260228_170401_AlexeyDTC_msg2610_photo.md](../inbox/used/20260228_170401_AlexeyDTC_msg2610_photo.md)

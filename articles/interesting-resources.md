@@ -1,7 +1,7 @@
 ---
 title: "Interesting Resources"
 created: 2026-01-31
-updated: 2026-02-22
+updated: 2026-02-28
 tags: [resources, tools, ai, development]
 status: draft
 ---
@@ -27,10 +27,16 @@ Each resource entry follows this simple format:
 
 
 ## Tools
-Add tools here.
+
+### Scrapling
+
+[Scrapling](https://github.com/D4Vinci/Scrapling) is an adaptive Python web scraping framework that handles everything from single requests to full-scale crawls. Its parser learns from website changes and automatically relocates elements when pages update, its fetchers bypass anti-bot systems like Cloudflare Turnstile out of the box, and its spider framework supports concurrent multi-session crawls with pause/resume and automatic proxy rotation. Could be useful for collecting data from Twitter, Reddit, Blind, and other sites where Playwright-based scraping struggles[^31].
 
 ## Resources
-Add resources like courses, books, etc.
+
+### Production Agentic RAG Course
+
+[Production Agentic RAG Course](https://github.com/jamwithai/production-agentic-rag-course) is a free 7-week hands-on course that walks you through building a production-grade RAG system from scratch. You start with infrastructure (Docker, FastAPI, PostgreSQL, OpenSearch), progress through data ingestion, BM25 keyword search, hybrid search with embeddings, complete RAG with a local LLM, production monitoring with Langfuse and Redis caching, and finish with agentic RAG using LangGraph plus a Telegram bot[^32].
 
 ## Project ideas
 
@@ -73,3 +79,5 @@ Add project ideas here.
 [^28]: [20260220_143801_AlexeyDTC_msg2160.md](../inbox/used/20260220_143801_AlexeyDTC_msg2160.md)
 [^29]: [20260220_174948_AlexeyDTC_msg2180.md](../inbox/used/20260220_174948_AlexeyDTC_msg2180.md)
 [^30]: [20260222_093919_AlexeyDTC_msg2204.md](../inbox/used/20260222_093919_AlexeyDTC_msg2204.md)
+[^31]: [20260228_160854_AlexeyDTC_msg2604.md](../inbox/used/20260228_160854_AlexeyDTC_msg2604.md)
+[^32]: [20260228_151304_AlexeyDTC_msg2602.md](../inbox/used/20260228_151304_AlexeyDTC_msg2602.md)

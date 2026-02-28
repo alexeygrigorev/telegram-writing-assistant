@@ -1,7 +1,7 @@
 ---
 title: "YC Guide to Vibe Coding and AI Workflow Optimization"
 created: 2026-02-10
-updated: 2026-02-10
+updated: 2026-02-28
 tags: [research, yc, vibe-coding, claude-code, workflow, ai-tools]
 status: draft
 ---
@@ -124,6 +124,28 @@ The proven workflows that founders use to build products with AI assistance. The
 - Scheduled cleanup means your workspace stays organized without manual intervention
 - Without maintenance, memory files bloat, old context piles up, and quality degrades
 
+## Real-World Example: Vibe Coding at a FAANG
+
+A post from someone with a decade of experience (half at FAANG) describing how they use AI-assisted coding for production code[^7]:
+
+1. Start with a technical design document. This is where the bulk of the work happens - from proposal to full architecture with integrations.
+2. Design review before development. Senior Engineers shred the design doc. This front-loads the pain.
+3. After review passes, spend the first few weeks documenting each subsystem for the individual dev teams.
+4. Backlog development and sprint planning with PMs and TPMs to create discrete task tickets.
+5. Software development with Test Driven Development. The AI agent writes the tests first, then builds the feature.
+6. Code submission review with a two-dev approval process. AI assists with code review too.
+7. Test in staging, then push to prod.
+
+Result: ~30% increase in speed from feature proposal to production.
+
+The key takeaway: always start with a solid design doc and architecture. Build in chunks. Always write tests first.
+
+<figure>
+  <img src="../../assets/images/yc-vibe-coding/faang-vibe-coding-process.jpg" alt="Reddit post describing the full AI-assisted coding workflow at a FAANG company">
+  <figcaption>The full process for AI-assisted production coding at a FAANG company</figcaption>
+  <!-- Screenshot of a post by an AI SWE with 10+ years of experience describing their team's 7-step process for using AI in production development -->
+</figure>
+
 ## Notes
 
 The common theme: structure over improvisation. The most effective workflows have systems for memory, version control, testing, and automation. The AI is powerful, but it needs guardrails to work consistently at scale.
@@ -138,3 +160,4 @@ Key insight: complexity in the system, simplicity in the workflow. Spend time up
 [^4]: [20260209_183752_AlexeyDTC_msg1254_transcript.txt](../../inbox/used/20260209_183752_AlexeyDTC_msg1254_transcript.txt)
 [^5]: [20260209_183811_AlexeyDTC_msg1255_transcript.txt](../../inbox/used/20260209_183811_AlexeyDTC_msg1255_transcript.txt)
 [^6]: [20260210_082618_AlexeyDTC_msg1262_photo.md](../../inbox/used/20260210_082618_AlexeyDTC_msg1262_photo.md)
+[^7]: [20260228_164115_AlexeyDTC_msg2608_photo.md](../../inbox/used/20260228_164115_AlexeyDTC_msg2608_photo.md)

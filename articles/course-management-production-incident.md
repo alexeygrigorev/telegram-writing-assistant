@@ -1,12 +1,19 @@
 ---
 title: "Course Management Production Incident Report"
+substack_title: "How I Dropped Our Production Database and Now Pay 10% More for AWS"
 created: 2026-02-27
-updated: 2026-02-27
+updated: 2026-02-28
 tags: [aws, terraform, production, incident, database, backup]
 status: draft
 ---
 
 # Course Management Production Incident Report
+
+On Thursday February 26 around 10 PM Berlin time, I dropped the production database for the course management platform. This database had 2.5 years of all submissions - homework, projects, leaderboard entries - for every course run through the platform.[^15]
+
+This was entirely my fault. Over-reliance on the AI agent for running Terraform commands. Over-reliance on backups that turned out not to exist. The surprise for me was that all automated backups got deleted together with the database, and that the database was so easy to delete in the first place. A lesson for the future.[^15]
+
+One of the scenarios I was preparing for was that the data is lost forever. I was already thinking about how to communicate this to everyone, how to restore progress. Some things could be recovered - lesson plans, course structure. Some could not - individual student submissions. Some people had screenshotted the leaderboard, so I could reach out to them to reconstruct submission data. I was planning recovery at least for the active Data Engineering course. For the rest - it would have been a loss. Fortunately, AWS support found a snapshot and everything was restored.[^15]
 
 ## Incident Summary
 
@@ -21,7 +28,7 @@ Timeline:
 - Fri Feb 27, ~12:30 AM: Support confirmed a snapshot exists on their side
 - Fri Feb 27, ~1:00-2:00 AM: Phone call with AWS support, escalated to internal team for restoration
 - Fri Feb 27, during the day: Set up preventive measures (backup Lambda, deletion protection, S3 backups, moved Terraform state to S3)
-- Fri Feb 27, ~10:00 PM: Database fully restored, 1,943,200 rows recovered, platform back online[^13]
+- Fri Feb 27, ~10:00 PM: Database fully restored (1,943,200 rows in the courses_answer table alone), platform back online[^13]
 
 ## What Happened
 
@@ -75,11 +82,37 @@ I join the call, we look at everything. They try to do something on their end. T
 
 While we were on the call, I was restoring other things. That went fairly quickly - Terraform is there for that. Since production was already down anyway, I wanted to do some other things too. For example, I have several Elastic Load Balancers and I wanted to consolidate them into one. Other things too. I created a new database. We were on the call for 40-50 minutes, maybe an hour. He eventually said: no, I do not know what is going on, my colleagues are trying to figure it out. So let's do this - we will write to you as soon as we figure it out.[^4]
 
-## Timeline
+## Resolution
 
-That was around 2 AM. I said okay, fine. This was the timeline: at 10 PM I accidentally destroyed the database. At 11 PM I started writing to support. They responded around midnight-1 AM. We were on the call until 2 AM, then I went to sleep. I woke up at 6 AM - no answer. Now it is 10 AM and still no answer. I pinged them once at 6 AM. Status unclear.[^5]
+Exactly 24 hours after the database was dropped, everything was restored.[^8]
 
-I am just waiting because there is nothing else I can do about this specific problem of data recovery.[^5]
+I received the email from AWS support confirming the snapshot restoration was complete and ready for use.[^10]
+
+<figure>
+  <img src="../assets/images/course-management-production-incident/aws-support-restoration-complete.jpg" alt="AWS support email confirming snapshot restoration is complete">
+  <figcaption>The email from AWS support confirming the snapshot was restored and available</figcaption>
+  <!-- This was a relief - the restoration process was handled by the AWS internal team -->
+</figure>
+
+### Restoring the Database
+
+I found the snapshot in the AWS console. I carefully recreated the database from it via Terraform. Now when working with Terraform through the assistant, I have all permissions disabled - every action, even file writes. I will make a plan first, then run each step myself and review it. I do not know how long I will keep this up, but for now that is how it will be. I will be careful.[^8]
+
+The data was back - 1,943,200 rows in the courses_answer table.[^9][^12]
+
+<figure>
+  <img src="../assets/images/course-management-production-incident/database-restored-row-count.jpg" alt="Terminal showing PostgreSQL query with 1,943,200 rows restored in courses_answer table">
+  <figcaption>Data is back - 1,943,200 rows in the courses_answer table</figcaption>
+  <!-- The terminal shows connecting to the prod database and verifying the row count, followed by deploying with Claude -->
+</figure>
+
+<figure>
+  <img src="../assets/images/course-management-production-incident/course-dashboard-back-online.jpg" alt="Data Engineering Zoomcamp 2026 course dashboard showing all homework assignments">
+  <figcaption>The course management platform is back online with all homework assignments visible</figcaption>
+  <!-- The course dashboard shows the full list of homework assignments for Data Engineering Zoomcamp 2026, confirming the platform is operational again -->
+</figure>
+
+The next step was to configure this new database with the same backup settings I had set up for the old one. The old empty database that was created during the incident needed to be deleted carefully - the main thing was not to confuse which one to delete.[^8]
 
 ## What I Did to Prevent This in the Future
 
@@ -129,41 +162,11 @@ Prod access to the database schema is secured - the password is hidden, the agen
 
 That confidence let me down. And over-reliance on agents let me down too. I was controlling things, but as soon as I looked away for a moment, it was done. So for me, Terraform plan and Terraform apply - I will probably do those outside of agents from now on. But even if I do automate some things, I want this protection in place 24/7. It will cost more on my bill, but data is the most important thing.[^7]
 
-## Resolution
-
-Exactly 24 hours after the database was dropped, everything was restored.[^8]
-
-I received the email from AWS support confirming the snapshot restoration was complete and ready for use.[^10]
-
-<figure>
-  <img src="../assets/images/course-management-production-incident/aws-support-restoration-complete.jpg" alt="AWS support email confirming snapshot restoration is complete">
-  <figcaption>The email from AWS support confirming the snapshot was restored and available</figcaption>
-  <!-- This was a relief - the restoration process was handled by the AWS internal team -->
-</figure>
-
-### Restoring the Database
-
-I found the snapshot in the AWS console. I carefully recreated the database from it via Terraform. Now when working with Terraform through the assistant, I have all permissions disabled - every action, even file writes. I will make a plan first, then run each step myself and review it. I do not know how long I will keep this up, but for now that is how it will be. I will be careful.[^8]
-
-The data was back - 1,943,200 rows in the courses_answer table.[^9][^12]
-
-<figure>
-  <img src="../assets/images/course-management-production-incident/database-restored-row-count.jpg" alt="Terminal showing PostgreSQL query with 1,943,200 rows restored in courses_answer table">
-  <figcaption>Data is back - 1,943,200 rows in the courses_answer table</figcaption>
-  <!-- The terminal shows connecting to the prod database and verifying the row count, followed by deploying with Claude -->
-</figure>
-
-<figure>
-  <img src="../assets/images/course-management-production-incident/course-dashboard-back-online.jpg" alt="Data Engineering Zoomcamp 2026 course dashboard showing all homework assignments">
-  <figcaption>The course management platform is back online with all homework assignments visible</figcaption>
-  <!-- The course dashboard shows the full list of homework assignments for Data Engineering Zoomcamp 2026, confirming the platform is operational again -->
-</figure>
-
-The next step was to configure this new database with the same backup settings I had set up for the old one. The old empty database that was created during the incident needed to be deleted carefully - the main thing was not to confuse which one to delete.[^8]
-
 ## Lessons Learned
 
 All the best practices I discovered, I plan to keep implementing. Maybe for AI Shipping Labs I will allocate money to do things properly with separate dev and prod accounts. For now I am using the same Terraform state approach. I will see, maybe I will create a separate account for it. But this is all for the future - nothing is launched there yet.[^7]
+
+Now when I run agents with Terraform, I have all permissions disabled. Every single step I review myself. I realized this is not a safe thing to delegate. Where before I fully trusted the agent with Terraform, now I do not.[^15]
 
 The lesson is learned.[^7]
 
@@ -183,3 +186,4 @@ The lesson is learned.[^7]
 [^12]: [20260227_211935_AlexeyDTC_msg2582_photo.md](../inbox/used/20260227_211935_AlexeyDTC_msg2582_photo.md)
 [^13]: [20260227_214027_AlexeyDTC_msg2594_transcript.txt](../inbox/used/20260227_214027_AlexeyDTC_msg2594_transcript.txt)
 [^14]: [20260227_214122_AlexeyDTC_msg2596_photo.md](../inbox/used/20260227_214122_AlexeyDTC_msg2596_photo.md)
+[^15]: [20260228_192519_AlexeyDTC_msg2612_transcript.txt](../inbox/used/20260228_192519_AlexeyDTC_msg2612_transcript.txt)
