@@ -63,7 +63,7 @@ class ClaudeProgressFormatter:
             return None
         elif tool_name == "TodoWrite":
             return ClaudeProgressFormatter._format_todo_write(tool_input)
-        elif tool_name == "Task":
+        elif tool_name in ("Task", "Agent"):
             return ClaudeProgressFormatter._format_task(tool_input)
         elif tool_name == "Write":
             file_path = tool_input.get("file_path", "?")

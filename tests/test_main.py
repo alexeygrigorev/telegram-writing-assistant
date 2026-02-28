@@ -315,6 +315,18 @@ class TestClaudeRunner:
         })
         assert result == "🤖 Agent (bg): Summarize article"
 
+    def test_format_tool_use_agent(self):
+        """Test formatting Agent tool use (new tool name for subagents)."""
+        from claude_runner import ClaudeProgressFormatter
+
+        result = ClaudeProgressFormatter.format_tool_use("Agent", {
+            "description": "Resource-describer: Scrapling",
+            "subagent_type": "general-purpose",
+            "run_in_background": True,
+            "prompt": "..."
+        })
+        assert result == "🤖 Agent (bg): Resource-describer: Scrapling"
+
     def test_format_tool_use_task_no_description(self):
         """Test formatting Task with no description returns None."""
         from claude_runner import ClaudeProgressFormatter
