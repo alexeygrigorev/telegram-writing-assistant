@@ -92,7 +92,7 @@ When you encounter feedback:
    - _index.md - for index-related changes
 3. Perform root cause analysis: WHY did the mistake happen? What led to incorrect categorization?
 4. Generalize the learning: Don't create specific rules. Understand the underlying principle and update the process accordingly.
-5. Update the target file: Make the change to prevent recurrence.
+5. Update the target file: Make the change to prevent recurrence. CRITICAL: If the user asks to update process.md, you MUST actually edit process.md in this session. Do not defer it or skip it.
 6. DO NOT add feedback to articles (unless it's feedback about articles): Feedback about the system does not belong in content articles.
 
 ## Where Feedback Goes
@@ -145,6 +145,41 @@ You MUST:
 2. Read `articles/_index.md` to understand what articles exist
 3. Read `articles/research/_index.md` to understand what research articles exist
 4. For each piece of content, ask: Does this extend an existing article's topic? Would a reader of that article expect to find this information?
+
+## Step 1b: URL Inventory and Subagent Launch (MANDATORY)
+
+CRITICAL: This step MUST happen BEFORE Step 2 and Step 3. Subagents take time, so launch them first and let them work in parallel while you categorize and process text content.
+
+NEVER process URL content inline in the main agent. ALWAYS delegate to subagents. The main agent must NOT fetch, read, or summarize URL content itself - that is exclusively the job of subagents.
+
+### How to identify what type of subagent to launch
+
+Match the user's intent keywords in the message:
+- User says "resource", "save as resource", "bookmark" → resource-describer subagent → writes to `interesting-resources.md`
+- User says "research", "do research", "look into this" → article-summarizer subagent → writes to `articles/research/{topic}.md`
+- URL is part of content for an existing article → article-summarizer subagent → writes to the target article
+- YouTube URL → use `youtube.py` script (not a subagent)
+- ChatGPT conversation link → subagent to fetch and summarize via Jina Reader
+
+### Procedure
+
+1. Scan ALL messages for URLs (text messages, transcripts, photo captions)
+2. Create an explicit inventory listing EVERY URL with its assigned subagent type
+3. Print the inventory before launching (so it is visible in the processing log)
+4. Launch ALL subagents in parallel using the Agent tool
+5. Continue to Step 2 while subagents are running
+6. Before Step 3, wait for all subagents to complete and review their results
+
+### Example inventory output
+
+```
+URL Inventory:
+1. https://github.com/user/repo - resource-describer → interesting-resources.md (user said "resource")
+2. https://github.com/user/project - article-summarizer → articles/research/topic.md (user said "research")
+3. https://example.com/article - article-summarizer → articles/research/topic.md (research context)
+```
+
+If you skip this step or process URLs inline, the processing is considered FAILED.
 
 ## Step 2: Categorize
 
@@ -214,11 +249,11 @@ uv run python scripts/youtube.py <video-url-or-id>
 
 The script returns timestamped subtitles. Use the transcript content as source material for the article, just like voice message transcripts. Cite the YouTube URL in sources.
 
-### Handling URLs
+### Handling URLs (MANDATORY: Use Subagents)
 
-If a message contains a URL, DO NOT fetch and summarize it yourself. Use specialized subagents to avoid polluting the main agent's context.
+If a message contains a URL, DO NOT fetch and summarize it yourself. ALWAYS use specialized subagents. This is not optional. URL subagents MUST have been launched in Step 1b before you reach this point.
 
-CRITICAL: Before launching any subagents, create an explicit list of ALL URLs across ALL messages. Every URL must be assigned to a subagent type. Do not process URLs ad-hoc as you work through content groups - this leads to URLs being missed.
+CRITICAL: All URLs should already be inventoried and subagents launched in Step 1b. If you find a URL you missed, launch a subagent for it now. NEVER process URL content inline.
 
 CRITICAL: All subagents MUST use Jina Reader (`curl -L "https://r.jina.ai/{URL}"`) for fetching content. Do NOT use WebFetch. Only fall back to WebFetch if Jina Reader fails for a specific URL.
 
@@ -275,6 +310,7 @@ Before considering an article complete, verify:
 - [ ] All images referenced actually exist - Run `ls assets/images/{article_name}/`
 - [ ] All source citations correct
 - [ ] Any move requests from messages acted upon
+- [ ] All URLs were processed by subagents (Step 1b) - NO URL content was processed inline by the main agent
 
 This checklist is NOT optional. Skipping it leads to corrections and rework.
 
@@ -409,6 +445,7 @@ This step catches the most common errors:
 - Summarizing instead of preserving voice message content
 - Using photo description content but forgetting to place the photo
 - Including video info in sources but not adding the video reference
+- Processing URL content inline instead of launching subagents (Step 1b violation)
 
 # RESEARCH TAG
 
