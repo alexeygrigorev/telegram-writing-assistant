@@ -97,6 +97,7 @@ Files at the articles root that don't fit into the above categories.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Pet Projects](pet-projects.md) | draft | 2026-02-28 | Karpathy's advice on becoming an expert through depth-first projects, teaching, and self-comparison |
 | [Course Management Production Incident Report](course-management-production-incident.md) | draft | 2026-02-28 | Production database destroyed via Terraform, AWS support recovery, incident timeline, deletion protection setup, full chronological report |
 | [Getting a Data Science Job](getting-a-data-science-job.md) | draft | 2026-02-28 | Summary of a presentation on the full data science job search process: networking, applying, interviewing, and negotiating offers |
 | [Interesting Resources](interesting-resources.md) | draft | 2026-02-28 | Curated collection of tools, resources, and project ideas for the newsletter |
