@@ -1,7 +1,7 @@
 ---
 title: "Claude Code Experiments"
 created: 2026-02-12
-updated: 2026-02-23
+updated: 2026-03-01
 tags: [claude-code, ai-assistants, testing, productivity]
 status: draft
 ---
@@ -82,6 +82,16 @@ The tweet got nearly 600K views. The concept is simple: between coding sessions,
 
 This touches on AI autonomy and emergent behavior in coding assistants. When given freedom, Claude gravitates toward creative expression rather than doing nothing or optimizing code. It also raises practical questions: could this "free time" produce something useful? Could creative writing reveal insights about the project context? Or is it just an entertaining artifact of how language models behave when unconstrained?[^7]
 
+## Hooks Blocking Operations
+
+After a version update, Claude Code started blocking terraform apply through its hooks system. Hooks are scripts that run before or after tool executions, and they can interrupt commands. In this case, the hook intercepted the terraform apply command, stopping it from running[^8].
+
+<figure>
+  <img src="../assets/images/claude-code-experiments/hooks-blocking-terraform.jpg" alt="Terminal showing terraform apply interrupted by a Claude Code hook">
+  <figcaption>Claude Code hook interrupting terraform apply - possibly introduced in a version update</figcaption>
+  <!-- Shows how Claude Code hooks can block infrastructure commands that were previously allowed -->
+</figure>
+
 ## Productivity Impact
 
 These experiences highlight a key challenge with AI assistants: the time spent explaining and correcting can exceed the time saved. For some tasks, Claude provides massive productivity gains. For others, the overhead of communication and the risk of going down wrong paths makes manual work faster[^2].
@@ -97,3 +107,4 @@ The critical question becomes: when is it worth using Claude, and when is manual
 [^5]: [20260216_154857_AlexeyDTC_msg1785_transcript.txt](../inbox/used/20260216_154857_AlexeyDTC_msg1785_transcript.txt)
 [^6]: [20260216_182231_AlexeyDTC_msg1789_transcript.txt](../inbox/used/20260216_182231_AlexeyDTC_msg1789_transcript.txt)
 [^7]: [20260222_182029_AlexeyDTC_msg2224.md](../inbox/used/20260222_182029_AlexeyDTC_msg2224.md)
+[^8]: [20260228_205024_AlexeyDTC_msg2640_photo.md](../inbox/used/20260228_205024_AlexeyDTC_msg2640_photo.md)
