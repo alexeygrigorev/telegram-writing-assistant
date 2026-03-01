@@ -1,7 +1,7 @@
 ---
 title: "Interesting Resources"
 created: 2026-01-31
-updated: 2026-02-28
+updated: 2026-03-01
 tags: [resources, tools, ai, development]
 status: draft
 ---
@@ -31,6 +31,10 @@ Each resource entry follows this simple format:
 ### Scrapling
 
 [Scrapling](https://github.com/D4Vinci/Scrapling) (18k+ stars) is an adaptive Python web scraping framework that covers everything from one-off requests to full concurrent crawls. Its standout feature is an adaptive parser that learns from website changes and automatically relocates CSS/XPath selectors when pages redesign, so scraping scripts don't silently break. It also includes stealth fetchers that bypass Cloudflare Turnstile out of the box, a Scrapy-like spider framework with pause/resume and proxy rotation, and a built-in MCP server for AI-assisted data extraction. Could be useful for collecting data from Twitter, Reddit, Blind, and other sites where Playwright-based scraping struggles[^31].
+
+### Pinchtab
+
+[Pinchtab](https://github.com/pinchtab/pinchtab) is a standalone browser automation server that exposes Chrome control via a plain HTTP API, making it usable from any AI agent, language, or even curl. Unlike framework-locked tools such as Playwright MCP or Browser Use, Pinchtab ships as a single 12MB Go binary with zero config, built-in stealth mode for bypassing bot detection, persistent login sessions across restarts, and accessibility-tree-based page snapshots that use 5-13x fewer tokens than screenshots. It also includes a dashboard for managing multiple browser profiles and a headed mode where a human can handle CAPTCHAs and 2FA while the agent continues automation through the same session[^33].
 
 ## Resources
 
@@ -81,3 +85,4 @@ Add project ideas here.
 [^30]: [20260222_093919_AlexeyDTC_msg2204.md](../inbox/used/20260222_093919_AlexeyDTC_msg2204.md)
 [^31]: [20260228_160854_AlexeyDTC_msg2604.md](../inbox/used/20260228_160854_AlexeyDTC_msg2604.md)
 [^32]: [20260228_151304_AlexeyDTC_msg2602.md](../inbox/used/20260228_151304_AlexeyDTC_msg2602.md)
+[^33]: [20260301_112008_AlexeyDTC_msg2650.md](../inbox/used/20260301_112008_AlexeyDTC_msg2650.md)
