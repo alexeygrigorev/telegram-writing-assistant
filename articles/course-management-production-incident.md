@@ -2,7 +2,7 @@
 title: "Course Management Production Incident Report"
 substack_title: "How I Dropped Our Production Database and Now Pay 10% More for AWS"
 created: 2026-02-27
-updated: 2026-02-28
+updated: 2026-03-02
 tags: [aws, terraform, production, incident, database, backup]
 status: draft
 ---
@@ -11,19 +11,24 @@ status: draft
 
 On Thursday February 26 around 10 PM Berlin time, I dropped the production database for the course management platform. This database had 2.5 years of all submissions - homework, projects, leaderboard entries - for every course run through the platform.[^15]
 
-This was entirely my fault. Over-reliance on the AI agent for running Terraform commands. Over-reliance on backups that turned out not to exist. The surprise for me was that all automated backups got deleted together with the database, and that the database was so easy to delete in the first place. A lesson for the future.[^15]
+This was entirely my fault:[^15]
 
-One of the scenarios I was preparing for was that the data is lost forever. I was already thinking about how to communicate this to everyone, how to restore progress. Some things could be recovered - lesson plans, course structure. Some could not - individual student submissions. Some people had screenshotted the leaderboard, so I could reach out to them to reconstruct submission data. I was planning recovery at least for the active Data Engineering course. For the rest - it would have been a loss. Fortunately, AWS support found a snapshot and everything was restored.[^15]
+- Over-reliance on the AI agent for running Terraform commands
+- Over-reliance on backups that turned out not to exist
+- All automated backups got deleted together with the database
+- The database was too easy to delete in the first place
+
+One of the scenarios I was preparing for was that the data is lost forever. I was already thinking about how to communicate this to everyone, how to restore progress. Some things could be recovered - lesson plans, course structure. Some could not - individual student submissions. Several people had reached out to me offering to scrape the leaderboards. Plus the old leaderboards were available on the Web Archive. So using the scraped versions and the Web Archive, it was possible to partially restore the data. I was planning recovery at least for the active Data Engineering course. For the rest - it would have been a loss. Fortunately, AWS support found a snapshot and everything was restored.[^15]
 
 ## Incident Summary
 
-On Thursday February 26 at ~10 PM, a Terraform destroy command with auto-approve accidentally wiped all production infrastructure, including the RDS database. All automated snapshots were deleted along with the database. AWS Business support found a snapshot on their side and restored it. Full recovery took approximately 24 hours.
+Starting around 10 PM on Thursday February 26, I began deploying website changes via Terraform. At ~11 PM UTC, a Terraform destroy command with auto-approve accidentally wiped all production infrastructure, including the RDS database. All automated snapshots were deleted along with the database. AWS Business support found a snapshot on their side and restored it. Full recovery took approximately 24 hours.
 
 Timeline:
 
 - Thu Feb 26, ~10:00 PM: Started deploying website changes via Terraform without the state file (it was on the old computer)
-- Thu Feb 26, ~10:30 PM: Terraform destroy with auto-approve wiped all production infrastructure including the database
-- Thu Feb 26, ~11:00 PM: Discovered database and all snapshots gone, filed AWS support ticket
+- Thu Feb 26, ~11:00 PM UTC: Terraform destroy with auto-approve wiped all production infrastructure including the database
+- Thu Feb 26, shortly after: Discovered all snapshots gone, filed AWS support ticket
 - Fri Feb 27, ~12:00 AM: Upgraded to AWS Business support for faster response
 - Fri Feb 27, ~12:30 AM: Support confirmed a snapshot exists on their side
 - Fri Feb 27, ~1:00-2:00 AM: Phone call with AWS support, escalated to internal team for restoration
@@ -37,6 +42,8 @@ Around 10 PM on February 26, I thought it was a good idea to work on deploying t
 I already had existing Terraform code that is used for the course management platform. So I wanted to do everything in one Terraform setup, which was probably a mistake. Claude was trying to talk me out of it, saying I should keep it separate, but I wanted to save a bit because I have this setup where everything is inside a private VPC with all resources in a private network, a bastion for hosting machines. The savings are not that big, maybe $5-10 per month, but I thought, why do I need another VPC, and told it to do everything there.[^1]
 
 The problem was that I recently moved to a new computer. I had planned to migrate the Terraform state to S3 but never did it. The Terraform state was in files on the old computer, not the new one. So when I run Terraform plan, and I was doing all of this through the assistant - I now understand this was also my mistake, entrusting Terraform plan and Terraform apply to the assistant.[^1]
+
+<!-- TODO: illustration needed - diagram of the infrastructure: private VPC, S3 for website, RDS database, ECS containers, bastion host -->
 
 ## The Terraform Disaster
 
@@ -58,9 +65,11 @@ It turned out that in this Terraform destroy there was an auto-approve flag, bec
 
 ## Searching for Backups
 
-The core problem: we accidentally wiped everything. There should be daily backups - I know that a backup from 2 AM should exist. I go to RDS, check for backups - none. I go to the AWS console, no backups. I think, what the heck? In RDS there is a section with events, I go into those events and see that a backup was created at 2 AM as usual, every time it is created at 2 AM. I see the backup was created, I click on the event to see where it is, and it does not open.[^2]
+We accidentally wiped everything. There should be daily backups - I know that a backup from 2 AM should exist. I go to RDS, check for backups - none. I go to the AWS console, no backups. I think, what the heck? In RDS there is a section with events, I go into those events and see that a backup was created at 2 AM as usual, every time it is created at 2 AM. I see the backup was created, I click on the event to see where it is, and it does not open.[^2]
 
 I contact support. I realize they probably will not answer because I have a regular account without any special support plan. But I write the letter anyway. I also have a contact person at AWS, I wrote to them too. But it was already 11 PM-midnight, nobody is going to answer.[^2]
+
+<!-- TODO: illustration needed - screenshot of the RDS events page showing backups created at 2 AM and then deleted -->
 
 ## Getting Help from AWS Support
 
@@ -132,6 +141,8 @@ After verifying and stopping the new backup database, I delete yesterday's backu
 
 Why I did this: first, I want to test that I can actually restore the database from a backup. Second, if something like this happens again, I can just redirect traffic to the backup and be done with it. I am not sure if I will actually do it that way, but I want to have the option.[^6]
 
+<!-- TODO: illustration needed - diagram of the Step Functions backup workflow: Lambda creates snapshot at 3 AM, next function verifies and stops the replica, then deletes yesterday's backup -->
+
 ### Terraform and AWS Deletion Protection
 
 In Terraform there is an option to prohibit deleting a resource. In AWS there is also a flag to prohibit deleting a resource. I enabled both. The thing is, the agent can remove all these flags through AWS CLI. So the protection is mainly against a scenario where I fall asleep again and the agent does something - at least there are additional barriers.[^6]
@@ -151,6 +162,8 @@ S3 backups are also more reliable in this regard. You cannot just delete an S3 b
 Most importantly, I moved the state to S3 instead of keeping it locally. The whole problem started because I assumed the state was already in S3 when it was actually local. That is why duplicates got created for all the infrastructure.[^6]
 
 ## Infrastructure Setup and Why It Was Vulnerable
+
+<!-- TODO: illustration needed - diagram showing the shared infrastructure: one VPC, dev and prod ECS instances, one shared RDS with two databases inside -->
 
 Why do I not have separate dev and prod environments? Ideally I should have a separate account for dev, a separate account for prod, and separate Terraform state for each. First I test everything in dev, I never give the agent access to prod - only dev. I test on dev, then one button somewhere deploys everything that was tested in dev to prod. That is how the setup should ideally work.[^7]
 
