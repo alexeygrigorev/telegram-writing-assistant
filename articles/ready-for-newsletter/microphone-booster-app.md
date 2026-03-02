@@ -25,7 +25,7 @@ Today was exactly this situation - I needed to record a video, was not at home, 
 I asked OpenCode with GLM-5 to implement it. I said I do not care about the technology, so it chose Rust with Tauri 2.0 and Svelte for the UI[^2].
 
 <figure>
-  <img src="../assets/images/microphone-booster-app/microboost-plan.jpg" alt="OpenCode plan for Microboost app using Tauri 2.0, Rust, and Svelte">
+  <img src="../../assets/images/microphone-booster-app/microboost-plan.jpg" alt="OpenCode plan for Microboost app using Tauri 2.0, Rust, and Svelte">
   <figcaption>GLM-5 chose Rust with Tauri 2.0 and Svelte for the microphone booster</figcaption>
   <!-- Shows the architecture plan with src-tauri for Rust backend and Svelte frontend -->
 </figure>

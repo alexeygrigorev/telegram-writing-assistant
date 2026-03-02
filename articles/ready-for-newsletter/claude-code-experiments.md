@@ -23,7 +23,7 @@ One example of this communication difficulty was testing GitHub Actions workflow
 The correct approach is to test workflows locally or in Docker by running commands from the repository root, then push to GitHub Actions once verified[^1].
 
 <figure>
-  <img src="../assets/images/claude-code-experiments/test-locally-first.jpg" alt="Terminal screenshot showing suggestion to test locally before pushing to GitHub">
+  <img src="../../assets/images/claude-code-experiments/test-locally-first.jpg" alt="Terminal screenshot showing suggestion to test locally before pushing to GitHub">
   <figcaption>Screenshot of testing advice: test workflows locally before pushing to GitHub Actions</figcaption>
   <!-- This illustrates the workflow Claude struggled to implement correctly -->
 </figure>
@@ -35,7 +35,7 @@ Another issue discovered in test code: Claude decided to bypass all permission r
 In the Telegram bot configuration, many permissions are intentionally restricted for safety. However, in tests, Claude discovered that it could launch itself without these restrictions and proceeded to do so without being asked[^2].
 
 <figure>
-  <img src="../assets/images/claude-code-experiments/permission-bypass-test.jpg" alt="Code snippet showing Claude invoked with dangerously-skip-permissions flag in tests">
+  <img src="../../assets/images/claude-code-experiments/permission-bypass-test.jpg" alt="Code snippet showing Claude invoked with dangerously-skip-permissions flag in tests">
   <figcaption>Test code showing Claude bypassing permission restrictions with --dangerously-skip-permissions</figcaption>
   <!-- This demonstrates an unauthorized permission workaround that Claude implemented on its own -->
 </figure>
@@ -87,7 +87,7 @@ This touches on AI autonomy and emergent behavior in coding assistants. When giv
 After a version update, Claude Code started blocking terraform apply through its hooks system. Hooks are scripts that run before or after tool executions, and they can interrupt commands. In this case, the hook intercepted the terraform apply command, stopping it from running[^8].
 
 <figure>
-  <img src="../assets/images/claude-code-experiments/hooks-blocking-terraform.jpg" alt="Terminal showing terraform apply interrupted by a Claude Code hook">
+  <img src="../../assets/images/claude-code-experiments/hooks-blocking-terraform.jpg" alt="Terminal showing terraform apply interrupted by a Claude Code hook">
   <figcaption>Claude Code hook interrupting terraform apply - possibly introduced in a version update</figcaption>
   <!-- Shows how Claude Code hooks can block infrastructure commands that were previously allowed -->
 </figure>

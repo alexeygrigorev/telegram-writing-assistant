@@ -28,7 +28,7 @@ Before the current system, FAQs were stored in Google Docs. Each course had a si
 - Formatting issues broke the parser, causing problems
 
 <figure>
-  <img src="../assets/images/faq-system/google-doc-faq.jpg" alt="FAQ in Google Docs format">
+  <img src="../../assets/images/faq-system/google-doc-faq.jpg" alt="FAQ in Google Docs format">
   <figcaption>The old FAQ format in Google Docs - editable by anyone, which led to both contributions and vandalism</figcaption>
   <!-- This shows what the FAQ looked like before the website was created -->
 </figure>
@@ -47,7 +47,7 @@ Code already existed to parse Google Docs into JSON. This was developed for the 
 4. Output clean JSON with text, section, and question fields
 
 <figure>
-  <img src="../assets/images/faq-system/documents-json.jpg" alt="JSON documents format from parsed FAQs">
+  <img src="../../assets/images/faq-system/documents-json.jpg" alt="JSON documents format from parsed FAQs">
   <figcaption>The JSON format used for parsing - each entry has text, section, and question fields for RAG indexing</figcaption>
   <!-- This was the intermediate format for processing FAQ content -->
 </figure>
@@ -59,7 +59,7 @@ The new structure organizes FAQs by course, then module, then individual questio
 Each question is a separate markdown file with frontmatter metadata.
 
 <figure>
-  <img src="../assets/images/faq-system/directory-structure.jpg" alt="FAQ repository directory structure">
+  <img src="../../assets/images/faq-system/directory-structure.jpg" alt="FAQ repository directory structure">
   <figcaption>The repository structure - questions organized by course and module, with Jinja templates for site generation</figcaption>
   <!-- Shows how the FAQ content is organized in the repository -->
 </figure>
@@ -87,13 +87,13 @@ The solution was to write a custom static site generator in Python instead. The 
 The JSON export is used in AI Engineering Buildcamp when teaching RAG examples. Students can simply fetch the JSON and use it directly with minsearch for a Q&A system[^5].
 
 <figure>
-  <img src="../assets/images/faq-system/faq-file-format.jpg" alt="Individual FAQ file format">
+  <img src="../../assets/images/faq-system/faq-file-format.jpg" alt="Individual FAQ file format">
   <figcaption>Each FAQ entry is a markdown file with ID, question, sort order, and answer content</figcaption>
   <!-- This shows the format that contributors' content becomes -->
 </figure>
 
 <figure>
-  <img src="../assets/images/faq-system/faq-website-result.jpg" alt="Generated FAQ website">
+  <img src="../../assets/images/faq-system/faq-website-result.jpg" alt="Generated FAQ website">
   <figcaption>The final result - the FAQ website at datatalks.club/faq/llm-zoomcamp.html with navigation by module</figcaption>
   <!-- This is what users see and what contributors help build -->
 </figure>
@@ -155,7 +155,7 @@ Students contribute by filling out the FAQ proposal form with course, question, 
 The FAQ bot sometimes makes mistakes - it might categorize a question in the wrong module or miss context. For example, questions about Kestra (workflow orchestration) should go in module-2, not general. Initially there was no automated way to fix these issues[^8].
 
 <figure>
-  <img src="../assets/images/faq-system/bot-suggests-category-move.jpg" alt="FAQ bot suggesting category change">
+  <img src="../../assets/images/faq-system/bot-suggests-category-move.jpg" alt="FAQ bot suggesting category change">
   <figcaption>The FAQ bot sometimes misclassifies entries - here it correctly suggests moving from general to module-2 (workflow orchestration)</figcaption>
   <!-- Shows the bot can recognize when it made a mistake and suggest fixes -->
 </figure>

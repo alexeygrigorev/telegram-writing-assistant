@@ -117,7 +117,7 @@ async def test_agent_todo():
 Source: [github.com/alexeygrigorev/my-daily-tasks-agent/blob/main/tests/test_judge.py](https://github.com/alexeygrigorev/my-daily-tasks-agent/blob/main/tests/test_judge.py)
 
 <figure>
-  <img src="../assets/images/testing-agents-with-judge-pattern/judge-test-example.jpg" alt="Judge test example showing pytest test for todo agent">
+  <img src="../../assets/images/testing-agents-with-judge-pattern/judge-test-example.jpg" alt="Judge test example showing pytest test for todo agent">
   <figcaption>A judge test for a todo agent - criteria are described in natural language and evaluated by another AI agent</figcaption>
 </figure>
 

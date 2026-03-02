@@ -29,7 +29,7 @@ Today I just pointed OpenCode at my old project and said "look at what is here a
 GLM-5 built a plan and said it would take about 4 hours to implement[^2].
 
 <figure>
-  <img src="../assets/images/ai-engineer-rpg-game/rpg-implementation-plan.jpg" alt="Implementation plan showing 7 phases totaling 4 hours for the RPG game">
+  <img src="../../assets/images/ai-engineer-rpg-game/rpg-implementation-plan.jpg" alt="Implementation plan showing 7 phases totaling 4 hours for the RPG game">
   <figcaption>The implementation plan - 7 phases, estimated 4 hours total</figcaption>
   <!-- Shows the phased plan: Macroquad setup, tile map, NPCs, study system, job board, interview quiz, and polish -->
 </figure>

@@ -47,7 +47,7 @@ Focuses on what the role is, what AI Engineers do in their day-to-day work, and 
 Covers what companies want when they hire AI and Gen AI Engineers. Based on job posting analysis, this article will detail the requirements and technologies that companies are looking for[^4].
 
 <figure>
-  <img src="../assets/images/ai-engineer-role-research/senior-ai-engineer-competencies.jpg" alt="Senior AI Engineer job competencies">
+  <img src="../../assets/images/ai-engineer-role-research/senior-ai-engineer-competencies.jpg" alt="Senior AI Engineer job competencies">
   <figcaption>Key competencies listed in a Senior AI Engineer job posting - note that only one point specifically mentions GenAI (RAG, agentic workflows, MCP, A2A), while the rest focuses on traditional ML engineering skills like Python, PyTorch, NLP, and MLOps.</figcaption>
   Illustrates how some companies use "AI Engineer" as a title for what is essentially an ML Engineer role with minimal GenAI requirements.
 </figure>
@@ -210,7 +210,7 @@ Based on analysis of AI Engineering job postings, several patterns emerge:
 - AWS (359 jobs) > Azure (214 jobs) > GCP (205 jobs)
 
 <figure>
-  <img src="../assets/images/ai-engineer-role-research/ai-engineer-stats.jpg" alt="AI Engineer job statistics">
+  <img src="../../assets/images/ai-engineer-role-research/ai-engineer-stats.jpg" alt="AI Engineer job statistics">
   <figcaption>Key statistics from analysis of AI Engineering job postings</figcaption>
 </figure>
 
@@ -219,7 +219,7 @@ The two dominant patterns in AI Engineering are:
 - Agents - LLMs that use tools to accomplish tasks
 
 <figure>
-  <img src="../assets/images/ai-engineer-role-research/rag-agents-patterns.jpg" alt="RAG and Agents patterns">
+  <img src="../../assets/images/ai-engineer-role-research/rag-agents-patterns.jpg" alt="RAG and Agents patterns">
   <figcaption>The two dominant patterns in AI Engineering: RAG and Agents</figcaption>
 </figure>
 
@@ -234,7 +234,7 @@ The research is being presented as a 3-part live event series (virtual, free on 
 - Session 3: Take-Home Assignments (Mar 9, 2026, 6:00 PM CET) - examples from Q4 2025 and Q1 2026, what reviewers look for, end-to-end document processing task
 
 <figure>
-  <img src="../assets/images/ai-engineer-role-research/event-series-tweet.jpg" alt="AI Engineer event series announcement with community response about job description vs reality gap">
+  <img src="../../assets/images/ai-engineer-role-research/event-series-tweet.jpg" alt="AI Engineer event series announcement with community response about job description vs reality gap">
   <figcaption>Event series announcement and a response from @thewhychain about the gap between job descriptions and actual AI engineer work</figcaption>
   <!-- Tweet from Dmitrii Malakhov sharing that his AI engineer roles turned out to be 80% prompt engineering + glue code, noting that JDs describe ambition, not daily work -->
 </figure>
