@@ -98,7 +98,8 @@ Files at the articles root that don't fit into the above categories.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
-| [Interesting Resources](interesting-resources.md) | draft | 2026-03-01 | Curated collection of tools, resources, and project ideas for the newsletter |
+| [Personal Project Ideas](personal-project-ideas.md) | draft | 2026-03-02 | Personal project ideas to implement: voice-based document editing, notebook server for Claude Code, voice-controlled dev bot, DataTasks, content reuse system |
+| [Interesting Resources](interesting-resources.md) | draft | 2026-03-02 | Curated collection of tools, resources, and project ideas for the newsletter |
 | [Pet Projects](pet-projects.md) | draft | 2026-02-28 | Karpathy's advice on becoming an expert through depth-first projects, teaching, and self-comparison |
 | [Course Management Production Incident Report](course-management-production-incident.md) | draft | 2026-02-28 | Production database destroyed via Terraform, AWS support recovery, incident timeline, deletion protection setup, full chronological report |
 | [Getting a Data Science Job](getting-a-data-science-job.md) | draft | 2026-02-28 | Summary of a presentation on the full data science job search process: networking, applying, interviewing, and negotiating offers |

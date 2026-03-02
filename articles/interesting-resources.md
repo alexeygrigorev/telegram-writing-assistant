@@ -1,7 +1,7 @@
 ---
 title: "Interesting Resources"
 created: 2026-01-31
-updated: 2026-03-01
+updated: 2026-03-02
 tags: [resources, tools, ai, development]
 status: draft
 ---
@@ -41,6 +41,10 @@ Each resource entry follows this simple format:
 ### Production Agentic RAG Course
 
 [Production Agentic RAG Course](https://github.com/jamwithai/production-agentic-rag-course) (2.8k stars) is a free 7-week hands-on course that teaches you to build a production-grade RAG system by constructing an arXiv research paper assistant from scratch. It takes a "foundations first" approach - starting with infrastructure setup (Docker, FastAPI, PostgreSQL, OpenSearch), then building BM25 keyword search before adding semantic embeddings for hybrid retrieval, and progressively layering on a local LLM, Langfuse monitoring, Redis caching, and finally agentic RAG with LangGraph and a Telegram bot. Each week has a companion blog post, Jupyter notebook, and tagged code release[^32].
+
+### Public APIs
+
+[Public APIs](https://github.com/public-apis/public-apis) is a community-curated collection of over 1,400 free APIs organized by category, from weather and finance to games and machine learning. With over 400k GitHub stars, it is one of the most popular repositories on the platform. Whether you are building a side project, prototyping a new product, or teaching students how to work with APIs, this list saves hours of searching by putting hundreds of well-documented, freely available endpoints in one place. Could be very useful for projects[^34].
 
 ## Project ideas
 
@@ -86,3 +90,4 @@ Add project ideas here.
 [^31]: [20260228_160854_AlexeyDTC_msg2604.md](../inbox/used/20260228_160854_AlexeyDTC_msg2604.md)
 [^32]: [20260228_151304_AlexeyDTC_msg2602.md](../inbox/used/20260228_151304_AlexeyDTC_msg2602.md)
 [^33]: [20260301_112008_AlexeyDTC_msg2650.md](../inbox/used/20260301_112008_AlexeyDTC_msg2650.md)
+[^34]: [20260302_025428_AlexeyDTC_msg2656.md](../inbox/used/20260302_025428_AlexeyDTC_msg2656.md)
