@@ -22,12 +22,12 @@ One of the scenarios I was preparing for was that the data is lost forever. I wa
 
 ## Incident Summary
 
-Starting around 10 PM on Thursday February 26, I began deploying website changes via Terraform. At ~11 PM UTC, a Terraform destroy command with auto-approve accidentally wiped all production infrastructure, including the RDS database. All automated snapshots were deleted along with the database. AWS Business support found a snapshot on their side and restored it. Full recovery took approximately 24 hours.
+Starting around 10 PM on Thursday February 26, I began deploying website changes via Terraform. At 11 PM, a Terraform destroy command with auto-approve accidentally wiped all production infrastructure, including the RDS database. All automated snapshots were deleted along with the database. AWS Business support found a snapshot on their side and restored it. Full recovery took approximately 24 hours.
 
 Timeline:
 
 - Thu Feb 26, ~10:00 PM: Started deploying website changes via Terraform without the state file (it was on the old computer)
-- Thu Feb 26, ~11:00 PM UTC: Terraform destroy with auto-approve wiped all production infrastructure including the database
+- Thu Feb 26, ~11:00 PM: Terraform destroy with auto-approve wiped all production infrastructure including the database
 - Thu Feb 26, shortly after: Discovered all snapshots gone, filed AWS support ticket
 - Fri Feb 27, ~12:00 AM: Upgraded to AWS Business support for faster response
 - Fri Feb 27, ~12:30 AM: Support confirmed a snapshot exists on their side
