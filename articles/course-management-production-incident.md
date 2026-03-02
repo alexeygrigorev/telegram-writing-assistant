@@ -37,9 +37,9 @@ Timeline:
 
 ## What Happened
 
-Around 10 PM on February 26, I thought it was a good idea to work on deploying the new website. The site is currently on Django, and I wanted to deploy it on AWS. The plan was: right now it is hosted on GitHub Pages, I want to move the current GitHub Pages version to S3 so it is hosted from there, and switch DNS to AWS so everything is managed through AWS DNS. Then the next step would be rolling out the Django site on, say, prod.eishippinglabs.com, and when everything works, I just swap them, and it all happens seamlessly within AWS. That was the plan.[^1]
+Around 10 PM on February 26, I thought it was a good idea to work on deploying the [AI Shipping Labs](https://aishippinglabs.com) website - our new community. The site is currently hosted on GitHub Pages, and the plan was to gradually migrate it to AWS. First, move the current GitHub Pages version to S3 so it is hosted from there, and switch DNS from GitHub Pages to AWS so everything is managed through AWS DNS. Then the next step would be rolling out the Django version on, say, prod.eishippinglabs.com, and when everything works, I just swap them, and it all happens seamlessly within AWS. That was the plan.[^1][^16]
 
-I already had existing Terraform code that is used for the course management platform. So I wanted to do everything in one Terraform setup, which was probably a mistake. Claude was trying to talk me out of it, saying I should keep it separate, but I wanted to save a bit because I have this setup where everything is inside a private VPC with all resources in a private network, a bastion for hosting machines. The savings are not that big, maybe $5-10 per month, but I thought, why do I need another VPC, and told it to do everything there.[^1]
+I already had existing Terraform code that is used for the course management platform. Since I was deploying AI Shipping Labs, I wanted to do everything in one Terraform setup, which was probably a mistake.[^17] Claude was trying to talk me out of it, saying I should keep it separate, but I wanted to save a bit because I have this setup where everything is inside a private VPC with all resources in a private network, a bastion for hosting machines. The savings are not that big, maybe $5-10 per month, but I thought, why do I need another VPC, and told it to do everything there.[^1]
 
 The problem was that I recently moved to a new computer. I had planned to migrate the Terraform state to S3 but never did it. The Terraform state was in files on the old computer, not the new one. So when I run Terraform plan, and I was doing all of this through the assistant - I now understand this was also my mistake, entrusting Terraform plan and Terraform apply to the assistant.[^1]
 
@@ -200,3 +200,5 @@ The lesson is learned.[^7]
 [^13]: [20260227_214027_AlexeyDTC_msg2594_transcript.txt](../inbox/used/20260227_214027_AlexeyDTC_msg2594_transcript.txt)
 [^14]: [20260227_214122_AlexeyDTC_msg2596_photo.md](../inbox/used/20260227_214122_AlexeyDTC_msg2596_photo.md)
 [^15]: [20260228_192519_AlexeyDTC_msg2612_transcript.txt](../inbox/used/20260228_192519_AlexeyDTC_msg2612_transcript.txt)
+[^16]: [20260302_085552_AlexeyDTC_msg2676_transcript.txt](../inbox/used/20260302_085552_AlexeyDTC_msg2676_transcript.txt)
+[^17]: [20260302_085624_AlexeyDTC_msg2678_transcript.txt](../inbox/used/20260302_085624_AlexeyDTC_msg2678_transcript.txt)
