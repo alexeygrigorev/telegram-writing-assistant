@@ -60,7 +60,7 @@ I worked on it in parallel with other tasks. About every 30 minutes I would chec
 The tool is now published on GitHub and PyPI. It can be run directly via `uvx ssh-auto-forward hetzner` where `hetzner` is the server name from SSH config[^4][^5].
 
 <figure>
-  <img src="../assets/images/ssh-auto-forward/ssh-auto-forward-dashboard.jpg" alt="SSH Auto Forward TUI dashboard showing forwarded ports from a Hetzner server">
+  <img src="../../assets/images/ssh-auto-forward/ssh-auto-forward-dashboard.jpg" alt="SSH Auto Forward TUI dashboard showing forwarded ports from a Hetzner server">
   <figcaption>The SSH Auto Forward dashboard - connected to Hetzner, showing forwarded ports with process names and local URLs</figcaption>
   <!-- Screenshot of the tool running, showing the TUI with port list, process info, and log panel -->
 </figure>

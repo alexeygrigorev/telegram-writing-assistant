@@ -85,7 +85,7 @@ I made an agent-orchestrator (manager) that calls these subagents. The orchestra
 The orchestrator looks at GitHub Issues, pulls two tasks. I open a Claude Code session, say "look at what tasks are in GitHub, sort them, pick two by some criteria." For each task it launches a Software Engineer, and after the Software Engineer finishes, it launches a Tester. The two tasks should ideally be independent so they can run in parallel[^7].
 
 <figure>
-  <img src="../assets/images/community-platform-implementation/claude-code-task-list.jpg" alt="Claude Code task list showing 11 tasks with Software Engineer and Tester agents running in parallel">
+  <img src="../../assets/images/community-platform-implementation/claude-code-task-list.jpg" alt="Claude Code task list showing 11 tasks with Software Engineer and Tester agents running in parallel">
   <figcaption>Claude Code orchestrator managing parallel tasks - Software Engineer and Tester agents working on different features simultaneously</figcaption>
   <!-- First screenshot showing the multi-agent system in action with task list -->
 </figure>
@@ -93,7 +93,7 @@ The orchestrator looks at GitHub Issues, pulls two tasks. I open a Claude Code s
 When the orchestrator picks the next tasks, it checks dependencies to decide which ones are available. It filters out issues that are blocked by other tasks or require human input, then selects from what remains[^21].
 
 <figure>
-  <img src="../assets/images/community-platform-implementation/agent-picking-issues.jpg" alt="Agent listing remaining open issues with blocking dependencies and deciding which to pick next">
+  <img src="../../assets/images/community-platform-implementation/agent-picking-issues.jpg" alt="Agent listing remaining open issues with blocking dependencies and deciding which to pick next">
   <figcaption>The agent analyzing remaining issues and their dependencies to decide which tasks to pick up next</figcaption>
   <!-- Screenshot showing the agent's reasoning about issue selection based on dependency chains -->
 </figure>
@@ -118,7 +118,7 @@ The Product Manager's responsibilities:
 - Having the final say in acceptance - either accepting or rejecting the result[^27][^28]
 
 <figure>
-  <img src="../assets/images/community-platform-implementation/agent-roles-renamed.jpg" alt="Table showing renamed agents: Product Manager, Software Engineer, Tester, On-Call Engineer with their config file paths">
+  <img src="../../assets/images/community-platform-implementation/agent-roles-renamed.jpg" alt="Table showing renamed agents: Product Manager, Software Engineer, Tester, On-Call Engineer with their config file paths">
   <figcaption>The renamed agent roles and their configuration files</figcaption>
   <!-- Screenshot showing the new agent naming convention -->
 </figure>
@@ -146,7 +146,7 @@ Setting all this up took about 1.5 hours yesterday evening. I was working on cou
 I think next time it will take much less time because I can reuse things. I now understand what instructions to give the agent right away[^14].
 
 <figure>
-  <img src="../assets/images/community-platform-implementation/claude-code-morning-progress.jpg" alt="Claude Code task list showing 46 tasks with 41 completed after working overnight">
+  <img src="../../assets/images/community-platform-implementation/claude-code-morning-progress.jpg" alt="Claude Code task list showing 46 tasks with 41 completed after working overnight">
   <figcaption>Morning check - the agent worked all night, completing 41 out of 46 tasks</figcaption>
   <!-- Screenshot showing progress after the agent ran autonomously overnight -->
 </figure>
@@ -154,7 +154,7 @@ I think next time it will take much less time because I can reuse things. I now 
 The agent worked all night. I have not looked at the code yet. My goal today is to finish the course week, and then I will review what the agent built during the day[^4b].
 
 <figure>
-  <img src="../assets/images/community-platform-implementation/claude-code-12-hours-progress.jpg" alt="Claude Code task list showing 56 tasks with 51 completed after 12 hours of autonomous work">
+  <img src="../../assets/images/community-platform-implementation/claude-code-12-hours-progress.jpg" alt="Claude Code task list showing 56 tasks with 51 completed after 12 hours of autonomous work">
   <figcaption>After 12 hours of autonomous work - 56 tasks, 51 completed, still going</figcaption>
   <!-- Screenshot showing the agent still working after 12 hours, with 51 of 56 tasks done -->
 </figure>
@@ -162,7 +162,7 @@ The agent worked all night. I have not looked at the code yet. My goal today is 
 I do not know if it is a good idea to let the agents work on projects completely without supervision, but that is what I do. I do not have time to check the results. After 16 hours it was still going - two Software Engineer agents running in parallel on background jobs infrastructure and email authentication, with SEO tasks already completed[^22].
 
 <figure>
-  <img src="../assets/images/community-platform-implementation/unsupervised-agents-16-hours.jpg" alt="Two Software Engineer agents running background jobs and email auth tasks, with 10 tasks tracked - 5 done, 2 in progress, 3 open">
+  <img src="../../assets/images/community-platform-implementation/unsupervised-agents-16-hours.jpg" alt="Two Software Engineer agents running background jobs and email auth tasks, with 10 tasks tracked - 5 done, 2 in progress, 3 open">
   <figcaption>After 16 hours of unsupervised work - two Software Engineer agents still running, picking up new tasks automatically</figcaption>
   <!-- Screenshot showing the agents continuing to work autonomously after 16 hours -->
 </figure>
@@ -172,7 +172,7 @@ I do not know if it is a good idea to let the agents work on projects completely
 People voted for Slack as the community platform. We set up a new Slack workspace for AI Shipping Labs, and the agents are already working on integrating Slack into the site[^15][^16].
 
 <figure>
-  <img src="../assets/images/community-platform-implementation/slack-workspace.jpg" alt="New AI Shipping Labs Slack workspace with community, general, and random channels">
+  <img src="../../assets/images/community-platform-implementation/slack-workspace.jpg" alt="New AI Shipping Labs Slack workspace with community, general, and random channels">
   <figcaption>New Slack workspace for the AI Shipping Labs community</figcaption>
   <!-- Screenshot of the freshly created Slack workspace -->
 </figure>
@@ -182,7 +182,7 @@ People voted for Slack as the community platform. We set up a new Slack workspac
 The agent kept going. I am afraid to open the code. "Pot, stop cooking" - Claude keeps working on the project.[^23]
 
 <figure>
-  <img src="../assets/images/community-platform-implementation/email-auth-commit.jpg" alt="Git commit adding email+password auth with registration, verification, and password reset - 11 files changed, 1675 insertions">
+  <img src="../../assets/images/community-platform-implementation/email-auth-commit.jpg" alt="Git commit adding email+password auth with registration, verification, and password reset - 11 files changed, 1675 insertions">
   <figcaption>Claude committing email+password authentication - 11 files changed, 1675 insertions</figcaption>
   <!-- Screenshot showing a large commit for authentication feature, demonstrating the agent's autonomous work -->
 </figure>
@@ -190,7 +190,7 @@ The agent kept going. I am afraid to open the code. "Pot, stop cooking" - Claude
 Looks like something important is happening - 15 tasks total with 10 done, 2 in progress, and 3 open. The agent is working on Slack integration, newsletter signup, and SEO tasks.[^24]
 
 <figure>
-  <img src="../assets/images/community-platform-implementation/task-progress-15-tasks.jpg" alt="Task management showing 15 tasks - 10 done, 2 in progress, 3 open including Slack integration, newsletter signup, and SEO tasks">
+  <img src="../../assets/images/community-platform-implementation/task-progress-15-tasks.jpg" alt="Task management showing 15 tasks - 10 done, 2 in progress, 3 open including Slack integration, newsletter signup, and SEO tasks">
   <figcaption>Task progress - 15 tasks, 10 completed, working on Slack, newsletters, and SEO</figcaption>
   <!-- Screenshot showing the orchestrator's task list with community features being implemented -->
 </figure>
@@ -214,7 +214,7 @@ This is what Claude did for the website after 1.5 days of work. The first time I
 About vibe coding - I have the same experience as others. Even if you create as many sub-agents as you want, you still need to manage them. Phil Winder [wrote about migrating a Python codebase to Go using Claude Code](https://www.linkedin.com/posts/drphilwinder_i-just-migrated-a-production-python-codebase-activity-7430343296205459456-eXUm) and concluded: "Claude is a powerful but literal executor. The gaps in your design become the bugs in your system." This matches what I see - without control, agents do not produce good results on their own[^29].
 
 <figure>
-  <img src="../assets/images/community-platform-implementation/linkedin-vibe-coding-post.jpg" alt="LinkedIn post by Phil Winder about migrating Python to Go with Claude Code, discussing dead code accumulation, phantom features, and context window limits">
+  <img src="../../assets/images/community-platform-implementation/linkedin-vibe-coding-post.jpg" alt="LinkedIn post by Phil Winder about migrating Python to Go with Claude Code, discussing dead code accumulation, phantom features, and context window limits">
   <figcaption>Phil Winder's post about the challenges of AI-driven cross-language migration</figcaption>
   <!-- LinkedIn post that resonates with the experience of needing to manage AI agents -->
 </figure>

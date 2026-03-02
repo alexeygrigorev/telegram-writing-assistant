@@ -77,7 +77,7 @@ I wanted to check that the bot works after the migration. "1, 2, 3" - a connecti
 It works. The voice messages I am recording are now being processed by the bot running on Hetzner. I no longer need to keep my laptop always on and running. It can finally breathe freely. I am moving all heavy tasks to the remote server[^7][^11].
 
 <figure>
-  <img src="../assets/images/hetzner-server-setup/hetzner-htop.jpg" alt="htop showing the Hetzner server with 64GB RAM, ai-shippi processes running at 100% CPU, Claude process, and VS Code server">
+  <img src="../../assets/images/hetzner-server-setup/hetzner-htop.jpg" alt="htop showing the Hetzner server with 64GB RAM, ai-shippi processes running at 100% CPU, Claude process, and VS Code server">
   <figcaption>The new Hetzner server running - htop showing 64GB RAM, active processes including AI workloads and VS Code server</figcaption>
   <!-- Screenshot of htop on the new Hetzner dedicated server showing the machine in action -->
 </figure>

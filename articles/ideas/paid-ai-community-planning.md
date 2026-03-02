@@ -119,7 +119,7 @@ AI will reach all engineers eventually, including those working with data. It is
 The domain aishippinglabs.com has been registered[^35].
 
 <figure>
-  <img src="../assets/images/paid-ai-community-planning/domain-registration.jpg" alt="Domain registration confirmation for aishippinglabs.com">
+  <img src="../../assets/images/paid-ai-community-planning/domain-registration.jpg" alt="Domain registration confirmation for aishippinglabs.com">
   <figcaption>Domain registration confirmation for aishippinglabs.com</figcaption>
   <!-- This shows the domain name for the new community -->
 </figure>
@@ -218,7 +218,7 @@ Following standard pricing psychology, a three-tier structure makes sense. The o
 The third tier serves an important psychological purpose: when presented with three options, people tend to choose the middle one. This is a standard pricing tactic recommended in business books.
 
 <figure>
-  <img src="../assets/images/paid-ai-community-planning/three-tier-pricing-structure.jpg" alt="Document showing three-tier pricing structure with Basic, Main offering, and Premium tiers">
+  <img src="../../assets/images/paid-ai-community-planning/three-tier-pricing-structure.jpg" alt="Document showing three-tier pricing structure with Basic, Main offering, and Premium tiers">
   <figcaption>Three-tier pricing structure following standard pricing psychology principles</figcaption>
   <!-- This illustrates how tiers are positioned to make the middle option most attractive -->
 </figure>
@@ -256,7 +256,7 @@ The goal is that tier 1 members see the value and get motivated to upgrade to ti
 One model considered is Alexey Grigorev's Substack "Supporter" tier at 10 euros per month. This provides access to written materials and recorded content but no community access or live participation[^1].
 
 <figure>
-  <img src="../assets/images/paid-ai-community-planning/substack-supporter-tier.jpg" alt="Substack subscription page showing Supporter tier at 10 euros/month with materials access but no community">
+  <img src="../../assets/images/paid-ai-community-planning/substack-supporter-tier.jpg" alt="Substack subscription page showing Supporter tier at 10 euros/month with materials access but no community">
   <figcaption>Example of a content-only tier: Alexey Grigorev's Supporter tier provides materials without community access</figcaption>
   <!-- This shows an alternative approach where the first tier focuses on content rather than community -->
 </figure>
@@ -303,7 +303,7 @@ In a private community, these kinds of discussions can happen more freely. The p
 Based on research of other communities like "AI Native Engineer", potential activities include:
 
 <figure>
-  <img src="../assets/images/paid-ai-community-planning/ai-native-engineer-community.jpg" alt="AI Native Engineer community description showing key benefits">
+  <img src="../../assets/images/paid-ai-community-planning/ai-native-engineer-community.jpg" alt="AI Native Engineer community description showing key benefits">
   <figcaption>Example from AI Native Engineer showing the key elements that communities can provide beyond courses</figcaption>
   <!-- This illustrates direct mentorship, updated content, networking, and collaborative problem-solving -->
 </figure>
@@ -421,7 +421,7 @@ There seems to be less demand and less content about data engineering for AI com
 Students are already asking about paid courses. This is a positive signal for the Python course idea[^63].
 
 <figure>
-  <img src="../assets/images/paid-ai-community-planning/course-inquiry-thread.jpg" alt="Telegram thread showing students asking about AI engineering and Python courses">
+  <img src="../../assets/images/paid-ai-community-planning/course-inquiry-thread.jpg" alt="Telegram thread showing students asking about AI engineering and Python courses">
   <figcaption>Students already inquiring about upcoming AI engineering and Python courses in the community</figcaption>
   <!-- This shows existing demand for courses being planned -->
 </figure>
@@ -476,7 +476,7 @@ The goal is to find people who have both the interest and the financial capacity
 People who ask for mentoring in the existing community are a potential audience for the paid community. For example, a Data Scientist / ML Engineer with 2 years of experience posted in the community asking for career mentoring - both technical (interview skills) and strategic (profile positioning). These are exactly the people who could benefit from the paid community and might be interested in joining[^54].
 
 <figure>
-  <img src="../assets/images/paid-ai-community-planning/mentoring-request-thread.jpg" alt="Slack thread where a Data Scientist asks for career mentoring and guidance on positioning for tech companies">
+  <img src="../../assets/images/paid-ai-community-planning/mentoring-request-thread.jpg" alt="Slack thread where a Data Scientist asks for career mentoring and guidance on positioning for tech companies">
   <figcaption>Community member asking for mentoring - a potential audience for the paid community</figcaption>
   <!-- This shows the type of person who could be converted from free community mentoring requests into paid community members -->
 </figure>
@@ -543,7 +543,7 @@ My hypothesis is that people who ask for mentoring actually need an accountabili
 Another confirmation of this hypothesis: a community member wrote asking for a mentorship program. They built their career from a data analyst to a senior role at their company but want to transition to Data Engineering. They admit they keep "slacking" and need the push. This person is more interested in Data Engineering, but there are likely people in the same situation who are interested specifically in AI Engineering[^74].
 
 <figure>
-  <img src="../assets/images/paid-ai-community-planning/mentorship-request-accountability.jpg" alt="Telegram message from a community member asking for mentorship program to transition to Data Engineering">
+  <img src="../../assets/images/paid-ai-community-planning/mentorship-request-accountability.jpg" alt="Telegram message from a community member asking for mentorship program to transition to Data Engineering">
   <figcaption>Community member asking for mentorship - admits to slacking without accountability</figcaption>
   <!-- Another validation of the accountability hypothesis - the person explicitly says they need structure to stop slacking -->
 </figure>
@@ -551,7 +551,7 @@ Another confirmation of this hypothesis: a community member wrote asking for a m
 The same day, two people wrote asking for career consultations. One said even 50 euros is too much, the other seemed fine with the price. Both are data engineers. For people who want consultations, the community could provide value and some form of help[^75].
 
 <figure>
-  <img src="../assets/images/paid-ai-community-planning/career-consultation-request.jpg" alt="Slack conversation showing a career consultation request from a community member">
+  <img src="../../assets/images/paid-ai-community-planning/career-consultation-request.jpg" alt="Slack conversation showing a career consultation request from a community member">
   <figcaption>Second career consultation request in one day - asking to connect on a call for career guidance</figcaption>
   <!-- Shows demand for career consultations and how the paid community could serve these people -->
 </figure>

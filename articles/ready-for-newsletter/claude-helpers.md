@@ -69,7 +69,7 @@ claude_init() {
 This function copies a master Claude configuration file to the current directory, avoiding duplication and ensuring consistent configuration across projects[^1].
 
 <figure>
-  <img src="../assets/images/claude-helpers/bash-helpers-nano.jpg" alt="Nano editor showing Claude helpers">
+  <img src="../../assets/images/claude-helpers/bash-helpers-nano.jpg" alt="Nano editor showing Claude helpers">
   <figcaption>The bash configuration file with aliases and the claude_init function</figcaption>
   <!-- These helpers are added to .bashrc for quick access -->
 </figure>
@@ -163,7 +163,7 @@ The workflow:
 This skill should be added to the Claude configuration to handle post-coding cleanup efficiently.
 
 <figure>
-  <img src="../assets/images/claude-helpers/refactor-pass-skill.jpg" alt="Refactor pass skill configuration in SKILL.md format">
+  <img src="../../assets/images/claude-helpers/refactor-pass-skill.jpg" alt="Refactor pass skill configuration in SKILL.md format">
   <figcaption>The refactor-pass skill definition showing the workflow for simplification after code changes</figcaption>
   <!-- This skill can be added to Claude Code configuration for automated cleanup passes -->
 </figure>

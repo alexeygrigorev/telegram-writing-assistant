@@ -279,13 +279,13 @@ Sources: Ghost features from [Ghost docs](https://ghost.org/docs/), [Ghost help]
 Ghost has login functionality and closed content sections accessible only to members on specific plans. The question is whether Ghost is sufficient out of the box or if custom development is needed[^3].
 
 <figure>
-  <img src="../assets/images/paid-community-platform/ghost-forum-course-hosting.jpg" alt="Ghost forum post discussing whether Ghost is suitable for hosting online courses">
+  <img src="../../assets/images/paid-community-platform/ghost-forum-course-hosting.jpg" alt="Ghost forum post discussing whether Ghost is suitable for hosting online courses">
   <figcaption>Ghost community discussion on using Ghost for course hosting - recommends Podia as alternative</figcaption>
   <!-- Screenshot from Ghost forum showing user feedback on Ghost's suitability for course hosting -->
 </figure>
 
 <figure>
-  <img src="../assets/images/paid-community-platform/ghost-forum-ghost-vs-podia.jpg" alt="Ghost forum post comparing Ghost and Podia for online courses">
+  <img src="../../assets/images/paid-community-platform/ghost-forum-ghost-vs-podia.jpg" alt="Ghost forum post comparing Ghost and Podia for online courses">
   <figcaption>Another Ghost community member describing their hybrid model using Ghost for subscriptions and Podia for standalone courses</figcaption>
   <!-- Screenshot from Ghost forum showing a user who uses both Ghost and Podia for different purposes -->
 </figure>

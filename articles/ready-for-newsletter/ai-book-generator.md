@@ -19,19 +19,19 @@ My child asked for a book about fireworks. Instead of finding one, I decided to 
 The book generator processes content chapter by chapter and section by section. The output shows real-time progress and costs:
 
 <figure>
-  <img src="../assets/images/ai-book-generator/book-generation-progress-1.jpg" alt="Terminal output showing chapter processing costs">
+  <img src="../../assets/images/ai-book-generator/book-generation-progress-1.jpg" alt="Terminal output showing chapter processing costs">
   <figcaption>Terminal output shows the cost for each chapter and section as it's generated</figcaption>
   <!-- Real-time cost tracking helps monitor expenses during generation -->
 </figure>
 
 <figure>
-  <img src="../assets/images/ai-book-generator/book-generation-progress-2.jpg" alt="Terminal output showing chapter 3 and 4 processing">
+  <img src="../../assets/images/ai-book-generator/book-generation-progress-2.jpg" alt="Terminal output showing chapter 3 and 4 processing">
   <figcaption>The generator processes sections within each chapter, tracking costs incrementally</figcaption>
   <!-- Each section shows individual cost plus running total -->
 </figure>
 
 <figure>
-  <img src="../assets/images/ai-book-generator/book-generation-progress-3.jpg" alt="Terminal output showing final chapters and total cost">
+  <img src="../../assets/images/ai-book-generator/book-generation-progress-3.jpg" alt="Terminal output showing final chapters and total cost">
   <figcaption>Final output shows completion of all 21 chapters with total cost of approximately $4</figcaption>
   <!-- The entire book was generated in about 45 minutes -->
 </figure>
@@ -60,7 +60,7 @@ The generator produces multiple formats:
 For the cover, I used a simple prompt: "make a cover for the book" and copied the book description from the inside flap. The result was an effective cover[^8][^9].
 
 <figure>
-  <img src="../assets/images/ai-book-generator/fireworks-book-cover.jpg" alt="Generated book cover for fireworks book">
+  <img src="../../assets/images/ai-book-generator/fireworks-book-cover.jpg" alt="Generated book cover for fireworks book">
   <figcaption>AI-generated cover for the fireworks book with Russian text translated to English</figcaption>
   <!-- The cover uses the book description as the prompt -->
 </figure>

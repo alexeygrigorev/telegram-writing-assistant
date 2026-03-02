@@ -15,7 +15,7 @@ Experimenting with OpenCode - an open-source AI coding assistant - using the new
 When I installed OpenCode, it just started working. I am not sure how or which API key it used. I asked it to use my Z.AI key - they recently released a new model (GLM-5) and I wanted to try it with OpenCode. I also heard good things about OpenCode - it has more features, so I wanted to try it[^1].
 
 <figure>
-  <img src="../assets/images/opencode-experiments/opencode-terminal-setup.jpg" alt="Terminal showing OpenCode setup with Z.AI API key configuration">
+  <img src="../../assets/images/opencode-experiments/opencode-terminal-setup.jpg" alt="Terminal showing OpenCode setup with Z.AI API key configuration">
   <figcaption>Setting up OpenCode to use the Z.AI API key for GLM-5</figcaption>
   <!-- Screenshot of the initial terminal setup where the user configures OpenCode with the Z.AI key -->
 </figure>
@@ -27,13 +27,13 @@ I tried OpenCode first in terminal mode. I am not a fan of the terminal mode, ne
 The desktop mode in OpenCode is built on Visual Studio Code - it looks like a VS Code fork, adapted for AI coding. It is very convenient - I can open multiple projects and sessions at the same time[^3].
 
 <figure>
-  <img src="../assets/images/opencode-experiments/opencode-desktop-new-session.jpg" alt="OpenCode desktop app showing new session with project explorer and GLM-5 model">
+  <img src="../../assets/images/opencode-experiments/opencode-desktop-new-session.jpg" alt="OpenCode desktop app showing new session with project explorer and GLM-5 model">
   <figcaption>OpenCode desktop app - prefer this over terminal mode</figcaption>
   <!-- Shows the desktop interface with project directory, branch info, and GLM-5 model selector -->
 </figure>
 
 <figure>
-  <img src="../assets/images/opencode-experiments/opencode-desktop-project-analysis.jpg" alt="OpenCode analyzing project structure by exploring README and configuration files">
+  <img src="../../assets/images/opencode-experiments/opencode-desktop-project-analysis.jpg" alt="OpenCode analyzing project structure by exploring README and configuration files">
   <figcaption>OpenCode analyzing the project - exploring codebase structure through key files</figcaption>
   <!-- Shows the thinking/planning mode where OpenCode explores the codebase before acting -->
 </figure>

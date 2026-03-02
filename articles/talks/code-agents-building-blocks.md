@@ -31,7 +31,7 @@ Examples:
 You paste code and ask questions. Good for exploration, brainstorming, and quick answers. No direct access to your codebase. Cannot run code or verify output.
 
 <figure>
-  <img src="../assets/images/code-agents-building-blocks/claude-ai-chat-assistant.png" alt="Claude.ai chat interface showing Opus 4.6 model with a text input prompt">
+  <img src="../../assets/images/code-agents-building-blocks/claude-ai-chat-assistant.png" alt="Claude.ai chat interface showing Opus 4.6 model with a text input prompt">
   <figcaption>Claude.ai: a chat-based assistant - paste code, ask questions, get answers</figcaption>
 </figure>
 
@@ -48,7 +48,7 @@ Examples:
 These sit inside your editor with direct access to the codebase. They can suggest code inline, generate tests, and make multi-file edits.
 
 <figure>
-  <img src="../assets/images/code-agents-building-blocks/vscode-claude-ide-agent.png" alt="VS Code with Claude agent implementing a plan: reviewing editor.ts, adding YAML frontmatter decorations, with session history on the right">
+  <img src="../../assets/images/code-agents-building-blocks/vscode-claude-ide-agent.png" alt="VS Code with Claude agent implementing a plan: reviewing editor.ts, adding YAML frontmatter decorations, with session history on the right">
   <figcaption>Claude in VS Code: implementing a plan step by step with file tree, code, and session history visible</figcaption>
 </figure>
 
@@ -65,7 +65,7 @@ Examples:
 These run in the terminal with full access to the filesystem and shell. They can read and write files, run commands, execute tests, and manage git. More powerful than IDE agents for complex tasks because they have unrestricted tool access.
 
 <figure>
-  <img src="../assets/images/ai-engineer-my-vision/claude-code-backend-start.jpg" alt="Claude Code terminal showing Opus 4.6 entering plan mode to create a FastAPI backend">
+  <img src="../../assets/images/ai-engineer-my-vision/claude-code-backend-start.jpg" alt="Claude Code terminal showing Opus 4.6 entering plan mode to create a FastAPI backend">
   <figcaption>Claude Code: a CLI agent entering plan mode to build a FastAPI backend from a voice prompt</figcaption>
 </figure>
 
@@ -87,12 +87,12 @@ These generate full-stack applications from natural language prompts. My typical
 For the "Day of AI Engineer" webinar, I created an entire marketplace app ([Trova](https://github.com/alexeygrigorev/simple-sell)) this way: two prompts in Lovable for the frontend, then three prompts in Claude Code to add a FastAPI backend with AI image analysis. Five prompts total for a working app with AI pre-filling.
 
 <figure>
-  <img src="../assets/images/ai-engineer-my-vision/lovable-bazaar-marketplace.jpg" alt="Lovable interface showing a prompt on the left and the generated Bazaar marketplace on the right">
+  <img src="../../assets/images/ai-engineer-my-vision/lovable-bazaar-marketplace.jpg" alt="Lovable interface showing a prompt on the left and the generated Bazaar marketplace on the right">
   <figcaption>Lovable: one prompt generated a full marketplace with categories, listings, and search</figcaption>
 </figure>
 
 <figure>
-  <img src="../assets/images/code-agents-building-blocks/trova-marketplace.png" alt="Trova marketplace app showing product listings with AI-generated descriptions and prices">
+  <img src="../../assets/images/code-agents-building-blocks/trova-marketplace.png" alt="Trova marketplace app showing product listings with AI-generated descriptions and prices">
   <figcaption>Trova: the finished marketplace app after polishing with Claude Code</figcaption>
 </figure>
 
@@ -105,7 +105,7 @@ For the "Day of AI Engineer" webinar, I created an entire marketplace app ([Trov
 ## Running Example: The Telegram Writing Assistant
 
 <figure>
-  <img src="../assets/images/code-agents-building-blocks/twa-github.png" alt="GitHub page of the Telegram Writing Assistant showing the README with logo and description">
+  <img src="../../assets/images/code-agents-building-blocks/twa-github.png" alt="GitHub page of the Telegram Writing Assistant showing the README with logo and description">
   <figcaption>The Telegram Writing Assistant on GitHub: from scattered thoughts to publishable articles</figcaption>
 </figure>
 
@@ -119,7 +119,7 @@ This system uses both building blocks:
 - Subagents: three specialized subagents handle URL research, resource descriptions, and content verification
 
 <figure>
-  <img src="../assets/images/code-agents-building-blocks/telegram-process-command.png" alt="Telegram chat showing the /process command running: Read 35 files, Edited 16 files, Found 3 items, Launched 1 agents">
+  <img src="../../assets/images/code-agents-building-blocks/telegram-process-command.png" alt="Telegram chat showing the /process command running: Read 35 files, Edited 16 files, Found 3 items, Launched 1 agents">
   <figcaption>The /process command in action: reads 35 files, edits 16 articles, launches subagents for research</figcaption>
 </figure>
 
@@ -155,7 +155,7 @@ Skills are loaded automatically through a tool call. When an agent starts, it ge
 In the [agent-skills workshop](https://github.com/alexeygrigorev/workshops/tree/main/agent-skills), I built a coding agent with this exact mechanism. The `SkillsTool` class wraps a `SkillLoader` and exposes skill loading as a tool the agent can call:
 
 <figure>
-  <img src="../assets/images/code-agents-building-blocks/skill-implementation.png" alt="Python code showing SkillsTool class that wraps SkillLoader and exposes skill() as a tool call returning name, description, and content">
+  <img src="../../assets/images/code-agents-building-blocks/skill-implementation.png" alt="Python code showing SkillsTool class that wraps SkillLoader and exposes skill() as a tool call returning name, description, and content">
   <figcaption>Skills implementation: a simple tool call that loads skill content on demand</figcaption>
 </figure>
 
@@ -195,7 +195,7 @@ It was created by analyzing all my existing libraries ([minsearch](https://githu
 [`fetch-youtube`](https://github.com/alexeygrigorev/.claude/tree/main/skills/fetch-youtube) - a skill (not a command) that fetches YouTube video transcripts. The agent discovers it when a user asks to process a YouTube link. Uses [youtube-transcript-api](https://pypi.org/project/youtube-transcript-api/) to download timestamped subtitles.
 
 <figure>
-  <img src="../assets/images/code-agents-building-blocks/command-process.png" alt="The /process command markdown file showing description and instructions for processing Telegram inbox">
+  <img src="../../assets/images/code-agents-building-blocks/command-process.png" alt="The /process command markdown file showing description and instructions for processing Telegram inbox">
   <figcaption>The /process command: a markdown file with step-by-step instructions for the agent</figcaption>
 </figure>
 
@@ -235,7 +235,7 @@ There is also the problem of context rot. When an agent has a long session with 
 The most common subagent pattern. First, the planner creates a detailed implementation plan. Then, for each step in the plan, a fresh executor agent handles the implementation.
 
 <figure>
-  <img src="../assets/images/ai-engineer-my-vision/claude-code-backend-progress.jpg" alt="Claude Code showing a task list with checkmarks: restructure monorepo, initialize backend, implement database, implement API, implement AI service, update frontend">
+  <img src="../../assets/images/ai-engineer-my-vision/claude-code-backend-progress.jpg" alt="Claude Code showing a task list with checkmarks: restructure monorepo, initialize backend, implement database, implement API, implement AI service, update frontend">
   <figcaption>Planner-executor in action: Claude Code created a plan, then executes each step with progress tracking</figcaption>
 </figure>
 
@@ -251,7 +251,7 @@ Why this works:
 The Telegram writing assistant uses three subagents, each defined as a markdown file in [`.claude/agents/`](https://github.com/alexeygrigorev/telegram-writing-assistant/tree/main/.claude/agents):
 
 <figure>
-  <img src="../assets/images/code-agents-building-blocks/subagent-article-summarizer.png" alt="The article-summarizer agent markdown file showing YAML frontmatter with name, description, tools, model fields and detailed instructions">
+  <img src="../../assets/images/code-agents-building-blocks/subagent-article-summarizer.png" alt="The article-summarizer agent markdown file showing YAML frontmatter with name, description, tools, model fields and detailed instructions">
   <figcaption>The article-summarizer subagent: a markdown file with YAML frontmatter defining the agent's role, tools, and instructions</figcaption>
 </figure>
 
@@ -290,7 +290,7 @@ All results flow back to Main Agent -> git commit -->
 For [reviewing 2,500+ scholarship applications](https://alexeyondata.substack.com/p/how-i-reviewed-2500-ai-bootcamp-scholarship) for the AI Bootcamp, I used Claude Code with multiple commands running in parallel via subagents. Each subagent handled a batch of applications with consistent evaluation criteria defined in a markdown command file. The AI did preliminary screening, then I manually reviewed the top 50. This reduced the work from approximately two full days to 4-5 hours.
 
 <figure>
-  <img src="../assets/images/code-agents-building-blocks/parallel-subagents-batches.png" alt="7 Task agents finished: Evaluate batches 1-6, 7-12, 38-42, 43-48, 49-54, 55-60, 65-69 - all Done with 11-20 tool uses each">
+  <img src="../../assets/images/code-agents-building-blocks/parallel-subagents-batches.png" alt="7 Task agents finished: Evaluate batches 1-6, 7-12, 38-42, 43-48, 49-54, 55-60, 65-69 - all Done with 11-20 tool uses each">
   <figcaption>7 parallel subagents evaluating scholarship application batches - each handles a batch independently</figcaption>
 </figure>
 
@@ -331,7 +331,7 @@ This way skills evolve through real usage. Each correction makes the next run be
 This talk was presented at a meetup. The preparation process itself was a demonstration of the skills and subagents workflow described above[^6].
 
 <figure>
-  <img src="../assets/images/code-agents-building-blocks/meetup-presentation.jpg" alt="Alexey presenting at a meetup with a projector screen showing GitHub links to the claude and telegram-writing-assistant repos">
+  <img src="../../assets/images/code-agents-building-blocks/meetup-presentation.jpg" alt="Alexey presenting at a meetup with a projector screen showing GitHub links to the claude and telegram-writing-assistant repos">
   <figcaption>Presenting the talk at the meetup with links to the project repos on the screen</figcaption>
   <!-- Photo from the actual meetup where this talk was delivered -->
 </figure>
