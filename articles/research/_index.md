@@ -8,6 +8,8 @@ See [All Articles](../_index.md) for the main articles index.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Design Thinking for Finding Project Topics](design-thinking-for-projects.md) | draft | 2026-03-05 | Research on Design Thinking frameworks and methodologies for helping students and professionals find project ideas |
+| [Project Discovery AI Agent](project-discovery-agent.md) | draft | 2026-03-05 | Research on building an AI agent that facilitates Design Thinking sessions to help people discover project ideas |
 | [YouTube Shorts Automation](youtube-shorts-automation.md) | draft | 2026-02-28 | Research on automating YouTube Shorts posting, MoneyPrinterV2 as reference implementation |
 | [YC Guide to Vibe Coding](yc-vibe-coding.md) | draft | 2026-02-28 | Research on YC's guide to vibe coding and AI workflow optimization |
 | [Rowboat: Open-Source AI Coworker with Memory](rowboat.md) | draft | 2026-02-22 | Research on Rowboat, an open-source local-first AI coworker that builds a knowledge graph from email and meetings |
