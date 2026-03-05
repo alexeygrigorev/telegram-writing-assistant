@@ -221,6 +221,26 @@ When the user explicitly provides weekly log content:
 
 The weekly log is organized by week headers (e.g., "## Week of 2026-02-24"). Always add content to the current week section.
 
+### Weekly log formatting rules
+
+Each topic in a week gets its own level 3 heading (###) with a descriptive name. Break long content into multiple short paragraphs for readability. Do not write wall-of-text paragraphs.
+
+Example structure:
+
+```markdown
+## Week of 2026-03-03
+
+### Apache Flink Workshop
+
+Ran a workshop on Wednesday about Apache Flink for Data Engineering Zoomcamp. Updated and reworked the material from last year.
+
+The code was already ready, so restructured it step by step. About 80-90% of the content is based on original material, updated to the latest versions.
+
+### Python Course Preparation
+
+Started preparing a Python course for the AI Engineering community. The approach assumes zero Python knowledge.
+```
+
 ## Step 3: Process Text Content
 
 For each text/transcript material:
