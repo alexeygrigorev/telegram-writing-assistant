@@ -8,6 +8,7 @@ See [All Articles](../_index.md) for the main articles index.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Course Design Methodology](course-design-methodology.md) | draft | 2026-03-05 | Research on pedagogical frameworks (Backward Design, Constructive Alignment, Cognitive Load Theory) and stage-gate process for designing programming courses |
 | [Design Thinking for Finding Project Topics](design-thinking-for-projects.md) | draft | 2026-03-05 | Research on Design Thinking frameworks and methodologies for helping students and professionals find project ideas |
 | [Project Discovery AI Agent](project-discovery-agent.md) | draft | 2026-03-05 | Research on building an AI agent that facilitates Design Thinking sessions to help people discover project ideas |
 | [YouTube Shorts Automation](youtube-shorts-automation.md) | draft | 2026-02-28 | Research on automating YouTube Shorts posting, MoneyPrinterV2 as reference implementation |
