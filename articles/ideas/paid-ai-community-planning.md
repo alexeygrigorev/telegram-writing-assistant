@@ -1,7 +1,7 @@
 ---
 title: "Paid AI Engineers Community Planning"
 created: 2026-02-10
-updated: 2026-02-18
+updated: 2026-03-04
 tags: [community, business, ai-engineering, pricing]
 status: draft
 ---
@@ -576,6 +576,37 @@ I want to build a system for myself that helps achieve different formats by reus
 
 For the community, the goal is to create an events plan and content plan. Once we conduct research and understand what people need, we can build a calendar showing how often different events happen and what content to expect. This way people can set their expectations based on a clear schedule[^73].
 
+## Inspiration: Lenny's Newsletter
+
+[Lenny's Newsletter](https://www.lennysnewsletter.com/) is a good reference for developing the paid community. Several ideas from their model[^78]:
+
+### Lenny's Product Pass
+
+Access to paid subscriptions on products. Every paid subscriber gets this. Whenever a new paid product is added to the bundle, they make a newsletter issue about it. This creates ongoing value for subscribers and gives them a reason to stay[^78].
+
+### Community Wisdom
+
+A weekly hand-curated digest of the most helpful conversations from their member-only Slack community. It is a subscriber-only email delivered every Saturday, highlighting the most helpful conversations. This is similar to our idea of surfacing community content for tier 1 members[^78].
+
+### Chatbot with the Creator
+
+[LennyBot](https://www.lennybot.com/) - a chatbot based on the newsletter creator that answers subscriber questions. This could be an interesting feature for our community as well[^78].
+
+### Community Offerings
+
+What they offer inside their community[^78]:
+- Real-talk conversations about product, growth, and career
+- Mentorship programs, book clubs, live AMAs, and hands-on workshops
+- Monthly community meetups across five continents
+
+### Curated Course List
+
+They have a list of recommended courses on [Maven](https://maven.com/lenny). When you enroll in a course from their list, you receive $1,395 in free credits for tools including Superhuman, Linear, Sprig, Dovetail, and Gamma. Each offer can only be used once across all courses, and credits are only available for new customers of each tool[^78].
+
+### Merchandise
+
+They also have [merch/swag](https://lennyswag.com/en-eur) as an additional engagement channel[^78].
+
 ## Next Steps
 
 1. Start with AI Buildcamp students (free access for course alumni)
@@ -666,3 +697,4 @@ The key is to learn from real members rather than assuming what they want.
 [^75]: [20260217_100942_AlexeyDTC_msg1894_transcript.txt](../inbox/used/20260217_100942_AlexeyDTC_msg1894_transcript.txt), [20260217_095600_AlexeyDTC_msg1891_photo.md](../inbox/used/20260217_095600_AlexeyDTC_msg1891_photo.md)
 [^76]: [20260217_102556_AlexeyDTC_msg1909_transcript.txt](../inbox/used/20260217_102556_AlexeyDTC_msg1909_transcript.txt)
 [^77]: [20260218_161244_AlexeyDTC_msg1975.md](../inbox/used/20260218_161244_AlexeyDTC_msg1975.md), [aishippinglabs.com](https://aishippinglabs.com)
+[^78]: [20260304_120642_valeriia_kuka_msg2716.md](../inbox/used/20260304_120642_valeriia_kuka_msg2716.md)

@@ -1,7 +1,7 @@
 ---
 title: "Interesting Resources"
 created: 2026-01-31
-updated: 2026-03-02
+updated: 2026-03-05
 tags: [resources, tools, ai, development]
 status: draft
 ---
@@ -37,6 +37,10 @@ Each resource entry follows this simple format:
 ## Project ideas
 
 Add project ideas here.
+
+### Awesome AI Apps
+
+[Awesome AI Apps](https://github.com/Arindam200/awesome-ai-apps) is a collection of 70+ practical examples for building LLM-powered applications, covering everything from simple chatbots to advanced multi-agent systems. The projects span starter agents, RAG applications, MCP integrations, memory-enhanced agents, and production-ready workflows using frameworks like Agno, CrewAI, LangChain, PydanticAI, and AWS Strands. It is a great source of inspiration for AI project ideas with working code you can study and extend[^35].
 
 ### Automated GTM Pipeline
 
@@ -79,3 +83,4 @@ Add project ideas here.
 [^32]: [20260228_151304_AlexeyDTC_msg2602.md](../inbox/used/20260228_151304_AlexeyDTC_msg2602.md)
 [^33]: [20260301_112008_AlexeyDTC_msg2650.md](../inbox/used/20260301_112008_AlexeyDTC_msg2650.md)
 [^34]: [20260302_025428_AlexeyDTC_msg2656.md](../inbox/used/20260302_025428_AlexeyDTC_msg2656.md)
+[^35]: [20260303_185917_AlexeyDTC_msg2714.md](../inbox/used/20260303_185917_AlexeyDTC_msg2714.md)

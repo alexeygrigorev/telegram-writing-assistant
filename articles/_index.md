@@ -65,14 +65,14 @@ Recorded ideas without much detail. Just the idea itself, useful for not forgett
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Social Post Ideas](ideas/social-post-ideas.md) | draft | 2026-03-05 | Curated social media content ideas and inspiration |
+| [Paid AI Engineers Community Planning](ideas/paid-ai-community-planning.md) | draft | 2026-03-04 | Planning a paid community for AI Engineers including target audience, tier structure, and pricing |
 | [New Course Ideas for the Paid Community](ideas/paid-community-new-course-ideas.md) | draft | 2026-03-01 | Course ideas: Spec-Driven Development for AI, Data Engineering for AI, AI for Data Engineering |
 | [Task Management App Idea](ideas/task-management-app-idea.md) | draft | 2026-02-24 | Unified task management system combining Trello and todo lists, with serverless AWS implementation (datatasks) |
 | [Multi-Agent Patterns for the Course](ideas/multi-agent-patterns-course.md) | draft | 2026-02-22 | Multi-agent patterns for the AI Buildcamp course module: evaluation, subagent, planner-executor, orchestration |
 | [Voice-Controlled Development Bot](ideas/voice-controlled-dev-bot.md) | draft | 2026-02-20 | Idea for a general-purpose Telegram bot that executes development commands via voice |
 | [Paid Community Platform Requirements](ideas/paid-community-platform.md) | draft | 2026-02-19 | Technical requirements and platform evaluation for hosting the AI Shipping Labs community |
 | [Paid Community Marketing Plan](ideas/paid-community-marketing-plan.md) | draft | 2026-02-19 | Marketing plan and funnel for promoting the paid community |
-| [Social Post Ideas](ideas/social-post-ideas.md) | draft | 2026-02-19 | Curated social media content ideas and inspiration |
-| [Paid AI Engineers Community Planning](ideas/paid-ai-community-planning.md) | draft | 2026-02-18 | Planning a paid community for AI Engineers including target audience, tier structure, and pricing |
 | [AI Hero Course Rebranding for AI Shipping Labs](ideas/ai-hero-rebranding.md) | draft | 2026-02-17 | Rebranding the existing AI Hero course to fit under the new AI Shipping Labs community |
 | [Python Primer Course Idea](ideas/python-primer-course-idea.md) | draft | 2026-02-08 | Paid Python prerequisite course for AI Engineering and Zoomcamps |
 | [AI-Assisted Automation Course Idea](ideas/ai-assisted-automation-course-idea.md) | draft | 2026-01-29 | Concept for a paid course on AI-assisted automation |
@@ -88,6 +88,7 @@ Notes and preparation materials for upcoming presentations and talks.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Interview Process Webinar Q&A](talks/interview-process-webinar-qa.md) | draft | 2026-03-03 | Q&A from the interview process webinar covering niche finding, career transitions, interview tips, and PM to engineering paths |
 | [Building Blocks of Modern Code Agents](talks/code-agents-building-blocks.md) | draft | 2026-02-18 | Map of code agent types and the two key building blocks: skills and subagents |
 | [AI Engineer Webinar Q&A](talks/ai-engineer-webinar-qa.md) | draft | 2026-02-17 | Questions and answers from the Day in the Life of an AI Engineer webinar |
 | [AI as Personal Analyst](talks/ai-as-personal-analyst.md) | draft | 2026-02-12 | Talk about using AI for Excel automation, data cleaning, and scaling document review |
@@ -98,9 +99,10 @@ Files at the articles root that don't fit into the above categories.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Interesting Resources](interesting-resources.md) | draft | 2026-03-05 | Curated collection of tools, resources, and project ideas for the newsletter |
+| [Google Docs Voice Feedback Tool](google-docs-voice-feedback.md) | draft | 2026-03-02 | Voice-powered Google Docs editor built with Claude Code, using LLM to understand edit requests and apply changes via Google Docs API |
 | [Course Management Production Incident Report](course-management-production-incident.md) | draft | 2026-03-02 | Production database destroyed via Terraform, AWS support recovery, incident timeline, deletion protection setup, full chronological report |
 | [Personal Project Ideas](personal-project-ideas.md) | draft | 2026-03-02 | Personal project ideas to implement: voice-based document editing, notebook server for Claude Code, voice-controlled dev bot, DataTasks, content reuse system |
-| [Interesting Resources](interesting-resources.md) | draft | 2026-03-02 | Curated collection of tools, resources, and project ideas for the newsletter |
 | [Pet Projects](pet-projects.md) | draft | 2026-02-28 | Karpathy's advice on becoming an expert through depth-first projects, teaching, and self-comparison |
 | [Getting a Data Science Job](getting-a-data-science-job.md) | draft | 2026-02-28 | Summary of a presentation on the full data science job search process: networking, applying, interviewing, and negotiating offers |
 | [Weekly Log](weekly-log.md) | draft | 2026-02-27 | Running log of weekly activities with links to detailed articles |

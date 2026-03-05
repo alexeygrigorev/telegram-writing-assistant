@@ -1,7 +1,7 @@
 ---
 title: "Social Post Ideas"
 created: 2026-02-07
-updated: 2026-02-19
+updated: 2026-03-05
 tags: [social-media, twitter, content-ideas, ai-engineering]
 status: draft
 ---
@@ -120,6 +120,22 @@ Prompting Techniques and Hands-On:
 
 Plus a roadmaps section.
 
+## Practical Programming Projects for Beginners
+
+[Post by @vivoplt](https://x.com/vivoplt/status/2029082939921965428): "Don't overcomplicate it" - a list of 8 practical project ideas for learning by building, not following tutorials[^12].
+
+The projects and what they teach:
+1. Password Manager - file handling, hashing
+2. URL Shortener - routing, IDs, persistence
+3. Todo App with deadlines - CRUD, basic state
+4. Web Scraper - requests, parsing, rate limits
+5. CLI Expense Tracker - logic, files, edge cases
+6. Log Analyzer - files, timestamps, patterns
+7. Simple Recommender - similarity rules (not ML)
+8. Email Automation Script - SMTP, scheduling
+
+Good list of beginner-friendly projects that people can try to learn something new.
+
 ## Sources
 
 [^1]: [20260207_143150_AlexeyDTC_msg1103.md](../inbox/used/20260207_143150_AlexeyDTC_msg1103.md) - 10 AI projects post
@@ -133,3 +149,4 @@ Plus a roadmaps section.
 [^9]: [20260217_211618_AlexeyDTC_msg1923.md](../inbox/used/20260217_211618_AlexeyDTC_msg1923.md) - GitHub resources for prompting/LLM fundamentals
 [^10]: [20260219_121518_AlexeyDTC_msg2064_transcript.txt](../inbox/used/20260219_121518_AlexeyDTC_msg2064_transcript.txt) - Portfolio project post idea
 [^11]: [20260219_121518_AlexeyDTC_msg2065_transcript.txt](../inbox/used/20260219_121518_AlexeyDTC_msg2065_transcript.txt) - Office hours FAQ analysis idea
+[^12]: [20260305_080533_AlexeyDTC_msg2718.md](../inbox/used/20260305_080533_AlexeyDTC_msg2718.md) - Practical programming projects post
