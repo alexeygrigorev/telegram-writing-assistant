@@ -1,7 +1,7 @@
 ---
 title: "Weekly Log"
 created: 2026-02-26
-updated: 2026-02-27
+updated: 2026-03-05
 tags: [weekly, log]
 status: draft
 ---
@@ -9,6 +9,20 @@ status: draft
 # Weekly Log
 
 A running log of what was done each week. When a topic has its own detailed article, this log contains a short summary with a link. When there is not much content for a topic, the details go here directly.
+
+## Week of 2026-03-03
+
+AI Buildcamp course - monitoring module: finished the DIY Monitoring Platform section, which was slightly behind schedule. Changed the approach from the previous cohort - Pydantic LogFire is now the main focus because it is very simple to integrate. The DIY Monitoring Platform is now an optional section. Getting data out of LogFire is not as straightforward as it could be, but covered how to do that for students. Incorporated all the feedback from the previous cohort[^16][^17].
+
+AI Engineering Field Guide - webinar and curation: prepared for and ran the Tuesday webinar on AI Engineering job search. The title was "AI Engineer in Berlin, London, Amsterdam, New York, and Los Angeles." For February, added India as a whole country, making 6 geographies total. Considering expanding Berlin to all of Germany in the future. After all deduplication, there are now over 1,600 job listings in the Field Guide. Analyzed over 700 different sources - reports, social media posts (Twitter, Reddit), YouTube videos. Extracted a large number of interview questions from these sources, then curated the most relevant ones. Prioritized questions that had real support from people in social media confirming they were actually asked in interviews. Avoided SEO-optimized sites that may have just used ChatGPT to generate question lists without real research behind them. Removed trivial encyclopedic questions as useless and focused on meaningful questions that demonstrate real understanding. A lot of work went into categorizing, filtering, and curating all of this. The webinar is now available. The GitHub repository is AI Engineering Field Guide - asking people to star it and share it on social media. Could create a template for how people can promote this repository[^16][^17].
+
+Apache Flink workshop: ran a workshop on Wednesday about Apache Flink for Data Engineering Zoomcamp. The original content was created by Zac Wilson, who did a Flink stream last year. Updated and reworked the material. The code was already ready, so restructured it step by step in the usual teaching style - explaining things incrementally, showing what order to launch things in, how Flink works, how to configure it. Explained Zac's example and then covered another example about aggregation with watermarks and bolt windows in Flink. About 80-90% of the content is based on Zac's original material, updated to the latest versions - Flink 2.x and Python 3.12/3.8/3.9. A lot of testing was needed to make sure everything worked. Claude Code helped but required a lot of guidance. The workshop went very well on Wednesday. Since this is not a primary area of expertise (not a practicing data engineer), relied fully on Zac's content, which is solid since Zac is a Flink specialist. Could not have answered deep Data Engineering or Flink usage questions, but no such questions came up[^17].
+
+Python for AI Engineering course: started preparing a Python course for the AI Engineering community. Asked Claude Code to analyze all existing courses - ML Zoomcamp, Data Engineering Zoomcamp, MLOps Zoomcamp, LLM Ops Zoomcamp, AI Engineering Buildcamp, and AI Hero course. Did not include AI DevTools Zoomcamp because code there is generated, not written by hand. Used Claude Code instead of doing it manually to avoid missing things and because as an experienced Python developer, some things might seem obvious but are not for beginners. The approach assumes zero Python knowledge. The analysis produced a very good list of required Python topics. Based on this list, came up with a project - the course will use a project-based approach (same methodology as all the Zoomcamps). The project is a podcast aggregator, covering everything from Python basics to advanced topics like database interaction, multithreading, and async. Async is included because AI Engineering Buildcamp uses Pydantic AI which is async-based. The curriculum is not fully finalized yet - no time right now because of Buildcamp. Doing this as background work - switching to it between recording sessions, brainstorming in ChatGPT during breaks. The course name will be "Python for AI Engineering" (tentative). The goal: after completing this course, students can take any Zoomcamp and the AI Engineering course with the right Python foundation. See [Python Primer Course Idea](ideas/python-primer-course-idea.md) for the full concept[^18].
+
+AI Engineering Buildcamp - remaining work: still need to finish a couple of remaining sections for AI Engineering Buildcamp this week[^19].
+
+Exasol in-person meetup preparation: preparing for an in-person meetup on Tuesday about Exasol. Found a large dataset - NHS Prescription Data with over 1 million records - about prescriptions issued to people in the UK. Plan to demonstrate: how to collect and ingest this data, set up a staging environment, build a ready-to-use data warehouse for analytics, create a Grafana dashboard for analytics, and orchestrate everything with Kestra. Working with someone from Exasol on this. Content was prepared about a month ago, now needs polishing and rehearsal. Still need to figure out how to give access to Exasol for attendees who come without their own AWS account - the assumption is people bring their own AWS account to deploy the database, but not everyone will have one. Also handling logistics like food. If you are in Berlin and want to learn about data ingestion and fast analytics, come to the meetup[^19].
 
 ## Week of 2026-02-24
 
@@ -53,3 +67,7 @@ Production incident: accidentally destroyed the course management platform produ
 [^13]: [20260226_113315_AlexeyDTC_msg2512_transcript.txt](../inbox/used/20260226_113315_AlexeyDTC_msg2512_transcript.txt)
 [^14]: [20260226_134356_AlexeyDTC_msg2534_transcript.txt](../inbox/used/20260226_134356_AlexeyDTC_msg2534_transcript.txt)
 [^15]: [20260227_073053_AlexeyDTC_msg2546_transcript.txt](../inbox/used/20260227_073053_AlexeyDTC_msg2546_transcript.txt)
+[^16]: [20260305_094927_AlexeyDTC_msg2724_transcript.txt](../inbox/used/20260305_094927_AlexeyDTC_msg2724_transcript.txt)
+[^17]: [20260305_095356_AlexeyDTC_msg2726_transcript.txt](../inbox/used/20260305_095356_AlexeyDTC_msg2726_transcript.txt)
+[^18]: [20260305_095937_AlexeyDTC_msg2728_transcript.txt](../inbox/used/20260305_095937_AlexeyDTC_msg2728_transcript.txt)
+[^19]: [20260305_100309_AlexeyDTC_msg2730_transcript.txt](../inbox/used/20260305_100309_AlexeyDTC_msg2730_transcript.txt)

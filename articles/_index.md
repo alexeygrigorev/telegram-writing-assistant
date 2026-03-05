@@ -65,6 +65,7 @@ Recorded ideas without much detail. Just the idea itself, useful for not forgett
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Python Primer Course Idea](ideas/python-primer-course-idea.md) | draft | 2026-03-05 | Paid Python prerequisite course for AI Engineering and Zoomcamps - "Python for AI Engineering" with podcast aggregator project |
 | [Social Post Ideas](ideas/social-post-ideas.md) | draft | 2026-03-05 | Curated social media content ideas and inspiration |
 | [Paid AI Engineers Community Planning](ideas/paid-ai-community-planning.md) | draft | 2026-03-04 | Planning a paid community for AI Engineers including target audience, tier structure, and pricing |
 | [New Course Ideas for the Paid Community](ideas/paid-community-new-course-ideas.md) | draft | 2026-03-01 | Course ideas: Spec-Driven Development for AI, Data Engineering for AI, AI for Data Engineering |
@@ -74,7 +75,6 @@ Recorded ideas without much detail. Just the idea itself, useful for not forgett
 | [Paid Community Platform Requirements](ideas/paid-community-platform.md) | draft | 2026-02-19 | Technical requirements and platform evaluation for hosting the AI Shipping Labs community |
 | [Paid Community Marketing Plan](ideas/paid-community-marketing-plan.md) | draft | 2026-02-19 | Marketing plan and funnel for promoting the paid community |
 | [AI Hero Course Rebranding for AI Shipping Labs](ideas/ai-hero-rebranding.md) | draft | 2026-02-17 | Rebranding the existing AI Hero course to fit under the new AI Shipping Labs community |
-| [Python Primer Course Idea](ideas/python-primer-course-idea.md) | draft | 2026-02-08 | Paid Python prerequisite course for AI Engineering and Zoomcamps |
 | [AI-Assisted Automation Course Idea](ideas/ai-assisted-automation-course-idea.md) | draft | 2026-01-29 | Concept for a paid course on AI-assisted automation |
 | [Google Stitch: Design-First AI Development](ideas/google-stitch.md) | draft | 2026-01-23 | Google's design-focused AI development tool |
 | [New Website Services Section](ideas/new-website-services-section.md) | draft | - | Adding a workshops section to the website |
@@ -99,13 +99,13 @@ Files at the articles root that don't fit into the above categories.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Weekly Log](weekly-log.md) | draft | 2026-03-05 | Running log of weekly activities with links to detailed articles |
 | [Interesting Resources](interesting-resources.md) | draft | 2026-03-05 | Curated collection of tools, resources, and project ideas for the newsletter |
 | [Google Docs Voice Feedback Tool](google-docs-voice-feedback.md) | draft | 2026-03-02 | Voice-powered Google Docs editor built with Claude Code, using LLM to understand edit requests and apply changes via Google Docs API |
 | [Course Management Production Incident Report](course-management-production-incident.md) | draft | 2026-03-02 | Production database destroyed via Terraform, AWS support recovery, incident timeline, deletion protection setup, full chronological report |
 | [Personal Project Ideas](personal-project-ideas.md) | draft | 2026-03-02 | Personal project ideas to implement: voice-based document editing, notebook server for Claude Code, voice-controlled dev bot, DataTasks, content reuse system |
 | [Pet Projects](pet-projects.md) | draft | 2026-02-28 | Karpathy's advice on becoming an expert through depth-first projects, teaching, and self-comparison |
 | [Getting a Data Science Job](getting-a-data-science-job.md) | draft | 2026-02-28 | Summary of a presentation on the full data science job search process: networking, applying, interviewing, and negotiating offers |
-| [Weekly Log](weekly-log.md) | draft | 2026-02-27 | Running log of weekly activities with links to detailed articles |
 | [AI Agent Project Ideas](agent-project-ideas.md) | draft | 2026-02-26 | Collection of AI agent project ideas for AI Buildcamp students: GitHub issue bot, idea generator, job analytics, knowledge management, journaling |
 | [Community Platform Feature Ideas](community-platform-features.md) | draft | 2026-02-26 | Feature ideas for the AI Shipping Labs site: business case simulator, career help tools, data collection |
 | [Recreating a PNG Logo as SVG with Claude Code](svg-logo-recreation.md) | draft | 2026-02-26 | Converting a ChatGPT-generated PNG logo to SVG using Claude Code with OpenCV and potrace |

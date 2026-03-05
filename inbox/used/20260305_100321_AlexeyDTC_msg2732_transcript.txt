@@ -1,0 +1,9 @@
+---
+source: telegram_voice
+date: 2026-03-05T10:03:21+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260305_100321_AlexeyDTC_msg2732.ogg
+---
+
+Все, что я сейчас наговорил, это все в один файл weekly log.

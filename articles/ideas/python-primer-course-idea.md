@@ -1,7 +1,7 @@
 ---
 title: "Python Primer Course Idea"
 created: 2026-02-08
-updated: 2026-02-12
+updated: 2026-03-05
 tags: [course-idea, python, ai-engineering, zoomcamp, education]
 status: draft
 ---
@@ -86,9 +86,39 @@ The approach emphasizes that when learning Python for AI engineering, syntax isn
 
 If this concept works, similar prerequisite courses could be created for other tools students commonly request help with (like Git)[^8].
 
-## Additional Course Planning Notes
+## Course Name
 
-The Python course should be based on analyzing all existing Zoomcamps and Buildcamp to determine what Python is needed, then creating the course around those requirements[^19].
+The working name is "Python for AI Engineering." Not finalized yet, but this captures the intent - a Python course specifically designed to prepare students for AI Engineering and all the Zoomcamps[^20].
+
+## Content Analysis with Claude Code
+
+Used Claude Code to analyze all existing courses to determine what Python topics are needed:
+
+- ML Zoomcamp
+- Data Engineering Zoomcamp
+- MLOps Zoomcamp
+- LLM Ops Zoomcamp
+- AI Engineering Buildcamp
+- AI Hero course
+
+Did not include AI DevTools Zoomcamp because code there is generated, not written by hand. Used Claude Code instead of doing this manually for two reasons: (1) could miss things doing it by hand, and (2) as an experienced Python developer, some things seem obvious but are not obvious for beginners. The approach assumes zero Python knowledge. The analysis produced a very good list of required Python topics[^20].
+
+## Project: Podcast Aggregator
+
+Based on the analysis, chose a single project for the entire course - a podcast aggregator. This follows the same project-based methodology used across all Zoomcamps. Most Zoomcamps (except ML Zoomcamp, which uses one project per module) use a single project throughout the entire course. A single project makes it easier for students to transition between modules without switching context[^20].
+
+The project covers everything from the very basics of Python to advanced topics:
+
+- Python fundamentals
+- Database interaction
+- Multithreading
+- Async (included because AI Engineering Buildcamp uses Pydantic AI, which is async-based)
+
+All of this is built on top of the content from AI Engineering Buildcamp[^20].
+
+## Current Status (March 2026)
+
+The curriculum is not fully finalized yet - no time right now because of working on Buildcamp. Doing this as background work - switching to it between recording sessions, brainstorming in ChatGPT during breaks. For example, spending an hour working on Buildcamp content, then switching to another window where the Python course research is happening, checking progress, asking questions. This background approach works well for brainstorming and research phases[^20].
 
 ## Sources
 
@@ -102,4 +132,5 @@ The Python course should be based on analyzing all existing Zoomcamps and Buildc
 [^8]: [20260208_154311_AlexeyDTC_msg1218_transcript.txt](../inbox/used/20260208_154311_AlexeyDTC_msg1218_transcript.txt)
 [^9]: [20260208_154551_AlexeyDTC_msg1220_transcript.txt](../inbox/used/20260208_154551_AlexeyDTC_msg1220_transcript.txt)
 [^10]: [20260208_154656_AlexeyDTC_msg1222_transcript.txt](../inbox/used/20260208_154656_AlexeyDTC_msg1222_transcript.txt)
-[^19]: [20260212_071345_AlexeyDTC_msg1474_transcript.txt](../inbox/used/20260212_071345_AlexeyDTC_msg1474_transcript.txt)
+[^19]: [20260212_071345_AlexeyDTC_msg1474_transcript.txt](../../inbox/used/20260212_071345_AlexeyDTC_msg1474_transcript.txt)
+[^20]: [20260305_095937_AlexeyDTC_msg2728_transcript.txt](../../inbox/used/20260305_095937_AlexeyDTC_msg2728_transcript.txt)
