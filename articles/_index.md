@@ -88,9 +88,7 @@ Notes and preparation materials for upcoming presentations and talks.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
-| [Interview Process Webinar Q&A](talks/interview-process-webinar-qa.md) | draft | 2026-03-03 | Q&A from the interview process webinar covering niche finding, career transitions, interview tips, and PM to engineering paths |
 | [Building Blocks of Modern Code Agents](talks/code-agents-building-blocks.md) | draft | 2026-02-18 | Map of code agent types and the two key building blocks: skills and subagents |
-| [AI Engineer Webinar Q&A](talks/ai-engineer-webinar-qa.md) | draft | 2026-02-17 | Questions and answers from the Day in the Life of an AI Engineer webinar |
 | [AI as Personal Analyst](talks/ai-as-personal-analyst.md) | draft | 2026-02-12 | Talk about using AI for Excel automation, data cleaning, and scaling document review |
 
 ## Other
@@ -110,7 +108,6 @@ Files at the articles root that don't fit into the above categories.
 | [AI Agent Project Ideas](agent-project-ideas.md) | draft | 2026-02-26 | Collection of AI agent project ideas for AI Buildcamp students: GitHub issue bot, idea generator, job analytics, knowledge management, journaling |
 | [Community Platform Feature Ideas](community-platform-features.md) | draft | 2026-02-26 | Feature ideas for the AI Shipping Labs site: business case simulator, career help tools, data collection |
 | [Recreating a PNG Logo as SVG with Claude Code](svg-logo-recreation.md) | draft | 2026-02-26 | Converting a ChatGPT-generated PNG logo to SVG using Claude Code with OpenCV and potrace |
-| [Defining the Role of AI Engineer: Webinar Q&A](ai-engineer-role-definition-qa.md) | draft | 2026-02-25 | Q&A from the Defining the Role of AI Engineer webinar covering career transitions, GitHub portfolios, role comparisons, and job market insights |
 | [Writing Assistant Improvement Ideas](writing-assistant-improvement-ideas.md) | draft | 2026-02-20 | Feedback and improvement ideas for the Telegram writing assistant bot |
 
 ## Research
