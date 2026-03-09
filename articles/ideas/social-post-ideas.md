@@ -1,7 +1,7 @@
 ---
 title: "Social Post Ideas"
 created: 2026-02-07
-updated: 2026-03-05
+updated: 2026-03-08
 tags: [social-media, twitter, content-ideas, ai-engineering]
 status: draft
 ---
@@ -12,7 +12,7 @@ A collection of interesting social media posts and content ideas for newsletters
 
 ## AI Projects for 2026
 
-Post by Rimsha Bhardwaj: "10 AI projects that will get you hired in 2026" - a comprehensive list of project ideas with tech stacks and learning resources[^1].
+Post by Rimsha Bhardwaj: "10 AI projects that will get you hired in 2026" - a comprehensive list of project ideas with tech stacks and learning resources[^1][^14].
 
 The projects cover:
 1. RAG App with Real Evaluations - OpenAI/Claude + vector DB + evals
@@ -136,6 +136,26 @@ The projects and what they teach:
 
 Good list of beginner-friendly projects that people can try to learn something new.
 
+## Build Your Own X - 59 Project Ideas
+
+[Post by Abhishek B R (@abhitwt)](https://x.com/abhitwt/status/2029534779272782250): "For people who keep asking what to build" - a comprehensive list of 59 systems programming project ideas[^13].
+
+The projects span multiple domains:
+- Operating systems - OS, kernel in assembly, bootloader, scheduler, memory allocator, embedded OS
+- Languages and compilers - programming language, compiler, compiler backend (LLVM target), compiler optimizer, scripting language
+- Databases and storage - database, query language, key-value store, cache system (like Redis), file system, distributed file system
+- Networking - web server, network protocol, networking stack (TCP/IP), API gateway, reverse proxy, load balancer
+- DevTools - text editor, IDE, version control system, package manager, shell, debugger, profiler, static code analyzer, disassembler, CI/CD system
+- Virtualization and containers - virtual machine, container runtime, container orchestrator (like Kubernetes), hypervisor, microkernel, CPU emulator
+- Graphics and audio - game engine, graphics renderer (rasterizer or ray tracer), physics engine, audio engine, GUI toolkit, window manager
+- Web and runtime - browser, browser engine (HTML/CSS/JS parser and renderer), runtime (like Node.js), scripting sandbox
+- Distributed systems - message broker (like Kafka), search engine
+- Security and crypto - encryption algorithm, blockchain, blockchain consensus algorithm, zero-knowledge proof system, authentication server (OAuth2/OpenID Connect)
+- AI/ML - machine learning framework
+- Database drivers
+
+A good reference list for deeper systems-level learning projects.
+
 ## Sources
 
 [^1]: [20260207_143150_AlexeyDTC_msg1103.md](../inbox/used/20260207_143150_AlexeyDTC_msg1103.md) - 10 AI projects post
@@ -150,3 +170,5 @@ Good list of beginner-friendly projects that people can try to learn something n
 [^10]: [20260219_121518_AlexeyDTC_msg2064_transcript.txt](../inbox/used/20260219_121518_AlexeyDTC_msg2064_transcript.txt) - Portfolio project post idea
 [^11]: [20260219_121518_AlexeyDTC_msg2065_transcript.txt](../inbox/used/20260219_121518_AlexeyDTC_msg2065_transcript.txt) - Office hours FAQ analysis idea
 [^12]: [20260305_080533_AlexeyDTC_msg2718.md](../inbox/used/20260305_080533_AlexeyDTC_msg2718.md) - Practical programming projects post
+[^13]: [20260305_201330_AlexeyDTC_msg2774.md](../../inbox/used/20260305_201330_AlexeyDTC_msg2774.md) - Build your own X post
+[^14]: [20260308_162743_AlexeyDTC_msg2778.md](../../inbox/used/20260308_162743_AlexeyDTC_msg2778.md) - 10 AI projects post (duplicate of [^1])
