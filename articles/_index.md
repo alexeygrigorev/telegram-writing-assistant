@@ -26,7 +26,7 @@ Articles that are mostly ready for the newsletter. All necessary content is insi
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
-| [Claude Code Experiments](ready-for-newsletter/claude-code-experiments.md) | draft | 2026-03-01 | Experiments and applications of Claude Code beyond coding, including challenges with communication |
+| [Claude Code Experiments](ready-for-newsletter/claude-code-experiments.md) | draft | 2026-03-10 | Experiments and applications of Claude Code beyond coding, including challenges with communication |
 | [Benchmarking SQLiteSearch](ready-for-newsletter/benchmarking-sqlitesearch.md) | draft | 2026-02-26 | Benchmarking SQLiteSearch with Simple Wikipedia and vector search benchmarks from Milvus/Zilliz, HNSW and IVF implementations, v0.0.3 release |
 | [What's New in the Telegram Writing Assistant](ready-for-newsletter/telegram-writing-assistant-updates.md) | draft | 2026-02-26 | Article idea: subagents, research section, link summaries, QA agent, YouTube and audio file processing |
 | [Testing AI Agents with the Judge Pattern](ready-for-newsletter/testing-agents-with-judge-pattern.md) | draft | 2026-02-25 | Using agents to evaluate other agents |
@@ -97,9 +97,11 @@ Files at the articles root that don't fit into the above categories.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Take-Home Assignments for AI Engineers: Webinar Q&A](ai-engineer-webinar-qa.md) | draft | 2026-03-10 | Q&A from webinar on take-home assignments for AI engineers: career advice, hiring without CS degree, data scientist transitions |
+| [Karpathy's Autoresearch: Agents Training LLMs](karpathy-autoresearch-agents.md) | draft | 2026-03-10 | Newsletter idea: Karpathy's autoresearch project where AI agents autonomously iterate on LLM training |
+| [Interesting Resources](interesting-resources.md) | draft | 2026-03-10 | Curated collection of tools, resources, and project ideas for the newsletter |
 | [Exasol Workshop Infrastructure Setup](exasol-workshop-infrastructure.md) | draft | 2026-03-06 | Secure AWS access setup for Exasol workshop using temporary credentials, Lambda, CodeSpaces/DevContainers |
 | [Weekly Log](weekly-log.md) | draft | 2026-03-05 | Running log of weekly activities with links to detailed articles |
-| [Interesting Resources](interesting-resources.md) | draft | 2026-03-05 | Curated collection of tools, resources, and project ideas for the newsletter |
 | [Google Docs Voice Feedback Tool](google-docs-voice-feedback.md) | draft | 2026-03-02 | Voice-powered Google Docs editor built with Claude Code, using LLM to understand edit requests and apply changes via Google Docs API |
 | [Course Management Production Incident Report](course-management-production-incident.md) | draft | 2026-03-02 | Production database destroyed via Terraform, AWS support recovery, incident timeline, deletion protection setup, full chronological report |
 | [Personal Project Ideas](personal-project-ideas.md) | draft | 2026-03-02 | Personal project ideas to implement: voice-based document editing, notebook server for Claude Code, voice-controlled dev bot, DataTasks, content reuse system |

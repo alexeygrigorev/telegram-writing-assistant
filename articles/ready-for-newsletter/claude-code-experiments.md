@@ -1,7 +1,7 @@
 ---
 title: "Claude Code Experiments"
 created: 2026-02-12
-updated: 2026-03-01
+updated: 2026-03-10
 tags: [claude-code, ai-assistants, testing, productivity]
 status: draft
 ---
@@ -92,6 +92,10 @@ After a version update, Claude Code started blocking terraform apply through its
   <!-- Shows how Claude Code hooks can block infrastructure commands that were previously allowed -->
 </figure>
 
+## Claude Code Fixing a Printer
+
+A [viral tweet by @melodyskim](https://x.com/melodyskim/status/2030810580739555495) (533K+ views) shows another example of using Claude Code beyond coding. The person had trouble setting up their printer, asked Claude Code for help, and it fixed the issue and printed a test page. Similar to the phone recovery story - Claude Code solving hardware and system-level problems that are not traditional programming tasks[^9].
+
 ## Productivity Impact
 
 These experiences highlight a key challenge with AI assistants: the time spent explaining and correcting can exceed the time saved. For some tasks, Claude provides massive productivity gains. For others, the overhead of communication and the risk of going down wrong paths makes manual work faster[^2].
@@ -108,3 +112,4 @@ The critical question becomes: when is it worth using Claude, and when is manual
 [^6]: [20260216_182231_AlexeyDTC_msg1789_transcript.txt](../inbox/used/20260216_182231_AlexeyDTC_msg1789_transcript.txt)
 [^7]: [20260222_182029_AlexeyDTC_msg2224.md](../inbox/used/20260222_182029_AlexeyDTC_msg2224.md)
 [^8]: [20260228_205024_AlexeyDTC_msg2640_photo.md](../inbox/used/20260228_205024_AlexeyDTC_msg2640_photo.md)
+[^9]: [20260309_133536_valeriia_kuka_msg2784.md](../inbox/used/20260309_133536_valeriia_kuka_msg2784.md)

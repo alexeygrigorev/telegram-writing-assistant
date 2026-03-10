@@ -1,7 +1,7 @@
 ---
 title: "Interesting Resources"
 created: 2026-01-31
-updated: 2026-03-05
+updated: 2026-03-10
 tags: [resources, tools, ai, development]
 status: draft
 ---
@@ -29,6 +29,10 @@ Each resource entry follows this simple format:
 ## Tools
 
 ## Resources
+
+### Learn AI Engineering
+
+[Learn AI Engineering](https://github.com/ashishps1/learn-ai-engineering) is a curated collection of free courses, articles, tutorials, and videos for learning AI and LLMs from scratch. It covers mathematical foundations, ML fundamentals, deep learning, generative AI, LLMs, prompt engineering, RAG, agents, and MCP, pulling together resources from sources like Coursera, Hugging Face, deeplearning.ai, and Stanford. With nearly 5,000 GitHub stars, it serves as a structured learning path for anyone looking to get into AI engineering without spending money on paid courses[^36].
 
 ### Public APIs
 
@@ -84,3 +88,4 @@ Add project ideas here.
 [^33]: [20260301_112008_AlexeyDTC_msg2650.md](../inbox/used/20260301_112008_AlexeyDTC_msg2650.md)
 [^34]: [20260302_025428_AlexeyDTC_msg2656.md](../inbox/used/20260302_025428_AlexeyDTC_msg2656.md)
 [^35]: [20260303_185917_AlexeyDTC_msg2714.md](../inbox/used/20260303_185917_AlexeyDTC_msg2714.md)
+[^36]: [20260309_133601_valeriia_kuka_msg2786.md](../inbox/used/20260309_133601_valeriia_kuka_msg2786.md)

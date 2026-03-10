@@ -1,0 +1,9 @@
+---
+source: telegram_voice
+date: 2026-03-10T08:14:18+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260310_081418_AlexeyDTC_msg2805.ogg
+---
+
+Ну на этом все, я в принципе все вопросы ответил, давай сейчас их все в одну статью сложим.
