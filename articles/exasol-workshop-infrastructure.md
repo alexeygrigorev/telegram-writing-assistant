@@ -1,7 +1,7 @@
 ---
 title: "Exasol Workshop Infrastructure Setup"
 created: 2026-03-06
-updated: 2026-03-06
+updated: 2026-03-11
 tags: [workshop, aws, security, exasol, devcontainers, codespaces]
 status: draft
 ---
@@ -38,10 +38,25 @@ This minimizes the damage window. During the workshop itself, people could poten
 
 Additionally, the Exasol team will monitor the account status and shut down any suspicious activity.
 
-## Current Status
+## Credential Flow
 
-The code is currently private. It will be opened after the workshop is completed.
+The Codespace uses the AWS SDK to request temporary credentials from the Lambda function. The Lambda calls AWS STS to assume a workshop participant role and returns short-lived credentials (15 minutes). The SDK caches these credentials and auto-refreshes them before expiry[^2][^3].
+
+<figure>
+  <img src="../assets/images/exasol-workshop-infrastructure/credential-flow-diagram.png" alt="Sequence diagram showing credential flow between Codespace, Lambda, and AWS STS">
+  <figcaption>Credential flow: Codespace requests temporary AWS credentials via Lambda, which calls STS to assume a workshop participant role</figcaption>
+  <!-- Rendered from the mermaid diagram provided by Alexey, showing the full request-response cycle for temporary credential issuance and auto-refresh -->
+</figure>
+
+## Workshop Results
+
+The workshop ran successfully. The temporary credential system worked as planned - participants got AWS access from Codespaces without receiving direct AWS keys. After the workshop, the Lambda function is simply disabled, cutting off all access[^2][^3].
+
+A separate video recording is being prepared since the live workshop recording did not come out well. This can be shared in the newsletter[^4].
 
 ## Sources
 
 [^1]: [20260306_162155_AlexeyDTC_msg2776_transcript.txt](../inbox/used/20260306_162155_AlexeyDTC_msg2776_transcript.txt)
+[^2]: [20260311_192843_AlexeyDTC_msg2818_transcript.txt](../inbox/used/20260311_192843_AlexeyDTC_msg2818_transcript.txt)
+[^3]: [20260311_192913_AlexeyDTC_msg2822_transcript.txt](../inbox/used/20260311_192913_AlexeyDTC_msg2822_transcript.txt)
+[^4]: [20260311_192843_AlexeyDTC_msg2819_transcript.txt](../inbox/used/20260311_192843_AlexeyDTC_msg2819_transcript.txt)
