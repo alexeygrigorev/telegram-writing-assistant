@@ -97,6 +97,7 @@ Files at the articles root that don't fit into the above categories.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Setting Up a Windows Computer for Development](windows-dev-setup.md) | draft | 2026-03-11 | Step-by-step guide to setting up a fresh Windows computer for development: Terminal, Git Bash, Python/UV, NodeJS, Docker, VS Code, Claude Code |
 | [Ranking for AI Search: LinkedIn Visibility and AI Overview Tracking](ai-search-visibility.md) | draft | 2026-03-10 | LinkedIn AI visibility study findings and AI Overview Tracker concept for monitoring brand presence in AI search |
 | [Exasol Workshop Infrastructure Setup](exasol-workshop-infrastructure.md) | draft | 2026-03-11 | Secure AWS access setup for Exasol workshop using temporary credentials, Lambda, CodeSpaces/DevContainers, credential flow diagram |
 | [Take-Home Assignments for AI Engineers: Webinar Q&A](ai-engineer-webinar-qa.md) | draft | 2026-03-10 | Q&A from webinar on take-home assignments for AI engineers: career advice, hiring without CS degree, data scientist transitions |
