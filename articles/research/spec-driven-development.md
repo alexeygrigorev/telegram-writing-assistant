@@ -1,7 +1,7 @@
 ---
 title: "Spec-Driven Development and Task Management for AI Agents"
 created: 2026-02-10
-updated: 2026-02-16
+updated: 2026-03-12
 tags: [research, claude-code, agents, task-management, spec-driven-development]
 status: draft
 ---
@@ -97,6 +97,35 @@ Quotes:
 - "Planning pays off - Rushing to code is often slower than planning first"
 - "Tech plan describes what, not how - Plans capture architecture, query strategies, and test scenarios. They don't pre-write method bodies - that's brittle and gets followed blindly"
 - "Iteration improves quality - A review after a review can still find improvements"
+
+### Spec-Driven Development Explained (Video)
+
+Source: https://www.youtube.com/watch?v=mViFYTwWvcM
+
+Overview: A walkthrough comparing vibe coding, traditional development, test-driven development, and spec-driven development. The video explains why spec-driven development reduces ambiguity for AI coding agents by creating specifications before any code is written.
+
+Key Ideas:
+- Vibe coding starts from a prompt, generates code, then iterates through prompt editing until reaching the desired implementation. The problem is the model might produce a different result every time from the same prompt
+- Vibe coding skips the traditional software development lifecycle (SDLC): planning, design, implementation, testing, QA, deployment, maintenance
+- Spec-driven development starts by prompting the system behavior and constraints, not a specific implementation. The spec acts as a contract to create requirements
+- From requirements, a design document is created with to-dos for each implementation piece. Nothing is implemented until the design is approved
+- The hierarchy is: specification (behavior + constraints) → requirements → design document → implementation
+- If the design is not right, it can be edited before any code exists. This is much cheaper than fixing code later
+
+Key Insights:
+- Traditional development goes code first, then documentation. Test-driven development starts from tests, then writes code. Spec-driven development starts from specifications, then design, then code
+- Spec-driven development is described as "test-driven development and behavior-driven development on steroids"
+- The key advantage is reducing ambiguity: instead of the LLM guessing from 30 possible implementations, the spec tells it exactly what to build
+- Having the spec as the primary artifact drives all downstream work: implementation, tests, documentation, and verification
+
+Practical Example:
+- Vibe coding approach: "I need a /login page for users to authenticate" - the model has 30 ways to implement this
+- Spec-driven approach: define a new feature "user authentication" with endpoint at /login accepting POST requests, specify variables (user, pass), define failure codes for missing username, generate test cases (valid credentials → 200 code) - all before writing any code
+
+Quotes:
+- "We are not prompting a specific implementation. We are prompting what we want our system to do - the behavior, the constraints."
+- "Having a spec like this is much better than having the LLM guess what solution is going to hopefully best fit the user's request."
+- "We can use spec coding to flip the traditional development model so that we have this spec and that becomes the primary artifact that drives all downstream work."[^14]
 
 ### FullStack-Agent Research
 
@@ -301,3 +330,4 @@ Compound Engineering from Every introduces a crucial insight: the compound step 
 [^11]: [https://github.com/blader/taskmaster](https://github.com/blader/taskmaster)
 [^12]: [https://every.to/guides/compound-engineering](https://every.to/guides/compound-engineering)
 [^13]: [20260216_072217_AlexeyDTC_msg1703.md](../../inbox/used/20260216_072217_AlexeyDTC_msg1703.md)
+[^14]: [Spec-Driven Development Explained - YouTube](https://www.youtube.com/watch?v=mViFYTwWvcM) via [20260312_074814_AlexeyDTC_msg2846.md](../../inbox/used/20260312_074814_AlexeyDTC_msg2846.md)

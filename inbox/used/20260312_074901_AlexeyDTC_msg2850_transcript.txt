@@ -1,0 +1,10 @@
+---
+source: telegram_voice
+date: 2026-03-12T07:49:01+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260312_074901_AlexeyDTC_msg2850.ogg
+---
+
+Сделай research по обоим видео. У нас про контекст инженеринг уже есть. Research туда добавь и про
+контекст инженеринг отдельно сделай.
