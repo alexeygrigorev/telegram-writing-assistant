@@ -1,7 +1,7 @@
 ---
 title: "Exasol Workshop Infrastructure Setup"
 created: 2026-03-06
-updated: 2026-03-11
+updated: 2026-03-12
 tags: [workshop, aws, security, exasol, devcontainers, codespaces]
 status: draft
 ---
@@ -9,6 +9,8 @@ status: draft
 # Exasol Workshop Infrastructure Setup
 
 Preparing for a Tuesday workshop with Exasol. The main challenge: everyone needs the same infrastructure, and some participants will come without their own AWS account. They need the ability to create their own Exasol Personal instance, which requires AWS access.
+
+The project is open source: [aws-credentials-vending-machine](https://github.com/alexeygrigorev/aws-credentials-vending-machine)[^5].
 
 ## The Problem
 
@@ -21,6 +23,19 @@ The idea is to replicate the AWS instance profile mechanism but outside of AWS, 
 With instance profiles, if something happens, the key cannot leak. Even if someone gets onto the machine, they can only do what's available from that machine. The keys are temporary and have a short lifespan - something like 5-10 minutes.
 
 The solution uses a Lambda function that issues temporary credentials by creating temporary sessions. The AWS CLI requests a key first, then uses it, and stores everything locally. This is essentially the same mechanism as instance profiles, just not tied to EC2 instances.
+
+## How It Works
+
+The trick is using `AWS_CONTAINER_CREDENTIALS_FULL_URI` - an environment variable that all AWS SDKs already support natively. Normally this is used by ECS containers to get credentials, but it works anywhere. Point it at a Lambda function URL and every AWS SDK call automatically fetches and refreshes credentials from that endpoint. No custom client code needed.
+
+The system has a few components:
+
+- A Lambda function that validates a bearer token and calls STS AssumeRole to return 15-minute temporary credentials
+- A CloudFormation template that sets up the Lambda, the workshop participant IAM role (with EC2, S3, VPC permissions), and the function URL
+- A token rotation script that generates a new token, updates the stack, encrypts the token, and commits it to the workshop repo
+- A workshop starter repo (as a git submodule) with a DevContainer setup for participants
+
+The Lambda function URL is publicly accessible (no IAM auth on the URL itself). Security relies on the bearer token check inside the Lambda code. This is necessary because the ECS credential protocol sends a simple HTTP GET with a bearer token, not IAM-signed requests.
 
 ## DevContainers and Codespaces
 
@@ -37,6 +52,19 @@ The solution: encrypt the token and store it in the repository in encrypted form
 This minimizes the damage window. During the workshop itself, people could potentially misuse the access, but the window is only 1.5 hours. The probability of malicious hackers attending a workshop to mine bitcoin instead of learning is quite low.
 
 Additionally, the Exasol team will monitor the account status and shut down any suspicious activity.
+
+## Participant Setup Flow
+
+The participant experience is straightforward:
+
+1. Set the `WORKSHOP_PASSPHRASE` as a personal GitHub Codespaces secret (one-time setup)
+2. Open a Codespace from the workshop starter repo
+3. On container start, a `.bashrc` hook decrypts the token using the passphrase and sets the credential environment variables
+4. All AWS SDK calls (boto3, AWS CLI) automatically hit the Lambda URL and get temporary credentials
+
+The `.bashrc` hook runs on every shell open, not just at container creation. This means credentials work even if the Codespace is stopped and restarted.
+
+For token rotation, there is a single script that handles the full lifecycle: generate a new random token, update the AWS stack, encrypt the token with the passphrase, update `devcontainer.json`, commit, and push. This makes it practical to rotate before every workshop[^5].
 
 ## Credential Flow
 
@@ -60,3 +88,4 @@ A separate video recording is being prepared since the live workshop recording d
 [^2]: [20260311_192843_AlexeyDTC_msg2818_transcript.txt](../inbox/used/20260311_192843_AlexeyDTC_msg2818_transcript.txt)
 [^3]: [20260311_192913_AlexeyDTC_msg2822_transcript.txt](../inbox/used/20260311_192913_AlexeyDTC_msg2822_transcript.txt)
 [^4]: [20260311_192843_AlexeyDTC_msg2819_transcript.txt](../inbox/used/20260311_192843_AlexeyDTC_msg2819_transcript.txt)
+[^5]: [20260312_042909_AlexeyDTC_msg2840.md](../inbox/used/20260312_042909_AlexeyDTC_msg2840.md)
