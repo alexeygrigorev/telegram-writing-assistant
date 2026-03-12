@@ -12,6 +12,12 @@ Newsletter idea[^1]. Karpathy's new project went viral: [autoresearch](https://g
 
 Right now many people on Twitter are actively discussing this approach and trying to use it for many other things. It is worth writing a few words about what autoresearch actually does, since there is so much interest[^4].
 
+## The short version
+
+You can really just explain this in a couple of paragraphs. The approach is cool because it automates a routine task that normally takes a lot of time. You launch it, go for a walk, come back in 24 hours, and you have an optimized model[^8].
+
+There are also built-in limitations that make it work. The agent analyzed the repository and figured out heuristics like "no run should take more than 10 minutes." These kinds of constraints are what make the whole process efficient in practice[^8].
+
 ## My understanding
 
 Say we have a task: optimize model quality. We have a way to measure this quality - we run our model on some data and track a metric, for example accuracy[^4].
@@ -109,3 +115,4 @@ He writes about having several setups, and one of them produced the best results
 [^5]: [20260312_080548_AlexeyDTC_msg2858.md](../inbox/used/20260312_080548_AlexeyDTC_msg2858.md) and [20260312_080548_AlexeyDTC_msg2859.md](../inbox/used/20260312_080548_AlexeyDTC_msg2859.md)
 [^6]: [Varun Mathur tweet](https://x.com/varun_mathur/status/2031550020101480507)
 [^7]: [autoresearch repository analysis](https://github.com/karpathy/autoresearch) via [20260312_080712_AlexeyDTC_msg2864.md](../inbox/used/20260312_080712_AlexeyDTC_msg2864.md)
+[^8]: [20260312_082424_AlexeyDTC_msg2870_transcript.txt](../inbox/used/20260312_082424_AlexeyDTC_msg2870_transcript.txt)

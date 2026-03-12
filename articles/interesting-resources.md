@@ -1,7 +1,7 @@
 ---
 title: "Interesting Resources"
 created: 2026-01-31
-updated: 2026-03-10
+updated: 2026-03-12
 tags: [resources, tools, ai, development]
 status: draft
 ---
@@ -27,6 +27,10 @@ Each resource entry follows this simple format:
 
 
 ## Tools
+
+### Lightpanda Browser
+
+[Lightpanda Browser](https://github.com/lightpanda-io/browser) is an open-source headless browser built from scratch in Zig, designed specifically for AI agents, web scraping, and automation. It claims 11x faster execution and 9x lower memory usage compared to headless Chrome, while remaining compatible with Playwright, Puppeteer, and other tools through the Chrome DevTools Protocol. With over 12,000 GitHub stars, it is a promising lightweight alternative for anyone running browser automation at scale without needing graphical rendering[^37].
 
 ## Resources
 
@@ -89,3 +93,4 @@ Add project ideas here.
 [^34]: [20260302_025428_AlexeyDTC_msg2656.md](../inbox/used/20260302_025428_AlexeyDTC_msg2656.md)
 [^35]: [20260303_185917_AlexeyDTC_msg2714.md](../inbox/used/20260303_185917_AlexeyDTC_msg2714.md)
 [^36]: [20260309_133601_valeriia_kuka_msg2786.md](../inbox/used/20260309_133601_valeriia_kuka_msg2786.md)
+[^37]: [https://github.com/lightpanda-io/browser](https://github.com/lightpanda-io/browser) via [20260312_135733_AlexeyDTC_msg2874.md](../inbox/used/20260312_135733_AlexeyDTC_msg2874.md)

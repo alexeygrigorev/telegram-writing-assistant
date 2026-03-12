@@ -98,11 +98,11 @@ Files at the articles root that don't fit into the above categories.
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
 | [Autoresearch Project](karpathy-autoresearch-agents.md) | draft | 2026-03-12 | Karpathy's autoresearch project: repo analysis, how the agent loop works, comparison with AutoML, Twitter buzz around the approach |
+| [Interesting Resources](interesting-resources.md) | draft | 2026-03-12 | Curated collection of tools, resources, and project ideas for the newsletter |
 | [Exasol Workshop Infrastructure Setup](exasol-workshop-infrastructure.md) | draft | 2026-03-12 | Secure AWS access setup for Exasol workshop using temporary credentials, Lambda, CodeSpaces/DevContainers, credential flow diagram, open-source project |
 | [Setting Up a Windows Computer for Development](windows-dev-setup.md) | draft | 2026-03-11 | Step-by-step guide to setting up a fresh Windows computer for development: Terminal, Git Bash, Python/UV, NodeJS, Docker, VS Code, Claude Code |
 | [Ranking for AI Search: LinkedIn Visibility and AI Overview Tracking](ai-search-visibility.md) | draft | 2026-03-10 | LinkedIn AI visibility study findings and AI Overview Tracker concept for monitoring brand presence in AI search |
 | [Take-Home Assignments for AI Engineers: Webinar Q&A](ai-engineer-webinar-qa.md) | draft | 2026-03-10 | Q&A from webinar on take-home assignments for AI engineers: career advice, hiring without CS degree, data scientist transitions |
-| [Interesting Resources](interesting-resources.md) | draft | 2026-03-10 | Curated collection of tools, resources, and project ideas for the newsletter |
 | [Weekly Log](weekly-log.md) | draft | 2026-03-05 | Running log of weekly activities with links to detailed articles |
 | [Google Docs Voice Feedback Tool](google-docs-voice-feedback.md) | draft | 2026-03-02 | Voice-powered Google Docs editor built with Claude Code, using LLM to understand edit requests and apply changes via Google Docs API |
 | [Course Management Production Incident Report](course-management-production-incident.md) | draft | 2026-03-02 | Production database destroyed via Terraform, AWS support recovery, incident timeline, deletion protection setup, full chronological report |
