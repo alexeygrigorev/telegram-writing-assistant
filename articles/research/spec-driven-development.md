@@ -295,6 +295,12 @@ Technical Details:
 - Skills are classified as either rigid (TDD, debugging, verification: follow exactly, no adaptation) or flexible (patterns: adapt principles to context)
 - The project is MIT licensed and currently at v4.3.0 (as of February 2026)
 
+## Multi-Agent Teams and Spec-Driven Development
+
+This is genuinely useful. You work with agents like you work with people on a team. You assign them tasks the same way you assign tasks to developers. And overall it works quite well. The setup that works: an orchestrator agent, a PM agent, a developer agent, and a tester agent. They work with each other[^15].
+
+Spec-driven development seems to come from this same direction. Still need to fully understand it, but from what it looks like, this is exactly it. There are articles to prepare about this too, and an idea for making a course about this[^15].
+
 ## Notes
 
 Previously worked with stop hooks in the Ralph project, but it was quite useless - just "continue" and that's it. The goal is to make this more intelligent:
@@ -331,3 +337,4 @@ Compound Engineering from Every introduces a crucial insight: the compound step 
 [^12]: [https://every.to/guides/compound-engineering](https://every.to/guides/compound-engineering)
 [^13]: [20260216_072217_AlexeyDTC_msg1703.md](../../inbox/used/20260216_072217_AlexeyDTC_msg1703.md)
 [^14]: [Spec-Driven Development Explained - YouTube](https://www.youtube.com/watch?v=mViFYTwWvcM) via [20260312_074814_AlexeyDTC_msg2846.md](../../inbox/used/20260312_074814_AlexeyDTC_msg2846.md)
+[^15]: [20260312_075116_AlexeyDTC_msg2855_transcript.txt](../../inbox/used/20260312_075116_AlexeyDTC_msg2855_transcript.txt)
