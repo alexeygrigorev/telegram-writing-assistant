@@ -1,7 +1,7 @@
 ---
 title: "Social Post Ideas"
 created: 2026-02-07
-updated: 2026-03-08
+updated: 2026-03-12
 tags: [social-media, twitter, content-ideas, ai-engineering]
 status: draft
 ---
@@ -156,6 +156,18 @@ The projects span multiple domains:
 
 A good reference list for deeper systems-level learning projects.
 
+## Claude Code Mastery Levels
+
+[Post by David Arnoux](https://www.linkedin.com/feed/update/urn:li:activity:7437793319134498816) (42,800+ followers, GenAI Circle community of 350+ builders): "10 Levels of Claude Code Mastery" framework, claiming most users are stuck at level 2. The levels range from basic prompting (level 0) to autonomous loops with agents building agents (level 10). The post got 1,468 reactions and 1,406 comments[^15].
+
+The levels cover: basic prompting, CLAUDE.md files, MCP servers, custom skills, context engineering with memory files, multi-phase skills and subagents, headless mode with JSON piping, Playwright browser control, parallel sessions with orchestrator agents, cron jobs with background agents, and autonomous agent loops[^15].
+
+They also built a `/level-up` tool that scans your Claude Code environment and gives a personalized roadmap. The post uses engagement-bait (comments required to access the resource)[^15].
+
+These levels are not great - we can come up with something more interesting as content[^16].
+
+David Arnoux runs GenAI Circle, a competitor AI community. Worth following to see what they do[^15].
+
 ## Sources
 
 [^1]: [20260207_143150_AlexeyDTC_msg1103.md](../inbox/used/20260207_143150_AlexeyDTC_msg1103.md) - 10 AI projects post
@@ -172,3 +184,5 @@ A good reference list for deeper systems-level learning projects.
 [^12]: [20260305_080533_AlexeyDTC_msg2718.md](../inbox/used/20260305_080533_AlexeyDTC_msg2718.md) - Practical programming projects post
 [^13]: [20260305_201330_AlexeyDTC_msg2774.md](../../inbox/used/20260305_201330_AlexeyDTC_msg2774.md) - Build your own X post
 [^14]: [20260308_162743_AlexeyDTC_msg2778.md](../../inbox/used/20260308_162743_AlexeyDTC_msg2778.md) - 10 AI projects post (duplicate of [^1])
+[^15]: [20260312_152230_AlexeyDTC_msg2880.md](../../inbox/used/20260312_152230_AlexeyDTC_msg2880.md) - Claude Code mastery levels LinkedIn post
+[^16]: [20260312_152330_AlexeyDTC_msg2882_transcript.txt](../../inbox/used/20260312_152330_AlexeyDTC_msg2882_transcript.txt) - Reaction to levels post

@@ -1,7 +1,7 @@
 ---
 title: "Microphone Booster App"
 created: 2026-02-13
-updated: 2026-02-13
+updated: 2026-03-12
 tags: [vibe-coding, rust, tauri, glm-5, opencode]
 status: draft
 ---
@@ -54,6 +54,18 @@ I previously tried building an FFmpeg wrapper in Python GUI and with .NET, but n
 
 Right now she has to write FFmpeg commands herself and run them. Even I would not want to do that - I would write some wrapper in Python, because FFmpeg is complex and it is easy to make a mistake with a parameter or copy the wrong thing. A GUI is much better for this kind of work[^5].
 
+## Update: Compilation on New Computer
+
+I got a new computer and asked Claude Code to compile the microboost Rust code. I did not have anything installed for Rust development on the new machine. Claude Code figured everything out on its own - installed Rust via rustup, installed Visual Studio 2022 Build Tools with the C++ workload via winget, switched to the stable-x86_64-pc-windows-msvc toolchain, and set up the LIB and INCLUDE environment variables for MSVC/Windows SDK paths. The whole process took about 13 minutes[^7].
+
+<figure>
+  <img src="../../assets/images/microphone-booster-app/claude-code-rust-compilation.jpg" alt="Terminal showing Claude Code successfully building microboost.exe after installing all dependencies">
+  <figcaption>Claude Code figured out the entire Rust build setup on a fresh Windows machine</figcaption>
+  <!-- Shows the successful build output with steps: Rust, VS Build Tools, toolchain, env vars -->
+</figure>
+
+The build produced the release binary at `target/release/microboost.exe` (5.3 MB). However, after testing the microphone booster, it does not actually work. But at least it compiles now on the new computer[^7].
+
 ## Sources
 
 [^1]: [20260213_143859_AlexeyDTC_msg1604_transcript.txt](../inbox/used/20260213_143859_AlexeyDTC_msg1604_transcript.txt)
@@ -62,3 +74,4 @@ Right now she has to write FFmpeg commands herself and run them. Even I would no
 [^4]: [20260213_143624_AlexeyDTC_msg1602_transcript.txt](../inbox/used/20260213_143624_AlexeyDTC_msg1602_transcript.txt)
 [^5]: [20260213_143701_AlexeyDTC_msg1603_transcript.txt](../inbox/used/20260213_143701_AlexeyDTC_msg1603_transcript.txt)
 [^6]: [20260213_182141_AlexeyDTC_msg1645.md](../inbox/used/20260213_182141_AlexeyDTC_msg1645.md) - GitHub repository link
+[^7]: [20260312_193542_AlexeyDTC_msg2888_photo.md](../inbox/used/20260312_193542_AlexeyDTC_msg2888_photo.md)

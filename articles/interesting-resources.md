@@ -1,7 +1,7 @@
 ---
 title: "Interesting Resources"
 created: 2026-01-31
-updated: 2026-03-12
+updated: 2026-03-13
 tags: [resources, tools, ai, development]
 status: draft
 ---
@@ -31,6 +31,10 @@ Each resource entry follows this simple format:
 ### Lightpanda Browser
 
 [Lightpanda Browser](https://github.com/lightpanda-io/browser) is an open-source headless browser built from scratch in Zig, designed specifically for AI agents, web scraping, and automation. It claims 11x faster execution and 9x lower memory usage compared to headless Chrome, while remaining compatible with Playwright, Puppeteer, and other tools through the Chrome DevTools Protocol. With over 12,000 GitHub stars, it is a promising lightweight alternative for anyone running browser automation at scale without needing graphical rendering[^37].
+
+### QMD
+
+[QMD](https://github.com/tobi/qmd) is a local-first search engine for Markdown files that combines BM25 keyword search, vector semantic search, and LLM re-ranking - all running on-device. It works as a CLI tool, a Node.js/Bun library, or an MCP server, making it easy to plug into agentic workflows for searching across notes, docs, and meeting transcripts. Similar in spirit to minsearch but designed for Markdown collections, it is especially convenient for giving AI agents fast access to your local knowledge base[^38].
 
 ## Resources
 
@@ -94,3 +98,4 @@ Add project ideas here.
 [^35]: [20260303_185917_AlexeyDTC_msg2714.md](../inbox/used/20260303_185917_AlexeyDTC_msg2714.md)
 [^36]: [20260309_133601_valeriia_kuka_msg2786.md](../inbox/used/20260309_133601_valeriia_kuka_msg2786.md)
 [^37]: [https://github.com/lightpanda-io/browser](https://github.com/lightpanda-io/browser) via [20260312_135733_AlexeyDTC_msg2874.md](../inbox/used/20260312_135733_AlexeyDTC_msg2874.md)
+[^38]: [https://github.com/tobi/qmd](https://github.com/tobi/qmd) via [20260312_191423_AlexeyDTC_msg2886.md](../inbox/used/20260312_191423_AlexeyDTC_msg2886.md)

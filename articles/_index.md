@@ -26,6 +26,8 @@ Articles that are mostly ready for the newsletter. All necessary content is insi
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Cross-Platform Environment Variable Management with dirdotenv](ready-for-newsletter/dirdotenv.md) | draft | 2026-03-13 | Python-based alternative to direnv, first Claude Code experiment |
+| [Microphone Booster App](ready-for-newsletter/microphone-booster-app.md) | draft | 2026-03-12 | Windows microphone booster built with OpenCode/GLM-5 using Tauri + Rust, compilation on new Windows machine with Claude Code |
 | [Claude Code Experiments](ready-for-newsletter/claude-code-experiments.md) | draft | 2026-03-10 | Experiments and applications of Claude Code beyond coding, including challenges with communication |
 | [Benchmarking SQLiteSearch](ready-for-newsletter/benchmarking-sqlitesearch.md) | draft | 2026-02-26 | Benchmarking SQLiteSearch with Simple Wikipedia and vector search benchmarks from Milvus/Zilliz, HNSW and IVF implementations, v0.0.3 release |
 | [What's New in the Telegram Writing Assistant](ready-for-newsletter/telegram-writing-assistant-updates.md) | draft | 2026-02-26 | Article idea: subagents, research section, link summaries, QA agent, YouTube and audio file processing |
@@ -36,11 +38,9 @@ Articles that are mostly ready for the newsletter. All necessary content is insi
 | [Certificates and AI Design Experiments](ready-for-newsletter/certificates-and-ai-design-experiments.md) | draft | 2026-02-16 | Creating workshop certificates and experiments with image-to-HTML/CSS conversion |
 | [Nobook: Plain Python Files as Jupyter Notebooks](ready-for-newsletter/nobook.md) | draft | 2026-02-13 | Tool that uses plain .py files as Jupyter notebooks instead of .ipynb JSON |
 | [OpenCode Experiments with GLM-5](ready-for-newsletter/opencode-experiments.md) | draft | 2026-02-13 | Trying OpenCode AI assistant with GLM-5 model |
-| [Microphone Booster App](ready-for-newsletter/microphone-booster-app.md) | draft | 2026-02-13 | Windows microphone booster built with OpenCode/GLM-5 using Tauri + Rust |
 | [Minsearch Benchmarking and Optimization](ready-for-newsletter/minsearch-benchmarking-optimization.md) | draft | 2026-02-09 | Optimizing the appendable index through iterative benchmarking |
 | [FAQ System for Course Management](ready-for-newsletter/faq-system.md) | draft | 2026-02-07 | Community-driven FAQ with RAG-based automation and content management |
 | [Course Management Agent](ready-for-newsletter/course-management-agent.md) | draft | 2026-01-23 | Automating course administration tasks with Claude Skills |
-| [Cross-Platform Environment Variable Management with dirdotenv](ready-for-newsletter/dirdotenv.md) | draft | 2026-01-23 | Python-based alternative to direnv |
 | [Generating Books with AI](ready-for-newsletter/ai-book-generator.md) | draft | 2026-01-23 | Using AI to generate complete books with covers |
 | [Minsearch: Simple Search for Small Datasets](ready-for-newsletter/minsearch-library.md) | draft | 2026-01-23 | Lightweight search library for small databases |
 | [Streaming JSON Parsing with jaxn](ready-for-newsletter/jaxn-streaming-json.md) | draft | 2026-01-23 | Streaming parser for LLM structured output |
@@ -65,7 +65,7 @@ Recorded ideas without much detail. Just the idea itself, useful for not forgett
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
-| [Social Post Ideas](ideas/social-post-ideas.md) | draft | 2026-03-08 | Curated social media content ideas and inspiration |
+| [Social Post Ideas](ideas/social-post-ideas.md) | draft | 2026-03-12 | Curated social media content ideas and inspiration |
 | [Python Primer Course Idea](ideas/python-primer-course-idea.md) | draft | 2026-03-05 | Paid Python prerequisite course for AI Engineering and Zoomcamps - "Python for AI Engineering" with podcast aggregator project |
 | [Paid AI Engineers Community Planning](ideas/paid-ai-community-planning.md) | draft | 2026-03-04 | Planning a paid community for AI Engineers including target audience, tier structure, and pricing |
 | [New Course Ideas for the Paid Community](ideas/paid-community-new-course-ideas.md) | draft | 2026-03-01 | Course ideas: Spec-Driven Development for AI, Data Engineering for AI, AI for Data Engineering |
@@ -105,7 +105,6 @@ Files at the articles root that don't fit into the above categories.
 | [Take-Home Assignments for AI Engineers: Webinar Q&A](ai-engineer-webinar-qa.md) | draft | 2026-03-10 | Q&A from webinar on take-home assignments for AI engineers: career advice, hiring without CS degree, data scientist transitions |
 | [Weekly Log](weekly-log.md) | draft | 2026-03-05 | Running log of weekly activities with links to detailed articles |
 | [Google Docs Voice Feedback Tool](google-docs-voice-feedback.md) | draft | 2026-03-02 | Voice-powered Google Docs editor built with Claude Code, using LLM to understand edit requests and apply changes via Google Docs API |
-| [Course Management Production Incident Report](course-management-production-incident.md) | draft | 2026-03-02 | Production database destroyed via Terraform, AWS support recovery, incident timeline, deletion protection setup, full chronological report |
 | [Personal Project Ideas](personal-project-ideas.md) | draft | 2026-03-02 | Personal project ideas to implement: voice-based document editing, notebook server for Claude Code, voice-controlled dev bot, DataTasks, content reuse system |
 | [Pet Projects](pet-projects.md) | draft | 2026-02-28 | Karpathy's advice on becoming an expert through depth-first projects, teaching, and self-comparison |
 | [Getting a Data Science Job](getting-a-data-science-job.md) | draft | 2026-02-28 | Summary of a presentation on the full data science job search process: networking, applying, interviewing, and negotiating offers |
