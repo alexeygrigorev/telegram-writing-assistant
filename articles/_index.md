@@ -26,11 +26,11 @@ Articles that are mostly ready for the newsletter. All necessary content is insi
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [What's New in the Telegram Writing Assistant](ready-for-newsletter/telegram-writing-assistant-updates.md) | draft | 2026-03-14 | Article idea: subagents, research section, link summaries, QA agent, YouTube and audio file processing |
 | [Cross-Platform Environment Variable Management with dirdotenv](ready-for-newsletter/dirdotenv.md) | draft | 2026-03-13 | Python-based alternative to direnv, first Claude Code experiment |
 | [Microphone Booster App](ready-for-newsletter/microphone-booster-app.md) | draft | 2026-03-12 | Windows microphone booster built with OpenCode/GLM-5 using Tauri + Rust, compilation on new Windows machine with Claude Code |
 | [Claude Code Experiments](ready-for-newsletter/claude-code-experiments.md) | draft | 2026-03-10 | Experiments and applications of Claude Code beyond coding, including challenges with communication |
 | [Benchmarking SQLiteSearch](ready-for-newsletter/benchmarking-sqlitesearch.md) | draft | 2026-02-26 | Benchmarking SQLiteSearch with Simple Wikipedia and vector search benchmarks from Milvus/Zilliz, HNSW and IVF implementations, v0.0.3 release |
-| [What's New in the Telegram Writing Assistant](ready-for-newsletter/telegram-writing-assistant-updates.md) | draft | 2026-02-26 | Article idea: subagents, research section, link summaries, QA agent, YouTube and audio file processing |
 | [Testing AI Agents with the Judge Pattern](ready-for-newsletter/testing-agents-with-judge-pattern.md) | draft | 2026-02-25 | Using agents to evaluate other agents |
 | [Course Material Preparation](ready-for-newsletter/course-material-preparation.md) | draft | 2026-02-25 | Workflow for keeping code and documentation in sync |
 | [SSH Auto Forward: Automatic Port Forwarding Tool](ready-for-newsletter/ssh-auto-forward.md) | draft | 2026-02-21 | Automatic SSH port forwarding tool built with Claude Code for remote development workflow, now published on GitHub and PyPI |
@@ -97,6 +97,7 @@ Files at the articles root that don't fit into the above categories.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Building Projects with Agent Teams](building-projects-with-agent-teams.md) | draft | 2026-03-14 | Approach to building complex projects with Claude Code multi-agent teams: AI Shipping Labs, Data Tasks, Pymermade, Jekyll-to-Rust |
 | [Zoland Talk](zoland-talk.md) | draft | 2026-03-14 | Talk at Zoland meetup about the Telegram writing assistant, code agents, and slides preparation workflow with Claude Code |
 | [Starting Projects with GitHub Copilot](starting-projects-with-github-copilot.md) | draft | 2026-03-13 | Using GitHub Copilot to start projects from the browser, limitations and best workflow with ChatGPT |
 | [Interesting Resources](interesting-resources.md) | draft | 2026-03-14 | Curated collection of tools, resources, and project ideas for the newsletter |

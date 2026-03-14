@@ -1,7 +1,7 @@
 ---
 title: "What's New in the Telegram Writing Assistant"
 created: 2026-02-19
-updated: 2026-02-26
+updated: 2026-03-14
 tags: [telegram-bot, claude-code, agents, tools]
 status: draft
 ---
@@ -70,6 +70,20 @@ The verification subagent runs at the end of processing and:
 
 This two-step process ensures complete preservation of voice message content[^1].
 
+## Why Subagents: Context Savings
+
+The whole idea of using subagents is about saving context. There is a main context, and then there is a task that is context-heavy - like research or fetching URLs. Instead of the main agent doing all of that, the main agent becomes an orchestrator. It launches other agents, and those agents handle the context-heavy tasks[^7].
+
+This approach started with the Telegram Writing Assistant. I then applied the same pattern to other projects. The next article will cover spec-driven development, but the focus here is on the writing assistant as an example of this organizational pattern[^7].
+
+The reason I created subagents was a real problem: the context was getting overloaded and the agent started producing worse results or doing compaction. To prevent that, I thought about how to solve this problem. The solution turned out to be subagents. Since then, I actively use them in several tasks[^7].
+
+<figure>
+  <img src="../assets/images/telegram-writing-assistant-updates/assistant-using-agents.jpg" alt="Screenshot of the Telegram writing assistant processing with subagents - showing Read 14 files, Edited 3 files, Found 5 items, Launched 3 agents">
+  <figcaption>The assistant uses agents for some tasks - launching 3 subagents during processing while running git diff and grep commands</figcaption>
+  <!-- Screenshot showing the bot's processing output with subagent launches visible -->
+</figure>
+
 ## Benefits
 
 - Main agent context stays clean and focused
@@ -101,3 +115,4 @@ I taught the bot to download YouTube videos. When running on my local computer, 
 [^4]: [20260220_070616_AlexeyDTC_msg2106_transcript.txt](../inbox/used/20260220_070616_AlexeyDTC_msg2106_transcript.txt)
 [^5]: [20260225_210831_AlexeyDTC_msg2463_transcript.txt](../../inbox/used/20260225_210831_AlexeyDTC_msg2463_transcript.txt)
 [^6]: [20260226_071301_AlexeyDTC_msg2486_transcript.txt](../../inbox/used/20260226_071301_AlexeyDTC_msg2486_transcript.txt)
+[^7]: [20260314_065601_AlexeyDTC_msg2913_transcript.txt](../../inbox/used/20260314_065601_AlexeyDTC_msg2913_transcript.txt)
