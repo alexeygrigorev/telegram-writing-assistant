@@ -1,7 +1,7 @@
 ---
 title: "Interesting Resources"
 created: 2026-01-31
-updated: 2026-03-13
+updated: 2026-03-14
 tags: [resources, tools, ai, development]
 status: draft
 ---
@@ -27,6 +27,10 @@ Each resource entry follows this simple format:
 
 
 ## Tools
+
+### gstack
+
+[gstack](https://github.com/garrytan/gstack) is a set of opinionated Claude Code slash commands that turn a single AI assistant into a team of specialists - CEO, eng manager, release engineer, and QA engineer. Created by Y Combinator president Garry Tan, it provides commands like /plan-ceo-review for product thinking, /review for paranoid code review, /ship for one-command PR creation, and /browse and /qa for automated browser-based testing with screenshots. It is a good reference for how to structure Claude Code custom commands for multi-role development workflows[^39].
 
 ### Lightpanda Browser
 
@@ -99,3 +103,4 @@ Add project ideas here.
 [^36]: [20260309_133601_valeriia_kuka_msg2786.md](../inbox/used/20260309_133601_valeriia_kuka_msg2786.md)
 [^37]: [https://github.com/lightpanda-io/browser](https://github.com/lightpanda-io/browser) via [20260312_135733_AlexeyDTC_msg2874.md](../inbox/used/20260312_135733_AlexeyDTC_msg2874.md)
 [^38]: [https://github.com/tobi/qmd](https://github.com/tobi/qmd) via [20260312_191423_AlexeyDTC_msg2886.md](../inbox/used/20260312_191423_AlexeyDTC_msg2886.md)
+[^39]: [https://github.com/garrytan/gstack](https://github.com/garrytan/gstack) via [20260314_051307_AlexeyDTC_msg2904.md](../inbox/used/20260314_051307_AlexeyDTC_msg2904.md)

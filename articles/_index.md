@@ -97,8 +97,10 @@ Files at the articles root that don't fit into the above categories.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Zoland Talk](zoland-talk.md) | draft | 2026-03-14 | Talk at Zoland meetup about the Telegram writing assistant, code agents, and slides preparation workflow with Claude Code |
+| [Starting Projects with GitHub Copilot](starting-projects-with-github-copilot.md) | draft | 2026-03-13 | Using GitHub Copilot to start projects from the browser, limitations and best workflow with ChatGPT |
+| [Interesting Resources](interesting-resources.md) | draft | 2026-03-14 | Curated collection of tools, resources, and project ideas for the newsletter |
 | [Autoresearch Project](karpathy-autoresearch-agents.md) | draft | 2026-03-12 | Karpathy's autoresearch project: repo analysis, how the agent loop works, comparison with AutoML, Twitter buzz around the approach |
-| [Interesting Resources](interesting-resources.md) | draft | 2026-03-12 | Curated collection of tools, resources, and project ideas for the newsletter |
 | [Exasol Workshop Infrastructure Setup](exasol-workshop-infrastructure.md) | draft | 2026-03-12 | Secure AWS access setup for Exasol workshop using temporary credentials, Lambda, CodeSpaces/DevContainers, credential flow diagram, open-source project |
 | [Setting Up a Windows Computer for Development](windows-dev-setup.md) | draft | 2026-03-11 | Step-by-step guide to setting up a fresh Windows computer for development: Terminal, Git Bash, Python/UV, NodeJS, Docker, VS Code, Claude Code |
 | [Ranking for AI Search: LinkedIn Visibility and AI Overview Tracking](ai-search-visibility.md) | draft | 2026-03-10 | LinkedIn AI visibility study findings and AI Overview Tracker concept for monitoring brand presence in AI search |
