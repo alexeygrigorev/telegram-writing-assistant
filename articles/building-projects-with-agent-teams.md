@@ -68,11 +68,11 @@ For me this is all fairly new territory. I have never done this kind of native d
 
 ## The Overall Philosophy
 
-All of this takes... I do not spend time on it because I am busy. I just occasionally open it, see what is happening, and close it. What I want to achieve: I want my involvement to be minimal, but I want to establish a process where I can occasionally check in, look at things, set the direction, make sure the agents are working correctly, and let them keep going. The goal is to build the process exactly like this. I am still working on it, it is work in progress[^3].
+None of these projects require much active time. The goal is minimal involvement: occasionally check in, see what is happening, set the direction, confirm the agents are working correctly, and let them continue. The process is still evolving[^3].
 
-Right now I have three projects where this works more or less well. Pymermade is the completed project where I did the full end-to-end process. And now the Jekyll-to-Rust project is in progress[^3].
+Three projects use this approach so far with varying degrees of success. Pymermade is the completed end-to-end example. The Jekyll-to-Rust project is still in progress[^3].
 
-The thing is, it is not getting cheaper. Right now the cost is zero because I have a Pro Max subscription. But it is not getting faster either. These projects take days. But my intervention is minimal. I just sometimes look in, check what is happening, give feedback, set new tasks. And that is it[^3].
+The cost is currently zero thanks to the Pro Max subscription, but these projects are not fast - they take days. The tradeoff works because the required intervention is minimal: check in, give feedback, set new tasks[^3].
 
 ## Sources
 

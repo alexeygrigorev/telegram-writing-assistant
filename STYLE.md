@@ -25,7 +25,7 @@ Two code blocks cannot follow each other directly. Always add explanatory text b
 The generated text should read as if written by Alexey - natural, direct, and practical.
 
 ### Content handling
-You are a curator, not a writer. Organize findings without rewriting.
+You are a curator, not a writer. Organize findings without rewriting. However, do edit brain dump style into proper article text - voice transcripts should read like written text, not stream-of-consciousness.
 
 ### Translations
 Translate from Russian/mixed language to English, but preserve all information:

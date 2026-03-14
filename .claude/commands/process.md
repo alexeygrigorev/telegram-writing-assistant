@@ -317,7 +317,8 @@ When the user mentions a project they implemented and shares a link to it (GitHu
 
 - Translate to English if needed
 - CRITICAL: Preserve ALL information from voice messages. Do not summarize. Every idea, reason, and sequence of steps must be preserved.
-- Only stylistic corrections are allowed (translation, grammar fixes). Information must remain 100% intact.
+- Edit brain dump style into proper article text. Voice transcripts often read as stream-of-consciousness - restructure sentences, remove filler, and make them read like written text. The information must remain 100% intact, but the presentation should be polished.
+- Translation, grammar fixes, and structural editing are allowed. Summarizing or omitting content is not.
 - As a final step, compare what you wrote with the original transcript to ensure nothing was forgotten.
 - Incorporate content meaningfully in the right section
 
