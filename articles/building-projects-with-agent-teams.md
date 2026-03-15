@@ -1,7 +1,7 @@
 ---
 title: "Building Projects with Agent Teams"
 created: 2026-03-14
-updated: 2026-03-14
+updated: 2026-03-15
 tags: [claude-code, agents, multi-agent, process]
 status: draft
 ---
@@ -18,7 +18,17 @@ The process works like this: there is a pool of tasks. Tasks get pulled from the
 
 ## Project 1: AI Shipping Labs Website
 
-My first attempt at this approach was the Telegram Writing Assistant. But I thought about what the minimal set of agents would be. In the [previous article about the community platform](work-in-progress/community-platform-implementation.md), I described what I ended up with. For that project, I wanted to establish the workflow, and I used GitHub Issues for task tracking[^1].
+My first attempt at this approach was the AI Shipping Labs community platform. For that project, I wanted to establish the workflow. The [full story is in a separate article](work-in-progress/community-platform-implementation.md), but here is the approach I developed there[^1].
+
+I started by gathering requirements through the Telegram bot and ChatGPT, then told Claude Code to turn them into specifications. It created a "specification" folder with 15 files. After reviewing and giving feedback, I said: now turn these specs into tasks. I tried GitHub Projects for task tracking. The initial decomposition was not great - tasks were too granular, no acceptance criteria, no clear format. I iterated on the task format until I liked it, then transferred everything to GitHub Issues[^1].
+
+The architecture that came out of this project: two core subagents - a Software Engineer and a Tester. The Software Engineer implements a feature, then the Tester checks it. They iterate until both agree the task is done. An orchestrator (manager) coordinates them - it has no biased relationship with the code. If everything ran in one session, the tester might say "it is fine" and do nothing. With separate subagents, the orchestrator passes feedback back and forth[^1].
+
+I also added an On-Call Engineer subagent to monitor CI/CD. If something breaks after a push, this agent finds who is responsible, opens an issue, and tries to fix it. Later I added a Product Manager role for grooming tasks, writing issues with clear requirements, and having the final say in acceptance[^1].
+
+The orchestrator looks at the task pool, pulls two tasks, launches Software Engineers and Testers for each. When it finishes, it pulls the next two. I added a trick to keep the loop going: a task that says "when you finish all current tasks, pull the next two issues from the backlog." This creates a self-sustaining loop until the backlog is empty[^1].
+
+Communication happens through GitHub - agents push code and leave comments on issues. I chose not to use branches and pull requests because it would be too much overhead during intensive development. Everyone works on main. The setup took about 1.5 hours. The agent then worked autonomously through the night and completed most of the tasks[^1].
 
 ## Project 2: Data Tasks
 
@@ -66,11 +76,57 @@ I told it to solve this problem. It set up cgroups - I had never worked with tho
 
 For me this is all fairly new territory. I have never done this kind of native development. I always had Java, Python, Ruby - languages that are not native. I wrote a little C once, but nothing serious. This is my first experience like this, and I am discovering new things like cgroups[^3].
 
+## Agents Slack Off
+
+This is not something I can fully leave without supervision. Agents slack off. A lot. It is like managing a team of students who are not getting paid. They are only there because they need course credits. Everything they do is reluctant, through force. Sometimes they work, sometimes they slack off terribly. This applies to all agents[^4].
+
+Take the three agents - PM, Software Engineer, and Tester. The PM can say "this is too complex, let us descope it" and starts simplifying the task as much as possible. The Software Engineer can leave things unfinished. The Tester can say "I cannot run this, I will not do it." You need to understand that this is a feature of working with agents - they slack off, they do things reluctantly, you need to push them, guide them, and organize the process so it is harder for them to cut corners[^4].
+
+### The Descoping Problem
+
+The PM descoping problem is a good example. The approach is called "properly scoping the issue" - defining clearly what goes in, what the acceptance criteria are. When I started noticing that things were disappearing from tasks that I originally included, I said: start keeping a log. Every time a decision is made, write it in the log - what the decision is and why[^4].
+
+Then I started noticing the PM would say "this is out of scope" and silently drop it. So I added another rule: if you descope a feature, do not silently drop it - always create a new issue for it. I have no problem with descoping. Sometimes a task is too big and some things genuinely do not belong in its scope. But they must not be forgotten. If there is a requirement, I do not care whether it gets implemented in this task or later. The important thing is that it is preserved somewhere[^4].
+
+For example, with the Rust project - I have a Windows tablet with ARM64 architecture. I said: make it compile for Mac, Windows, and Linux on both AMD64 and ARM64. If they descope something like that silently, it would just get lost. With the logging requirement and the rule to always create a new issue for descoped items, at least there is a trail[^4].
+
+### Checking Under the Hood
+
+You still need to occasionally look under the hood, stir the pot. It cooks on its own mostly fine, but sometimes you need to lift the lid, check, and give directions. For instance, with the Jekyll project I wanted pixel-perfect matching. I asked the agents to create tasks based on benchmarks comparing the output. After some time I checked the report - it said everything was fine, there was a pixel-perfect match, and the few percent of different pixels were just "font rendering artifacts." A few percent of pixels on a large screenshot is thousands of pixels. I looked at it myself and it was clearly not just font rendering[^4].
+
+The same problem with Mermaid diagrams - the output is visual, and agents struggle to evaluate images. There are no clear criteria they can check automatically. I told them: let us make a visual checklist, because we fixed one thing and broke two others. Why did tests not catch this? Because it is a visual thing, hard to test automatically[^4].
+
+I have not found a way to fully automate this so my involvement is minimal. It seems very project-dependent - one project needs one kind of oversight, another needs something different. My goal right now is to do as many projects as possible with this methodology. Each project sharpens it. I am learning how to approach this, understanding the limitations, and refining the methodology. I think after about 10 more projects I will have a solid system for how to approach this[^4].
+
+## Project 5: Custom Coding Agent
+
+I applied the same methodology to another project - building my own coding agent. There are things in Claude Code that I do not like[^5].
+
+The YOLO loop turned out to be useless. If you run it, it will do something, but most likely not what you need. The task decomposition approach works better - I set a high-level task, we decompose it, define a plan, define specs, then the PM grooms them, the Engineer implements, the Tester tests. That approach works OK[^5].
+
+### Problems with the Current Setup
+
+The main orchestrator (the main Claude Code session) has several problems[^5].
+
+The first problem: it asks stupid questions. The way it works now - I say there is a pool of tasks, and the orchestrator should ask the PM to pick the next two issues from the backlog. In the todo list there is always an item that says "pull next 2" and also "add another pull-next-2 item" to create the loop. But sometimes the orchestrator asks things like "shall we proceed?" Of course we proceed. Why are you asking? That is wasted time, especially when I am not nearby[^5].
+
+The second problem: I cannot see what subagents are doing. Sometimes I want to peek inside a subagent and just look at what is happening. Right now there is no such ability. The orchestrator launches a subagent and it does something for 30 minutes or an hour. Is it stuck? Does it need a restart? When I am at my computer, I want to look and maybe correct the process - "no, do it differently, that is not what I want." Right now I do not have that ability[^5].
+
+### What I Want to Build
+
+I want my own agent that uses Claude as a subagent and starts this whole process. It would always have a task pool, a todo list. Instead of asking stupid questions when I am not around, it just takes tasks from the pool and works on them. If it has questions for me, those questions get written to a separate list. When I have time, I come and answer them. The work itself does not depend on the questions - there is no blocker, the agent can always continue working. I just need to occasionally check that nothing went wrong[^5].
+
+I want the application to have a separate place for questions to the user, an always-available todo list where agents can pull tasks from, and the ability to peek inside subagents[^5].
+
+I dictated the project vision to ChatGPT while walking outside. It produced a summary. I already had the approach described, so I fed that summary to the agents and launched the process. I have not looked at it since - it is cooking in the pot. This is probably the most complex project of all I have tried because I want a mobile app, a website, a backend, and a Telegram client[^5].
+
+### The Goal
+
+My goal is to learn to run complex projects with agent teams with minimal intervention. I am like a CEO or VP of Product in a small startup with several teams. I have many projects and little time for each one. I just occasionally check in, see what is happening, correct course, and go back to other things. I want to build a process where this works[^5].
+
 ## The Overall Philosophy
 
 None of these projects require much active time. The goal is minimal involvement: occasionally check in, see what is happening, set the direction, confirm the agents are working correctly, and let them continue. The process is still evolving[^3].
-
-Three projects use this approach so far with varying degrees of success. Pymermade is the completed end-to-end example. The Jekyll-to-Rust project is still in progress[^3].
 
 The cost is currently zero thanks to the Pro Max subscription, but these projects are not fast - they take days. The tradeoff works because the required intervention is minimal: check in, give feedback, set new tasks[^3].
 
@@ -79,3 +135,5 @@ The cost is currently zero thanks to the Pro Max subscription, but these project
 [^1]: [20260314_082315_AlexeyDTC_msg2918_transcript.txt](../inbox/used/20260314_082315_AlexeyDTC_msg2918_transcript.txt)
 [^2]: [20260314_083004_AlexeyDTC_msg2920_transcript.txt](../inbox/used/20260314_083004_AlexeyDTC_msg2920_transcript.txt)
 [^3]: [20260314_083813_AlexeyDTC_msg2922_transcript.txt](../inbox/used/20260314_083813_AlexeyDTC_msg2922_transcript.txt)
+[^4]: [20260315_101106_AlexeyDTC_msg2934_transcript.txt](../inbox/used/20260315_101106_AlexeyDTC_msg2934_transcript.txt)
+[^5]: [20260315_101751_AlexeyDTC_msg2936_transcript.txt](../inbox/used/20260315_101751_AlexeyDTC_msg2936_transcript.txt)

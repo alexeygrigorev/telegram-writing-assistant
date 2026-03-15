@@ -97,7 +97,7 @@ Files at the articles root that don't fit into the above categories.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
-| [Building Projects with Agent Teams](building-projects-with-agent-teams.md) | draft | 2026-03-14 | Approach to building complex projects with Claude Code multi-agent teams: AI Shipping Labs, Data Tasks, Pymermade, Jekyll-to-Rust |
+| [Building Projects with Agent Teams](building-projects-with-agent-teams.md) | draft | 2026-03-15 | Approach to building complex projects with Claude Code multi-agent teams: AI Shipping Labs, Data Tasks, Pymermade, Jekyll-to-Rust, custom coding agent, agent management challenges |
 | [Zoland Talk](zoland-talk.md) | draft | 2026-03-14 | Talk at Zoland meetup about the Telegram writing assistant, code agents, and slides preparation workflow with Claude Code |
 | [Starting Projects with GitHub Copilot](starting-projects-with-github-copilot.md) | draft | 2026-03-13 | Using GitHub Copilot to start projects from the browser, limitations and best workflow with ChatGPT |
 | [Interesting Resources](interesting-resources.md) | draft | 2026-03-14 | Curated collection of tools, resources, and project ideas for the newsletter |
