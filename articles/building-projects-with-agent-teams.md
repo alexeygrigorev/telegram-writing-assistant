@@ -84,11 +84,13 @@ Take the three agents - PM, Software Engineer, and Tester. The PM can say "this 
 
 ### The Descoping Problem
 
-The PM descoping problem is a good example. The approach is called "properly scoping the issue" - defining clearly what goes in, what the acceptance criteria are. When I started noticing that things were disappearing from tasks that I originally included, I said: start keeping a log. Every time a decision is made, write it in the log - what the decision is and why[^4].
+The PM is supposed to properly scope the issue - define clearly what goes in, what the acceptance criteria are. But here is what actually happened[^4].
 
-Then I started noticing the PM would say "this is out of scope" and silently drop it. So I added another rule: if you descope a feature, do not silently drop it - always create a new issue for it. I have no problem with descoping. Sometimes a task is too big and some things genuinely do not belong in its scope. But they must not be forgotten. If there is a requirement, I do not care whether it gets implemented in this task or later. The important thing is that it is preserved somewhere[^4].
+With the Rust project, I have a Windows tablet with ARM64 architecture. I said: make it compile for Mac, Windows, and Linux on both AMD64 and ARM64. That requirement just disappeared. The PM descoped it and it was not preserved anywhere. There were no logs at that point, so I had no way to even see when or why it was dropped[^4].
 
-For example, with the Rust project - I have a Windows tablet with ARM64 architecture. I said: make it compile for Mac, Windows, and Linux on both AMD64 and ARM64. If they descope something like that silently, it would just get lost. With the logging requirement and the rule to always create a new issue for descoped items, at least there is a trail[^4].
+That is when I added the first rule: start keeping a log. Every time a decision is made, write it in the log - what the decision is and why. But even with logging in place, I started noticing the PM would say "this is out of scope" and silently drop the feature anyway. So I added another rule: if you decide to descope something from the task, do not silently drop it - always create a new task for it[^4].
+
+I have no problem with descoping itself. Sometimes a task is too big and some things genuinely do not belong in its scope. That is normal. But they must not be quietly forgotten. When I have a requirement, I do not care whether it gets implemented in this task or some time later. The important thing is that it is preserved somewhere. Now I have logs being kept and a process, so at least there is a trail[^4].
 
 ### Checking Under the Hood
 
