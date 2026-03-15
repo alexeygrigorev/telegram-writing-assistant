@@ -86,7 +86,7 @@ Take the three agents - PM, Software Engineer, and Tester. The PM can say "this 
 
 The PM is supposed to properly scope the issue - define clearly what goes in, what the acceptance criteria are. But here is what actually happened[^4].
 
-With the Rust project, I have a Windows tablet with ARM64 architecture. I said: make it compile for Mac, Windows, and Linux on both AMD64 and ARM64. That requirement just disappeared. The PM descoped it and it was not preserved anywhere. There were no logs at that point, so I had no way to even see when or why it was dropped[^4].
+With the Rust project, I have a Windows tablet with ARM64 architecture. I asked to compile it for Linux, Mac, and Windows, for both AMD64 and ARM64. It compiled for all platforms except Windows ARM64 - it just silently dropped that one target. When I asked what happened, it turned out the PM had descoped it. There were no logs at that point, so I had no way to even see when or why it was dropped[^4][^6].
 
 That is when I added the first rule: start keeping a log. Every time a decision is made, write it in the log - what the decision is and why. But even with logging in place, I started noticing the PM would say "this is out of scope" and silently drop the feature anyway. So I added another rule: if you decide to descope something from the task, do not silently drop it - always create a new task for it[^4].
 
@@ -139,3 +139,4 @@ The cost is currently zero thanks to the Pro Max subscription, but these project
 [^3]: [20260314_083813_AlexeyDTC_msg2922_transcript.txt](../inbox/used/20260314_083813_AlexeyDTC_msg2922_transcript.txt)
 [^4]: [20260315_101106_AlexeyDTC_msg2934_transcript.txt](../inbox/used/20260315_101106_AlexeyDTC_msg2934_transcript.txt)
 [^5]: [20260315_101751_AlexeyDTC_msg2936_transcript.txt](../inbox/used/20260315_101751_AlexeyDTC_msg2936_transcript.txt)
+[^6]: [20260315_103325_AlexeyDTC_msg2950_transcript.txt](../inbox/used/20260315_103325_AlexeyDTC_msg2950_transcript.txt)
