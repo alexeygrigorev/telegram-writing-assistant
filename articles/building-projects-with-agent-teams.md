@@ -1,7 +1,7 @@
 ---
 title: "Building Projects with Agent Teams"
 created: 2026-03-14
-updated: 2026-03-15
+updated: 2026-03-16
 tags: [claude-code, agents, multi-agent, process]
 status: draft
 ---
@@ -100,9 +100,9 @@ The same problem with Mermaid diagrams - the output is visual, and agents strugg
 
 I have not found a way to fully automate this so my involvement is minimal. It seems very project-dependent - one project needs one kind of oversight, another needs something different. My goal right now is to do as many projects as possible with this methodology. Each project sharpens it. I am learning how to approach this, understanding the limitations, and refining the methodology. I think after about 10 more projects I will have a solid system for how to approach this[^4].
 
-## Project 5: Custom Coding Agent
+## Project 5: Custom Coding Agent (Codehive)
 
-I applied the same methodology to another project - building my own coding agent. There are things in Claude Code that I do not like[^5].
+I applied the same methodology to another project - building my own coding agent called [Codehive](https://github.com/alexeygrigorev/codehive). There are things in Claude Code that I do not like[^5].
 
 The YOLO loop turned out to be useless. If you run it, it will do something, but most likely not what you need. The task decomposition approach works better - I set a high-level task, we decompose it, define a plan, define specs, then the PM grooms them, the Engineer implements, the Tester tests. That approach works OK[^5].
 
@@ -110,7 +110,15 @@ The YOLO loop turned out to be useless. If you run it, it will do something, but
 
 The main orchestrator (the main Claude Code session) has several problems[^5].
 
-The first problem: it asks stupid questions. The way it works now - I say there is a pool of tasks, and the orchestrator should ask the PM to pick the next two issues from the backlog. In the todo list there is always an item that says "pull next 2" and also "add another pull-next-2 item" to create the loop. But sometimes the orchestrator asks things like "shall we proceed?" Of course we proceed. Why are you asking? That is wasted time, especially when I am not nearby[^5].
+The first problem: the agent stops for no reason[^7].
+
+<figure>
+  <img src="../assets/images/building-projects-with-agent-teams/codehive-agent-stopping.jpg" alt="Claude Code terminal showing agent stopping and user asking why did you stop">
+  <figcaption>The orchestrator stops and waits instead of continuing with the next task</figcaption>
+  <!-- Screenshot from the Jekyll project showing the agent cogitating for over a minute then stopping, requiring manual intervention to continue -->
+</figure>
+
+It also asks stupid questions. The way it works now - I say there is a pool of tasks, and the orchestrator should ask the PM to pick the next two issues from the backlog. In the todo list there is always an item that says "pull next 2" and also "add another pull-next-2 item" to create the loop. But sometimes the orchestrator asks things like "shall we proceed?" Of course we proceed. Why are you asking? That is wasted time, especially when I am not nearby[^5].
 
 The second problem: I cannot see what subagents are doing. Sometimes I want to peek inside a subagent and just look at what is happening. Right now there is no such ability. The orchestrator launches a subagent and it does something for 30 minutes or an hour. Is it stuck? Does it need a restart? When I am at my computer, I want to look and maybe correct the process - "no, do it differently, that is not what I want." Right now I do not have that ability[^5].
 
@@ -140,3 +148,4 @@ The cost is currently zero thanks to the Pro Max subscription, but these project
 [^4]: [20260315_101106_AlexeyDTC_msg2934_transcript.txt](../inbox/used/20260315_101106_AlexeyDTC_msg2934_transcript.txt)
 [^5]: [20260315_101751_AlexeyDTC_msg2936_transcript.txt](../inbox/used/20260315_101751_AlexeyDTC_msg2936_transcript.txt)
 [^6]: [20260315_103325_AlexeyDTC_msg2950_transcript.txt](../inbox/used/20260315_103325_AlexeyDTC_msg2950_transcript.txt)
+[^7]: [20260316_072803_AlexeyDTC_msg2956_photo.md](../inbox/used/20260316_072803_AlexeyDTC_msg2956_photo.md)

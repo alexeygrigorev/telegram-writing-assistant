@@ -1,7 +1,7 @@
 ---
 title: "Autoresearch Project"
 created: 2026-03-10
-updated: 2026-03-12
+updated: 2026-03-16
 tags: [ai-agents, automation, newsletter-idea]
 status: draft
 ---
@@ -100,6 +100,22 @@ This approach is getting a lot of discussion on Twitter. It is interesting that 
 
 Based on what Karpathy proposed, someone is already using this approach in their own project[^5]. Varun Mathur is applying the same pattern to build a distributed search engine called Autosearcher. Their network had 67 autonomous agents run 704 ML training experiments in 20 hours, rediscovering Kaiming initialization, RMSNorm, and compute-optimal training schedules from scratch through pure experimentation and gossip-based cross-pollination. Agents shared discoveries over GossipSub, and new agents bootstrapped from the swarm's collective knowledge. They are now applying the same evolutionary loop to search ranking[^5][^6].
 
+Archie Sengupta applied the same loop to voice AI agents with [AutoVoiceEvals](https://x.com/archiexzzz/status/2033258540312510702)[^9][^10]. The system takes a voice agent's system prompt as the single artifact and an adversarial eval score as the metric. From a config file describing the agent, Claude generates adversarial caller personas with attack strategies, voice profiles, and evaluation criteria. Then it runs the same loop: propose one change to the prompt, test it, keep if the score improves, revert if not. On a live dental scheduling agent, 20 experiments with zero human intervention brought the score from 0.728 to 0.969, pass rate from 25% to 100%, and the prompt actually got shorter[^10].
+
+## Idea: Optimizing Writing Style with Autoresearch
+
+There is a problem: LLMs do not write the way I write. The text they generate has a completely different style from mine[^9].
+
+Right now I solve this with a style guide - a large document describing how to write, how not to write, how I phrase things, how I structure sentences, and so on. It is many lines long. The result is not exactly how I would write, but it is close enough. I prefer reading the output because it at least resembles what I would have written[^9].
+
+The way I currently build this style guide is manual. When I see the agent writing something that does not match my style, I correct it and say "let us rephrase this." Gradually the guide grows and explains how to write as if I wrote it. The style guide used in this Telegram bot is an example[^9].
+
+The idea: feed a large collection of documents where I actually wrote the text (not LLM-generated), or where I corrected LLM output after it was generated, into the autoresearch loop. Let it automatically optimize the prompt so the LLM writes in my style. This is regular prompt optimization, but instead of doing it manually, I delegate it to the LLM itself[^9][^11].
+
+What triggered this idea was the AutoVoiceEvals tweet. It mentions "Your Voice" in the context of the voice agent, but for me "Your Voice" means my writing style. Since there is a lot of my own writing available and the autoresearch approach can optimize any single artifact against a metric, it should be possible to automatically tune a style prompt based on my texts[^11].
+
+I am not sure whether I will implement this, but it could be useful for others. The idea is that this is something that could be built with the autoresearch approach[^11].
+
 ## Connection to our work
 
 This is reminiscent of the idea with automating certificate template creation. In a general sense - how agents can iterate and automate tasks on their own. If they can train LLMs, maybe they can do other tasks without human intervention too[^1].
@@ -116,3 +132,6 @@ He writes about having several setups, and one of them produced the best results
 [^6]: [Varun Mathur tweet](https://x.com/varun_mathur/status/2031550020101480507)
 [^7]: [autoresearch repository analysis](https://github.com/karpathy/autoresearch) via [20260312_080712_AlexeyDTC_msg2864.md](../inbox/used/20260312_080712_AlexeyDTC_msg2864.md)
 [^8]: [20260312_082424_AlexeyDTC_msg2870_transcript.txt](../inbox/used/20260312_082424_AlexeyDTC_msg2870_transcript.txt)
+[^9]: [20260316_102358_AlexeyDTC_msg2958_transcript.txt](../inbox/used/20260316_102358_AlexeyDTC_msg2958_transcript.txt)
+[^10]: [AutoVoiceEvals tweet](https://x.com/archiexzzz/status/2033258540312510702) via [20260316_102359_AlexeyDTC_msg2959.md](../inbox/used/20260316_102359_AlexeyDTC_msg2959.md)
+[^11]: [20260316_102500_AlexeyDTC_msg2962_transcript.txt](../inbox/used/20260316_102500_AlexeyDTC_msg2962_transcript.txt)
