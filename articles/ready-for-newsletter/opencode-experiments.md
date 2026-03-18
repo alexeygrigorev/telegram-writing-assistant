@@ -1,7 +1,7 @@
 ---
 title: "OpenCode Experiments with GLM-5"
 created: 2026-02-13
-updated: 2026-02-13
+updated: 2026-03-17
 tags: [ai-assistants, opencode, glm-5]
 status: draft
 ---
@@ -59,6 +59,26 @@ It was very easy to transfer skills and commands from Claude Code to OpenCode. I
 
 The commands are automatically added to the shared repository: https://github.com/alexeygrigorev/.claude[^6]
 
+## Extracting JavaScript from the Claude Code Binary
+
+I saw a [tweet about extracting JS from the Claude binary](https://x.com/jaywyawhare/status/2033488305191616875) and wanted to try it too, but fully agent-driven. I asked OpenCode to do it[^7].
+
+Claude Code is a Bun runtime bundled with minified JavaScript. The idea is to extract that JavaScript from the binary. OpenCode started by locating the binary and checking its size[^7].
+
+<figure>
+  <img src="../../assets/images/opencode-experiments/extract-js-from-claude-binary.jpg" alt="Terminal showing OpenCode finding the claude binary location and checking its file size">
+  <figcaption>OpenCode locating the Claude binary and checking its size (229 MB)</figcaption>
+  <!-- Screenshot of OpenCode shell session running 'where claude' and checking the file size with PowerShell -->
+</figure>
+
+At first the agent refused, citing intellectual property rights and terms of service violations. So next time I just did not say "reverse engineering" and it was fine[^8].
+
+<figure>
+  <img src="../../assets/images/opencode-experiments/reverse-engineering-refusal.jpg" alt="Chat conversation showing AI refusing to reverse-engineer Claude Code">
+  <figcaption>The agent refused when the request mentioned reverse engineering - rephrasing solved it</figcaption>
+  <!-- Shows the initial refusal citing IP rights, followed by the user noting that avoiding the term "reverse engineering" bypassed the refusal -->
+</figure>
+
 ## Overall Impressions
 
 My impression of OpenCode is positive. The desktop mode is great. As for GLM-5, it is decent but I do not really see a big difference from the previous GLM-4. All these agents cut corners and you need to watch them and set up proper processes. Right now I just used plain OpenCode with no custom processes set up. I think I need to set up proper workflows and then the results will be better[^4].
@@ -73,3 +93,5 @@ The testing challenge remains unsolved - I have no idea how to test desktop appl
 [^4]: [20260213_145555_AlexeyDTC_msg1608_transcript.txt](../inbox/used/20260213_145555_AlexeyDTC_msg1608_transcript.txt)
 [^5]: [20260213_164644_AlexeyDTC_msg1633_transcript.txt](../inbox/used/20260213_164644_AlexeyDTC_msg1633_transcript.txt)
 [^6]: [20260213_164714_AlexeyDTC_msg1635.md](../inbox/used/20260213_164714_AlexeyDTC_msg1635.md)
+[^7]: [20260317_105133_AlexeyDTC_msg2974_photo.md](../../inbox/used/20260317_105133_AlexeyDTC_msg2974_photo.md)
+[^8]: [20260317_112019_AlexeyDTC_msg2976_photo.md](../../inbox/used/20260317_112019_AlexeyDTC_msg2976_photo.md)

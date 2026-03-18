@@ -26,6 +26,7 @@ Articles that are mostly ready for the newsletter. All necessary content is insi
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [OpenCode Experiments with GLM-5](ready-for-newsletter/opencode-experiments.md) | draft | 2026-03-17 | Trying OpenCode AI assistant with GLM-5 model, extracting JS from Claude binary |
 | [What's New in the Telegram Writing Assistant](ready-for-newsletter/telegram-writing-assistant-updates.md) | draft | 2026-03-14 | Article idea: subagents, research section, link summaries, QA agent, YouTube and audio file processing |
 | [Cross-Platform Environment Variable Management with dirdotenv](ready-for-newsletter/dirdotenv.md) | draft | 2026-03-13 | Python-based alternative to direnv, first Claude Code experiment |
 | [Microphone Booster App](ready-for-newsletter/microphone-booster-app.md) | draft | 2026-03-12 | Windows microphone booster built with OpenCode/GLM-5 using Tauri + Rust, compilation on new Windows machine with Claude Code |
@@ -37,7 +38,6 @@ Articles that are mostly ready for the newsletter. All necessary content is insi
 | [Claude Code Helpers](ready-for-newsletter/claude-helpers.md) | draft | 2026-02-19 | Aliases, functions, slash commands, and subagents for Claude Code |
 | [Certificates and AI Design Experiments](ready-for-newsletter/certificates-and-ai-design-experiments.md) | draft | 2026-02-16 | Creating workshop certificates and experiments with image-to-HTML/CSS conversion |
 | [Nobook: Plain Python Files as Jupyter Notebooks](ready-for-newsletter/nobook.md) | draft | 2026-02-13 | Tool that uses plain .py files as Jupyter notebooks instead of .ipynb JSON |
-| [OpenCode Experiments with GLM-5](ready-for-newsletter/opencode-experiments.md) | draft | 2026-02-13 | Trying OpenCode AI assistant with GLM-5 model |
 | [Minsearch Benchmarking and Optimization](ready-for-newsletter/minsearch-benchmarking-optimization.md) | draft | 2026-02-09 | Optimizing the appendable index through iterative benchmarking |
 | [FAQ System for Course Management](ready-for-newsletter/faq-system.md) | draft | 2026-02-07 | Community-driven FAQ with RAG-based automation and content management |
 | [Course Management Agent](ready-for-newsletter/course-management-agent.md) | draft | 2026-01-23 | Automating course administration tasks with Claude Skills |
@@ -97,7 +97,8 @@ Files at the articles root that don't fit into the above categories.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
-| [Building Projects with Agent Teams](building-projects-with-agent-teams.md) | draft | 2026-03-16 | Approach to building complex projects with Claude Code multi-agent teams: AI Shipping Labs, Data Tasks, Pymermade, Jekyll-to-Rust, custom coding agent (Codehive), agent management challenges |
+| [Bot Master: Process Manager for Telegram Bots](bot-master.md) | draft | 2026-03-16 | Process manager for Telegram bots with auto-restart, persistent logging, and a Textual TUI |
+| [Building Projects with Agent Teams](building-projects-with-agent-teams.md) | draft | 2026-03-18 | Approach to building complex projects with Claude Code multi-agent teams: AI Shipping Labs, Data Tasks, Pymermade, Jekyll-to-Rust, custom coding agent (Codehive), spec-driven development feedback loops, agent management challenges |
 | [Autoresearch Project](karpathy-autoresearch-agents.md) | draft | 2026-03-16 | Karpathy's autoresearch project: repo analysis, how the agent loop works, comparison with AutoML, Twitter buzz, AutoVoiceEvals, writing style optimization idea |
 | [Zoland Talk](zoland-talk.md) | draft | 2026-03-14 | Talk at Zoland meetup about the Telegram writing assistant, code agents, and slides preparation workflow with Claude Code |
 | [Starting Projects with GitHub Copilot](starting-projects-with-github-copilot.md) | draft | 2026-03-13 | Using GitHub Copilot to start projects from the browser, limitations and best workflow with ChatGPT |
