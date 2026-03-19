@@ -1,7 +1,7 @@
 ---
 title: "OpenCode Experiments with GLM-5"
 created: 2026-02-13
-updated: 2026-03-17
+updated: 2026-03-19
 tags: [ai-assistants, opencode, glm-5]
 status: draft
 ---
@@ -79,6 +79,20 @@ At first the agent refused, citing intellectual property rights and terms of ser
   <!-- Shows the initial refusal citing IP rights, followed by the user noting that avoiding the term "reverse engineering" bypassed the refusal -->
 </figure>
 
+## Claude Code Flickering Problem
+
+One of the reasons I started looking at alternatives is the screen flickering in Claude Code. I have been using it for three months and the flickering has been there since day one - it still has not been fixed[^9].
+
+<figure>
+  <p>Video: Screen recording of Claude Code flickering (0m 36s, 2158x1210) - <a href="https://t.me/c/3688590333/2996">View on Telegram</a></p>
+  <figcaption>Claude Code screen flickering - present since day one, still unfixed after three months</figcaption>
+  <!-- Screen recording demonstrating the distracting flickering behavior in Claude Code's terminal interface -->
+</figure>
+
+## Coming Back to OpenCode After Hitting Claude Code Limits
+
+After several months of using Claude Code, I hit the weekly token limit for the first time. Since all Anthropic limits were exhausted, I remembered my OpenCode experiments. The terminal app in OpenCode is much more pleasant to use - there is no flickering screen issue at all. Everything is smooth. It is less compact than Claude Code - could be made more compact - but overall it is a much more pleasant experience without that distracting flickering[^10].
+
 ## Overall Impressions
 
 My impression of OpenCode is positive. The desktop mode is great. As for GLM-5, it is decent but I do not really see a big difference from the previous GLM-4. All these agents cut corners and you need to watch them and set up proper processes. Right now I just used plain OpenCode with no custom processes set up. I think I need to set up proper workflows and then the results will be better[^4].
@@ -95,3 +109,5 @@ The testing challenge remains unsolved - I have no idea how to test desktop appl
 [^6]: [20260213_164714_AlexeyDTC_msg1635.md](../inbox/used/20260213_164714_AlexeyDTC_msg1635.md)
 [^7]: [20260317_105133_AlexeyDTC_msg2974_photo.md](../../inbox/used/20260317_105133_AlexeyDTC_msg2974_photo.md)
 [^8]: [20260317_112019_AlexeyDTC_msg2976_photo.md](../../inbox/used/20260317_112019_AlexeyDTC_msg2976_photo.md)
+[^9]: [20260318_110900_AlexeyDTC_msg2996_video.md](../../inbox/used/20260318_110900_AlexeyDTC_msg2996_video.md)
+[^10]: [20260319_110317_AlexeyDTC_msg3010_transcript.txt](../../inbox/used/20260319_110317_AlexeyDTC_msg3010_transcript.txt)

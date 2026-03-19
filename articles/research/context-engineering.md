@@ -1,7 +1,7 @@
 ---
 title: "Context Engineering and the 12 Factors of AI Agents"
 created: 2026-03-12
-updated: 2026-03-12
+updated: 2026-03-19
 tags: [research, agents, context-engineering, architecture]
 status: draft
 ---
@@ -81,6 +81,34 @@ Quotes:
 - "Not every problem needs an agent."
 - "Find something right at the boundary of what the model can do reliably, and if you can figure out how to get it right reliably because you've engineered reliability into your system, then you will have created something magical."[^1]
 
+### State of Context Engineering in 2026 (Workshop)
+
+Source: https://x.com/Aurimas_Gr/status/2034035800548192258
+
+Aurimas Griciuinas posted about context engineering becoming a must-have skill for AI Engineers in 2026. He hosted a free live workshop on March 20th covering the core patterns defining context engineering, key trade-offs between context management strategies, and how to apply these patterns to build more effective agentic systems[^3].
+
+The post includes a diagram that breaks context engineering into seven components:
+
+1. State (short-term memory)
+2. Instructions / System Prompt
+3. User Prompt
+4. Tools
+5. Structured Output
+6. Long-Term Memory
+7. Retrieved Context
+
+<figure>
+  <img src="../../assets/images/context-engineering/state-of-context-engineering-2026.jpg" alt="Diagram showing seven components of context engineering: State, Instructions, User Prompt, Tools, Structured Output, Long-Term Memory, Retrieved Context">
+  <figcaption>State of Context Engineering in 2026 - context is not just the prompt, it encompasses seven distinct input/output channels</figcaption>
+  <!-- Promotional graphic for a free workshop showing a central "Context" node with arrows to seven components that together define context engineering as a discipline -->
+</figure>
+
+This taxonomy extends the idea of context engineering beyond just "prompt engineering" - it covers state management, tool definitions, output structure constraints, memory (both short and long term), and retrieval. It aligns with the 12 Factors framework above where owning the context window means managing all these channels, not just the prompt text[^3].
+
+## Webinar Plans
+
+I want to prepare material about context engineering, probably as a couple of webinars to promote the course[^3].
+
 ## Notes
 
 The 12 Factors framework connects directly to spec-driven development research. Both emphasize owning the process rather than delegating everything to the LLM. The spec-driven approach controls what goes into the model (specifications, requirements, design docs), while the 12 Factors framework controls how the agent operates (control flow, context window, state management).
@@ -91,3 +119,4 @@ The micro agents pattern (3-10 steps in a mostly deterministic pipeline) aligns 
 
 [^1]: [Context Engineering and 12 Factors of AI Agents - YouTube](https://youtu.be/8kMaTybvDUw) via [20260312_074814_AlexeyDTC_msg2847.md](../../inbox/used/20260312_074814_AlexeyDTC_msg2847.md)
 [^2]: [20260312_074901_AlexeyDTC_msg2850_transcript.txt](../../inbox/used/20260312_074901_AlexeyDTC_msg2850_transcript.txt)
+[^3]: [20260318_121307_AlexeyDTC_msg2998.md](../../inbox/used/20260318_121307_AlexeyDTC_msg2998.md)

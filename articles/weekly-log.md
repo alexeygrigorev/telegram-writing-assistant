@@ -1,7 +1,7 @@
 ---
 title: "Weekly Log"
 created: 2026-02-26
-updated: 2026-03-05
+updated: 2026-03-19
 tags: [weekly, log]
 status: draft
 ---
@@ -9,6 +9,14 @@ status: draft
 # Weekly Log
 
 A running log of what was done each week. When a topic has its own detailed article, this log contains a short summary with a link. When there is not much content for a topic, the details go here directly.
+
+## Week of 2026-03-17
+
+### AI Hero Course Migration
+
+Migrated the AI Hero course to the new AI Shipping Labs platform. Used the same agent teams approach described in [Building Projects with Agent Teams](building-projects-with-agent-teams.md) - this time through GitHub Issues. Shared a link to the existing course content, told the agents "migrate this," and they handled everything. The agents created [a detailed GitHub issue](https://github.com/AI-Shipping-Labs/website/issues/128) with full specifications and completed the migration autonomously[^20].
+
+The course is now live at https://aishippinglabs.com/courses/aihero. This was for the Django version of the platform[^21].
 
 ## Week of 2026-03-03
 
@@ -129,3 +137,5 @@ Upgraded to AWS Business support, got on a call with support at 2 AM. Still wait
 [^17]: [20260305_095356_AlexeyDTC_msg2726_transcript.txt](../inbox/used/20260305_095356_AlexeyDTC_msg2726_transcript.txt)
 [^18]: [20260305_095937_AlexeyDTC_msg2728_transcript.txt](../inbox/used/20260305_095937_AlexeyDTC_msg2728_transcript.txt)
 [^19]: [20260305_100309_AlexeyDTC_msg2730_transcript.txt](../inbox/used/20260305_100309_AlexeyDTC_msg2730_transcript.txt)
+[^20]: [20260318_180542_AlexeyDTC_msg3002.md](../inbox/used/20260318_180542_AlexeyDTC_msg3002.md)
+[^21]: [20260318_180716_AlexeyDTC_msg3004.md](../inbox/used/20260318_180716_AlexeyDTC_msg3004.md)

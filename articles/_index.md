@@ -26,7 +26,7 @@ Articles that are mostly ready for the newsletter. All necessary content is insi
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
-| [OpenCode Experiments with GLM-5](ready-for-newsletter/opencode-experiments.md) | draft | 2026-03-17 | Trying OpenCode AI assistant with GLM-5 model, extracting JS from Claude binary |
+| [OpenCode Experiments with GLM-5](ready-for-newsletter/opencode-experiments.md) | draft | 2026-03-19 | Trying OpenCode AI assistant with GLM-5 model, extracting JS from Claude binary, Claude Code flickering comparison |
 | [What's New in the Telegram Writing Assistant](ready-for-newsletter/telegram-writing-assistant-updates.md) | draft | 2026-03-14 | Article idea: subagents, research section, link summaries, QA agent, YouTube and audio file processing |
 | [Cross-Platform Environment Variable Management with dirdotenv](ready-for-newsletter/dirdotenv.md) | draft | 2026-03-13 | Python-based alternative to direnv, first Claude Code experiment |
 | [Microphone Booster App](ready-for-newsletter/microphone-booster-app.md) | draft | 2026-03-12 | Windows microphone booster built with OpenCode/GLM-5 using Tauri + Rust, compilation on new Windows machine with Claude Code |
@@ -97,9 +97,10 @@ Files at the articles root that don't fit into the above categories.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Useful Utilities I Built with Claude Code](useful-utilities-built-with-claude-code.md) | draft | 2026-03-19 | Collection of daily-use utilities: dirdotenv, SSH Auto Forward, Nobook, Microphone Booster, Bot Master |
+| [Running Local LLMs for Coding on a Hetzner Server](local-llm-experiments.md) | draft | 2026-03-19 | Hitting Claude Code weekly limits, experimenting with quantized Qwen2.5 and DeepSeek on CPU |
+| [Building Projects with Agent Teams](building-projects-with-agent-teams.md) | draft | 2026-03-19 | Approach to building complex projects with Claude Code multi-agent teams: AI Shipping Labs, Data Tasks, Pymermade, Jekyll-to-Rust, custom coding agent (Codehive), AI Hero migration, agent management challenges |
 | [Bot Master: Process Manager for Telegram Bots](bot-master.md) | draft | 2026-03-16 | Process manager for Telegram bots with auto-restart, persistent logging, and a Textual TUI |
-| [Building Projects with Agent Teams](building-projects-with-agent-teams.md) | draft | 2026-03-18 | Approach to building complex projects with Claude Code multi-agent teams: AI Shipping Labs, Data Tasks, Pymermade, Jekyll-to-Rust, custom coding agent (Codehive), spec-driven development feedback loops, agent management challenges |
-| [Autoresearch Project](karpathy-autoresearch-agents.md) | draft | 2026-03-16 | Karpathy's autoresearch project: repo analysis, how the agent loop works, comparison with AutoML, Twitter buzz, AutoVoiceEvals, writing style optimization idea |
 | [Zoland Talk](zoland-talk.md) | draft | 2026-03-14 | Talk at Zoland meetup about the Telegram writing assistant, code agents, and slides preparation workflow with Claude Code |
 | [Starting Projects with GitHub Copilot](starting-projects-with-github-copilot.md) | draft | 2026-03-13 | Using GitHub Copilot to start projects from the browser, limitations and best workflow with ChatGPT |
 | [Interesting Resources](interesting-resources.md) | draft | 2026-03-14 | Curated collection of tools, resources, and project ideas for the newsletter |
@@ -107,7 +108,7 @@ Files at the articles root that don't fit into the above categories.
 | [Setting Up a Windows Computer for Development](windows-dev-setup.md) | draft | 2026-03-11 | Step-by-step guide to setting up a fresh Windows computer for development: Terminal, Git Bash, Python/UV, NodeJS, Docker, VS Code, Claude Code |
 | [Ranking for AI Search: LinkedIn Visibility and AI Overview Tracking](ai-search-visibility.md) | draft | 2026-03-10 | LinkedIn AI visibility study findings and AI Overview Tracker concept for monitoring brand presence in AI search |
 | [Take-Home Assignments for AI Engineers: Webinar Q&A](ai-engineer-webinar-qa.md) | draft | 2026-03-10 | Q&A from webinar on take-home assignments for AI engineers: career advice, hiring without CS degree, data scientist transitions |
-| [Weekly Log](weekly-log.md) | draft | 2026-03-05 | Running log of weekly activities with links to detailed articles |
+| [Weekly Log](weekly-log.md) | draft | 2026-03-19 | Running log of weekly activities with links to detailed articles |
 | [Google Docs Voice Feedback Tool](google-docs-voice-feedback.md) | draft | 2026-03-02 | Voice-powered Google Docs editor built with Claude Code, using LLM to understand edit requests and apply changes via Google Docs API |
 | [Personal Project Ideas](personal-project-ideas.md) | draft | 2026-03-02 | Personal project ideas to implement: voice-based document editing, notebook server for Claude Code, voice-controlled dev bot, DataTasks, content reuse system |
 | [Pet Projects](pet-projects.md) | draft | 2026-02-28 | Karpathy's advice on becoming an expert through depth-first projects, teaching, and self-comparison |

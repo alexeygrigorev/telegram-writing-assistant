@@ -1,7 +1,7 @@
 ---
 title: "Building Projects with Agent Teams"
 created: 2026-03-14
-updated: 2026-03-18
+updated: 2026-03-19
 tags: [claude-code, agents, multi-agent, process]
 status: draft
 ---
@@ -76,6 +76,12 @@ I told it to solve this problem. It set up cgroups - I had never worked with tho
 
 For me this is all fairly new territory. I have never done this kind of native development. I always had Java, Python, Ruby - languages that are not native. I wrote a little C once, but nothing serious. This is my first experience like this, and I am discovering new things like cgroups[^3].
 
+## Using the Approach via GitHub Issues: AI Hero Migration
+
+I also used this same approach through GitHub for migrating the AI Hero course to the new AI Shipping Labs platform. I just shared a link to the existing course and said "migrate this." The agents created a [detailed GitHub issue](https://github.com/AI-Shipping-Labs/website/issues/128) with full specifications - course data, module structure, all seven units with descriptions and homework, acceptance criteria, and Playwright test scenarios. Then they executed the migration on their own[^14][^15].
+
+The course is now live at https://aishippinglabs.com/courses/aihero[^15].
+
 ## Agents Slack Off
 
 This is not something I can fully leave without supervision. Agents slack off. A lot. It is like managing a team of students who are not getting paid. They are only there because they need course credits. Everything they do is reluctant, through force. Sometimes they work, sometimes they slack off terribly. This applies to all agents[^4].
@@ -124,6 +130,14 @@ The first problem: the agent stops for no reason[^7].
   <img src="../assets/images/building-projects-with-agent-teams/codehive-agent-stopping.jpg" alt="Claude Code terminal showing agent stopping and user asking why did you stop">
   <figcaption>The orchestrator stops and waits instead of continuing with the next task</figcaption>
   <!-- Screenshot from the Jekyll project showing the agent cogitating for over a minute then stopping, requiring manual intervention to continue -->
+</figure>
+
+The agent also refuses to pick up the next task on its own, even when the tasks are explicitly listed in the backlog[^13].
+
+<figure>
+  <img src="../assets/images/building-projects-with-agent-teams/agent-refusing-next-tasks.jpg" alt="Claude Code terminal showing agent completing a task and asking if it should proceed instead of automatically picking the next one">
+  <figcaption>The agent finishes a task and asks instead of picking the next one - even with tasks visible in the backlog</figcaption>
+  <!-- Screenshot showing the agent completing issue #105 through the full PM→SWE→QA→PM pipeline, then asking permission to pull the next task despite having an explicit "Pull next" item in the checklist -->
 </figure>
 
 It also asks stupid questions. The way it works now - I say there is a pool of tasks, and the orchestrator should ask the PM to pick the next two issues from the backlog. In the todo list there is always an item that says "pull next 2" and also "add another pull-next-2 item" to create the loop. But sometimes the orchestrator asks things like "shall we proceed?" Of course we proceed. Why are you asking? That is wasted time, especially when I am not nearby[^5].
@@ -190,3 +204,6 @@ The cost is currently zero thanks to the Pro Max subscription, but these project
 [^10]: [20260318_104207_AlexeyDTC_msg2980_transcript.txt](../inbox/used/20260318_104207_AlexeyDTC_msg2980_transcript.txt)
 [^11]: [20260318_104313_AlexeyDTC_msg2984_transcript.txt](../inbox/used/20260318_104313_AlexeyDTC_msg2984_transcript.txt)
 [^12]: [20260318_105138_AlexeyDTC_msg2990_transcript.txt](../inbox/used/20260318_105138_AlexeyDTC_msg2990_transcript.txt)
+[^13]: [20260318_174724_AlexeyDTC_msg3000_photo.md](../inbox/used/20260318_174724_AlexeyDTC_msg3000_photo.md)
+[^14]: [20260318_180542_AlexeyDTC_msg3002.md](../inbox/used/20260318_180542_AlexeyDTC_msg3002.md)
+[^15]: [20260318_180716_AlexeyDTC_msg3004.md](../inbox/used/20260318_180716_AlexeyDTC_msg3004.md)
