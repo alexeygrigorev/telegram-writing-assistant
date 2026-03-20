@@ -18,7 +18,7 @@ The process works like this: there is a pool of tasks. Tasks get pulled from the
 
 ## Project 1: AI Shipping Labs Website
 
-My first attempt at this approach was the AI Shipping Labs community platform. For that project, I wanted to establish the workflow. The [full story is in a separate article](work-in-progress/community-platform-implementation.md), but here is the approach I developed there[^1].
+My first attempt at this approach was the AI Shipping Labs community platform. For that project, I wanted to establish the workflow. The [full story is in a separate article](ai-shipping-labs/platform-implementation.md), but here is the approach I developed there[^1].
 
 I started by gathering requirements through the Telegram bot and ChatGPT, then told Claude Code to turn them into specifications. It created a "specification" folder with 15 files. After reviewing and giving feedback, I said: now turn these specs into tasks. I tried GitHub Projects for task tracking. The initial decomposition was not great - tasks were too granular, no acceptance criteria, no clear format. I iterated on the task format until I liked it, then transferred everything to GitHub Issues[^1].
 

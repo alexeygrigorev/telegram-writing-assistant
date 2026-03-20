@@ -45,13 +45,25 @@ Articles that are mostly ready for the newsletter. All necessary content is insi
 | [Minsearch: Simple Search for Small Datasets](ready-for-newsletter/minsearch-library.md) | draft | 2026-01-23 | Lightweight search library for small databases |
 | [Streaming JSON Parsing with jaxn](ready-for-newsletter/jaxn-streaming-json.md) | draft | 2026-01-23 | Streaming parser for LLM structured output |
 
+## AI Shipping Labs
+
+Articles about the AI Shipping Labs paid community: vision, activities, courses, marketing, platform.
+
+| Title | Status | Last Updated | Description |
+|-------|--------|--------------|-------------|
+| [Vision](ai-shipping-labs/vision.md) | draft | 2026-03-20 | Vision, target audience, tier structure, pricing, design principles, next steps |
+| [Activities](ai-shipping-labs/activities.md) | draft | 2026-03-20 | Regular sessions, accountability circles, mentoring, career development, knowledge sharing |
+| [Course Ideas](ai-shipping-labs/courses.md) | draft | 2026-03-20 | Spec-Driven Dev, Refactoring AI Slop, Python, Data Engineering, CloudCode, testing, DevOps |
+| [Marketing and Content Strategy](ai-shipping-labs/marketing-and-content.md) | draft | 2026-03-20 | Marketing channels, funnel, lead magnets, content strategy, Lenny's inspiration |
+| [Building the Platform with Claude Code](ai-shipping-labs/platform-implementation.md) | draft | 2026-02-25 | Multi-agent build experiment: Product Manager, Software Engineer, Tester, On-Call Engineer |
+| [Platform Ideas](ai-shipping-labs/platform-ideas.md) | draft | 2026-02-26 | Business case simulator, career help tools, data collection |
+
 ## Work in Progress
 
 Unfinished articles that need more information, experimentation, or testing before they are ready for the newsletter.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
-| [Building a Community Platform with Claude Code's Multi-Agent System](work-in-progress/community-platform-implementation.md) | draft | 2026-02-25 | Experiment building the AI Shipping Labs platform using Claude Code with Product Manager, Software Engineer, Tester, and On-Call Engineer agents |
 | [AI Engineer Role Survey](work-in-progress/ai-engineer-role-survey.md) | draft | 2026-02-22 | Survey collecting first-hand accounts from AI Engineer practitioners about their roles, tools, and interview experiences |
 | [AI Engineer Role Research](work-in-progress/ai-engineer-role-research.md) | draft | 2026-02-19 | Research into AI Engineer positions and interview process |
 | [Services Website Testimonials](work-in-progress/services-testimonials.md) | draft | 2026-02-15 | Collection of testimonials for the services website |
@@ -65,20 +77,15 @@ Recorded ideas without much detail. Just the idea itself, useful for not forgett
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
-| [Paid AI Engineers Community Planning](ideas/paid-ai-community-planning.md) | draft | 2026-03-20 | Planning a paid community for AI Engineers including target audience, tier structure, pricing, content strategy, and community activities |
-| [New Course Ideas for the Paid Community](ideas/paid-community-new-course-ideas.md) | draft | 2026-03-20 | Course ideas: Spec-Driven Development for AI, Data Engineering for AI, AI for Data Engineering, Refactoring AI Slop |
 | [Social Post Ideas](ideas/social-post-ideas.md) | draft | 2026-03-12 | Curated social media content ideas and inspiration |
 | [Python Primer Course Idea](ideas/python-primer-course-idea.md) | draft | 2026-03-05 | Paid Python prerequisite course for AI Engineering and Zoomcamps - "Python for AI Engineering" with podcast aggregator project |
 | [Task Management App Idea](ideas/task-management-app-idea.md) | draft | 2026-02-24 | Unified task management system combining Trello and todo lists, with serverless AWS implementation (datatasks) |
 | [Multi-Agent Patterns for the Course](ideas/multi-agent-patterns-course.md) | draft | 2026-02-22 | Multi-agent patterns for the AI Buildcamp course module: evaluation, subagent, planner-executor, orchestration |
 | [Voice-Controlled Development Bot](ideas/voice-controlled-dev-bot.md) | draft | 2026-02-20 | Idea for a general-purpose Telegram bot that executes development commands via voice |
-| [Paid Community Platform Requirements](ideas/paid-community-platform.md) | draft | 2026-02-19 | Technical requirements and platform evaluation for hosting the AI Shipping Labs community |
-| [Paid Community Marketing Plan](ideas/paid-community-marketing-plan.md) | draft | 2026-02-19 | Marketing plan and funnel for promoting the paid community |
 | [AI Hero Course Rebranding for AI Shipping Labs](ideas/ai-hero-rebranding.md) | draft | 2026-02-17 | Rebranding the existing AI Hero course to fit under the new AI Shipping Labs community |
 | [AI-Assisted Automation Course Idea](ideas/ai-assisted-automation-course-idea.md) | draft | 2026-01-29 | Concept for a paid course on AI-assisted automation |
 | [Google Stitch: Design-First AI Development](ideas/google-stitch.md) | draft | 2026-01-23 | Google's design-focused AI development tool |
 | [New Website Services Section](ideas/new-website-services-section.md) | draft | - | Adding a workshops section to the website |
-| [Paid Community Website Idea](ideas/paid-community-website-idea.md) | draft | - | Dedicated community website for content aggregation and SEO |
 | [Resources and Articles Tracking](ideas/resources-and-articles-tracking.md) | draft | - | Tracking resources and draft articles with a table on GitHub |
 | [Testing Workshop Idea](ideas/testing-workshop-idea.md) | draft | - | Workshop idea about testing practices |
 
@@ -114,7 +121,6 @@ Files at the articles root that don't fit into the above categories.
 | [Pet Projects](pet-projects.md) | draft | 2026-02-28 | Karpathy's advice on becoming an expert through depth-first projects, teaching, and self-comparison |
 | [Getting a Data Science Job](getting-a-data-science-job.md) | draft | 2026-02-28 | Summary of a presentation on the full data science job search process: networking, applying, interviewing, and negotiating offers |
 | [AI Agent Project Ideas](agent-project-ideas.md) | draft | 2026-02-26 | Collection of AI agent project ideas for AI Buildcamp students: GitHub issue bot, idea generator, job analytics, knowledge management, journaling |
-| [Community Platform Feature Ideas](community-platform-features.md) | draft | 2026-02-26 | Feature ideas for the AI Shipping Labs site: business case simulator, career help tools, data collection |
 | [Recreating a PNG Logo as SVG with Claude Code](svg-logo-recreation.md) | draft | 2026-02-26 | Converting a ChatGPT-generated PNG logo to SVG using Claude Code with OpenCV and potrace |
 | [Writing Assistant Improvement Ideas](writing-assistant-improvement-ideas.md) | draft | 2026-02-20 | Feedback and improvement ideas for the Telegram writing assistant bot |
 

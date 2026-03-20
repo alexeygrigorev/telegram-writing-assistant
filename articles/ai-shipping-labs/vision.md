@@ -1,0 +1,393 @@
+---
+title: "AI Shipping Labs Community Vision"
+created: 2026-02-10
+updated: 2026-03-20
+tags: [community, business, ai-engineering, pricing, ai-shipping-labs]
+status: draft
+---
+
+# AI Shipping Labs Community Vision
+
+## The Goal
+
+Create a paid community for AI Engineers that:
+- Provides real value beyond free content
+- Attracts active, motivated learners and builders
+- Scales without requiring excessive personal time
+- Has a clear identity separate from any individual
+
+The challenge is designing something that feels like a true community, not just a following.
+
+## Origin Story
+
+The community idea evolved organically from several different threads:
+
+### Initial desire for a personal newsletter
+
+The idea started with wanting to create a separate newsletter from DataTalks Club - a place to share things learned and tried every day. The DataTalks Club newsletter is about communities, but there was a desire for a space to share learning in public and build in public, continuing what gets shared on social media[^34].
+
+### Course on Maven
+
+The AI Engineering course on Maven about agents became part of this vision. The people taking the course, those interested in subscription, and the desire to do something together all converged[^34].
+
+### Monetization research
+
+Valeria and I researched Substack monetization methods and found that some people create communities. The community idea was appealing - doing things together, helping people, sharing knowledge beyond what gets shared in DataTalks Club[^34].
+
+### Desire for closer interaction
+
+There is a desire for more intimate contact with people who are interested in these topics - live sessions where we solve things together, exchange experiences, learn from others who are also learning and want to share with everyone and get feedback[^34].
+
+### New content formats
+
+The vision includes launching new content and new courses - not all as large as AI Engineering Buildcamp, but smaller, more modest courses that could be offered more frequently within the community[^34].
+
+So the idea evolved step by step: wanting a new newsletter, then a course, then everything connected organically into this community concept[^34].
+
+## Why a New Community
+
+Several reasons for creating something separate rather than building within DataTalks Club:
+
+### Desire for a personal brand
+
+Wanted something personal - a separate newsletter for sharing things learned daily. DataTalks Club's newsletter serves a different purpose[^67].
+
+### Paid course on Maven
+
+The AI Engineering course on Maven is paid, while everything in DataTalks Club is free. The new community is also paid[^33].
+
+### Desire to earn from the work
+
+As an entrepreneur with no employer, I want to earn money from what I create. I have already given much to DataTalks Club for free, but now want to also get paid for the work done[^33].
+
+### DataTalks Club mission remains unchanged
+
+The principle of DataTalks Club - free education for everyone regardless of income or location - stays the same. The club will not become closed. I plan to continue developing DataTalks Club through 2025 and 2026[^33].
+
+### LLM Zoomcamp example
+
+LLM Zoomcamp launching in summer directly competes with the paid Maven course. This does not mean neglecting LLM Zoomcamp - quite the opposite. New material gets added there, including content not in the Maven course (like rag evaluation which is covered in more detail in Zoomcamp than in Buildcamp)[^33].
+
+### Desire for closer community interaction
+
+Want to try something new with closer member interaction. A more tight-knit community feel where we do things together, not necessarily related to data, but focused on AI and AI tools for development[^33].
+
+### New courses don't fit Zoomcamp calendar
+
+The Zoomcamp calendar runs for a full year with ML Zoomcamp, Data Engineering Zoomcamp, AI DevTools Zoomcamp, and LLM Zoomcamp. There is no room to add additional courses in parallel[^33].
+
+### Focus: AI Shipping Labs
+
+The new project (aishippinglabs.com) makes more sense as a separate entity focused on AI DevTools[^33].
+
+The existing AI Hero course is being rebranded to fit under AI Shipping Labs. See [AI Hero Course Rebranding for AI Shipping Labs](../ideas/ai-hero-rebranding.md) for details on the transition plan[^76].
+
+## Community Focus and Positioning
+
+### The DataTalks Club model
+
+DataTalks Club has no specific focus, which is why everyone joins. Whether this approach is good or bad is unclear. There is a desire for something narrower this time[^55].
+
+### Desired focus
+
+Focus on AI engineering and AI tools. While this would also be interesting for MLOps and data engineers, the preference is for a more niche area rather than broad appeal[^56].
+
+In discussion with Valeria, the community should be more focused. The two main areas:
+
+### AI Engineering
+
+Everything related to building AI products[^36].
+
+### AI Assistants for Development
+
+Tools and workflows that make developers more productive[^36].
+
+This is what is most interesting right now, and there is a desire for a more niche community compared to DataTalks Club's "all things data" approach. While the broad topics in DataTalks Club are interesting, the goal is more focus here - not spread across data science, ML lapses, data engineering, and everything else depending on time of year[^36].
+
+### AI is currently the draw
+
+AI is interesting to many people right now, which can be leveraged to attract members. Positioning can always be changed later if needed. The MLOps community example is instructive: they started as MLOps but now focus almost exclusively on AI[^58].
+
+### Long-term trend
+
+AI will reach all engineers eventually, including those working with data. It is inevitable[^59].
+
+### Domain and brand
+
+The domain aishippinglabs.com has been registered[^35].
+
+<figure>
+  <img src="../../assets/images/paid-ai-community-planning/domain-registration.jpg" alt="Domain registration confirmation for aishippinglabs.com">
+  <figcaption>Domain registration confirmation for aishippinglabs.com</figcaption>
+  <!-- This shows the domain name for the new community -->
+</figure>
+
+### Naming and brand
+
+Current naming challenge: existing names like "AI Builders" and "AI Engineering" are already taken. The ideal name should:
+- Be connected to building (hands-on creation)
+- Relate to AI
+- Connect with existing brand (newsletter, course, AI Engineering Buildcamp)
+- Be distinctive
+
+## Target Audience
+
+The ideal community member is:
+
+### Enthusiastic and action-oriented
+
+- They enjoy learning new things
+- They have time and enthusiasm to build
+- They are active people who want to apply their efforts to building something
+- They love learning by doing, not just watching lectures
+
+### Needs structure and direction
+
+- They have the desire to build but lack:
+  - Clear ideas
+  - Understanding of next steps
+  - Project structure
+  - Focus to avoid distractions
+- They need frameworks that help them stay on track toward their goals
+
+More specifically, this person:
+- Has a desire to build but needs a push
+- Already has ideas and desire, but lacks something to sit down and do it
+- Is often busy with many interests but passionate about some project they work on in the background
+- Has a main job but also a side project they cannot always find time for
+- Is passionate about this project but needs a gentle push to start making progress
+
+These are people who already have the drive and the project ideas, but need external structure and accountability to take action[^66].
+
+### Target audience for this focused community
+
+People interested in AI engineering and AI tools who want to be more productive in what they do. The end goal is creating AI products using AI. This includes:
+- People who can currently work as ML engineers
+- Data engineers
+- Beginners just starting to learn Python with the goal of becoming data and AI engineers
+
+The aim is to attract everyone interested in these topics to one place, rather than having the spread-out focus like in DataTalks Club. This is a new attempt at something maximally focused[^36].
+
+### Examples from existing community
+
+- Fred - created the FAQ assistant
+- A student from the Hackathon who contributed to "Professor"
+- Eteri Valti - completed ML Bootcamp, AI DevTools, AI Hero course; actively asks how to help with community; recently found a job
+- Rakis (from Greece) - built multiple projects for DataTalks Club: a Streamlit app showcasing all Zoomcamp projects, a project evaluator agent
+- A student from a recent workshop who was one of the first in Data Engineering; after finding a job, donated part of her learning budget back
+
+These are the kinds of active contributors the community should attract more of.
+
+## Problems to Solve
+
+The key question is: what problems do these people have that they would pay to solve?
+
+Potential pain points:
+- Want to transition to AI Engineering
+- Already work as Data Scientists/ML Engineers but want to do more interesting work
+- Want career advancement guidance
+- Need structure and accountability for their learning
+- Want to work on projects but don't know what to build
+
+Research is needed to validate which problems are most pressing and what solutions people would pay for.
+
+## Tier Structure Overview
+
+Following standard pricing psychology, a three-tier structure makes sense. The original plan was $20, $50, and $100 per month[^50]. The current pricing on aishippinglabs.com is annual[^77]:
+
+### Tier 1: Basic (200 EUR/year)
+
+- Content only - no community access
+- Substack content access, tutorials, tool breakdowns, research, curated social posts
+
+### Tier 2: Main (500 EUR/year)
+
+- Marked as "Most Popular"
+- Everything in Basic plus closed community access
+- Group coding sessions, hackathons, guided project-based learning
+- Career discussions, personal brand guidance, topic voting
+
+### Tier 3: Premium (1000 EUR/year)
+
+- Everything in Main plus access to all mini-courses
+- Upcoming Python for Data and AI Engineering course
+- Resume/LinkedIn/GitHub teardowns, mini-course topic voting
+
+The third tier serves an important psychological purpose: when presented with three options, people tend to choose the middle one. This is a standard pricing tactic recommended in business books.
+
+<figure>
+  <img src="../../assets/images/paid-ai-community-planning/three-tier-pricing-structure.jpg" alt="Document showing three-tier pricing structure with Basic, Main offering, and Premium tiers">
+  <figcaption>Three-tier pricing structure following standard pricing psychology principles</figcaption>
+  <!-- This illustrates how tiers are positioned to make the middle option most attractive -->
+</figure>
+
+Each tier should motivate users to upgrade:
+
+- Tier 1: Sees materials created, gets preview of what community produces
+- Tier 2: Joins community, accesses people and activities, participates live
+- Tier 3: Gets exclusive access and guaranteed benefits (like guaranteed resume review)
+
+For example, tier 2 members see other people's resumes being reviewed publicly in the community. This creates motivation to upgrade to tier 3 to get their own resume reviewed. The pattern is: each tier shows value of the next tier above it[^53].
+
+## Tier 1: Content Access
+
+Tier 1 is a content-only tier at $20 per month with no community access. People at tier 1 get content but not access to the community[^49].
+
+This makes sense because community requires significant work to maintain and should be a core value proposition that people pay for. If someone paying $20 got the same community access as someone paying $50, it would feel unfair[^48].
+
+### Content included
+
+Tier 1 members receive access to results and summaries of projects and materials created, but not to people or activities:
+
+- Weekly or monthly summaries of all social media posts[^46]
+- AI-generated summaries from workshops and exclusive events
+- Articles derived from workshop content
+- Workflow documentation based on projects
+- Research and article summaries - currently, the audience only sees finished content, not the research that leads to it. When preparing materials for courses, many articles are read and summarized. These summaries can be shared with tier 1 members[^47]
+
+This content is published in the paid newsletter, giving tier 1 members visibility into what is being created. They see results and get a preview of what they could access by joining the community[^51].
+
+The goal is that tier 1 members see the value and get motivated to upgrade to tier 2 for community access and live activities[^51].
+
+### Design inspiration
+
+One model considered is Alexey Grigorev's Substack "Supporter" tier at 10 euros per month. This provides access to written materials and recorded content but no community access or live participation[^1].
+
+<figure>
+  <img src="../../assets/images/paid-ai-community-planning/substack-supporter-tier.jpg" alt="Substack subscription page showing Supporter tier at 10 euros/month with materials access but no community">
+  <figcaption>Example of a content-only tier: Alexey Grigorev's Supporter tier provides materials without community access</figcaption>
+  <!-- This shows an alternative approach where the first tier focuses on content rather than community -->
+</figure>
+
+## Tier 2: Community and Activities
+
+This is the main value proposition at $50 per month. Members get full community access plus structured activities.
+
+### Community activities
+
+- Project implementation sessions
+- Paper implementation projects
+- Hackathon-style community projects
+- Resume review sessions (visible to all as community learning)
+- Career advancement discussions
+- Workplace effectiveness and productivity
+- Group course study - when a new course comes out (e.g. from Andrej Karpathy), we go through it together as a group, creating structure for people to learn together[^72]
+- Seminars - like university seminars where each person gets assigned a topic (an article, a technology, a new tool) to research, and then presents their findings on a call. Everyone learns from each other's research[^72]
+- Book Reading Club - reading and discussing books together[^72]
+
+These are three ideas that came up at once. Which tier they belong to still needs to be figured out. We can ask people what interests them and what resonates, and then build from there[^72].
+
+These activities also help cut through the noise. There is a lot of noise on social media right now. People open social media and see others talking about many things, which creates FOMO. The community can help people focus on what is actually important instead of chasing everything[^72].
+
+Course requests and influence: since the current course catalog is limited, community members can request and influence which courses get developed. The courses offered can be shaped based on what people in the community want to learn[^33].
+
+Key principle: the value should come from the community, not just from the founder. Activities should work even without direct involvement. The community should feel valuable even without direct founder involvement. This means designing activities that run themselves or are led by community members[^52].
+
+## Tier 3: Premium Access
+
+The challenge with the third tier at $100/month is creating value that doesn't require excessive time commitment and keeps members engaged beyond course periods.
+
+### Courses
+
+- Exclusive mini-courses on specialized topics
+- Examples: Claude Code course, testing course, AI agents workshop material
+- Content is already being created - just packaged for members
+- Andreas Kretz model: subscription gives access to all courses, new courses added regularly to reduce churn
+
+A concern: if people only join because of courses, they will leave when courses end. We cannot produce courses indefinitely - perhaps 2-3 per year maximum. Something ongoing that is not courses is needed to keep them engaged[^37].
+
+### One-on-one sessions
+
+For tier 3, can offer "occasional 1:1 on request" - willing to do this but not regularly. Initially, want to communicate with buyers to understand what brought them and what they need. This research helps determine what content to create.
+
+Not promoting this as the main benefit, but can mention that if valuable for some people, it is available. When writing about it, need to position it carefully - not as "with me" specifically but with "someone from the team" or similar. People who know will understand, others will see it as a valuable community feature[^65].
+
+### Design principle
+
+Tier 3 should be designed so the founder's involvement feels like a bonus, not the main value. The tier needs something ongoing beyond courses, such as guaranteed benefits (priority resume reviews, priority access to new content) that justify the premium.
+
+## Design Principles
+
+### Reducing Founder Dependency
+
+A key concern: the community should feel like a community, not "pay to talk to the founder."
+
+Ways to address this:
+- Design activities that members run themselves
+- Have someone else (e.g., a community manager) lead regular check-ins
+- Create peer-to-peer activities
+- Make the founder's presence a bonus, not the main attraction
+- Ensure value for people who discover the community through search (who don't know the founder)
+
+This is important both for sustainability and for how the community appears to outsiders.
+
+### Learning from Andreas Kretz
+
+Andreas Kretz (LinkedIn influencer with a Data Engineering school) used this approach:
+1. Started with 1:1 mentoring
+2. While mentoring, observed common problems across students
+3. Created courses to solve these common problems
+4. Scaled from 5 students to hundreds
+5. Subscription model provides access to all courses
+6. Continuously creates new courses to reduce churn
+
+Key insight: start with direct interaction to understand problems, then productize the solutions.
+
+## Next Steps
+
+### Phase 1: Start with students
+
+- Begin with AI Buildcamp students (they get free access as course alumni)
+- Conduct interviews to understand their needs
+- Offer some 1:1 sessions initially to learn what problems they have
+- Use these sessions for research, not as long-term commitment
+
+### Phase 2: Interview approach
+
+- Ask people joining: what brought you here, what do you want, what problems do you want to solve?
+- This is how DataTalks Club started - personal messages to every new member
+- Use the feedback to shape content and offerings
+
+### Phase 3: Iterate based on reality
+
+- The theoretical ideal audience may not match who actually joins
+- Plans should evolve based on real members
+- Don't over-plan before seeing who is interested
+
+### Summary
+
+1. Start with AI Buildcamp students (free access for course alumni)
+2. Conduct interviews to understand what they want
+3. Use these conversations to identify common problems
+4. Design tier 2 to provide maximum value for these problems
+5. Design tier 3 primarily to make tier 2 look attractive
+6. Iterate based on who actually joins
+
+The key is to learn from real members rather than assuming what they want.
+
+## Sources
+
+[^1]: [20260210_214500_AlexeyDTC_msg1295_transcript.txt](../inbox/used/20260210_214500_AlexeyDTC_msg1295_transcript.txt)
+[^33]: [20260211_154156_AlexeyDTC_msg1453_transcript.txt](../inbox/used/20260211_154156_AlexeyDTC_msg1453_transcript.txt)
+[^34]: [20260212_092525_AlexeyDTC_msg1483_transcript.txt](../inbox/used/20260212_092525_AlexeyDTC_msg1483_transcript.txt)
+[^35]: [20260212_072521_AlexeyDTC_msg1478_photo.md](../inbox/used/20260212_072521_AlexeyDTC_msg1478_photo.md)
+[^36]: [20260212_095704_AlexeyDTC_msg1489_transcript.txt](../inbox/used/20260212_095704_AlexeyDTC_msg1489_transcript.txt)
+[^37]: [20260212_073720_AlexeyDTC_msg1479_transcript.txt](../inbox/used/20260212_073720_AlexeyDTC_msg1479_transcript.txt)
+[^46]: [20260212_115823_AlexeyDTC_msg1545_transcript.txt](../inbox/used/20260212_115823_AlexeyDTC_msg1545_transcript.txt)
+[^47]: [20260212_115823_AlexeyDTC_msg1546.md](../inbox/used/20260212_115823_AlexeyDTC_msg1546.md)
+[^48]: [20260212_120008_AlexeyDTC_msg1549_transcript.txt](../inbox/used/20260212_120008_AlexeyDTC_msg1549_transcript.txt)
+[^49]: [20260212_120008_AlexeyDTC_msg1550.md](../inbox/used/20260212_120008_AlexeyDTC_msg1550.md)
+[^50]: [20260212_120008_AlexeyDTC_msg1551.md](../inbox/used/20260212_120008_AlexeyDTC_msg1551.md)
+[^51]: [20260212_120318_AlexeyDTC_msg1555_transcript.txt](../inbox/used/20260212_120318_AlexeyDTC_msg1555_transcript.txt)
+[^52]: [20260212_120318_AlexeyDTC_msg1556.md](../inbox/used/20260212_120318_AlexeyDTC_msg1556.md)
+[^53]: [20260212_122718_AlexeyDTC_msg1559_transcript.txt](../inbox/used/20260212_122718_AlexeyDTC_msg1559_transcript.txt)
+[^55]: [20260212_070950_AlexeyDTC_msg1464_transcript.txt](../inbox/used/20260212_070950_AlexeyDTC_msg1464_transcript.txt)
+[^56]: [20260212_070950_AlexeyDTC_msg1466_transcript.txt](../inbox/used/20260212_070950_AlexeyDTC_msg1466_transcript.txt)
+[^58]: [20260212_071140_AlexeyDTC_msg1472_transcript.txt](../inbox/used/20260212_071140_AlexeyDTC_msg1472_transcript.txt)
+[^59]: [20260212_071140_AlexeyDTC_msg1473.md](../inbox/used/20260212_071140_AlexeyDTC_msg1473.md)
+[^65]: [20260211_045229_AlexeyDTC_msg1368.md](../inbox/used/20260211_045229_AlexeyDTC_msg1368.md)
+[^66]: [20260212_091239_AlexeyDTC_msg1482_transcript.txt](../inbox/used/20260212_091239_AlexeyDTC_msg1482_transcript.txt)
+[^67]: [20260212_070950_AlexeyDTC_msg1465.md](../inbox/used/20260212_070950_AlexeyDTC_msg1465.md)
+[^72]: [20260214_092313_AlexeyDTC_msg1669_transcript.txt](../inbox/used/20260214_092313_AlexeyDTC_msg1669_transcript.txt)
+[^76]: [20260217_102556_AlexeyDTC_msg1909_transcript.txt](../inbox/used/20260217_102556_AlexeyDTC_msg1909_transcript.txt)
+[^77]: [20260218_161244_AlexeyDTC_msg1975.md](../inbox/used/20260218_161244_AlexeyDTC_msg1975.md), [aishippinglabs.com](https://aishippinglabs.com)

@@ -1,14 +1,14 @@
 ---
-title: "New Course Ideas for the Paid Community"
-created: 2026-03-01
+title: "AI Shipping Labs Course Ideas"
+created: 2026-02-12
 updated: 2026-03-20
-tags: [courses, paid-community, ideas]
+tags: [courses, community, ai-shipping-labs, ideas]
 status: draft
 ---
 
-# New Course Ideas for the Paid Community
+# AI Shipping Labs Course Ideas
 
-Several ideas for courses that could be offered in the paid community.
+Several ideas for courses that could be offered in the community.
 
 ## Specification-Driven Development for AI
 
@@ -34,14 +34,6 @@ The course output will be a kanban board for agents - an application that everyo
 
 There is already research on spec-driven development patterns and tools collected in the [Spec-Driven Development research article](../research/spec-driven-development.md).
 
-## Data Engineering for AI
-
-A course about building data pipelines for AI systems[^1].
-
-## AI for Data Engineering
-
-A course about using AI effectively to be a more efficient data engineer[^1].
-
 ## Refactoring AI Slop
 
 A course called "Refactoring AI Slop." The idea came from thinking about learned helplessness - people who used to know how to program now fully delegate to LLMs and lose the skill. People who never programmed do not learn either[^3].
@@ -60,9 +52,69 @@ The course can also serve as a reminder of best coding practices, clean code fro
 
 One caveat: when I am the only user of the code, if something breaks, I just run an agent to fix it. But when we talk about a platform used by multiple people or a library that many people use, the requirements are different. And since I work in education and show code to students, I want the code to be maximally understandable. AI-generated code is not always understandable, which makes it hard to use as teaching material[^3].
 
+## Python for AI and Data Engineering
+
+The Python course idea is to take all existing Zoomcamps and the Buildcamp, analyze what Python is needed there, and create a course based on that. Target audience: both AI and data engineers[^5].
+
+### Student interest
+
+Students are already asking about paid courses. This is a positive signal for the Python course idea[^8].
+
+<figure>
+  <img src="../../assets/images/paid-ai-community-planning/course-inquiry-thread.jpg" alt="Telegram thread showing students asking about AI engineering and Python courses">
+  <figcaption>Students already inquiring about upcoming AI engineering and Python courses in the community</figcaption>
+  <!-- This shows existing demand for courses being planned -->
+</figure>
+
+## AI Data Engineering course
+
+Want to create a course on data engineering for AI - how all these AI tools can be used to build pipelines. This area is underserved - little content exists on how data actually gets into agents in reality. Everyone talks about having a clean dataset and building an agent, but not how the data gets there. Several modules on the new Maven course should be dedicated to this topic[^6].
+
+### Market demand
+
+There seems to be less demand and less content about data engineering for AI compared to generic AI engineering. This might actually be an advantage - an underserved niche where we can create something and see how it works. The community should cover these topics to attract people interested in both areas[^7].
+
+## Maven course continuation
+
+Want to continue the AI Engineering course on Maven with focus on creating AI products. This attracts AI engineers who will be interested and potentially buy the course[^9].
+
+## CloudCode and AI Assistant Development
+
+Want to create a course about CloudCode and AI Assistant Development as a supplement to the existing AI DevTools content. This would focus on:
+- How to configure and customize these tools
+- Specific tricks and workflows discovered from using these tools for two years
+- Less structured but very practical content
+- Sharing experience and knowledge with community members[^10]
+
+## Testing workshop
+
+There is not much content available on testing, so want to create a mini-course on testing with focus on Python. Topics would include:
+- Simple unit tests
+- Integration tests
+- How to test agents (though this might already be covered in AI Buildcamp)
+- A course spanning several weeks[^10]
+
+## DevOps and infrastructure
+
+Topics where there is not much content available:
+- Environment setup and management
+- DevOps practices
+- Terraform
+- GitHub actions[^10]
+
+## Course format strategy
+
+The plan is to have at least one big course on Maven (if time permits), while the rest would be mini-courses available in the community at tier 3. Will actively ask people what they're interested in and monitor what content they engage with most[^10].
+
 ## Sources
 
 [^1]: [20260301_085144_AlexeyDTC_msg2642_transcript.txt](../../inbox/used/20260301_085144_AlexeyDTC_msg2642_transcript.txt)
 [^2]: [20260301_092840_AlexeyDTC_msg2648_transcript.txt](../../inbox/used/20260301_092840_AlexeyDTC_msg2648_transcript.txt)
 [^3]: [20260320_063747_AlexeyDTC_msg3022_transcript.txt](../../inbox/used/20260320_063747_AlexeyDTC_msg3022_transcript.txt)
 [^4]: [20260320_063926_AlexeyDTC_msg3024_transcript.txt](../../inbox/used/20260320_063926_AlexeyDTC_msg3024_transcript.txt)
+[^5]: [20260212_071345_AlexeyDTC_msg1474_transcript.txt](../../inbox/used/20260212_071345_AlexeyDTC_msg1474_transcript.txt)
+[^6]: [20260212_071345_AlexeyDTC_msg1475_transcript.txt](../../inbox/used/20260212_071345_AlexeyDTC_msg1475_transcript.txt)
+[^7]: [20260212_071639_AlexeyDTC_msg1477_transcript.txt](../../inbox/used/20260212_071639_AlexeyDTC_msg1477_transcript.txt)
+[^8]: [20260212_070350_AlexeyDTC_msg1463_photo.md](../../inbox/used/20260212_070350_AlexeyDTC_msg1463_photo.md)
+[^9]: [20260212_071140_AlexeyDTC_msg1471_transcript.txt](../../inbox/used/20260212_071140_AlexeyDTC_msg1471_transcript.txt)
+[^10]: [20260212_095052_AlexeyDTC_msg1487_transcript.txt](../../inbox/used/20260212_095052_AlexeyDTC_msg1487_transcript.txt)

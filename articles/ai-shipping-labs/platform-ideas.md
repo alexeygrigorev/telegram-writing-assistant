@@ -44,9 +44,9 @@ Setting up a process and thinking through where all the data comes from is the k
 
 ## Sources
 
-[^1]: [20260226_113315_AlexeyDTC_msg2512_transcript.txt](../inbox/used/20260226_113315_AlexeyDTC_msg2512_transcript.txt)
-[^2]: [20260226_113425_AlexeyDTC_msg2514.md](../inbox/used/20260226_113425_AlexeyDTC_msg2514.md), [20260226_113544_AlexeyDTC_msg2516_transcript.txt](../inbox/used/20260226_113544_AlexeyDTC_msg2516_transcript.txt)
-[^3]: [20260226_113544_AlexeyDTC_msg2516_transcript.txt](../inbox/used/20260226_113544_AlexeyDTC_msg2516_transcript.txt)
-[^4]: [20260226_113648_AlexeyDTC_msg2518_transcript.txt](../inbox/used/20260226_113648_AlexeyDTC_msg2518_transcript.txt)
-[^5]: [20260226_113217_AlexeyDTC_msg2510_transcript.txt](../inbox/used/20260226_113217_AlexeyDTC_msg2510_transcript.txt)
-[^6]: [20260226_113706_AlexeyDTC_msg2520_transcript.txt](../inbox/used/20260226_113706_AlexeyDTC_msg2520_transcript.txt)
+[^1]: [20260226_113315_AlexeyDTC_msg2512_transcript.txt](../../inbox/used/20260226_113315_AlexeyDTC_msg2512_transcript.txt)
+[^2]: [20260226_113425_AlexeyDTC_msg2514.md](../../inbox/used/20260226_113425_AlexeyDTC_msg2514.md), [20260226_113544_AlexeyDTC_msg2516_transcript.txt](../../inbox/used/20260226_113544_AlexeyDTC_msg2516_transcript.txt)
+[^3]: [20260226_113544_AlexeyDTC_msg2516_transcript.txt](../../inbox/used/20260226_113544_AlexeyDTC_msg2516_transcript.txt)
+[^4]: [20260226_113648_AlexeyDTC_msg2518_transcript.txt](../../inbox/used/20260226_113648_AlexeyDTC_msg2518_transcript.txt)
+[^5]: [20260226_113217_AlexeyDTC_msg2510_transcript.txt](../../inbox/used/20260226_113217_AlexeyDTC_msg2510_transcript.txt)
+[^6]: [20260226_113706_AlexeyDTC_msg2520_transcript.txt](../../inbox/used/20260226_113706_AlexeyDTC_msg2520_transcript.txt)

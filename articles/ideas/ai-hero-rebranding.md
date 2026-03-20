@@ -10,7 +10,7 @@ status: draft
 
 Rebranding the existing AI Hero course to fit under the new AI Shipping Labs community. This involves transferring the course, its mailing list, and creating the right infrastructure.
 
-See also: [Paid AI Engineers Community Planning](paid-ai-community-planning.md) for the overall community strategy.
+See also: [AI Shipping Labs Community Vision](../ai-shipping-labs/vision.md) for the overall community strategy.
 
 ## Transferring AI Hero to AI Shipping Labs
 
