@@ -1,7 +1,7 @@
 ---
 title: "Paid AI Engineers Community Planning"
 created: 2026-02-10
-updated: 2026-03-04
+updated: 2026-03-20
 tags: [community, business, ai-engineering, pricing]
 status: draft
 ---
@@ -607,6 +607,66 @@ They have a list of recommended courses on [Maven](https://maven.com/lenny). Whe
 
 They also have [merch/swag](https://lennyswag.com/en-eur) as an additional engagement channel[^78].
 
+## Content Strategy Discussion with Valeria
+
+Discussion with Valeria about how to develop the blog and content inside AI Shipping Labs[^79].
+
+### Content based on AI Engineer role analysis
+
+Based on the analysis we already have about the AI Engineer role, we know what skills and tools an AI engineer needs, and roughly how to prepare for interviews. This will be the foundation for the first blog posts or pages on the website, similar to what we did with theoretical interview questions[^79].
+
+### Using conference talks as content sources
+
+Looking at the AI Engineer conference (organized by Swyx), which had talks about Context Engineering, RAG, and similar topics. The idea is to use the skills and tools data from the AI Engineer role analysis to narrow down article topics and base them on this data. This applies not just to articles but to courses as well[^79].
+
+### Workshops as content pipeline
+
+One approach: create workshops (for example, Python workshops for AI engineers), then turn those workshops into articles. This creates a pipeline from interactive sessions to written content[^79].
+
+### Listicles as easy content format
+
+Listicles are a lightweight content format that can be produced relatively easily with AI help. Even though someone could ask ChatGPT for the same information, an organized article is more useful than a ChatGPT response. The example is the cheat sheets done for the Data Engineering course at DataTalks Club. These lists bring traffic to the page[^79].
+
+### Concept explainer articles
+
+An idea for content that Valeria can produce independently: articles that explain a concept (like what is RAG, what is GraphRAG, what is Agentic RAG) without direct implementation. Similar to what Turing Post, The Sequence, and Xenia do - they explain a concept and link to a package or resource where it can be implemented. These articles study a topic, review what others have said about it, but do not give direct instructions on how to apply it. This is a hypothesis about whether it would be interesting to people in the community[^80].
+
+### Paid content ideas
+
+Some of the materials being prepared can be made into paid content in the newsletter. The concept explainer articles (without implementation) could become paid articles for subscribers who buy the resources-only package (without community). The Karpathy-style trend analysis articles also have potential as paid content - people like it when someone they trust explains trends in a way that is quick to read and easy to understand. These articles do not take much time to produce and editing goes quickly because the information is straightforward[^81].
+
+### Audience research using forums
+
+Looking at forums, especially Reddit, to research what people are asking about and what their problems are. This is the same thing currently being done through interviews, but at scale. Grok (at grok.com, not the one inside Twitter) can be used for this research since the agent does better research there. The existing tools built for finding questions for community brainstorming can also be reused for this research[^82][^84][^85].
+
+### Target audience definition
+
+The target audience: people interested in AI engineering who want to develop in this area - either transitioning into it or already working there and wanting to improve their skills. Plus everyone interested in AI tools that make them more productive. This can be defined more precisely, and then we can look at what problems this audience has and what help they need[^83].
+
+### Content based on audience problems
+
+The approach: look at what problems the target audience has (through community research, Reddit, Twitter, interviews) and then think about what content we can create to solve those problems[^84].
+
+## Community Activities Plan
+
+### Building sessions
+
+Regular sessions (once or twice a month) where we get on a call for 1.5-2 hours and work on something together. This can be a problem being worked on right now, or a problem someone brings. The idea is to build something together live[^86].
+
+### Accountability standups
+
+Regular meetings where people report on their goals and progress - similar to standups at a company. Each person has an idea they want to work on (alone or with someone). For example: "I am looking for a job as an AI engineer. Here is what I am doing: I am working on a project, I have a plan, I have deliverables." They share what they did, what they plan to do, and what blockers they have[^86].
+
+This can happen once a week. The question is who can lead these - ideally Valeria could run them. The preference is to focus on the building sessions personally, while getting to know all new members to understand how to help them specifically and collect ideas about what to do together[^86].
+
+### Events calendar
+
+The goal is to have a proper platform where people can see materials, have a calendar with events, and understand what activities are available and what is planned. People should be able to see a schedule and know what to expect[^86].
+
+## Website Priority
+
+For the next week (week of 2026-03-24), the priority is to focus on the website: migrate everything that has been done (there is a lot) and make sure nothing is broken, then finish the site. The goal is to have a working platform ready by the time the course finishes so people have a place to land[^87][^86].
+
 ## Next Steps
 
 1. Start with AI Buildcamp students (free access for course alumni)
@@ -698,3 +758,14 @@ The key is to learn from real members rather than assuming what they want.
 [^76]: [20260217_102556_AlexeyDTC_msg1909_transcript.txt](../inbox/used/20260217_102556_AlexeyDTC_msg1909_transcript.txt)
 [^77]: [20260218_161244_AlexeyDTC_msg1975.md](../inbox/used/20260218_161244_AlexeyDTC_msg1975.md), [aishippinglabs.com](https://aishippinglabs.com)
 [^78]: [20260304_120642_valeriia_kuka_msg2716.md](../inbox/used/20260304_120642_valeriia_kuka_msg2716.md)
+[^79]: [20260320_152314_AlexeyDTC_msg3032_transcript.txt](../inbox/used/20260320_152314_AlexeyDTC_msg3032_transcript.txt)
+[^80]: [20260320_152314_AlexeyDTC_msg3033_transcript.txt](../inbox/used/20260320_152314_AlexeyDTC_msg3033_transcript.txt)
+[^81]: [20260320_152314_AlexeyDTC_msg3034_transcript.txt](../inbox/used/20260320_152314_AlexeyDTC_msg3034_transcript.txt)
+[^82]: [20260320_152314_AlexeyDTC_msg3035_transcript.txt](../inbox/used/20260320_152314_AlexeyDTC_msg3035_transcript.txt)
+[^83]: [20260320_153909_AlexeyDTC_msg3046_transcript.txt](../inbox/used/20260320_153909_AlexeyDTC_msg3046_transcript.txt)
+[^84]: [20260320_153909_AlexeyDTC_msg3047_transcript.txt](../inbox/used/20260320_153909_AlexeyDTC_msg3047_transcript.txt)
+[^85]: [20260320_153909_AlexeyDTC_msg3048_transcript.txt](../inbox/used/20260320_153909_AlexeyDTC_msg3048_transcript.txt)
+[^86]: [20260320_152314_AlexeyDTC_msg3037_transcript.txt](../inbox/used/20260320_152314_AlexeyDTC_msg3037_transcript.txt)
+[^87]: [20260320_152314_AlexeyDTC_msg3036_transcript.txt](../inbox/used/20260320_152314_AlexeyDTC_msg3036_transcript.txt)
+[^88]: [20260320_152314_AlexeyDTC_msg3038_transcript.txt](../inbox/used/20260320_152314_AlexeyDTC_msg3038_transcript.txt)
+[^89]: [20260320_153943_AlexeyDTC_msg3052_transcript.txt](../inbox/used/20260320_153943_AlexeyDTC_msg3052_transcript.txt)

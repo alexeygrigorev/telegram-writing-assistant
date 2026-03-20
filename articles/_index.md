@@ -65,10 +65,10 @@ Recorded ideas without much detail. Just the idea itself, useful for not forgett
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Paid AI Engineers Community Planning](ideas/paid-ai-community-planning.md) | draft | 2026-03-20 | Planning a paid community for AI Engineers including target audience, tier structure, pricing, content strategy, and community activities |
+| [New Course Ideas for the Paid Community](ideas/paid-community-new-course-ideas.md) | draft | 2026-03-20 | Course ideas: Spec-Driven Development for AI, Data Engineering for AI, AI for Data Engineering, Refactoring AI Slop |
 | [Social Post Ideas](ideas/social-post-ideas.md) | draft | 2026-03-12 | Curated social media content ideas and inspiration |
 | [Python Primer Course Idea](ideas/python-primer-course-idea.md) | draft | 2026-03-05 | Paid Python prerequisite course for AI Engineering and Zoomcamps - "Python for AI Engineering" with podcast aggregator project |
-| [Paid AI Engineers Community Planning](ideas/paid-ai-community-planning.md) | draft | 2026-03-04 | Planning a paid community for AI Engineers including target audience, tier structure, and pricing |
-| [New Course Ideas for the Paid Community](ideas/paid-community-new-course-ideas.md) | draft | 2026-03-01 | Course ideas: Spec-Driven Development for AI, Data Engineering for AI, AI for Data Engineering |
 | [Task Management App Idea](ideas/task-management-app-idea.md) | draft | 2026-02-24 | Unified task management system combining Trello and todo lists, with serverless AWS implementation (datatasks) |
 | [Multi-Agent Patterns for the Course](ideas/multi-agent-patterns-course.md) | draft | 2026-02-22 | Multi-agent patterns for the AI Buildcamp course module: evaluation, subagent, planner-executor, orchestration |
 | [Voice-Controlled Development Bot](ideas/voice-controlled-dev-bot.md) | draft | 2026-02-20 | Idea for a general-purpose Telegram bot that executes development commands via voice |

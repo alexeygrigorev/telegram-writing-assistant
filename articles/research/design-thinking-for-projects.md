@@ -1,7 +1,7 @@
 ---
 title: "Design Thinking for Finding Project Topics"
 created: 2026-03-05
-updated: 2026-03-05
+updated: 2026-03-20
 tags: [research, projects, design-thinking, teaching]
 status: draft
 ---
@@ -11,6 +11,20 @@ status: draft
 Many students and people in general struggle with finding project ideas. They have time, motivation, and willingness, but ideas don't come naturally. This is especially important in Zoomcamps, where guidance from the instructor side is minimal and a lot depends on the participants' own enthusiasm[^1].
 
 Despite offering help, datasets, and suggestions, people still find it hard to pick a project. The goal is to create a general framework - a set of questions people can answer to figure out what they want to build. This framework should work for any course, not just a specific one[^1].
+
+## Why problem finding matters
+
+The book "To Sell is Human" by Daniel Pink discusses the difference between problem finders and problem solvers in chapter 7. Research shows that problem finders are more successful in life[^7].
+
+Short-term results: experts rated the work of problem finders as more creative. Long-term results (18 years later): problem finders became significantly more successful artists, as measured by the artistic community's criteria. The key quote from the research: "The quality of the found problem predicts the quality of the solution"[^7][^8].
+
+<figure>
+  <img src="../../assets/images/design-thinking-for-projects/problem-finders-research.jpg" alt="ChatGPT summary of problem finders research results">
+  <figcaption>Research results on problem finders: short-term creativity and long-term career success</figcaption>
+  <!-- Screenshot from the book discussion showing the key research findings about problem finders -->
+</figure>
+
+This serves as motivation for the framework below. People who are more skilled at finding problems, not just solving them, are generally more successful. This is a useful skill worth learning, and like any other skill, it just requires the right approach and willingness to practice[^7].
 
 ## How projects emerge naturally
 
@@ -204,3 +218,5 @@ See also: [Project Discovery AI Agent](project-discovery-agent.md) - an AI agent
 [^4]: [20260305_143650_AlexeyDTC_msg2750_transcript.txt](../../inbox/used/20260305_143650_AlexeyDTC_msg2750_transcript.txt)
 [^5]: [20260305_144010_AlexeyDTC_msg2752_transcript.txt](../../inbox/used/20260305_144010_AlexeyDTC_msg2752_transcript.txt)
 [^6]: [20260305_145128_AlexeyDTC_msg2754.md](../../inbox/used/20260305_145128_AlexeyDTC_msg2754.md)
+[^7]: [20260320_070215_AlexeyDTC_msg3027_transcript.txt](../../inbox/used/20260320_070215_AlexeyDTC_msg3027_transcript.txt)
+[^8]: [20260320_070215_AlexeyDTC_msg3026_photo.md](../../inbox/used/20260320_070215_AlexeyDTC_msg3026_photo.md)
