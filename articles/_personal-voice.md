@@ -64,14 +64,19 @@ When going deeper on something, follow this pattern:
 - Idioms that feel unnatural: "on the table", "at the end of the day"
 - Over-formal framing: "One benefit of X is Y", "I want to be clear:", "Let me be clear", "I made a deliberate choice:", "I added a trick:", "One thing that worked well:", "The result:" - just say it directly, don't announce what you're about to say
 - Redundant sentences that repeat what the previous sentence just said
+- Repetitive descriptions across sections (e.g. describing the same thing in both an overview and a detail section)
+- Internal positioning language in public articles ("the focus is narrow on purpose") - the reader doesn't care about your strategy, tell them what they get
 - "need" when "may need" is more accurate and less presumptuous
 - Walls of text - dense paragraphs without visual breaks
 - Incomplete or fragment sentences used for dramatic effect ("An AI community platform, built by AI agents.") - use proper sentences
 - "ceremony" and similar jargon ("pull request ceremony")
 - "do" for emphasis before verbs ("Or you do start" -> "Or you start")
 - Trailing comma + single word at the end of a sentence for emphasis ("build something together, live" or "ship it, fast") - feels unnatural
+- Long sentences with dash-enclosed clarifications in the middle ("A project like this - with all the integrations, the course management - would take...") - split into two sentences or drop the clarification
 - Punctuation inside quotes when the quote is not a full sentence: use "platform". not "platform."
 - "have the same story" - prefer "share the same story"
+- "building with AI" is ambiguous (building using AI tools vs building AI products) - be specific about which one you mean
+- When listing overview bullets then expanding each one below, don't repeat the same information - the overview is a table of contents, the expanded sections add new detail
 
 ## Formatting rules
 
