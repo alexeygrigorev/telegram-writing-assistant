@@ -209,16 +209,6 @@ This is what Claude did for the website after 1.5 days of work. The first time I
   <!-- Screen recording showing the state of the community platform after 1.5 days of autonomous agent work -->
 </figure>
 
-## Reflection: You Still Need to Manage the Agents
-
-About vibe coding - I have the same experience as others. Even if you create as many sub-agents as you want, you still need to manage them. Phil Winder [wrote about migrating a Python codebase to Go using Claude Code](https://www.linkedin.com/posts/drphilwinder_i-just-migrated-a-production-python-codebase-activity-7430343296205459456-eXUm) and concluded: "Claude is a powerful but literal executor. The gaps in your design become the bugs in your system." This matches what I see - without control, agents do not produce good results on their own[^29].
-
-<figure>
-  <img src="../../assets/images/community-platform-implementation/linkedin-vibe-coding-post.jpg" alt="LinkedIn post by Phil Winder about migrating Python to Go with Claude Code, discussing dead code accumulation, phantom features, and context window limits">
-  <figcaption>Phil Winder's post about the challenges of AI-driven cross-language migration</figcaption>
-  <!-- LinkedIn post that resonates with the experience of needing to manage AI agents -->
-</figure>
-
 ## Testing the Features
 
 I finally got around to checking the features on the Labs site. Some things had been sitting with the "human" tag. By the process I asked the agent to follow, features that require human verification are marked with the "human" tag and not closed automatically. I started going through the GitHub issues tagged "human"[^31].
@@ -359,7 +349,6 @@ The integrations are all there. I will start inviting people from AI Engineering
 [^26]: [20260220_131018_AlexeyDTC_msg2142_photo.md](../../inbox/used/20260220_131018_AlexeyDTC_msg2142_photo.md)
 [^27]: [20260220_135351_AlexeyDTC_msg2146_transcript.txt](../../inbox/used/20260220_135351_AlexeyDTC_msg2146_transcript.txt)
 [^28]: [20260220_135418_AlexeyDTC_msg2148_transcript.txt](../../inbox/used/20260220_135418_AlexeyDTC_msg2148_transcript.txt)
-[^29]: [20260220_143527_AlexeyDTC_msg2156_photo.md](../../inbox/used/20260220_143527_AlexeyDTC_msg2156_photo.md)
 [^30]: [20260220_155647_AlexeyDTC_msg2169.md](../../inbox/used/20260220_155647_AlexeyDTC_msg2169.md), [20260220_155647_AlexeyDTC_msg2168_video.md](../../inbox/used/20260220_155647_AlexeyDTC_msg2168_video.md)
 [^31]: [20260225_163430_AlexeyDTC_msg2408_transcript.txt](../../../inbox/used/20260225_163430_AlexeyDTC_msg2408_transcript.txt)
 [^32]: [20260225_163608_AlexeyDTC_msg2410_transcript.txt](../../../inbox/used/20260225_163608_AlexeyDTC_msg2410_transcript.txt)

@@ -106,6 +106,14 @@ The same problem with Mermaid diagrams - the output is visual, and agents strugg
 
 I have not found a way to fully automate this so my involvement is minimal. It seems very project-dependent - one project needs one kind of oversight, another needs something different. My goal right now is to do as many projects as possible with this methodology. Each project sharpens it. I am learning how to approach this, understanding the limitations, and refining the methodology. I think after about 10 more projects I will have a solid system for how to approach this[^4].
 
+Phil Winder [wrote about migrating a Python codebase to Go using Claude Code](https://www.linkedin.com/posts/drphilwinder_i-just-migrated-a-production-python-codebase-activity-7430343296205459456-eXUm) and concluded: "Claude is a powerful but literal executor. The gaps in your design become the bugs in your system." This matches what I see - without control, agents do not produce good results on their own[^16].
+
+<figure>
+  <img src="../assets/images/community-platform-implementation/linkedin-vibe-coding-post.jpg" alt="LinkedIn post by Phil Winder about migrating Python to Go with Claude Code, discussing dead code accumulation, phantom features, and context window limits">
+  <figcaption>Phil Winder's post about the challenges of AI-driven cross-language migration</figcaption>
+  <!-- LinkedIn post that resonates with the experience of needing to manage AI agents -->
+</figure>
+
 ## Project 5: Custom Coding Agent (Codehive)
 
 I applied the same methodology to another project - building my own coding agent called [Codehive](https://github.com/alexeygrigorev/codehive). There are things in Claude Code that I do not like[^5].
@@ -207,3 +215,4 @@ The cost is currently zero thanks to the Pro Max subscription, but these project
 [^13]: [20260318_174724_AlexeyDTC_msg3000_photo.md](../inbox/used/20260318_174724_AlexeyDTC_msg3000_photo.md)
 [^14]: [20260318_180542_AlexeyDTC_msg3002.md](../inbox/used/20260318_180542_AlexeyDTC_msg3002.md)
 [^15]: [20260318_180716_AlexeyDTC_msg3004.md](../inbox/used/20260318_180716_AlexeyDTC_msg3004.md)
+[^16]: [20260220_143527_AlexeyDTC_msg2156_photo.md](../inbox/used/20260220_143527_AlexeyDTC_msg2156_photo.md)
