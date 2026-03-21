@@ -69,6 +69,7 @@ When going deeper on something, follow this pattern:
 - Incomplete or fragment sentences used for dramatic effect ("An AI community platform, built by AI agents.") - use proper sentences
 - "ceremony" and similar jargon ("pull request ceremony")
 - "do" for emphasis before verbs ("Or you do start" -> "Or you start")
+- Trailing comma + single word at the end of a sentence for emphasis ("build something together, live" or "ship it, fast") - feels unnatural
 - Punctuation inside quotes when the quote is not a full sentence: use "platform". not "platform."
 - "have the same story" - prefer "share the same story"
 

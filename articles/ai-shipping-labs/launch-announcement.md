@@ -23,61 +23,66 @@ AI is moving fast and it's hard to keep up. There's a new framework every week, 
 
 The common pattern: you're learning alone, without structure, and things stall.
 
-AI Shipping Labs changes that. It's a community where you learn AI engineering by building and shipping real projects - with a clear path, a group of practitioners building alongside you, and regular check-ins that keep you moving forward.
+AI Shipping Labs changes that. It's a community where you learn to build AI products by actually building and shipping them - with a clear path, a group of practitioners alongside you, and regular check-ins that keep you moving forward.
 
 <!-- illustration: screenshot of aishippinglabs.com landing page -->
 
-We'll help you build AI projects from start to finish - and we'll show you how to do it effectively using modern AI development tools.
+We'll help you go from idea to a working AI application - and we'll show you how to do it effectively using modern AI development tools.
 
 ## Who this is for
 
 You might be:
 
-- A software engineer transitioning to AI - you know how to build software, you just need AI-specific guidance
-- A working AI/ML engineer who wants to go deeper - better evals, more reliable agents, production-grade systems
-- A researcher or data scientist with strong theory but a gap in production engineering
-- A data analyst or technical PM who can code but wants to build AI-powered applications
+- A software engineer who wants to move into AI - you know how to build software but need to learn how to build AI software
+- An AI/ML engineer who wants to go deeper - move from "it works" to production-grade, reliable systems
+- A researcher or data scientist who wants to ship - you understand models but need to learn deployment, APIs, and engineering practices
+- An analyst or PM who writes code and wants to start building AI tools and applications
 
-The common thread: you can code, you want to build real things with AI, and you need structure and accountability to actually ship.
+The common thread: you want to build and ship AI products, not just learn about them.
 
 ## What happens inside
 
-Here is what the community looks like in practice:
+When you join, we'll figure out together where you are and where you want to go. You'll get a clear plan - and the community will help you get there.
 
 - Building sessions - regular live calls where we build something together
-- Accountability circles - mastermind groups with regular standups
-- Group course study - going through courses or new materials together (like when Andrej Karpathy releases something new)
-- Seminars - each person researches a topic and presents findings
+- Group learning - going through courses and new materials together
+- Accountability circles - mastermind groups with regular check-ins
 - Career support - resume reviews, personal branding, conference speaking
 - Private discussions - interview prep, salary negotiations, career moves
+- Courses - mini-courses on specialized topics
 
-Building sessions are regular calls, once or twice a month. We get on a call for 1.5 to 2 hours and work on something together. It could be a problem I am working on right now, or a problem someone brings. The idea is to build something together, live.
+## Building sessions and group learning
+
+We get on a call once or twice a month and build something together for 1.5 to 2 hours. It could be a problem I'm working on, or something a member brings.
+
+We also run seminars where members research a topic and present their findings, and we go through new courses and materials as a group.
+
+## Career support
+
+We help members with resume and LinkedIn reviews - getting feedback from people who have been through the hiring process and know what works.
+
+We also help with personal branding - how to do learning in public, create content on LinkedIn and X, and build a presence that opens doors.
+
+If you want to speak at conferences, we can help with that too - from finding the right events to preparing your talk.
+
+Because it's a private community, you can talk about things you wouldn't bring up publicly. What questions companies are asking in interviews right now, how to negotiate a better offer, whether you should leave your current job.
 
 ## Accountability circles
 
-I get asked for mentoring all the time. I usually say no because I don't have the bandwidth - and one-on-one mentoring doesn't scale. But I've realized that what most people actually need is not a mentor - they need an accountability structure. They want a deadline and a reason to show up prepared.
+I get asked for mentoring all the time. I usually say no because I don't have the bandwidth - and one-on-one mentoring doesn't scale.
 
-So we're creating mastermind groups where people are at a similar level but facing different problems. We meet regularly, share progress, discuss blockers, and help each other.
+But I've realized that what most people actually need is not a mentor - they need an accountability structure. They want a plan, a deadline and a reason to show up prepared.
 
-It works like a company standup - you say what you did, what you plan to do, and what's blocking you. The group helps resolve those blockers. The collective level ends up higher than any individual, and you learn a lot from each other.
+So we're creating mastermind groups where people are at a similar level but facing different problems. It works like a company standup - you say what you did, what you plan to do, and what's blocking you. The group helps resolve those blockers, and you learn a lot from each other.
 
 <!-- illustration: diagram or visual showing how accountability circles work - small groups, regular meetings, progress sharing -->
 
-These run in sprints rather than continuously, so there is always a clear start and end, and we can adjust between cohorts based on what works.
+These run in sprints rather than continuously, so there's always a clear start and end.
 
-## Career development and private discussions
-
-For career development:
-
-- Resume review sessions
-- Personal branding guidance - how to do learning in public, create content on LinkedIn and X, build a personal website
-- Conference speaking - we maintain a list of conferences and help members get connected with organizers
-
-A private community also means you can talk about things you wouldn't bring up publicly. What questions are companies asking in interviews right now, how to negotiate a better offer, whether you should leave your current job. In DataTalks.Club, your employer might see that. Here, those conversations stay private.
 
 ## Courses
 
-Mini-courses on specialized topics are coming. These will be shorter and more focused than a full Zoomcamp - think several weeks rather than several months.
+Mini-courses on specialized topics are coming. These will be shorter and more focused than a full Buildcamp. Think several weeks rather than several months.
 
 As an early member, you help shape which courses get built. I will actively ask people what they are interested in and monitor what content resonates most. Members vote on what gets built next.
 
@@ -89,43 +94,33 @@ Some ideas we already have:
 
 These are ideas, not promises. What actually gets built depends on what the community needs.
 
-## Early member benefit
-
-Everyone joining now gets a personal onboarding. I want to understand your goals, what you are working on, and how the community can help you specifically. This could be a short call, a voice message exchange, or an async conversation - whatever works best for you.
-
-The point is personal attention to understand what you need, not a generic welcome email. This is something I can do when the community is small. It is how DataTalks.Club started - personal messages to every new member. I want to do the same here.
 
 ## The tiers
 
 There are three tiers, available monthly or annually.
 
-| | Basic | Main | Premium |
-|---|---|---|---|
-| Price | €20/month or €200/year | €50/month or €500/year | €100/month or €1000/year |
-| Exclusive content, tutorials, tool breakdowns | + | + | + |
-| Behind-the-scenes research and experiments | + | + | + |
-| Curated social posts you might have missed | + | + | + |
-| Closed community access | | + | + |
-| Group coding sessions and hackathons | | + | + |
-| Guided project-based learning | | + | + |
-| Career discussions and personal brand guidance | | + | + |
-| Propose and vote on future topics | | + | + |
-| All mini-courses on specialized topics | | | + |
-| Resume, LinkedIn, and GitHub teardowns | | | + |
-
-Basic is for self-directed builders who prefer learning at their own pace. Main adds the structure, accountability, and community support to ship projects consistently. Premium adds structured courses and personalized feedback.
-
 <!-- illustration: pricing cards from the website -->
+
+- Basic is for self-directed builders who prefer learning at their own pace.
+- Main adds the structure, accountability, and community support to ship projects consistently.
+- Premium adds structured courses and personalized feedback.
+
+## Early member benefit
+
+Everyone joining main and premium now gets a personal onboarding. I want to understand your goals, what you are working on, and how the community can help you specifically. This could be a short call, a voice message exchange, or an async conversation - whatever works best for you.
+
+The point is personal attention to understand what you need, not a generic welcome email. This is something I can do when the community is small.
+
 
 ## How to join
 
-Head to aishippinglabs.com. We are starting with AI Engineering Buildcamp alumni and opening to others from there.
+Head to aishippinglabs.com, select the plan and sing up!
 
 This is a brand new platform, and some automations might not work perfectly yet. If you sign up and do not get access automatically, just reply to this email and let me know - I will sort it out.
 
 ## Why starting something new
 
-DataTalks.Club is not changing. The principle of free education for everyone, regardless of income or location, stays the same. I plan to continue developing DataTalks.Club through 2025 and 2026. LLM Zoomcamp, Data Engineering Zoomcamp, ML Zoomcamp - all of that continues.
+Many of you know me from DataTalks.Club, so you may be wondering if it will affect DataTalks.Club in any way. I want to assure you: DataTalks.Club is not changing. The principle of free education for everyone, regardless of income or location, stays the same for DataTalks.Club. I plan to continue developing DataTalks.Club through 2025 and 2026. LLM Zoomcamp, Data Engineering Zoomcamp, ML Zoomcamp - all of that continues.
 
 But I have been wanting something different for a while. The idea evolved step by step:
 
