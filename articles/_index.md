@@ -51,6 +51,7 @@ Articles about the AI Shipping Labs paid community: vision, activities, courses,
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Launch Announcement](ai-shipping-labs/launch-announcement.md) | draft | 2026-03-21 | Newsletter article: community announcement + how the platform was built with AI agents |
 | [Vision](ai-shipping-labs/vision.md) | draft | 2026-03-20 | Vision, target audience, tier structure, pricing, design principles, next steps |
 | [Activities](ai-shipping-labs/activities.md) | draft | 2026-03-20 | Regular sessions, accountability circles, mentoring, career development, knowledge sharing |
 | [Course Ideas](ai-shipping-labs/courses.md) | draft | 2026-03-20 | Spec-Driven Dev, Refactoring AI Slop, Python, Data Engineering, CloudCode, testing, DevOps |
