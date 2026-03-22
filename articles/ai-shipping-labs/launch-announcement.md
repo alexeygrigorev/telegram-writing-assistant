@@ -8,7 +8,7 @@ status: draft
 
 # Launching AI Shipping Labs: A Community for AI Builders
 
-[Valeriia and I](https://aishippinglabs.com/about) are launching a new community for AI builders - AI Shipping Labs. We've been working together on DataTalks.Club for a long time, and now we're building something new. In this article I will tell you what it is, who it is for, and how we built the entire platform using AI agents.
+[Valeriia and I](https://aishippinglabs.com/about) are launching a new community for AI builders - AI Shipping Labs. We've been working together on DataTalks.Club for a long time, and now we're building something new.
 
 <!-- illustration -->
 
@@ -21,7 +21,7 @@ AI is moving fast. Every week there's a new framework, a new "must-learn" tool, 
 - You built a prototype but it breaks in ways you don't know how to fix
 - You have a main job and your AI project keeps getting pushed to "next weekend"
 
-The common pattern: you're learning alone, without structure, and things stall.
+You're learning alone, without structure, and things stall.
 
 AI Shipping Labs changes that. It's a community where you learn to build AI products by actually building and shipping them - with a clear plan, a group of practitioners alongside you, and regular check-ins that keep you moving forward.
 
@@ -36,7 +36,7 @@ You might be:
 - A researcher or data scientist who wants to ship - you understand models but need to learn deployment, APIs, and engineering practices
 - An analyst or PM with programming basics who wants to start building AI applications
 
-The common thread: you want to build and ship AI products, not just learn about them.
+You want to build and ship AI products, not just learn about them.
 
 ## What happens inside
 
@@ -51,9 +51,9 @@ When you join, we'll figure out together where you are and where you want to go.
 
 ## Building sessions and group learning
 
-We get on a call once or twice a month and build something together for 1.5 to 2 hours. It could be a problem I'm working on, or something a member brings.
+We get on a call once or twice a month and build something together for 1.5 to 2 hours. Sometimes I bring a problem I'm working on, sometimes a member does. The point is working on real problems together, not watching someone present slides.
 
-We also run seminars where members research a topic and present their findings, and we go through new courses and materials as a group.
+For group learning, we run seminars where members research a topic and present their findings. We also go through new courses and materials as a group - having a cohort makes it much easier to stay on track.
 
 ## Career support
 
@@ -146,11 +146,9 @@ The requirements gathering happened through my Telegram bot. I dictated features
 
 Then I told Claude Code to turn that raw requirements list into specifications. It created a "specification" folder with 15 files. I reviewed them, gave feedback, and then said: now turn these specs into tasks on GitHub Issues.
 
-The first attempt at task decomposition was not great - too granular, no acceptance criteria. I iterated on the format until each task had a clear scope, acceptance criteria with checkboxes, and a "human" tag for anything that needed manual verification.
+The first attempt at task decomposition was not great - too granular, no acceptance criteria. I iterated on the format until each task had a clear scope, acceptance criteria with checkboxes, and a "human" tag for anything that needed manual verification. I chose Django because I've known it since 2010 and could step in if something went wrong.
 
 <!-- illustration: screenshot of a GitHub issue showing the task format with scope, acceptance criteria checkboxes, and human tag -->
-
-I chose Django for the framework. I have known Django since 2010, and if something breaks, it'd be easier for me to fix it.
 
 ## The multi-agent architecture
 
@@ -223,7 +221,7 @@ The agents also made decisions I didn't agree with:
 
 Still, after 24 hours there was a lot of good stuff already working. The bottleneck was me - I was busy with the AI Engineering Buildcamp at the time and had to postpone a lot of the review work.
 
-Here I described what happened within those 24 hours. But later it took multiple weeks of polishing. Understanding where things should be, fixing UX. The platform is still raw - things need to be improved, things need to be polished. But we're getting there.
+That was the first 24 hours. But later it took multiple weeks of polishing. Understanding where things should be, fixing UX. The platform is still raw - things need to be improved, things need to be polished. But we're getting there.
 
 On the other hand, a project like this would take six months to a year to build the traditional way. We got a working platform in weeks. It's not magic - it's project management, the same skills you need to manage a team of human engineers, applied to AI agents.
 

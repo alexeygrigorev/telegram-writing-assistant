@@ -1,7 +1,7 @@
 ---
 title: "Spec-Driven Development and Task Management for AI Agents"
 created: 2026-02-10
-updated: 2026-03-12
+updated: 2026-03-22
 tags: [research, claude-code, agents, task-management, spec-driven-development]
 status: draft
 ---
@@ -295,6 +295,71 @@ Technical Details:
 - Skills are classified as either rigid (TDD, debugging, verification: follow exactly, no adaptation) or flexible (patterns: adapt principles to context)
 - The project is MIT licensed and currently at v4.3.0 (as of February 2026)
 
+### GitHub Spec Kit
+
+Source: https://github.com/github/spec-kit
+
+Overview: Spec Kit is an open-source toolkit from GitHub (approximately 79,600 stars) for implementing Spec-Driven Development (SDD). It provides a CLI tool called `specify` and a set of slash commands that AI agents execute to follow a structured development workflow. The core idea is "The Power Inversion" - for decades, specifications were subordinate to code. SDD flips this so specifications become the primary artifact and source of truth, while code becomes a generated output that serves the specification[^16][^17].
+
+Key Ideas:
+- SDD treats specifications as the lingua franca - the spec is the primary artifact and code is its expression in a particular language or framework. The spec is completely detached from the implementation, so the same spec can be used to generate variants with different tech stacks
+- The workflow has six steps: constitution (establish non-negotiable project principles), specify (define what and why, not how), clarify (resolve ambiguities), plan (create technical implementation with chosen stack), tasks (generate actionable task lists), implement (execute all tasks)
+- A "constitution" establishes non-negotiable principles for the project, like "always have tests" or "use Next.js of a specific version." This acts as a persistent architectural contract that constrains all AI-generated code
+- The toolkit supports 25+ AI coding agents including Claude Code, GitHub Copilot, Gemini CLI, Cursor, Codex CLI, and many others. Each agent gets commands installed in agent-specific directory formats
+- The claimed time savings: approximately 12 hours of traditional documentation work compressed to around 15 minutes
+
+Key Insights:
+- The specification is deliberately detached from implementation details. The specify step focuses on "what and why" - user stories, acceptance scenarios, edge cases, functional requirements - while the plan step handles technical decisions like framework choice and dependencies
+- The constitution has nine articles governing all generated code, including Library-First Principle (every feature starts as a standalone library), Test-First Imperative (no code before tests), and Integration-First Testing (prefer real databases over mocks)
+- Templates act as sophisticated prompts that constrain LLM output. They prevent premature implementation details, unacknowledged assumptions (forced "[NEEDS CLARIFICATION]" markers), over-engineering, and speculative features
+- The system uses git branches per feature (e.g., `001-chat-system`) so experiments do not interfere with the existing implementation and changes can be rolled back
+- Two extensibility systems: extensions add new capabilities (commands, workflows, integrations) and presets customize existing workflows (terminology, compliance formats, localization)
+
+Actionable Patterns:
+- The specify step produces specs that include user stories, acceptance scenarios, edge cases, functional requirements, and a review/acceptance checklist. The checklist validates that no implementation details leaked in, all sections are complete, and no "[NEEDS CLARIFICATION]" items remain
+- The plan step reads the constitution and spec to generate technical decisions, data models, contracts, and research artifacts. It runs a constitutional check gate before proceeding
+- The tasks step breaks the plan into individual phases with test-first ordering: setup, tests (must fail first), core implementation, integration, and polish
+- The implement step can use different models for different phases - for example, GPT-5 for spec scaffolding and Claude Sonnet 4 for code generation
+- All artifacts live in a `.specify/` directory with per-feature subfolders, making them version-controlled and shareable with team members
+
+Technical Details:
+- Written in Python (requires 3.11+), package name `specify-cli` v0.3.2
+- Install via `uv tool install` (recommended) or `uvx` for one-time use
+- Build system: Hatchling. Dependencies: typer, click, rich, httpx, platformdirs, pyyaml, packaging, pathspec, json5
+- Project structure after init: `.specify/memory/constitution.md`, `.specify/templates/`, `.specify/scripts/`, `.specify/specs/<feature-branch>/`
+- Resolution order for configuration: project-local overrides, presets, extensions, core defaults
+- MIT licensed
+
+Quotes:
+- "For decades, specifications were subordinate to code. SDD flips this - specifications become the primary artifact and source of truth."
+- "The spec is completely detached from the implementation. If at some point you switch to Hugo or any other static site generator, you use the same spec."
+- "Go in with your hands and start typing and entering requirements. It's a markdown file. You don't need to ask the LLM to do this."
+
+### Spec Kit Walkthrough (Video)
+
+Source: https://www.youtube.com/watch?v=a9eR1xsfvHg
+
+Overview: A hands-on walkthrough by Dan Delamarski, one of the Spec Kit maintainers, demonstrating the full workflow from bootstrapping a project to a running website. The video shows the specify CLI in action, building a podcast website from scratch using the six-step SDD process[^16].
+
+Key Ideas:
+- The video demonstrates the full pipeline: bootstrap with `specify` CLI, fill out the constitution, write the spec with `/specify`, create a technical plan with `/plan`, generate tasks with `/tasks`, and implement with `/implement`
+- The constitution file establishes non-negotiable principles early. In the demo, GPT-5 fills out the constitution template for a static web app with three articles: static-first delivery, simplicity over tooling, and accessibility/SEO baseline
+- The specify step deliberately avoids technical details. The prompt is pure product requirements: "building a modern podcast website, should have a landing page with one featured episode, an episodes page, an about page, and a FAQ page, 20 episodes with mocked data"
+- The plan step is where technical decisions happen: Next.js with static site configuration, no databases, responsive and mobile-ready. The plan reads the constitution to ensure non-negotiable principles are respected
+- Different models work better for different stages. The presenter uses GPT-5 for spec scaffolding (more thoughtful, produces complete output at once) and Claude Sonnet 4 for code generation (better creative output for implementation)
+
+Key Insights:
+- The spec includes a review/acceptance checklist that must be fully checked off before proceeding. Items like "no implementation details" and "no needs clarification" act as gates. If clarification items remain, they must be resolved first
+- The presenter explicitly notes that the spec is a markdown file that developers can edit manually. The LLM bootstraps it, but humans should add specific requirements they feel strongly about
+- Having spec artifacts means rebuilding is easy. If one model produces unsatisfactory output, delete the source code, switch to a different model, and reimplement from the same spec
+- The task breakdown enforces test-driven development: test tasks come before implementation tasks, tests must fail before code is written
+- MCP tools like Figma MCP can be plugged in to connect specs with actual design systems, ensuring the implementation matches organizational design standards
+
+Practical Example:
+- The demo builds a podcast website end-to-end. After running through all six steps, the result is a working Next.js static site with a landing page (featured episode), episodes page (20 episodes with links), about page, and FAQ page
+- Total active time from bootstrap to running site is compressed into the video demo, with most waiting time being LLM thinking
+- The presenter emphasizes this is an experiment, not production software - feedback through GitHub issues is welcomed
+
 ## Multi-Agent Teams and Spec-Driven Development
 
 This is genuinely useful. You work with agents like you work with people on a team. You assign them tasks the same way you assign tasks to developers. And overall it works quite well. The setup that works: an orchestrator agent, a PM agent, a developer agent, and a tester agent. They work with each other[^15].
@@ -338,3 +403,5 @@ Compound Engineering from Every introduces a crucial insight: the compound step 
 [^13]: [20260216_072217_AlexeyDTC_msg1703.md](../../inbox/used/20260216_072217_AlexeyDTC_msg1703.md)
 [^14]: [Spec-Driven Development Explained - YouTube](https://www.youtube.com/watch?v=mViFYTwWvcM) via [20260312_074814_AlexeyDTC_msg2846.md](../../inbox/used/20260312_074814_AlexeyDTC_msg2846.md)
 [^15]: [20260312_075116_AlexeyDTC_msg2855_transcript.txt](../../inbox/used/20260312_075116_AlexeyDTC_msg2855_transcript.txt)
+[^16]: [20260321_233057_AlexeyDTC_msg3058.md](../../inbox/used/20260321_233057_AlexeyDTC_msg3058.md)
+[^17]: [https://github.com/github/spec-kit](https://github.com/github/spec-kit)

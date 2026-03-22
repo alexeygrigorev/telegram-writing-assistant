@@ -8,11 +8,11 @@ See [All Articles](../_index.md) for the main articles index.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Spec-Driven Development](spec-driven-development.md) | draft | 2026-03-22 | Research on spec-driven development and task management for AI agents |
 | [Design Thinking for Finding Project Topics](design-thinking-for-projects.md) | draft | 2026-03-20 | Research on Design Thinking frameworks and methodologies for helping students and professionals find project ideas, problem finders research |
 | [gstack: Garry Tan's Claude Code Workflow Skills](gstack.md) | draft | 2026-03-14 | Research on Garry Tan's open-source Claude Code skills: 8 specialized modes (CEO, eng manager, QA), browser automation with Playwright, Conductor parallel agents |
 | [Agentic AI Engineering Course (Towards AI)](agentic-ai-engineering-course.md) | draft | 2026-03-12 | Research on competitor course by Towards AI / Decoding AI: 34 lessons, production agents, MCP, evals, deployment |
 | [Context Engineering and the 12 Factors of AI Agents](context-engineering.md) | draft | 2026-03-19 | Research on context engineering as the core discipline for building reliable AI agents, 12-factor framework, State of Context Engineering 2026 workshop |
-| [Spec-Driven Development](spec-driven-development.md) | draft | 2026-03-12 | Research on spec-driven development and task management for AI agents |
 | [Course Design Methodology](course-design-methodology.md) | draft | 2026-03-05 | Research on pedagogical frameworks (Backward Design, Constructive Alignment, Cognitive Load Theory) and stage-gate process for designing programming courses |
 | [Project Discovery AI Agent](project-discovery-agent.md) | draft | 2026-03-05 | Research on building an AI agent that facilitates Design Thinking sessions to help people discover project ideas |
 | [YouTube Shorts Automation](youtube-shorts-automation.md) | draft | 2026-02-28 | Research on automating YouTube Shorts posting, MoneyPrinterV2 as reference implementation |
