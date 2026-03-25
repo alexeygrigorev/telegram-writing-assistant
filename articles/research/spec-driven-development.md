@@ -1,7 +1,7 @@
 ---
 title: "Spec-Driven Development and Task Management for AI Agents"
 created: 2026-02-10
-updated: 2026-03-22
+updated: 2026-03-25
 tags: [research, claude-code, agents, task-management, spec-driven-development]
 status: draft
 ---
@@ -366,6 +366,16 @@ This is genuinely useful. You work with agents like you work with people on a te
 
 Spec-driven development seems to come from this same direction. Still need to fully understand it, but from what it looks like, this is exactly it. There are articles to prepare about this too, and an idea for making a course about this[^15].
 
+### Practical Validation
+
+Phil Winder [wrote about migrating a Python codebase to Go using Claude Code](https://www.linkedin.com/posts/drphilwinder_i-just-migrated-a-production-python-codebase-activity-7430343296205459456-eXUm) and concluded: "Claude is a powerful but literal executor. The gaps in your design become the bugs in your system." This reinforces why spec-driven development matters - without clear specifications, agents fill the gaps with their own assumptions[^18].
+
+<figure>
+  <img src="../../assets/images/spec-driven-development/linkedin-vibe-coding-post.jpg" alt="LinkedIn post by Phil Winder about migrating Python to Go with Claude Code, discussing dead code accumulation, phantom features, and context window limits">
+  <figcaption>Phil Winder's post about the challenges of AI-driven cross-language migration</figcaption>
+  <!-- LinkedIn post showing that gaps in design become bugs when working with AI agents -->
+</figure>
+
 ## Notes
 
 Previously worked with stop hooks in the Ralph project, but it was quite useless - just "continue" and that's it. The goal is to make this more intelligent:
@@ -405,3 +415,4 @@ Compound Engineering from Every introduces a crucial insight: the compound step 
 [^15]: [20260312_075116_AlexeyDTC_msg2855_transcript.txt](../../inbox/used/20260312_075116_AlexeyDTC_msg2855_transcript.txt)
 [^16]: [20260321_233057_AlexeyDTC_msg3058.md](../../inbox/used/20260321_233057_AlexeyDTC_msg3058.md)
 [^17]: [https://github.com/github/spec-kit](https://github.com/github/spec-kit)
+[^18]: [20260220_143527_AlexeyDTC_msg2156_photo.md](../../inbox/used/20260220_143527_AlexeyDTC_msg2156_photo.md) via [20260325_130810_AlexeyDTC_msg3086_transcript.txt](../../inbox/used/20260325_130810_AlexeyDTC_msg3086_transcript.txt)

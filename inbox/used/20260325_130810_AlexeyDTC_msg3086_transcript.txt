@@ -1,0 +1,12 @@
+---
+source: telegram_voice
+date: 2026-03-25T13:08:10+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260325_130810_AlexeyDTC_msg3086.ogg
+---
+
+Hey, in this article, Building Projects with Agent Teams, we misplaced the screenshot about Phil's
+post. I want to move it to a different article. Please find the best place for this article and move
+it there. I think the best place would be our research article about specification-driven
+development. So put it there.
