@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-8.0 -8.0 1000 299.6" width="1000" height="299.6" style="background-color: white">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" markerWidth="8" markerHeight="8" refX="0" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#333333" />
+    </marker>
+    <marker id="circle-end" viewBox="0 0 10 10" markerWidth="8" markerHeight="8" refX="5" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <circle cx="5" cy="5" r="5" fill="#333333" />
+    </marker>
+    <marker id="cross-end" viewBox="0 0 11 11" markerWidth="8" markerHeight="8" refX="5.5" refY="5.5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 1,1 l 9,9 M 10,1 l -9,9" stroke="#333333" stroke-width="2" />
+    </marker>
+    <marker id="arrow-reverse" viewBox="0 0 10 10" markerWidth="8" markerHeight="8" refX="0" refY="5" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#333333" />
+    </marker>
+  </defs>
+  <style>.node rect, .node polygon, .node circle, .node &gt; path, .node line { fill: #ECECFF; stroke: #9370DB; stroke-width: 1; }
+.node text { fill: #333333; font-family: "trebuchet ms", verdana, arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Twemoji Mozilla"; font-size: 16px; }
+.edge path { fill: none; stroke: #333333; }
+.edge text { fill: #333333; font-family: "trebuchet ms", verdana, arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Twemoji Mozilla"; font-size: 12px; }
+.subgraph rect { fill: #ffffde; stroke: #aaaa33; stroke-width: 1; opacity: 0.5; }
+.subgraph text { fill: #333333; font-family: "trebuchet ms", verdana, arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Twemoji Mozilla"; font-size: 12px; font-weight: bold; }
+</style>
+  <g class="subgraph" data-subgraph-id="Build">
+    <rect x="0" y="88.8" width="413.6" height="106" rx="5" />
+    <text x="8" y="106.8" font-family="&quot;trebuchet ms&quot;, verdana, arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Noto Color Emoji&quot;, &quot;Twemoji Mozilla&quot;">Build</text>
+  </g>
+  <g class="subgraph" data-subgraph-id="Test">
+    <rect x="443.6" y="0" width="219.2" height="283.6" rx="5" />
+    <text x="451.6" y="18" font-family="&quot;trebuchet ms&quot;, verdana, arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Noto Color Emoji&quot;, &quot;Twemoji Mozilla&quot;">Test</text>
+  </g>
+  <g class="subgraph" data-subgraph-id="Deploy">
+    <rect x="692.8" y="88.8" width="291.2" height="106" rx="5" />
+    <text x="700.8" y="106.8" font-family="&quot;trebuchet ms&quot;, verdana, arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Noto Color Emoji&quot;, &quot;Twemoji Mozilla&quot;">Deploy</text>
+  </g>
+  <g class="edge" data-edge-source="A" data-edge-target="B">
+    <path d="M124.8,153.8 L156.8,153.8" stroke-width="2" marker-end="url(#arrow)" />
+  </g>
+  <g class="edge" data-edge-source="B" data-edge-target="C">
+    <path d="M260.0,153.8 L292.0,153.8" stroke-width="2" marker-end="url(#arrow)" />
+  </g>
+  <g class="edge" data-edge-source="C" data-edge-target="D">
+    <path d="M393.6,133.67 L497.04,89.16" stroke-width="2" marker-end="url(#arrow)" />
+  </g>
+  <g class="edge" data-edge-source="C" data-edge-target="E">
+    <path d="M393.6,173.93 L497.04,218.44" stroke-width="2" marker-end="url(#arrow)" />
+  </g>
+  <g class="edge" data-edge-source="D" data-edge-target="F">
+    <path d="M601.73,86.0 L705.46,130.89" stroke-width="2" marker-end="url(#arrow)" />
+  </g>
+  <g class="edge" data-edge-source="E" data-edge-target="F">
+    <path d="M601.73,221.6 L705.46,176.71" stroke-width="2" marker-end="url(#arrow)" />
+  </g>
+  <g class="edge" data-edge-source="F" data-edge-target="G">
+    <path d="M804,153.8 L836,153.8" stroke-width="2" marker-end="url(#arrow)" />
+  </g>
+  <g class="node" data-node-id="A">
+    <rect x="20.0" y="132.8" width="104.8" height="42.0" />
+    <text text-anchor="middle" dominant-baseline="central" font-family="&quot;trebuchet ms&quot;, verdana, arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Noto Color Emoji&quot;, &quot;Twemoji Mozilla&quot;" x="72.4" y="153.8">Checkout</text>
+  </g>
+  <g class="node" data-node-id="B">
+    <rect x="164.8" y="132.8" width="95.2" height="42.0" />
+    <text text-anchor="middle" dominant-baseline="central" font-family="&quot;trebuchet ms&quot;, verdana, arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Noto Color Emoji&quot;, &quot;Twemoji Mozilla&quot;" x="212.4" y="153.8">Restore</text>
+  </g>
+  <g class="node" data-node-id="C">
+    <rect x="300.0" y="132.8" width="93.6" height="42.0" />
+    <text text-anchor="middle" dominant-baseline="central" font-family="&quot;trebuchet ms&quot;, verdana, arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Noto Color Emoji&quot;, &quot;Twemoji Mozilla&quot;" x="346.8" y="153.8">Compile</text>
+  </g>
+  <g class="node" data-node-id="D">
+    <rect x="495.2" y="44.0" width="116.0" height="42.0" />
+    <text text-anchor="middle" dominant-baseline="central" font-family="&quot;trebuchet ms&quot;, verdana, arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Noto Color Emoji&quot;, &quot;Twemoji Mozilla&quot;" x="553.2" y="65">Unit Tests</text>
+  </g>
+  <g class="node" data-node-id="E">
+    <rect x="463.6" y="221.6" width="179.2" height="42.0" />
+    <text text-anchor="middle" dominant-baseline="central" font-family="&quot;trebuchet ms&quot;, verdana, arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Noto Color Emoji&quot;, &quot;Twemoji Mozilla&quot;" x="553.2" y="242.6">Integration Tests</text>
+  </g>
+  <g class="node" data-node-id="F">
+    <rect x="712.8" y="132.8" width="91.2" height="42.0" />
+    <text text-anchor="middle" dominant-baseline="central" font-family="&quot;trebuchet ms&quot;, verdana, arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Noto Color Emoji&quot;, &quot;Twemoji Mozilla&quot;" x="758.4" y="153.8">Staging</text>
+  </g>
+  <g class="node" data-node-id="G">
+    <rect x="844" y="132.8" width="120.0" height="42.0" />
+    <text text-anchor="middle" dominant-baseline="central" font-family="&quot;trebuchet ms&quot;, verdana, arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Noto Color Emoji&quot;, &quot;Twemoji Mozilla&quot;" x="904" y="153.8">Production</text>
+  </g>
+  <g class="edge-label" data-edge-source="F" data-edge-target="G">
+    <rect x="792" y="141.8" width="64.0" height="24.0" fill="rgba(232,232,232,0.8)" stroke="none" />
+    <text text-anchor="middle" dominant-baseline="central" x="824" y="153.8">Approved</text>
+  </g>
+</svg>

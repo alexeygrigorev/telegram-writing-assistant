@@ -1,112 +1,219 @@
 ---
 title: "Building Projects with Agent Teams"
 created: 2026-03-14
-updated: 2026-03-19
+updated: 2026-03-25
 tags: [claude-code, agents, multi-agent, process]
 status: draft
 ---
 
 # Building Projects with Agent Teams
 
-This is about the approach I have been using over the last few weeks for creating applications with Claude Code. Not simple one-pagers where you just start a session and go, but more complex projects.
+I've been using a specific approach for building applications with Claude Code over the last few weeks. Not simple one-pagers where you just start a session and go, but more complex projects.
 
 ## The Approach
 
-For simple things, I can just open a Claude Code session and start working. For complex projects, I use a different approach. My main Claude Code session becomes an orchestrator. It has several agents: a PM for task grooming, a Software Engineer for implementation, and a QA agent for testing[^1].
+For simple things, I can just open a Claude Code session and start working. For complex projects, I do something different. My main Claude Code session becomes an orchestrator that manages a team of agents[^1].
 
-The process works like this: there is a pool of tasks. Tasks get pulled from the pool. A maximum of two tasks are worked on in parallel. The PM grooms a task - making it as specific as possible. Then the Software Engineer picks it up and works on it. QA checks the result afterwards. QA can send it back if something is wrong, and the Software Engineer has to fix it. When both agree, the PM looks at the task and checks the acceptance criteria - whether the task passes or not. The PM makes the final decision on whether the task is done[^1].
+### The Team
 
-## Project 1: AI Shipping Labs Website
+Four agents handle the full lifecycle:
 
-My first attempt at this approach was the AI Shipping Labs community platform. For that project, I wanted to establish the workflow. The [full story is in a separate article](ai-shipping-labs/platform-implementation.md), but here is the approach I developed there[^1].
+- [Product Manager](https://github.com/AI-Shipping-Labs/website/blob/main/.claude/agents/product-manager.md) (PM) - grooms raw tasks into detailed specs with acceptance criteria, and does final acceptance review from the user's perspective
+- [Software Engineer](https://github.com/AI-Shipping-Labs/website/blob/main/.claude/agents/software-engineer.md) (SWE) - implements code and writes tests, doesn't commit until the PM accepts
+- [Tester](https://github.com/AI-Shipping-Labs/website/blob/main/.claude/agents/tester.md) (QA) - runs all tests, verifies every acceptance criterion with evidence, reports pass/fail
+- [On-Call Engineer](https://github.com/AI-Shipping-Labs/website/blob/main/.claude/agents/oncall-engineer.md) - monitors CI/CD after code is pushed, fixes pipeline failures
 
-I started by gathering requirements through the Telegram bot and ChatGPT, then told Claude Code to turn them into specifications. It created a "specification" folder with 15 files. After reviewing and giving feedback, I said: now turn these specs into tasks. I tried GitHub Projects for task tracking. The initial decomposition was not great - tasks were too granular, no acceptance criteria, no clear format. I iterated on the task format until I liked it, then transferred everything to GitHub Issues[^1].
+<figure>
+  <img src="../assets/images/community-platform-implementation/agent-roles-renamed.jpg" alt="Agent roles table showing Product Manager, Software Engineer, Tester, and On-Call Engineer">
+  <figcaption>The agent roles: PM, Software Engineer, Tester, and On-Call Engineer</figcaption>
+</figure>
 
-The architecture that came out of this project: two core subagents - a Software Engineer and a Tester. The Software Engineer implements a feature, then the Tester checks it. They iterate until both agree the task is done. An orchestrator (manager) coordinates them - it has no biased relationship with the code. If everything ran in one session, the tester might say "it is fine" and do nothing. With separate subagents, the orchestrator passes feedback back and forth[^1].
+The orchestrator (the main Claude Code session) is a manager, not an implementer. It launches agents, routes work between them, and commits code only after the PM accepts. It never writes or modifies application code itself.
 
-I also added an On-Call Engineer subagent to monitor CI/CD. If something breaks after a push, this agent finds who is responsible, opens an issue, and tries to fix it. Later I added a Product Manager role for grooming tasks, writing issues with clear requirements, and having the final say in acceptance[^1].
+Everything is defined in markdown files in the repo:
 
-The orchestrator looks at the task pool, pulls two tasks, launches Software Engineers and Testers for each. When it finishes, it pulls the next two. I added a trick to keep the loop going: a task that says "when you finish all current tasks, pull the next two issues from the backlog." This creates a self-sustaining loop until the backlog is empty[^1].
+- [`.claude/agents/`](https://github.com/AI-Shipping-Labs/website/tree/main/.claude/agents) - agent definitions
+- [`PROCESS.md`](https://github.com/AI-Shipping-Labs/website/blob/main/_docs/PROCESS.md) - the full development process
+- [`CLAUDE.md`](https://github.com/AI-Shipping-Labs/website/blob/main/CLAUDE.md) - project-level instructions for Claude Code
+- [`execute` skill](https://github.com/AI-Shipping-Labs/website/blob/main/.claude/skills/execute/SKILL.md) - kicks off the whole pipeline
 
-Communication happens through GitHub - agents push code and leave comments on issues. I chose not to use branches and pull requests because it would be too much overhead during intensive development. Everyone works on main. The setup took about 1.5 hours. The agent then worked autonomously through the night and completed most of the tasks[^1].
+### The Pipeline
 
-## Project 2: Data Tasks
+Every task goes through the same pipeline:
 
-The second project was a to-do list for our DataTalks Club called Data Tasks. I honestly launched it, looked at what it was doing, and never came back to check properly - I just did not have time. For this project I decided I wanted to use Node.js, I wanted everything to be serverless so I would not have to pay for it, and all data in DynamoDB. The technologies were DynamoDB and Lambda[^1].
+<figure>
+  <img src="../assets/images/building-projects-with-agent-teams/pipeline.svg" alt="Pipeline flowchart: PM grooms, SWE implements, QA verifies (fail loops back to SWE), PM accepts (reject loops back to SWE), then commit">
+  <figcaption>The pipeline: every task goes through PM, SWE, QA, and back to PM before commit</figcaption>
+</figure>
 
-I took the same approach. I said: look at the specs in the Telegram assistant brain dump about how this site should work, copy the subagents and the process from AI Shipping Labs, and let us repeat. It did the same thing. The approach was about using serverless - different technologies, same approach[^1].
+The PM grooms a raw task into a spec with user stories, acceptance criteria, and test scenarios. The Software Engineer picks it up, writes code and tests. QA runs everything and verifies each acceptance criterion with actual evidence - test output, screenshots, logs. If QA fails it, the Engineer fixes and QA re-verifies. If QA passes, the PM does a final acceptance review from the user's perspective. If the PM rejects, it goes back to the Engineer. Only after the PM accepts does the orchestrator commit[^1].
 
-The status of Data Tasks: I do not have time to work on it right now. It seems to work, but it is at a stage where I need to actually use it and give feedback. The agents cannot do that part. I use it, try things, say what to do next, and then the agents create tasks for themselves and execute. I do not have time for that right now[^2].
+### Parallel Batches
 
-## Project 3: Pymermade (Mermaid Diagrams)
+Two tasks get worked on in parallel. When a batch finishes, the orchestrator pulls the next two from the backlog:
 
-The next project I want to talk about is Mermaid diagrams. The approach was exactly the same, with one difference - I did not want to create a project on GitHub. I did not know if this would even be useful, if anything would come out of it. But I had already described the problem I had. I decided this was a big enough project. I was interested in doing it as a background task - just giving it to the agents because the task was fairly clear. The diagrams had already been generated[^2].
+<figure>
+  <img src="../assets/images/building-projects-with-agent-teams/batches.svg" alt="Parallel batch processing: two tasks go through PM, SWE, QA, PM accept in parallel, then pull next 2 and repeat">
+  <figcaption>Two tasks processed in parallel, then the next batch is pulled from the backlog</figcaption>
+</figure>
 
-Instead of creating a GitHub repo, I just created a folder, did `git init` to have an empty project, and said: instead of GitHub Issues, put all tasks in a folder. I think I called it "tracker." The file name contained the status - like new task, groomed, in progress, done. So new task goes to groomed, then to in progress, then to done. The file system became the issue tracker. The same process otherwise[^2].
+To keep the loop going, there's always a task that says "when you finish all current tasks, pull the next two issues from the backlog." This creates a self-sustaining loop until the backlog is empty[^1].
 
-I said: I want to make Mermaid diagrams. Then after some time I checked, gave a bit of feedback about what I did not like. Then after some more time I looked at the files again, said what I did not like, described clear criteria. My involvement was minimal. At the end I also asked to run benchmarks to actually compare whether it is faster or not[^2].
+<figure>
+  <img src="../assets/images/community-platform-implementation/claude-code-task-list.jpg" alt="Claude Code task list with agents running in parallel">
+  <figcaption>Task list with agents running in parallel</figcaption>
+</figure>
 
-The experience with Pymermade (I think I just called it "mate") turned out very successful. It really worked out and produced what was needed. There were clear acceptance criteria - that diagrams are generated properly. I also looked at them visually because the agent rendered to SVG and PNG but did not always see details that needed attention. I needed to point out specific things to look at. So my input was still required - no miracle happened where it did everything completely without me. But it was a fairly large and successful project[^3].
+### Task Tracking
 
-The agent worked on it for about two or three days total. My involvement was minimal. I just occasionally checked what it was doing, gave feedback, set some new tasks like running benchmarks. At some point during the process I said: now that everything is ready, publish it on GitHub. It did. We found a suitable name for the project because I originally wanted to call it "pymermaid" but that was already taken, so I had to experiment with the name a bit. I already have skills for publishing to PyPI, and it did all of that[^2].
+I've tried two approaches for tracking tasks:
 
-I am actually using it now for generating diagrams[^3].
+- GitHub Issues with labels (`needs grooming`, priority, area) - agents comment on issues with detailed reports. Used this for AI Shipping Labs and Data Tasks
+- File-based tracking in a `tracker/` folder - the file name encodes the status (`.todo.md` → `.groomed.md` → `.in-progress.md` → `done/`). Used this for Merm, Rustkyll, and Codehive
 
-## Project 4: Jekyll to Rust
+The file-based approach works well when I don't want to create a GitHub project upfront. I just do `git init`, create a tracker folder, and tell the agents to use it. The file system becomes the issue tracker.
 
-The last thing I did - I have had this idea for a long time to rewrite Jekyll. Jekyll is a static site generator written in Ruby. For small sites it works great. When sites grow, it gets slow. Our DataTalks Club site takes about a minute to build on my computer. I make a change and have to wait a minute to see it, even with incremental builds enabled[^3].
+### Grooming and Acceptance
 
-I have been thinking about rewriting this to something faster for a long time. Plus Jekyll does not have all the features I need. For example, instead of doing a lookup, you have to do a loop, check if the ID matches, and then break. That is just a Jekyll limitation. Cannot install plugins because of GitHub Pages[^3].
+A groomed task must have concrete user stories - not abstract requirements like "page loads correctly" but specific scenarios like "user opens dashboard, clicks New Project, types a path, clicks Create, gets redirected to the project page." Each story has to be specific enough that an engineer can translate it directly into a Playwright test[^1].
 
-The idea right now is: let us just take Jekyll as is and rewrite it in Rust. I am not saying go look at Jekyll source code and write the same thing in Rust. I am saying: here is a site, it needs to work. I initially took the DataTalks Club site and said I want a Rust engine that generates the same output as Jekyll[^3].
+"Done" means something different at each stage:
 
-I used the same approach. I said: go look at how Pymermade has its process set up, adapt it for us, I want to use Rust. I did not have Rust on that machine - it installed Rust. I want to use Rust, go figure it out, use this process[^3].
+- SWE done: code works, tests pass, lint clean, actual test output included as evidence
+- QA done: ran every test, walked through every user story, took screenshots, each criterion marked pass/fail with evidence
+- PM done: reviewed every screenshot, verified user stories match the evidence, confirmed "if the user checks this right now, they'll be satisfied"
 
-After a day I opened the code and looked at what was there. The code was very specifically tailored to our site - not generic. I said: now here is your task - find other Jekyll sites and make it work for those too[^3].
+The key principle: every claim needs evidence. "Tests pass" is not evidence. Actual test output showing results is evidence. "It looks right" is not evidence. A screenshot is evidence[^1].
 
-It is currently in progress. I do not know how it will end. I recently opened it, looked at what was happening. I do not understand Rust, so it is hard for me to quickly understand what is going on like I would with Python. But I was not really trying either - I just looked, it seemed OK, and I let it keep working[^3].
+### No Silent Descoping
 
-### Out of Memory Issues
+If the PM decides something is out of scope, it can't just be dropped. Two rules:
 
-One thing that happened: when it was doing `cargo build` or similar (Cargo is the build tool in Rust), I noticed Claude sessions started crashing. I would open my terminal - I have a remote computer, I connect via SSH, all sessions in tmux - and the tmux session was gone. I would open a new terminal, resume the Claude Code session, ask what happened, why it crashed. It did not know[^3].
+1. Every decision gets logged - what was decided and why
+2. Descoped items become new tasks - requirements don't get forgotten, they get deferred[^1]
 
-Then I saw it crash again. I created a separate Claude Code session and said: investigate. Out of memory. The `cargo` process was eating all the memory, crashing Claude Code, and crashing the tmux session[^3].
+## AI Shipping Labs Website
 
-I told it to solve this problem. It set up cgroups - I had never worked with those before. Now it runs the cargo process inside a cgroup, and if it crashes, nothing else crashes[^3].
+My first attempt at this approach was the [AI Shipping Labs](https://github.com/AI-Shipping-Labs/website) community platform. The [full story is in a separate article](ai-shipping-labs/platform-implementation.md)[^1].
 
-For me this is all fairly new territory. I have never done this kind of native development. I always had Java, Python, Ruby - languages that are not native. I wrote a little C once, but nothing serious. This is my first experience like this, and I am discovering new things like cgroups[^3].
+I started by gathering requirements through the Telegram bot and ChatGPT, then told Claude Code to turn them into specifications. It created a "specification" folder with 15 files. After reviewing and giving feedback, I said: now turn these specs into tasks. I tried GitHub Projects for task tracking. The initial decomposition wasn't great - tasks were too granular, no acceptance criteria, no clear format. I iterated on the task format until I liked it, then transferred everything to GitHub Issues[^1].
 
-## Using the Approach via GitHub Issues: AI Hero Migration
+This is where the approach took shape. I started with just a Software Engineer and a Tester, then added the On-Call Engineer and PM roles as I discovered what was missing. Communication happened through GitHub - agents pushed code and left comments on issues. Everyone worked on main, no branches or pull requests - too much overhead during intensive development[^1].
 
-I also used this same approach through GitHub for migrating the AI Hero course to the new AI Shipping Labs platform. I just shared a link to the existing course and said "migrate this." The agents created a [detailed GitHub issue](https://github.com/AI-Shipping-Labs/website/issues/128) with full specifications - course data, module structure, all seven units with descriptions and homework, acceptance criteria, and Playwright test scenarios. Then they executed the migration on their own[^14][^15].
+The setup took about 1.5 hours. The agent then worked autonomously through the night and completed most of the tasks[^1].
+
+<figure>
+  <img src="../assets/images/community-platform-implementation/claude-code-morning-progress.jpg" alt="Task progress after overnight autonomous work - 46 tasks, 41 completed">
+  <figcaption>Morning after: 41 out of 46 tasks completed overnight without intervention</figcaption>
+</figure>
+
+## Data Tasks
+
+The second project was a to-do list for DataTalks.Club called [Data Tasks](https://github.com/alexeygrigorev/datatasks). I launched it, looked at what it was doing, and honestly never came back to check properly - I just didn't have time[^1].
+
+I wanted Node.js, everything serverless so I wouldn't have to pay for it, and all data in DynamoDB. I took the same approach: look at the specs, copy the subagents and the process from AI Shipping Labs, and repeat. Different technologies, same methodology[^1].
+
+The project is currently on hold. It seems to work, but it's at a stage where I need to actually use it and give feedback - the agents can't do that part. The idea is to have something completely serverless so it costs nothing to run. I'll get back to it eventually, but right now I don't have the bandwidth[^2].
+
+<figure>
+  <img src="../assets/images/building-projects-with-agent-teams/datatasks-dashboard.png" alt="Data Tasks dashboard showing Active Bundles on the left and Today's Tasks on the right">
+  <figcaption>Data Tasks dashboard - built entirely by the agent team</figcaption>
+</figure>
+
+## Merm (Mermaid Diagrams)
+
+Same approach, one difference - I didn't want to create a project on GitHub. I didn't know if this would even be useful. But I'd already described the problem and decided this was big enough to give to the agents as a background task[^2].
+
+Instead of GitHub Issues, I used the file-based tracker. I created a folder, did `git init`, and said: put all tasks in a "tracker" folder. The file name encodes the status - `.todo.md`, `.groomed.md`, `.in-progress.md`, then moved to a `done/` folder. Same pipeline, no GitHub needed[^2].
+
+My involvement was minimal. I'd check in occasionally, say what I didn't like, describe clear criteria. At the end I also asked for benchmarks to see if it's actually faster[^2].
+
+[Merm](https://github.com/alexeygrigorev/merm) turned out very successful. There were clear acceptance criteria - that diagrams are generated properly. I also looked at them visually because the agent rendered to SVG and PNG but didn't always see details that needed attention. I needed to point out specific things to look at. No miracle happened where it did everything completely without me, but it was a fairly large and successful project[^3].
+
+The agent worked on it for about two or three days total. At some point I said: now that everything's ready, publish it on GitHub. It did. I already have skills for publishing to PyPI, and it handled all of that. I'm actually using it now for generating diagrams - including the ones in this article[^2][^3].
+
+Here are a few examples from the gallery:
+
+<figure>
+  <img src="../assets/images/building-projects-with-agent-teams/merm-example-ci-pipeline.svg" alt="CI pipeline diagram with Build, Test, and Deploy stages rendered by Merm">
+  <figcaption>CI pipeline with subgraphs for Build, Test, and Deploy stages</figcaption>
+</figure>
+
+<figure>
+  <img src="../assets/images/building-projects-with-agent-teams/merm-example-sequence.svg" alt="Sequence diagram with three participants, a loop fragment, and notes rendered by Merm">
+  <figcaption>Sequence diagram with participants, loops, and notes</figcaption>
+</figure>
+
+<figure>
+  <img src="../assets/images/building-projects-with-agent-teams/merm-example-state.svg" alt="State diagram with nested states and transitions rendered by Merm">
+  <figcaption>State diagram with nested states and transitions</figcaption>
+</figure>
+
+<figure>
+  <img src="../assets/images/building-projects-with-agent-teams/merm-example-mindmap.svg" alt="Mind map diagram rendered by Merm">
+  <figcaption>Mind map</figcaption>
+</figure>
+
+## Rustkyll (Jekyll to Rust)
+
+I've had this idea for a long time to rewrite Jekyll. It's a static site generator written in Ruby. For small sites it works great, but when sites grow, it gets slow. Our DataTalks.Club site takes about a minute to build on my computer. I make a change and have to wait a minute to see it, even with incremental builds[^3].
+
+Jekyll also doesn't have all the features I need. Instead of doing a lookup, you have to loop through everything, check if the ID matches, and break. Can't install plugins because of GitHub Pages[^3].
+
+The idea: take Jekyll as is and rewrite it in Rust. The project is called [Rustkyll](https://github.com/alexeygrigorev/rustkyll/). Not by looking at Jekyll source code and translating it - by taking an existing site and saying "I want a Rust engine that generates the same output." I started with the DataTalks.Club site[^3].
+
+I used the same approach. I said: go look at how Merm has its process set up, adapt it for us, I want to use Rust. I didn't have Rust on that machine - it installed Rust. Go figure it out, use this process[^3].
+
+After a day I opened the code. It was very specifically tailored to our site, not generic. So I said: find other Jekyll sites and make it work for those too[^3].
+
+### Out of Memory
+
+When it was doing `cargo build`, I noticed Claude sessions started crashing. I'd open my terminal (remote computer, SSH, all sessions in tmux) and the tmux session was gone. I'd resume the Claude Code session and ask what happened. It didn't know[^3].
+
+I created a separate session and said: investigate. Out of memory. The `cargo` process was eating all the memory, crashing Claude Code, and crashing the tmux session[^3].
+
+I told it to solve this problem. It set up cgroups - I'd never worked with those before. Now the cargo process runs inside a cgroup, and if it crashes, nothing else goes down with it. I've never done native development like this before - always Java, Python, Ruby. This is new territory[^3].
+
+## AI Hero Migration
+
+I also used the same approach through GitHub for migrating the AI Hero course to the new AI Shipping Labs platform. I just shared a link to the existing course and said "migrate this." The agents created a [detailed GitHub issue](https://github.com/AI-Shipping-Labs/website/issues/128) with full specifications - course data, module structure, all seven units with descriptions and homework, acceptance criteria, and Playwright test scenarios. Then they executed the migration on their own[^14][^15].
 
 The course is now live at https://aishippinglabs.com/courses/aihero[^15].
 
 ## Agents Slack Off
 
-This is not something I can fully leave without supervision. Agents slack off. A lot. It is like managing a team of students who are not getting paid. They are only there because they need course credits. Everything they do is reluctant, through force. Sometimes they work, sometimes they slack off terribly. This applies to all agents[^4].
+This isn't something I can fully leave without supervision. Agents slack off. A lot. It's like managing a team of students who aren't getting paid - they're only there because they need course credits. Everything they do is reluctant, through force[^4].
 
-Take the three agents - PM, Software Engineer, and Tester. The PM can say "this is too complex, let us descope it" and starts simplifying the task as much as possible. The Software Engineer can leave things unfinished. The Tester can say "I cannot run this, I will not do it." You need to understand that this is a feature of working with agents - they slack off, they do things reluctantly, you need to push them, guide them, and organize the process so it is harder for them to cut corners[^4].
+Each role cuts corners in its own way:
+
+- The PM says "this is too complex, let's descope it" and simplifies the task as much as possible
+- The Software Engineer leaves things unfinished
+- The Tester says "I can't run this, I won't do it"
+
+This is a feature of working with agents. You need to push them, guide them, and organize the process so it's harder for them to cut corners[^4].
+
+<figure>
+  <img src="../assets/images/community-platform-implementation/agent-picking-issues.jpg" alt="Agent listing issues with blocking dependencies">
+  <figcaption>An agent picking issues from the backlog</figcaption>
+</figure>
 
 ### The Descoping Problem
 
-The PM is supposed to properly scope the issue - define clearly what goes in, what the acceptance criteria are. But here is what actually happened[^4].
+With the Rustkyll project, I asked to compile for Linux, Mac, and Windows, for both AMD64 and ARM64. It compiled for all platforms except Windows ARM64 - it just silently dropped that target. When I asked what happened, it turned out the PM had descoped it. There were no logs, so I couldn't even see when or why[^4][^6].
 
-With the Rust project, I have a Windows tablet with ARM64 architecture. I asked to compile it for Linux, Mac, and Windows, for both AMD64 and ARM64. It compiled for all platforms except Windows ARM64 - it just silently dropped that one target. When I asked what happened, it turned out the PM had descoped it. There were no logs at that point, so I had no way to even see when or why it was dropped[^4][^6].
-
-That is when I added the first rule: start keeping a log. Every time a decision is made, write it in the log - what the decision is and why. But even with logging in place, I started noticing the PM would say "this is out of scope" and silently drop the feature anyway. So I added another rule: if you decide to descope something from the task, do not silently drop it - always create a new task for it[^4].
-
-I have no problem with descoping itself. Sometimes a task is too big and some things genuinely do not belong in its scope. That is normal. But they must not be quietly forgotten. When I have a requirement, I do not care whether it gets implemented in this task or some time later. The important thing is that it is preserved somewhere. Now I have logs being kept and a process, so at least there is a trail[^4].
+That's what led to the "no silent descoping" rule in the process. I don't have a problem with descoping itself - sometimes a task is too big. But requirements must not be quietly forgotten[^4].
 
 ### Checking Under the Hood
 
-You still need to occasionally look under the hood, stir the pot. It cooks on its own mostly fine, but sometimes you need to lift the lid, check, and give directions. For instance, with the Jekyll project I wanted pixel-perfect matching. I asked the agents to create tasks based on benchmarks comparing the output. After some time I checked the report - it said everything was fine, there was a pixel-perfect match, and the few percent of different pixels were just "font rendering artifacts." A few percent of pixels on a large screenshot is thousands of pixels. I looked at it myself and it was clearly not just font rendering[^4].
+You still need to occasionally look under the hood. It cooks on its own mostly fine, but sometimes you need to lift the lid and check[^4].
 
-The same problem with Mermaid diagrams - the output is visual, and agents struggle to evaluate images. There are no clear criteria they can check automatically. I told them: let us make a visual checklist, because we fixed one thing and broke two others. Why did tests not catch this? Because it is a visual thing, hard to test automatically[^4].
+With the Jekyll project I wanted pixel-perfect matching. I asked the agents to create tasks based on benchmarks comparing the output. After some time I checked the report - it said everything was fine, pixel-perfect match, and the few percent of different pixels were "font rendering artifacts." A few percent of pixels on a large screenshot is thousands of pixels. I looked at it myself and it was clearly not just font rendering[^4].
 
-I have not found a way to fully automate this so my involvement is minimal. It seems very project-dependent - one project needs one kind of oversight, another needs something different. My goal right now is to do as many projects as possible with this methodology. Each project sharpens it. I am learning how to approach this, understanding the limitations, and refining the methodology. I think after about 10 more projects I will have a solid system for how to approach this[^4].
+Same problem with Mermaid diagrams - the output is visual, and agents struggle to evaluate images. We fixed one thing and broke two others. Tests didn't catch it because it's visual, hard to test automatically. I had to write a visual guideline checklist for the agents to follow[^4].
 
-Phil Winder [wrote about migrating a Python codebase to Go using Claude Code](https://www.linkedin.com/posts/drphilwinder_i-just-migrated-a-production-python-codebase-activity-7430343296205459456-eXUm) and concluded: "Claude is a powerful but literal executor. The gaps in your design become the bugs in your system." This matches what I see - without control, agents do not produce good results on their own[^16].
+I haven't found a way to fully automate this. It seems very project-dependent. My goal right now is to do as many projects as possible with this methodology. Each project sharpens it. I think after about 10 more projects I'll have a solid system[^4].
+
+Phil Winder [wrote about migrating a Python codebase to Go using Claude Code](https://www.linkedin.com/posts/drphilwinder_i-just-migrated-a-production-python-codebase-activity-7430343296205459456-eXUm) and concluded: "Claude is a powerful but literal executor. The gaps in your design become the bugs in your system." This matches what I see[^16].
 
 <figure>
   <img src="../assets/images/community-platform-implementation/linkedin-vibe-coding-post.jpg" alt="LinkedIn post by Phil Winder about migrating Python to Go with Claude Code, discussing dead code accumulation, phantom features, and context window limits">
@@ -114,9 +221,9 @@ Phil Winder [wrote about migrating a Python codebase to Go using Claude Code](ht
   <!-- LinkedIn post that resonates with the experience of needing to manage AI agents -->
 </figure>
 
-## Project 5: Custom Coding Agent (Codehive)
+## Codehive (Custom Coding Agent)
 
-I applied the same methodology to another project - building my own coding agent called [Codehive](https://github.com/alexeygrigorev/codehive). There are things in Claude Code that I do not like[^5].
+I applied the same methodology to building my own coding agent called [Codehive](https://github.com/alexeygrigorev/codehive)[^5].
 
 <figure>
   <img src="../assets/images/building-projects-with-agent-teams/codehive-project-summary.jpg" alt="Summary of Codehive project: 96 issues done, ~2,195 tests across backend, web, mobile">
@@ -124,79 +231,79 @@ I applied the same methodology to another project - building my own coding agent
   <!-- Screenshot showing the full scope of the Codehive project: FastAPI backend, React web, Android mobile, TUI, Telegram bot, CLI, and Docker infrastructure -->
 </figure>
 
-I have not tested Codehive yet because I do not have time[^8].
+I haven't tested Codehive yet because I don't have time[^8].
 
-The YOLO loop turned out to be useless. If you run it, it will do something, but most likely not what you need. The task decomposition approach works better - I set a high-level task, we decompose it, define a plan, define specs, then the PM grooms them, the Engineer implements, the Tester tests. That approach works OK[^5].
+The YOLO loop turned out to be useless. If you run it, it'll do something, but most likely not what you need. The task decomposition approach works better - set a high-level task, decompose it, define specs, then the PM grooms, the Engineer implements, the Tester tests[^5].
 
 ### Problems with the Current Setup
 
-The main orchestrator (the main Claude Code session) has several problems[^5].
+The main orchestrator has several problems[^5].
 
-The first problem: the agent stops for no reason[^7].
+The agent stops for no reason[^7].
 
 <figure>
   <img src="../assets/images/building-projects-with-agent-teams/codehive-agent-stopping.jpg" alt="Claude Code terminal showing agent stopping and user asking why did you stop">
   <figcaption>The orchestrator stops and waits instead of continuing with the next task</figcaption>
-  <!-- Screenshot from the Jekyll project showing the agent cogitating for over a minute then stopping, requiring manual intervention to continue -->
 </figure>
 
-The agent also refuses to pick up the next task on its own, even when the tasks are explicitly listed in the backlog[^13].
+It also refuses to pick up the next task on its own, even when tasks are explicitly listed in the backlog[^13].
 
 <figure>
   <img src="../assets/images/building-projects-with-agent-teams/agent-refusing-next-tasks.jpg" alt="Claude Code terminal showing agent completing a task and asking if it should proceed instead of automatically picking the next one">
-  <figcaption>The agent finishes a task and asks instead of picking the next one - even with tasks visible in the backlog</figcaption>
-  <!-- Screenshot showing the agent completing issue #105 through the full PM→SWE→QA→PM pipeline, then asking permission to pull the next task despite having an explicit "Pull next" item in the checklist -->
+  <figcaption>The agent finishes a task and asks instead of picking the next one</figcaption>
 </figure>
 
-It also asks stupid questions. The way it works now - I say there is a pool of tasks, and the orchestrator should ask the PM to pick the next two issues from the backlog. In the todo list there is always an item that says "pull next 2" and also "add another pull-next-2 item" to create the loop. But sometimes the orchestrator asks things like "shall we proceed?" Of course we proceed. Why are you asking? That is wasted time, especially when I am not nearby[^5].
+And it asks unnecessary questions. In the todo list there's always an item that says "pull next 2" and "add another pull-next-2 item" to create the loop. But sometimes the orchestrator asks "shall we proceed?" Of course we proceed. Why are you asking? That's wasted time, especially when I'm not nearby[^5].
 
-The second problem: I cannot see what subagents are doing. Sometimes I want to peek inside a subagent and just look at what is happening. Right now there is no such ability. The orchestrator launches a subagent and it does something for 30 minutes or an hour. Is it stuck? Does it need a restart? When I am at my computer, I want to look and maybe correct the process - "no, do it differently, that is not what I want." Right now I do not have that ability[^5].
+I also can't see what subagents are doing. Sometimes I want to peek inside a subagent. The orchestrator launches one and it does something for 30 minutes or an hour. Is it stuck? Does it need a restart? When I'm at my computer, I want to look and maybe correct the process. Right now I don't have that ability[^5].
 
 ### What I Want to Build
 
-I want my own agent that uses Claude as a subagent and starts this whole process. It would always have a task pool, a todo list. Instead of asking stupid questions when I am not around, it just takes tasks from the pool and works on them. If it has questions for me, those questions get written to a separate list. When I have time, I come and answer them. The work itself does not depend on the questions - there is no blocker, the agent can always continue working. I just need to occasionally check that nothing went wrong[^5].
+I want my own agent that uses Claude as a subagent and runs the whole process. It'd always have a task pool and a todo list. Instead of asking questions when I'm not around, it just takes tasks from the pool and works on them. If it has questions for me, they get written to a separate list. When I have time, I come and answer them. The work itself doesn't depend on the questions - no blocker, the agent can always continue[^5].
 
-I want the application to have a separate place for questions to the user, an always-available todo list where agents can pull tasks from, and the ability to peek inside subagents[^5].
-
-I dictated the project vision to ChatGPT while walking outside. It produced a summary. I already had the approach described, so I fed that summary to the agents and launched the process. I have not looked at it since - it is cooking in the pot. This is probably the most complex project of all I have tried because I want a mobile app, a website, a backend, and a Telegram client[^5].
+I dictated the project vision to ChatGPT while walking outside. It produced a summary. I fed that to the agents and launched the process. I haven't looked at it since - it's cooking. This is probably the most complex project of all because I want a mobile app, a website, a backend, and a Telegram client[^5].
 
 ### The Goal
 
-My goal is to learn to run complex projects with agent teams with minimal intervention. I am like a CEO or VP of Product in a small startup with several teams. I have many projects and little time for each one. I just occasionally check in, see what is happening, correct course, and go back to other things. I want to build a process where this works[^5].
+I want to learn to run complex projects with agent teams with minimal intervention. I'm like a CEO in a small startup with several teams. I have many projects and little time for each one. I check in, see what's happening, correct course, and go back to other things[^5].
 
-The ultimate goal for Codehive is to embed all the best practices I have discovered into the application itself. I want it to have a task tracker, todo lists for each session - everything built in. Instead of copying the approach from one project to another, I just launch a project inside Codehive and agents follow my methodology automatically. I want to get to a point where agents are forced to follow the process, because right now they have too much freedom. I want to constrain that freedom so they actually stick to the process[^11].
+The ultimate goal for Codehive is to embed all the best practices I've discovered into the application itself - task tracker, todo lists for each session, everything built in. Instead of copying the approach from one project to another, I'd just launch a project inside Codehive and agents follow my methodology automatically. Right now they have too much freedom. I want to constrain it so they actually stick to the process[^11].
 
-Another motivation: Claude Code has this annoying screen flickering. Something happens with the screen and it is very distracting. That is another reason I want the ability to launch Claude Code sessions from other places - to avoid that flickering[^12].
-
-## When Specification-Driven Development Works Best
+## When This Works Best
 
 This specification-driven development process works best when agents can easily get feedback on their own work[^9].
 
 ### Ranking the Projects
 
-Out of the five projects, the Jekyll-to-Rust reimplementation works the best with this approach. I was able to define clear criteria that the agent uses to test itself. The process: generate a site with Jekyll, generate the same site with our Rust engine, compare the output, and create tasks based on the differences. I can leave the agent completely alone and it works on its own. I only check in occasionally[^9].
+Out of the five projects, the Jekyll-to-Rust reimplementation works best. I was able to define clear criteria that the agent uses to test itself:
 
-The first criterion is DOM difference - it compares the HTML documents generated by Jekyll with the HTML documents generated by our Rust engine, finds the differences, and tries to fix them. The criteria are maximally clear[^9].
+1. Generate a site with Jekyll, generate the same site with our Rust engine, compare the HTML output, and create tasks based on the differences
+2. Open a page rendered by Jekyll in a browser, take a screenshot, do the same with our engine, and compare pixel differences[^9]
 
-The second criterion is visual comparison. It opens a page rendered by Jekyll in a browser, takes a screenshot, opens the same page rendered by our engine, takes a screenshot, and the pixel difference should be minimal. Again, maximally clear criteria - hard to do anything wrong[^9].
+Both criteria are maximally clear - hard to do anything wrong. I can leave the agent completely alone. I only check in occasionally to remind them about benchmarks, because I want it fast and don't want them to forget about performance[^9].
 
-Reimplementation projects are perfect for this kind of development, and for vibe coding in general. A team of agents can set its own tasks, solve them, and verify the results. I only occasionally check in to remind them to run benchmarks, because I want it to be fast and do not want them to forget about performance[^9].
+Reimplementation projects are perfect for this kind of development. A team of agents can set its own tasks, solve them, and verify the results[^9].
+
+<figure>
+  <img src="../assets/images/community-platform-implementation/unsupervised-agents-16-hours.jpg" alt="Multiple agents working in parallel on background tasks">
+  <figcaption>Agents working autonomously for 16 hours</figcaption>
+</figure>
 
 ### The Visual Component Challenge
 
-The other projects are harder. The main difference between the Jekyll static site generator and the rest is that the rest have a visual component, and visual components are harder to evaluate[^10].
+The other projects are harder because they have a visual component, and visual components are harder to evaluate[^10].
 
-Mermaid diagrams (Pymermade) is the next best fit. I can give the agent clear criteria for what the output should look like, but it does not always work well. The agent needs to convert an SVG to PNG, look at it, and I need to tell the agent exactly where to look. I had to write a visual guideline checklist because testing SVG is hard - SVG is a visual thing but also code. When you look at the code, you do not necessarily understand how it will look. Tests exist but they are not super reliable. Sometimes visual regressions happen even though tests pass. That is where the visual checks help - the agent converts SVG to PNG and inspects it. But TDD works worse here, so there is a chance the agent accidentally breaks everything when trying to fix something[^10].
+Merm is the next best fit. I can give the agent clear criteria for what the output should look like, but it doesn't always work. The agent converts SVG to PNG and inspects it, but TDD works worse here. Sometimes visual regressions happen even though tests pass. I had to write a visual guideline checklist because testing SVG is hard - it's a visual thing but also code, and when you look at the code, you don't necessarily understand how it'll look[^10].
 
-The remaining three projects (AI Shipping Labs, Data Tasks, Codehive) are the hardest because they have both frontend and backend. I have not been able to get agents to write proper end-to-end tests. I know Playwright exists, but my agents are lazy about writing good tests. Despite telling them how to write tests, they write them poorly, they cut corners. In these projects, I am the bottleneck - I need to sit down, thoroughly check everything, and that can take half a day or more. I do not always have that much time[^10].
+The remaining three projects (AI Shipping Labs, Data Tasks, Codehive) are the hardest because they have both frontend and backend. I haven't been able to get agents to write proper end-to-end tests. I know Playwright exists, but my agents are lazy about writing good tests. Despite telling them how to write tests, they write them poorly, they cut corners. In these projects, I'm the bottleneck - I need to sit down, thoroughly check everything, and that can take half a day or more[^10].
 
-I think I just need to implement more projects with this methodology to eventually settle on a good approach. Each project teaches me something new about how to handle these cases. Maybe I need to define clear scenarios and have a framework that agents can use to write those scenarios properly[^10].
+I think I just need to do more projects with this methodology. Each one teaches me something new. Maybe I need to define clear scenarios and have a framework that agents can use to write those scenarios properly[^10].
 
 ## The Overall Philosophy
 
-None of these projects require much active time. The goal is minimal involvement: occasionally check in, see what is happening, set the direction, confirm the agents are working correctly, and let them continue. The process is still evolving[^3].
+None of these projects require much active time. I occasionally check in, see what's happening, set the direction, and let them continue. The process is still evolving[^3].
 
-The cost is currently zero thanks to the Pro Max subscription, but these projects are not fast - they take days. The tradeoff works because the required intervention is minimal: check in, give feedback, set new tasks[^3].
+The cost is currently zero thanks to the Pro Max subscription, but these projects aren't fast - they take days. The tradeoff works because the required intervention is minimal: check in, give feedback, set new tasks[^3].
 
 ## Sources
 

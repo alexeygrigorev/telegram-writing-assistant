@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-20.0 -20 556.7 459" width="556.7" height="459" style="background-color: white">
+  <defs>
+    <marker id="seq-arrow" viewBox="0 0 10 10" markerWidth="8" markerHeight="8" refX="10" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <polygon points="0 0, 10 5, 0 10" fill="#333333" />
+    </marker>
+    <marker id="seq-arrow-open" viewBox="0 0 10 10" markerWidth="8" markerHeight="8" refX="10" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <polyline points="0 0, 10 5, 0 10" fill="none" stroke="#333333" stroke-width="1.5" />
+    </marker>
+    <marker id="seq-cross" viewBox="0 0 10 10" markerWidth="8" markerHeight="8" refX="5" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="10" y2="10" stroke="#333333" stroke-width="1.5" />
+      <line x1="10" y1="0" x2="0" y2="10" stroke="#333333" stroke-width="1.5" />
+    </marker>
+    <marker id="seq-async" viewBox="0 0 10 10" markerWidth="8" markerHeight="8" refX="10" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <polyline points="0 0, 10 5, 0 10" fill="none" stroke="#333333" stroke-width="1.5" />
+    </marker>
+  </defs>
+  <style>.seq-participant rect { fill: #ECECFF; stroke: #9370DB; stroke-width: 1; }
+.seq-participant text { fill: #333333; font-family: "trebuchet ms", verdana, arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Twemoji Mozilla"; font-size: 14px; }
+.seq-lifeline { stroke: #9370DB; stroke-width: 1; stroke-dasharray: 5,5; }
+.seq-message line, .seq-message path { stroke: #333333; stroke-width: 1; }
+.seq-message text { fill: #333333; font-family: "trebuchet ms", verdana, arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Twemoji Mozilla"; font-size: 12px; }
+.seq-activation { fill: #ECECFF; stroke: #9370DB; stroke-width: 1; }
+.seq-note rect { fill: #ffffcc; stroke: #aaaa33; stroke-width: 1; }
+.seq-note text { fill: #333333; font-family: "trebuchet ms", verdana, arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Twemoji Mozilla"; font-size: 12px; }
+.seq-fragment rect { fill: none; stroke: #9370DB; stroke-width: 1; stroke-dasharray: 3,3; }
+.seq-fragment text { fill: #333333; font-family: "trebuchet ms", verdana, arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Twemoji Mozilla"; font-size: 11px; font-weight: bold; }
+.seq-actor line, .seq-actor circle { stroke: #9370DB; stroke-width: 1; fill: none; }
+.seq-actor text { fill: #333333; font-family: "trebuchet ms", verdana, arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Twemoji Mozilla"; font-size: 14px; }
+</style>
+  <line class="seq-lifeline" x1="70" y1="60" x2="70" y2="409" />
+  <line class="seq-lifeline" x1="296.7" y1="60" x2="296.7" y2="409" />
+  <line class="seq-lifeline" x1="446.7" y1="60" x2="446.7" y2="409" />
+  <g class="seq-fragment">
+    <rect x="10" y="140" width="496.7" height="95" />
+    <rect x="10" y="140" width="42" height="20" fill="#e8e8e8" stroke="none" />
+    <text x="15" y="154">LOOP</text>
+    <text x="57" y="154">[HealthCheck]</text>
+  </g>
+  <g class="seq-message">
+    <line x1="70" y1="100" x2="296.7" y2="100" marker-end="url(#seq-arrow)" />
+    <text x="183.35" text-anchor="middle" y="95">Hello John, how are you?</text>
+  </g>
+  <g class="seq-message">
+    <path d="M 296.7 165 L 316.7 165 L 316.7 180 L 296.7 180" fill="none" marker-end="url(#seq-arrow)" />
+    <text x="321.7" text-anchor="middle" y="160">Fight against hypochondria</text>
+  </g>
+  <g class="seq-message">
+    <line x1="296.7" y1="299" x2="70" y2="299" marker-end="url(#seq-arrow)" stroke-dasharray="5,5" />
+    <text x="183.35" text-anchor="middle" y="294">Great!</text>
+  </g>
+  <g class="seq-message">
+    <line x1="296.7" y1="339" x2="446.7" y2="339" marker-end="url(#seq-arrow)" />
+    <text x="371.7" text-anchor="middle" y="334">How about you?</text>
+  </g>
+  <g class="seq-message">
+    <line x1="446.7" y1="379" x2="296.7" y2="379" marker-end="url(#seq-arrow)" stroke-dasharray="5,5" />
+    <text x="371.7" text-anchor="middle" y="374">Jolly good!</text>
+  </g>
+  <g class="seq-note">
+    <rect x="306.7" y="235" width="140.2" height="30" rx="3" />
+    <text text-anchor="middle" x="376.8" y="250" dominant-baseline="central">Rational thoughts!</text>
+  </g>
+  <g class="seq-participant" data-participant-id="Alice">
+    <rect x="20" y="20" width="100" height="40" rx="5" />
+    <text x="70" y="40" text-anchor="middle" dominant-baseline="central">Alice</text>
+  </g>
+  <g class="seq-participant" data-participant-id="John">
+    <rect x="246.7" y="20" width="100" height="40" rx="5" />
+    <text x="296.7" y="40" text-anchor="middle" dominant-baseline="central">John</text>
+  </g>
+  <g class="seq-participant" data-participant-id="Bob">
+    <rect x="396.7" y="20" width="100" height="40" rx="5" />
+    <text x="446.7" y="40" text-anchor="middle" dominant-baseline="central">Bob</text>
+  </g>
+</svg>

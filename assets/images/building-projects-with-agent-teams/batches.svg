@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-8.0 -8.0 331.6 386" width="331.6" height="386" style="background-color: white">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" markerWidth="8" markerHeight="8" refX="0" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#333333" />
+    </marker>
+    <marker id="circle-end" viewBox="0 0 10 10" markerWidth="8" markerHeight="8" refX="5" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <circle cx="5" cy="5" r="5" fill="#333333" />
+    </marker>
+    <marker id="cross-end" viewBox="0 0 11 11" markerWidth="8" markerHeight="8" refX="5.5" refY="5.5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 1,1 l 9,9 M 10,1 l -9,9" stroke="#333333" stroke-width="2" />
+    </marker>
+    <marker id="arrow-reverse" viewBox="0 0 10 10" markerWidth="8" markerHeight="8" refX="0" refY="5" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#333333" />
+    </marker>
+  </defs>
+  <style>.node rect, .node polygon, .node circle, .node &gt; path, .node line { fill: #ECECFF; stroke: #9370DB; stroke-width: 1; }
+.node text { fill: #333333; font-family: "trebuchet ms", verdana, arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Twemoji Mozilla"; font-size: 16px; }
+.edge path { fill: none; stroke: #333333; }
+.edge text { fill: #333333; font-family: "trebuchet ms", verdana, arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Twemoji Mozilla"; font-size: 12px; }
+.subgraph rect { fill: #ffffde; stroke: #aaaa33; stroke-width: 1; opacity: 0.5; }
+.subgraph text { fill: #333333; font-family: "trebuchet ms", verdana, arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Twemoji Mozilla"; font-size: 12px; font-weight: bold; }
+</style>
+  <g class="edge" data-edge-source="A1" data-edge-target="B1">
+    <path d="M72.4,42.0 L72.4,74.0" stroke-width="2" marker-end="url(#arrow)" />
+  </g>
+  <g class="edge" data-edge-source="B1" data-edge-target="C1">
+    <path d="M72.4,124.0 L72.4,156.0" stroke-width="2" marker-end="url(#arrow)" />
+  </g>
+  <g class="edge" data-edge-source="C1" data-edge-target="D1">
+    <path d="M72.4,206.0 L72.4,238.0" stroke-width="2" marker-end="url(#arrow)" />
+  </g>
+  <g class="edge" data-edge-source="A2" data-edge-target="B2">
+    <path d="M242.8,42.0 L242.8,74.0" stroke-width="2" marker-end="url(#arrow)" />
+  </g>
+  <g class="edge" data-edge-source="B2" data-edge-target="C2">
+    <path d="M242.8,124.0 L242.8,156.0" stroke-width="2" marker-end="url(#arrow)" />
+  </g>
+  <g class="edge" data-edge-source="C2" data-edge-target="D2">
+    <path d="M242.8,206.0 L242.8,238.0" stroke-width="2" marker-end="url(#arrow)" />
+  </g>
+  <g class="edge" data-edge-source="D1" data-edge-target="E">
+    <path d="M94.48,288.0 L130.73,322.49" stroke-width="2" marker-end="url(#arrow)" />
+  </g>
+  <g class="edge" data-edge-source="D2" data-edge-target="E">
+    <path d="M221.24,288.0 L185.89,322.42" stroke-width="2" marker-end="url(#arrow)" />
+  </g>
+  <g class="node" data-node-id="A1">
+    <rect x="3.2" y="0.0" width="138.4" height="42.0" />
+    <text text-anchor="middle" dominant-baseline="central" font-family="&quot;trebuchet ms&quot;, verdana, arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Noto Color Emoji&quot;, &quot;Twemoji Mozilla&quot;" x="72.4" y="21">PM groom #1</text>
+  </g>
+  <g class="node" data-node-id="B1">
+    <rect x="28.4" y="82.0" width="88.0" height="42.0" />
+    <text text-anchor="middle" dominant-baseline="central" font-family="&quot;trebuchet ms&quot;, verdana, arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Noto Color Emoji&quot;, &quot;Twemoji Mozilla&quot;" x="72.4" y="103">SWE #1</text>
+  </g>
+  <g class="node" data-node-id="C1">
+    <rect x="34.4" y="164.0" width="76.0" height="42.0" />
+    <text text-anchor="middle" dominant-baseline="central" font-family="&quot;trebuchet ms&quot;, verdana, arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Noto Color Emoji&quot;, &quot;Twemoji Mozilla&quot;" x="72.4" y="185">QA #1</text>
+  </g>
+  <g class="node" data-node-id="D1">
+    <rect x="1.6" y="246.0" width="141.6" height="42.0" />
+    <text text-anchor="middle" dominant-baseline="central" font-family="&quot;trebuchet ms&quot;, verdana, arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Noto Color Emoji&quot;, &quot;Twemoji Mozilla&quot;" x="72.4" y="267">PM accept #1</text>
+  </g>
+  <g class="node" data-node-id="A2">
+    <rect x="171.6" y="0.0" width="142.4" height="42.0" />
+    <text text-anchor="middle" dominant-baseline="central" font-family="&quot;trebuchet ms&quot;, verdana, arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Noto Color Emoji&quot;, &quot;Twemoji Mozilla&quot;" x="242.8" y="21">PM groom #2</text>
+  </g>
+  <g class="node" data-node-id="B2">
+    <rect x="196.8" y="82.0" width="92.0" height="42.0" />
+    <text text-anchor="middle" dominant-baseline="central" font-family="&quot;trebuchet ms&quot;, verdana, arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Noto Color Emoji&quot;, &quot;Twemoji Mozilla&quot;" x="242.8" y="103">SWE #2</text>
+  </g>
+  <g class="node" data-node-id="C2">
+    <rect x="202.8" y="164.0" width="80.0" height="42.0" />
+    <text text-anchor="middle" dominant-baseline="central" font-family="&quot;trebuchet ms&quot;, verdana, arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Noto Color Emoji&quot;, &quot;Twemoji Mozilla&quot;" x="242.8" y="185">QA #2</text>
+  </g>
+  <g class="node" data-node-id="D2">
+    <rect x="170.0" y="246.0" width="145.6" height="42.0" />
+    <text text-anchor="middle" dominant-baseline="central" font-family="&quot;trebuchet ms&quot;, verdana, arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Noto Color Emoji&quot;, &quot;Twemoji Mozilla&quot;" x="242.8" y="267">PM accept #2</text>
+  </g>
+  <g class="node" data-node-id="E">
+    <rect x="95.8" y="328.0" width="125.6" height="42.0" />
+    <text text-anchor="middle" dominant-baseline="central" font-family="&quot;trebuchet ms&quot;, verdana, arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Noto Color Emoji&quot;, &quot;Twemoji Mozilla&quot;" x="158.6" y="349">Pull next 2</text>
+  </g>
+</svg>

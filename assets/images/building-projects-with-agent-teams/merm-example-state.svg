@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-20 -20 294.8 812.8" width="294.8" height="812.8" style="background-color: white">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" markerWidth="8" markerHeight="8" refX="0" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#333333" />
+    </marker>
+    <marker id="circle-end" viewBox="0 0 10 10" markerWidth="8" markerHeight="8" refX="5" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <circle cx="5" cy="5" r="5" fill="#333333" />
+    </marker>
+    <marker id="cross-end" viewBox="0 0 11 11" markerWidth="8" markerHeight="8" refX="5.5" refY="5.5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 1,1 l 9,9 M 10,1 l -9,9" stroke="#333333" stroke-width="2" />
+    </marker>
+    <marker id="arrow-reverse" viewBox="0 0 10 10" markerWidth="8" markerHeight="8" refX="0" refY="5" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#333333" />
+    </marker>
+  </defs>
+  <style>.state rect, .state polygon, .state circle, .state line { fill: #ECECFF; stroke: #9370DB; stroke-width: 1; }
+.state text { fill: #333333; font-family: "trebuchet ms", verdana, arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Twemoji Mozilla"; font-size: 16px; }
+.edge path { fill: none; stroke: #333333; stroke-width: 2; }
+.edge text { fill: #333333; font-family: "trebuchet ms", verdana, arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Twemoji Mozilla"; font-size: 12px; }
+.composite rect { fill: #ffffde; stroke: #aaaa33; stroke-width: 1; opacity: 0.5; }
+.composite text { fill: #333333; font-family: "trebuchet ms", verdana, arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Twemoji Mozilla"; font-size: 12px; font-weight: bold; }
+.note rect { fill: #ffa; stroke: #aa3; stroke-width: 1; }
+.note text { fill: #333333; font-family: "trebuchet ms", verdana, arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Twemoji Mozilla"; font-size: 12px; }
+</style>
+  <g class="edge" data-edge-source="__start_0" data-edge-target="Placed">
+    <path d="M127.4,29.2 L127.4,70.4" stroke-width="2" marker-end="url(#arrow)" />
+  </g>
+  <g class="edge" data-edge-source="Placed" data-edge-target="Confirmed">
+    <path d="M127.4,120.4 L127.4,152.4" stroke-width="2" marker-end="url(#arrow)" />
+    <rect x="91.57" y="128.4" width="57.0" height="24.0" fill="rgba(232,232,232,0.8)" stroke="none" />
+    <text text-anchor="middle" dominant-baseline="central" x="120.07" y="140.4">confirm</text>
+  </g>
+  <g class="edge" data-edge-source="Confirmed" data-edge-target="Preparing">
+    <path d="M109.42,202.4 L80.38,236.32" stroke-width="2" marker-end="url(#arrow)" />
+    <rect x="53.3" y="210.4" width="78.0" height="24.0" fill="rgba(232,232,232,0.8)" stroke="none" />
+    <text text-anchor="middle" dominant-baseline="central" x="92.3" y="222.4">start prep</text>
+  </g>
+  <g class="edge" data-edge-source="Preparing" data-edge-target="Ready">
+    <path d="M57.2,284.4 L57.2,316.4" stroke-width="2" marker-end="url(#arrow)" />
+    <rect x="21.7" y="292.4" width="71.0" height="24.0" fill="rgba(232,232,232,0.8)" stroke="none" />
+    <text text-anchor="middle" dominant-baseline="central" x="57.2" y="304.4">prep done</text>
+  </g>
+  <g class="edge" data-edge-source="Ready" data-edge-target="Shipped">
+    <path d="M57.2,366.4 L57.2,398.4" stroke-width="2" marker-end="url(#arrow)" />
+    <rect x="39.2" y="374.4" width="36.0" height="24.0" fill="rgba(232,232,232,0.8)" stroke="none" />
+    <text text-anchor="middle" dominant-baseline="central" x="57.2" y="386.4">ship</text>
+  </g>
+  <g class="edge" data-edge-source="Shipped" data-edge-target="Delivered">
+    <path d="M57.2,448.4 L57.2,480.4" stroke-width="2" marker-end="url(#arrow)" />
+    <rect x="28.7" y="456.4" width="57.0" height="24.0" fill="rgba(232,232,232,0.8)" stroke="none" />
+    <text text-anchor="middle" dominant-baseline="central" x="57.2" y="468.4">deliver</text>
+  </g>
+  <g class="edge" data-edge-source="Delivered" data-edge-target="__end_0">
+    <path d="M53.95,530.4 C52.37,540.57 46.07,567.57 44.5,591.4 C42.93,615.23 42.85,649.33 44.5,673.4 C46.15,697.47 52.74,725.42 54.38,735.82" stroke-width="2" marker-end="url(#arrow)" />
+  </g>
+  <g class="edge" data-edge-source="Placed" data-edge-target="Cancelled">
+    <path d="M145.69,120.4 C154.54,130.57 189.86,162.4 198.8,181.4 C207.74,200.4 199.23,225.57 199.32,234.4" stroke-width="2" marker-end="url(#arrow)" />
+    <rect x="154.57" y="138.9" width="50.0" height="24.0" fill="rgba(232,232,232,0.8)" stroke="none" />
+    <text text-anchor="middle" dominant-baseline="central" x="179.57" y="150.9">cancel</text>
+  </g>
+  <g class="edge" data-edge-source="Confirmed" data-edge-target="Cancelled">
+    <path d="M145.89,202.4 L175.82,236.4" stroke-width="2" marker-end="url(#arrow)" />
+    <rect x="138.5" y="210.4" width="50.0" height="24.0" fill="rgba(232,232,232,0.8)" stroke="none" />
+    <text text-anchor="middle" dominant-baseline="central" x="163.5" y="222.4">cancel</text>
+  </g>
+  <g class="edge" data-edge-source="Cancelled" data-edge-target="__end_0">
+    <path d="M195.2,284.4 C193.06,294.57 183.27,321.57 182.4,345.4 C181.53,369.23 184.88,400.07 190.0,427.4 C195.12,454.73 209.72,482.07 213.1,509.4 C216.48,536.73 210.77,564.07 210.3,591.4 C209.83,618.73 233.16,647.76 210.3,673.4 C187.44,699.04 96,733.27 73.14,745.25" stroke-width="2" marker-end="url(#arrow)" />
+  </g>
+  <g class="edge" data-edge-source="Shipped" data-edge-target="Returned">
+    <path d="M89.19,448.4 C104.67,458.57 180.99,489.8 182.1,509.4 C183.21,529 110.25,556.57 95.87,566.01" stroke-width="2" marker-end="url(#arrow)" />
+    <rect x="110.64" y="466.9" width="50.0" height="24.0" fill="rgba(232,232,232,0.8)" stroke="none" />
+    <text text-anchor="middle" dominant-baseline="central" x="135.64" y="478.9">return</text>
+  </g>
+  <g class="edge" data-edge-source="Delivered" data-edge-target="Returned">
+    <path d="M57.2,530.4 L57.2,562.4" stroke-width="2" marker-end="url(#arrow)" />
+    <rect x="32.2" y="538.4" width="50.0" height="24.0" fill="rgba(232,232,232,0.8)" stroke="none" />
+    <text text-anchor="middle" dominant-baseline="central" x="57.2" y="550.4">return</text>
+  </g>
+  <g class="edge" data-edge-source="Returned" data-edge-target="Refunded">
+    <path d="M57.2,612.4 L57.2,644.4" stroke-width="2" marker-end="url(#arrow)" />
+    <rect x="4.2" y="620.4" width="106.0" height="24.0" fill="rgba(232,232,232,0.8)" stroke="none" />
+    <text text-anchor="middle" dominant-baseline="central" x="57.2" y="632.4">process refund</text>
+  </g>
+  <g class="edge" data-edge-source="Refunded" data-edge-target="__end_0">
+    <path d="M57.2,694.4 L57.2,735.6" stroke-width="2" marker-end="url(#arrow)" />
+  </g>
+  <g class="state start">
+    <circle cx="127.4" cy="19.2" r="10" style="fill: black; stroke: black" />
+  </g>
+  <g class="state" data-state-id="Placed">
+    <rect x="84.6" y="78.4" width="85.6" height="42" rx="10" ry="10" />
+    <text x="127.4" y="99.4" text-anchor="middle" dominant-baseline="central" font-family="&quot;trebuchet ms&quot;, verdana, arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Noto Color Emoji&quot;, &quot;Twemoji Mozilla&quot;">Placed</text>
+  </g>
+  <g class="state" data-state-id="Confirmed">
+    <rect x="71" y="160.4" width="112.8" height="42" rx="10" ry="10" />
+    <text x="127.4" y="181.4" text-anchor="middle" dominant-baseline="central" font-family="&quot;trebuchet ms&quot;, verdana, arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Noto Color Emoji&quot;, &quot;Twemoji Mozilla&quot;">Confirmed</text>
+  </g>
+  <g class="state" data-state-id="Preparing">
+    <rect x="0" y="242.4" width="114.4" height="42" rx="10" ry="10" />
+    <text x="57.2" y="263.4" text-anchor="middle" dominant-baseline="central" font-family="&quot;trebuchet ms&quot;, verdana, arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Noto Color Emoji&quot;, &quot;Twemoji Mozilla&quot;">Preparing</text>
+  </g>
+  <g class="state" data-state-id="Ready">
+    <rect x="17.2" y="324.4" width="80" height="42" rx="10" ry="10" />
+    <text x="57.2" y="345.4" text-anchor="middle" dominant-baseline="central" font-family="&quot;trebuchet ms&quot;, verdana, arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Noto Color Emoji&quot;, &quot;Twemoji Mozilla&quot;">Ready</text>
+  </g>
+  <g class="state" data-state-id="Shipped">
+    <rect x="9.6" y="406.4" width="95.2" height="42" rx="10" ry="10" />
+    <text x="57.2" y="427.4" text-anchor="middle" dominant-baseline="central" font-family="&quot;trebuchet ms&quot;, verdana, arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Noto Color Emoji&quot;, &quot;Twemoji Mozilla&quot;">Shipped</text>
+  </g>
+  <g class="state" data-state-id="Delivered">
+    <rect x="2" y="488.4" width="110.4" height="42" rx="10" ry="10" />
+    <text x="57.2" y="509.4" text-anchor="middle" dominant-baseline="central" font-family="&quot;trebuchet ms&quot;, verdana, arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Noto Color Emoji&quot;, &quot;Twemoji Mozilla&quot;">Delivered</text>
+  </g>
+  <g class="state end">
+    <circle cx="57.2" cy="753.6" r="10" style="fill: none; stroke: black; stroke-width: 2" />
+    <circle cx="57.2" cy="753.6" r="6" style="fill: black; stroke: black" />
+  </g>
+  <g class="state" data-state-id="Cancelled">
+    <rect x="144.4" y="242.4" width="110.4" height="42" rx="10" ry="10" />
+    <text x="199.6" y="263.4" text-anchor="middle" dominant-baseline="central" font-family="&quot;trebuchet ms&quot;, verdana, arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Noto Color Emoji&quot;, &quot;Twemoji Mozilla&quot;">Cancelled</text>
+  </g>
+  <g class="state" data-state-id="Returned">
+    <rect x="4.8" y="570.4" width="104.8" height="42" rx="10" ry="10" />
+    <text x="57.2" y="591.4" text-anchor="middle" dominant-baseline="central" font-family="&quot;trebuchet ms&quot;, verdana, arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Noto Color Emoji&quot;, &quot;Twemoji Mozilla&quot;">Returned</text>
+  </g>
+  <g class="state" data-state-id="Refunded">
+    <rect x="4.8" y="652.4" width="104.8" height="42" rx="10" ry="10" />
+    <text x="57.2" y="673.4" text-anchor="middle" dominant-baseline="central" font-family="&quot;trebuchet ms&quot;, verdana, arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Noto Color Emoji&quot;, &quot;Twemoji Mozilla&quot;">Refunded</text>
+  </g>
+</svg>

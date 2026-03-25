@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 651 868" width="651" height="868">
+<style>
+.mindmap-node { cursor: pointer; }
+.mindmap-label { font-family: sans-serif; font-size: 14px; text-anchor: middle; dominant-baseline: middle; fill: #333; }
+.mindmap-branch { fill: none; }
+</style>
+<path d="M 319.0 433.9 Q 343.0 353.9 319.0 273.9" fill="none" stroke="#4572A7" stroke-width="2.5" stroke-linecap="round" class="mindmap-branch" data-node-id="Origins"/>
+<path d="M 319.0 273.9 Q 244.8 136.0 106.9 61.8" fill="none" stroke="#4572A7" stroke-width="2.5" stroke-linecap="round" class="mindmap-branch" data-node-id="Long_history"/>
+<path d="M 319.0 273.9 Q 456.9 199.7 531.2 61.8" fill="none" stroke="#4572A7" stroke-width="2.5" stroke-linecap="round" class="mindmap-branch" data-node-id="Popularisation"/>
+<path d="M 319.0 433.9 Q 295.0 513.9 319.0 593.9" fill="none" stroke="#AA4643" stroke-width="2.5" stroke-linecap="round" class="mindmap-branch" data-node-id="Research"/>
+<path d="M 319.0 593.9 Q 393.3 731.8 531.2 806.1" fill="none" stroke="#AA4643" stroke-width="2.5" stroke-linecap="round" class="mindmap-branch" data-node-id="On_effectiveness"/>
+<path d="M 319.0 593.9 Q 181.1 668.2 106.9 806.1" fill="none" stroke="#AA4643" stroke-width="2.5" stroke-linecap="round" class="mindmap-branch" data-node-id="On_features"/>
+<circle cx="319.0" cy="433.9" r="49.8" fill="#f0f0f0" stroke="#333" stroke-width="2" class="mindmap-node" data-node-id="root"/>
+<text x="319.0" y="438.9" class="mindmap-label" data-node-id="root">mindmap</text>
+<rect x="273.1" y="252.1" width="91.8" height="43.6" rx="6" ry="6" fill="#a2b8d3" stroke="#4572A7" stroke-width="2" class="mindmap-node" data-node-id="Origins"/>
+<text x="319.0" y="278.9" class="mindmap-label" data-node-id="Origins">Origins</text>
+<rect x="40.0" y="40.0" width="133.8" height="43.6" rx="6" ry="6" fill="#a2b8d3" stroke="#4572A7" stroke-width="2" class="mindmap-node" data-node-id="Long_history"/>
+<text x="106.9" y="66.8" class="mindmap-label" data-node-id="Long_history">Long history</text>
+<rect x="459.4" y="40.0" width="143.6" height="43.6" rx="6" ry="6" fill="#a2b8d3" stroke="#4572A7" stroke-width="2" class="mindmap-node" data-node-id="Popularisation"/>
+<text x="531.2" y="66.8" class="mindmap-label" data-node-id="Popularisation">Popularisation</text>
+<rect x="265.4" y="572.1" width="107.2" height="43.6" rx="6" ry="6" fill="#d4a2a1" stroke="#AA4643" stroke-width="2" class="mindmap-node" data-node-id="Research"/>
+<text x="319.0" y="598.9" class="mindmap-label" data-node-id="Research">Research</text>
+<rect x="451.0" y="784.3" width="160.4" height="43.6" rx="6" ry="6" fill="#d4a2a1" stroke="#AA4643" stroke-width="2" class="mindmap-node" data-node-id="On_effectiveness"/>
+<text x="531.2" y="811.1" class="mindmap-label" data-node-id="On_effectiveness">On effectiveness</text>
+<rect x="44.2" y="784.3" width="125.4" height="43.6" rx="6" ry="6" fill="#d4a2a1" stroke="#AA4643" stroke-width="2" class="mindmap-node" data-node-id="On_features"/>
+<text x="106.9" y="811.1" class="mindmap-label" data-node-id="On_features">On features</text>
+</svg>
