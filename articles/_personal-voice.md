@@ -1,7 +1,7 @@
 ---
 title: "Personal Writing Style"
 created: 2026-03-21
-updated: 2026-03-21
+updated: 2026-03-25
 tags: [style, writing, newsletter]
 ---
 
@@ -62,17 +62,18 @@ When going deeper on something, follow this pattern:
 - Starting paragraphs with rhetorical questions ("And why not just...?", "But what about...?") - make a statement instead
 - Naming specific people as examples in public articles
 - Idioms that feel unnatural: "on the table", "at the end of the day"
-- Over-formal framing: "One benefit of X is Y", "I want to be clear:", "Let me be clear", "I made a deliberate choice:", "I added a trick:", "One thing that worked well:", "The result:" - just say it directly, don't announce what you're about to say
+- Over-formal framing: "The idea:", "The result:", "One benefit of X is Y", "I want to be clear:" - any phrase that announces what you're about to say before saying it. Just say it directly.
 - Redundant sentences that repeat what the previous sentence just said
 - Repetitive descriptions across sections (e.g. describing the same thing in both an overview and a detail section)
 - Internal positioning language in public articles ("the focus is narrow on purpose") - the reader doesn't care about your strategy, tell them what they get
 - "need" when "may need" is more accurate and less presumptuous
+- Overly wordy constructions when a simpler verb works: "I've had this idea for a long time to X" -> "I wanted to X for a long time", "I'd already described" -> "I already described"
 - Walls of text - dense paragraphs without visual breaks
-- Incomplete or fragment sentences used for dramatic effect ("An AI community platform, built by AI agents.") - use proper sentences
+- Incomplete or fragment sentences used for dramatic effect ("An AI community platform, built by AI agents.") - use proper sentences. Also applies to hanging phrases like "Same approach as the other projects, one difference", dropped subjects ("Can't install plugins" -> "I can't install plugins"), and "Not X, but Y" constructions used as standalone sentences ("Not for simple pages, but for complex projects." -> "It's for complex projects where you can't just start a session and go."). Always use full sentences with subjects and verbs.
 - "ceremony" and similar jargon ("pull request ceremony")
 - "do" for emphasis before verbs ("Or you do start" -> "Or you start")
 - Trailing comma + single word at the end of a sentence for emphasis ("build something together, live" or "ship it, fast") - feels unnatural
-- Long sentences with dash-enclosed clarifications in the middle ("A project like this - with all the integrations, the course management - would take...") - split into two sentences or drop the clarification
+- Long sentences with dash-enclosed clarifications in the middle ("A project like this - with all the integrations, the course management - would take...") - one dash in a sentence is usually fine, but two dashes creating a parenthetical is a problem. Split into shorter sentences or drop the clarification
 - Punctuation inside quotes when the quote is not a full sentence: use "platform". not "platform."
 - "have the same story" - prefer "share the same story"
 - "building with AI" is ambiguous (building using AI tools vs building AI products) - be specific about which one you mean
@@ -86,3 +87,4 @@ When going deeper on something, follow this pattern:
 - DataTalks.Club (with dots) is the correct spelling
 - Use straight quotes (' and ") not curly/smart quotes
 - Include `<!-- illustration: description -->` comments where images should go
+- Don't touch existing `<figure>` blocks when editing - leave illustrations as they are
