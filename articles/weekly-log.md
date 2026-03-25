@@ -1,7 +1,7 @@
 ---
 title: "Weekly Log"
 created: 2026-02-26
-updated: 2026-03-19
+updated: 2026-03-25
 tags: [weekly, log]
 status: draft
 ---
@@ -9,6 +9,12 @@ status: draft
 # Weekly Log
 
 A running log of what was done each week. When a topic has its own detailed article, this log contains a short summary with a link. When there is not much content for a topic, the details go here directly.
+
+## Week of 2026-03-24
+
+### Trying Codex as Claude Code Alternative
+
+Hit Claude Code session limits on a simple file-splitting task - usage jumped from 80% to 100% instantly. Many people reporting the same issue. Started using OpenAI Codex as an alternative. The agent workflow works but requires more babysitting - no task widget, no auto-continue when subagents finish. Limits on Codex feel much more generous. See [Trying OpenAI Codex as a Claude Code Alternative](codex-experiments.md) for details[^22][^23][^24].
 
 ## Week of 2026-03-17
 
@@ -139,3 +145,6 @@ Upgraded to AWS Business support, got on a call with support at 2 AM. Still wait
 [^19]: [20260305_100309_AlexeyDTC_msg2730_transcript.txt](../inbox/used/20260305_100309_AlexeyDTC_msg2730_transcript.txt)
 [^20]: [20260318_180542_AlexeyDTC_msg3002.md](../inbox/used/20260318_180542_AlexeyDTC_msg3002.md)
 [^21]: [20260318_180716_AlexeyDTC_msg3004.md](../inbox/used/20260318_180716_AlexeyDTC_msg3004.md)
+[^22]: [20260324_182110_AlexeyDTC_msg3068_transcript.txt](../inbox/used/20260324_182110_AlexeyDTC_msg3068_transcript.txt)
+[^23]: [20260325_095005_AlexeyDTC_msg3076_transcript.txt](../inbox/used/20260325_095005_AlexeyDTC_msg3076_transcript.txt)
+[^24]: [20260325_095434_AlexeyDTC_msg3080_transcript.txt](../inbox/used/20260325_095434_AlexeyDTC_msg3080_transcript.txt)
