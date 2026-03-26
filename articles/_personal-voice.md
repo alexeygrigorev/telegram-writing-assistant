@@ -13,7 +13,7 @@ My writing style preferences for newsletter articles and public-facing content. 
 
 - Write in first person, conversational - like talking to a friend, not presenting to an audience
 - Use contractions naturally: "don't", "I've", "we're", "it's", "wouldn't" - not "do not", "I have", "we are"
-- Avoid phrases that sound like a sales pitch or marketing copy: "Now for the fun part", "on the table", etc.
+- Avoid phrases that sound like a sales pitch or marketing copy: "Now for the fun part", "on the table", etc. (But these articles are marketing content, so CTAs like "subscribe" or "follow along" are fine)
 - Prefer direct statements over framing devices. Instead of "One benefit of a private community: you can share things you would not discuss publicly" write something like "A private community also means you can talk about things you wouldn't bring up publicly"
 - Don't over-explain or over-sell. State what it is and move on
 - Use "we" when talking about shared efforts, "I" when talking about personal decisions
