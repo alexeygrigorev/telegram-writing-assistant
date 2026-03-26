@@ -16,17 +16,17 @@ For simple things, I can just open a Claude Code session and start working. But 
 
 Before I open Claude Code, I need to be really clear about what I want to implement. I do this by dumping my idea to [the telegram writing assistant](https://alexeyondata.substack.com/p/telegram-assistant) or talking to ChatGPT to refine it (or both).
 
-The goal is to get requirements written down. You can read more about how I approach brainstorming sessions with ChatGPT in [How I Built SQLiteSearch: A Lightweight Python Library for Local Text and Vector Search](https://alexeyondata.substack.com/p/how-i-built-sqlitesearch-a-lightweight).
+The goal is to get requirements written down. You can read more about how I approach brainstorming sessions with ChatGPT in [How I Built SQLiteSearch](https://alexeyondata.substack.com/p/how-i-built-sqlitesearch-a-lightweight).
 
-For small projects this is enough. I ask the agent to read the reqiurements and start implementing. But for bigger projects, a single task is too much for one agent to handle at once. I decompose these requirements into smaller, well-scoped tasks that agents can work on independently. 
+For small projects this is enough. I ask the agent to read the requirements and start implementing. But for bigger projects, the requirements file is too much for one agent to handle at once. I break it into smaller, well-scoped tasks. 
 
-Once I have the tasks, I want to refine them further. Each task needs to have:
+Each task needs:
 
-- clear description of what it accomplishes
-- acceptance criteria - how do we know it's done 
-- user scenarios - how exactly users are going to use it
+- A description of what exactly needs to be done
+- Acceptance criteria - how do we know it's done 
+- User scenarios - how exactly users are going to use it
 
-This process is called "grooming" - turning a task into something very concrete and clear. I delegate this job to a special agent - the Product Manager. The PM picks a task and adds as many details as possible. Then I can look at it and confirm this is what I actually want.
+I delegate this grooming to a special agent - the Product Manager. The PM picks a task and fills in the details. Then I can look at it and confirm if this is what I actually want.
 
 Then the team of agents starts working on it.
 
@@ -37,8 +37,7 @@ Four agents handle the full task lifecycle:
 - [Product Manager](https://github.com/AI-Shipping-Labs/website/blob/main/.claude/agents/product-manager.md) (PM) - represents the user and has the final say into what gets into the feature and what doesn't 
 - [Software Engineer](https://github.com/AI-Shipping-Labs/website/blob/main/.claude/agents/software-engineer.md) (SWE) - implements code and writes tests
 - [Tester](https://github.com/AI-Shipping-Labs/website/blob/main/.claude/agents/tester.md) (QA) - verifies the task according to the acceptance criteria and user scenarios
-- [On-Call Engineer](https://github.com/AI-Shipping-Labs/website/blob/main/.claude/agents/oncall-engineer.md) - monitors CI/CD and fixes pipeline failures after code is pushed
-
+- [On-Call Engineer](https://github.com/AI-Shipping-Labs/website/blob/main/.claude/agents/oncall-engineer.md) - monitors CI/CD and fixes pipeline failures
 
 <figure>
   <img src="../assets/images/community-platform-implementation/agent-roles-renamed.jpg" alt="Agent roles table showing Product Manager, Software Engineer, Tester, and On-Call Engineer">
@@ -48,6 +47,7 @@ Four agents handle the full task lifecycle:
 The process is the following:
 
 - I ask the orchestrator to create a task
+- The task is added to the backlog
 - Eventually PM picks it up and grooms it
 - The SWE implements it
 - QA tests the task and either accepts it or rejects it
@@ -63,7 +63,7 @@ Of course, the process needs to be written down. You can see mine here: [`PROCES
 You can use anything you want to track your tasks:
 
 - The file system
-- Github issues
+- GitHub issues
 - Linear
 - Anything else that your agents can access
 
@@ -81,7 +81,7 @@ I always run two tasks in parallel. When one batch with two tasks is finished, t
   <figcaption>Two tasks processed in parallel, then the next batch is pulled from the backlog</figcaption>
 </figure>
 
-To keep the loop going, there's always a task that says "when you finish all current tasks, pull the next two issues from the backlog." This creates a self-sustaining loop until the backlog is empty[^1].
+To keep the loop going, there's always a task that says "when you finish all current tasks, pull the next two issues from the backlog". This creates a self-sustaining loop until the backlog is empty.
 
 <figure>
   <img src="../assets/images/community-platform-implementation/claude-code-task-list.jpg" alt="Claude Code task list with agents running in parallel">
@@ -90,7 +90,7 @@ To keep the loop going, there's always a task that says "when you finish all cur
 
 With this methodology, I worked on five different projects:
 
-- AI Shipping Labs
+- AI Shipping Labs community platform
 - DataTasks
 - Merm (Mermaid diagram renderer)
 - Rustkyll (Jekyll to Rust rewrite)
@@ -100,11 +100,11 @@ With this methodology, I worked on five different projects:
 
 My first attempt at this approach was the [AI Shipping Labs](https://github.com/AI-Shipping-Labs/website) community platform. I will publish a separate article about this, but here I'll describe it briefly. 
 
-When Valeriia and I decided to create a new community, we started by gathering the requirements for the platform to host it. We recorded a lot of voice messages and had a lot of sessions with ChatGPT. Eventually we realized that no existing platform satisfies the requirements we have, we decided to build our own.
+[ADD SUBSCRIBE BUTTON]
 
-We already did the first step: requirement gathering. Then I told Claude Code to turn them into specifications and then into tasks.
+When Valeriia and I decided to create a new community, we started by gathering the requirements for the platform to host it. We recorded a lot of voice messages and had multiple sessions with ChatGPT. Eventually we realized that no existing platform satisfies the requirements we have, so we decided to build our own.
 
-As the tracker, I used Github Issues https://github.com/AI-Shipping-Labs/website/issues. Agents pushed code and left comments on issues. Everyone worked on main, no branches or pull requests, since that's too much overhead during intensive development[^1].
+We already did the first step: requirement gathering, so I just needed to put all this information into one file. Then I told Claude Code to turn it into specifications and then into tasks. As the tracker, I used [GitHub Issues](https://github.com/AI-Shipping-Labs/website/issues).
 
 After I set up everything, I let agents run through the night. When I woke up the next day, 41 out of 46 tasks were done.
 
@@ -113,11 +113,11 @@ After I set up everything, I let agents run through the night. When I woke up th
   <figcaption>Morning after: 41 out of 46 tasks completed overnight without intervention</figcaption>
 </figure>
 
-It took many more iterations across multiple weeks but I followed the same process: 
+That was one month ago. I had a lot of iterations since then, but I always followed the same process:
 
-- talk to the orchestrator
-- the orchestrator creates an issue
-- then it launches the implementation pipeline (grooming -> implementing -> testing -> acceptance)
+- Talk to the orchestrator
+- The orchestrator creates an issue
+- Then it launches the implementation pipeline (grooming -> implementing -> testing -> acceptance)
 
 If you're interested to see how issues look like, check [this one about adding comments](https://github.com/AI-Shipping-Labs/website/issues/147):
 
@@ -134,61 +134,62 @@ If you're interested to see how issues look like, check [this one about adding c
 
 ## DataTasks for DataTalks
 
-I successfully tried this approach for one project and I wanted to see if it generalizes for others. 
+I successfully tried this approach for one project and I wanted to see if it generalizes for others.
 
 The first project that came to mind was a task tracker for DataTalks.Club's team. Right now, organizing work within the DataTalks.Club team is scattered across:
 
-- A bunch of scripts
-- Different spreadsheets
 - A Trello board
+- Different spreadsheets
+- A telegram channel with a TODO bot
 
-It works, but there's a lot of cognitive load. I've wanted to replace all of that with a custom solution but never had time.
+<figure>
+  <img src="../assets/images/building-projects-with-agent-teams/telegram-todo-list.png" alt="Telegram TODO bot channel with task list">
+  <figcaption>Our current task tracking in a Telegram channel with a TODO bot</figcaption>
+</figure>
 
-With coding agents, I finally could. I used the Telegram bot to dictate all the requirements, then followed the same approach as for AI Shipping Labs.
+It works, but there's a lot of cognitive load. I've wanted to replace all of that with a custom solution but never had time. With coding agents, I finally could. I used the Telegram bot to dictate all the requirements, then followed the same approach as for AI Shipping Labs.
 
 When the requirements were ready, I added the only technical requirement: it has to be serverless, work on AWS Lambda and DynamoDB. I didn't care about the rest and let the team decide. 
 
-
-The project is called [DataTasks](https://github.com/alexeygrigorev/datatasks). I spent around 20 minutes dictating the requirements and maybe 20 minutes more to start the claude code session and give some feedback the next day.
+The project is called [DataTasks](https://github.com/alexeygrigorev/datatasks). I spent around 20 minutes dictating the requirements and maybe 20 minutes more to start the Claude Code session and give some feedback the next day.
 
 I dropped this project for now because I don't have time to properly look into it (the current approach for our tasks works anyways) but it was a fun experiment. The main value was testing the methodology, and one day I'll come back to it and continue.
 
 <figure>
   <img src="../assets/images/building-projects-with-agent-teams/datatasks-dashboard.png" alt="Data Tasks dashboard showing Active Bundles on the left and Today's Tasks on the right">
-  <figcaption>Data Tasks dashboard - built entirely by the agent team</figcaption>
+  <figcaption>DataTasks dashboard</figcaption>
 </figure>
 
 ## Merm (Mermaid Diagrams)
 
-Eventually I ran into a third project where I had a chance to test this approach. 
+Eventually I ran into a third project where I had a chance to test this approach.
 
-I was working on the AI Engineering Buildcamp course and I needed to add a diagram to a lesson. Mermaid is the obvious choice for that.
+I was working on the [AI Engineering Buildcamp course](https://maven.com/alexey-grigorev/from-rag-to-agents) and I needed to add a diagram to a lesson. Mermaid is the obvious choice for that.
+
+<figure>
+  <img src="../assets/images/building-projects-with-agent-teams/mermaid-mmd.png" alt="Mermaid .mmd diagram file for the course">
+  <figcaption>A Mermaid diagram I needed for the course</figcaption>
+</figure>
 
 But when I tried to render Mermaid diagrams to images from Python, I found two problems:
 
-- there's no Python library for that
-- the only available nodejs library launches a full browser under the hood to do the rendering
+- No Python library for that
+- The only available Node.js library launches a full browser under the hood to do the rendering
 
-I couldn't find anything on Python that would just render SVG directly without a browser[^2].
+I couldn't find anything on Python that would just render SVG directly without a browser. Mermaid diagrams are so popular, and the only library uses a browser? So I asked Claude Code to implement a pure Python renderer.
 
-Mermaid diagrams are so popular, and the only library uses a browser? So I asked Claude Code to implement a pure Python renderer.
-
-I followed the same approach as the other projects, with one difference. I didn't know if it was going to be useful, so I just used the file system to track the tasks
+I followed the same approach as the other projects, with one difference. I didn't know if it was going to be useful, so I just used the file system instead of GitHub issues to track the tasks.
 
 - I created a folder, did `git init`
 - Instructed the agent to put all tasks into the `tracker` folder
 - File name encodes the status: `.todo.md` → `.groomed.md` → `.in-progress.md` → `done/`
-- And I used the same pipeline
+- Used the same pipeline
 
 My involvement was minimal. I checked in occasionally, said what I didn't like, described clear criteria. At the end I also asked for benchmarks to see if it's actually faster[^2].
 
 I liked the results, so I published it as [merm](https://github.com/alexeygrigorev/merm).
 
-In this project, there were clear acceptance criteria: the diagrams are generated properly. I also looked at them visually because the agent couldn't. I had to point out specific things to fix. It didn't do everything completely without me, but it was a fairly large and successful project[^3].
-
-Now I'm using it for generating diagrams (also for this article).
-
-Here are a few examples from [the gallery](https://github.com/alexeygrigorev/merm/tree/main/docs/examples):
+Now I'm using it for generating diagrams (also for this article). Here are a few examples from [the gallery](https://github.com/alexeygrigorev/merm/tree/main/docs/examples):
 
 <figure>
   <img src="../assets/images/building-projects-with-agent-teams/merm-example-ci-pipeline.svg" alt="CI pipeline diagram with Build, Test, and Deploy stages rendered by Merm">
@@ -203,35 +204,39 @@ Here are a few examples from [the gallery](https://github.com/alexeygrigorev/mer
 
 ## Rustkyll (Jekyll to Rust)
 
-Our DataTalks.Club website uses Jekyll. It's a static website generator written in Ruby, and the majority of websites that use GitHub pages for hosting content use it for generating the content. For small sites it works great, and I'd still use it for new small projects.
+Our [DataTalks.Club](https://datatalks.club/) website uses [Jekyll](https://github.com/DataTalksClub/datatalksclub.github.io). It's a static website generator written in Ruby, and the majority of websites on GitHub pages use it. It works great for small sites, and I'd still use it for new small projects.
 
-But the DTC website is more than 5 years old and it has grown very large over the years. there's a lot of content. Now it reached the point where building the website takes 1 minute on my computer. It means that I change something and I need to wait for one minute to see the results. This is very long and very annoying. 
+But the DataTalks.Club website is more than 5 years old and it has grown very large over the years. There's a lot of content.
 
-When I was making another change recently (I was adding a logo of our new sponsor - Snowplow), I decided that it's finally time to make it faster. 
+Now it reached the point when building the website takes more than one minute on my computer. It means that I change something and I need to wait for one minute to see the results. This is very long and very annoying. 
 
-I've had this idea of rewriting Jekyll to Rust for at least 6 months, if not more. Now agents are finally at the level where they can run autonomously, and I have the methodology I want to test and refine, I decided - let's use it to implement Rustkyll
+I was making another change recently - I was adding a logo of our new sponsor (Snowplow), and it would again take me one minute to see the logo appear. I finally decided that it's time to make it faster.
 
+I've had this idea of rewriting Jekyll to Rust for at least 6 months, if not more. Now agents are finally at the level where they can run autonomously, and I have the methodology that I want to test and refine. So I decided to test it to implement [Rustkyll](https://github.com/alexeygrigorev/rustkyll/). 
 
-[Rustkyll](https://github.com/alexeygrigorev/rustkyll/). 
+I didn't think it was necessary to do the requirements part (mistake!) so I just pointed Claude to our website and said "let's reimplement it in Rust, use this methodology, go".
 
-I didn't think it was necessary to do the specs (mistake!) so I just pointed Claude to my website and said "let's reimplement the generator in Rust, use this methodology, go"
+I checked the results next day. It was specifically tailored to our site, completely not generic. It wouldn't work on other websites. So I told it to find other Jekyll sites and make it work for those too.
 
-Next day I checked the results. It was very specifically tailored to our site, completely not generic. It wouldn't work on other websites, so I told it to find other Jekyll sites and make it work for those too[^3].
+It's been 3 weeks since agents are working on this project. It turned out to be far more complex than I expected.
 
-It's been 3 weeks that agents are working on this project. It turned out to be far more complex than I expected. But they can run it autonomously - they don't really need my input. I came up with a very clear optimization criteria - minimize the differences between the content generated by Jekyll and Rustkyll, so it's creating new tasks every time there's a difference and fixes it.
+But they can run it autonomously - they don't really need my input. I came up with a very clear optimization criteria - minimize the differences between the content generated by Jekyll and Rustkyll. When it finishes the backlog, it runs the comparison and comes up with new tasks.
 
-I can leave the agent completely alone and only check in occasionally
+It's still work in progress but for the DTC website it already takes 1 second. There are almost no visible differences between Jekyll and Rustkyll for our website right now. 
 
-It's still work in progress but for the DTC website it takes 1 second and there are almost no visible differences between Jekyll and Rustkyll. 
+But I want to make it a drop-in replacement for Jekyll and it requires a lot of work from the team. From my side it's minimal oversight. I just drop by sometimes, check that the agents aren't idle, and if they are, I poke them to continue working.
 
-But I want to make it a drop-in replacement and it requires a lot of work from the team. From my side it's minimal oversight. I just drop by sometimes, check that the agents aren't idle, and if they are, I poke them to continue working. 
+<figure>
+  <img src="../assets/images/building-projects-with-agent-teams/rustkyll-comparison.png" alt="Rustkyll comparison showing DOM tree differences across multiple Jekyll sites">
+  <figcaption>Comparing DOM trees across multiple sites to find differences between Jekyll and Rustkyll output</figcaption>
+</figure> 
 
 
 ## Codehive (Coding Orchestrator)
 
 After running several projects with this methodology, I started noticing the same problems over and over.
 
-The most common problem is that Claude Code orchestrator stops. It can ask "shall we proceed?" and wait the entire night for my answer. Or it sometimes reports that the job is done, even though there are todo list in its task widget.
+The most common problem is that Claude Code orchestrator stops. It can ask "shall we proceed?" and wait the entire night for my answer. Or it sometimes reports that the job is done, even though there are items in its task widget.
 
 <figure>
   <img src="../assets/images/building-projects-with-agent-teams/codehive-agent-stopping.jpg" alt="Claude Code agent stopping and asking for confirmation instead of continuing">
@@ -239,7 +244,14 @@ The most common problem is that Claude Code orchestrator stops. It can ask "shal
 </figure>
 
 
-Also, I can't see what subagents are doing. A subagent can do something for an hour, and I have no idea if it's stuck or not. 
+Also, I can't see what subagents are doing. A subagent can do something for an hour, and I have no idea if it's stuck or not.
+
+Another problem is that the orchestrator sometimes ignores the process completely. It launches the SWE directly, skipping PM grooming and QA verification. I had to point this out and make it follow the process.
+
+<figure>
+  <img src="../assets/images/building-projects-with-agent-teams/agents-skipping-work.png" alt="Claude Code skipping the process and launching SWE directly without PM grooming or QA verification">
+  <figcaption>The orchestrator ignoring the process and going straight to implementation</figcaption>
+</figure>
 
 And last week and this week I started hitting Claude Code usage limits. I want to be able to switch between different tools easily and not depend on just Claude.
 
@@ -260,7 +272,7 @@ I have a few things in mind for Codehive:
 - Visibility into subagents - I can peek inside to see what's happening and correct course
 - GitHub integration - when I create an issue in GitHub, Codehive picks it up
 
-The team is working on it right now
+The team is working on it right now.
 
 <figure>
   <img src="../assets/images/building-projects-with-agent-teams/codehive-project-summary.jpg" alt="Summary of Codehive project: 96 issues done, ~2,195 tests across backend, web, mobile">
@@ -268,7 +280,7 @@ The team is working on it right now
 </figure>
 
 
-Right now my focus is on finishing the platform for AI Shipping Labs, but eventually I will focus more on it. 
+Right now my focus is on finishing the platform for AI Shipping Labs, but eventually I will focus more on Codehive. 
 
 
 ## What I've Learned
