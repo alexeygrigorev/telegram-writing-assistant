@@ -28,31 +28,7 @@ Each resource entry follows this simple format:
 
 ## Tools
 
-### gstack
-
-[gstack](https://github.com/garrytan/gstack) is a set of opinionated Claude Code slash commands that turn a single AI assistant into a team of specialists - CEO, eng manager, release engineer, and QA engineer. Created by Y Combinator president Garry Tan, it provides commands like /plan-ceo-review for product thinking, /review for paranoid code review, /ship for one-command PR creation, and /browse and /qa for automated browser-based testing with screenshots. It is a good reference for how to structure Claude Code custom commands for multi-role development workflows[^39].
-
-### Insanely Fast Whisper
-
-[Insanely Fast Whisper](https://github.com/Vaibhavs10/insanely-fast-whisper) is an opinionated CLI tool that transcribes audio files using OpenAI's Whisper models on-device, powered by Hugging Face Transformers, Optimum, and Flash Attention 2. It can transcribe 150 minutes of audio in under 2 minutes on an Nvidia A100, with support for batched inference, word-level timestamps, and speaker diarization via Pyannote. It works on both NVIDIA GPUs and Apple Silicon Macs and supports multiple Whisper checkpoints including distil-whisper variants[^40].
-
-### Lightpanda Browser
-
-[Lightpanda Browser](https://github.com/lightpanda-io/browser) is an open-source headless browser built from scratch in Zig, designed specifically for AI agents, web scraping, and automation. It claims 11x faster execution and 9x lower memory usage compared to headless Chrome, while remaining compatible with Playwright, Puppeteer, and other tools through the Chrome DevTools Protocol. With over 12,000 GitHub stars, it is a promising lightweight alternative for anyone running browser automation at scale without needing graphical rendering[^37].
-
-### QMD
-
-[QMD](https://github.com/tobi/qmd) is a local-first search engine for Markdown files that combines BM25 keyword search, vector semantic search, and LLM re-ranking - all running on-device. It works as a CLI tool, a Node.js/Bun library, or an MCP server, making it easy to plug into agentic workflows for searching across notes, docs, and meeting transcripts. Similar in spirit to minsearch but designed for Markdown collections, it is especially convenient for giving AI agents fast access to your local knowledge base[^38].
-
 ## Resources
-
-### Learn AI Engineering
-
-[Learn AI Engineering](https://github.com/ashishps1/learn-ai-engineering) is a curated collection of free courses, articles, tutorials, and videos for learning AI and LLMs from scratch. It covers mathematical foundations, ML fundamentals, deep learning, generative AI, LLMs, prompt engineering, RAG, agents, and MCP, pulling together resources from sources like Coursera, Hugging Face, deeplearning.ai, and Stanford. With nearly 5,000 GitHub stars, it serves as a structured learning path for anyone looking to get into AI engineering without spending money on paid courses[^36].
-
-### Public APIs
-
-[Public APIs](https://github.com/public-apis/public-apis) is a community-curated collection of over 1,400 free APIs organized by category, from weather and finance to games and machine learning. With over 400k GitHub stars, it is one of the most popular repositories on the platform. Whether you are building a side project, prototyping a new product, or teaching students how to work with APIs, this list saves hours of searching by putting hundreds of well-documented, freely available endpoints in one place. Could be very useful for projects[^34].
 
 ## Project ideas
 
