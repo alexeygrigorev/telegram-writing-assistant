@@ -1,14 +1,14 @@
 ---
-title: "Claude Code Helpers"
+title: "Configuring Claude Code"
 created: 2026-01-23
-updated: 2026-02-19
-tags: [bash, claude-code, aliases, shortcuts]
+updated: 2026-03-27
+tags: [bash, claude-code, aliases, shortcuts, configuration]
 status: draft
 ---
 
-# Claude Code Helpers
+# Configuring Claude Code
 
-Simple bash aliases and functions to make working with Claude Code more convenient.
+Configuration, aliases, and tools for working with Claude Code across projects and devices.
 
 Code: https://github.com/alexeygrigorev/.claude/[^3]
 
@@ -69,7 +69,7 @@ claude_init() {
 This function copies a master Claude configuration file to the current directory, avoiding duplication and ensuring consistent configuration across projects[^1].
 
 <figure>
-  <img src="../../assets/images/claude-helpers/bash-helpers-nano.jpg" alt="Nano editor showing Claude helpers">
+  <img src="../../assets/images/configuring-claude-code/bash-helpers-nano.jpg" alt="Nano editor showing Claude helpers">
   <figcaption>The bash configuration file with aliases and the claude_init function</figcaption>
   <!-- These helpers are added to .bashrc for quick access -->
 </figure>
@@ -163,7 +163,7 @@ The workflow:
 This skill should be added to the Claude configuration to handle post-coding cleanup efficiently.
 
 <figure>
-  <img src="../../assets/images/claude-helpers/refactor-pass-skill.jpg" alt="Refactor pass skill configuration in SKILL.md format">
+  <img src="../../assets/images/configuring-claude-code/refactor-pass-skill.jpg" alt="Refactor pass skill configuration in SKILL.md format">
   <figcaption>The refactor-pass skill definition showing the workflow for simplification after code changes</figcaption>
   <!-- This skill can be added to Claude Code configuration for automated cleanup passes -->
 </figure>
@@ -181,6 +181,30 @@ The collection of skills will keep growing over time[^14].
 Hooks in Claude Code can prevent dangerous operations. A useful stop hook from AIHero.dev prevents Claude Code from running dangerous git commands[^11].
 
 The hook intercepts commands like `git push --force` and asks for confirmation before executing. This prevents accidental force pushes and other destructive git operations.
+
+## Disabling Bypass Permissions Mode
+
+For important projects like infrastructure repositories, it is possible to forbid `--dangerously-skip-permissions` entirely. This is extra protection for folders where running in skip permissions mode could be dangerous[^17].
+
+Add a `.claude/settings.json` file to the project with this content[^19]:
+
+```json
+{
+  "permissions": {
+    "disableBypassPermissionsMode": "disable"
+  }
+}
+```
+
+When someone tries to run `claude --dangerously-skip-permissions` in that project, Claude Code will start but show a message at the bottom: "Bypass permissions mode was disabled by settings"[^18].
+
+<figure>
+  <img src="../../assets/images/configuring-claude-code/disable-bypass-permissions.jpg" alt="Claude Code showing bypass permissions mode was disabled by settings">
+  <figcaption>Claude Code after disabling bypass permissions mode - the status bar shows the restriction is active</figcaption>
+  <!-- This is useful for infrastructure projects where skip permissions mode should never be used -->
+</figure>
+
+I have a habit of using skip permissions mode, so this setting prevents me from accidentally doing it on important projects like the infra folder[^17].
 
 ## Potential Improvements
 
@@ -260,3 +284,6 @@ Ideas for what can be added to the .claude library next[^15][^16]:
 [^14]: [20260213_180241_AlexeyDTC_msg1643_transcript.txt](../inbox/used/20260213_180241_AlexeyDTC_msg1643_transcript.txt) - YouTube skill description
 [^15]: [20260219_121844_AlexeyDTC_msg2066_photo.md](../inbox/used/20260219_121844_AlexeyDTC_msg2066_photo.md) - Workflow orchestration guidelines
 [^16]: [20260219_121856_AlexeyDTC_msg2067_transcript.txt](../inbox/used/20260219_121856_AlexeyDTC_msg2067_transcript.txt) - Add text from screenshot
+[^17]: [20260326_135001_AlexeyDTC_msg3092_photo.md](../inbox/used/20260326_135001_AlexeyDTC_msg3092_photo.md) - Disabling bypass permissions caption
+[^18]: [20260326_135542_AlexeyDTC_msg3096_photo.md](../inbox/used/20260326_135542_AlexeyDTC_msg3096_photo.md) - Bypass permissions disabled screenshot
+[^19]: [20260326_135644_AlexeyDTC_msg3098.md](../inbox/used/20260326_135644_AlexeyDTC_msg3098.md) - Settings.json content

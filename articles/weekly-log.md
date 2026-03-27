@@ -1,7 +1,7 @@
 ---
 title: "Weekly Log"
 created: 2026-02-26
-updated: 2026-03-25
+updated: 2026-03-27
 tags: [weekly, log]
 status: draft
 ---
@@ -15,6 +15,24 @@ A running log of what was done each week. When a topic has its own detailed arti
 ### Trying Codex as Claude Code Alternative
 
 Hit Claude Code session limits on a simple file-splitting task - usage jumped from 80% to 100% instantly. Many people reporting the same issue. Started using OpenAI Codex as an alternative. The agent workflow works but requires more babysitting - no task widget, no auto-continue when subagents finish. Limits on Codex feel much more generous. See [Trying OpenAI Codex as a Claude Code Alternative](codex-experiments.md) for details[^22][^23][^24].
+
+### Snowflake Workshop on Agent Evaluations
+
+Had a session with Snowflake about evaluating AI agents. Josh (developer advocate at Snowflake, previously at TruEra which got acquired by Snowflake) presented a very interesting approach to evals. He showed a concrete approach to evaluations - what rubrics to use and how their evaluation process works. He demonstrated it live during the session. The workshop was very useful, and many people will find it helpful[^25][^26].
+
+Workshop recording: https://www.youtube.com/live/oMmJvlNuDZE[^26]
+
+### AI Shipping Labs
+
+Spent a lot of time on AI Shipping Labs this week. The Django website already looks good. Tested many features[^25].
+
+### AI Hero Course Restructuring
+
+Split the AI Hero course into submodules - they are now more granular. Incorporated feedback received from students into the course[^25].
+
+### Codex Experiments
+
+Also experimented with Codex this week due to Claude Code limits on GitHub[^25].
 
 ## Week of 2026-03-17
 
@@ -148,3 +166,5 @@ Upgraded to AWS Business support, got on a call with support at 2 AM. Still wait
 [^22]: [20260324_182110_AlexeyDTC_msg3068_transcript.txt](../inbox/used/20260324_182110_AlexeyDTC_msg3068_transcript.txt)
 [^23]: [20260325_095005_AlexeyDTC_msg3076_transcript.txt](../inbox/used/20260325_095005_AlexeyDTC_msg3076_transcript.txt)
 [^24]: [20260325_095434_AlexeyDTC_msg3080_transcript.txt](../inbox/used/20260325_095434_AlexeyDTC_msg3080_transcript.txt)
+[^25]: [20260327_070533_AlexeyDTC_msg3102_transcript.txt](../inbox/used/20260327_070533_AlexeyDTC_msg3102_transcript.txt)
+[^26]: [20260327_070635_AlexeyDTC_msg3104.md](../inbox/used/20260327_070635_AlexeyDTC_msg3104.md)

@@ -5,9 +5,13 @@ import subprocess
 import time
 import io
 import sys
+import threading
 from pathlib import Path
 from datetime import datetime
 from typing import Callable, Optional
+
+# Default timeout: kill process if no output for this many seconds
+DEFAULT_ACTIVITY_TIMEOUT = 300  # 5 minutes
 
 
 def _safe_print(msg: str):
@@ -144,7 +148,7 @@ class ClaudeRunner:
     # Session tracking (stored in .tmp to avoid accidental commits)
     SESSION_FILE = ".tmp/claude_session_id.txt"
 
-    def __init__(self, repo_path: Path, logs_dir: Path, session_id: Optional[str] = None, continuation_prompt: Optional[str] = None):
+    def __init__(self, repo_path: Path, logs_dir: Path, session_id: Optional[str] = None, continuation_prompt: Optional[str] = None, activity_timeout: int = DEFAULT_ACTIVITY_TIMEOUT):
         self.repo_path = repo_path
         self.logs_dir = logs_dir
         self.formatter = ClaudeProgressFormatter()
@@ -156,6 +160,8 @@ class ClaudeRunner:
         self.resume_session_id: Optional[str] = session_id
         # Optional continuation prompt when resuming
         self.continuation_prompt: Optional[str] = continuation_prompt
+        # Kill process if no output for this many seconds
+        self.activity_timeout: int = activity_timeout
 
     def _run_command(
         self,
@@ -195,6 +201,7 @@ class ClaudeRunner:
 
         _safe_print(f"[ClaudeRunner] Running: {prompt[:60]}...")
         _safe_print(f"[ClaudeRunner] Log: {log_file}")
+        _safe_print(f"[ClaudeRunner] Activity timeout: {self.activity_timeout}s")
 
         process = subprocess.Popen(
             cmd,
@@ -208,9 +215,30 @@ class ClaudeRunner:
             bufsize=1
         )
 
+        _safe_print(f"[ClaudeRunner] PID: {process.pid}")
+
         output_buffer = io.StringIO()
+        last_activity = time.monotonic()
+        timed_out = False
+
+        # Watchdog thread: kills process if no output for activity_timeout seconds
+        def watchdog():
+            nonlocal timed_out
+            while process.poll() is None:
+                elapsed = time.monotonic() - last_activity
+                if elapsed >= self.activity_timeout:
+                    _safe_print(f"[ClaudeRunner] TIMEOUT: No output for {self.activity_timeout}s - killing process")
+                    timed_out = True
+                    process.kill()
+                    return
+                # Check every 10 seconds
+                time.sleep(10)
+
+        watchdog_thread = threading.Thread(target=watchdog, daemon=True)
+        watchdog_thread.start()
 
         for line in process.stdout:
+            last_activity = time.monotonic()
             line = line.strip()
             if not line:
                 continue
@@ -281,7 +309,13 @@ class ClaudeRunner:
                 _safe_print(f"[RAW] {line[:100]}")
 
         process.wait()
-        returncode = process.returncode
+        watchdog_thread.join(timeout=5)
+
+        if timed_out:
+            returncode = -1  # Signal timeout to the retrier
+            _safe_print(f"[ClaudeRunner] Process killed due to activity timeout")
+        else:
+            returncode = process.returncode
         stdout = output_buffer.getvalue()
         stderr = process.stderr.read()
 

@@ -1,0 +1,10 @@
+---
+source: telegram_voice
+date: 2026-03-27T07:03:19+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260327_070319_AlexeyDTC_msg3100.ogg
+---
+
+Вот то, что я добавил на прошлой неделе, у нас где-то есть про cloud.files, да? Давай найдем вот
+статью, переименуем ее, назовем configuring cloud code. И как раз добавим вот это. Так.
