@@ -8,6 +8,7 @@ See [All Articles](../_index.md) for the main articles index.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [724 Office: Self-Evolving AI Agent System](724-office.md) | draft | 2026-03-29 | Research on a self-evolving AI agent - 3,500 lines pure Python, three-layer memory, runtime tool creation, self-repair, 24/7 production |
 | [Spec-Driven Development](spec-driven-development.md) | draft | 2026-03-25 | Research on spec-driven development and task management for AI agents |
 | [Design Thinking for Finding Project Topics](design-thinking-for-projects.md) | draft | 2026-03-20 | Research on Design Thinking frameworks and methodologies for helping students and professionals find project ideas, problem finders research |
 | [gstack: Garry Tan's Claude Code Workflow Skills](gstack.md) | draft | 2026-03-14 | Research on Garry Tan's open-source Claude Code skills: 8 specialized modes (CEO, eng manager, QA), browser automation with Playwright, Conductor parallel agents |

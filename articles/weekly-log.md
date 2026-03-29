@@ -1,7 +1,7 @@
 ---
 title: "Weekly Log"
 created: 2026-02-26
-updated: 2026-03-27
+updated: 2026-03-29
 tags: [weekly, log]
 status: draft
 ---
@@ -33,6 +33,39 @@ Split the AI Hero course into submodules - they are now more granular. Incorpora
 ### Codex Experiments
 
 Also experimented with Codex this week due to Claude Code limits on GitHub[^25].
+
+### UV Security: Protecting Against Compromised Packages
+
+In light of the recent LiteLLM attack (the package was compromised), added a `exclude-newer = "7 days"` setting to UV configuration. This prevents UV from picking up any package version released within the last 7 days, giving the community time to detect malware and yank compromised versions before they get installed[^27][^28].
+
+The tip came from a Hacker News comment recommending to add this to `pyproject.toml` or the global UV config[^29]:
+
+```toml
+[tool.uv]
+exclude-newer = "7 days"
+```
+
+<figure>
+  <img src="../assets/images/weekly-log/uv-exclude-newer-tip.jpg" alt="Hacker News comment recommending exclude-newer setting for UV">
+  <figcaption>The original recommendation from Hacker News to protect against compromised packages</figcaption>
+  <!-- This tip appeared in response to the LiteLLM supply chain attack -->
+</figure>
+
+First added the global config at `~/.config/uv/uv.toml`, then asked Claude Code to apply it across all projects[^28][^30].
+
+<figure>
+  <img src="../assets/images/weekly-log/uv-exclude-newer-claude.jpg" alt="Claude Code applying the UV exclude-newer global config">
+  <figcaption>Claude Code setting up the global UV config with exclude-newer = "7 days"</figcaption>
+  <!-- Shows Claude reading the HN tip and applying it to the global config -->
+</figure>
+
+Claude updated 52 `pyproject.toml` files across all UV projects - 5 already had a `[tool.uv]` section and 47 got a new one appended. Combined with the global config, this provides both global and per-project protection[^31].
+
+<figure>
+  <img src="../assets/images/weekly-log/uv-exclude-newer-bulk-update.jpg" alt="Claude Code output showing 52 pyproject.toml files updated">
+  <figcaption>Bulk update result - 52 pyproject.toml files updated with the exclude-newer setting</figcaption>
+  <!-- Claude automated the security update across all projects in ~/git/ -->
+</figure>
 
 ## Week of 2026-03-17
 
@@ -168,3 +201,8 @@ Upgraded to AWS Business support, got on a call with support at 2 AM. Still wait
 [^24]: [20260325_095434_AlexeyDTC_msg3080_transcript.txt](../inbox/used/20260325_095434_AlexeyDTC_msg3080_transcript.txt)
 [^25]: [20260327_070533_AlexeyDTC_msg3102_transcript.txt](../inbox/used/20260327_070533_AlexeyDTC_msg3102_transcript.txt)
 [^26]: [20260327_070635_AlexeyDTC_msg3104.md](../inbox/used/20260327_070635_AlexeyDTC_msg3104.md)
+[^27]: [20260328_035033_AlexeyDTC_msg3119.md](../inbox/used/20260328_035033_AlexeyDTC_msg3119.md)
+[^28]: [20260328_034923_AlexeyDTC_msg3114_photo.md](../inbox/used/20260328_034923_AlexeyDTC_msg3114_photo.md)
+[^29]: [20260328_034948_AlexeyDTC_msg3117_photo.md](../inbox/used/20260328_034948_AlexeyDTC_msg3117_photo.md)
+[^30]: [20260328_034923_AlexeyDTC_msg3114_photo.md](../inbox/used/20260328_034923_AlexeyDTC_msg3114_photo.md)
+[^31]: [20260328_035435_AlexeyDTC_msg3121_photo.md](../inbox/used/20260328_035435_AlexeyDTC_msg3121_photo.md)

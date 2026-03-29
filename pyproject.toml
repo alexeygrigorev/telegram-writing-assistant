@@ -27,3 +27,6 @@ python_classes = ["Test*"]
 python_functions = ["test_*"]
 # On Windows, use no capture to avoid I/O errors during cleanup
 addopts = "--capture=no"
+
+[tool.uv]
+exclude-newer = "7 days"
