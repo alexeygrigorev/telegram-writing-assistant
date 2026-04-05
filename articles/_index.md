@@ -106,7 +106,7 @@ Files at the articles root that don't fit into the above categories.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
-| [Deterministic Coding with Agent Teams](litehive.md) | draft | 2026-04-05 | LiteHive file-based task manager, tmuxctl, GoZ engine, self-writing system, recovery agent, engine switching |
+| [Deterministic Coding with Agent Teams](litehive.md) | draft | 2026-04-05 | litehive file-based task manager, tmuxctl, GoZ engine, self-writing system, recovery agent, multiple engines, usage limits motivation |
 | [Weekly Log](weekly-log.md) | draft | 2026-03-29 | Running log of weekly activities with links to detailed articles |
 | [AI Engineering Field Guide](ai-engineering-field-guide.md) | draft | 2026-03-27 | Job listing pipeline for AI Engineer roles - scraping, deduplication, LLM enrichment |
 | [Trying OpenAI Codex as a Claude Code Alternative](codex-experiments.md) | draft | 2026-03-25 | Trying Codex after hitting Claude Code session limits, agent workflow comparison, no task widget, auto-continue differences, orchestrator idea |

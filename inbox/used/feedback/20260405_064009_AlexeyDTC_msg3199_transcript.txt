@@ -1,0 +1,9 @@
+---
+source: telegram_voice
+date: 2026-04-05T06:40:09+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260405_064009_AlexeyDTC_msg3199.ogg
+---
+
+There is also an article about my voice, personal voice. Please use it to rewrite this article.

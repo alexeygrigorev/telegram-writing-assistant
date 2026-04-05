@@ -1,0 +1,11 @@
+---
+source: telegram_voice
+date: 2026-04-05T06:37:25+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260405_063725_AlexeyDTC_msg3195.ogg
+---
+
+Okay, you may mainly disregard the previous comment, I checked and it's fine, but the first
+paragraph about the recovery agent is confusing, so please recheck what I actually recorded and try
+to rewrite it.
