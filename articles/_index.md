@@ -26,7 +26,7 @@ Articles that are mostly ready for the newsletter. All necessary content is insi
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
-| [Configuring Claude Code](ready-for-newsletter/configuring-claude-code.md) | draft | 2026-03-27 | Configuration, aliases, slash commands, skills, safety hooks, and disabling bypass permissions |
+| [Configuring Claude Code](ready-for-newsletter/configuring-claude-code.md) | draft | 2026-04-05 | Configuration, aliases, slash commands, skills, safety hooks, disabling bypass permissions, and token usage reduction |
 | [OpenCode Experiments with GLM-5](ready-for-newsletter/opencode-experiments.md) | draft | 2026-03-19 | Trying OpenCode AI assistant with GLM-5 model, extracting JS from Claude binary, Claude Code flickering comparison |
 | [What's New in the Telegram Writing Assistant](ready-for-newsletter/telegram-writing-assistant-updates.md) | draft | 2026-03-14 | Article idea: subagents, research section, link summaries, QA agent, YouTube and audio file processing |
 | [Cross-Platform Environment Variable Management with dirdotenv](ready-for-newsletter/dirdotenv.md) | draft | 2026-03-13 | Python-based alternative to direnv, first Claude Code experiment |
@@ -51,6 +51,7 @@ Articles about the AI Shipping Labs paid community: vision, activities, courses,
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [User Interviews](ai-shipping-labs/user-interviews.md) | draft | 2026-04-02 | Notes from conversations with community members - accountability over content, project pipelines |
 | [Launch Announcement](ai-shipping-labs/launch-announcement.md) | draft | 2026-03-21 | Newsletter article: community announcement + how the platform was built with AI agents |
 | [Vision](ai-shipping-labs/vision.md) | draft | 2026-03-20 | Vision, target audience, tier structure, pricing, design principles, next steps |
 | [Activities](ai-shipping-labs/activities.md) | draft | 2026-03-20 | Regular sessions, accountability circles, mentoring, career development, knowledge sharing |
@@ -105,10 +106,10 @@ Files at the articles root that don't fit into the above categories.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Deterministic Coding with Agent Teams](litehive.md) | draft | 2026-04-05 | LiteHive file-based task manager, tmuxctl, GoZ engine, self-writing system, recovery agent, engine switching |
 | [Weekly Log](weekly-log.md) | draft | 2026-03-29 | Running log of weekly activities with links to detailed articles |
 | [AI Engineering Field Guide](ai-engineering-field-guide.md) | draft | 2026-03-27 | Job listing pipeline for AI Engineer roles - scraping, deduplication, LLM enrichment |
 | [Trying OpenAI Codex as a Claude Code Alternative](codex-experiments.md) | draft | 2026-03-25 | Trying Codex after hitting Claude Code session limits, agent workflow comparison, no task widget, auto-continue differences, orchestrator idea |
-| [Useful Utilities I Built with Claude Code](useful-utilities-built-with-claude-code.md) | draft | 2026-03-19 | Collection of daily-use utilities: dirdotenv, SSH Auto Forward, Nobook, Microphone Booster, Bot Master |
 | [Running Local LLMs for Coding on a Hetzner Server](local-llm-experiments.md) | draft | 2026-03-19 | Hitting Claude Code weekly limits, experimenting with quantized Qwen2.5 and DeepSeek on CPU |
 | [Building Projects with Agent Teams](building-projects-with-agent-teams.md) | draft | 2026-03-19 | Approach to building complex projects with Claude Code multi-agent teams: AI Shipping Labs, Data Tasks, Pymermade, Jekyll-to-Rust, custom coding agent (Codehive), AI Hero migration, agent management challenges |
 | [Zoland Talk](zoland-talk.md) | draft | 2026-03-14 | Talk at Zoland meetup about the Telegram writing assistant, code agents, and slides preparation workflow with Claude Code |

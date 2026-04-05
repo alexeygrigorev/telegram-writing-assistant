@@ -1,7 +1,7 @@
 ---
 title: "Configuring Claude Code"
 created: 2026-01-23
-updated: 2026-03-27
+updated: 2026-04-05
 tags: [bash, claude-code, aliases, shortcuts, configuration]
 status: draft
 ---
@@ -206,6 +206,26 @@ When someone tries to run `claude --dangerously-skip-permissions` in that projec
 
 I have a habit of using skip permissions mode, so this setting prevents me from accidentally doing it on important projects like the infra folder[^17].
 
+## Reducing Token Usage
+
+A few settings can reduce how quickly you burn through Claude Code's usage limits[^20]:
+
+In `.claude/settings.json`:
+
+```json
+{
+  "model": "claude-sonnet-4-5",
+  "compactThreshold": 200000,
+  "subagentModel": "claude-haiku-4-5-20251001"
+}
+```
+
+This switches the default model to Sonnet (cheaper than Opus), increases the compact threshold so conversations stay longer before compacting, and uses Haiku for subagents.
+
+Inside a Claude Code session, run `/effort medium` to reduce the effort level. Then go to `/config` and set "verbose output" to false to cut unnecessary tokens in output.
+
+Source: https://x.com/LLMJunky/status/2040127436864586166[^20]
+
 ## Potential Improvements
 
 Ideas for what can be added to the .claude library next[^15][^16]:
@@ -287,3 +307,4 @@ Ideas for what can be added to the .claude library next[^15][^16]:
 [^17]: [20260326_135001_AlexeyDTC_msg3092_photo.md](../inbox/used/20260326_135001_AlexeyDTC_msg3092_photo.md) - Disabling bypass permissions caption
 [^18]: [20260326_135542_AlexeyDTC_msg3096_photo.md](../inbox/used/20260326_135542_AlexeyDTC_msg3096_photo.md) - Bypass permissions disabled screenshot
 [^19]: [20260326_135644_AlexeyDTC_msg3098.md](../inbox/used/20260326_135644_AlexeyDTC_msg3098.md) - Settings.json content
+[^20]: [20260403_193257_AlexeyDTC_msg3141.md](../inbox/used/20260403_193257_AlexeyDTC_msg3141.md) - Token usage reduction tips

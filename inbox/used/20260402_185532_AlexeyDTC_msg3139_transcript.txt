@@ -1,0 +1,10 @@
+---
+source: telegram_voice
+date: 2026-04-02T18:55:32+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260402_185532_AlexeyDTC_msg3139.ogg
+---
+
+Давай у нас там в AI Shipping Lab с папочки, давай сделаем юзер интервью что ли, что-нибудь такое,
+куда мы это запишем.
