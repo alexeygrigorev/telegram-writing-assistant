@@ -106,6 +106,7 @@ Files at the articles root that don't fit into the above categories.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [AI Engineering Buildcamp Course Announcement](ai-buildcamp-course-announcement.md) | draft | 2026-04-06 | Course announcement: syllabus, projects, homework agents, capstone progression, hands-on focus |
 | [Deterministic Coding with Agent Teams](litehive.md) | draft | 2026-04-06 | litehive file-based task manager, tmuxctl, GoZ engine, self-writing system, recovery agent, multiple engines, usage limits motivation, stale agent killing, self-improving tools |
 | [Weekly Log](weekly-log.md) | draft | 2026-03-29 | Running log of weekly activities with links to detailed articles |
 | [AI Engineering Field Guide](ai-engineering-field-guide.md) | draft | 2026-03-27 | Job listing pipeline for AI Engineer roles - scraping, deduplication, LLM enrichment |
