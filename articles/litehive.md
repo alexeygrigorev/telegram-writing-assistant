@@ -1,7 +1,7 @@
 ---
 title: "Deterministic Coding with Agent Teams"
 created: 2026-04-05
-updated: 2026-04-05
+updated: 2026-04-06
 tags: [claude-code, agents, codex, litehive, tools]
 status: draft
 ---
@@ -90,6 +90,16 @@ I was busy all day - hiking in the Alps. I didn't have the ability or desire to 
 
 The combination of two things made a big difference: the recovery agent that fixes issues, and the periodic poking via tmuxctl to keep Codex working[^8].
 
+## Killing Stale Agents
+
+The automated poking helped, but agents still got stuck sometimes with no output for long periods. Task T-0138 added an inactivity timeout - if a subagent produces no output for 5 minutes, it gets killed automatically. No more manually killing stalled agents[^20].
+
+<figure>
+  <img src="../assets/images/litehive/stale-agent-self-healing.jpg" alt="Terminal showing T-0138 merged for killing stale subagent processes">
+  <figcaption>T-0138 merged - automatic killing of stale subagent processes after 5 minutes of inactivity</figcaption>
+  <!-- Shows the system becoming self-healing for stale agents, no more manual kills needed -->
+</figure>
+
 ## Using Multiple Engines
 
 For all of this, I used Codex because my Claude Code weekly limit ran out quickly. My weekly limit resets Friday to Friday, and it was gone by Monday. So from Monday to Friday I used Codex[^9].
@@ -107,6 +117,18 @@ OpenCode has too many bells and whistles. I wanted a minimal CLI executor that c
 The purpose is to use it as a fallback engine when all other agents run out of limits, so work can continue. I used litehive itself to build GoZ - this was a test of litehive on a new project[^9].
 
 GoZ is not as powerful as Claude Code or other wrappers like OpenCode, but the goal is just to run agent sessions and continue if they break. As one of the engines in litehive, it serves that purpose[^11].
+
+## Self-Improving Tools
+
+There was a problem with GoZ in litehive - the glm-5.1 model was very slow, and token-level streaming made transcripts hard to read. Word boundaries were broken in the output ("park ed", "observ ability", "RES UM ABLE"). The issue was in GoZ's adapter - it was not joining tokens properly[^21][^22].
+
+The fix was straightforward: tell the agent to create a task in GoZ to fix it. The agent created task T-0017 in GoZ to fix transcript rendering - joining streaming tokens into complete words and sentences. Since the agent uses itself to build itself, this is an interesting concept: tools that improve themselves[^21][^22].
+
+<figure>
+  <img src="../assets/images/litehive/goz-self-improvement-task.jpg" alt="Terminal showing GoZ creating a task to fix its own transcript rendering">
+  <figcaption>GoZ creating task T-0017 to fix its own transcript rendering issues</figcaption>
+  <!-- The agent identifies a problem in GoZ and creates a task in GoZ to fix it - self-improving tools -->
+</figure>
 
 ## Usage Watcher (In Progress)
 
@@ -141,3 +163,6 @@ The Codex CLI itself is not as advanced as Claude Code, but you can still do a l
 [^17]: [20260405_062728_AlexeyDTC_msg3182.md](../inbox/used/20260405_062728_AlexeyDTC_msg3182.md)
 [^18]: [20260405_062854_AlexeyDTC_msg3189_transcript.txt](../inbox/used/20260405_062854_AlexeyDTC_msg3189_transcript.txt)
 [^19]: [20260405_062650_AlexeyDTC_msg3181_transcript.txt](../inbox/used/20260405_062650_AlexeyDTC_msg3181_transcript.txt)
+[^20]: [20260405_071715_AlexeyDTC_msg3205_photo.md](../inbox/used/20260405_071715_AlexeyDTC_msg3205_photo.md)
+[^21]: [20260405_083208_AlexeyDTC_msg3207_photo.md](../inbox/used/20260405_083208_AlexeyDTC_msg3207_photo.md)
+[^22]: [20260405_083319_AlexeyDTC_msg3209_transcript.txt](../inbox/used/20260405_083319_AlexeyDTC_msg3209_transcript.txt)
