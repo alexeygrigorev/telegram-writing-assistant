@@ -78,6 +78,12 @@ I encourage you to work on your capstone from day 1. I will help you come up wit
 - Weeks 7 and 8: polish the project, extend and deploy it[^5]
 - Week 9: present the result, get peer feedback, and continue developing it[^5]
 
+Based on the experience from the first two cohorts, I noticed that not everyone manages to decide on a project early enough. As a result, not all participants finish the course with a completed capstone[^6].
+
+For this third cohort, I want to change that. The course content is already recorded and solid. My focus this time is on the capstone project and giving more guidance so that more participants finish the course with a successful project[^6].
+
+I developed a new methodology that applies a design thinking format. For those who do not have their own idea, I provide a set of prompts and templates so they can start right away and make steady progress each week. If they follow the instructions closely, they will have a working capstone project by the end of week 6. That gives them the last two weeks to polish it[^6].
+
 ## 5. Hackathon
 
 We have many real-life use cases that you can work on after the course finishes - alone or in a team[^5].
@@ -104,3 +110,4 @@ This is a hands-on course where students spend most of their time building[^1]. 
 [^3]: [20260406_073529_AlexeyDTC_msg3221_transcript.txt](../inbox/used/20260406_073529_AlexeyDTC_msg3221_transcript.txt)
 [^4]: [20260406_213014_AlexeyDTC_msg3233.md](../inbox/used/20260406_213014_AlexeyDTC_msg3233.md)
 [^5]: [20260406_213144_AlexeyDTC_msg3235_transcript.txt](../inbox/used/20260406_213144_AlexeyDTC_msg3235_transcript.txt)
+[^6]: [20260406_214608_AlexeyDTC_msg3241_transcript.txt](../inbox/used/20260406_214608_AlexeyDTC_msg3241_transcript.txt)
