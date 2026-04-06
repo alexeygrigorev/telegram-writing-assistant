@@ -31,21 +31,16 @@ The main idea of AI Engineering Buildcamp is that you learn AI engineering by bu
 
 The running example throughout the course is the Documentation Agent. We index Evidently docs and build a RAG application on top of them[^5].
 
-Week 1 lays the foundation: LLMs, OpenAI API, RAG, search. We index the documentation and build our first RAG application that can answer questions about it. It gives you an AI system that is usable from the first week of the course[^5].
-
-In Week 2 we catch up with Week 1 materials and introduce a few other examples to solidify our RAG understanding[^5].
-
-Week 3 adds agentic capabilities. We turn our RAG application into an agent that can explore the documentation database[^5].
-
-Week 4 makes sure our agent runs reliably. We add tests that verify the agent works as intended. We cover both "classical" unit tests as well as judges that use LLMs to test our agent[^5].
-
-Week 5 focuses on monitoring. We can see how our agent behaves in production and collect all the information about it[^5].
-
-Week 6 adds systematic evaluation. You learn how to evaluate your agents with a human in the loop, create judges that mimic the humans ("judge alignment"), and use synthetic data[^5].
+- Week 1: lays the foundation - LLMs, OpenAI API, RAG, search. We index the documentation and build our first RAG application that can answer questions about it. It gives you an AI system that is usable from the first week of the course[^5]
+- Week 2: we catch up with Week 1 materials and introduce a few other examples to solidify our RAG understanding[^5]
+- Week 3: adds agentic capabilities. We turn our RAG application into an agent that can explore the documentation database[^5]
+- Week 4: makes sure our agent runs reliably. We add tests that verify the agent works as intended. We cover both "classical" unit tests as well as judges that use LLMs to test our agent[^5]
+- Week 5: focuses on monitoring. We can see how our agent behaves in production and collect all the information about it[^5]
+- Week 6: adds systematic evaluation. You learn how to evaluate your agents with a human in the loop, create judges that mimic the humans ("judge alignment"), and use synthetic data[^5]
 
 ## 2. Extra Projects
 
-While the main running example is the documentation project, we add many other examples along the way[^5].
+While the main running example is the documentation project, we add many other examples along the way. Each week introduces extra projects that let you practice the same concepts on different use cases, so you see how the ideas apply beyond a single project[^5].
 
 For RAG, we illustrate it with more examples:
 
@@ -55,8 +50,8 @@ For RAG, we illustrate it with more examples:
 
 For agents, we build:
 
-- Web Search Agent
-- YouTube Researcher
+- Web Search Agent - an agent that uses web search tools to find and synthesize information from the internet
+- YouTube Researcher - an agent that searches YouTube, fetches transcripts, and produces structured research summaries
 - Coding Agent - a fully functional coding agent that scaffolds Django apps
 - Code Analysis Agent - agents that analyze and understand codebases
 - Deep Research Agent - multi-stage research with broad search, follow-up queries, fact-checking, and article generation
@@ -75,19 +70,13 @@ Most modules end with a separate homework mini-project, where you build another 
 
 I encourage you to work on your capstone from day 1. I will help you come up with a project idea. As you go through the course, you keep adding to it, layer by layer, adding something new to your project each week[^5].
 
-Week 1 and 2: define the use case and build the first working version with RAG[^5].
-
-Week 3: make it agentic by adding tools. Now your project moves beyond just answering and becomes a system that can make decisions[^5].
-
-Week 4: make it reliable by adding testing[^5].
-
-Week 5: monitor it and start collecting logs with user interactions[^5].
-
-Week 6: evaluate the project based on the interactions you collected and user scenarios you generated[^5].
-
-Weeks 7 and 8: polish the project, extend and deploy it[^5].
-
-Week 9: present the result, get peer feedback, and continue developing it[^5].
+- Week 1 and 2: define the use case and build the first working version with RAG[^5]
+- Week 3: make it agentic by adding tools. Now your project moves beyond just answering and becomes a system that can make decisions[^5]
+- Week 4: make it reliable by adding testing[^5]
+- Week 5: monitor it and start collecting logs with user interactions[^5]
+- Week 6: evaluate the project based on the interactions you collected and user scenarios you generated[^5]
+- Weeks 7 and 8: polish the project, extend and deploy it[^5]
+- Week 9: present the result, get peer feedback, and continue developing it[^5]
 
 ## 5. Hackathon
 
