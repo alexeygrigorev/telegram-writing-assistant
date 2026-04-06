@@ -10,109 +10,108 @@ status: draft
 
 Course page: [AI Engineering Buildcamp: From RAG to Agents](https://maven.com/alexey-grigorev/from-rag-to-agents)
 
-This is a hands-on course where students spend most of their time building[^1]. By the end, they have a collection of projects for their portfolio. The course runs for about 9 weeks, and every week students work on their capstone project, adding new capabilities as they learn them. Each homework assignment is also a separate project, so students build many different agents throughout the course[^3].
+Next Monday (April 13) I start another iteration of AI Engineering Buildcamp. It is a course about learning AI engineering by building[^4].
 
-## Course Syllabus
+After it concludes, I do not plan to run another cohort in the nearest future. I want to take a break from the course and focus on AI Shipping Labs for a while. So if you planned to take the course, this cohort might be the right time. You can sign up using the SUBSTACK promo code for 20% off for newsletter subscribers[^4].
 
-The course takes students from core AI concepts to production-grade AI systems[^2].
+Join the course now with 20% off
 
-### Week 1: LLMs and RAG
+In this article I want to go over the course content, the projects you can work on, and how to join this cohort. I will also explain how you can get special discounts or explore financing options for your participation[^4].
 
-Foundation module covering Large Language Models and Retrieval-Augmented Generation. Students build a Documentation Agent that can search technical documentation and answer questions about a project. The module covers the OpenAI API, the RAG pattern, document chunking, and indexing with minsearch. There is also a section on OpenAI alternatives: Groq, Anthropic, AWS Bedrock, Gemini, and Ollama.
+## What AI Engineering Buildcamp Is
 
-### Week 2: RAG Use Cases and Technologies
+The main idea of AI Engineering Buildcamp is that you learn AI engineering by building. Over the course of the program, you work on multiple projects[^5]:
 
-This week covers practical RAG applications through several projects:
+- The running example: the documentation agent
+- Extra projects to learn more about the topic
+- The homework projects
+- Your own capstone
+
+## 1. Documentation Project
+
+The running example throughout the course is the Documentation Agent. We index Evidently docs and build a RAG application on top of them[^5].
+
+Week 1 lays the foundation: LLMs, OpenAI API, RAG, search. We index the documentation and build our first RAG application that can answer questions about it. It gives you an AI system that is usable from the first week of the course[^5].
+
+In Week 2 we catch up with Week 1 materials and introduce a few other examples to solidify our RAG understanding[^5].
+
+Week 3 adds agentic capabilities. We turn our RAG application into an agent that can explore the documentation database[^5].
+
+Week 4 makes sure our agent runs reliably. We add tests that verify the agent works as intended. We cover both "classical" unit tests as well as judges that use LLMs to test our agent[^5].
+
+Week 5 focuses on monitoring. We can see how our agent behaves in production and collect all the information about it[^5].
+
+Week 6 adds systematic evaluation. You learn how to evaluate your agents with a human in the loop, create judges that mimic the humans ("judge alignment"), and use synthetic data[^5].
+
+## 2. Extra Projects
+
+While the main running example is the documentation project, we add many other examples along the way[^5].
+
+For RAG, we illustrate it with more examples:
 
 - FAQ Assistant - a chatbot for course FAQ data using RAG with boosting and filtering
-- YouTube Transcripts - extracting summaries with timecoded chapters and building RAG systems for chatting with video content
-- Structured Extraction from PDFs - extracting data from books by converting PDF pages to images and using LLMs with structured output
-- Text Search with Elasticsearch
-- Vector Search with Qdrant
-
-### Week 3: AI Agents
-
-Students learn why agents are needed beyond RAG. The module covers tool calling, agent frameworks (PydanticAI, OpenAI Agents SDK, LangChain, Google ADK), web research agents, and Model Context Protocol (MCP). Key components covered: the LLM as the brain, instructions, tools, and memory.
-
-### Week 4: Testing and Multi-Agent Systems
-
-Two big topics. First, testing for agents: writing tests, testing tool calls, using LLM judges to evaluate agent quality, and coming up with test cases. Second, multi-agent systems: routing patterns, pipeline patterns, feedback loops, parallelization, orchestrator-workers, and multi-agent collaboration.
-
-### Week 5: Monitoring and Observability
-
-Adding observability to AI applications using Pydantic Logfire, OpenTelemetry, Jaeger, and Grafana. Students also build DIY logging and monitoring with SQLite and Streamlit dashboards. Other platforms covered: Evidently and LangWatch.
-
-### Week 6: Evaluation and Improvement
-
-Offline evaluation for agents, collecting evaluation data, running agents on scenarios, evaluating AI responses, judge alignment, and synthetic evaluation data generation. Students learn to measure quality systematically and improve their agents based on data.
-
-### Weeks 7-8: Project Work and Advanced Use Cases
-
-Students polish their capstone projects. Advanced project examples include building a coding agent from scratch (scaffolding Django apps), a code analysis agent, and a deep research agent with multi-stage search and fact-checking. Bonus use cases: scary stories generator, code explainer, and book writer. Deployment options covered: Streamlit, Render, and AWS.
-
-### Week 9+: Demo and Hackathon
-
-Project demo presentations, peer review, and an optional hackathon for collaborative work on real-world problems.
-
-## Projects
-
-The course has a strong focus on building. Students work on many projects throughout the course[^1][^3].
-
-### Projects Built During Lectures
-
-These are the main projects built step by step during the course materials:
-
-- Documentation Agent - RAG system for searching and answering questions about technical documentation. This is the running example that evolves throughout the first weeks.
-- FAQ Assistant - chatbot for DataTalks.Club course FAQs using real data from multiple courses
 - YouTube Transcript Summarizer - extracting summaries and chapters from YouTube videos with structured output
-- PDF Book Processor - structured extraction from PDF books, handling illustrations, formulas, and complex structures
-- Web and YouTube Researcher - agents that search the web and YouTube for information
-- Coding Agent - a fully functional coding agent that scaffolds Django apps, essentially building a clone of Lovable.dev but with Django
+- PDF Book Processor - we use OCR to parse a complex document (a book with mathematical formulas). You can get something very similar on job interviews[^5]
+
+For agents, we build:
+
+- Web Search Agent
+- YouTube Researcher
+- Coding Agent - a fully functional coding agent that scaffolds Django apps
 - Code Analysis Agent - agents that analyze and understand codebases
-- Deep Research Agent - multi-stage research with initial broad search, expansion into follow-up queries, deep dives, fact-checking, and article generation
+- Deep Research Agent - multi-stage research with broad search, follow-up queries, fact-checking, and article generation
 
-### Bonus Use Cases
+## 3. Homework Projects
 
-- Scary Stories Generator - creating stories from pictures
-- Code Explainer - explaining code functionality
-- Book Writer - generating structured written content
+Most modules end with a separate homework mini-project, where you build another system yourself and practice the same ideas in a new setting[^4].
 
-### Homework Projects
+- Homework 1/2: Document Processing with AI. You download books, extract PDF text, chunk documents, and build a full RAG pipeline[^4].
+- Homework 3: Wikipedia Agent. You implement search and page-fetching tools and build an agent using a framework of your choice[^4].
+- Homework 4: Testing and evaluation through the DuckDB SQL Agent. You build an agent that queries NYC taxi data, write pytest tests, add LLM judges, and track costs[^4].
+- Homework 5: Trivia Quizmaster Agent. You build an interactive trivia system and instrument it with Logfire[^4].
+- Homework 6: Systematic evaluation through the Recipe Assistant Evaluation. You design 20+ evaluation scenarios, run batch tests, and detect hallucinations[^4].
 
-Each homework assignment is a separate project where students build a new agent[^3]:
+## 4. Capstone Project
 
-- Week 1: Document Processing with AI - download books, extract PDF text, chunk documents, build a full RAG pipeline
-- Week 3: Wikipedia Agent - implement search and page fetching tools, build an agent using any framework
-- Week 4: DuckDB SQL Agent - build an SQL agent querying NYC taxi data, write pytest tests, add LLM judges, track costs
-- Week 5: Trivia Quizmaster Agent - build an interactive trivia agent using the Open Trivia Database API, instrument with Logfire
-- Week 6: Recipe Assistant Evaluation - design 20+ evaluation scenarios, run batch tests, detect hallucinations
+I encourage you to work on your capstone from day 1. I will help you come up with a project idea. As you go through the course, you keep adding to it, layer by layer, adding something new to your project each week[^5].
 
-### Capstone Project
+Week 1 and 2: define the use case and build the first working version with RAG[^5].
 
-Students work on one capstone project throughout the entire course. Each week they add new capabilities based on what they learned[^3]:
+Week 3: make it agentic by adding tools. Now your project moves beyond just answering and becomes a system that can make decisions[^5].
 
-1. Week 1 - project ideation and problem definition
-2. Week 2 - add RAG with external data
-3. Week 3 - add agent tools and capabilities
-4. Week 4 - add testing and evaluation
-5. Week 5 - add monitoring and observability
-6. Week 6 - systematic evaluation
-7. Final weeks - polish and deploy
+Week 4: make it reliable by adding testing[^5].
 
-By the end, students have a complete, production-grade AI application with RAG, agent capabilities, testing, monitoring, and evaluation. There are also 50+ project ideas provided for inspiration - from multilingual RAG chatbots to financial portfolio trackers to developer tools.
+Week 5: monitor it and start collecting logs with user interactions[^5].
 
-## Course Details
+Week 6: evaluate the project based on the interactions you collected and user scenarios you generated[^5].
 
-- Price: $1,799
-- Next cohort: April 13 - June 14, 2026
+Weeks 7 and 8: polish the project, extend and deploy it[^5].
+
+Week 9: present the result, get peer feedback, and continue developing it[^5].
+
+## 5. Hackathon
+
+We have many real-life use cases that you can work on after the course finishes - alone or in a team[^5].
+
+## Weekly Workload
+
+This is a hands-on course where students spend most of their time building[^1]. The course runs for about 9 weeks[^3].
+
 - Live sessions: Mondays 3:00-4:00 PM UTC (8 sessions total)
 - Async content and homework: 3-10 hours per week
 - 193 lessons total with lifetime access
 - Slack community for peer support
 - Certificate of completion
 
+## Course Details
+
+- Price: $1,799
+- Next cohort: April 13 - June 14, 2026
+
 ## Sources
 
 [^1]: [20260406_072044_AlexeyDTC_msg3217_transcript.txt](../inbox/used/20260406_072044_AlexeyDTC_msg3217_transcript.txt)
 [^2]: [20260406_072804_AlexeyDTC_msg3219.md](../inbox/used/20260406_072804_AlexeyDTC_msg3219.md)
 [^3]: [20260406_073529_AlexeyDTC_msg3221_transcript.txt](../inbox/used/20260406_073529_AlexeyDTC_msg3221_transcript.txt)
+[^4]: [20260406_213014_AlexeyDTC_msg3233.md](../inbox/used/20260406_213014_AlexeyDTC_msg3233.md)
+[^5]: [20260406_213144_AlexeyDTC_msg3235_transcript.txt](../inbox/used/20260406_213144_AlexeyDTC_msg3235_transcript.txt)
