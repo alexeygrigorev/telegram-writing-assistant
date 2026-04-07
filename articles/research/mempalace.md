@@ -11,28 +11,51 @@ status: draft
 Source: https://github.com/milla-jovovich/mempalace/tree/main
 Instagram announcement: https://www.instagram.com/p/DWzNnqwD2Lu/
 
-MemPalace is a fully local, offline memory system for AI assistants built by Milla Jovovich. It organizes all conversations and knowledge using the ancient "memory palace" (method of loci) mnemonic technique, where you imagine placing memories in specific rooms of an imaginary building. The system runs entirely on your machine with just two dependencies (ChromaDB and PyYAML), no LLM API calls for any core operation, and achieves 96.6% recall@5 on the LongMemEval benchmark.
+MemPalace is a fully local, offline memory system for AI assistants built by Milla Jovovich. It organizes conversations and knowledge using the ancient "memory palace" (method of loci) mnemonic technique - you place memories in specific rooms of an imaginary building, then navigate the building to retrieve them.
+
+It runs entirely on your machine with just two dependencies (ChromaDB and PyYAML) and achieves 96.6% recall@5 on the LongMemEval benchmark. The memory layer itself doesn't use any LLM API calls - all classification, chunking, room detection, and compression run on regex heuristics and keyword scoring. The LLM is still there for the actual conversation (answering questions, generating responses), but the memory infrastructure that decides what to store, where to put it, and what to retrieve is completely deterministic and free to run.
 
 See also: [Agentic Memory Systems for AI Agents](agentic-memory.md) for broader context on memory architectures.
 
 ## Why Do AI Agents Need Memory?
 
-LLMs are stateless by design. Every conversation starts from scratch - the model has no idea who you are, what you discussed yesterday, or what decisions you made last week. The context window (the text the model can "see" at once) is the only memory it has, and it resets with each new session.
+LLMs are stateless. Every conversation starts from scratch - the model doesn't know who you are, what you discussed yesterday, or what decisions you made last week. The context window (the text the model can "see" at once) is its only memory, and it resets with each new session.
 
-This is fine for one-off questions like "what is the capital of France?" But it breaks down for anything that requires continuity:
+That's fine for one-off questions. But it breaks down for anything that needs continuity:
 - A coding assistant that should remember your project's architecture across sessions
-- A personal assistant that knows your preferences, schedule, and ongoing tasks
+- A personal assistant that knows your preferences and ongoing tasks
 - A research agent that builds on previous findings over days or weeks
 
-The naive solution - stuff everything into the context window - hits hard limits fast. Context windows are finite (even large ones degrade in quality past ~150k tokens), and including irrelevant information actively hurts the model's reasoning. You pay for every token, and the model's attention gets diluted.
+The naive solution - stuff everything into the context window - hits limits fast. Context windows are finite (even large ones degrade past ~150k tokens), and including irrelevant information hurts reasoning. You pay for every token, and the model's attention gets diluted.
 
-This is the core problem agentic memory systems try to solve: how to give an AI persistent, selective, efficient memory that works across sessions without overwhelming the context window. The key challenges are:
-- What to remember (not everything is worth storing)
-- How to organize it (flat lists do not scale)
-- When to retrieve it (loading irrelevant memories wastes tokens and degrades quality)
-- How to keep it fresh (facts change, old information becomes misleading)
+## How Traditional RAG Helps (and Where It Falls Short)
 
-Different systems attack these challenges differently. MemPalace's approach is distinctive: it uses a hierarchical organizational structure inspired by an ancient memorization technique, runs entirely locally with no LLM calls, and manages token budgets through progressive loading.
+Traditionally, this problem is solved with RAG - Retrieval Augmented Generation. Instead of stuffing everything into the context, you keep your documents in a searchable index and only pull in what's relevant to the current question.
+
+```mermaid
+flowchart LR
+    Q[User Question] --> S[Search<br/>keyword or vector]
+    S --> P[Build Prompt<br/>question + context]
+    P --> L[LLM Call]
+    L --> R[Response]
+
+    DB[(Knowledge Base<br/>chunked documents)] --> S
+
+    style DB fill:#e8f4e8
+```
+
+The search step can use keyword matching (like Elasticsearch), vector similarity (like Qdrant with embeddings), or both. You chunk your documents into smaller pieces, index them, and retrieve at query time - so the model only sees what's relevant, not the entire knowledge base.
+
+This works well for question-answering over static document collections - FAQs, documentation, books, video transcripts. The pattern is straightforward: a `search()` method to find relevant chunks, a `build_prompt()` to format the context, an `llm()` to get the answer, and a `rag()` that orchestrates the flow.
+
+But traditional RAG has limitations when you try to use it as persistent agent memory:
+- All documents are treated equally - there's no concept of "more important" or "less important" memories
+- Everything goes into one flat index, and you rely entirely on search quality to find the right thing
+- No temporal awareness - a fact stored six months ago looks the same as one stored today, even if the old one is outdated
+- No token budget management - every query does a full search, with no progressive loading based on what the conversation actually needs
+- No cross-domain discovery - if related information lives in different topics, traditional RAG won't surface those connections
+
+MemPalace is an alternative approach. It still uses ChromaDB for vector search under the hood, so the RAG foundation is there. But it adds layers on top that address these limitations: a hierarchical organizational structure inspired by an ancient memorization technique, a 4-level progressive loading system, a temporal knowledge graph for facts that change over time, and cross-domain tunnels for discovering connections across topics.
 
 ## Background: What Is a Memory Palace?
 
@@ -88,11 +111,11 @@ Here is what each level means:
 
 ## How Room Detection Works
 
-Room detection is entirely heuristic-based - no LLM calls. There are two detection systems depending on the content type:
+Room detection is entirely heuristic-based - no LLM calls. There are two systems depending on content type.
 
-For project files (`room_detector_local.py`): The system uses a map of about 60 keyword-to-room mappings. It first checks if the folder path contains a room name (e.g., a file in `/auth/` goes to the "auth" room), then checks the filename, then falls back to keyword scoring of the file content. Users can approve or edit room assignments interactively, and these are saved to a `mempalace.yaml` config file.
+For project files (`room_detector_local.py`): a map of about 60 keyword-to-room mappings. It checks the folder path first (a file in `/auth/` goes to the "auth" room), then the filename, then falls back to keyword scoring of the content. Users can approve or edit assignments interactively, saved to a `mempalace.yaml` config.
 
-For conversations (`convo_miner.py`): Each text chunk is scored against 5 keyword sets. For example, the "technical" set contains 13 keywords like "code", "python", "api", "bug". The system counts how many keywords from each set appear in the first 2000 characters, and the highest-scoring category becomes the room.
+For conversations (`convo_miner.py`): each chunk is scored against 5 keyword sets. The "technical" set has 13 keywords like "code", "python", "api", "bug". The system counts how many keywords from each set appear in the first 2000 characters, and the highest-scoring category becomes the room.
 
 ## Ingestion Pipeline
 
@@ -161,7 +184,18 @@ L2 (On-Demand, ~200-500 tokens per retrieval): Triggered when a specific topic c
 
 L3 (Deep Search, unlimited): Full semantic vector search via ChromaDB. Uses the query text to find the 5 most similar drawers by cosine distance. Returns results with similarity scores. This is the fallback when the structured navigation does not surface what is needed.
 
-The "wake-up" cost (L0 + L1) is approximately 600-900 tokens, leaving 95%+ of the context window free. The project estimates this costs about $0.70/year versus approximately $507/year for a naive approach that summarizes everything with LLM calls.
+The "wake-up" cost (L0 + L1) is approximately 600-900 tokens, leaving 95%+ of the context window free.
+
+Here's what that means in practice. Say you have 5 conversations a day with your assistant, and each one loads ~800 tokens of pre-computed memory context from the local database:
+
+| | MemPalace (pre-computed L0+L1) | Naive approach (LLM summarizes all memories each time) |
+|---|---|---|
+| Tokens per wake-up | ~800 (read from local DB, injected as input) | ~200,000 (send all 1,000 stored chunks to LLM for summarization) |
+| Tokens per day (5 conversations) | 4,000 input tokens | 1,000,000 input tokens + output tokens for summary |
+| Annual cost (Claude Haiku, $1/M input) | ~$1.50/year | ~$365/year + output costs |
+| Annual cost (Claude Sonnet, $3/M input) | ~$4.40/year | ~$1,100/year + output costs |
+
+The difference is 250x. With MemPalace, the memory context is pre-computed locally - the 15 most important memories are already selected and truncated, sitting in ChromaDB ready to be read. You're only paying for those ~800 tokens as input to the LLM. With the naive approach, you'd send all your stored memories to the LLM every single conversation to generate a fresh summary, paying for both the massive input and the output.
 
 ## Knowledge Graph
 
@@ -221,17 +255,14 @@ The "know before speaking" protocol is a soft enforcement mechanism. Every time 
 
 ## What Makes This Interesting
 
-Heuristic-first, LLM-free core: All classification, extraction, room detection, and compression use handcrafted regex and keyword scoring. No LLM API calls for any core operation. This makes the system completely offline, free to run, and deterministic.
+There's nothing magical here - it's solid engineering with a few clever ideas:
 
-Structure over search: Instead of relying solely on vector similarity (which can be noisy), the palace hierarchy provides a navigable structure. The 34% retrieval improvement (60.9% to 94.8%) comes from organizational structure alone, not from better embeddings or reranking.
-
-Temporal knowledge: The valid_from/valid_to fields on knowledge graph triples solve a problem most memory systems ignore - facts change over time, and you need to know not just what is true now, but what was true when.
-
-Extreme token economy: The 4-level loading system means most conversations use under 900 tokens for memory context. Only when specific topics come up does the system load more. This is in sharp contrast to systems that dump all memories into the context window.
-
-AAAK as a universal compression format: The insight that pipe-delimited abbreviated text is natively readable by LLMs without any special decoding is clever. It treats the LLM's language understanding as a free decompressor.
-
-Minimal dependencies: The entire system is 21 Python modules with only chromadb and pyyaml as dependencies. No vector database servers to run, no graph databases to configure, no API keys to manage.
+- The memory layer doesn't call any LLM. All classification, room detection, and compression run on regex and keyword scoring. The LLM is only used for the conversation itself. This makes the memory infrastructure completely offline, free, and deterministic.
+- Structure beats search. The palace hierarchy alone improves retrieval by 34% (from 60.9% to 94.8%) over flat vector search - not better embeddings or reranking, just better organization.
+- Facts have expiry dates. The valid_from/valid_to fields on knowledge graph triples solve a problem most memory systems ignore: facts change, and you need to know not just what's true now, but what was true when.
+- Token economy is extreme. Most conversations use under 900 tokens for memory. Only when specific topics come up does the system load more.
+- AAAK treats the LLM as a free decompressor. Pipe-delimited abbreviated text is natively readable by any LLM without special decoding - a clever insight.
+- 21 Python modules, two dependencies (chromadb, pyyaml). No servers, no graph databases, no API keys.
 
 ## Key Source Files
 
