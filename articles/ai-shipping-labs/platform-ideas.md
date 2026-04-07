@@ -1,7 +1,7 @@
 ---
 title: "Community Platform Feature Ideas"
 created: 2026-02-26
-updated: 2026-02-26
+updated: 2026-04-07
 tags: [community, features, ai-shipping-labs]
 status: draft
 ---
@@ -42,6 +42,10 @@ The value might not be in a specific agent built on top but in the data collecte
 
 Setting up a process and thinking through where all the data comes from is the key step. The agent or tool built on top is secondary to having good data[^6].
 
+## Cross-Linking Tools and Concepts Across the Site
+
+The Curated Links and Event Recordings sections on the website share many of the same tools, frameworks, and concepts - things like RAG, MCP, and so on. They come up repeatedly across different events and articles. The idea is to have connectivity between all pages of the site, with direct links from any page that mentions a tool or concept to a dedicated page in the tools and concepts repository. This repository could be called a "collection of tools" or a "vocabulary" - a single place where every tool and concept has its own entry, and all other pages link to it[^7].
+
 ## Sources
 
 [^1]: [20260226_113315_AlexeyDTC_msg2512_transcript.txt](../../inbox/used/20260226_113315_AlexeyDTC_msg2512_transcript.txt)
@@ -50,3 +54,4 @@ Setting up a process and thinking through where all the data comes from is the k
 [^4]: [20260226_113648_AlexeyDTC_msg2518_transcript.txt](../../inbox/used/20260226_113648_AlexeyDTC_msg2518_transcript.txt)
 [^5]: [20260226_113217_AlexeyDTC_msg2510_transcript.txt](../../inbox/used/20260226_113217_AlexeyDTC_msg2510_transcript.txt)
 [^6]: [20260226_113706_AlexeyDTC_msg2520_transcript.txt](../../inbox/used/20260226_113706_AlexeyDTC_msg2520_transcript.txt)
+[^7]: [20260407_125254_valeriia_kuka_msg3285_transcript.txt](../../inbox/used/20260407_125254_valeriia_kuka_msg3285_transcript.txt)
