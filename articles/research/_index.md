@@ -24,6 +24,7 @@ See [All Articles](../_index.md) for the main articles index.
 | [Instructional Design for Online Courses](instructional-design.md) | draft | 2026-02-18 | Research on instructional design principles for improving course completion rates and student engagement |
 | [Advanced Claude Code Patterns](claude-hidden-protocol.md) | draft | 2026-02-16 | Research on advanced Claude Code patterns, prompts, and protocols |
 | [Planner-Executor Pattern for AI Agents](planner-executor-pattern.md) | draft | 2026-02-16 | Research on the planner-executor pattern where a planner creates a plan and each step executes with fresh agent context |
+| [MemPalace: Local Memory System Using Memory Palace Technique](mempalace.md) | draft | 2026-04-07 | Deep dive into Milla Jovovich's MemPalace - palace hierarchy, 4-level memory, AAAK compression, temporal knowledge graph, MCP integration |
 | [Agentic Memory Systems for AI Agents](agentic-memory.md) | draft | 2026-02-14 | Research on memory architectures and vector search for AI agents |
 | [AI Coding Agents for Note-Taking](ai-note-taking-tools.md) | draft | 2026-02-14 | Research on using Claude Code and OpenCode inside Obsidian and Logseq for knowledge management |
 | [Claude Pilot: Quality Automation for Claude Code](claude-pilot.md) | draft | 2026-02-14 | Research on Claude Pilot wrapper that enforces quality guardrails on Claude Code sessions |
