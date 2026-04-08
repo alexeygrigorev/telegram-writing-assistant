@@ -4,25 +4,18 @@ This document defines the styling guidelines for all articles in this repository
 
 ## Markdown Formatting Rules
 
-### No bold formatting
-Do not use `**bold**` for emphasis. Write text without bold.
-
-### No italic formatting
-Do not use `*italic*` for emphasis. Write text without italics.
-
-### No horizontal rules
-Do not use `---` separators in articles.
-
-### Spaces around dashes
-When writing text, use ` - ` with spaces around the dash, not `-` without spaces.
-
-### Code block separation
-Two code blocks cannot follow each other directly. Always add explanatory text between code blocks.
+- No `**bold**` or `*italic*` for emphasis
+- No `---` horizontal rules
+- Use ` - ` with spaces around dashes, not `-`
+- Two code blocks cannot follow each other directly - add text between them
+- Don't overuse em dashes for dramatic effect
 
 ## Writing Style
 
 ### Voice
 The generated text should read as if written by Alexey - natural, direct, and practical.
+- Just use "is" - don't replace it with "serves as," "stands as," "represents"
+- Repeat words instead of swapping synonyms ("the tool," "the platform," "the solution" for the same thing)
 
 ### Content handling
 You are a curator, not a writer. Organize findings without rewriting. However, do edit brain dump style into proper article text - voice transcripts should read like written text, not stream-of-consciousness.
@@ -37,53 +30,35 @@ Translate from Russian/mixed language to English, but preserve all information:
 
 ### Sentence Structure
 - Use short sentences
-- Avoid complex words like "further," "moreover," "additionally"
 - No passive voice - use active voice
-- No filler phrases like "let me tell you," "let me explain" - they don't add value
+- No filler phrases like "let me tell you," "let me explain"
+- Don't start sentences with: Additionally, Moreover, Furthermore, Notably, Importantly, Consequently
+- Don't puff up significance: "marks a pivotal moment," "a testament to," "reflects broader trends"
+- Don't end sentences with vague -ing clauses: "...highlighting its importance," "...reflecting the growing trend"
+- No promotional language: "boasts a," "diverse array," "commitment to excellence"
+- No vague attributions: "experts argue," "industry reports suggest"
+- No "not just X, but also Y" or rule-of-three patterns to sound comprehensive
 
-### Avoiding AI-sounding writing
-
-Based on [Wikipedia: Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing), avoid the following patterns that make text look machine-generated.
-
-AI vocabulary words to avoid: delve, tapestry (figurative), landscape (figurative), crucial, pivotal, testament, underscore (as verb), vibrant, intricate/intricacies, meticulous/meticulously, garner, bolstered, enduring, foster/fostering, showcase/showcasing, enhance/enhancing, emphasize/emphasizing, highlight/highlighting, interplay, align with, valuable (as in "valuable insights"), profound, renowned, groundbreaking, nestled, encompassing, facilitate, comprehensive (as filler), leverage (as verb), multifaceted, realm, commendable, noteworthy, captivating, elevate, intriguing, boasts (meaning "has"), key (overused as adjective).
-
-Transition words to avoid at the start of sentences: Additionally, Moreover, Furthermore, Notably, Importantly, Consequently, Nonetheless, Conversely, Hence.
-
-Patterns to avoid:
-- Puffing up significance: "marks a pivotal moment," "setting the stage for," "evolving landscape," "indelible mark," "deeply rooted," "a testament to," "underscores its importance," "reflects broader trends"
-- Superficial -ing analyses at end of sentences: "...highlighting its importance," "...emphasizing the need for," "...reflecting the growing trend," "...contributing to the broader," "...fostering a sense of"
-- Promotional tone: "boasts a," "in the heart of," "diverse array," "rich cultural heritage," "natural beauty," "commitment to excellence"
-- Vague attributions: "experts argue," "industry reports suggest," "observers have cited," "some critics argue"
-- "Despite challenges" formula: "Despite its success, X faces challenges including..." followed by vague optimism
-- Negative parallelisms: "not just X, but also Y," "it's not about X, it's about Y"
-- Rule of three overuse: "adjective, adjective, and adjective" or "phrase, phrase, and phrase" used to sound comprehensive
-- Elegant variation: unnecessarily using different words for the same thing to avoid repetition (e.g., switching between "the tool," "the platform," "the solution" for the same product). Just repeat the word.
-- Avoiding "is/are": replacing simple "is" with "serves as," "stands as," "represents," "marks." Just use "is."
-- Overuse of em dashes for dramatic effect in every other sentence
-- Collaborative chatbot phrases: "I hope this helps," "certainly," "let me know if you'd like," "here is a detailed breakdown"
+Words to avoid: delve, crucial, pivotal, testament, underscore (verb), vibrant, intricate, garner, bolster, foster, showcase, enhance, emphasize, highlight, leverage (verb), multifaceted, realm, captivating, elevate, boasts (meaning "has"), key (overused adjective).
 
 ### Inclusive Language
 - Use gender-neutral terms: "person," "someone," "they" instead of "guy," "man," "he"
 - Example: "marketing person" not "marketing guy"
 
 ### Organization
-- Avoid brain dump style - add structure to content
 - Use headings and lists to organize information
 - Use level 2 (##) and level 3 (###) headings only - no level 4 (####) or deeper
 - Numbered lists for steps or progressions
 - Bullet points for related items
 
 ### Transcription Errors
-Watch for and fix transcription errors. Transcription often produces words that don't make sense in context:
-- Check if the word fits the surrounding content
+- Watch for words that don't make sense in context - similar sounding words are often substituted incorrectly
 - When a word seems wrong, check the original transcript
-- Similar sounding words are often substituted incorrectly
 - Fix anything that doesn't make logical sense
 
 ### Fact-checking
-Do not assume facts not explicitly stated:
+- Do not assume facts not explicitly stated
 - If a transcript doesn't specify the platform (Slack vs Discord), do not guess
-- When uncertain about details, check linked sources
 - Better to be vague than wrong
 
 ## Article Structure
