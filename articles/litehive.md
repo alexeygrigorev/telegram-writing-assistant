@@ -1,7 +1,7 @@
 ---
 title: "Deterministic Coding with Agent Teams"
 created: 2026-04-05
-updated: 2026-04-06
+updated: 2026-04-10
 tags: [claude-code, agents, codex, litehive, tools]
 status: draft
 ---
@@ -130,13 +130,29 @@ The fix was straightforward: tell the agent to create a task in GoZ to fix it. T
   <!-- The agent identifies a problem in GoZ and creates a task in GoZ to fix it - self-improving tools -->
 </figure>
 
-## Usage Watcher (In Progress)
+## Usage Watcher
 
 There's still a lot of work to do. For GoZ, automatic model switching (between GLM-5 and GLM-5 Turbo during peak hours) is only in the planning stage[^12].
 
 In litehive itself, the main feature I'm working on right now is a usage watcher. It monitors quotas - if Claude Code reaches 90% of its weekly limit, it automatically starts using Codex. If Codex reaches 90%, it adds another engine. This works across all projects. The vision is to use litehive for all future projects with a global config. If I have multiple projects running, they share the same workspace configuration[^12].
 
 The goal is to be able to work on any project autonomously. I focus on requirements, agents work independently regardless of what's happening with my quotas. This way my dependency on Claude Code goes away. If they keep reducing limits, I'm not tied to them anymore. I can switch to any other engine at any moment, including Codex. I got Codex Pro this week and I'm actively using it[^12].
+
+litehive now has a feature that checks how much usage quota remains for Claude, Codex, Copilot, and ZAI. It tracks the limits because each service works differently - Claude and Codex have a 5-hour window, while Copilot uses a monthly limit. The system monitors the remaining percentage and can detect when quotas reset. In the screenshot below, it detected that the Codex quota had reset, and checking manually confirmed it - 100% remaining[^23][^24][^25].
+
+<figure>
+  <img src="../assets/images/litehive/litehive-quota-status-check.jpg" alt="litehive status check showing quota monitoring and Codex quota reset detection">
+  <figcaption>litehive status check - detected that Codex quota reset, confirmed at 100% remaining</figcaption>
+  <!-- Shows the quota monitoring feature in action during a status check -->
+</figure>
+
+<figure>
+  <img src="../assets/images/litehive/codex-quota-100-percent.jpg" alt="Codex usage limits showing 100% remaining on both 5-hour and weekly limits">
+  <figcaption>Codex usage limits after reset - 100% remaining on both 5-hour and weekly limits</figcaption>
+  <!-- Confirms the quota reset that litehive detected -->
+</figure>
+
+Codex was celebrating the number of people who joined, so they reset the quotas. That is how the 100% happened[^25].
 
 ## Codex CLI
 
@@ -166,3 +182,6 @@ The Codex CLI itself is not as advanced as Claude Code, but you can still do a l
 [^20]: [20260405_071715_AlexeyDTC_msg3205_photo.md](../inbox/used/20260405_071715_AlexeyDTC_msg3205_photo.md)
 [^21]: [20260405_083208_AlexeyDTC_msg3207_photo.md](../inbox/used/20260405_083208_AlexeyDTC_msg3207_photo.md)
 [^22]: [20260405_083319_AlexeyDTC_msg3209_transcript.txt](../inbox/used/20260405_083319_AlexeyDTC_msg3209_transcript.txt)
+[^23]: [20260409_170457_AlexeyDTC_msg3317_photo.md](../inbox/used/20260409_170457_AlexeyDTC_msg3317_photo.md)
+[^24]: [20260409_170600_AlexeyDTC_msg3319_transcript.txt](../inbox/used/20260409_170600_AlexeyDTC_msg3319_transcript.txt)
+[^25]: [20260409_170632_AlexeyDTC_msg3323_transcript.txt](../inbox/used/20260409_170632_AlexeyDTC_msg3323_transcript.txt)

@@ -9,6 +9,7 @@ See [All Articles](../_index.md) for the main articles index.
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
 | [Karpathy: LLM Knowledge Bases](karpathy-how-i-use-llms.md) | draft | 2026-04-06 | LLM Wiki pattern - building personal knowledge bases with LLMs, Obsidian as IDE, three-layer architecture, compounding knowledge |
+| [Career Ops: AI-Powered Career Management](career-ops.md) | draft | 2026-04-09 | AI job search system built on Claude Code - 14 skill modes, A-F evaluation, batch processing with sub-agents, portal scanning, PDF generation |
 | [724 Office: Self-Evolving AI Agent System](724-office.md) | draft | 2026-03-29 | Research on a self-evolving AI agent - 3,500 lines pure Python, three-layer memory, runtime tool creation, self-repair, 24/7 production |
 | [Spec-Driven Development](spec-driven-development.md) | draft | 2026-03-25 | Research on spec-driven development and task management for AI agents |
 | [Design Thinking for Finding Project Topics](design-thinking-for-projects.md) | draft | 2026-03-20 | Research on Design Thinking frameworks and methodologies for helping students and professionals find project ideas, problem finders research |
@@ -27,6 +28,7 @@ See [All Articles](../_index.md) for the main articles index.
 | [MemPalace: Local Memory System Using Memory Palace Technique](mempalace.md) | draft | 2026-04-07 | Deep dive into Milla Jovovich's MemPalace - palace hierarchy, 4-level memory, AAAK compression, temporal knowledge graph, MCP integration |
 | [Agentic Memory Systems for AI Agents](agentic-memory.md) | draft | 2026-02-14 | Research on memory architectures and vector search for AI agents |
 | [AI Coding Agents for Note-Taking](ai-note-taking-tools.md) | draft | 2026-02-14 | Research on using Claude Code and OpenCode inside Obsidian and Logseq for knowledge management |
+| [Code Review Graph: Graph-Based Code Review Analysis](code-review-graph.md) | draft | 2026-04-09 | Tree-sitter knowledge graph for token-efficient AI code review, blast radius analysis, MCP integration, 22 tools |
 | [Claude Pilot: Quality Automation for Claude Code](claude-pilot.md) | draft | 2026-02-14 | Research on Claude Pilot wrapper that enforces quality guardrails on Claude Code sessions |
 | [Design with AI: Beating the Default Look](design-with-ai.md) | draft | 2026-02-14 | Research on producing high-quality AI-generated UI using intent-driven design skills and systematic design memory |
 | [OpenClaw: Building a Persistent AI Assistant](openclaw-telegram-bot-architecture.md) | draft | 2026-02-14 | Research on building persistent AI assistants from a Telegram bot using the Anthropic API |

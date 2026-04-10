@@ -1,7 +1,7 @@
 ---
 title: "User Interviews"
 created: 2026-04-02
-updated: 2026-04-02
+updated: 2026-04-10
 tags: [ai-shipping-labs, community, user-research]
 status: draft
 ---
@@ -38,6 +38,36 @@ The general idea is clear - they want accountability, not more content. This is 
 
 This applies especially to those who are participants of the AI Engineering Buildcamp (first or second cohort). When people who haven't bought the course start joining the community, they'll probably have slightly different needs. But for now there aren't many of those, so we can talk to each one individually and create a plan for them. And if I know what their plan is, I can make announcements in the community or organize events where they present their projects - without requiring Alexey's time[^5].
 
+## Interview 2: Jacob
+
+Valeriia talked to Jacob. He decided to join the community and buy the Tier 1 plan. She explained the difference between the tiers[^7].
+
+### Background
+
+Jacob switched to a new job recently and now has more free time. He found Alexey through a recommendation and took the AI Engineering Buildcamp. Before that, he tried the LLM Zoomcamp and another AI Engineering course from a different creator. He started with Data Science, then Computer Science, and now Applied AI. He is studying these topics at his university[^7].
+
+### The problem: accountability, not content
+
+Jacob said he does not have a problem finding content. His problem is accountability - maintaining a steady study routine and staying consistent. This is the same pattern as Interview 1. He joined Tier 1 because he likes how Alexey teaches and his approach to courses, but said Tier 1 was not very useful for him because it was more theoretical[^7].
+
+### Moving to Tier 2
+
+Valeriia suggested that if his goal is accountability and consistency, Tier 2 might be a better fit. Tier 2 includes joining the community, getting initial support from Alexey to plan a project, and regular meetings (once a week or twice a month) where community members share their projects[^8].
+
+Jacob said he was convinced. He will try subscribing for one month at 50 euros. If he likes how things go, he will continue. Otherwise he will leave. Valeriia told him she is always happy to stay in touch and hear his feedback[^8].
+
+### Python course interest
+
+Valeriia told Jacob that he inspired the creation of a Python course. He said he was very happy to hear that and that such a course would be very useful for him. He already took a Python course elsewhere but would be happy to take one from Alexey to reinforce his knowledge, because he likes how Alexey teaches[^9].
+
+Valeriia said she would ask Alexey which tier will have access to this course. She remembers that early access could be given to those who just joined[^9].
+
+### Ideas from the conversation
+
+Valeriia had an idea about Tier 1 content strategy. Even though Jacob said he does not have a problem finding content, some topics are still unclear to him. The idea is to have text-based content inside the newsletter covering specific topics like MCP, RAG, and others. This way people in Tier 1 learn through text content on topics that interest them or that they struggle with. The paid newsletter could also share what community members built after a month of work - "if you joined, you could build this too"[^9].
+
+The second idea is that the newsletter could provide more fundamental, beginner-friendly content with explanations for those starting from scratch. For those who want more support and want to continue at a deeper level, they go into the community (Tier 2)[^9].
+
 ## Sources
 
 [^1]: [20260402_185517_AlexeyDTC_msg3129_transcript.txt](../../inbox/used/20260402_185517_AlexeyDTC_msg3129_transcript.txt)
@@ -46,3 +76,6 @@ This applies especially to those who are participants of the AI Engineering Buil
 [^4]: [20260402_185517_AlexeyDTC_msg3132_transcript.txt](../../inbox/used/20260402_185517_AlexeyDTC_msg3132_transcript.txt)
 [^5]: [20260402_185517_AlexeyDTC_msg3133_transcript.txt](../../inbox/used/20260402_185517_AlexeyDTC_msg3133_transcript.txt)
 [^6]: [20260402_185532_AlexeyDTC_msg3139_transcript.txt](../../inbox/used/20260402_185532_AlexeyDTC_msg3139_transcript.txt)
+[^7]: [20260410_074954_valeriia_kuka_msg3327_transcript.txt](../../inbox/used/20260410_074954_valeriia_kuka_msg3327_transcript.txt)
+[^8]: [20260410_075425_valeriia_kuka_msg3329_transcript.txt](../../inbox/used/20260410_075425_valeriia_kuka_msg3329_transcript.txt)
+[^9]: [20260410_095445_AlexeyDTC_msg3331_transcript.txt](../../inbox/used/20260410_095445_AlexeyDTC_msg3331_transcript.txt)

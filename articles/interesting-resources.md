@@ -1,7 +1,7 @@
 ---
 title: "Interesting Resources"
 created: 2026-01-31
-updated: 2026-04-08
+updated: 2026-04-10
 tags: [resources, tools, ai, development]
 status: draft
 ---
@@ -28,6 +28,14 @@ Each resource entry follows this simple format:
 
 ## Tools
 
+### Claude Memory Compiler
+
+[Claude Memory Compiler](https://github.com/coleam00/claude-memory-compiler) is an implementation of Karpathy's LLM Knowledge Base architecture that automatically compiles your Claude Code conversations into a searchable, structured knowledge base. It uses Claude Code hooks to capture session transcripts, extracts key decisions and lessons via the Claude Agent SDK, and organizes everything into cross-referenced markdown articles. Retrieval uses a simple index file instead of RAG, following Karpathy's insight that at personal scale (under ~2,000 articles) an LLM reading a structured index outperforms vector similarity search[^42].
+
+### DeepTutor
+
+[DeepTutor](https://github.com/HKUDS/DeepTutor) is an open-source AI tutoring assistant that turns your documents into an interactive learning environment. It combines RAG-powered knowledge bases with multiple learning modes - chat, guided learning journeys, quiz generation, deep research, and an AI co-writer - all sharing the same conversation context. It also supports persistent "TutorBots" that remember your learning history and evolve over time[^45].
+
 ## Resources
 
 ### Wikipedia: Signs of AI Writing
@@ -41,6 +49,14 @@ Add project ideas here.
 ### Awesome AI Apps
 
 [Awesome AI Apps](https://github.com/Arindam200/awesome-ai-apps) is a collection of 70+ practical examples for building LLM-powered applications, covering everything from simple chatbots to advanced multi-agent systems. The projects span starter agents, RAG applications, MCP integrations, memory-enhanced agents, and production-ready workflows using frameworks like Agno, CrewAI, LangChain, PydanticAI, and AWS Strands. It is a great source of inspiration for AI project ideas with working code you can study and extend[^35].
+
+### Career-Ops
+
+[Career-Ops](https://github.com/santifer/career-ops) is an open-source, AI-powered job search system built on Claude Code that turns your terminal into a full job search command center. It evaluates job offers with a structured scoring system, generates ATS-optimized tailored CVs as PDFs, scans 45+ company career portals automatically, and tracks everything in a single pipeline. The author used it to evaluate 740+ job listings, generate 100+ personalized CVs, and land a Head of Applied AI role[^43].
+
+### Code Review Graph
+
+[Code Review Graph](https://github.com/tirth8205/code-review-graph) is an MCP-based tool that builds a local knowledge graph of your codebase so AI coding assistants read only what matters during code reviews. It uses Tree-sitter to parse your code into a structural map of functions, classes, imports, and their relationships, then performs blast-radius analysis on changes to identify the minimal set of affected files. The tool supports 19 languages, updates incrementally in under 2 seconds, and benchmarks show an average 8.2x token reduction compared to naive full-file reads[^44].
 
 ### Automated GTM Pipeline
 
@@ -90,3 +106,7 @@ Add project ideas here.
 [^39]: [https://github.com/garrytan/gstack](https://github.com/garrytan/gstack) via [20260314_051307_AlexeyDTC_msg2904.md](../inbox/used/20260314_051307_AlexeyDTC_msg2904.md)
 [^40]: [https://github.com/Vaibhavs10/insanely-fast-whisper](https://github.com/Vaibhavs10/insanely-fast-whisper) via [20260325_094127_AlexeyDTC_msg3074.md](../inbox/used/20260325_094127_AlexeyDTC_msg3074.md)
 [^41]: [https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing) via [20260408_140252_AlexeyDTC_msg3303.md](../inbox/used/20260408_140252_AlexeyDTC_msg3303.md)
+[^42]: [https://github.com/coleam00/claude-memory-compiler](https://github.com/coleam00/claude-memory-compiler) via [20260408_195017_AlexeyDTC_msg3309.md](../inbox/used/20260408_195017_AlexeyDTC_msg3309.md)
+[^43]: [https://github.com/santifer/career-ops](https://github.com/santifer/career-ops) via [20260409_064531_AlexeyDTC_msg3313.md](../inbox/used/20260409_064531_AlexeyDTC_msg3313.md)
+[^44]: [https://github.com/tirth8205/code-review-graph](https://github.com/tirth8205/code-review-graph) via [20260409_064713_AlexeyDTC_msg3315.md](../inbox/used/20260409_064713_AlexeyDTC_msg3315.md)
+[^45]: [https://github.com/HKUDS/DeepTutor](https://github.com/HKUDS/DeepTutor) via [20260409_064410_AlexeyDTC_msg3311.md](../inbox/used/20260409_064410_AlexeyDTC_msg3311.md)

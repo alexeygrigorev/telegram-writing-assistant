@@ -1,7 +1,7 @@
 ---
 title: "AI Shipping Labs Community Activities"
 created: 2026-02-10
-updated: 2026-03-20
+updated: 2026-04-10
 tags: [community, activities, mentoring, accountability, ai-shipping-labs]
 status: draft
 ---
@@ -108,6 +108,28 @@ Benefits of sprints:
 
 Continuous activities lose interest over time, like "Book of the Week" or "Project of the Week" where interest fades. Running in sprints with periodic pauses helps avoid this. Sprints can have different focus areas. Taking breaks to rethink and adjust is valuable[^71].
 
+### Monthly themes with deadlines
+
+Another idea for accountability in Tier 1 (the newsletter tier): dedicate each month to a specific topic. For example, April is the month of RAG. Provide a plan for how to study it, set deadlines, and send short reminder messages - "today is the deadline for this part, did you do it or not?" This gives structure even without the community tier[^88].
+
+It could also work to announce peer review at the end of each month. Although peer review might be too complex since people join at different times. The core idea is that beyond content, there should be a plan with deadlines and accountability reminders[^88].
+
+### Member onboarding process
+
+For existing community members, the plan is to create a format for understanding each person's goals. What do they want to learn in the next month? What project do they want to build? Then give them personal feedback (as promised in the launch) and help them start building or studying a topic. Events should be added to the shared calendar where members present what they built and discuss their problems[^89][^90].
+
+One approach: Valeriia calls each member to learn their expectations and goals. She records the calls through Gemini to get transcripts. Then she loads the transcripts into the bot or shows them to Alexey, who reviews all the descriptions and provides feedback. Valeriia then sends a message to each member: "Alexey reviewed your case, here is what you can work on this month, let us know if you have questions"[^91].
+
+This could also be done directly on the platform if it is working - put descriptions and learning plans in member profiles on AI Shipping Labs. Track progress for each person: on this date we gave you the plan, on this date we met, on this date you built this[^92].
+
+The outreach message to members: "Hi, we are launching the community. I previously asked about your expectations and content requests. Now we want to start an activity where everyone has their own project to work on. Let's get on a call to discuss your case, your ideas, or maybe you already have a project idea. Then Alexey will review your ideas and help make a plan, and we will send you feedback"[^93].
+
+For those who do not want to get on a call, a Google Form with the same questions works. For those who do not want to fill out a form, the same questions can be asked through chat. Having a standardized set of questions makes it easier for Alexey to review all the applications. The goal is to learn the most important things about each person[^94].
+
+### Launch preparation
+
+Vishnu, who was on a previous call, wrote asking when the community launches. Valeriia told him Monday and that there will be a newsletter announcement today. An announcement is also needed inside the community about the launch and the planned events. The events are all on Luma AI Shipping Labs (Valeriia added Alexey as an admin there) and need to be reviewed to make sure everything looks right[^89].
+
 ## Career Development
 
 ### Resume review sessions
@@ -199,3 +221,10 @@ In a private community, these kinds of discussions can happen more freely. The p
 [^74]: [20260217_092429_AlexeyDTC_msg1885_transcript.txt](../../inbox/used/20260217_092429_AlexeyDTC_msg1885_transcript.txt), [20260217_092405_AlexeyDTC_msg1883_photo.md](../../inbox/used/20260217_092405_AlexeyDTC_msg1883_photo.md)
 [^75]: [20260217_100942_AlexeyDTC_msg1894_transcript.txt](../../inbox/used/20260217_100942_AlexeyDTC_msg1894_transcript.txt), [20260217_095600_AlexeyDTC_msg1891_photo.md](../../inbox/used/20260217_095600_AlexeyDTC_msg1891_photo.md)
 [^86]: [20260320_152314_AlexeyDTC_msg3037_transcript.txt](../../inbox/used/20260320_152314_AlexeyDTC_msg3037_transcript.txt)
+[^88]: [20260410_095445_AlexeyDTC_msg3332_transcript.txt](../../inbox/used/20260410_095445_AlexeyDTC_msg3332_transcript.txt)
+[^89]: [20260410_095445_AlexeyDTC_msg3333_transcript.txt](../../inbox/used/20260410_095445_AlexeyDTC_msg3333_transcript.txt)
+[^90]: [20260410_095445_AlexeyDTC_msg3334_transcript.txt](../../inbox/used/20260410_095445_AlexeyDTC_msg3334_transcript.txt)
+[^91]: [20260410_095445_AlexeyDTC_msg3335_transcript.txt](../../inbox/used/20260410_095445_AlexeyDTC_msg3335_transcript.txt)
+[^92]: [20260410_095445_AlexeyDTC_msg3336_transcript.txt](../../inbox/used/20260410_095445_AlexeyDTC_msg3336_transcript.txt)
+[^93]: [20260410_095445_AlexeyDTC_msg3337_transcript.txt](../../inbox/used/20260410_095445_AlexeyDTC_msg3337_transcript.txt)
+[^94]: [20260410_095445_AlexeyDTC_msg3338_transcript.txt](../../inbox/used/20260410_095445_AlexeyDTC_msg3338_transcript.txt)
