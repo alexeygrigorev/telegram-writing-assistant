@@ -68,6 +68,42 @@ Valeriia had an idea about Tier 1 content strategy. Even though Jacob said he do
 
 The second idea is that the newsletter could provide more fundamental, beginner-friendly content with explanations for those starting from scratch. For those who want more support and want to continue at a deeper level, they go into the community (Tier 2)[^9].
 
+## Community Survey Responses
+
+Reached out to AI Shipping Labs members asking what they want to see in the community. Here are the responses[^10].
+
+### Lucia
+
+Anything related to OpenClaw is interesting. She started a demo of a skill in a hackathon and wants to integrate it with OpenClaw. It is her hobby project[^11].
+
+### Chandra
+
+His goal with AI is to build something he can sell as a side income or build his brand. He has gotten good at using Kiro (Amazon) and is picking up speed with Claude Code. Where he is stuck is how to push something to production[^12].
+
+Two broad areas he wants to learn about[^12]:
+- Inference optimization - how to optimize costs by finding the right inference layer
+- How to use evals to automate this
+
+When asked if he already has ideas, he said no - it feels like drinking from a firehose and he doesn't know where to start. He will keep working on it[^12].
+
+### Member responses on topics of interest
+
+One member said the hottest topic at the moment is OpenClaw, so anything related to that is interesting[^13].
+
+Another member is curious about inference and how to run models locally on cheaper machines. They recommended starting with the Baseten inference engineering book (https://www.baseten.co/inference-engineering/) and an interview with Scott Hanselman (https://www.youtube.com/watch?v=lcC1rtHjDrw). They are also interested in hearing from someone who has taken an AI product to production as a side income - their learnings, gotchas, and starting points[^14].
+
+One member wants to discuss relevant topics but also the challenges people face with the constant buzz of new tools, frameworks, and paradigms. Despite trying to keep up, they feel constantly behind, and it can be overwhelming[^15].
+
+### MCP and multi-agent workflows request
+
+One member wants to learn about writing custom MCP (Model Context Protocol) servers, particularly for long-term memory and context storage. They see the biggest bottleneck in AI-assisted coding as managing context without blowing out the context window with bloated .md files[^16].
+
+Specific topics they want tutorials or deep dives on[^16]:
+- Building a persistent memory bridge - how to write a local MCP server (using SQLite, pgvector, etc.) to store state across sessions
+- Multi-agent workflows - how to use shared memory to set up a "Worker/Supervisor" dynamic, for example showing how Gemini can act as the executor writing drafts to the MCP context while another model like Codex or Claude reads that same memory space to act as a reviewer
+
+They haven't built this themselves yet, but learning how to construct a shared brain so multiple models can collaborate and iterate on the same project is what they hope to get from the community[^16].
+
 ## Sources
 
 [^1]: [20260402_185517_AlexeyDTC_msg3129_transcript.txt](../../inbox/used/20260402_185517_AlexeyDTC_msg3129_transcript.txt)
@@ -79,3 +115,10 @@ The second idea is that the newsletter could provide more fundamental, beginner-
 [^7]: [20260410_074954_valeriia_kuka_msg3327_transcript.txt](../../inbox/used/20260410_074954_valeriia_kuka_msg3327_transcript.txt)
 [^8]: [20260410_075425_valeriia_kuka_msg3329_transcript.txt](../../inbox/used/20260410_075425_valeriia_kuka_msg3329_transcript.txt)
 [^9]: [20260410_095445_AlexeyDTC_msg3331_transcript.txt](../../inbox/used/20260410_095445_AlexeyDTC_msg3331_transcript.txt)
+[^10]: [20260410_172207_AlexeyDTC_msg3353.md](../../inbox/used/20260410_172207_AlexeyDTC_msg3353.md)
+[^11]: [20260410_172220_AlexeyDTC_msg3355.md](../../inbox/used/20260410_172220_AlexeyDTC_msg3355.md)
+[^12]: [20260410_172509_AlexeyDTC_msg3357.md](../../inbox/used/20260410_172509_AlexeyDTC_msg3357.md)
+[^13]: [20260410_184334_AlexeyDTC_msg3359.md](../../inbox/used/20260410_184334_AlexeyDTC_msg3359.md)
+[^14]: [20260410_184350_AlexeyDTC_msg3361.md](../../inbox/used/20260410_184350_AlexeyDTC_msg3361.md)
+[^15]: [20260410_184358_AlexeyDTC_msg3363.md](../../inbox/used/20260410_184358_AlexeyDTC_msg3363.md)
+[^16]: [20260410_184425_AlexeyDTC_msg3365.md](../../inbox/used/20260410_184425_AlexeyDTC_msg3365.md)

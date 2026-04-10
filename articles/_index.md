@@ -51,7 +51,7 @@ Articles about the AI Shipping Labs paid community: vision, activities, courses,
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
-| [User Interviews](ai-shipping-labs/user-interviews.md) | draft | 2026-04-10 | Notes from conversations with community members - accountability over content, project pipelines, Jacob interview |
+| [User Interviews](ai-shipping-labs/user-interviews.md) | draft | 2026-04-10 | Notes from conversations with community members - accountability over content, project pipelines, Jacob interview, community survey responses |
 | [Activities](ai-shipping-labs/activities.md) | draft | 2026-04-10 | Regular sessions, accountability circles, mentoring, career development, knowledge sharing, member onboarding |
 | [How We Built AI Shipping Labs](ai-shipping-labs/how-we-built-it.md) | draft | 2026-04-07 | Valeriia's V0 website build story, MVP philosophy, hosting journey, agent-built Django platform |
 | [Launch Announcement](ai-shipping-labs/launch-announcement.md) | draft | 2026-04-07 | Newsletter article: community announcement, activities, tiers, early member benefits |
