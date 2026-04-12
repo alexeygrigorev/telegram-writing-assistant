@@ -8,6 +8,7 @@ See [All Articles](../_index.md) for the main articles index.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [AI Course Generation with Claude Skills](ai-course-generation-skill.md) | draft | 2026-04-12 | Research on a 1,270-line Claude skill that generates complete interactive Vite+React courses from a single topic prompt - template-first approach, prompt engineering patterns |
 | [Karpathy: LLM Knowledge Bases](karpathy-how-i-use-llms.md) | draft | 2026-04-06 | LLM Wiki pattern - building personal knowledge bases with LLMs, Obsidian as IDE, three-layer architecture, compounding knowledge |
 | [Career Ops: AI-Powered Career Management](career-ops.md) | draft | 2026-04-09 | AI job search system built on Claude Code - 14 skill modes, A-F evaluation, batch processing with sub-agents, portal scanning, PDF generation |
 | [724 Office: Self-Evolving AI Agent System](724-office.md) | draft | 2026-03-29 | Research on a self-evolving AI agent - 3,500 lines pure Python, three-layer memory, runtime tool creation, self-repair, 24/7 production |
