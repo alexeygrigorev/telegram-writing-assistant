@@ -123,13 +123,13 @@
   .reveal .quote-card {
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015));
     border: 1px solid var(--asl-border);
-    border-radius: 22px;
-    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
-    padding: 0.75em 0.85em;
+    border-radius: 18px;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.2);
+    padding: 0.68em 0.78em;
     text-align: left;
   }
   .reveal .takeaway {
-    margin-top: 0.8em;
+    margin-top: 0.55em;
     border-color: rgba(191, 255, 0, 0.28);
   }
   .reveal .quote-card {
@@ -168,9 +168,9 @@
   .reveal .media-frame {
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.015));
     border: 1px solid var(--asl-border);
-    border-radius: 24px;
-    padding: 14px;
-    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.32);
+    border-radius: 18px;
+    padding: 10px;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
   }
   .reveal .media-frame img {
     display: block;
@@ -403,6 +403,40 @@
     max-width: 1080px;
     margin: 0 auto;
   }
+  .reveal .part-four-slide .info-card,
+  .reveal .part-four-slide .takeaway,
+  .reveal .part-four-slide .detail-card,
+  .reveal .part-four-slide .list-panel,
+  .reveal .part-four-slide .overview-card,
+  .reveal .part-four-slide .story-card,
+  .reveal .part-four-slide .tier-card,
+  .reveal .tail-slide .info-card,
+  .reveal .tail-slide .takeaway,
+  .reveal .tail-slide .detail-card,
+  .reveal .tail-slide .list-panel,
+  .reveal .tail-slide .overview-card,
+  .reveal .tail-slide .story-card,
+  .reveal .tail-slide .tier-card {
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 14px;
+    box-shadow: none;
+  }
+  .reveal .part-four-slide .takeaway,
+  .reveal .tail-slide .takeaway {
+    margin-top: 0;
+    border-color: var(--asl-border);
+  }
+  .reveal .part-four-slide .media-frame,
+  .reveal .tail-slide .media-frame {
+    background: rgba(255, 255, 255, 0.015);
+    border-radius: 14px;
+    box-shadow: none;
+    padding: 8px;
+  }
+  .reveal .part-four-slide .media-frame img,
+  .reveal .tail-slide .media-frame img {
+    border-radius: 10px;
+  }
   .reveal .part-four-intro {
     max-width: 980px;
     margin: 0.8em auto 0;
@@ -411,8 +445,8 @@
   .reveal .story-grid,
   .reveal .tier-grid {
     display: grid;
-    gap: 0.75em;
-    margin-top: 0.95em;
+    gap: 0.55em;
+    margin-top: 0.75em;
   }
   .reveal .overview-grid,
   .reveal .story-grid,
@@ -426,15 +460,15 @@
   .reveal .tier-card {
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015));
     border: 1px solid var(--asl-border);
-    border-radius: 22px;
-    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
+    border-radius: 18px;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.2);
     text-align: left;
   }
   .reveal .overview-card,
   .reveal .detail-card,
   .reveal .story-card,
   .reveal .tier-card {
-    padding: 0.85em 0.9em;
+    padding: 0.72em 0.78em;
   }
   .reveal .overview-title,
   .reveal .story-title,
@@ -455,12 +489,12 @@
   .reveal .detail-grid {
     display: grid;
     grid-template-columns: 1.05fr 1fr;
-    gap: 0.8em;
-    margin-top: 0.9em;
+    gap: 0.6em;
+    margin-top: 0.7em;
     align-items: stretch;
   }
   .reveal .list-panel {
-    padding: 0.85em 0.95em;
+    padding: 0.72em 0.82em;
   }
   .reveal .clean-list,
   .reveal .tier-points {
@@ -472,10 +506,10 @@
   .reveal .clean-list li,
   .reveal .tier-points li {
     margin: 0;
-    padding: 0.5em 0;
+    padding: 0.34em 0;
     border-top: 1px solid rgba(255, 255, 255, 0.08);
-    font-size: 0.63em;
-    line-height: 1.42;
+    font-size: 0.58em;
+    line-height: 1.32;
   }
   .reveal .clean-list li:first-child,
   .reveal .tier-points li:first-child {
@@ -487,21 +521,21 @@
     padding-bottom: 0;
   }
   .reveal .part-four-media {
-    margin-top: 0.8em;
+    margin-top: 0.6em;
   }
   .reveal .part-four-media .media-frame {
     padding: 12px;
   }
   .reveal .part-four-media img {
     width: 100%;
-    max-height: 340px;
+    max-height: 300px;
     object-fit: contain;
   }
   .reveal .part-four-media.tall-example img {
-    max-height: 430px;
+    max-height: 360px;
   }
   .reveal .example-copy {
-    margin-top: 0.8em;
+    margin-top: 0.6em;
   }
   .reveal .stacked-media {
     display: flex;
@@ -509,33 +543,94 @@
     gap: 0.7em;
   }
   .reveal .resource-link {
-    margin-top: 0.7em;
+    margin-top: 0.45em;
     font-size: 0.62em;
   }
   .reveal .tier-note {
-    margin-top: 0.7em;
+    margin-top: 0.5em;
     color: var(--asl-muted);
     font-size: 0.58em;
     line-height: 1.35;
+  }
+  .reveal .part-four-slide h2,
+  .reveal .tail-slide h2 {
+    font-size: 1.35em;
+    margin-bottom: 0.2em;
+  }
+  .reveal .part-four-slide h3,
+  .reveal .tail-slide h3 {
+    font-size: 1.05em;
+    margin-bottom: 0.2em;
+  }
+  .reveal .part-four-slide .lede,
+  .reveal .tail-slide .lede {
+    font-size: 0.74em;
+    line-height: 1.3;
+    margin-top: 0.55em;
+  }
+  .reveal .part-four-slide .card-grid,
+  .reveal .tail-slide .card-grid {
+    gap: 0.55em;
+    margin-top: 0.65em;
+  }
+  .reveal .part-four-slide .card-text,
+  .reveal .tail-slide .card-text,
+  .reveal .part-four-slide .detail-text,
+  .reveal .tail-slide .detail-text,
+  .reveal .part-four-slide .overview-text,
+  .reveal .tail-slide .overview-text,
+  .reveal .part-four-slide .story-text,
+  .reveal .tail-slide .story-text,
+  .reveal .part-four-slide .tier-fit,
+  .reveal .tail-slide .tier-fit {
+    font-size: 0.64em;
+    line-height: 1.32;
+  }
+  .reveal .part-four-slide .overview-title,
+  .reveal .tail-slide .overview-title,
+  .reveal .part-four-slide .story-title,
+  .reveal .tail-slide .story-title,
+  .reveal .part-four-slide .tier-name,
+  .reveal .tail-slide .tier-name {
+    font-size: 0.74em;
+  }
+  .reveal .part-four-slide .eyebrow,
+  .reveal .tail-slide .eyebrow {
+    margin-bottom: 0.4em;
+    font-size: 0.44em;
+  }
+  .reveal .part-four-slide .detail-card .detail-text,
+  .reveal .tail-slide .detail-card .detail-text {
+    margin-top: 0;
+  }
+  .reveal .support-note {
+    max-width: 900px;
+    margin: 0.65em auto 0;
+    font-size: 0.68em;
+    line-height: 1.34;
+    color: var(--asl-fg);
+  }
+  .reveal .single-note {
+    max-width: 880px;
+    margin: 0.6em auto 0;
+  }
+  .reveal .tail-slide .link-row {
+    margin-top: 0.65em;
+  }
+  .reveal .tail-slide .link-chip {
+    padding: 0.38em 0.62em;
+    font-size: 0.54em;
   }
   .reveal .closing-shell {
     max-width: 860px;
     margin: 0 auto;
   }
-  .reveal .qr-frame {
-    margin: 1em auto 0;
-    width: fit-content;
-    padding: 16px;
-    border-radius: 26px;
-    border: 1px solid var(--asl-border);
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015));
-    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
-  }
-  .reveal .qr-frame img {
+  .reveal .closing-qr {
     display: block;
+    margin: 0.9em auto 0;
     max-height: 280px;
     background: transparent;
-    border-radius: 16px;
+    border-radius: 10px;
   }
   .reveal .link-row {
     display: flex;
@@ -592,18 +687,14 @@
     <p class="section-title">Part 1</p>
     <h1 class="tight-title">Why learning AI alone often stalls</h1>
     <div class="part-one-intro">
-      <p class="lede">If you want to build with AI, you probably do not have a shortage of things to learn. The problem is that more information does not automatically make progress easier.</p>
-      <div class="takeaway">
-        <p class="eyebrow">Main point</p>
-        <p class="card-text">Very often, the flood of new tools and ideas makes it harder to stay focused long enough to actually build something.</p>
-      </div>
+      <p class="lede">If you want to build with AI, it is easy to get lost in endless information. The constant stream of new tools and ideas can make it harder to stay focused long enough to build something.</p>
     </div>
   </div>
 </section>
 
 <section>
   <div class="slide-shell">
-    <h2>There is always one more thing that feels important</h2>
+    <h2>I just opened my X and there's already one more shiny project I need to check out</h2>
     <div class="part-one-layout">
       <div class="part-one-media tall-shot">
         <div class="media-frame">
@@ -613,11 +704,12 @@
       <div class="part-one-copy">
         <div class="info-card">
           <p class="eyebrow">What happens</p>
-          <p class="card-text">You see a new tool, a new benchmark, a new workflow, and it immediately feels like something you should pay attention to. Even if you were trying to stay focused, your attention gets pulled away again.</p>
+          <p class="card-text">You see a new tool, resource, or idea and it grabs your attention, distracting you from your original focus.</p>
+    
         </div>
         <div class="takeaway">
           <p class="eyebrow">Result</p>
-          <p class="card-text">So instead of moving forward with your own project, you are pulled toward one more thing that feels urgent.</p>
+          <p class="card-text">Instead of moving forward with your own project, you are pulled toward one more exciting thing.</p>
         </div>
       </div>
     </div>
@@ -626,7 +718,7 @@
 
 <section>
   <div class="slide-shell">
-    <h2>After a while, it becomes hard to tell what actually matters</h2>
+    <h2>After a few scrolls, I already feel behind</h2>
     <div class="part-one-layout stacked">
       <div class="part-one-media wide-shot">
         <div class="media-frame">
@@ -636,11 +728,11 @@
       <div class="part-one-copy">
         <div class="info-card">
           <p class="eyebrow">What happens</p>
-          <p class="card-text">When you keep seeing people talk as if some new tool or resource is essential, it becomes harder for you to tell what is genuinely useful and what is just competing for your attention.</p>
+          <p class="card-text">You keep seeing people talk as about new "must-try" tools and resources. It's hard to tell what is useful and what is just competing for your attention.</p>
         </div>
         <div class="takeaway">
           <p class="eyebrow">Result</p>
-          <p class="card-text">So you can spend a lot of time trying to keep up without getting much clearer about what to do next.</p>
+          <p class="card-text">You try to keep up (Hello, FOMO!), but it only makes you feel lost</p>
         </div>
       </div>
     </div>
@@ -649,7 +741,7 @@
 
 <section>
   <div class="slide-shell">
-    <h2>And your own project starts losing to everything else</h2>
+    <h2>You forget about your own project</h2>
     <div class="part-one-layout stacked">
       <div class="part-one-media">
         <div class="media-frame">
@@ -659,11 +751,12 @@
       <div class="part-one-copy">
         <div class="info-card">
           <p class="eyebrow">What happens</p>
-          <p class="card-text">You start with one thing you wanted to build. Then you see another idea, another approach, another tool that also seems worth exploring. Gradually, your attention gets split, and your own work stops moving.</p>
+          <p class="card-text">You set out to build one thing, but new tools and ideas split your attention until your own project stalls.</p>
+    
         </div>
         <div class="takeaway">
           <p class="eyebrow">Result</p>
-          <p class="card-text">So your project loses momentum, not because you stopped caring, but because it became too easy to keep switching direction.</p>
+          <p class="card-text">You lose momentum because of that constant content switching.</p>
         </div>
       </div>
     </div>
@@ -672,7 +765,7 @@
 
 <section>
   <div class="slide-shell">
-    <h2>So even choosing a project can start to feel overwhelming</h2>
+    <h2>Or can't decide what to build</h2>
     <div class="part-one-layout stacked">
       <div class="part-one-media wide-shot">
         <div class="media-frame">
@@ -682,43 +775,50 @@
       <div class="part-one-copy">
         <div class="info-card">
           <p class="eyebrow">What happens</p>
-          <p class="card-text">People often describe learning AI as drinking from a firehose. By the time you try to think of a project to build, you may already feel lost and overloaded.</p>
+          <p class="card-text">Because of the context overload, learning AI feels like drinking from a firehose. It's too much to choose from.</p>
         </div>
         <div class="takeaway">
           <p class="eyebrow">Result</p>
-          <p class="card-text">So people often get stuck before they even choose a project or take the first concrete step.</p>
+          <p class="card-text"> You get stuck on the first step: deciding what to build.</p>
         </div>
       </div>
     </div>
   </div>
+</section>
+
+<section>
+    <h2>Lack of content is not the problem</h2>
+    <blockquote>"Content is not the problem. The problem is accountability. I already have more than enough courses, projects, and tutorials to learn from. What is harder is staying consistent and actually moving things forward." - One of the AI Shipping Labs members</blockquote>
 </section>
 
 <section>
   <div class="slide-shell">
     <p class="section-title">Part 2</p>
-    <h1 class="tight-title">How this usually shows up</h1>
+    <h1 class="tight-title">Common ways people get stuck</h1>
     <div class="part-two-intro">
-      <p class="lede">If you have tried to learn and build on your own, you will probably recognize at least one of these patterns.</p>
+      <p class="lede">If you have tried to learn and build on your own, you will probably recognize at least one of these situations.</p>
     </div>
   </div>
 </section>
 
 <section>
   <div class="part-two-slide">
-    <h2>1. Your project keeps getting pushed to "next weekend"</h2>
+    <h2>1. You keep pushing your project to "next weekend"</h2>
     <div class="part-two-media">
       <div class="media-frame">
-        <img src="images/ai-shipping-labs/reddit-weekends-loop.png" alt="Reddit post about pushing important work to next weekend">
+        <img src="images/ai-shipping-labs/reddit-weekends-loop.png" style="max-height: 300px;" alt="Reddit post about pushing important work to next weekend">
       </div>
     </div>
     <div class="card-grid part-two-copy">
       <div class="info-card">
         <p class="eyebrow">Example</p>
-        <p class="card-text">This post captures a familiar loop: you keep promising yourself that next weekend will be different, but the same pattern repeats again.</p>
+        <p class="card-text">You're in a loop: you keep telling yourself next weekend will be different, but it never is.</p>
+  
       </div>
       <div class="takeaway">
         <p class="eyebrow">Situation</p>
-        <p class="card-text">You keep telling yourself you will finally work on it this weekend. Then work runs late, life gets in the way, you are tired, and the project gets postponed again. After a while, it becomes something you care about, but rarely touch in practice.</p>
+        <p class="card-text">Life gets in the way, work runs late, you're tired, and the project gets postponed again. You don't touch it, and it remains just an idea.</p>
+  
       </div>
     </div>
   </div>
@@ -726,7 +826,7 @@
 
 <section>
   <div class="part-two-slide">
-    <h2>2. You do not know what to learn first</h2>
+    <h2>2. You do not know where to start</h2>
     <div class="part-two-media">
       <div class="media-frame">
         <img src="images/ai-shipping-labs/reddit-ai-roadmap-query.png" alt="Reddit post asking for a roadmap into AI engineering">
@@ -735,11 +835,11 @@
     <div class="card-grid part-two-copy">
       <div class="info-card">
         <p class="eyebrow">Example</p>
-        <p class="card-text">In the screenshot, one goal quickly turns into many parallel questions about roadmaps, tools, projects, internships, and what to do in what order.</p>
+        <p class="card-text">One goal quickly turns into many parallel questions about roadmaps, tools, projects, internships, and what to do in what order.</p>
       </div>
       <div class="takeaway">
         <p class="eyebrow">Situation</p>
-        <p class="card-text">You open one roadmap, then another, then a thread with tool recommendations, then a course outline. Everything sounds useful. Instead of starting, you end up with ten tabs open and no clear sense of what to focus on first.</p>
+        <p class="card-text">You open one roadmap, then another, then a thread with tool recommendations, etc. You end up with ten tabs open and no clear sense of what to focus on first.</p>
       </div>
     </div>
   </div>
@@ -747,20 +847,20 @@
 
 <section>
   <div class="part-two-slide">
-    <h2>3. Tutorials make sense until you try to do it on your own</h2>
+    <h2>3. You get stuck in tutorial hell</h2>
     <div class="part-two-media">
       <div class="media-frame">
-        <img src="images/ai-shipping-labs/reddit-tutorial-hell.png" alt="Reddit post about tutorial hell">
+        <img src="images/ai-shipping-labs/reddit-tutorial-hell.png" style="max-height: 250px;" alt="Reddit post about tutorial hell">
       </div>
     </div>
     <div class="card-grid part-two-copy">
       <div class="info-card">
         <p class="eyebrow">Example</p>
-        <p class="card-text">People even have a name for this: tutorial hell. The screenshot points to a common experience: tutorials feel clear while you are following them, but that confidence disappears when you have to decide things on your own.</p>
+        <p class="card-text">Tutorials feel clear while you are following them, but that confidence disappears when you have to decide things on your own.</p>
       </div>
       <div class="takeaway">
         <p class="eyebrow">Situation</p>
-        <p class="card-text">When you try to build your own version, the uncertainty starts: which stack to use, how to structure it, what to do differently, and why your setup does not behave the same way as the demo.</p>
+        <p class="card-text">You try to build your own version, but the uncertainty starts.</p>
       </div>
     </div>
   </div>
@@ -768,61 +868,36 @@
 
 <section>
   <div class="part-two-slide">
-    <h2>4. Once something breaks, it is easy to lose momentum</h2>
+    <h2>4. You loose momentum when things get messy</h2>
     <div class="part-two-media">
       <div class="media-frame">
-        <img src="images/ai-shipping-labs/reddit-losing-momentum.png" alt="Reddit post about losing momentum on a project">
+        <img src="images/ai-shipping-labs/reddit-losing-momentum.png" style="max-height: 200px;" alt="Reddit post about losing momentum on a project">
       </div>
     </div>
     <div class="card-grid part-two-copy">
       <div class="info-card">
         <p class="eyebrow">Example</p>
-        <p class="card-text">This is the quieter stage where many projects stall: not at the beginning, but later, when the work becomes messier, slower, and harder to reason about.</p>
+        <p class="card-text">You feel lack of scope, direction and project management and lose motivation when faced with errors and blockers.</p>
       </div>
       <div class="takeaway">
         <p class="eyebrow">Situation</p>
-        <p class="card-text">You get something working, but then the outputs are weak, the code becomes messy, or one part stops making sense. You are stuck in the frustrating middle, and that is where many projects quietly stop.</p>
+        <p class="card-text">You get something working and you're excited, but at some point the project is face a problem you don't know how to solve. You are stuck in the frustrating middle.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section>
-  <div class="part-two-slide">
-    <h2>So usually the problem is not lack of content</h2>
-    <div class="card-grid part-two-copy">
-      <div class="info-card">
-        <p class="eyebrow">Main point</p>
-        <p class="card-text">You already have plenty to read and watch. What is usually missing is a way to keep going: a clearer next step, some outside accountability, and help when the project becomes confusing or messy.</p>
-      </div>
-      <div class="quote-card">
-        <p class="eyebrow">What one member said</p>
-        <p class="card-text">"Content is not the problem. The problem is accountability. I already have more than enough courses, projects, and tutorials to learn from. What is harder is staying consistent and actually moving things forward."</p>
-        <p class="quote-source">One of the AI Shipping Labs members</p>
-      </div>
-    </div>
-  </div>
-</section>
+
 
 <section>
-  <div class="part-two-slide">
-    <h2>That is why simple mentoring advice is usually not enough</h2>
+    <h2>Mentoring requests</h2>
     <div class="part-two-media">
       <div class="media-frame">
         <img src="images/ai-shipping-labs/mentor.png" alt="Alexey receiving mentoring requests">
       </div>
     </div>
-    <div class="card-grid part-two-copy">
-      <div class="info-card">
-        <p class="eyebrow">What happens</p>
-        <p class="card-text">Alexey gets mentoring requests all the time. But in many cases, what people need is not just one good piece of advice.</p>
-      </div>
-      <div class="takeaway">
-        <p class="eyebrow">Main point</p>
-        <p class="card-text">They need a structure that helps them keep moving after the conversation ends.</p>
-      </div>
-    </div>
-  </div>
+    <p>Alexey gets mentoring requests all the time.</p>
+    <p>Mentoring is hard to scale, because people need regular support, accountability and structure to keep moving.</p>
 </section>
 
 <!-- Part 3 -->
@@ -839,48 +914,13 @@
 
 <section>
   <div class="part-three-slide">
-    <h2>In practice, it is meant to help with three things</h2>
-    <div class="pillar-grid">
-      <div class="pillar-card">
-        <p class="eyebrow">Projects</p>
-        <p class="pillar-title">Choose something concrete to build</p>
-        <p class="pillar-text">Instead of staying in research mode, you pick a real idea and start turning it into something usable.</p>
-      </div>
-      <div class="pillar-card">
-        <p class="eyebrow">Progress</p>
-        <p class="pillar-title">Keep working on it consistently</p>
-        <p class="pillar-text">Progress is easier when there is a plan, a deadline, and other people expecting updates, so the project keeps moving.</p>
-      </div>
-      <div class="pillar-card">
-        <p class="eyebrow">People</p>
-        <p class="pillar-title">Learn alongside other builders</p>
-        <p class="pillar-text">You improve faster when you can compare approaches, talk through problems, and learn from other people making similar decisions.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="part-three-slide">
-    <h2>How the community is supposed to work</h2>
-    <div class="principle-grid">
-      <div class="principle-card">
-        <p class="principle-title">Learn through real work</p>
-        <p class="principle-text">The point is not just to watch or read. Most activities are built around making something, testing it, and getting feedback on it.</p>
-      </div>
-      <div class="principle-card">
-        <p class="principle-title">Move beyond demos</p>
-        <p class="principle-text">The focus is on what holds up outside a tutorial, so people can move from rough prototypes to more reliable systems.</p>
-      </div>
-      <div class="principle-card">
-        <p class="principle-title">Do it with other people</p>
-        <p class="principle-text">Projects, hackathons, and group problem-solving make the work less isolating and make progress easier to sustain.</p>
-      </div>
-      <div class="principle-card">
-        <p class="principle-title">Develop better judgment</p>
-        <p class="principle-text">Good instincts come from repeated exposure to real trade-offs, plus feedback from peers and more experienced builders.</p>
-      </div>
-    </div>
+    <h2>How the community works</h2>
+    <ul>
+      <li>You learn by doing.</li>
+      <li>You move beyond tutorials and prototypes to building reliable systems.</li>
+      <li>You collaborate with others: group learning, building sessions, and accountability circles.</li>
+      <li>You develop better judgment through exposure to real trade-offs and feedback from peers and more experienced builders.</li>
+    </ul>
   </div>
 </section>
 
@@ -894,41 +934,19 @@
 
 <section>
   <div class="part-four-slide">
-    <h2>What changes when you join</h2>
-    <div class="part-four-intro">
-      <p class="lede">You are no longer trying to figure everything out on your own. Instead of learning in isolation, you get a working environment where it is easier to stay focused, ask questions, and keep your project moving.</p>
-      <div class="takeaway">
-        <p class="card-text">The goal is not to give you more noise. It is to make progress easier to sustain.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="part-four-slide">
-    <h2>Your working space from day one</h2>
+    <h2>Slack workspace</h2>
     <div class="part-four-media">
       <div class="media-frame">
         <img src="images/ai-shipping-labs/slack-workspace.png" alt="Slack workspace screenshot">
       </div>
-    </div>
-    <div class="card-grid example-copy">
-      <div class="info-card">
-        <p class="eyebrow">Slack workspace</p>
-        <p class="card-text">When you join, you get immediate access to the Slack workspace, where the community actually works together.</p>
-      </div>
-      <div class="takeaway">
-        <p class="eyebrow">What people use it for</p>
-        <p class="card-text">This gives people one shared place to ask questions, share progress, and stay close to what others are building.</p>
-      </div>
-    </div>
+      <p>When you join, you get access to the Slack workspace, where the community works together. It's the shared place for questions, progress updates, and day-to-day interaction.</p>
   </div>
 </section>
 
 <section>
   <div class="part-four-slide">
     <h2>How the community works</h2>
-    <p class="lede">The community is built around a few practical formats. Some are focused on helping you keep moving on your own project. Others are there to help you learn from what other members are building and struggling with.</p>
+    <p class="lede">The community is built around a few practical formats.</p>
     <div class="overview-grid">
       <div class="overview-card">
         <p class="eyebrow">1</p>
@@ -938,22 +956,22 @@
       <div class="overview-card">
         <p class="eyebrow">2</p>
         <p class="overview-title">Group learning</p>
-        <p class="overview-text">Members share useful takeaways from the tools and approaches they test.</p>
+        <p class="overview-text">Members share useful takeaways from the topics they research and tools they test.</p>
       </div>
       <div class="overview-card">
         <p class="eyebrow">3</p>
         <p class="overview-title">Building sessions</p>
-        <p class="overview-text">Live sessions centered on real implementation questions and trade-offs.</p>
+        <p class="overview-text">Live sessions where we work through real implementation questions.</p>
       </div>
       <div class="overview-card">
         <p class="eyebrow">4</p>
         <p class="overview-title">Trend breakdowns</p>
-        <p class="overview-text">A calmer way to stay informed without trying to follow everything.</p>
+        <p class="overview-text">A calmer way to stay informed without chasing every new trend.</p>
       </div>
       <div class="overview-card">
         <p class="eyebrow">5</p>
         <p class="overview-title">Career support</p>
-        <p class="overview-text">Feedback on positioning, resumes, LinkedIn, interviews, and next steps.</p>
+        <p class="overview-text">Feedback on resumes, LinkedIn, interviews, and next steps.</p>
       </div>
     </div>
   </div>
@@ -962,124 +980,54 @@
 <section>
   <div class="part-four-slide">
     <h2>1. Accountability circles</h2>
-    <div class="detail-grid">
-      <div class="detail-card">
-        <p class="eyebrow">What people get</p>
-        <p class="detail-text">This is for people who do not just want inspiration, but a structure that helps them keep going.</p>
-        <div class="takeaway">
-          <p class="eyebrow">In practice</p>
-          <p class="card-text">A personal plan, clear deadlines, regular check-ins, and a group that knows what you are working on.</p>
-        </div>
-      </div>
-      <div class="list-panel">
-        <p class="eyebrow">How it works</p>
-        <ul class="clean-list">
-          <li>When you join, we first try to understand your situation, goals, and current level.</li>
-          <li>This can happen directly with Alexey or asynchronously with Valeriia's help.</li>
-          <li>Based on that, Alexey helps shape a personal plan for what to focus on next.</li>
-          <li>Members who want this kind of structure join a sprint with a defined time frame and clear goals.</li>
-          <li>We then meet for regular live check-ins, similar to stand-ups.</li>
-          <li>You share what you worked on, where you got stuck, and what you plan to do next.</li>
-          <li>The point is not pressure for the sake of pressure. It is to make it harder for your project to quietly disappear from your week.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+    <ul>
+      <li>You select a project to work on and join a sprint with a defined time frame and clear goals.</li>
+      <li>We meet for regular live check-ins, similar to stand-ups.</li>
+      <li>You share progress, blockers, and what you plan to do next.</li>
+      <li>You get feedback on your project and how to improve it.</li>
+    </ul>
 </section>
 
 <section>
   <div class="part-four-slide">
     <h2>2. Group learning</h2>
-    <div class="detail-grid">
-      <div class="detail-card">
-        <p class="eyebrow">Why this exists</p>
-        <p class="detail-text">A lot of useful learning happens while people are building their own projects. The idea here is not to let that stay private and disappear.</p>
-        <div class="takeaway">
-          <p class="eyebrow">In practice</p>
-          <p class="card-text">Research becomes more useful when people turn it into something concrete that others can reuse.</p>
-        </div>
-      </div>
-      <div class="list-panel">
-        <p class="eyebrow">How it works</p>
-        <ul class="clean-list">
-          <li>As part of their project work, members often research a tool, test an approach, compare options, or try to understand how something works.</li>
-          <li>Instead of keeping that work to themselves, they can share short takeaways with the rest of the community.</li>
-          <li>This helps other people who are running into similar questions.</li>
-          <li>It also reinforces accountability, because turning your learning into something shareable forces you to make it more concrete.</li>
-          <li>Over time, this builds an internal library of experiments, lessons, and examples grounded in real use cases.</li>
-        </ul>
-      </div>
+    <div class="media-frame" style="scale: 0.8;">
+      <img src="images/ai-shipping-labs/group-learning-request.png" alt="Example group learning request from a member">
+      <p class="subtitle" style="font-size: 0.55em;">Members ask for more practical patterns for production work. One person's question can become a useful learning resource for many others.</p>
     </div>
-  </div>
-</section>
 
-<section>
-  <div class="part-four-slide">
-    <h3>Example: Group learning request</h3>
-    <div class="part-four-media">
-      <div class="media-frame">
-        <img src="images/ai-shipping-labs/group-learning-request.png" alt="Example group learning request from a member">
-      </div>
-    </div>
-    <div class="card-grid example-copy">
-      <div class="info-card">
-        <p class="eyebrow">Member request</p>
-        <p class="card-text">A real example of the kind of thing members ask for: less hype, more practical patterns they can actually use in production work.</p>
-      </div>
-      <div class="takeaway">
-        <p class="eyebrow">Why this works as a group format</p>
-        <p class="card-text">One person’s question can become a useful learning resource for many other people in the community.</p>
-      </div>
-    </div>
+
+    <ul>
+      <li>You can select a topic to research or a tool to test and join a group learning session.</li>
+      <li>You share your findings with the rest of the community.</li>
+      <li>Over time, this builds into an internal knowledge base of takeaways and tools tested by the community.</li>
+    </ul>
   </div>
 </section>
 
 <section>
   <div class="part-four-slide">
     <h2>3. Building sessions</h2>
-    <div class="detail-grid">
-      <div class="detail-card">
-        <p class="eyebrow">What the sessions are for</p>
-        <p class="detail-text">These are live sessions where we work through real implementation questions together. The goal is not to watch slides. The goal is to look at an actual problem and think through it properly.</p>
-        <div class="takeaway">
-          <p class="eyebrow">Format</p>
-          <p class="card-text">Usually 1.5 to 2 hours, once or twice a month. Members can suggest and vote on topics.</p>
-        </div>
-      </div>
-      <div class="list-panel">
-        <p class="eyebrow">What happens there</p>
-        <ul class="clean-list">
-          <li>Some sessions come directly from member requests.</li>
-          <li>Someone may want to understand a specific tool, architecture choice, or implementation trade-off.</li>
-          <li>Other sessions can come from Alexey’s own projects, where he brings a real problem and shows how he approaches it.</li>
-          <li>The useful part is not just the final answer, but seeing how an experienced builder reasons through ambiguity, blockers, and decisions.</li>
-          <li>Many of these topics are highly relevant beyond one person’s project, which is why they work well as shared sessions.</li>
-        </ul>
-      </div>
-    </div>
+    <p>Live sessions where we tackle real implementation questions together, lasting 1.5 to 2 hours and held once or twice a month. Members can suggest or vote on topics.</p>
+    <br />
+    <ul>
+      <li>Sessions may be based on member requests or real-world problems from Alexey's own projects.</li>
+      <li>Focus varies: tools, architecture choices, or practical implementation trade-offs.</li>
+    </ul>
   </div>
 </section>
 
 <section>
   <div class="part-four-slide">
     <h3>Example: OpenClaw session candidate</h3>
-    <div class="part-four-media stacked-media">
+    <div class="part-four-media tall-example">
       <div class="media-frame">
         <img src="images/ai-shipping-labs/request-openclaw.png" alt="Member request about OpenClaw">
       </div>
-      <div class="media-frame">
-        <img src="images/ai-shipping-labs/openclaw.png" alt="OpenClaw project screenshot">
-      </div>
     </div>
-    <div class="card-grid example-copy">
-      <div class="info-card">
-        <p class="eyebrow">Member request</p>
-        <p class="card-text">A concrete member request can easily become a useful building session for the whole community.</p>
-      </div>
-      <div class="takeaway">
-        <p class="eyebrow">Why it can help other people too</p>
-        <p class="card-text">One person brings a specific implementation question, but the discussion is often useful for many people building with AI.</p>
-      </div>
+    <div class="info-card single-note">
+      <p class="eyebrow">Member request</p>
+      <p class="card-text">A member request can become a building session for the whole community. One person brings a specific implementation question, but the discussion is relevant for many people building with AI.</p>
     </div>
   </div>
 </section>
@@ -1092,15 +1040,9 @@
         <img src="images/ai-shipping-labs/litehive.png" alt="LiteHive project screenshot">
       </div>
     </div>
-    <div class="card-grid example-copy">
-      <div class="info-card">
-        <p class="eyebrow">Alexey's project</p>
-        <p class="card-text">Another example is when Alexey brings a real problem from his own project and works through it with the community.</p>
-      </div>
-      <div class="takeaway">
-        <p class="eyebrow">What people can learn from it</p>
-        <p class="card-text">That gives people a chance to watch how someone more experienced reasons through a messy, real-world problem.</p>
-      </div>
+    <div class="info-card single-note">
+      <p class="eyebrow">Alexey's project</p>
+      <p class="card-text">Another format is when Alexey brings a real problem from his own project and works through it with the community. That gives people a chance to watch how someone more experienced reasons through a messy, real-world problem.</p>
     </div>
   </div>
 </section>
@@ -1108,46 +1050,15 @@
 <section>
   <div class="part-four-slide">
     <h2>4. Keeping up without the noise</h2>
-    <div class="detail-grid">
-      <div class="detail-card">
-        <p class="eyebrow">Why this exists</p>
-        <p class="detail-text">A lot of people want to stay informed, but do not want to spend all their time chasing every new trend. This part of the community is meant to make that easier.</p>
-        <div class="takeaway">
-          <p class="eyebrow">In practice</p>
-          <p class="card-text">Important developments are broken down in simple terms, so people can understand what is worth paying attention to without trying to follow everything.</p>
-        </div>
-      </div>
-      <div class="list-panel">
-        <p class="eyebrow">What it helps with</p>
-        <ul class="clean-list">
-          <li>You stay informed without treating every new post or release as something urgent.</li>
-          <li>The goal is not to cover everything, but to help people focus on what actually matters.</li>
-          <li>This reduces the feeling that you have to constantly keep up on your own.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="part-four-slide">
-    <h3>Trend requests from members</h3>
     <div class="part-four-media">
       <div class="media-frame">
         <img src="images/ai-shipping-labs/trending-topics-request.png" alt="Member request about trend breakdowns">
       </div>
     </div>
-    <div class="card-grid example-copy">
-      <div class="info-card">
-        <p class="eyebrow">Member request</p>
-        <p class="card-text">This is another recurring need: people want help understanding what matters without getting buried under constant updates.</p>
-      </div>
-      <div class="takeaway">
-        <p class="eyebrow">What people are really asking for</p>
-        <p class="card-text">The request is not for more content. It is for help filtering, explaining, and prioritizing what is worth attention.</p>
-      </div>
+    <div class="info-card single-note">
+      <p class="eyebrow">Member request</p>
+      <p class="card-text">This is another recurring need: people want help understanding what matters without getting buried under constant updates. What they are really asking for is help filtering, explaining, and prioritizing what is worth attention.</p>
     </div>
-  </div>
 </section>
 
 <section>
@@ -1177,35 +1088,31 @@
 <section>
   <div class="part-four-slide">
     <h2>5. Career support</h2>
-    <div class="detail-grid">
-      <div class="detail-card">
-        <p class="eyebrow">Why this is part of the community</p>
-        <p class="detail-text">The community is not only about project work. A lot of people also need help with the career side of things: how to position themselves, how to present their experience, and how to make better decisions about next steps.</p>
-        <div class="takeaway">
-          <p class="eyebrow">In practice</p>
-          <p class="card-text">Some of the most important career questions are also the hardest ones to ask in public.</p>
-        </div>
-      </div>
-      <div class="list-panel">
-        <p class="eyebrow">What people can ask about</p>
-        <ul class="clean-list">
-          <li>You can get resume and LinkedIn feedback from people who understand hiring and know what tends to work.</li>
-          <li>There is also room for personal branding support: learning in public, posting, and building a stronger online presence.</li>
-          <li>Because the community is private, people can talk more openly about interviews, offers, salary discussions, and career doubts.</li>
-          <li>That matters because many of these questions are hard to ask publicly, even though they affect major decisions.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+    <p>We help with the career side of things: how to position yourself, how to present your experience, and how to make better decisions about next steps.</p>
+    <ul>
+      <li>You can get resume and LinkedIn feedback from people who have been through the hiring process.</li>
+      <li>We help with personal branding and online presence.</li>
+      <li>Because the community is private, you can talk more openly about interviews, offers, salary discussions, and doubts.</li>
+    </ul>
 </section>
 
 <!-- Part 5 -->
 <section>
   <div class="tail-slide">
     <p class="section-title">Part 5</p>
-    <h1>What it means to join while the community is still small</h1>
-    <p class="lede">Because the group is still small, there is more room to understand each person’s situation properly and adjust parts of the experience as we learn what people need.</p>
+    <h1>Why join as an early member</h1>
+    <p class="lede">Because the community is still small, there is more room to understand each person's situation properly and adjust the experience as we learn what people need.</p>
   </div>
+</section>
+
+<section>
+  <h2>Personal onboarding</h2>
+  <ul>
+    <li>We start by understanding your situation, goals, and level, either directly with Alexey or asynchronously with Valeriia.</li>
+    <li>Alexey then shapes a focused plan for your next steps.</li>
+    <li>You join a sprint with a set timeframe and clear goals.</li>
+    <li>There are regular live check-ins where you share progress and blockers.</li>
+  </ul>
 </section>
 
 <section>
@@ -1213,17 +1120,14 @@
     <h2>What is different right now</h2>
     <div class="tier-grid">
       <div class="tier-card">
-        <p class="eyebrow">Getting started</p>
-        <p class="tier-name">There is time to understand your situation properly</p>
-        <p class="tier-fit">If you join now, we can spend more time understanding what you are building, where you feel stuck, and what kind of support would actually be useful.</p>
+        <p class="tier-name">More time to understand each person's situation</p>
+        <p class="tier-fit">Because the group is still small, there is still room to understand what someone is building, where they are stuck, and what support would help.</p>
       </div>
       <div class="tier-card">
-        <p class="eyebrow">Interaction</p>
-        <p class="tier-name">There is more room for real back-and-forth</p>
-        <p class="tier-fit">At this stage, it is easier to pay close attention to each person’s goals and questions because there are still relatively few people in the community.</p>
+        <p class="tier-name">More room for direct interaction</p>
+        <p class="tier-fit">It is easier to pay attention to individual questions and goals when there are still relatively few people in the community.</p>
       </div>
       <div class="tier-card">
-        <p class="eyebrow">Feedback</p>
         <p class="tier-name">Member feedback still changes the shape of things</p>
         <p class="tier-fit">Feedback from early members can still directly affect which formats, topics, and activities we decide to prioritize next.</p>
       </div>
@@ -1232,44 +1136,13 @@
 </section>
 
 <section>
-  <div class="tail-slide">
-    <h2>Why that can be useful</h2>
-    <div class="card-grid">
-      <div class="info-card">
-        <p class="eyebrow">In a larger community</p>
-        <p class="card-text">In a larger community, it is harder to respond closely to each person’s goals and questions. Right now, we still have the space to do that.</p>
-      </div>
-      <div class="takeaway">
-        <p class="eyebrow">Right now</p>
-        <p class="card-text">So the advantage of joining now is not “early access” by itself. It is that the experience can still be more direct, more personal, and easier to shape.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="tail-slide">
-    <h2>What is already planned for April and May</h2>
-    <div class="detail-grid">
-      <div class="detail-card">
-        <p class="eyebrow">If someone joins now</p>
-        <p class="detail-text">If someone joins now, they are joining in the middle of an active schedule, not waiting for the community to become active later.</p>
-        <div class="takeaway">
-          <p class="eyebrow">In practice</p>
-          <p class="card-text">There is already a sequence of concrete sessions coming up, so people can enter and immediately have something to participate in.</p>
-        </div>
-      </div>
-      <div class="list-panel">
-        <p class="eyebrow">Planned next</p>
-        <ul class="clean-list">
-          <li>Workshop: AI Engineer Project to Production with FastAPI and Vector DB, led by Alexey.</li>
-          <li>Webinar: Build Your LinkedIn, led by Valeriia, with content ideas, personal branding workflows, and a 30-day posting challenge.</li>
-          <li>Interactive coding session on a topic chosen by members, led by Alexey.</li>
-          <li>Workshop: solving a real take-home assignment for an AI Engineer role, live, led by Alexey.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+    <h2>Upcoming events for April and May</h2>
+    <ul>
+      <li>Workshop: AI Engineer Project to Production with FastAPI and Vector DB</li>
+      <li>Webinar: Build Your LinkedIn</li>
+      <li>Interactive coding session on a topic chosen by members</li>
+      <li>Workshop: solving a real take-home assignment for an AI Engineer role, live.</li>
+    </ul>
 </section>
 
 <!-- Part 6 -->
@@ -1283,97 +1156,57 @@
 
 <section>
   <div class="tail-slide">
-    <h2>Main is where most of the shared activity happens</h2>
-    <div class="tier-grid">
-      <div class="tier-card">
-        <p class="eyebrow">Basic</p>
-        <p class="tier-name">Mostly for self-directed learning</p>
-        <ul class="tier-points">
-          <li>Hands-on tutorials with code examples.</li>
-          <li>Curated breakdowns of new AI tools and workflows.</li>
-          <li>Behind-the-scenes access to ongoing research and experiments.</li>
-          <li>A curated collection of valuable social posts you might have missed.</li>
-        </ul>
-      </div>
-      <div class="tier-card">
-          <p class="eyebrow">Main</p>
-        <p class="tier-name">For people who want the shared community experience</p>
-        <ul class="tier-points">
-          <li>Community access.</li>
-          <li>Accountability circles.</li>
-          <li>Building sessions and group learning.</li>
-          <li>Trend breakdowns, career support, and private discussions.</li>
-        </ul>
-      </div>
-      <div class="tier-card">
-        <p class="eyebrow">Premium</p>
-        <p class="tier-name">For people who want extra structure and guaranteed feedback</p>
-        <ul class="tier-points">
-          <li>Everything in Main.</li>
-          <li>Access to mini-courses on specialized topics.</li>
-          <li>Guaranteed feedback on your resume, LinkedIn, social media, and projects.</li>
-          <li>More structured guidance for people who want extra support.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="tail-slide">
-    <h2>What Premium adds</h2>
-    <div class="detail-grid">
-      <div class="detail-card">
-        <p class="eyebrow">What is included beyond Main</p>
-        <p class="detail-text">Premium adds a set of focused mini-courses on top of the community itself, for people who want a more structured layer of learning alongside the live formats.</p>
-        <div class="takeaway">
-          <p class="eyebrow">Still evolving</p>
-          <p class="card-text">This part is still evolving, and early members can still influence which mini-courses get built next.</p>
-        </div>
-      </div>
-      <div class="list-panel">
-        <p class="eyebrow">Current examples</p>
-        <ul class="clean-list">
-          <li>Python for AI Engineering.</li>
-          <li>Spec-Driven Development for AI.</li>
-          <li>Refactoring AI Slop.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="tail-slide">
-    <h2>A simple way to think about the three tiers</h2>
+    <h2>The three tiers</h2>
     <div class="card-grid">
       <div class="info-card">
-        <p class="eyebrow">Basic</p>
+        <p class="tier-name">Basic</p>
         <p class="card-text">Written materials, tutorials, and curated resources for people who prefer self-directed learning.</p>
       </div>
       <div class="info-card">
-        <p class="eyebrow">Main</p>
+        <p class="tier-name">Main</p>
         <p class="card-text">Community access, accountability, and live activities for people who want the full shared experience.</p>
       </div>
-      <div class="takeaway">
-        <p class="eyebrow">Premium</p>
-        <p class="card-text">Everything in Main, plus mini-courses and guaranteed feedback for people who want a more guided path.</p>
+      <div class="info-card">
+        <p class="tier-name">Premium</p>
+        <p class="card-text">Everything in Main, plus mini-courses and guaranteed feedback for people who want a more guided path (especially when the community gets larger).</p>
       </div>
     </div>
   </div>
+</section>
+
+<section>
+    <h2>Basic tier</h2>
+    <p>For people who prefer self-directed learning. It provides access to written materials, but no community access.</p>
+    <ul>
+      <li>Hands-on tutorials with code examples.</li>
+      <li>Curated breakdowns of new AI tools and workflows.</li>
+      <li>Research notes and curated posts you might have missed.</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Premium tier</h2>
+    <p>For people who want a more structured layer of learning alongside the live formats. It adds access to a set of focused mini-courses and a guaranteed feedback on your resume, LinkedIn, posts, and projects.</p>
+
+    <p>Current mini-course ideas:</p>
+    <ul>
+      <li>Python for AI Engineering</li>
+      <li>Spec-Driven Development for AI</li>
+      <li>Refactoring AI Slop</li>
+    </ul>
 </section>
 
 <!-- Part 7 -->
 <section>
   <div class="tail-slide">
     <p class="section-title">Part 7</p>
-    <h1>How this relates to DataTalks.Club</h1>
+    <h1>How AI Shipping Labs relates to DataTalks.Club</h1>
   </div>
 </section>
 
 <section>
   <div class="tail-slide">
-    <h2>How it developed</h2>
+    <h2>How the AI Shipping Labs idea was developed</h2>
     <div class="story-grid">
       <div class="story-card">
         <p class="eyebrow">1</p>
@@ -1391,45 +1224,25 @@
         <p class="story-text">Live sessions, collaboration, and shared problem-solving gradually made sense as their own community.</p>
       </div>
     </div>
-    <div class="takeaway">
-      <p class="eyebrow">Bottom line</p>
-      <p class="card-text">Over time, these pieces started fitting together naturally. It was not originally planned as a replacement for anything else.</p>
-    </div>
+    <p class="support-note">Over time, these pieces started fitting together naturally. It was not originally planned as a replacement for anything else.</p>
   </div>
 </section>
 
 <section>
   <div class="tail-slide">
     <h2>DataTalks.Club is not going away</h2>
-    <div class="part-four-media tall-example">
-      <div class="media-frame">
-        <img src="images/ai-shipping-labs/datatalks-courses.png" alt="DataTalks.Club courses screenshot">
+    <div class="row align-start" style="gap: 0.8em; margin-top: 0.6em;">
+      <div class="column" style="flex: 0.95;">
+        <div class="media-frame">
+          <img src="images/ai-shipping-labs/datatalks-courses.png" style="max-height: 300px; object-fit: contain;" alt="DataTalks.Club courses screenshot">
+        </div>
       </div>
-    </div>
-    <div class="card-grid example-copy">
-      <div class="info-card">
-        <p class="eyebrow">What stays the same</p>
-        <p class="card-text">All Zoomcamps continue. Free education stays free.</p>
-      </div>
-      <div class="takeaway">
-        <p class="eyebrow">What AI Shipping Labs adds</p>
-        <p class="card-text">AI Shipping Labs adds a smaller and more involved layer of support. It does not replace the free educational work that already exists.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="tail-slide">
-    <h2>It serves a different purpose</h2>
-    <div class="card-grid">
-      <div class="info-card">
-        <p class="eyebrow">A useful comparison</p>
-        <p class="card-text">Just like the Maven Buildcamp did not replace LLM Zoomcamp, this is not meant to replace DataTalks.Club.</p>
-      </div>
-      <div class="takeaway">
-        <p class="eyebrow">What this is for</p>
-        <p class="card-text">It exists for people who want a smaller setting, more regular interaction, and the kind of support that is difficult to provide sustainably inside a large free community.</p>
+      <div class="column" style="flex: 1.05;">
+        <ul style="font-size: 0.68em; line-height: 1.35; margin-top: 0.1em;">
+          <li>All Zoomcamps continue. Free education stays free.</li>
+          <li>Just like the Maven Buildcamp did not replace LLM Zoomcamp, this is not meant to replace DataTalks.Club.</li>
+          <li>AI Shipping Labs adds a smaller and more involved layer of support, but it does not replace the free educational work that already exists.</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -1441,9 +1254,7 @@
     <p class="section-title">Part 8</p>
     <h1>How to join</h1>
     <p class="lede">If you want to join after the talk, you can use the QR code or open the link below.</p>
-    <div class="qr-frame">
-      <img src="images/ai-shipping-labs/slido-qr.png" alt="QR code to join AI Shipping Labs">
-    </div>
+    <img class="closing-qr" src="images/ai-shipping-labs/slido-qr.png" alt="QR code to join AI Shipping Labs">
     <p class="part-three-link"><a href="https://app.sli.do/event/nczTg1gU9R4WV1B8cSfd87">app.sli.do/event/nczTg1gU9R4WV1B8cSfd87</a></p>
     <div class="link-row">
       <a class="link-chip" href="https://aishippinglabs.com">aishippinglabs.com</a>
