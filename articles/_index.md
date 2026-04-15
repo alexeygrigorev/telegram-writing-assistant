@@ -51,13 +51,13 @@ Articles about the AI Shipping Labs paid community: vision, activities, courses,
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
-| [User Interviews](ai-shipping-labs/user-interviews.md) | draft | 2026-04-10 | Notes from conversations with community members - accountability over content, project pipelines, Jacob interview, community survey responses |
+| [User Interviews](ai-shipping-labs/user-interviews.md) | draft | 2026-04-15 | Notes from conversations with community members - accountability over content, project pipelines, Jacob interview, community survey responses, member outreach responses |
+| [Course Ideas](ai-shipping-labs/courses.md) | draft | 2026-04-15 | Spec-Driven Dev, Refactoring AI Slop, Python, Data Engineering, CloudCode, testing, DevOps, DDD module |
 | [Activities](ai-shipping-labs/activities.md) | draft | 2026-04-10 | Regular sessions, accountability circles, mentoring, career development, knowledge sharing, member onboarding |
 | [How We Built AI Shipping Labs](ai-shipping-labs/how-we-built-it.md) | draft | 2026-04-07 | Valeriia's V0 website build story, MVP philosophy, hosting journey, agent-built Django platform |
 | [Launch Announcement](ai-shipping-labs/launch-announcement.md) | draft | 2026-04-07 | Newsletter article: community announcement, activities, tiers, early member benefits |
 | [Platform Ideas](ai-shipping-labs/platform-ideas.md) | draft | 2026-04-07 | Business case simulator, career help tools, data collection, cross-linking tools/concepts |
 | [Vision](ai-shipping-labs/vision.md) | draft | 2026-03-20 | Vision, target audience, tier structure, pricing, design principles, next steps |
-| [Course Ideas](ai-shipping-labs/courses.md) | draft | 2026-03-20 | Spec-Driven Dev, Refactoring AI Slop, Python, Data Engineering, CloudCode, testing, DevOps |
 | [Marketing and Content Strategy](ai-shipping-labs/marketing-and-content.md) | draft | 2026-03-20 | Marketing channels, funnel, lead magnets, content strategy, Lenny's inspiration |
 | [Building the Platform with Claude Code](ai-shipping-labs/platform-implementation.md) | draft | 2026-02-25 | Multi-agent build experiment: Product Manager, Software Engineer, Tester, On-Call Engineer |
 
@@ -108,7 +108,7 @@ Files at the articles root that don't fit into the above categories.
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
 | [Deterministic Coding with Agent Teams](litehive.md) | draft | 2026-04-10 | litehive file-based task manager, tmuxctl, GoZ engine, self-writing system, recovery agent, multiple engines, usage quota tracking, stale agent killing, self-improving tools |
-| [Interesting Resources](interesting-resources.md) | draft | 2026-04-10 | Curated collection of tools, resources, and project ideas for the newsletter |
+| [Interesting Resources](interesting-resources.md) | draft | 2026-04-15 | Curated collection of tools, resources, and project ideas for the newsletter |
 | [AI Engineering Buildcamp Course Announcement](ai-buildcamp-course-announcement.md) | draft | 2026-04-06 | Course announcement: syllabus, projects, homework agents, capstone progression, hands-on focus |
 | [Weekly Log](weekly-log.md) | draft | 2026-03-29 | Running log of weekly activities with links to detailed articles |
 | [AI Engineering Field Guide](ai-engineering-field-guide.md) | draft | 2026-03-27 | Job listing pipeline for AI Engineer roles - scraping, deduplication, LLM enrichment |

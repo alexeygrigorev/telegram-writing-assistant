@@ -1,7 +1,7 @@
 ---
 title: "Interesting Resources"
 created: 2026-01-31
-updated: 2026-04-10
+updated: 2026-04-15
 tags: [resources, tools, ai, development]
 status: draft
 ---
@@ -31,6 +31,10 @@ Each resource entry follows this simple format:
 ### Claude Memory Compiler
 
 [Claude Memory Compiler](https://github.com/coleam00/claude-memory-compiler) is an implementation of Karpathy's LLM Knowledge Base architecture that automatically compiles your Claude Code conversations into a searchable, structured knowledge base. It uses Claude Code hooks to capture session transcripts, extracts key decisions and lessons via the Claude Agent SDK, and organizes everything into cross-referenced markdown articles. Retrieval uses a simple index file instead of RAG, following Karpathy's insight that at personal scale (under ~2,000 articles) an LLM reading a structured index outperforms vector similarity search[^42].
+
+### Fabula
+
+[Fabula](https://www.linkedin.com/posts/googleresearch_chi2026-activity-7450071174446850048-Uo2F) is an interactive AI writing tool from Google Research that helps authors structure and refine stories through hierarchical narrative plans grounded in narratological theory. Co-designed with 42 expert writers, it lets theatre makers and screenwriters iteratively develop scenes and beats within a structured planning framework. Presented at CHI 2026, it demonstrates a human-centered approach where AI supports the creative process rather than replacing the author[^46].
 
 ### DeepTutor
 
@@ -110,3 +114,4 @@ Add project ideas here.
 [^43]: [https://github.com/santifer/career-ops](https://github.com/santifer/career-ops) via [20260409_064531_AlexeyDTC_msg3313.md](../inbox/used/20260409_064531_AlexeyDTC_msg3313.md)
 [^44]: [https://github.com/tirth8205/code-review-graph](https://github.com/tirth8205/code-review-graph) via [20260409_064713_AlexeyDTC_msg3315.md](../inbox/used/20260409_064713_AlexeyDTC_msg3315.md)
 [^45]: [https://github.com/HKUDS/DeepTutor](https://github.com/HKUDS/DeepTutor) via [20260409_064410_AlexeyDTC_msg3311.md](../inbox/used/20260409_064410_AlexeyDTC_msg3311.md)
+[^46]: [https://www.linkedin.com/posts/googleresearch_chi2026-activity-7450071174446850048-Uo2F](https://www.linkedin.com/posts/googleresearch_chi2026-activity-7450071174446850048-Uo2F) via [20260415_120442_valeriia_kuka_msg3403.md](../inbox/used/20260415_120442_valeriia_kuka_msg3403.md)

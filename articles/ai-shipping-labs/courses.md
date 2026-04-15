@@ -1,7 +1,7 @@
 ---
 title: "AI Shipping Labs Course Ideas"
 created: 2026-02-12
-updated: 2026-03-20
+updated: 2026-04-15
 tags: [courses, community, ai-shipping-labs, ideas]
 status: draft
 ---
@@ -31,6 +31,13 @@ Topics to cover[^2]:
 ### Final project
 
 The course output will be a kanban board for agents - an application that everyone builds together throughout the course. The graduation project is to build any project of their choosing[^2].
+
+### Domain-driven design module
+
+The course could include a domain-driven design component[^11]:
+- Have event storming sessions
+- Have an actual team of agents for discussing things, each with their own personality (so a personality generator is needed)
+- Outcome: a shared vocabulary document
 
 There is already research on spec-driven development patterns and tools collected in the [Spec-Driven Development research article](../research/spec-driven-development.md).
 
@@ -118,3 +125,4 @@ The plan is to have at least one big course on Maven (if time permits), while th
 [^8]: [20260212_070350_AlexeyDTC_msg1463_photo.md](../../inbox/used/20260212_070350_AlexeyDTC_msg1463_photo.md)
 [^9]: [20260212_071140_AlexeyDTC_msg1471_transcript.txt](../../inbox/used/20260212_071140_AlexeyDTC_msg1471_transcript.txt)
 [^10]: [20260212_095052_AlexeyDTC_msg1487_transcript.txt](../../inbox/used/20260212_095052_AlexeyDTC_msg1487_transcript.txt)
+[^11]: [20260415_105059_AlexeyDTC_msg3397.md](../../inbox/used/20260415_105059_AlexeyDTC_msg3397.md)

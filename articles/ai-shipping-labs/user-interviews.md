@@ -1,7 +1,7 @@
 ---
 title: "User Interviews"
 created: 2026-04-02
-updated: 2026-04-10
+updated: 2026-04-15
 tags: [ai-shipping-labs, community, user-research]
 status: draft
 ---
@@ -104,6 +104,46 @@ Specific topics they want tutorials or deep dives on[^16]:
 
 They haven't built this themselves yet, but learning how to construct a shared brain so multiple models can collaborate and iterate on the same project is what they hope to get from the community[^16].
 
+## Member Outreach Responses (April 2026)
+
+Valeriia reached out to all existing Slack members with personal messages, announcing community events and activities and offering to create individual learning plans. Four people responded besides Jacob. She plans to talk to each of them (or receive written responses) and then send notes for Alexey to review and use for creating plans[^17].
+
+### Leonor
+
+Leonor wants to have a 30-minute chat sometime in May. For her plans with agentic AI, she first wants to finish her capstone project. She has been reaching out to colleagues to let them know she is building AI engineering skills and wants to join agentic AI projects in the future. She wants to experiment with different forms of agentic memory, particularly methods based on knowledge graphs (e.g. Cognee). She is also interested in developing a text-to-SQL translation workflow[^18].
+
+Leonor also said she will watch the replay of the launch stream. She did Alexey's Maven course and there is a lot of content in there that she will go through progressively. She does not have any additional requests at the moment[^19][^20].
+
+### Marco Teran
+
+Marco is happy to share the topics he wants to learn about. He also mentioned a technical issue - he cannot access Slido and gets an access denied error[^21].
+
+### Luciano Pecile
+
+The most valuable content for Luciano would be practical, real-world AI use cases, especially around building reliable copilots and agents, evaluation frameworks, and how teams are taking things to production. He is also interested in patterns for integrating AI into existing products and workflows, not just greenfield demos[^22].
+
+### Vancesca Dinh
+
+Vancesca said she will respond after reflecting more on what she wants[^23].
+
+### Scott DeGeest
+
+Scott said he needs to look around a bit first and then will give more structured input and feedback[^24].
+
+### Archie
+
+Archie wants to see discussions about the latest tech advancements in the field to stay up to date[^25].
+
+## Jacob Follow-Up Call
+
+Valeriia had a follow-up call with Jacob and prepared a list of questions for him to understand what kind of plan he wants[^26].
+
+Jacob wants to start building things independently but does not know where to start or what is required to become an AI engineer. Valeriia showed him the AI learning path. His background is non-technical - he is essentially starting from scratch. He knows some theory about how computers work and the history of artificial intelligence, but from a practical standpoint he has no coding experience. He only recently completed one Python course[^26].
+
+When asked what he wants to learn in AI engineering, he answered some questions with "I don't know." He wants the learning approach to be hands-on and learn-by-building, like in Alexey's courses. He said he already started going through the LLM Zoomcamp, so it might be possible to combine it with the LLM Zoomcamp, or the community could replace the LLM Zoomcamp for him entirely[^26].
+
+Jacob also said there are many resources available but it is not always clear which ones are good. One proposed approach: Alexey creates a list of topics or steps Jacob can take over the next 1-3 months, Valeriia searches for resources (or uses AI to find them), and then they do a final review of what was found to create the final version of the plan[^26].
+
 ## Sources
 
 [^1]: [20260402_185517_AlexeyDTC_msg3129_transcript.txt](../../inbox/used/20260402_185517_AlexeyDTC_msg3129_transcript.txt)
@@ -122,3 +162,13 @@ They haven't built this themselves yet, but learning how to construct a shared b
 [^14]: [20260410_184350_AlexeyDTC_msg3361.md](../../inbox/used/20260410_184350_AlexeyDTC_msg3361.md)
 [^15]: [20260410_184358_AlexeyDTC_msg3363.md](../../inbox/used/20260410_184358_AlexeyDTC_msg3363.md)
 [^16]: [20260410_184425_AlexeyDTC_msg3365.md](../../inbox/used/20260410_184425_AlexeyDTC_msg3365.md)
+[^17]: [20260415_111523_AlexeyDTC_msg3400_transcript.txt](../../inbox/used/20260415_111523_AlexeyDTC_msg3400_transcript.txt)
+[^18]: [20260413_195429_AlexeyDTC_msg3381.md](../../inbox/used/20260413_195429_AlexeyDTC_msg3381.md)
+[^19]: [20260414_081553_valeriia_kuka_msg3383.md](../../inbox/used/20260414_081553_valeriia_kuka_msg3383.md)
+[^20]: [20260414_081615_valeriia_kuka_msg3385.md](../../inbox/used/20260414_081615_valeriia_kuka_msg3385.md)
+[^21]: [20260414_081635_valeriia_kuka_msg3387.md](../../inbox/used/20260414_081635_valeriia_kuka_msg3387.md)
+[^22]: [20260414_081711_valeriia_kuka_msg3389.md](../../inbox/used/20260414_081711_valeriia_kuka_msg3389.md)
+[^23]: [20260414_081821_valeriia_kuka_msg3391.md](../../inbox/used/20260414_081821_valeriia_kuka_msg3391.md)
+[^24]: [20260414_081832_valeriia_kuka_msg3393.md](../../inbox/used/20260414_081832_valeriia_kuka_msg3393.md)
+[^25]: [20260414_124902_valeriia_kuka_msg3395.md](../../inbox/used/20260414_124902_valeriia_kuka_msg3395.md)
+[^26]: [20260415_111523_AlexeyDTC_msg3399_transcript.txt](../../inbox/used/20260415_111523_AlexeyDTC_msg3399_transcript.txt), [Gemini meeting notes](https://docs.google.com/document/d/1cRa5kvXgdHNaWMgqwES6I9HZ7lBvQu_ckNpvMIODu_s/edit?usp=sharing) via [20260415_122753_AlexeyDTC_msg3405.md](../../inbox/used/20260415_122753_AlexeyDTC_msg3405.md)
