@@ -1,7 +1,7 @@
 ---
 title: "User Interviews"
 created: 2026-04-02
-updated: 2026-04-15
+updated: 2026-04-16
 tags: [ai-shipping-labs, community, user-research]
 status: draft
 ---
@@ -108,6 +108,14 @@ They haven't built this themselves yet, but learning how to construct a shared b
 
 Valeriia reached out to all existing Slack members with personal messages, announcing community events and activities and offering to create individual learning plans. Four people responded besides Jacob. She plans to talk to each of them (or receive written responses) and then send notes for Alexey to review and use for creating plans[^17].
 
+Valeriia has been continuing to collect answers from members about their content preferences[^28]. She also suggested creating personalised plans for AI Shipping Labs members. So far, these members have shared that they are interested: Carlos Pumar, Chandra, Edu Gonzalo Almorox, Grace, Jakob Zischka, SPERYDON KOUMARIANOS, Vancesca Dinh, and vishnu[^29].
+
+<figure>
+  <img src="../../assets/images/user-interviews/interested-members-list.jpg" alt="List of AI Shipping Labs members interested in personalised plans">
+  <figcaption>Members who have shared that they are interested in personalised plans</figcaption>
+  <!-- Shows the current list of members Valeriia is collecting inputs from for personalised plan creation -->
+</figure>
+
 ### Leonor
 
 Leonor wants to have a 30-minute chat sometime in May. For her plans with agentic AI, she first wants to finish her capstone project. She has been reaching out to colleagues to let them know she is building AI engineering skills and wants to join agentic AI projects in the future. She wants to experiment with different forms of agentic memory, particularly methods based on knowledge graphs (e.g. Cognee). She is also interested in developing a text-to-SQL translation workflow[^18].
@@ -124,7 +132,15 @@ The most valuable content for Luciano would be practical, real-world AI use case
 
 ### Vancesca Dinh
 
-Vancesca said she will respond after reflecting more on what she wants[^23].
+Vancesca initially said she would respond after reflecting more on what she wants[^23]. She later shared a detailed response, apologising that her son had been home for Easter so her focus had been scattered. She confirmed she is definitely interested in being part of the community[^27].
+
+She is currently searching for an AI role and wants to build a strong portfolio. She completed one project as part of the AI Buildcamp and wants to add another, but has been feeling stuck on coming up with an idea[^27].
+
+She also wants to contribute to the DataTalks community, especially on projects involving LLM/agents, and would love to hear about potential projects she can work on to support the DTC community. She would really like to deploy applications on AWS and is especially interested in evaluating agents[^27].
+
+To maintain motivation, she would like to have a coffee chat with the community where anyone can join and talk about AI, their projects, and things they are working on - kind of a peer learning thing. She would not mind hosting it if it is something we can build[^27].
+
+Valeriia said this input can be used directly to build Vancesca's plan[^30].
 
 ### Scott DeGeest
 
@@ -133,6 +149,17 @@ Scott said he needs to look around a bit first and then will give more structure
 ### Archie
 
 Archie wants to see discussions about the latest tech advancements in the field to stay up to date[^25].
+
+### Plan Status
+
+Valeriia put together a current status of the personalised plans[^30]:
+
+- Jakob Zischka: his input is already collected, so Alexey can review it and prepare a plan
+- Vishnu: already had a call with him, but Valeriia needs to ask him some clarification questions
+- Vancesca Dinh: the input above can be used directly for her plan
+- Others: Valeriia needs to ask them additional questions so that a plan would be more tailored to their goals
+
+Valeriia will share their answers as soon as they are ready[^30].
 
 ## Jacob Follow-Up Call
 
@@ -172,3 +199,7 @@ Jacob also said there are many resources available but it is not always clear wh
 [^24]: [20260414_081832_valeriia_kuka_msg3393.md](../../inbox/used/20260414_081832_valeriia_kuka_msg3393.md)
 [^25]: [20260414_124902_valeriia_kuka_msg3395.md](../../inbox/used/20260414_124902_valeriia_kuka_msg3395.md)
 [^26]: [20260415_111523_AlexeyDTC_msg3399_transcript.txt](../../inbox/used/20260415_111523_AlexeyDTC_msg3399_transcript.txt), [Gemini meeting notes](https://docs.google.com/document/d/1cRa5kvXgdHNaWMgqwES6I9HZ7lBvQu_ckNpvMIODu_s/edit?usp=sharing) via [20260415_122753_AlexeyDTC_msg3405.md](../../inbox/used/20260415_122753_AlexeyDTC_msg3405.md)
+[^27]: [20260416_130638_valeriia_kuka_msg3413.md](../../inbox/used/20260416_130638_valeriia_kuka_msg3413.md)
+[^28]: [20260416_140631_valeriia_kuka_msg3415.md](../../inbox/used/20260416_140631_valeriia_kuka_msg3415.md)
+[^29]: [20260416_140816_valeriia_kuka_msg3417_photo.md](../../inbox/used/20260416_140816_valeriia_kuka_msg3417_photo.md)
+[^30]: [20260416_141112_valeriia_kuka_msg3419.md](../../inbox/used/20260416_141112_valeriia_kuka_msg3419.md)

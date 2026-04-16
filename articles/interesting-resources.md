@@ -1,7 +1,7 @@
 ---
 title: "Interesting Resources"
 created: 2026-01-31
-updated: 2026-04-15
+updated: 2026-04-16
 tags: [resources, tools, ai, development]
 status: draft
 ---
@@ -41,6 +41,10 @@ Each resource entry follows this simple format:
 [DeepTutor](https://github.com/HKUDS/DeepTutor) is an open-source AI tutoring assistant that turns your documents into an interactive learning environment. It combines RAG-powered knowledge bases with multiple learning modes - chat, guided learning journeys, quiz generation, deep research, and an AI co-writer - all sharing the same conversation context. It also supports persistent "TutorBots" that remember your learning history and evolve over time[^45].
 
 ## Resources
+
+### LennysData.com Hackathon Winners
+
+[LennysData.com hackathon winners](https://www.linkedin.com/posts/lennyrachitsky_announcing-the-winners-of-the-lennysdatacom-share-7450274416166608896-ayJf) is Lenny Rachitsky's announcement of 10 winning projects from a community hackathon built on his podcast transcripts and newsletter content. Out of 80+ entries, winners include Lenny's Greatest Hits, Lenny's Comics, Lenny's Books for Kids, Lenny Unwrapped (trading cards based on guests), and Lenny's Dots of Wisdom - an inspiring example of what happens when a creator opens up their content as structured data for readers to build on. A great reference for how community-driven product building works with newsletter and podcast content[^47].
 
 ### Wikipedia: Signs of AI Writing
 
@@ -115,3 +119,4 @@ Add project ideas here.
 [^44]: [https://github.com/tirth8205/code-review-graph](https://github.com/tirth8205/code-review-graph) via [20260409_064713_AlexeyDTC_msg3315.md](../inbox/used/20260409_064713_AlexeyDTC_msg3315.md)
 [^45]: [https://github.com/HKUDS/DeepTutor](https://github.com/HKUDS/DeepTutor) via [20260409_064410_AlexeyDTC_msg3311.md](../inbox/used/20260409_064410_AlexeyDTC_msg3311.md)
 [^46]: [https://www.linkedin.com/posts/googleresearch_chi2026-activity-7450071174446850048-Uo2F](https://www.linkedin.com/posts/googleresearch_chi2026-activity-7450071174446850048-Uo2F) via [20260415_120442_valeriia_kuka_msg3403.md](../inbox/used/20260415_120442_valeriia_kuka_msg3403.md)
+[^47]: [https://www.linkedin.com/posts/lennyrachitsky_announcing-the-winners-of-the-lennysdatacom-share-7450274416166608896-ayJf](https://www.linkedin.com/posts/lennyrachitsky_announcing-the-winners-of-the-lennysdatacom-share-7450274416166608896-ayJf) via [20260415_210715_valeriia_kuka_msg3411.md](../inbox/used/20260415_210715_valeriia_kuka_msg3411.md)
