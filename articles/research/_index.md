@@ -8,6 +8,8 @@ See [All Articles](../_index.md) for the main articles index.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Browser Harness: Self-Healing Browser Automation via Agent-Editable Code](browser-harness.md) | draft | 2026-04-20 | Deep dive into browser-use/browser-harness - 592-line CDP harness where the agent edits helpers.py mid-task, four layers of self-healing, skills knowledge base, comparison with Playwright/Selenium/Healenium |
+| [OpenClaw vs Hermes Agent: Two Approaches to the Personal AI Assistant](openclaw-vs-hermes.md) | draft | 2026-04-20 | Side-by-side comparison of OpenClaw (TypeScript Gateway-centric) and Hermes Agent (Python loop-centric) - architecture, extensibility, memory models, security, philosophical differences, when to pick each |
 | [Hermes Agent: Nous Research's Self-Improving Personal Agent](hermes-agent.md) | draft | 2026-04-20 | Source-informed analysis of Hermes Agent - Python runtime with 16-platform gateway, 47 tools, 8 memory plugins, autonomous skill creation, comparison with Claude Code and OpenClaw |
 | [OpenClaw: Local-First Personal AI Assistant Architecture](openclaw.md) | draft | 2026-04-20 | Deep dive into OpenClaw (360K+ stars) - Gateway-centric architecture, manifest-first plugin system, multi-agent routing, session lanes, capability-typed plugins, MCP via mcporter bridge |
 | [Claude Code Architecture: Inside Anthropic's Agentic CLI](claude-code-architecture.md) | draft | 2026-04-20 | Deep dive into leaked Claude Code source - QueryEngine, agent loop state machine, streaming tool execution, 5-layer context compaction, permission system, coordinator mode, autoDream, undercover mode |

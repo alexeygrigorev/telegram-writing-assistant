@@ -78,6 +78,7 @@ When going deeper on something, follow this pattern:
 - "have the same story" - prefer "share the same story"
 - "building with AI" is ambiguous (building using AI tools vs building AI products) - be specific about which one you mean
 - When listing overview bullets then expanding each one below, don't repeat the same information - the overview is a table of contents, the expanded sections add new detail
+- Awkward "X is what you'll ..." / "X are what you'll ..." constructions when a simpler sentence is clearer. Instead of "Scripts are what you'll write for most of the course" write "You'll write a lot of scripts in this course"
 
 ## Formatting rules
 

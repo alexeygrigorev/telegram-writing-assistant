@@ -7,6 +7,7 @@ This document defines the styling guidelines for all articles in this repository
 - No `**bold**` or `*italic*` for emphasis
 - No `---` horizontal rules
 - Use ` - ` with spaces around dashes, not `-`
+- Prefer ` - ` over em dashes in normal prose
 - Two code blocks cannot follow each other directly - add text between them
 - Don't overuse em dashes for dramatic effect
 
@@ -38,6 +39,8 @@ Translate from Russian/mixed language to English, but preserve all information:
 - No promotional language: "boasts a," "diverse array," "commitment to excellence"
 - No vague attributions: "experts argue," "industry reports suggest"
 - No "not just X, but also Y" or rule-of-three patterns to sound comprehensive
+- If there are several points, use a list instead of packing them into one long sentence
+- If an idea needs explanation, don't bury it inside a bullet - give it its own short paragraph or subsection
 
 Words to avoid: delve, crucial, pivotal, testament, underscore (verb), vibrant, intricate, garner, bolster, foster, showcase, enhance, emphasize, highlight, leverage (verb), multifaceted, realm, captivating, elevate, boasts (meaning "has"), key (overused adjective).
 

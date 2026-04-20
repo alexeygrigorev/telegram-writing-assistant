@@ -1,7 +1,7 @@
 ---
 title: "User Interviews"
 created: 2026-04-02
-updated: 2026-04-16
+updated: 2026-04-20
 tags: [ai-shipping-labs, community, user-research]
 status: draft
 ---
@@ -150,6 +150,16 @@ Scott said he needs to look around a bit first and then will give more structure
 
 Archie wants to see discussions about the latest tech advancements in the field to stay up to date[^25].
 
+### Brad Smith
+
+Brad replied to Valeriia's outreach. His main interest with AI Shipping Labs is to develop portfolio projects that are interesting to potential employers, while also learning about AI Engineering and applying the findings to his current role. He acknowledged that this is overly broad[^31].
+
+He has taken (not completed) Alexey's bootcamp on Maven and enjoys his approach. The hardest part for him is understanding how to develop solutions and build apps with a consistent tech stack. Deployment specifically is an issue, and getting data into useable forms consistently is his second most pressing issue. He offered to discuss further[^31].
+
+### Anonymous AI Shipping Labs participant
+
+One AI Shipping Labs participant shared what they would like to see next. They thanked Alexey and Valeriia for the opportunity to learn and said they would love to see more courses with a practice-first approach. Specific topics they mentioned: harness engineering for coding agents, and testing and evaluation. They are currently trying to build their own CLI coding agent based on Spec-Driven Development and RAG[^32].
+
 ### Plan Status
 
 Valeriia put together a current status of the personalised plans[^30]:
@@ -160,6 +170,12 @@ Valeriia put together a current status of the personalised plans[^30]:
 - Others: Valeriia needs to ask them additional questions so that a plan would be more tailored to their goals
 
 Valeriia will share their answers as soon as they are ready[^30].
+
+### Plan Input Collected (April 2026-04-20)
+
+To keep each member's input separate and easy to review, personalised plan inputs now live in their own folder at [articles/ai-shipping-labs/plans/](plans/_index.md) instead of all being mixed into one place. Alexey will review each input and record follow-up notes per member[^33][^34].
+
+Full intake collected so far: Jakob Zischka, Carlos Pumar, Vancesca Dinh, Grace, and Edu Gonzalo Almorox. Carlos has already written a lot on his own, so no separate follow-up questions were sent to him[^35].
 
 ## Jacob Follow-Up Call
 
@@ -203,3 +219,8 @@ Jacob also said there are many resources available but it is not always clear wh
 [^28]: [20260416_140631_valeriia_kuka_msg3415.md](../../inbox/used/20260416_140631_valeriia_kuka_msg3415.md)
 [^29]: [20260416_140816_valeriia_kuka_msg3417_photo.md](../../inbox/used/20260416_140816_valeriia_kuka_msg3417_photo.md)
 [^30]: [20260416_141112_valeriia_kuka_msg3419.md](../../inbox/used/20260416_141112_valeriia_kuka_msg3419.md)
+[^31]: [20260416_200522_AlexeyDTC_msg3426.md](../../inbox/used/20260416_200522_AlexeyDTC_msg3426.md)
+[^32]: [20260420_053838_AlexeyDTC_msg3439.md](../../inbox/used/20260420_053838_AlexeyDTC_msg3439.md)
+[^33]: [20260420_083829_AlexeyDTC_msg3451_transcript.txt](../../inbox/used/20260420_083829_AlexeyDTC_msg3451_transcript.txt)
+[^34]: [20260420_083951_AlexeyDTC_msg3453_transcript.txt](../../inbox/used/20260420_083951_AlexeyDTC_msg3453_transcript.txt)
+[^35]: [20260420_083739_AlexeyDTC_msg3442.md](../../inbox/used/20260420_083739_AlexeyDTC_msg3442.md)

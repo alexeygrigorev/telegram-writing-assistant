@@ -51,7 +51,8 @@ Articles about the AI Shipping Labs paid community: vision, activities, courses,
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
-| [User Interviews](ai-shipping-labs/user-interviews.md) | draft | 2026-04-16 | Notes from conversations with community members - accountability over content, project pipelines, Jacob interview, community survey responses, member outreach responses, personalised plan status |
+| [User Interviews](ai-shipping-labs/user-interviews.md) | draft | 2026-04-20 | Notes from conversations with community members - accountability over content, project pipelines, Jacob interview, community survey responses, member outreach responses, Brad Smith, AI Shipping Labs participant feedback, personalised plan status |
+| [Personalised Plans](ai-shipping-labs/plans/_index.md) | draft | 2026-04-20 | Raw personalised plan inputs collected from community members: Jakob Zischka, Carlos Pumar, Vancesca Dinh, Grace, Edu Gonzalo Almorox |
 | [Course Ideas](ai-shipping-labs/courses.md) | draft | 2026-04-15 | Spec-Driven Dev, Refactoring AI Slop, Python, Data Engineering, CloudCode, testing, DevOps, DDD module |
 | [Activities](ai-shipping-labs/activities.md) | draft | 2026-04-10 | Regular sessions, accountability circles, mentoring, career development, knowledge sharing, member onboarding |
 | [How We Built AI Shipping Labs](ai-shipping-labs/how-we-built-it.md) | draft | 2026-04-07 | Valeriia's V0 website build story, MVP philosophy, hosting journey, agent-built Django platform |
@@ -107,7 +108,7 @@ Files at the articles root that don't fit into the above categories.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
-| [Interesting Resources](interesting-resources.md) | draft | 2026-04-16 | Curated collection of tools, resources, and project ideas for the newsletter |
+| [Interesting Resources](interesting-resources.md) | draft | 2026-04-20 | Curated collection of tools, resources, and project ideas for the newsletter |
 | [Deterministic Coding with Agent Teams](litehive.md) | draft | 2026-04-10 | litehive file-based task manager, tmuxctl, GoZ engine, self-writing system, recovery agent, multiple engines, usage quota tracking, stale agent killing, self-improving tools |
 | [AI Engineering Buildcamp Course Announcement](ai-buildcamp-course-announcement.md) | draft | 2026-04-06 | Course announcement: syllabus, projects, homework agents, capstone progression, hands-on focus |
 | [Weekly Log](weekly-log.md) | draft | 2026-03-29 | Running log of weekly activities with links to detailed articles |
