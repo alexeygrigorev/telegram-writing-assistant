@@ -58,7 +58,30 @@ Around 8 - 10 h.
 
 Have a proper product/project that can I can be attractive to hiring managers and that proves I am decently competent at AI.
 
+## Alexey's Recommendations
+
+Edu already completed the course and his interest is more around growing as an engineer. So the plan can help him focus on engineering - deployment and DevOps[^3].
+
+Recommendations:
+
+1. Finish the current project and deploy it.
+
+2. Come up with a new project if he has an idea. Build it end-to-end with Docker. Pick a platform to deploy to. This is optional, but if he can ship another project it is useful because the goal is an AI Engineer role, and several different projects make the portfolio stronger.
+
+3. Pick a direction. For example, find a company where he would like to work, analyze what they do, and build something similar. Build it end-to-end.
+
+4. The new project should cover what was in the course: tests, monitoring, and a focus on deployment.
+
+5. Add GitHub Actions so that when he pushes to Git it automatically runs tests and deploys to dev. Deployment to production should be manual.
+
+6. If he is interested in engineering specifically, it is worth looking at Terraform. Use it in one of the projects to set up dev/prod deployment - automatic push to dev and manual deploy to production.
+
+7. For the platform, start with something simple like AWS Lambda. Then move to something more complex.
+
+This is a rough sketch - Valeriia can flesh it out in more detail, it is not too difficult to expand.
+
 ## Sources
 
 [^1]: [Google Doc](https://docs.google.com/document/d/1vSXH0Tvr47d62qCm7llK5AAjUWmDJpE3NB_X5TR4N6U/edit?usp=sharing)
 [^2]: [20260420_083739_AlexeyDTC_msg3445.md](../../../inbox/used/20260420_083739_AlexeyDTC_msg3445.md)
+[^3]: [20260420_102138_AlexeyDTC_msg3469_transcript.txt](../../../inbox/used/20260420_102138_AlexeyDTC_msg3469_transcript.txt)

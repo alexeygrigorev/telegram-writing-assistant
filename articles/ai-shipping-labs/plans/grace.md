@@ -52,7 +52,20 @@ Sprints and having an accountability partner.
 
 If I can take a project and build an end-to-end AI solution; discovery, modeling, evaluation, deployment, iteration.
 
+## Alexey's Recommendations
+
+Grace just signed up for the AI Engineering Buildcamp course. Since she has access to the course, her main task for the next weeks is to go through the course and pick a project she wants to build[^3].
+
+The recommendation is to focus from the very beginning on the project she wants to make. Based on that, it is easier to decide what else to do.
+
+The course already has very concrete steps laid out. The plan we prepare should help her combine the course material with preparing her own project over the remaining 7 weeks of the course. The course itself is 9 weeks long, the first week is already done, so 8 weeks remain - 7 weeks for the plan, with the final week for polishing the project.
+
+The project already has some guidance inside the course, but adding a little extra structure for her may be useful.
+
+She should also participate in the sync-ups.
+
 ## Sources
 
 [^1]: [Google Doc](https://docs.google.com/document/d/1MvIpsXeQAgwU3UC_vbwZdiVTV-s8yI2yZnxKQSrBKwU/edit?usp=sharing)
 [^2]: [20260420_083739_AlexeyDTC_msg3444.md](../../../inbox/used/20260420_083739_AlexeyDTC_msg3444.md)
+[^3]: [20260420_102138_AlexeyDTC_msg3470_transcript.txt](../../../inbox/used/20260420_102138_AlexeyDTC_msg3470_transcript.txt)

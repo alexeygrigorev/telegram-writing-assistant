@@ -53,7 +53,40 @@ About 20 hours.
 
 The start and the end, so coming up with ideas and maintaining the project once it's "finished".
 
+## Alexey's Recommendations
+
+For Vancesca, it would be great to find a project for the DataTalks.Club that she wants to work on[^3].
+
+For the DTC project side, Alexey wants to minimize his own involvement, because one community member is already working on a project and he is the bottleneck for her. So ideally Vancesca's project should run without constant feedback from Alexey's side. Participating in the community sync-ups would be enough structure.
+
+Her task is to pick a project. On the DataTalks.Club organization website there are open GitHub issues with hackathon projects. Extract all of them, put them together, and ask her to choose one. We can help her pick and sketch out roughly how to implement it.
+
+The DTC hackathon projects (open issues in `DataTalksClub/datatalksclub.github.io` labeled "AI Bootcamp Hackathon"):
+
+- [#97 Build a Unified Search Interface for Topics, Subtopics & Timestamp Segments](https://github.com/DataTalksClub/datatalksclub.github.io/issues/97) - Semantic search across all podcast episodes that returns episode-level and timestamp-level hits with deep links.
+- [#96 Build a Chatbot That Answers Questions About Any Podcast Episode](https://github.com/DataTalksClub/datatalksclub.github.io/issues/96) - RAG chatbot over podcast transcripts (minsearch + Groq/OpenAI) that returns timestamped answers with jump-links.
+- [#95 Add a List of Mentioned Resources to Each Podcast Page](https://github.com/DataTalksClub/datatalksclub.github.io/issues/95) - AI extracts tools/books/people/papers from transcripts and injects a "Resources Mentioned" section into each episode page.
+- [#94 Assign Topics & Subtopics to Each Podcast Episode (Episode + Timestamp)](https://github.com/DataTalksClub/datatalksclub.github.io/issues/94) - Design a topic taxonomy and auto-classify episodes and individual clips to feed future `/insights/<topic>/` hub pages.
+- [#93 Create Dedicated Workshop and Webinar Pages](https://github.com/DataTalksClub/datatalksclub.github.io/issues/93) - Generate per-item pages (like podcast pages) from YouTube workshop/webinar playlists with video embed, description, resources, transcript.
+- [#92 Build a Full Tools Catalog + Connections Graph](https://github.com/DataTalksClub/datatalksclub.github.io/issues/92) - Extract every tool mentioned across podcasts/Zoomcamps/workshops, build a catalog page, optionally use Cognee for a tool-to-video connections graph.
+- [#91 Build a Catalog of Open-Source Demos from YouTube](https://github.com/DataTalksClub/datatalksclub.github.io/issues/91) - Turn the open-source-demos YouTube playlist into a structured, searchable catalog page on the site.
+- [#90 Automate Slack Discussions to Website FAQ Sync](https://github.com/DataTalksClub/datatalksclub.github.io/issues/90) - Daily pipeline (GitHub Actions) that pulls Q&A from Slack zoomcamp channels and updates FAQ markdown via PR. Prototype agent exists.
+- [#87 Podcast: Key Takeaways Section](https://github.com/DataTalksClub/datatalksclub.github.io/issues/87) - Generate concise, timestamped key-takeaways summaries for every podcast page.
+
+On the hosting side, the community will have a webinar soon about Codex, Claude Code, and AWS Lambda. After that the plan is to move on to more complex deployment setups. So let's try to pick a project where she can use AWS Lambda to talk to OpenAI or something similar. She should be able to develop and test locally, then deploy the project to AWS Lambda. Everything in Python.
+
+Pick a concrete project from the list above that fits these criteria.
+
+For the portfolio, Alexey recommends she look at the [AI Engineering Field Guide](../../ai-engineering-field-guide.md) to see what kinds of roles and projects are relevant.
+
+Also share with her the same step-by-step gist with prompts for finding an interesting project that we already shared with other members. Based on that we can put together a more detailed plan.
+
+Alexey wants her to be involved in the planning too - to think about what is realistic for her and what is not. The plan we propose is just a draft; she can use it as a starting point and adjust.
+
+So her first task is to pick a project and decide whether she likes it or not.
+
 ## Sources
 
 [^1]: [Google Doc](https://docs.google.com/document/d/1fJT6wQMA_bK9nwYXmfeGuXiA0k8a8fheZB9NyVbCZCQ/edit?usp=sharing)
 [^2]: [20260420_083739_AlexeyDTC_msg3443.md](../../../inbox/used/20260420_083739_AlexeyDTC_msg3443.md)
+[^3]: [20260420_102138_AlexeyDTC_msg3471_transcript.txt](../../../inbox/used/20260420_102138_AlexeyDTC_msg3471_transcript.txt)

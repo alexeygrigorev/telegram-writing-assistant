@@ -53,7 +53,7 @@ Articles about the AI Shipping Labs paid community: vision, activities, courses,
 |-------|--------|--------------|-------------|
 | [User Interviews (overview)](ai-shipping-labs/user-interviews.md) | draft | 2026-04-20 | Overview of the user interview effort, outreach status, and plan tracking. Individual interviews live in interviews/ folder |
 | [Individual Interviews](ai-shipping-labs/interviews/_index.md) | draft | 2026-04-20 | One file per participant with persona assignment: Daniel Ibáñez, Jakob Zischka, Vancesca Dinh, Brad Smith, Leonor, and others |
-| [Personalised Plans](ai-shipping-labs/plans/_index.md) | draft | 2026-04-20 | Raw personalised plan inputs and plan template. Plans: Jakob Zischka, Carlos Pumar, Vancesca Dinh, Grace, Edu Gonzalo Almorox |
+| [Personalised Plans](ai-shipping-labs/plans/_index.md) | draft | 2026-04-20 | Personalised plans with Alexey's recommendations: Edu Gonzalo Almorox, Grace, Vancesca Dinh, Carlos Pumar, Jakob Zischka, Nirajan Acharya (new intake) |
 | [Course Ideas](ai-shipping-labs/courses.md) | draft | 2026-04-15 | Spec-Driven Dev, Refactoring AI Slop, Python, Data Engineering, CloudCode, testing, DevOps, DDD module |
 | [Activities](ai-shipping-labs/activities.md) | draft | 2026-04-10 | Regular sessions, accountability circles, mentoring, career development, knowledge sharing, member onboarding |
 | [How We Built AI Shipping Labs](ai-shipping-labs/how-we-built-it.md) | draft | 2026-04-07 | Valeriia's V0 website build story, MVP philosophy, hosting journey, agent-built Django platform |

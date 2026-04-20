@@ -154,7 +154,34 @@ Valeriia had an idea about Tier 1 content strategy. Even though Jacob said he do
 
 The second idea is that the newsletter could provide more fundamental, beginner-friendly content with explanations for those starting from scratch. For those who want more support and want to continue at a deeper level, they go into the community (Tier 2).
 
+## Alexey's Recommendations
+
+After reviewing Jakob's notes, Alexey's understanding is that Jakob's main issue is that the AI Buildcamp course felt very difficult for him[^3].
+
+For the upcoming Python course: Alexey designed the curriculum by asking agents to analyze which Python constructs are used in the courses and built the curriculum based on that. The plan is to increase difficulty over time. The first two modules are already available, and Alexey is working on the rest. So the first modules are likely too basic for Jakob, because he already knows that material, but the later modules should be more interesting for him.
+
+Next, after the Python course, the recommendation is for Jakob to take the AI Hero course and come up with a project. To help him come up with a project, it would be good for him to think about what he actually wants to build. There is material in the AI Engineering Buildcamp repo (in the V2 ChatGPT folder) with prompts for defining a topic. Include the link to that gist in Jakob's plan so he can experiment with it. Throw the whole gist at him - it may give him ideas.
+
+In addition, put together a file with all the public projects - also find the links to projects from the LLM Zoomcamp. It may not be possible to find all of them. Add an action item on Alexey's side to add anything that cannot be found.
+
+So the plan looks like this:
+
+1. Python course - for now the available modules may be too simple, but more complex ones are coming.
+2. AI Hero courses - more advanced material that should be more useful to him.
+3. Come up with a project idea and start working on it.
+
+Two projects are suggested:
+
+- One in pure Python, without AI engineering.
+- One with AI engineering.
+
+### Action items for Alexey
+
+- [ ] [Alexey] Share the gist with prompts for defining a project topic (V2 ChatGPT folder in the AI Engineering Buildcamp repo).
+- [ ] [Alexey] Share the list of LLM Zoomcamp project links where possible; add any that the bot could not find.
+
 ## Sources
 
 [^1]: [Google Doc](https://docs.google.com/document/d/1cRa5kvXgdHNaWMgqwES6I9HZ7lBvQu_ckNpvMIODu_s/edit?usp=sharing)
 [^2]: [20260420_083739_AlexeyDTC_msg3441.md](../../../inbox/used/20260420_083739_AlexeyDTC_msg3441.md)
+[^3]: [20260420_102138_AlexeyDTC_msg3473_transcript.txt](../../../inbox/used/20260420_102138_AlexeyDTC_msg3473_transcript.txt)
