@@ -1,7 +1,7 @@
 ---
 title: "Personal Writing Style"
 created: 2026-03-21
-updated: 2026-03-25
+updated: 2026-04-20
 tags: [style, writing, newsletter]
 ---
 
@@ -27,6 +27,7 @@ My writing style preferences for newsletter articles and public-facing content. 
 - No paragraph should be longer than 3-4 sentences. If it is, split it or convert part of it to a list
 - Alternate between prose and structured elements (lists, tables, illustrations) to keep the reader moving
 - Paragraphs should connect to each other - if two consecutive paragraphs feel disconnected, add a bridge sentence or restructure
+- Sections should also connect to each other. At the start of a long article, give a short map of what is coming - which sections cover which groups of things, and how those groups relate. When moving from one section to the next, add a short bridge that reminds the reader where they are and what comes next. Sub-sections inside a section should relate to each other clearly, not read as separate fragments
 - Place content in the section where it logically belongs. If a paragraph answers "why something new" it goes in that section, not in "the problem"
 - Use `<!-- illustration: description -->` comments to break up dense sections and give the reader visual breathing room
 
