@@ -8,6 +8,9 @@ See [All Articles](../_index.md) for the main articles index.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Hermes Agent: Nous Research's Self-Improving Personal Agent](hermes-agent.md) | draft | 2026-04-20 | Source-informed analysis of Hermes Agent - Python runtime with 16-platform gateway, 47 tools, 8 memory plugins, autonomous skill creation, comparison with Claude Code and OpenClaw |
+| [OpenClaw: Local-First Personal AI Assistant Architecture](openclaw.md) | draft | 2026-04-20 | Deep dive into OpenClaw (360K+ stars) - Gateway-centric architecture, manifest-first plugin system, multi-agent routing, session lanes, capability-typed plugins, MCP via mcporter bridge |
+| [Claude Code Architecture: Inside Anthropic's Agentic CLI](claude-code-architecture.md) | draft | 2026-04-20 | Deep dive into leaked Claude Code source - QueryEngine, agent loop state machine, streaming tool execution, 5-layer context compaction, permission system, coordinator mode, autoDream, undercover mode |
 | [AI Course Generation with Claude Skills](ai-course-generation-skill.md) | draft | 2026-04-12 | Research on a 1,270-line Claude skill that generates complete interactive Vite+React courses from a single topic prompt - template-first approach, prompt engineering patterns |
 | [Karpathy: LLM Knowledge Bases](karpathy-how-i-use-llms.md) | draft | 2026-04-06 | LLM Wiki pattern - building personal knowledge bases with LLMs, Obsidian as IDE, three-layer architecture, compounding knowledge |
 | [Career Ops: AI-Powered Career Management](career-ops.md) | draft | 2026-04-09 | AI job search system built on Claude Code - 14 skill modes, A-F evaluation, batch processing with sub-agents, portal scanning, PDF generation |

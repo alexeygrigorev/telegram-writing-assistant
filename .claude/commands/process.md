@@ -156,10 +156,15 @@ NEVER process URL content inline in the main agent. ALWAYS delegate to subagents
 
 Match the user's intent keywords in the message:
 - User says "resource", "save as resource", "bookmark" → resource-describer subagent → writes to `interesting-resources.md`
-- User says "research", "do research", "look into this" → article-summarizer subagent → writes to `articles/research/{topic}.md`
-- URL is part of content for an existing article → article-summarizer subagent → writes to the target article
+- User says "research", "do research", "look into this", "analyze this" → researcher subagent → writes to `articles/research/{topic}.md` (deep investigation with architecture diagrams, source code analysis, multiple sources)
+- URL is a single link to add to an existing research article → article-summarizer subagent → writes a subsection to the target article
+- URL is part of content for an existing non-research article → article-summarizer subagent → writes to the target article
 - YouTube URL → use `youtube.py` script (not a subagent)
 - ChatGPT conversation link → subagent to fetch and summarize via Jina Reader
+
+When to use researcher vs article-summarizer:
+- researcher: user wants deep investigation of a topic. The agent searches the web independently, reads source code, creates architecture diagrams, and produces a thorough research article. Can create new articles or extend existing ones. Use when the user says "research", "analyze", "look into this", "investigate".
+- article-summarizer: user shares a SINGLE URL to summarize. The agent fetches that one page and writes a summary (as a new article or a subsection in an existing one). Can include diagrams when the content describes systems or architectures. Scope is limited to the given URL - no independent web search beyond it. Use when the user shares a link without asking for broader investigation.
 
 ### Procedure
 
@@ -175,8 +180,8 @@ Match the user's intent keywords in the message:
 ```
 URL Inventory:
 1. https://github.com/user/repo - resource-describer → interesting-resources.md (user said "resource")
-2. https://github.com/user/project - article-summarizer → articles/research/topic.md (user said "research")
-3. https://example.com/article - article-summarizer → articles/research/topic.md (research context)
+2. https://github.com/user/project - researcher → articles/research/topic.md (user said "research this")
+3. https://example.com/article - article-summarizer → articles/research/topic.md (single URL, no deep research requested)
 ```
 
 If you skip this step or process URLs inline, the processing is considered FAILED.

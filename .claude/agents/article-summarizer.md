@@ -57,6 +57,11 @@ You will receive:
    - File structures, API patterns
    - Implementation details
 
+   Diagrams (when helpful):
+   - Architecture or data flow diagrams using ```mermaid code blocks
+   - Include when the content describes systems, pipelines, or multi-component architectures
+   - Not every summary needs diagrams - use them when they genuinely clarify structure
+
    Quotes:
    - 2-3 most impactful direct quotes
    ```
