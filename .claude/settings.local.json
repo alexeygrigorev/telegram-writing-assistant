@@ -16,7 +16,10 @@
       "WebSearch",
       "Bash(python -m py_compile:*)",
       "Bash(python *)",
-      "Bash(pip install *)"
+      "Bash(pip install *)",
+      "Edit(.claude/**)",
+      "Write(.claude/**)",
+      "MultiEdit(.claude/**)"
     ]
   }
 }

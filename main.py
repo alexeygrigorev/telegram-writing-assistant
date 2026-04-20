@@ -852,7 +852,9 @@ async def process_command(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
         remote_url = remote_result.stdout.strip()
 
         # Convert git@github.com:user/repo.git to https://github.com/user/repo
-        if remote_url.startswith("git@github.com:"):
+        if commit_hash is None:
+            github_url = None
+        elif remote_url.startswith("git@github.com:"):
             repo_url = remote_url[15:].removesuffix(".git")
             github_url = f"https://github.com/{repo_url}/commit/{commit_hash}"
         elif remote_url.startswith("https://github.com/"):
@@ -872,8 +874,10 @@ async def process_command(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
         msg = f"Processing complete! Duration: {duration_str}\n\n"
         if github_url:
             msg += f"Commit: {github_url}\n"
-        else:
+        elif commit_hash:
             msg += f"Commit: `{commit_hash[:8]}`\n"
+        else:
+            msg += "No commit made (nothing to process).\n"
 
         # Add summary content
         summaries_dir = REPO_PATH / "inbox" / "summaries"

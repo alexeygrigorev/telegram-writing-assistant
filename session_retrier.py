@@ -34,6 +34,13 @@ class SessionRetrier:
         )
         return result.stdout.strip()
 
+    def inbox_raw_files(self) -> list[str]:
+        """Return names of files in inbox/raw/ (excluding .gitkeep and hidden files)."""
+        raw_dir = self.repo_path / "inbox" / "raw"
+        if not raw_dir.exists():
+            return []
+        return [p.name for p in raw_dir.iterdir() if p.is_file() and not p.name.startswith(".")]
+
     def get_session_id(self) -> Optional[str]:
         """Get saved session ID if it exists."""
         session_file = self.repo_path / ".tmp" / "claude_session_id.txt"
@@ -62,7 +69,9 @@ class SessionRetrier:
             (success, commit_hash, error_message)
         """
         commit_before = self.get_commit_hash()
+        raw_before = self.inbox_raw_files()
         print(f"[SessionRetrier] Commit before: {commit_before[:8]}", flush=True)
+        print(f"[SessionRetrier] Inbox files before: {len(raw_before)}", flush=True)
 
         # First attempt (or resume if session_id provided)
         runner = ClaudeRunner(self.repo_path, self.logs_dir, session_id=session_id)
@@ -78,13 +87,23 @@ class SessionRetrier:
             print(f"[SessionRetrier] Commit after: {commit_after[:8]}", flush=True)
             if commit_after != commit_before:
                 return True, commit_after, None
+            # No new commit - check if there were files that should have been processed
+            if raw_before:
+                remaining = self.inbox_raw_files()
+                print(f"[SessionRetrier] Session exited 0 but made no commit; {len(remaining)} files still in inbox/raw", flush=True)
+                return False, None, (
+                    f"Session exited successfully but made no commit. "
+                    f"{len(raw_before)} files were in inbox/raw; {len(remaining)} remain unprocessed. "
+                    f"Claude likely got stuck (e.g., permission denial or waiting for input). "
+                    f"Check the latest run log in claude_runs/."
+                )
             print(f"[SessionRetrier] Session completed successfully with no new commit (nothing to process)", flush=True)
             return True, None, None
 
         # Session crashed - enter retry loop
         print(f"[SessionRetrier] Session crashed (exit code {returncode}), will attempt resume", flush=True)
         return await self._retry_loop(
-            chat_id, bot, on_progress, commit_before, returncode
+            chat_id, bot, on_progress, commit_before, returncode, raw_before
         )
 
     async def _retry_loop(
@@ -94,6 +113,7 @@ class SessionRetrier:
         on_progress: Callable[[str], None],
         commit_before: str,
         last_returncode: int,
+        raw_before: Optional[list[str]] = None,
     ) -> tuple[bool, Optional[str], Optional[str]]:
         """Retry loop for crashed sessions."""
         for attempt in range(1, self.MAX_RETRIES + 1):
@@ -127,6 +147,14 @@ class SessionRetrier:
                 if commit_after != commit_before:
                     print(f"[SessionRetrier] Success after {attempt} retries!", flush=True)
                     return True, commit_after, None
+                if raw_before:
+                    remaining = self.inbox_raw_files()
+                    print(f"[SessionRetrier] Retry {attempt} exited 0 but made no commit; {len(remaining)} files still in inbox/raw", flush=True)
+                    return False, None, (
+                        f"Session resumed but made no commit after {attempt} retries. "
+                        f"{len(raw_before)} files were in inbox/raw; {len(remaining)} remain unprocessed. "
+                        f"Claude likely got stuck (e.g., permission denial or waiting for input)."
+                    )
                 print(f"[SessionRetrier] Session completed with no new commit after retry {attempt}", flush=True)
                 return True, None, None
 
