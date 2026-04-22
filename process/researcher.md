@@ -107,41 +107,14 @@ Keep diagrams readable. When a diagram starts to show many nodes, edges crossing
 
 ## STYLE RULES (MANDATORY)
 
-Follow these rules strictly. Violations will require rework.
+Before writing, read both style files and follow every rule in them:
 
-Also read `articles/_personal-voice.md` before writing the final version of the article. It describes the personal writing style that all published articles should follow. Apply those rules in addition to the ones below.
+- `process/style-curation.md` - base rules (no bold/italic, no horizontal rules, banned words, active voice, no "Additionally/Moreover" openers, short sentences, curator-not-writer, etc.)
+- `process/style-polished.md` - polished-prose rules on top of curation (voice, addressing the reader as "you", defining jargon on first use, no anthropomorphism like "OpenClaw asks", bridges between sections, etc.)
 
-- No `**bold**` or `*italic*` formatting
-- No `---` horizontal rules (except in YAML frontmatter)
-- No words from the banned list: delve, crucial, pivotal, testament, underscore (verb), vibrant, intricate, garner, bolster, foster, showcase, enhance, emphasize, highlight, leverage (verb), multifaceted, realm, captivating, elevate, boasts (meaning "has"), key (overused adjective)
-- No promotional language: "boasts a," "diverse array," "commitment to excellence"
-- No puffing up significance: "marks a pivotal moment," "a testament to," "reflects broader trends"
-- No starting sentences with: Additionally, Moreover, Furthermore, Notably, Importantly, Consequently
-- No passive voice - use active voice
-- Short sentences. If there are several points, use a list.
-- Use ` - ` with spaces around dashes in prose
-- Two code blocks cannot follow each other directly - add text between them
+Research-article-specific rules below are additions, not replacements.
+
 - No level 4 headings (####) or deeper - only ## and ###
-- You are a curator, not a writer - organize findings, don't embellish
-
-### Address the reader
-
-- Write for a specific reader: a developer who can read code and diagrams but does not have time to investigate the project themselves. You are doing that investigation on their behalf.
-- Address the reader as "you", not "the user". Instead of "A user sends a message on Telegram", write "You can talk to Hermes through Telegram". Instead of "The user swaps providers", write "You can swap providers".
-- Every technical detail must connect to what it means for the reader. A sentence that only lists structure ("the agent directory holds domain components, the tools directory holds 47 tool files") is not finished until you explain what those components do and why the reader should care.
-- Explain what role each file, folder, or component plays in the whole system. If you mention a folder called `tools/`, say briefly what tools live there and what they let the reader do.
-
-### Avoid AI-generated feel
-
-- Do not anthropomorphize projects or frameworks. Phrases like "OpenClaw asks, what is the permanent structure that owns the assistant?" or "Hermes answers with..." do not make sense - a project cannot ask or answer. Describe what the project is and how it works directly.
-- Avoid hype phrases, unnatural framings, and filler that sounds like marketing copy. "A conversation turn in Hermes is mostly a prompt building exercise followed by a provider-agnostic tool loop" is the kind of sentence to avoid - say it in plain terms, like "Each turn in Hermes builds a prompt, then runs a tool loop that works with any provider".
-- Write like a person explaining the system to a colleague, not like a system summarizing itself.
-
-### Define technical terms
-
-- When you introduce a technical term (e.g., "frozen identity vs mutable identity", "manifest-first", "hub-and-spoke"), define it briefly in plain language on first use. Assume the reader has general software engineering knowledge but has not read the project's docs.
-- If a term is uncommon or project-specific, say so and give a short concrete meaning. For example: "Frozen identity means you cannot change the system prompt mid-conversation; mutable identity means you can."
-- Tie the definition back to what it means for the reader in practice - what they can or cannot do because of it.
 
 ### Structure and flow between sections
 
@@ -194,4 +167,4 @@ Before finishing, verify:
 - [ ] Technical jargon is defined in plain language on first use
 - [ ] Sections connect with short bridges so the reader can follow the flow
 - [ ] No anthropomorphic framings like "Project X asks" or "Project Y answers"
-- [ ] `articles/_personal-voice.md` rules have been applied
+- [ ] `process/style-curation.md` and `process/style-polished.md` rules have been applied

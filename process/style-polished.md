@@ -1,13 +1,8 @@
----
-title: "Personal Writing Style"
-created: 2026-03-21
-updated: 2026-04-20
-tags: [style, writing, newsletter]
----
+# Polished Writing Style
 
-# Personal Writing Style
+Voice, tone, and prose rules for polished article content (newsletter-ready pieces, research articles, anything beyond raw-curation output). Agents should read this before preparing a final version of any article.
 
-My writing style preferences for newsletter articles and public-facing content. Agents should read this before preparing a final version of any article.
+Inherits from `process/style-curation.md` - every rule there (no bold/italic, no horizontal rules, banned words, sentence structure, active voice, no "Additionally/Moreover" openers, etc.) also applies here. This file adds the voice-and-tone layer on top.
 
 ## Voice and tone
 
@@ -57,6 +52,20 @@ When going deeper on something, follow this pattern:
 3. The solution, described concretely
 4. What the reader gets out of it: "Plus you also learn a lot from each other"
 
+## Addressing the reader
+
+- Write for a specific reader. For technical articles, assume a developer who can read code and diagrams but does not have time to investigate the project themselves - you are doing that investigation on their behalf
+- Address the reader as "you", not "the user". Instead of "A user sends a message on Telegram" write "You can talk to Hermes through Telegram". Instead of "The user swaps providers" write "You can swap providers"
+- Every technical detail must connect to what it means for the reader. A sentence that only lists structure ("the agent directory holds domain components, the tools directory holds 47 tool files") is not finished until you explain what those components do and why the reader should care
+- When mentioning a file, folder, or component, briefly say what role it plays in the whole system and what it lets the reader do
+
+## Technical writing
+
+- Do not anthropomorphize products, projects, or frameworks. Phrases like "OpenClaw asks, what is the permanent structure that owns the assistant?" or "Hermes answers with..." do not make sense - a project cannot ask or answer. Describe what the project is and how it works directly
+- Avoid hype phrases, unnatural framings, and filler that sounds like marketing copy or AI-generated summary. "A conversation turn in Hermes is mostly a prompt building exercise followed by a provider-agnostic tool loop" is the kind of sentence to avoid - say it in plain terms, like "Each turn in Hermes builds a prompt, then runs a tool loop that works with any provider". Write like a person explaining the system to a colleague, not like a system summarizing itself
+- When introducing a technical term (e.g., "frozen identity vs mutable identity", "manifest-first", "hub-and-spoke"), define it briefly in plain language on first use. Assume general software-engineering knowledge but not familiarity with the project's docs
+- If a term is uncommon or project-specific, say so and give a short concrete meaning. For example: "Frozen identity means you cannot change the system prompt mid-conversation; mutable identity means you can." Tie the definition back to what the reader can or cannot do because of it
+
 ## Things to avoid
 
 - Forced transition phrases: "Now for the fun part", "Let me expand on a few of these"
@@ -83,9 +92,8 @@ When going deeper on something, follow this pattern:
 
 ## Formatting rules
 
-- No bold or italic for emphasis
-- No horizontal rules (---)
-- Spaces around dashes in text
+Base formatting rules (no bold/italic, no horizontal rules, spaces around dashes, etc.) live in `process/style-curation.md`. Additional rules specific to polished articles:
+
 - DataTalks.Club (with dots) is the correct spelling
 - Use straight quotes (' and ") not curly/smart quotes
 - Include `<!-- illustration: description -->` comments where images should go

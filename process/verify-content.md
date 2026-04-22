@@ -60,7 +60,7 @@ For any issues found, update the article directly:
 
 ## Style Compliance
 
-When editing articles, read STYLE.md and follow ALL rules there.
+When editing articles, read `process/style-curation.md` and follow ALL rules there. For polished articles (research, newsletter-ready), also apply `process/style-polished.md`.
 
 ## What Counts as Preservation (GOOD)
 

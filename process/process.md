@@ -66,10 +66,10 @@ Articles live in `articles/` and are organized into subfolders by category. When
 
 # CRITICAL STYLING REMINDERS
 
-Before creating or editing ANY article content, review STYLE.md in the root repository.
+Before creating or editing ANY article content, review `process/style-curation.md` (the base style rules every article must follow). For polished prose (research articles, newsletter-ready pieces), also review `process/style-polished.md`.
 
 The final step of processing MUST be to verify:
-1. Read STYLE.md
+1. Read `process/style-curation.md` (and `process/style-polished.md` for polished articles)
 2. Check the article for compliance with all formatting rules
 3. Run grep to verify no bold formatting: `grep '\*\*' articles/{article-name}.md`
 4. Verify all images exist: `ls assets/images/{article-name}/`

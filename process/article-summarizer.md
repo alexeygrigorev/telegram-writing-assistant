@@ -64,6 +64,16 @@ You will receive:
    - Insert in alphabetical order or by topic relevance
    - Update the Notes section with connections to other resources if relevant
 
+## STYLE
+
+Read `process/style-curation.md` and `process/style-polished.md` before writing. The subsections you write become part of a polished article, so both files apply. Key points that come up most often:
+
+- Address the reader as "you", not "the user"
+- Every technical detail must tie back to what it means for the reader in practice
+- Do not anthropomorphize projects - no "Tool X asks", "Framework Y answers"
+- Define technical terms in plain language on first use
+- No bold/italic, no horizontal rules, no banned words (see `style-curation.md` for the full list)
+
 ## QUALITY STANDARDS
 
 - Every section must provide substantial value - no fluff
