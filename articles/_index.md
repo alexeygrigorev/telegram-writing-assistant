@@ -53,7 +53,7 @@ Articles about the AI Shipping Labs paid community: vision, activities, courses,
 |-------|--------|--------------|-------------|
 | [User Interviews (overview)](ai-shipping-labs/user-interviews.md) | draft | 2026-04-20 | Overview of the user interview effort, outreach status, and plan tracking. Individual interviews live in interviews/ folder |
 | [Individual Interviews](ai-shipping-labs/interviews/_index.md) | draft | 2026-04-20 | One file per participant with persona assignment: Daniel Ibáñez, Jakob Zischka, Vancesca Dinh, Brad Smith, Leonor, and others |
-| [Personalised Plans](ai-shipping-labs/plans/_index.md) | draft | 2026-04-20 | Personalised plans with Alexey's recommendations: Edu Gonzalo Almorox, Grace, Vancesca Dinh, Carlos Pumar, Jakob Zischka, Nirajan Acharya (new intake) |
+| [Personalised Plans](ai-shipping-labs/plans/_index.md) | draft | 2026-04-22 | Personalised plans with Alexey's recommendations: Edu Gonzalo Almorox, Grace, Vancesca Dinh, Carlos Pumar, Jakob Zischka, Nirajan Acharya |
 | [Course Ideas](ai-shipping-labs/courses.md) | draft | 2026-04-15 | Spec-Driven Dev, Refactoring AI Slop, Python, Data Engineering, CloudCode, testing, DevOps, DDD module |
 | [Activities](ai-shipping-labs/activities.md) | draft | 2026-04-10 | Regular sessions, accountability circles, mentoring, career development, knowledge sharing, member onboarding |
 | [How We Built AI Shipping Labs](ai-shipping-labs/how-we-built-it.md) | draft | 2026-04-07 | Valeriia's V0 website build story, MVP philosophy, hosting journey, agent-built Django platform |
@@ -82,6 +82,7 @@ Recorded ideas without much detail. Just the idea itself, useful for not forgett
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Project Approach Reference Doc](ideas/project-approach-reference-doc.md) | draft | 2026-04-22 | Reusable doc for "take my project to production" requests from AI Shipping Labs members - pick one project, describe current + target state, ship end-to-end, metrics from business goals |
 | [Social Post Ideas](ideas/social-post-ideas.md) | draft | 2026-03-12 | Curated social media content ideas and inspiration |
 | [Python Primer Course Idea](ideas/python-primer-course-idea.md) | draft | 2026-03-05 | Paid Python prerequisite course for AI Engineering and Zoomcamps - "Python for AI Engineering" with podcast aggregator project |
 | [Task Management App Idea](ideas/task-management-app-idea.md) | draft | 2026-02-24 | Unified task management system combining Trello and todo lists, with serverless AWS implementation (datatasks) |
