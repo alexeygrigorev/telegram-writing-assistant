@@ -1,7 +1,7 @@
 ---
 title: "Plan Template"
 created: 2026-04-20
-updated: 2026-04-20
+updated: 2026-04-23
 tags: [ai-shipping-labs, plan, template]
 status: template
 ---
@@ -11,6 +11,8 @@ status: template
 Template for personalised plans sent to AI Shipping Labs members. Fill in the sections below based on the member's intake, the matching persona, and the call notes.
 
 When preparing a plan, copy this file to `{person-name}.md` and remove sections that do not apply.
+
+Guiding principle: the plan must be transparent about three things - where the person is now, where they are going, and the concrete steps that connect the two[^template1]. Keep every plan structurally similar so different members' plans can be compared side by side.
 
 ## Persona
 
@@ -27,6 +29,8 @@ Cross-reference the matching interview at [../interviews/{person-name}.md](../in
 ## Goals
 
 What the person wants to achieve in the next 1 to 3 months. Lifted from their intake answers (question "What would you most like to achieve in the next 1 to 3 months?") and refined during the intake call.
+
+Write the goal in a SMART-like form - concrete enough that it is obvious what "done" looks like. For example, for Jakob: start learning AI engineering, know where to start and what the foundations are, and in the next 6 to 8 weeks reach a specific understanding of those foundations[^template1].
 
 ## Time Commitment
 
@@ -74,6 +78,9 @@ Break the 6 to 8 weeks into phases. For each phase, list:
 - What the person works on
 - What they should be able to do by the end of the phase
 - Deadline for each deliverable
+- Rough time estimate per task so the weekly total fits inside the member's time commitment (see above)[^template1]
+
+Each week should have a small, concrete mini-goal that can be marked as done - something the member can check off and, if they want, turn into a social post[^template1].
 
 Prefer short phases with concrete deadlines over long open-ended sections. The "next weekend" problem means open goals drift.
 
@@ -94,6 +101,7 @@ How progress will be tracked. Options to combine based on what the person said t
 - Presenting progress to the community
 - Accountability partner inside the community
 - Public GitHub commits or LinkedIn posts
+- Turn each completed weekly mini-goal into a short social post - doubles as accountability and profile visibility[^template1]
 
 ## Next Steps
 
@@ -109,3 +117,7 @@ Link back to the intake document, the interview file, and any raw inbox messages
 
 [^1]: [Interview](../interviews/{person-name}.md)
 [^2]: [Google Doc](https://docs.google.com/document/d/...)
+
+Template-level sources (kept in this file, not copied into member plans):
+
+[^template1]: [20260423_130125_AlexeyDTC_msg3537_transcript.txt](../../../inbox/used/20260423_130125_AlexeyDTC_msg3537_transcript.txt), [20260423_130125_AlexeyDTC_msg3538_transcript.txt](../../../inbox/used/20260423_130125_AlexeyDTC_msg3538_transcript.txt), [20260423_130125_AlexeyDTC_msg3539_transcript.txt](../../../inbox/used/20260423_130125_AlexeyDTC_msg3539_transcript.txt), [20260423_130125_AlexeyDTC_msg3540_transcript.txt](../../../inbox/used/20260423_130125_AlexeyDTC_msg3540_transcript.txt)

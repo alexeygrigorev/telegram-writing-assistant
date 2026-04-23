@@ -1,7 +1,7 @@
 ---
 title: "Plan: Jakob Zischka"
 created: 2026-04-20
-updated: 2026-04-20
+updated: 2026-04-23
 tags: [ai-shipping-labs, plan, community]
 status: draft
 ---
@@ -180,8 +180,148 @@ Two projects are suggested:
 - [ ] [Alexey] Share the gist with prompts for defining a project topic (V2 ChatGPT folder in the AI Engineering Buildcamp repo).
 - [ ] [Alexey] Share the list of LLM Zoomcamp project links where possible; add any that the bot could not find.
 
+## 1x1 Call with Alexey (Apr 23, 2026)
+
+31-minute 1x1 between Jakob and Alexey on 2026-04-23[^4].
+
+### Background
+
+- Jakob is in a career transition; previously worked in a drinks market until end of December, ended up burned out
+- Enrolled at IU University in Applied AI, but has mostly done theoretical coursework (no heavy technical work)
+- Describes technical/Python skills as basic - feels cognitively overwhelmed when exposed to too much technical material at once
+- Canceled cohort 2 of the AI Engineering Bootcamp because Python was a gap
+- Currently taking Alexey's new Python course created specifically for people in his situation - completed the intro module, enjoyed it
+- Previously went through Dave Ebbelaar's "Python for AI" YouTube course
+- Tried the AI Hero course but got stuck on day 1 (Jupyter-related issue)
+- Uses Claude for ~90% of AI work, sometimes ChatGPT, Gemini, Grok in parallel for research
+- Installed Claude Code but doesn't really use it yet; briefly tried Antigravity, wasn't convinced
+- Does weight lifting and cardio
+
+### Key Discussion Points
+
+Core challenge:
+
+- Jakob has self-doubt about whether he has the mental capacity to become an AI engineer
+- Main issue in the previous bootcamp: too much unfamiliar technical material at once, not just Python
+- Needs quick wins and confidence-building before tackling harder content
+
+Advice on structure and consistency:
+
+- Having a plan (even an imperfect one) beats having no plan - Alexey's analogy from his marathon training with a ChatGPT-generated plan
+- Set a realistic weekly time budget and stick to it rather than pushing too hard
+- Physical exercise helps with mental capacity - running/gym
+
+Learning path proposed:
+
+- Start with the Python course Alexey is building
+- Module 1 is the intro module (already done)
+- Module 2 (Python fundamentals) will likely feel easy - skim for revision
+- Module 3 (functions, code organization, refactoring, building a CLI) should be more interesting; this module is still drafty
+- Module 4 (working with external data) prepares for API calls
+- Alternative: try the simpler AI Hero course (slower pace than the AI Engineering Bootcamp) to get early wins - it's structured as 7 days but Jakob should expect to spend more time on each day
+- Retry the AI Hero course; if stuck again on Jupyter, post in the community accountability channel
+- Use a coding assistant in the local environment (Claude Code) - helps with environment/setup issues like the Jupyter one
+
+Building vs. consuming courses:
+
+- Courses give an overview; real learning comes from building
+- Pick a project from the course examples or bring your own, and build alongside the course
+- Past Jakob projects: exporting ~2500 Apple Notes for self-insight (worked, but not very useful); a task/checklist tool for his drinks market workplace (worked but nobody used it - Alexey notes that's still a valid learning experience)
+
+Finding project ideas:
+
+- Alexey's approach: projects emerge from daily annoyances and inefficiencies
+- Example Alexey shared: built a tool around tmux because the commands were too long; exporting ChatGPT conversation history for analytics because search was bad
+- Jakob should take notes of things that annoy him during the day as candidate project ideas
+- Brainstorming rule: no idea is wrong - generate a lot, filter later; silly ideas are fine
+- Alexey will send a prompt template that interviews you to help surface project ideas
+
+Goal setting:
+
+- Target: a working (not production-ready) AI application that solves a real problem for Jakob, in roughly 6 weeks
+- Plan will be adjusted weekly based on what Jakob actually does and what works
+
+Accountability and getting unblocked:
+
+- Post updates, questions, and blockers in the community accountability channel
+- Use it for "I'm stuck" questions, weekly progress, and project sharing
+
+### Action Items from the Call
+
+Alexey:
+
+- [ ] Send Jakob this written action plan
+- [ ] Send the Slack prompt template for project-idea brainstorming
+
+Jakob:
+
+- [ ] Continue the Python course - go through modules 2 and 3, note what's easy vs. needs revision
+- [ ] Retry the AI Hero course alongside the Python course; post in the community accountability channel if the Jupyter issue repeats
+- [ ] Pick a project (from the course or personal) and build as he goes, not just read
+- [ ] Start taking notes throughout the day of things that annoy him - source material for project ideas
+- [ ] Try actually using Claude Code as a local coding assistant
+- [ ] Do a brainstorming session on project ideas using the prompt Alexey will send
+- [ ] Post updates and blockers in the community accountability channel
+
+### Proposed 6-Week Plan
+
+This is a starting point - not a fixed contract. Adjust weekly based on what actually happens.
+
+The AI Hero course runs alongside the Python course throughout - it's designed as 7 days but Jakob should expect to spend more time on each day. Post questions and blockers in the community accountability channel.
+
+Week 1 - Foundations and a quick win:
+
+- Go through module 2 (Python fundamentals) of Alexey's Python course - treat as revision
+- Restart the AI Hero course from day 1; if the Jupyter issue comes back, post in the community accountability channel
+- Install Claude Code properly and use it for at least one small task (setup fix, running a snippet)
+- Start a running note of daily annoyances that could become project ideas
+
+Week 2 - Build the Python foundation:
+
+- Work through module 3 of the Python course (functions, code organization, refactoring, CLI)
+- Continue AI Hero course (aim to be 2-3 days in by end of week, adjust as needed)
+- Do the brainstorming session using Alexey's prompt template; end the week with 3-5 candidate project ideas
+- Share the shortlist in the community accountability channel for feedback
+
+Week 3 - Pick a project and start small:
+
+- Commit to one project (from the course or personal)
+- Scaffold a basic version: data model + a simple CLI that does one useful thing locally (no AI yet)
+- Continue AI Hero course and module 4 (external data) of the Python course as needed
+
+Week 4 - First AI integration:
+
+- Add a single API call (Claude or OpenAI) to the project to do one concrete thing
+- Goal: smallest possible end-to-end flow - input → API → useful output
+- Continue AI Hero course
+
+Week 5 - Finish AI Hero and keep building:
+
+- Wrap up the remaining days of the AI Hero course
+- Apply one concrete thing learned from AI Hero to the project
+
+Week 6 - Polish and demo:
+
+- Clean up the code with Claude Code's help
+- Write a short README explaining what it does and why
+- Demo in the community accountability channel; decide on next 6-week arc (deeper AI Engineering Bootcamp material, a second project, etc.)
+
+Rules of thumb throughout:
+
+- Cap weekly effort at a realistic number of hours - stick to it even when motivation is high
+- If stuck for more than ~30 minutes, ask Claude Code, then post in the community accountability channel - don't grind alone
+- Ship something small every week, even if rough
+
+### Links
+
+- Python course: https://dev.aishippinglabs.com/courses/python-course/
+- AI Hero course: https://dev.aishippinglabs.com/courses/aihero
+- Project-idea brainstorming prompt: https://gist.github.com/alexeygrigorev/c1c8dc3ece5cba91e1e381eeba2706c1
+- Community accountability channel (#plan-sprints): https://app.slack.com/client/T0AFSRP234M/C0AUQBSP4ER
+
 ## Sources
 
 [^1]: [Google Doc](https://docs.google.com/document/d/1cRa5kvXgdHNaWMgqwES6I9HZ7lBvQu_ckNpvMIODu_s/edit?usp=sharing)
 [^2]: [20260420_083739_AlexeyDTC_msg3441.md](../../../inbox/used/20260420_083739_AlexeyDTC_msg3441.md)
 [^3]: [20260420_102138_AlexeyDTC_msg3473_transcript.txt](../../../inbox/used/20260420_102138_AlexeyDTC_msg3473_transcript.txt)
+[^4]: [20260423_130237_AlexeyDTC_msg3547.md](../../../inbox/used/20260423_130237_AlexeyDTC_msg3547.md), [20260423_130237_AlexeyDTC_msg3548.md](../../../inbox/used/20260423_130237_AlexeyDTC_msg3548.md)
