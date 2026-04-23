@@ -8,110 +8,120 @@ status: template
 
 # Plan: [Person Name]
 
-Template for personalised plans sent to AI Shipping Labs members. Fill in the sections below based on the member's intake, the matching persona, and the call notes.
+Internal working document. Share only the `Summary` and `Plan` sections with the member. Everything from `Internal Context` onward stays inside AI Shipping Labs.
 
 When preparing a plan, copy this file to `{person-name}.md` and remove sections that do not apply.
 
-Guiding principle: the plan must be transparent about three things - where the person is now, where they are going, and the concrete steps that connect the two[^template1]. Keep every plan structurally similar so different members' plans can be compared side by side.
+Guiding principle: the plan must be transparent about three things - where the person is now, where they are going, and the concrete steps that connect the two[^template1]. Keep the first two sections short, self-contained, and ready to share without extra cleanup.
 
-## Persona
+All shareable plans should use a 6-week sprint format unless there is a very strong reason to do something else.
 
-[Alex / Priya / Sam / Taylor / Undetermined] - short reason for the assignment.
+## Summary
+
+Short snapshot that can be pasted into an email, Slack DM, or Notion page. Keep this to 3 to 5 bullets.
+
+- Current situation:
+- Goal for the next 6 weeks:
+- Main gap to close:
+- Weekly time commitment:
+- Why this plan is the right next step:
+
+## Plan
+
+This is the shareable part of the document.
+
+### Focus
+
+- Main focus:
+- Supporting focus:
+- Supporting focus:
+
+### Timeline
+
+Break the work into 6 weekly mini-goals. Each week should be concrete, time-bounded, and small enough to check off[^template1].
+
+Week 1:
+- ...
+
+Week 2:
+- ...
+
+Week 3:
+- ...
+
+Week 4:
+- ...
+
+Week 5:
+- ...
+
+Week 6:
+- ...
+
+### Resources
+
+- [Resource name](https://example.com/) - why it matters now
+- ...
+
+### Deliverables
+
+- ...
+- ...
+
+### Accountability
+
+- ...
+- ...
+
+### Next Steps
+
+- [ ] [Member] ...
+- [ ] [Alexey] ...
+- [ ] [Valeriia] ...
+
+## Internal Context
+
+Everything below is for internal use only.
+
+### Persona
+
+[Alex - The Engineer Transitioning to AI / Priya - The Improver / Sam - The Technical Professional Moving to AI / Taylor - The Research-to-Engineering Transitioner / Undetermined] - short reason for the assignment.
+
+Use both the short name and the archetype title so nobody has to remember the shorthand.
 
 See [personas.md](../personas.md) for full persona definitions and the associated starting points and gaps.
 
-## Background
+### Background
 
 Short summary of the person: role, years of experience, location if relevant, current AI/ML exposure, and how they came into AI Shipping Labs (course, newsletter, recommendation).
 
 Cross-reference the matching interview at [../interviews/{person-name}.md](../interviews/).
 
-## Goals
+### Intake
 
-What the person wants to achieve in the next 1 to 3 months. Lifted from their intake answers (question "What would you most like to achieve in the next 1 to 3 months?") and refined during the intake call.
-
-Write the goal in a SMART-like form - concrete enough that it is obvious what "done" looks like. For example, for Jakob: start learning AI engineering, know where to start and what the foundations are, and in the next 6 to 8 weeks reach a specific understanding of those foundations[^template1].
-
-## Time Commitment
-
-Hours per week the person can realistically commit. This drives how much material we schedule per week.
-
-## Intake
-
-### Initial Input
+#### Initial Input
 
 The person's initial message or free-form answer when they first responded to the outreach.
 
-### Questions and Answers
+#### Questions and Answers
 
-The standard intake questionnaire with their answers. Keep the questions verbatim so different plans can be compared side by side.
+Keep the questions as close to verbatim as possible so different plans remain comparable.
 
-## Meeting Notes
+### Meeting Notes
 
-Notes from any intake call, including:
+Dates, participants, clarifications, decision points, and anything useful for future follow-ups.
 
-- Date of the call and participants
-- Summary of what was discussed
-- Clarifications that did not fit the written intake
-- Next steps agreed during the call
+### Internal Recommendations
 
-Skip this section if there was no call.
+Alexey's working recommendation, tradeoffs, caveats, and anything we do not want to present as polished external guidance yet.
 
-## The Plan
-
-This is the part that is sent to the member. The sections above are context for preparing it.
-
-### Focus Areas
-
-The topics, skills, or projects the plan will focus on. Keep this tight - one main focus area and one or two supporting ones is usually enough. Align focus with the persona's main gap:
-
-- Alex: AI-specific knowledge (LLM fundamentals, RAG, agents, evals)
-- Priya: depth and production patterns (evals, agent reliability, scaling)
-- Sam: engineering fundamentals first, then AI building
-- Taylor: software engineering, deployment, MLOps
-
-### Phases and Timeline
-
-Break the 6 to 8 weeks into phases. For each phase, list:
-
-- Duration (e.g., weeks 1-2)
-- What the person works on
-- What they should be able to do by the end of the phase
-- Deadline for each deliverable
-- Rough time estimate per task so the weekly total fits inside the member's time commitment (see above)[^template1]
-
-Each week should have a small, concrete mini-goal that can be marked as done - something the member can check off and, if they want, turn into a social post[^template1].
-
-Prefer short phases with concrete deadlines over long open-ended sections. The "next weekend" problem means open goals drift.
-
-### Resources
-
-Curated list of resources for each focus area: articles, videos, GitHub repos, or Alexey's existing course material. Include a short note on why each resource is relevant so the person does not have to guess.
-
-### Deliverables
-
-What the person should have built or completed by the end of the plan. Usually one end-to-end project plus smaller milestones along the way. Be explicit about what "done" looks like (e.g., deployed on AWS, evaluation report, GitHub repo with README).
-
-## Accountability
-
-How progress will be tracked. Options to combine based on what the person said they prefer:
-
-- Weekly async check-ins (text update on progress)
-- Live co-working or stuck sessions
-- Presenting progress to the community
-- Accountability partner inside the community
-- Public GitHub commits or LinkedIn posts
-- Turn each completed weekly mini-goal into a short social post - doubles as accountability and profile visibility[^template1]
-
-## Next Steps
-
-Action items split by owner. Use checkboxes so it is easy to track what is done.
+### Internal Action Items
 
 - [ ] [Alexey] ...
 - [ ] [Valeriia] ...
 - [ ] [Member name] ...
 
-## Sources
+### Sources
 
 Link back to the intake document, the interview file, and any raw inbox messages used to produce this plan.
 

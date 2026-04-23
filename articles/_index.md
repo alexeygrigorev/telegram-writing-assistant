@@ -51,7 +51,7 @@ Articles about the AI Shipping Labs paid community: vision, activities, courses,
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
-| [Personalised Plans](ai-shipping-labs/plans/_index.md) | draft | 2026-04-23 | Personalised plans with Alexey's recommendations: Edu Gonzalo Almorox, Grace, Vancesca Dinh, Carlos Pumar, Jakob Zischka, Nirajan Acharya. Template refreshed with time estimates and weekly social-post milestones |
+| [Personalised Plans](ai-shipping-labs/plans/_index.md) | draft | 2026-04-23 | Personalised plans with Alexey's recommendations: Edu Gonzalo Almorox, Grace, Vancesca Dinh, Carlos Pumar, Jakob Zischka, Nirajan Acharya. Template refreshed with shareable 6-week plans and internal context sections |
 | [User Interviews (overview)](ai-shipping-labs/user-interviews.md) | draft | 2026-04-20 | Overview of the user interview effort, outreach status, and plan tracking. Individual interviews live in interviews/ folder |
 | [Individual Interviews](ai-shipping-labs/interviews/_index.md) | draft | 2026-04-20 | One file per participant with persona assignment: Daniel Ibáñez, Jakob Zischka, Vancesca Dinh, Brad Smith, Leonor, and others |
 | [Course Ideas](ai-shipping-labs/courses.md) | draft | 2026-04-15 | Spec-Driven Dev, Refactoring AI Slop, Python, Data Engineering, CloudCode, testing, DevOps, DDD module |
@@ -120,6 +120,7 @@ Files at the articles root that don't fit into the above categories.
 | [Building Projects with Agent Teams](building-projects-with-agent-teams.md) | draft | 2026-03-19 | Approach to building complex projects with Claude Code multi-agent teams: AI Shipping Labs, Data Tasks, Pymermade, Jekyll-to-Rust, custom coding agent (Codehive), AI Hero migration, agent management challenges |
 | [Zoland Talk](zoland-talk.md) | draft | 2026-03-14 | Talk at Zoland meetup about the Telegram writing assistant, code agents, and slides preparation workflow with Claude Code |
 | [Starting Projects with GitHub Copilot](starting-projects-with-github-copilot.md) | draft | 2026-03-13 | Using GitHub Copilot to start projects from the browser, limitations and best workflow with ChatGPT |
+| [Coming Up with Project Ideas](coming-up-with-project-ideas.md) | draft | 2026-04-23 | How to choose between portfolio, course, and self-projects, grounded in over 150 ideas and the project-selection workflow from AI Engineering Buildcamp V2 |
 | [Exasol Workshop Infrastructure Setup](exasol-workshop-infrastructure.md) | draft | 2026-03-12 | Secure AWS access setup for Exasol workshop using temporary credentials, Lambda, CodeSpaces/DevContainers, credential flow diagram, open-source project |
 | [Setting Up a Windows Computer for Development](windows-dev-setup.md) | draft | 2026-03-11 | Step-by-step guide to setting up a fresh Windows computer for development: Terminal, Git Bash, Python/UV, NodeJS, Docker, VS Code, Claude Code |
 | [Ranking for AI Search: LinkedIn Visibility and AI Overview Tracking](ai-search-visibility.md) | draft | 2026-03-10 | LinkedIn AI visibility study findings and AI Overview Tracker concept for monitoring brand presence in AI search |
