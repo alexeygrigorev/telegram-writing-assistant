@@ -110,7 +110,7 @@ Files at the articles root that don't fit into the above categories.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
-| [Coming Up with Project Ideas](coming-up-with-project-ideas.md) | draft | 2026-04-23 | Polished rewrite: motivation (helping Buildcamp students finish), three project types (portfolio, course, self), portfolio workflow by domain, five-question narrowing, AI Engineering Field Guide on what hiring managers look at |
+| [Coming Up with Project Ideas](coming-up-with-project-ideas.md) | draft | 2026-04-23 | Reframed as recurring conversation across workshops/AI Shipping Labs/course students, three project types as a list with overlap, cap-the-time general rule with tech-learning combo, mermaid flowchart for portfolio workflow, Buildcamp cohort 1 demo day examples (cybersecurity, client satisfaction, habit builder, email agent), personal projects section with Alexey's Substack write-ups (dirdotenv, ssh-auto-forward, nobook, microboost, bot master, telegram assistant) |
 | [Interesting Resources](interesting-resources.md) | draft | 2026-04-20 | Curated collection of tools, resources, and project ideas for the newsletter |
 | [Deterministic Coding with Agent Teams](litehive.md) | draft | 2026-04-10 | litehive file-based task manager, tmuxctl, GoZ engine, self-writing system, recovery agent, multiple engines, usage quota tracking, stale agent killing, self-improving tools |
 | [AI Engineering Buildcamp Course Announcement](ai-buildcamp-course-announcement.md) | draft | 2026-04-06 | Course announcement: syllabus, projects, homework agents, capstone progression, hands-on focus |

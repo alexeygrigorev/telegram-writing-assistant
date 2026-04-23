@@ -8,27 +8,35 @@ status: draft
 
 # Coming Up with Project Ideas
 
-I keep having the same conversation. Someone asks me how to find a junior AI engineering job. I say: do projects. Then they ask: how do I choose a project? That's the question I want to answer here, because I've been repeating the same answer for months.
+This is a recurring conversation[^12]. People regularly ask me how to pick a project to build, and I keep giving the same answer. It comes up in the workshops and webinars I run. It comes up with AI Shipping Labs members trying to choose what to work on or how to make progress. And it comes up with course students - both in the free zoomcamps and inside AI Shipping Labs - where not everyone has a clear idea of what to build[^12].
 
-This article is for two groups of people. The first is AI Engineering Buildcamp students who have to pick a capstone project and don't know where to start. The second is anyone going through the same blank-page problem on their own - deciding what to build, whether for a portfolio, for practice, or to scratch a personal itch.
+A big part of what I care about across all my courses is that people actually finish a project, because the courses focus on practice and practice is projects[^12]. In AI Engineering Buildcamp in particular, where I have closer contact with students, I want a higher percentage of each cohort to ship something real[^7][^12]. This article is part of a framework I'm building for that, and since I think it's useful outside the course too, I'm sharing it here[^12].
 
-A big part of what I care about in Buildcamp is that each new cohort has a higher percentage of people who actually finish their projects. Finishing is what gets people hired. So if you're in the course, I want to help you be more effective at picking something you can ship[^7]. If you're not in the course, the same process should still work for you.
+## A catalog of 150 ideas
 
-## Idea lists on their own don't solve it
+The first step I took was to collect more than 150 project ideas and group them into categories[^1][^2][^3][^13]. The pool came from what students asked to build, from scholarship applications, from office-hours conversations, and from older course material. It's a real menu, not random brainstorming.
 
-In Buildcamp, we already have more than 150 project ideas collected across several idea lists[^1][^2][^3]. That pool comes from what students have asked to build, from scholarship applications, from office-hours conversations, and from older course material. It isn't random brainstorming. It's a collection of things real people wanted to build.
+For many students, the menu is enough. You skim through, something clicks, and you go build it[^13].
 
-And yet, people still get stuck. I've seen this happen enough times to understand why. You open the list, skim it, something sort of catches your eye, and then you close the tab without starting anything. The list helps a little, but a list of ideas doesn't answer the harder question: which one is right for me, right now, and how do I scope it so I can finish it?
-
-That's what this article tries to fix. Not by adding more ideas to the pile, but by giving you a way to decide.
+With 150 options, some people hit choice paralysis - too many possibilities, no obvious way to narrow them down[^13]. So this article is the other half. Not another idea list, but a framework for picking one from scratch, for anyone who wants to decide what to build without relying on someone else's list[^13].
 
 ## Three kinds of projects
 
-Before picking an idea, pick the kind of project you're building. The criteria are completely different.
+Before picking an idea, pick the kind of project you're building[^13]. There are three kinds I see most often:
 
-<!-- illustration: three lanes for portfolio projects, course capstones, and small self-projects, each with different selection criteria -->
+- Portfolio project - built to help you get hired or win clients
+- Course project - built to finish a course and practice the whole engineering loop
+- Project for yourself - built because you personally want the thing to exist
 
-A portfolio project exists to help you get hired or win clients. A course project exists to teach you the full engineering process during the course. A self-project exists because you personally want the thing to exist. These goals can overlap, but if you don't pick one as the primary goal, the criteria stay fuzzy and you end up trying to make one project do everything.
+These categories overlap[^13]. If one project falls into all three, even better. If it only fits two or one, that's fine too[^13]. But the selection criteria are different for each, so pick the main goal before you pick the idea.
+
+## Cap the time
+
+No matter which of the three you're building, put a cap on how much time you'll spend on it[^14]. A finished project that you kept short teaches you more than a perfect project that drags on for weeks - most of the learning is in shipping and explaining it afterwards.
+
+If you're also trying to learn a new technology, combine goals[^14]. Pick a project where the technology you want to learn fits the problem, and let the project ground the learning. That's more motivating than tutorials, and it means you don't have to add a separate "learn X" item on top of the project.
+
+The order matters though: pick the problem first, then pick the technology that fits. If you start with "I want to use RAG" and then hunt for a problem, you end up with a project shaped around the technology instead of around the user[^4].
 
 ## Portfolio projects
 
@@ -36,48 +44,69 @@ A portfolio project has one job: make it easy for a hiring manager or client to 
 
 Hiring managers don't spend a lot of time looking. Recruiters often move on after a minute or two, and hiring managers usually have five or ten minutes before an interview to scan your GitHub. They want to see immediately what the project does, why it exists, and whether it's close to production - tests, evaluation, CI/CD, a deployment link[^8].
 
-That changes how I'd pick a portfolio project. I wouldn't start with random brainstorming. I'd start with where I want to work.
+That changes how I'd pick a portfolio project. I wouldn't start with random brainstorming. The process looks more like an algorithm[^14]:
 
-Pick a domain first. Look at job postings in your area or remote roles you would realistically take, and group them into domains like e-commerce, healthcare, finance, education, or developer tools. Then pick one and stay with it for a while. Too many options cause choice paralysis, and targeting one domain means you can also talk fluently about it in interviews.
+```mermaid
+flowchart TD
+    A[Look at job postings you would realistically take] --> B[Group them into domains<br/>e-commerce, healthcare, finance, dev tools]
+    B --> C[Pick one domain and stay with it]
+    C --> D[Read real companies in that domain]
+    D --> E[Find where they already use AI<br/>or where AI could help but does not exist yet]
+    E --> F[Shortlist use cases and pick one]
+    F --> G[Find, scrape, or generate a realistic dataset]
+    G --> H[Build, ship, and write up how it works]
+```
 
-From there, look at actual companies in that domain. Read their websites, product pages, and blog posts, and pay attention to where they already use AI and where it could help but doesn't seem to exist yet. Make a short list of possible use cases and pick one. Then find, scrape, or generate a realistic dataset for it. It doesn't have to be the company's real data, but it does have to feel believable for that domain.
-
-Finally, cap the time. Give yourself something like ten hours, or a couple of weekends. An okay finished project teaches you more than a perfect project that drags on for weeks, and most of the learning is in shipping and explaining it afterwards.
+Too many options cause choice paralysis, and targeting one domain means you can also talk fluently about it in interviews. The dataset doesn't have to be the company's real data, but it does have to feel believable for that domain.
 
 This approach also makes the project much easier to talk about. You can say which domain you chose, which companies you looked at, which workflow you focused on, and why your dataset is realistic - instead of "I built a RAG thing with LangChain".
 
-A couple of Buildcamp examples that fit this pattern:
-
-- Bug Report Telegram Bot: takes voice messages, classifies them across repositories, structures them, evaluates bug quality, and opens GitHub issues with deployment and monitoring in the loop[^2]
-- AI Engineering Job Market Explorer: uses job-listing data to suggest what skills to learn next and what companies match a profile[^2]
-
 ## Course projects
 
-Course projects work differently. You aren't trying to build your life's mission. You're trying to build something that fits the course and lets you practice the whole engineering loop.
+Course projects work differently. A course project doesn't have to be the one you're remembered for[^15]. You just need something that fits the course and lets you practice the whole engineering loop.
 
-In Buildcamp, a strong course project takes you through five things: identify a real problem, build a simple proof of concept, improve the code and add tests, add monitoring and collect usage data, and evaluate how well it works[^4]. That's the reason the course pushes project work into week 1 instead of saving it for the end[^4][^5]. A course project needs to be small enough to start on day one, and structured enough that you can keep improving it week by week.
+In Buildcamp, a strong course project takes you through five steps[^4][^15]:
+
+1. Identify a real problem
+2. Build a simple proof of concept
+3. Improve the code and add tests
+4. Add monitoring and collect usage data
+5. Evaluate how well it works
+
+That's the reason the course pushes project work into week 1 instead of saving it for the end[^4][^5]. A course project needs to be small enough to start on day one, and structured enough that you can keep improving it week by week.
 
 The common mistake here is choosing something too big or too vague, and then spending weeks stuck on scoping instead of building. If you can start a repo in week 1 and already have something running that you can test, monitor, and evaluate, you're in good shape.
 
-A couple of Buildcamp examples that fit well as course projects:
+Some Buildcamp examples that fit well as course projects[^15]:
 
+- Bug Report Telegram Bot: takes voice messages, classifies them across repositories, structures them, evaluates bug quality, and opens GitHub issues, with deployment and monitoring in the loop[^2]
+- AI Engineering Job Market Explorer: uses job-listing data to suggest what skills to learn next and what companies match a profile[^2]
 - Medical Chart Generator: transcribes a patient-doctor conversation and turns it into a structured chart[^2]
-- Documentation Chatbot with Handoff: answers support questions from grounded documentation and hands off when confidence is low[^3]
+- Documentation Chatbot with Handoff: answers support questions from grounded documentation and hands off to a human when confidence is low[^3]
 
-## Small self-projects
+The first Buildcamp cohort ran a demo day where students shipped end-to-end agents following this build-test-monitor-evaluate loop[^11][^16]:
 
-Self-projects come from everyday friction. For me, these are often the best starting point. The user is obvious (it's you), the feedback loop is short, and the first version can stay small and still be useful.
+- A cybersecurity disclosure tracker that ingests SEC filings into Elasticsearch and resolves subsidiaries back to parent companies
+- A client-satisfaction analyzer over Stack Exchange data, with an orchestrator agent routing queries between MongoDB (unstructured) and Neo4j (graph)
+- A habit-builder grounded in Huberman Lab transcripts and medical publications, using Faster Whisper, Qdrant, and query rewriting to improve retrieval
+- An intelligent Gmail agent that fetches mail via the Gmail API, indexes it in Elasticsearch, and exposes a Streamlit chat interface to fight email fatigue
 
-My own self-projects almost always start the same way. I'm already working on something real, I notice something annoying, suboptimal, or missing, and I build a small tool that removes that friction. I'm not usually trying to invent a project from zero - I'm already in the middle of some other workflow, I hit a pain point, and the next project is the tool that fixes it.
+## Projects for yourself
 
-One thing that helps is keeping a running note of small annoyances. Most of them won't become projects. A few of them will turn into exactly the kind of small, useful, finishable tool that's worth building - and those also make good portfolio pieces later, because you can tell a concrete story about the problem and the fix.
+Projects for yourself come from everyday friction[^15]. For me, these are often the best starting point. The user is obvious (it's you), the feedback loop is short, and the first version can stay small and still be useful.
 
-<!-- TODO: link relevant Alexey On Data Substack articles with examples of projects that started from day-to-day friction -->
+My own projects of this kind almost always start the same way. I'm already working on something real, I notice something annoying, suboptimal, or missing, and I build a small tool that removes the friction[^9]. I'm not usually trying to invent a project from zero - I'm already in the middle of some other workflow, I hit a pain point, and the next project is the tool that fixes it[^9].
 
-A couple of Buildcamp examples that fit this pattern:
+Half of this newsletter is made up of write-ups of exactly these kinds of projects[^15][^16]. A few recent ones:
 
-- Voice-to-Todo Agent: talks to a todo app instead of making you type tasks manually[^3]
-- Restaurant Receipt Splitter: takes a photo of a bill, extracts line items, and splits the total among a group[^2]
+- dirdotenv: loads environment variables automatically when you enter a project directory, because direnv uses its own `.envrc` format and my tools already rely on `.env`[^9]
+- ssh-auto-forward: terminal-side automatic port forwarding from remote servers, because VS Code does it automatically but there was no terminal equivalent[^9]
+- nobook: use plain `.py` files with block markers as Jupyter notebooks, because `.ipynb` JSON files don't diff, test, or integrate well with AI tools[^9]
+- Microphone Booster: a Windows app that fixes quiet USB-C microphones, because Windows doesn't provide useful boost controls for those devices[^9]
+- Bot Master: a systemd daemon and separate TUI client that keeps my Telegram bots running and restarts crashed ones with exponential backoff[^9]
+- Telegram writing assistant: takes voice notes, photos, and links sent into a Telegram chat and turns them into markdown articles committed to a GitHub repo, built because the chat I used as a brain dump had become unmanageable[^10]
+
+One thing that helps is keeping a running note of small annoyances. Most of them won't become projects. A few will turn into exactly the kind of small, useful, finishable tool that's worth building - and those also make good portfolio pieces later, because you can tell a concrete story about the problem and the fix.
 
 ## Narrowing down from an idea
 
@@ -85,7 +114,7 @@ Even once you know which kind of project you're doing, an idea isn't a project y
 
 The way I get past that is to force myself to answer five questions in a few sentences each. Who is the user. What is the input. What is the output. What is the smallest useful version. And how will I know it works. If I can't answer those cleanly, the project is still too vague and I keep going.
 
-Once I can answer them, I check the idea against the type of project I'm building. For a portfolio project, I ask whether it shows the kind of work I want to be hired for. For a course project, I ask whether I can test it, monitor it, and evaluate it over several weeks. For a self-project, I ask whether I'll actually use this in my own life soon.
+Once I can answer them, I check the idea against the type of project I'm building. For a portfolio project, I ask whether it shows the kind of work I want to be hired for. For a course project, I ask whether I can test it, monitor it, and evaluate it over several weeks. For a project I'm doing for myself, I ask whether I'll actually use it in my own life soon.
 
 After that, I start. The first rough repo and README teach me more than another hour of browsing idea lists.
 
@@ -115,3 +144,11 @@ You don't need the perfect idea. You need a real problem, a small scope, and a r
 [^6]: [Project Ideas: Prompts for Getting Unstuck](../../ai-engineering-buildcamp/gist-prompts/00-project-ideas.md)
 [^7]: [20260423_182032_AlexeyDTC_msg3559_transcript.txt](../inbox/used/feedback/20260423_182032_AlexeyDTC_msg3559_transcript.txt)
 [^8]: [AI Engineering Field Guide - Portfolio](https://github.com/alexeygrigorev/ai-engineering-field-guide/blob/main/portfolio/README.md)
+[^9]: [5 Useful Utilities I Built with AI Coding Assistants](https://alexeyondata.substack.com/p/5-useful-utilities-i-built-with-ai)
+[^10]: [Telegram Writing Assistant](https://alexeyondata.substack.com/p/telegram-assistant)
+[^11]: [5 Ideas for AI Agents (AI Bootcamp Demo Day)](https://alexeyondata.substack.com/p/5-ideas-for-ai-agents-and-openais)
+[^12]: [20260423_183850_AlexeyDTC_msg3565_transcript.txt](../inbox/used/20260423_183850_AlexeyDTC_msg3565_transcript.txt)
+[^13]: [20260423_184156_AlexeyDTC_msg3567_transcript.txt](../inbox/used/20260423_184156_AlexeyDTC_msg3567_transcript.txt)
+[^14]: [20260423_184259_AlexeyDTC_msg3569_transcript.txt](../inbox/used/20260423_184259_AlexeyDTC_msg3569_transcript.txt)
+[^15]: [20260423_185520_AlexeyDTC_msg3571_transcript.txt](../inbox/used/20260423_185520_AlexeyDTC_msg3571_transcript.txt)
+[^16]: [20260423_185630_AlexeyDTC_msg3573.md](../inbox/used/20260423_185630_AlexeyDTC_msg3573.md)
