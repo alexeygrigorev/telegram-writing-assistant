@@ -18,6 +18,8 @@ Inherits from `process/style-curation.md` - every rule there (no bold/italic, no
 - Put "who this is for" early - readers want to know quickly if it's relevant to them
 - Don't use "Part 1" / "Part 2" labels - just use regular headers, let the content flow
 - Flat header structure (## level) for main sections, ### only when truly nested (like subsections within a technical walkthrough)
+- Don't start headings with question words like "Why", "How", "What", "When". Rewrite as a statement instead. "Why This Matters" -> "RAG Beyond Q&A"; "How the Bot Got Built" -> "Building the Bot"
+- Prefer lists over inline prose when the content is already list-like. If a sentence packs several items together with commas or "and", convert them to a bullet list
 - Avoid walls of text - break up long paragraphs. Use lists, shorter paragraphs, or illustrations between dense sections
 - No paragraph should be longer than 3-4 sentences. If it is, split it or convert part of it to a list
 - Alternate between prose and structured elements (lists, tables, illustrations) to keep the reader moving
@@ -72,7 +74,7 @@ When going deeper on something, follow this pattern:
 - Starting paragraphs with rhetorical questions ("And why not just...?", "But what about...?") - make a statement instead
 - Naming specific people as examples in public articles
 - Idioms that feel unnatural: "on the table", "at the end of the day"
-- Over-formal framing: "The idea:", "The result:", "One benefit of X is Y", "I want to be clear:" - any phrase that announces what you're about to say before saying it. Just say it directly.
+- Over-formal framing: "The idea:", "The idea was", "The result:", "One benefit of X is Y", "I want to be clear:", "X is a reminder that Y" - any phrase that announces what you're about to say before saying it, or that frames a point instead of making it. Just say it directly.
 - Redundant sentences that repeat what the previous sentence just said
 - Repetitive descriptions across sections (e.g. describing the same thing in both an overview and a detail section)
 - Internal positioning language in public articles ("the focus is narrow on purpose") - the reader doesn't care about your strategy, tell them what they get

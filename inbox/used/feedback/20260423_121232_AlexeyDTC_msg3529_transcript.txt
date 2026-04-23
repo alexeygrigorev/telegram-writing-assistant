@@ -1,0 +1,10 @@
+---
+source: telegram_voice
+date: 2026-04-23T12:12:32+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260423_121232_AlexeyDTC_msg3529.ogg
+---
+
+Потом дальше вот ты говоришь substantial or 120 entries. Посмотри конкретно число, сколько там, и
+посмотри, сколько entries в Data Engineering Zoom Camp, чтобы точно было.

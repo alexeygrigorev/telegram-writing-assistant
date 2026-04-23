@@ -26,7 +26,7 @@ Articles that are mostly ready for the newsletter. All necessary content is insi
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
-| [FAQ System for Course Management](ready-for-newsletter/faq-system.md) | draft | 2026-04-23 | Community-driven FAQ with RAG-based automation, Google Docs era, Alex Litvinov's Slack bot stack, custom Copilot-built static site generator, FAQ Automation Bot with Mermaid workflow, Claude Code PR review |
+| [FAQ System for Course Management](ready-for-newsletter/faq-system.md) | draft | 2026-04-23 | Community-driven FAQ with RAG-based automation, Google Docs era, Alex Litvinov's Slack bot stack, custom Copilot-built static site generator, GPT-4o cleanup script, FAQ Automation Bot with Mermaid workflow, Claude Code PR review, illustration placeholders added |
 | [Configuring Claude Code](ready-for-newsletter/configuring-claude-code.md) | draft | 2026-04-05 | Configuration, aliases, slash commands, skills, safety hooks, disabling bypass permissions, and token usage reduction |
 | [OpenCode Experiments with GLM-5](ready-for-newsletter/opencode-experiments.md) | draft | 2026-03-19 | Trying OpenCode AI assistant with GLM-5 model, extracting JS from Claude binary, Claude Code flickering comparison |
 | [What's New in the Telegram Writing Assistant](ready-for-newsletter/telegram-writing-assistant-updates.md) | draft | 2026-03-14 | Article idea: subagents, research section, link summaries, QA agent, YouTube and audio file processing |

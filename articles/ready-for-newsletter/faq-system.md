@@ -12,17 +12,30 @@ The DataTalks.Club FAQ is a community-driven knowledge base for our free courses
 
 The FAQ website is at https://datatalks.club/faq/ and the source repository is at https://github.com/DataTalksClub/faq.
 
+<!-- illustration: example pull request created by the FAQ automation bot - issue on the left, generated PR on the right, so readers see what the pipeline produces end-to-end -->
+
 This article covers why the FAQ exists, how we moved from Google Docs to a proper website, how the automation works, and how I use Claude Code to review the pull requests the bot creates.
 
-## Why This System Exists
+## Where This FAQ Comes From
 
-We run several free courses at DataTalks.Club: ML Zoomcamp, Data Engineering Zoomcamp, MLOps Zoomcamp, LLM Zoomcamp, and now AI Engineering Buildcamp. Each course runs every year, and students keep asking the same questions: "I just discovered the course, can I still join?", "How do I run Docker on Windows?", and so on[^13].
+<!-- illustration: screenshot of a typical Slack question from a student, the kind the FAQ is meant to answer -->
+
+We run several free courses at DataTalks.Club:
+
+- ML Zoomcamp
+- Data Engineering Zoomcamp
+- MLOps Zoomcamp
+- LLM Zoomcamp
+
+Each course runs every year, and students keep asking the same questions: "I just discovered the course, can I still join?", "How do I run Docker on Windows?", and so on[^13].
 
 They usually ask on Slack, and answering the same question over and over isn't fun. So we created a central FAQ for each course - a regular Google Doc with a defined structure. Nothing fancy - just a document students can fill in themselves so the FAQ grows over time[^13].
 
 To motivate contributions, we added a gamification element. Our courses already have a points system - you get points for homework, projects, and other activities, and the scores show up on a leaderboard. We gave one extra point per homework if a student added something to the FAQ. Many students contributed without the points, but the extra incentive helped keep the FAQ fresh[^13].
 
-The FAQ is substantial today: over 1200 entries across all zoomcamps, with the Data Engineering Zoomcamp FAQ alone running 400-500 pages[^14]. Expecting students to read all of that before asking on Slack isn't realistic, which is why we also built tools that search the FAQ automatically.
+<!-- illustration: screenshot of the course leaderboard, showing how points and contributions surface to students -->
+
+The FAQ is substantial today: 1302 entries across all zoomcamps, with the Data Engineering Zoomcamp FAQ alone at 522 entries[^14]. Expecting students to read all of that before asking on Slack isn't realistic, which is why we also built tools that search the FAQ automatically.
 
 ## The Google Docs Era
 
@@ -88,9 +101,15 @@ The notebook is in the LLM Zoomcamp repo at https://github.com/DataTalksClub/llm
   <!-- This was the intermediate format for processing FAQ content -->
 </figure>
 
-### Content Cleanup with GPT-4o-mini
+### Content Cleanup with GPT-4o
 
-Extracting the content was only half the job. The result still needed editing: inconsistent formatting, grammar issues, screenshots of code instead of real code blocks. Doing this by hand wasn't feasible, so I wrote a small script that sent the content to GPT-4o-mini with instructions to standardize formatting, fix grammar, and convert code screenshots into real code blocks. A few evenings of work and I had a clean dataset ready for the website[^13].
+Extracting the content was only half the job. The result still needed editing: inconsistent formatting, grammar issues, screenshots of code instead of real code blocks. Doing this by hand wasn't feasible, so I wrote a small script that sent the content to GPT-4o with instructions to standardize formatting, fix grammar, and convert code screenshots into real code blocks. A few evenings of work and I had a clean dataset ready for the website[^13].
+
+The cleanup notebook is at https://github.com/DataTalksClub/faq/blob/main/notebooks/process-questions.ipynb.
+
+<!-- illustration: before/after screenshot of a single FAQ entry - raw parsed markdown on one side, cleaned-up markdown on the other, so readers can see what the GPT-4o pass does -->
+
+<!-- illustration: rendered FAQ entry on the website, showing how the cleaned markdown ends up looking to readers -->
 
 ### Structuring the Content
 
@@ -126,7 +145,7 @@ Jekyll's own template engine (Liquid) tries to parse `{{ ref('stg_trips') }}` an
 
 ### Writing a Custom Generator with Copilot
 
-Writing my own static site generator wasn't as scary as it sounds. Coding agents already existed by then, so I asked GitHub Copilot to write one. The idea was straightforward: parse the markdown with frontmatter, use Jinja2 for the HTML templates, and produce static HTML pages[^13].
+Writing my own static site generator wasn't as scary as it sounds. Coding agents already existed by then, so I asked GitHub Copilot to write one. The generator parses the markdown with frontmatter, uses Jinja2 for the HTML templates, and produces static HTML pages[^13].
 
 The generator is specific to this site, which is the downside - you can't drop it into another project without modification. I also have to maintain it and write tests for it, but the scope is narrow so that's manageable.
 
@@ -136,7 +155,7 @@ GitHub Pages doesn't require Jekyll anymore. Any generator that runs in GitHub A
 
 The generator also exports the FAQ as JSON. There's an index at https://datatalks.club/faq/json/courses.json listing all courses, and each course has its own JSON file. Each entry has `id`, `course`, `section`, `question`, and `answer`.
 
-I use this JSON in the AI Engineering Buildcamp when teaching RAG. Students fetch it directly into minsearch and build a FAQ assistant in a few lines:
+If you want to use it, here's how - fetch the JSON directly into minsearch and build a FAQ assistant in a few lines[^5]:
 
 ```python
 import requests
@@ -157,21 +176,6 @@ index = Index(
 )
 index.fit(documents)
 ```
-
-That's over 1200 FAQ entries across all zoomcamps, ready to search. The course then extends a reusable RAG class to add FAQ-specific behavior: boost the `question` field, filter by course, and track references so each answer links back to its source FAQ entry:
-
-```python
-class LLMZoomcampFAQRAG(rag.RAG):
-    def search(self, query):
-        return self.index.search(
-            query,
-            filter_dict={'course': 'llm-zoomcamp'},
-            boost_dict={'question': 3, 'section': 0.5},
-            num_results=5,
-        )
-```
-
-References are turned into clickable links using a URL template like `https://datatalks.club/faq/llm-zoomcamp.html#74eb249bbf`, so readers can verify the answer by jumping straight to the original FAQ entry[^5].
 
 <figure>
   <img src="../../assets/images/faq-system/faq-website-result.jpg" alt="Generated FAQ website">
@@ -220,7 +224,7 @@ The RAG agent in `faq_automation/rag_agent.py` uses a structured output model wi
 
 The full agent is at https://github.com/DataTalksClub/faq/blob/main/faq_automation/rag_agent.py.
 
-### Why This Matters
+### What the Decision Model Unlocks
 
 This is RAG applied beyond simple question-answering:
 
@@ -231,9 +235,11 @@ This is RAG applied beyond simple question-answering:
 
 The human still reviews the pull request, but the RAG agent does the repetitive work of searching, comparing, and organizing.
 
-## How the Bot Got Built
+## Building the Bot
 
 I wrote the first version as a notebook - enough to prove the decision logic worked, but not something you'd run on every GitHub issue. During Hacktoberfest, [Fred Pearce](https://github.com/frederick-douglas-pearce) picked it up and built the GitHub Actions orchestration that turns issue events into pull requests automatically[^7][^13]. That's what made the bot usable for the community.
+
+<!-- illustration: screenshot of Fred's pull request that added the GitHub Actions workflow, or the list of his contributions in the FAQ repo -->
 
 Students contribute by filling out the FAQ proposal form with course, question, and answer. The bot handles everything else.
 
@@ -251,9 +257,7 @@ The bot makes mistakes. Classic examples: a question about Kestra (workflow orch
 
 Fixing these manually was painful. You have to check out the PR branch, correct the markdown, push the fix, and repeat for every PR. That's a lot of steps for a small edit, and I never had time to improve the bot itself so it wouldn't make the mistakes in the first place. I made some corrections here and there, but it wasn't sustainable[^13].
 
-### Batching Reviews with Claude Code
-
-What I do now: let the PRs pile up for a bit, then start a Claude Code session and go through them one by one[^13]:
+Because of that, I let the PRs pile up for a bit, then start a Claude Code session and go through them one by one[^13]:
 
 1. List open pull requests with `gh pr list`
 2. For the next PR, show Claude what changed
@@ -263,7 +267,7 @@ What I do now: let the PRs pile up for a bit, then start a Claude Code session a
 
 Showing one PR at a time lets me stay focused instead of trying to hold the whole queue in my head[^13]. Once I've corrected a few PRs in the same session, Claude starts recognizing the pattern and suggests the same fix on later PRs without being asked[^9].
 
-### Why This Beats Full Automation
+### Keeping a Human in the Loop
 
 I could build the same corrections into the bot itself, but that would mean more complex GitHub Actions and a more elaborate agent. Reviewing with Claude Code is simpler:
 
@@ -278,7 +282,7 @@ The next step is to take the corrections from each review session and feed them 
 
 ## RAG Beyond Question-Answering
 
-The FAQ system is a reminder that RAG isn't just for chatbots. Anywhere you have a large collection of documents and need to make intelligent decisions about them, RAG fits:
+RAG isn't just for chatbots. Anywhere you have a large collection of documents and need to make intelligent decisions about them, RAG fits:
 
 - Customer support - routing tickets to the right team, suggesting responses
 - Recommendation systems - finding similar products, articles, or documents
@@ -306,5 +310,5 @@ The pattern is always the same: search for relevant context, then use an LLM to 
 [^11]: [20260207_170725_AlexeyDTC_msg1126_transcript.txt](../../inbox/used/20260207_170725_AlexeyDTC_msg1126_transcript.txt) - Learning from mistakes to improve the agent
 [^12]: [20260207_171105_AlexeyDTC_msg1128.md](../../inbox/used/20260207_171105_AlexeyDTC_msg1128.md) - Other RAG applications beyond QA
 [^13]: [20260423_095230_AlexeyDTC_msg3521_transcript.txt](../../inbox/used/20260423_095230_AlexeyDTC_msg3521_transcript.txt) - Voice message with background on why the FAQ exists, the Google Docs era, migration details, the Copilot-built generator, and the Claude Code review workflow
-[^14]: [AI Engineering Buildcamp - FAQ Assistant Overview](https://github.com/alexeygrigorev/ai-engineering-buildcamp/blob/main/v2/02-rag-usecases-tech/02-faq-assistant/01-section-overview.md) - FAQ scale (over 1200 entries, DE Zoomcamp FAQ is 400-500 pages)
+[^14]: [FAQ courses index JSON](https://datatalks.club/faq/json/courses.json) - per-course entry counts (llm-zoomcamp 91, machine-learning-zoomcamp 440, mlops-zoomcamp 249, data-engineering-zoomcamp 522 = 1302 total)
 [^15]: [AI Engineering Buildcamp - DTC FAQ Chatbot Use Case](https://github.com/alexeygrigorev/ai-engineering-buildcamp/blob/main/v2/02-rag-usecases-tech/02-faq-assistant/04-dtc-faq-chatbot.md) - Slack bot data sources, tech stack, and architecture details
