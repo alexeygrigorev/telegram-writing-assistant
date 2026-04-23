@@ -8,210 +8,100 @@ status: draft
 
 # Coming Up with Project Ideas
 
-I keep seeing the same problem: people don't know how to choose a project.
+I keep having the same conversation. Someone asks me how to find a junior AI engineering job. I say: do projects. Then they ask: how do I choose a project? That's the question I want to answer here, because I've been repeating the same answer for months.
 
-AI Engineering Buildcamp V2 already has over 150 project ideas across the project-work files[^1][^2][^3]. That helps with the blank-page problem. It doesn't solve selection.
+This article is for two groups of people. The first is AI Engineering Buildcamp students who have to pick a capstone project and don't know where to start. The second is anyone going through the same blank-page problem on their own - deciding what to build, whether for a portfolio, for practice, or to scratch a personal itch.
 
-If you're trying to choose between a portfolio project, a course capstone, and a small tool for yourself, this article is for you. I'll split those three cases first. Then I'll look at where the Buildcamp ideas come from, what V2 already gives you besides idea lists, and how I'd narrow a project down to something you can actually ship.
+A big part of what I care about in Buildcamp is that each new cohort has a higher percentage of people who actually finish their projects. Finishing is what gets people hired. So if you're in the course, I want to help you be more effective at picking something you can ship[^7]. If you're not in the course, the same process should still work for you.
 
-## Project types
+## Idea lists on their own don't solve it
 
-The first decision is not which idea sounds interesting. The first decision is what kind of project you're trying to build.
+In Buildcamp, we already have more than 150 project ideas collected across several idea lists[^1][^2][^3]. That pool comes from what students have asked to build, from scholarship applications, from office-hours conversations, and from older course material. It isn't random brainstorming. It's a collection of things real people wanted to build.
+
+And yet, people still get stuck. I've seen this happen enough times to understand why. You open the list, skim it, something sort of catches your eye, and then you close the tab without starting anything. The list helps a little, but a list of ideas doesn't answer the harder question: which one is right for me, right now, and how do I scope it so I can finish it?
+
+That's what this article tries to fix. Not by adding more ideas to the pile, but by giving you a way to decide.
+
+## Three kinds of projects
+
+Before picking an idea, pick the kind of project you're building. The criteria are completely different.
 
 <!-- illustration: three lanes for portfolio projects, course capstones, and small self-projects, each with different selection criteria -->
 
-### Portfolio projects
+A portfolio project exists to help you get hired or win clients. A course project exists to teach you the full engineering process during the course. A self-project exists because you personally want the thing to exist. These goals can overlap, but if you don't pick one as the primary goal, the criteria stay fuzzy and you end up trying to make one project do everything.
 
-Portfolio projects help you get hired, get clients, or show the kind of work you want to do more of.
+## Portfolio projects
 
-The project needs to do a few things well:
+A portfolio project has one job: make it easy for a hiring manager or client to say yes to a conversation. To do that, the project has to solve a recognizable problem, show real engineering quality rather than just prompting, and make the tradeoffs easy to explain. You want something you can point to in a README and talk through in an interview.
 
-- solve a recognizable problem
-- show engineering quality, not only prompting
-- make the tradeoffs easy to explain
-- give you something solid to put in a README and talk through in interviews
+Hiring managers don't spend a lot of time looking. Recruiters often move on after a minute or two, and hiring managers usually have five or ten minutes before an interview to scan your GitHub. They want to see immediately what the project does, why it exists, and whether it's close to production - tests, evaluation, CI/CD, a deployment link[^8].
 
-For portfolio work, I wouldn't start with random brainstorming. I'd use a tighter process.
+That changes how I'd pick a portfolio project. I wouldn't start with random brainstorming. I'd start with where I want to work.
 
-1. Select a domain.
+Pick a domain first. Look at job postings in your area or remote roles you would realistically take, and group them into domains like e-commerce, healthcare, finance, education, or developer tools. Then pick one and stay with it for a while. Too many options cause choice paralysis, and targeting one domain means you can also talk fluently about it in interviews.
 
-Look at job postings in your area or remote roles you would realistically take. Group them into domains such as e-commerce, healthcare, finance, education, or developer tools. Then pick one domain and stay with it for now. Too many options create choice paralysis.
+From there, look at actual companies in that domain. Read their websites, product pages, and blog posts, and pay attention to where they already use AI and where it could help but doesn't seem to exist yet. Make a short list of possible use cases and pick one. Then find, scrape, or generate a realistic dataset for it. It doesn't have to be the company's real data, but it does have to feel believable for that domain.
 
-2. Research specific companies.
+Finally, cap the time. Give yourself something like ten hours, or a couple of weekends. An okay finished project teaches you more than a perfect project that drags on for weeks, and most of the learning is in shipping and explaining it afterwards.
 
-Pick a few companies in that domain. Read their websites, product pages, and blog posts. Read their job descriptions too. If you're building an AI engineering portfolio, pay attention to where they already use AI and where AI could help but doesn't seem to exist yet.
+This approach also makes the project much easier to talk about. You can say which domain you chose, which companies you looked at, which workflow you focused on, and why your dataset is realistic - instead of "I built a RAG thing with LangChain".
 
-3. Build one use case.
-
-Make a list of use cases from that research and choose one. Then find, scrape, or generate a realistic dataset for it. It doesn't need to be the company's real data, but it does need to feel believable for that domain and that workflow.
-
-4. Cap the time.
-
-Give yourself 10 hours. Don't spend more than that. An okay finished project teaches you more than a perfect project that drags on for weeks.
-
-This approach makes the project easier to explain. You can say which domain you chose, which companies you looked at, which workflow you focused on, and why your dataset is realistic.
-
-Examples from Buildcamp V2:
+A couple of Buildcamp examples that fit this pattern:
 
 - Bug Report Telegram Bot: takes voice messages, classifies them across repositories, structures them, evaluates bug quality, and opens GitHub issues with deployment and monitoring in the loop[^2]
 - AI Engineering Job Market Explorer: uses job-listing data to suggest what skills to learn next and what companies match a profile[^2]
 
-### Course projects
+## Course projects
 
-Course projects work differently. Here you are not trying to build your life's mission. You are trying to build something that fits the course and lets you practice the full engineering process.
+Course projects work differently. You aren't trying to build your life's mission. You're trying to build something that fits the course and lets you practice the whole engineering loop.
 
-In Buildcamp V2, a strong course project takes you through five steps[^4]:
+In Buildcamp, a strong course project takes you through five things: identify a real problem, build a simple proof of concept, improve the code and add tests, add monitoring and collect usage data, and evaluate how well it works[^4]. That's the reason the course pushes project work into week 1 instead of saving it for the end[^4][^5]. A course project needs to be small enough to start on day one, and structured enough that you can keep improving it week by week.
 
-1. identify a real problem
-2. build a simple proof of concept
-3. improve the code and test it
-4. add monitoring and collect usage data
-5. evaluate how well it works
+The common mistake here is choosing something too big or too vague, and then spending weeks stuck on scoping instead of building. If you can start a repo in week 1 and already have something running that you can test, monitor, and evaluate, you're in good shape.
 
-That is why V2 pushes project work into week 1 instead of leaving it for the end[^4][^5]. A course project needs to be small enough to start early and structured enough to keep improving during the course.
-
-Examples from Buildcamp V2:
+A couple of Buildcamp examples that fit well as course projects:
 
 - Medical Chart Generator: transcribes a patient-doctor conversation and turns it into a structured chart[^2]
 - Documentation Chatbot with Handoff: answers support questions from grounded documentation and hands off when confidence is low[^3]
 
-### Small self-projects
+## Small self-projects
 
-Small self-projects come from everyday friction. They often make the best starting point because the user is obvious, the feedback loop is short, and the first version can stay small.
+Self-projects come from everyday friction. For me, these are often the best starting point. The user is obvious (it's you), the feedback loop is short, and the first version can stay small and still be useful.
 
-I usually see these projects appear in a simple sequence:
+My own self-projects almost always start the same way. I'm already working on something real, I notice something annoying, suboptimal, or missing, and I build a small tool that removes that friction. I'm not usually trying to invent a project from zero - I'm already in the middle of some other workflow, I hit a pain point, and the next project is the tool that fixes it.
 
-1. I work on something real.
-2. I notice something annoying, suboptimal, or missing.
-3. I build a tool that removes that friction.
-
-That is where most of my own projects come from. I am usually not trying to invent a project from zero. I'm already in the middle of some other workflow, I hit a pain point, and that pain point becomes the next thing I build.
-
-It helps to keep a running note of small annoyances. Most of them won't become projects. A few of them will turn into exactly the kind of useful, finishable tool that is worth building.
+One thing that helps is keeping a running note of small annoyances. Most of them won't become projects. A few of them will turn into exactly the kind of small, useful, finishable tool that's worth building - and those also make good portfolio pieces later, because you can tell a concrete story about the problem and the fix.
 
 <!-- TODO: link relevant Alexey On Data Substack articles with examples of projects that started from day-to-day friction -->
 
-Examples from Buildcamp V2:
+A couple of Buildcamp examples that fit this pattern:
 
 - Voice-to-Todo Agent: talks to a todo app instead of making you type tasks manually[^3]
 - Restaurant Receipt Splitter: takes a photo of a bill, extracts line items, and splits the total among a group[^2]
 
-## Buildcamp V2 idea sources
+## Narrowing down from an idea
 
-The Buildcamp project pool is not random. It comes from recurring sources that reflect real demand[^1][^2][^3]:
+Even once you know which kind of project you're doing, an idea isn't a project yet. You still need to narrow it down to something you can actually start this week. The trap most people fall into is technology-first thinking - "I want to build an agent" or "I want to use RAG" - which makes it hard to tell when you're done, and easy to over-engineer the thing before you've even written a useful version[^4].
 
-- what students say they want to build for their projects
-- what appears in scholarship applications and similar intake material
-- supporting sources such as office-hours discussions, older course material, and previous demo projects
+The way I get past that is to force myself to answer five questions in a few sentences each. Who is the user. What is the input. What is the output. What is the smallest useful version. And how will I know it works. If I can't answer those cleanly, the project is still too vague and I keep going.
 
-That matters because the list is not a collection of abstract brainstorms. Many of the ideas come from work problems, repeated frustrations, or things people already tried to build.
+Once I can answer them, I check the idea against the type of project I'm building. For a portfolio project, I ask whether it shows the kind of work I want to be hired for. For a course project, I ask whether I can test it, monitor it, and evaluate it over several weeks. For a self-project, I ask whether I'll actually use this in my own life soon.
 
-This is also why the list feels broad. It includes support bots, research agents, document extraction, workflow automation, knowledge management, and developer tooling. The breadth is useful. It can still leave people stuck.
+After that, I start. The first rough repo and README teach me more than another hour of browsing idea lists.
 
-## Buildcamp V2 project workflow
+The Buildcamp "From Idea to Submission" material splits this into three situations based on where you're starting from[^5]. If you already have an idea, you run a quick fit check and submit it. If you have a vague idea, you talk it through until it fits in two or three sentences. If you have no idea yet, you browse examples for inspiration, then use an interview-style prompt to pull problems out of your own life. That last path uses the project-idea brainstorming prompt from the Buildcamp gist[^6], which works well paired with a fit-check prompt - one helps you generate candidate ideas, the other helps you reject weak ones.
 
-The V2 folder already gives you more than idea lists[^4][^5][^7].
+## The capstone bar
 
-- The project-work overview tells you to pick a project now and start from week 1.
-- The idea-to-submission page gives you different paths depending on whether you already have an idea.
-- The capstone homework tells you to describe the problem, scaffold the repo, and add your own data in the first week.
-- The starter repo gives you a quick way to move from "idea" to something running.
+For Buildcamp capstones, the standard is fairly simple[^4]. Solve a real problem that someone actually cares about. Use data or inputs you can get without heroic effort. Leave a clear path to testing, monitoring, and evaluation from the start. RAG and agents can help, and some projects genuinely need them, but they aren't the point of the project. Don't bolt them on just to make the project sound more advanced[^4].
 
-<!-- illustration: flow from project idea -> starter repo -> first data -> first working version -->
+The same bar works outside the course too. A project that solves a real problem with honest data and can be tested, monitored, and evaluated is far more valuable than a showier project that can't be.
 
-If you're building a course project, this structure is already enough to get moving. Even outside the course, the same sequence is useful. Pick the problem, start the repo, add real data, and improve from there.
+And if you're planning to talk about this project in interviews later, the field guide makes one thing very clear: hiring managers can tell the difference between a course you followed step by step and something you built yourself[^8]. A project you genuinely owned - where you chose the problem, scoped it, hit real issues, and fixed them - gives you something to talk about for the whole interview, because you lived through it.
 
-## The selection problem
+## If you're still stuck
 
-Even with over 150 examples, people still get stuck. V2 says this directly: for most students, the hardest part is not building. It is deciding what to build[^4].
-
-I usually see the same problems behind that hesitation:
-
-- people start from technology instead of a problem
-- people mix portfolio goals, course goals, and personal utility in one project
-- people wait for the perfect idea instead of a workable one
-- people try to prove too many things in one repo
-- people don't yet have enough raw material from their own work and life
-
-That creates a familiar loop. You read more idea lists, get more confused, postpone the decision, and still don't start.
-
-## Project selection process
-
-The next step is to narrow the field quickly enough that you can start building.
-
-1. Pick the project type first.
-
-Choose one primary goal: portfolio project, course project, or self-project. You can combine them later. If you don't choose a primary goal, the criteria stay fuzzy.
-
-2. Start with a real problem.
-
-V2 is very clear on this point. People who start with "I want to build an AI agent" usually get stuck[^4]. Start with something repetitive, annoying, slow, expensive, or hard to search.
-
-3. Pick the smallest useful version.
-
-Answer five questions in a few sentences:
-
-- who is the user
-- what is the input
-- what is the output
-- what is the smallest useful version
-- how will you know it works
-
-If you can't answer those questions cleanly, the project is still too vague.
-
-4. Check the idea against the context.
-
-Use the criteria from the matching project type:
-
-- portfolio project: does this show the kind of work I want to get hired for
-- course project: can I test it, monitor it, and evaluate it over several weeks
-- self-project: will I actually use this in my own life soon
-
-5. Start early and refine later.
-
-This is another strong V2 lesson. Choose early, then learn by building[^4][^5][^7]. The first useful repo and README teach you more than another hour of browsing idea lists.
-
-## Buildcamp V2 paths
-
-The V2 "From Idea to Submission" page breaks this down into three paths[^5].
-
-1. You already have an idea.
-
-Run a quick fit check and submit it.
-
-2. You have a vague idea.
-
-Talk it through until it becomes concrete enough to fit in two or three sentences.
-
-3. You have no idea yet.
-
-Browse examples for inspiration, then use the interview prompt to pull problems out of your own life.
-
-The V2 gist includes both prompts[^6]:
-
-- [Project-Idea Brainstorming Prompt](https://gist.github.com/alexeygrigorev/c1c8dc3ece5cba91e1e381eeba2706c1)
-
-That pairing works well because one prompt helps you generate ideas and the other helps you reject weak ones.
-
-## Buildcamp-style capstones
-
-The Buildcamp overview keeps the capstone standard fairly simple[^4]:
-
-- solve a real problem that someone actually cares about
-- use data or inputs you can get without heroic effort
-- leave a clear path to testing, monitoring, and evaluation
-
-RAG and agents can help, but they are not the point of the project. Some projects need them. Some do not. Don't bolt them on just to make the project sound more advanced[^4].
-
-## Getting unstuck
-
-If you're still stuck, stop reading idea lists for a moment and do this instead:
-
-1. Keep a short note for two days called `annoying things`.
-2. Write down repetitive workflows, frustrations, and delays as they happen.
-3. Pick one item that feels both useful and finishable.
-4. Write a one-paragraph project card.
-5. Create the repo and start version 1.
+If after all of this you still don't have an idea, stop reading idea lists for a moment and try this instead. For the next two days, keep a short note called "annoying things" and write down repetitive workflows, frustrations, and delays as they happen. Then pick one item that feels both useful and finishable, write a one-paragraph project card for it, and start version 1.
 
 You don't need the perfect idea. You need a real problem, a small scope, and a reason to start now.
 
@@ -223,4 +113,5 @@ You don't need the perfect idea. You need a real problem, a small scope, and a r
 [^4]: [Project Work overview](../../ai-engineering-buildcamp/v2/01-foundation/07-project-work/01-section-overview.md)
 [^5]: [From Idea to Submission](../../ai-engineering-buildcamp/v2/01-foundation/07-project-work/02-from-idea-to-submission.md)
 [^6]: [Project Ideas: Prompts for Getting Unstuck](../../ai-engineering-buildcamp/gist-prompts/00-project-ideas.md)
-[^7]: [Module 1 Capstone: Your AI Project](../../ai-engineering-buildcamp/v2/01-foundation/homework/02-capstone.md)
+[^7]: [20260423_182032_AlexeyDTC_msg3559_transcript.txt](../inbox/used/feedback/20260423_182032_AlexeyDTC_msg3559_transcript.txt)
+[^8]: [AI Engineering Field Guide - Portfolio](https://github.com/alexeygrigorev/ai-engineering-field-guide/blob/main/portfolio/README.md)
