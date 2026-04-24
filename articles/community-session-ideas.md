@@ -1,0 +1,46 @@
+---
+title: "Community Session Ideas"
+created: 2026-04-24
+updated: 2026-04-24
+tags: [ai-shipping-labs, community, ideas, activities, mastermind]
+status: draft
+---
+
+# Community Session Ideas
+
+Session ideas proposed by AI Shipping Labs community members, recorded so they do not get lost. These are not promises - the filter is whether an idea is useful to others and whether we can run it without too much time investment[^4].
+
+## How to Pitch Your Idea
+
+A community member proposed a session on how to pitch your idea and how to convey thoughts to different audiences, in a Toastmasters style[^1].
+
+### Using the group learning format
+
+Valeriia's suggestion: run this through the existing group learning format. The person who requested the topic - "how to pitch his ideas" - picks a source himself (a book, a blog post), reads it, finds the information, and then makes a presentation about it. Other members give him feedback and share their own experience[^2].
+
+This pushes the format beyond hard and soft skills. A mastermind has one person's request at the centre. Other participants first ask clarifying questions to enter the context of what has already been done, and only then share their ideas - not just to share personal experience, but to help solve the specific problem in front of them[^2].
+
+### Mastermind moderation
+
+Masterminds have defined rules for how the session should go. Valeriia has participated in one before but has never moderated. She is willing to read up on the format and run the session[^2].
+
+### Cross-cultural note on feedback
+
+A related point from the same conversation: when conveying ideas to different audiences, the feedback styles differ sharply by culture. With Israelis and Germans the feedback is direct - they will simply say they did not like something and will not continue. Americans often do not say this directly. They stay silent. So you do not always know in advance what they thought - they might just need time, or they might have disliked something and will not tell you[^3].
+
+The practical handling: do what you could, wait, and you can ping them once more. If they do not want to, or are not ready, just wait. They may come back to us after some time[^3].
+
+This is worth noting as real-world context for a session on pitching to different audiences.
+
+## How We Handle Community Session Ideas
+
+We do not have to say yes to every idea and commit to running it. The right move is to record the idea and come back to it, because it might still be useful to the person who proposed it. If it turns out to be useful for others too, we can think about how to do it in a way that does not require much of our time but is still valuable for the community. Mastermind-style group sessions are the main example of the kind of format that fits that constraint[^4].
+
+Also relevant: the two people the original conversation was about are both from Sakhalin, which came up as an interesting coincidence while discussing the idea[^2].
+
+## Sources
+
+[^1]: [20260424_104201_AlexeyDTC_msg3597.md](../inbox/used/20260424_104201_AlexeyDTC_msg3597.md)
+[^2]: [20260424_104335_AlexeyDTC_msg3600_transcript.txt](../inbox/used/20260424_104335_AlexeyDTC_msg3600_transcript.txt)
+[^3]: [20260424_104334_AlexeyDTC_msg3599_transcript.txt](../inbox/used/20260424_104334_AlexeyDTC_msg3599_transcript.txt)
+[^4]: [20260424_104335_AlexeyDTC_msg3601_transcript.txt](../inbox/used/20260424_104335_AlexeyDTC_msg3601_transcript.txt)

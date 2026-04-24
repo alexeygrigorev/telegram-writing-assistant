@@ -8,6 +8,7 @@ See [All Articles](../_index.md) for the main articles index.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Decoding AI Content Pipeline: Paul Iusztin's Agentic Writing Workflow and Branded Mermaid Images](decode-ai-content-generation.md) | draft | 2026-04-24 | Research on Paul Iusztin's Decoding AI writing pipeline - Nova research agent, Brown evaluator-optimizer workflow, branded Mermaid-to-PNG style transfer via Gemini Nano Banana with parallel subagents and few-shot prompting |
 | [Browser Harness: Self-Healing Browser Automation via Agent-Editable Code](browser-harness.md) | draft | 2026-04-20 | Deep dive into browser-use/browser-harness - 592-line CDP harness where the agent edits helpers.py mid-task, four layers of self-healing, skills knowledge base, comparison with Playwright/Selenium/Healenium |
 | [OpenClaw vs Hermes Agent: Two Approaches to the Personal AI Assistant](openclaw-vs-hermes.md) | draft | 2026-04-20 | Side-by-side comparison of OpenClaw (TypeScript Gateway-centric) and Hermes Agent (Python loop-centric) - architecture, extensibility, memory models, security, philosophical differences, when to pick each |
 | [Hermes Agent: Nous Research's Self-Improving Personal Agent](hermes-agent.md) | draft | 2026-04-20 | Source-informed analysis of Hermes Agent - Python runtime with 16-platform gateway, 47 tools, 8 memory plugins, autonomous skill creation, comparison with Claude Code and OpenClaw |

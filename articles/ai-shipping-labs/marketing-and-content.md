@@ -1,7 +1,7 @@
 ---
 title: "AI Shipping Labs Marketing and Content Strategy"
 created: 2026-02-14
-updated: 2026-03-20
+updated: 2026-04-24
 tags: [community, marketing, content-strategy, ai-shipping-labs]
 status: draft
 ---
@@ -141,6 +141,18 @@ They have a list of recommended courses on [Maven](https://maven.com/lenny). Whe
 
 They also have [merch/swag](https://lennyswag.com/en-eur) as an additional engagement channel[^78].
 
+## Inspiration: Paul Iusztin's Decoding AI Newsletter
+
+Valeriia has been studying the content Paul from Decoding AI puts out. She likes both his newsletter and his social media. Recently he has been sharing that he has an agent that writes his social media posts - he shared workshop code where he explains this agent. He also described an agent that writes his Substack articles, and made a separate newsletter issue about it[^95].
+
+Paul uses all of this to promote his AI engineering course. Everything is in service of that course - he also has one[^95].
+
+One thing Valeriia likes is how the course ad slots naturally into his article. In the piece where he describes his writing pipeline, there is an inline ad for his Agentic AI Engineering Course placed right inside the content. It does not feel forced, and it reads as a natural continuation of the article. See the example embedded in the research article at [articles/research/decode-ai-content-generation.md](../research/decode-ai-content-generation.md)[^96].
+
+This same approach could work for Alexey's free Friday newsletters. The newsletter is already about sharing useful things, so pre-advertising the course can slot in the same way Paul does it without feeling like an awkward insert[^96].
+
+The technical side of how Paul generates the branded diagrams and runs his pipeline is covered separately in [articles/research/decode-ai-content-generation.md](../research/decode-ai-content-generation.md). That side is mostly interesting for improving the telegram-writing-assistant agent; the marketing lesson is the one captured here.
+
 ## Content Reuse and Planning
 
 ### Content Reuse System
@@ -170,3 +182,5 @@ For the community, the goal is to create an events plan and content plan. Once w
 [^83]: [20260320_153909_AlexeyDTC_msg3046_transcript.txt](../../inbox/used/20260320_153909_AlexeyDTC_msg3046_transcript.txt)
 [^84]: [20260320_153909_AlexeyDTC_msg3047_transcript.txt](../../inbox/used/20260320_153909_AlexeyDTC_msg3047_transcript.txt)
 [^85]: [20260320_153909_AlexeyDTC_msg3048_transcript.txt](../../inbox/used/20260320_153909_AlexeyDTC_msg3048_transcript.txt)
+[^95]: [20260424_124837_AlexeyDTC_msg3605_transcript.txt](../../inbox/used/20260424_124837_AlexeyDTC_msg3605_transcript.txt)
+[^96]: [20260424_124837_AlexeyDTC_msg3610_transcript.txt](../../inbox/used/20260424_124837_AlexeyDTC_msg3610_transcript.txt)

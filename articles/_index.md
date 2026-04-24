@@ -51,6 +51,7 @@ Articles about the AI Shipping Labs paid community: vision, activities, courses,
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Marketing and Content Strategy](ai-shipping-labs/marketing-and-content.md) | draft | 2026-04-24 | Marketing channels, funnel, lead magnets, content strategy, Lenny's inspiration, Paul Iusztin's Decoding AI newsletter as a model for naturally slotting course ads into free-newsletter content |
 | [Community Observations](ai-shipping-labs/community-observations.md) | draft | 2026-04-24 | Cross-member patterns: perfectionism / needing to understand everything, no clear picture of the role, idea for a Lightning Lesson on the depth of skills needed |
 | [Personalised Plans](ai-shipping-labs/plans/_index.md) | draft | 2026-04-23 | Personalised plans with Alexey's recommendations: Edu Gonzalo Almorox, Grace, Vancesca Dinh, Carlos Pumar, Jakob Zischka, Nirajan Acharya. Template refreshed with shareable 6-week plans and internal context sections |
 | [User Interviews (overview)](ai-shipping-labs/user-interviews.md) | draft | 2026-04-20 | Overview of the user interview effort, outreach status, and plan tracking. Individual interviews live in interviews/ folder |
@@ -61,7 +62,6 @@ Articles about the AI Shipping Labs paid community: vision, activities, courses,
 | [Launch Announcement](ai-shipping-labs/launch-announcement.md) | draft | 2026-04-07 | Newsletter article: community announcement, activities, tiers, early member benefits |
 | [Platform Ideas](ai-shipping-labs/platform-ideas.md) | draft | 2026-04-07 | Business case simulator, career help tools, data collection, cross-linking tools/concepts |
 | [Vision](ai-shipping-labs/vision.md) | draft | 2026-03-20 | Vision, target audience, tier structure, pricing, design principles, next steps |
-| [Marketing and Content Strategy](ai-shipping-labs/marketing-and-content.md) | draft | 2026-03-20 | Marketing channels, funnel, lead magnets, content strategy, Lenny's inspiration |
 | [Building the Platform with Claude Code](ai-shipping-labs/platform-implementation.md) | draft | 2026-02-25 | Multi-agent build experiment: Product Manager, Software Engineer, Tester, On-Call Engineer |
 
 ## Work in Progress
@@ -111,6 +111,7 @@ Files at the articles root that don't fit into the above categories.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Community Session Ideas](community-session-ideas.md) | draft | 2026-04-24 | Session ideas proposed by AI Shipping Labs members: "how to pitch your idea" Toastmasters-style session, group-learning/mastermind format, cross-cultural feedback note (Americans silent, Israelis/Germans direct), process for recording ideas without committing to all |
 | [Coming Up with Project Ideas](coming-up-with-project-ideas.md) | draft | 2026-04-23 | Reframed as recurring conversation across workshops/AI Shipping Labs/course students, three project types as a list with overlap, cap-the-time general rule with tech-learning combo, mermaid flowchart for portfolio workflow, Buildcamp cohort 1 demo day examples (cybersecurity, client satisfaction, habit builder, email agent), personal projects section with Alexey's Substack write-ups (dirdotenv, ssh-auto-forward, nobook, microboost, bot master, telegram assistant) |
 | [Interesting Resources](interesting-resources.md) | draft | 2026-04-20 | Curated collection of tools, resources, and project ideas for the newsletter |
 | [Deterministic Coding with Agent Teams](litehive.md) | draft | 2026-04-10 | litehive file-based task manager, tmuxctl, GoZ engine, self-writing system, recovery agent, multiple engines, usage quota tracking, stale agent killing, self-improving tools |
