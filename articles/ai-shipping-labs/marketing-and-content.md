@@ -110,6 +110,14 @@ The target audience: people interested in AI engineering who want to develop in 
 
 The approach: look at what problems the target audience has (through community research, Reddit, Twitter, interviews) and then think about what content we can create to solve those problems[^84].
 
+### Overview articles that funnel into the community
+
+Valeria's suggestion on how to turn the AI Engineer role research into content that also promotes AI Shipping Labs. The idea is to make an overview article after the research: describe what hiring managers look at in general, give an overview of the most important points, and where relevant explain how to choose a GitHub project and what goes into it. The article itself stays at the general level[^97].
+
+The concrete, detailed pieces live inside AI Shipping Labs: a GitHub repository template that community members can reuse (the link to the template is shared with them), specific prompts for picking a project, described workflows that anyone can reuse. The article links out to these as a reason to join the community. This way the public article covers the general topic, and the specifics and individual resources are inside AI Shipping Labs - which attracts people into the community[^97][^98][^99].
+
+Depending on how broad the topic is and how deep you can go on each piece, workshops on the same topic also fit here as separate resources. In other words, extra events about the topic plus ready-made resources like content pieces or templates[^98][^99][^100][^101].
+
 ## Inspiration: Lenny's Newsletter
 
 [Lenny's Newsletter](https://www.lennysnewsletter.com/) is a good reference for developing the paid community. Several ideas from their model[^78]:
@@ -184,3 +192,8 @@ For the community, the goal is to create an events plan and content plan. Once w
 [^85]: [20260320_153909_AlexeyDTC_msg3048_transcript.txt](../../inbox/used/20260320_153909_AlexeyDTC_msg3048_transcript.txt)
 [^95]: [20260424_124837_AlexeyDTC_msg3605_transcript.txt](../../inbox/used/20260424_124837_AlexeyDTC_msg3605_transcript.txt)
 [^96]: [20260424_124837_AlexeyDTC_msg3610_transcript.txt](../../inbox/used/20260424_124837_AlexeyDTC_msg3610_transcript.txt)
+[^97]: [20260424_130858_AlexeyDTC_msg3625_transcript.txt](../../inbox/used/20260424_130858_AlexeyDTC_msg3625_transcript.txt)
+[^98]: [20260424_130858_AlexeyDTC_msg3626_transcript.txt](../../inbox/used/20260424_130858_AlexeyDTC_msg3626_transcript.txt)
+[^99]: [20260424_130858_AlexeyDTC_msg3627_transcript.txt](../../inbox/used/20260424_130858_AlexeyDTC_msg3627_transcript.txt)
+[^100]: [20260424_130858_AlexeyDTC_msg3624.md](../../inbox/used/20260424_130858_AlexeyDTC_msg3624.md)
+[^101]: [20260424_130906_AlexeyDTC_msg3628.md](../../inbox/used/20260424_130906_AlexeyDTC_msg3628.md)

@@ -1,0 +1,9 @@
+---
+source: telegram_voice
+date: 2026-04-24T13:08:58+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260424_130858_AlexeyDTC_msg3627.ogg
+---
+
+Ну или workflow какие-то уже описанные, которые можно переиспользовать любому человеку.

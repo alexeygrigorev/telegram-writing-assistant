@@ -1,7 +1,7 @@
 ---
 title: "Weekly Log"
 created: 2026-02-26
-updated: 2026-03-29
+updated: 2026-04-24
 tags: [weekly, log]
 status: draft
 ---
@@ -9,6 +9,54 @@ status: draft
 # Weekly Log
 
 A running log of what was done each week. When a topic has its own detailed article, this log contains a short summary with a link. When there is not much content for a topic, the details go here directly.
+
+## Week of 2026-04-20
+
+### AI Shipping Labs First Workshop
+
+Ran the first workshop at AI Shipping Labs about Telepot and agents. Took an existing Telepot agent, built a frontend for it, and together with attendees packaged it in a Docker container and deployed it on Render[^32].
+
+The workshop was a bit freestyle. Prepared a little in advance but most of it was improvised. Experimenting with a new workshop format where more of the content is freestyle. It ran about two hours - longer than usual - and covered things that are not normally part of workshops, like how projects get started, how the computer is set up, and similar context[^32].
+
+The workshop went well and people liked it. Want to do more workshops in this format based on the feedback from AI Shipping Labs members. Currently turning the workshop into a written document that people can read. The recording is already available, but only to community members[^32].
+
+### AI Shipping Labs Site Work
+
+Work on the AI Shipping Labs site is on-demand - whatever is concretely needed right now gets built. This week that meant making the newsletter work and adding the ability to publish workshops on the site[^32].
+
+### Office Hours
+
+Held office hours this week. Nothing particularly interesting came out of them[^32].
+
+### Onboarding Calls
+
+Had four onboarding calls this week for new members joining AI Shipping Labs. Next week also has many calls scheduled. Everyone joining the community gets the option to do an onboarding call - some people take it. On these calls we discuss their projects and try to figure out how we can help, then set a plan together[^32].
+
+Preparing for the new sprint that starts in May. The goal is that everyone participating in the sprint has a ready plan for what to do. Details about what the plan is are already written up elsewhere (see [Project Approach Reference Doc](ideas/project-approach-reference-doc.md)). Now putting all of it into practice[^32].
+
+## Week of 2026-04-13
+
+### PyConDE in Darmstadt
+
+Was in Darmstadt for PyConDE, the Python and PyData conference. Did interviews with people there. The interviews are ready and will be released soon[^32][^33].
+
+<figure>
+  <img src="../assets/images/weekly-log/pyconde-darmstadt-team.jpg" alt="Alexey and others at PyConDE Darmstadt 2026">
+  <figcaption>At PyConDE Darmstadt with team signs and props</figcaption>
+  <!-- Photo from the PyConDE Darmstadt trip during the week of April 13 -->
+</figure>
+
+### AI Engineering Buildcamp Launch
+
+The AI Engineering Buildcamp course started. The first lesson happened while in Darmstadt, and the second lesson followed after[^32].
+
+### Buildcamp Cohort 2 Demo
+
+Students from the second cohort did a demo on Tuesday[^32].
+
+### Coding Agent Workshop
+
+Merged the "build your own coding agent" workshop and the workshop about how skills work into a single new workshop. Presented it at the conference in Darmstadt[^32].
 
 ## Week of 2026-03-24
 
@@ -206,3 +254,5 @@ Upgraded to AWS Business support, got on a call with support at 2 AM. Still wait
 [^29]: [20260328_034948_AlexeyDTC_msg3117_photo.md](../inbox/used/20260328_034948_AlexeyDTC_msg3117_photo.md)
 [^30]: [20260328_034923_AlexeyDTC_msg3114_photo.md](../inbox/used/20260328_034923_AlexeyDTC_msg3114_photo.md)
 [^31]: [20260328_035435_AlexeyDTC_msg3121_photo.md](../inbox/used/20260328_035435_AlexeyDTC_msg3121_photo.md)
+[^32]: [20260424_125504_AlexeyDTC_msg3622_transcript.txt](../inbox/used/20260424_125504_AlexeyDTC_msg3622_transcript.txt)
+[^33]: [20260424_125600_AlexeyDTC_msg3623_photo.md](../inbox/used/20260424_125600_AlexeyDTC_msg3623_photo.md)
