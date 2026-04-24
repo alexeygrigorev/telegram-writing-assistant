@@ -94,16 +94,19 @@ The discussion after the demo highlighted how teams often have all the documenta
 ### VoiceIssue Agent (Ladden)
 
 Repo: https://github.com/lomodev-mmaric/voice_issue_code[^2]
+Cloud-hosted review target: https://capstone.lomo.dev[^4]
 
 A Telegram bot that lets you file structured GitHub issues by voice across multiple repositories. The motivation came directly from a problem Alexey shared with Ladden: I have many GitHub repos, sometimes I get an idea on the go (e.g. while shopping), and to capture it I need to open GitHub, find the right repo, create an issue, and type or dictate the description. A bot where you send a voice message and it figures out the right repo and files a structured issue would be much better.
 
 Ladden demoed sending a voice message saying "we have Albanian hackers attacking our front end and there's denial of service, please report it to security team". The bot first evaluated whether this was on-topic, decided it was a legal/security issue rather than a bug, and refused. After a follow-up message providing more technical detail (JavaScript code structure, possible SQL injection), the bot drafted a structured front-end bug report, asked for human approval, and only then created the GitHub issue.
 
-Tech stack: Python 3.10+, pydantic-ai, OpenAI (transcription + LLM), python-telegram-bot, GitHub REST API, PostgreSQL, Streamlit, Grafana, Docker Compose, uv, pytest.
+Implemented flow: repository scope is configured via a GITHUB_REPOS curated list; the user sends a voice or text message to the Telegram bot; voice is transcribed with Whisper (whisper-1); PII is scrubbed using Microsoft Presidio before agent processing; the agent classifies the repo and drafts an issue with title, body, labels, and a confidence score; the user sees the draft and confirms via Approve & Create or Cancel; on approval, the issue is created via the GitHub API and all runs are logged.
+
+Tech stack: Python 3.10+, pydantic-ai, OpenAI API (Whisper + LLM), python-telegram-bot, GitHub API (PyGithub), Microsoft Presidio (PII detection / anonymization), PostgreSQL, Streamlit, Grafana, Docker Compose microservices (bot, judge, postgres, dashboard, orchestrator, grafana), uv, pytest.
 
 Key features:
 
-- Voice-to-issue pipeline: Telegram voice message, transcription, PII scrubbing, repo routing, structured markdown issue draft
+- Voice-to-issue pipeline: Telegram voice message, Whisper transcription, PII scrubbing via Microsoft Presidio, repo routing, structured markdown issue draft with Pydantic schema validation
 - Human-in-the-loop approval via Telegram inline keyboard before any GitHub issue is created
 - Multi-repo routing: bot picks the correct target repo from a comma-separated GITHUB_REPOS allow-list (uses minsearch / RAG over repos to identify the right project)
 - LLM-as-a-Judge container that asynchronously scores each session 1 to 5 for quality, so off-topic or low-quality requests do not get filed
@@ -112,6 +115,8 @@ Key features:
 - Local CLI mode via Makefile (make cli/bot/admin/dashboard/online-judge/test-all) so components run without Docker
 
 Six-container microservice stack orchestrated by docker-compose: bot, judge, orchestrator (Streamlit, port 8501), session dashboard (Streamlit, port 8502), Postgres, and Grafana (port 3000). Deployed on Google Cloud - Ladden noted you need at least a medium VM (4 GB RAM, 50 GB storage, dual core); smaller instances choke. The $10/month developer credit covers it.
+
+Two deployment options were submitted for grading: the preferred cloud-hosted evaluation environment, plus sanitized local source code with a local deployment guide PDF (CLOUD_GRADING_GUIDE.pdf and LOCAL_DEPLOYMENT_GUIDE.pdf). Two playground repositories are part of the reference cloud deployment - reviewers testing the bot are asked to specify whether an issue is backend or frontend to avoid off-topic classification: [voiceissue-frontend-test](https://github.com/lomodev-mmaric/voiceissue-frontend-test/issues) and [voiceissue-backend-test](https://github.com/lomodev-mmaric/voiceissue-backend-test/issues)[^4].
 
 In the discussion, Ladden mentioned not having tried Logfire - he is using HTTP/OTel into Grafana directly, which works fine. Telegram was chosen over WhatsApp for ease of bot creation: in Telegram you ask BotFather for a token and you have a bot in minutes.
 
@@ -155,6 +160,28 @@ Key features:
 
 Modular layout separates the core agent, knowledge documents, Streamlit UI, observability wrappers, and a notebook-first evaluation pipeline. The agent follows a 5-step workflow (intent detection, tool selection, grounded context build, answer generation with citations, metadata return for tracing) backed by a ChromaDB vector store over three Nepal-specific cyber law and awareness documents. Submission scored 32 on the platform.
 
+### SnapSplit (James Watkins)
+
+Repo: https://github.com/jimmy3142/ai-engineering-buildcamp-submission[^4]
+
+An AI-powered receipt splitting app. The user uploads a photo of a restaurant bill, a Vision model extracts the line items, each person claims what they ordered, and the app calculates who owes what (including shared service charge).
+
+Tech stack: FastAPI, PostgreSQL, OpenAI gpt-4.1-mini, pydantic-ai agent, Marimo interactive UI.
+
+The core of the app is a pydantic-ai agent (receipt-reconciliation) that orchestrates extraction and verification through four tools:
+
+- extract_items - sends the receipt image to OpenAI's Vision model (gpt-4.1-mini) using structured outputs (ExtractionResult). The model returns typed line items (name, price, quantity) plus subtotal, tax, service charge, and total.
+- check_totals - verifies receipt arithmetic. It tries two interpretations: tax-additive (items + service charge + tax = total) and tax-inclusive (items + service charge = total, tax is informational). If neither matches within a £0.01 tolerance, it builds a diagnostic hint that includes the items and prices from the first extraction, the computed vs expected total, and the size of the discrepancy. If the discrepancy exactly matches the price of a specific item, the hint highlights that item - suggesting it may be spurious (if the total is too high) or missing a second instance (if the total is too low). This hint is stored on the agent's dependency context and automatically injected into the re_extract_items prompt, so the vision model knows exactly where the first pass went wrong and what to look more carefully at.
+- re_extract_items - called when check_totals finds a mismatch. It re-runs OCR with the diagnostic hint injected into the prompt (e.g. "previous extraction totalled £45.20 but receipt says £43.20, discrepancy of £2.00 - check for 0/8 digit confusion on thermal receipts"). This uses a more powerful model (gpt-5.2) and higher image detail for the second pass. Limited to 1 re-extraction to prevent loops.
+- flag_for_human - escalates to human review when extraction fails, no items are found, or totals still do not match after re-extraction.
+
+The agent follows a strict protocol: extract, verify, (if mismatch) re-extract with hint, verify again, (if still wrong) flag for human. Guard rails prevent infinite loops: check_totals is capped at 2 calls and re_extract_items at 1.
+
+Evaluation:
+
+- OCR eval (precision / recall / F1) against 9 annotated receipts
+- LLM-as-a-Judge evaluation across 9 criteria covering completeness, price accuracy, and agent behaviour
+
 ### AMR Awareness Platform (Juan Prim)
 
 Repo: https://github.com/juanpprim/amr_ai[^2]
@@ -195,3 +222,4 @@ Built on the pydantic-ai Agent abstraction with a single gpt-4o-mini model, two 
 [^1]: [Demo day video on YouTube](https://www.youtube.com/watch?v=4k_3vOINbgM) and [20260424_183801_AlexeyDTC_msg3641.md](../inbox/used/20260424_183801_AlexeyDTC_msg3641.md), [20260424_183909_AlexeyDTC_msg3643_transcript.txt](../inbox/used/20260424_183909_AlexeyDTC_msg3643_transcript.txt)
 [^2]: [Course management projects page](https://courses.datatalks.club/ai-buildcamp-2/projects)
 [^3]: Project link shared in [20260424_183801_AlexeyDTC_msg3641.md](../inbox/used/20260424_183801_AlexeyDTC_msg3641.md) (not submitted via the course platform)
+[^4]: Additional project submission details shared in [20260424_184400_AlexeyDTC_msg3648.md](../inbox/used/20260424_184400_AlexeyDTC_msg3648.md) with placement instruction in [20260424_185019_AlexeyDTC_msg3651.md](../inbox/used/20260424_185019_AlexeyDTC_msg3651.md)
