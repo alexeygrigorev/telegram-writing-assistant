@@ -13,6 +13,7 @@ The canonical structure lives at [_plan.md](_plan.md). Copy it to `{person-name}
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [How to Use Your Plan](how-to-use-plans.md) | draft | 2026-04-27 | Shareable note for plan recipients: where the plan came from, first step for the member, plan is a flexible guideline not a contract |
 | [Vancesca Dinh](vancesca-dinh.md) | draft | 2026-04-27 | Job-searching, wants second end-to-end portfolio project, AWS deployment, agent evaluation, DTC community contribution, 20 hrs/week. Alexey's plan: pick from DTC hackathon project issues, AWS Lambda + Python |
 | [Carlos Pumar](carlos-pumar.md) | draft | 2026-04-27 | Economist at German Savings Banks, planning a personal agent for small and medium enterprises (reading manual notes, DB queries). Alexey's plan: tighten the first-version scope, split ingestion/query work, and turn it into a 6-week build plan |
 | [Jakob Zischka](jakob-zischka.md) | draft | 2026-04-23 | Transition from AI observer to builder, needs clear short-term goals, 10-20 hrs/week. Apr 23 1x1 with Alexey: concrete 6-week plan (Python course + AI Hero + build a small AI project), accountability via community channel |
