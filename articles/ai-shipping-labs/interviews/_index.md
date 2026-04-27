@@ -8,6 +8,7 @@ When new interview content comes in (a call transcript, written answers, or surv
 
 | Person | Persona | Last Updated | Description |
 |--------|---------|--------------|-------------|
+| [Juan Perez Prim](juan-perez-prim.md) | Undetermined | 2026-04-27 | Public project amr_ai (GenAI learning via quizzes/lectures/flashcards), interested in AI coding/TDD/architecture/scalability and long-running agents |
 | [Daniel Ibáñez](daniel-ibanez.md) | Undetermined | 2026-04-20 | Wants a roadmap for AI Engineering and sharing best practices across scenarios |
 | [Anonymous AI Shipping Labs Participant (April 2026)](anonymous-participant-april.md) | Priya | 2026-04-20 | Practice-first courses, harness engineering for coding agents, testing/evaluation, building own CLI coding agent |
 | [Vancesca Dinh](vancesca-dinh.md) | Alex | 2026-04-20 | Job-searching, portfolio project, AWS deployment, agent evaluation, DataTalks community contribution |

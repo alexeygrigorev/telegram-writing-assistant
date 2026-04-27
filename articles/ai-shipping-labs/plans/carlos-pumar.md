@@ -1,7 +1,7 @@
 ---
 title: "Plan: Carlos Pumar"
 created: 2026-04-20
-updated: 2026-04-23
+updated: 2026-04-27
 tags: [ai-shipping-labs, plan, community]
 status: draft
 ---
@@ -12,7 +12,7 @@ Internal working document. Share only the `Summary` and `Plan` sections with the
 
 ## Summary
 
-- Current situation: Economist at the German Savings Banks with a fairly concrete project idea already in mind: a personal agent for SMEs that turns manual financial notes into structured data and answers business questions from that data.
+- Current situation: Economist at the German Savings Banks with a fairly concrete project idea already in mind: a personal agent for small and medium enterprises (SMEs) that turns manual financial notes into structured data and answers business questions from that data.
 - Goal for the next 6 weeks: turn the idea into a scoped build plan and a first working prototype rather than another loose concept.
 - Main gap to close: structure. The idea is promising, but it needs a clearer engineering sequence and a tighter project outline.
 - Weekly time commitment: not explicitly stated; this should be treated as a tight 6-week sprint.

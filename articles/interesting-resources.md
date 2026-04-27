@@ -1,7 +1,7 @@
 ---
 title: "Interesting Resources"
 created: 2026-01-31
-updated: 2026-04-20
+updated: 2026-04-27
 tags: [resources, tools, ai, development]
 status: draft
 ---
@@ -40,6 +40,10 @@ Each resource entry follows this simple format:
 
 [DeepTutor](https://github.com/HKUDS/DeepTutor) is an open-source AI tutoring assistant that turns your documents into an interactive learning environment. It combines RAG-powered knowledge bases with multiple learning modes - chat, guided learning journeys, quiz generation, deep research, and an AI co-writer - all sharing the same conversation context. It also supports persistent "TutorBots" that remember your learning history and evolve over time[^45].
 
+### Tech Debt Audit
+
+[Tech Debt Audit](https://github.com/ksimback/tech-debt-skill) is a Claude Code skill that produces a thorough, file-cited tech debt audit of an entire codebase rather than a generic best-practices checklist. It runs a three-phase protocol - orient, audit across nine dimensions, deliver - with required file:line citations on every finding and a "looks bad but is actually fine" section that catches shallow analysis. The output is a persistent TECH_DEBT_AUDIT.md artifact you can commit and re-run, with resolved findings tracked over time[^51].
+
 ## Resources
 
 ## Project ideas
@@ -57,6 +61,10 @@ Add project ideas here.
 ### Code Review Graph
 
 [Code Review Graph](https://github.com/tirth8205/code-review-graph) is an MCP-based tool that builds a local knowledge graph of your codebase so AI coding assistants read only what matters during code reviews. It uses Tree-sitter to parse your code into a structural map of functions, classes, imports, and their relationships, then performs blast-radius analysis on changes to identify the minimal set of affected files. The tool supports 19 languages, updates incrementally in under 2 seconds, and benchmarks show an average 8.2x token reduction compared to naive full-file reads[^44].
+
+### Coding Challenges
+
+[Coding Challenges](https://codingchallenges.substack.com/) is a weekly newsletter by John Crickett that publishes hands-on project challenges designed to help software engineers level up by building real-world tools. Each issue walks through rebuilding well-known software from scratch - things like awk, gzip, Docker, an ebook reader, a Loom clone, or AI agents and coding assistants - giving you a concrete, scoped project to practice on. With over 92,000 subscribers and 100+ challenges in the archive, it is a great source of project ideas for anyone who learns best by doing[^50].
 
 ### Automated GTM Pipeline
 
@@ -114,3 +122,5 @@ Add project ideas here.
 [^47]: [https://www.linkedin.com/posts/lennyrachitsky_announcing-the-winners-of-the-lennysdatacom-share-7450274416166608896-ayJf](https://www.linkedin.com/posts/lennyrachitsky_announcing-the-winners-of-the-lennysdatacom-share-7450274416166608896-ayJf) via [20260415_210715_valeriia_kuka_msg3411.md](../inbox/used/20260415_210715_valeriia_kuka_msg3411.md)
 [^48]: [20260418_173643_AlexeyDTC_msg3435.md](../inbox/used/20260418_173643_AlexeyDTC_msg3435.md)
 [^49]: [20260418_142745_AlexeyDTC_msg3431.md](../inbox/used/20260418_142745_AlexeyDTC_msg3431.md)
+[^50]: [https://codingchallenges.substack.com/](https://codingchallenges.substack.com/) via [20260425_113814_AlexeyDTC_msg3665.md](../inbox/used/20260425_113814_AlexeyDTC_msg3665.md)
+[^51]: [https://github.com/ksimback/tech-debt-skill](https://github.com/ksimback/tech-debt-skill) via [20260426_121424_AlexeyDTC_msg3667.md](../inbox/used/20260426_121424_AlexeyDTC_msg3667.md)

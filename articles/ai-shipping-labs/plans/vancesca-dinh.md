@@ -1,7 +1,7 @@
 ---
 title: "Plan: Vancesca Dinh"
 created: 2026-04-20
-updated: 2026-04-23
+updated: 2026-04-27
 tags: [ai-shipping-labs, plan, community]
 status: draft
 ---
@@ -63,12 +63,6 @@ Week 6:
 - DataTalks.Club hackathon issue list - gives Vancesca ready-made problems instead of a blank ideation step.
 - [AI Engineering Field Guide](../../ai-engineering-field-guide.md) - useful for checking which kinds of portfolio projects map well to target roles.
 - Project-idea brainstorming prompt: https://gist.github.com/alexeygrigorev/c1c8dc3ece5cba91e1e381eeba2706c1
-
-Recommended starting shortlist:
-
-- `#96` Build a chatbot that answers questions about any podcast episode
-- `#90` Automate Slack discussions to website FAQ sync
-- `#87` Podcast key takeaways section
 
 ### Deliverables
 

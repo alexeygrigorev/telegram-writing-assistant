@@ -1,7 +1,7 @@
 ---
 title: "AI Shipping Labs Community Activities"
 created: 2026-02-10
-updated: 2026-04-10
+updated: 2026-04-27
 tags: [community, activities, mentoring, accountability, ai-shipping-labs]
 status: draft
 ---
@@ -41,6 +41,18 @@ This can happen once a week. The question is who can lead these - ideally Valeri
 ### Events calendar
 
 The goal is to have a proper platform where people can see materials, have a calendar with events, and understand what activities are available and what is planned. People should be able to see a schedule and know what to expect[^86].
+
+### Office Hours tied to LLM Zoomcamp
+
+LLM Zoomcamp starts soon, and both people I talked to on Friday want to take it. The idea: do something inside AI Shipping Labs similar to what I did on Maven - office hours and so on - but only for AI Shipping Labs members[^95].
+
+When LLM Zoomcamp starts, the framing would be: "There's a new community focused on AI, and our course is about AI. If you want to support me and support this course, you can join the community. If it's not for you, the course stays free, but if you want to support us, join the community"[^95].
+
+By that time the Maven course should be finishing or close to finishing, so the office hours can be run personally for AI Shipping Labs subscribers[^95].
+
+### Group course study in autumn
+
+In the autumn we can find another course - not necessarily my own, maybe an open course from somewhere - and announce that we're going through it together. There are a lot of different courses I would also find interesting, and we can just go through them together[^96].
 
 ## Accountability and Mentoring
 
@@ -228,3 +240,5 @@ In a private community, these kinds of discussions can happen more freely. The p
 [^92]: [20260410_095445_AlexeyDTC_msg3336_transcript.txt](../../inbox/used/20260410_095445_AlexeyDTC_msg3336_transcript.txt)
 [^93]: [20260410_095445_AlexeyDTC_msg3337_transcript.txt](../../inbox/used/20260410_095445_AlexeyDTC_msg3337_transcript.txt)
 [^94]: [20260410_095445_AlexeyDTC_msg3338_transcript.txt](../../inbox/used/20260410_095445_AlexeyDTC_msg3338_transcript.txt)
+[^95]: [20260427_091223_AlexeyDTC_msg3677_transcript.txt](../../inbox/used/20260427_091223_AlexeyDTC_msg3677_transcript.txt)
+[^96]: [20260427_091223_AlexeyDTC_msg3678_transcript.txt](../../inbox/used/20260427_091223_AlexeyDTC_msg3678_transcript.txt)

@@ -51,13 +51,13 @@ Articles about the AI Shipping Labs paid community: vision, activities, courses,
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Activities](ai-shipping-labs/activities.md) | draft | 2026-04-27 | Regular sessions, accountability circles, mentoring, career development, knowledge sharing, member onboarding, Office Hours tied to LLM Zoomcamp, group course study in autumn |
+| [Course Ideas](ai-shipping-labs/courses.md) | draft | 2026-04-27 | Spec-Driven Dev, Refactoring AI Slop, Python, Data Engineering, CloudCode, testing, DevOps, DDD module, Build Docker from scratch workshop |
+| [Personalised Plans](ai-shipping-labs/plans/_index.md) | draft | 2026-04-27 | Personalised plans with Alexey's recommendations: Edu Gonzalo Almorox, Grace, Vancesca Dinh, Carlos Pumar, Jakob Zischka, Nirajan Acharya. Vancesca and Carlos plans refined per feedback |
+| [Individual Interviews](ai-shipping-labs/interviews/_index.md) | draft | 2026-04-27 | One file per participant with persona assignment: Juan Perez Prim, Daniel Ibáñez, Jakob Zischka, Vancesca Dinh, Brad Smith, Leonor, and others |
 | [Marketing and Content Strategy](ai-shipping-labs/marketing-and-content.md) | draft | 2026-04-24 | Marketing channels, funnel, lead magnets, content strategy, Lenny's inspiration, Paul Iusztin's Decoding AI newsletter as a model for naturally slotting course ads into free-newsletter content, overview articles that funnel into the community by keeping specifics (GitHub template, prompts, workshops, workflows) inside AI Shipping Labs |
 | [Community Observations](ai-shipping-labs/community-observations.md) | draft | 2026-04-24 | Cross-member patterns: perfectionism / needing to understand everything, no clear picture of the role, idea for a Lightning Lesson on the depth of skills needed |
-| [Personalised Plans](ai-shipping-labs/plans/_index.md) | draft | 2026-04-23 | Personalised plans with Alexey's recommendations: Edu Gonzalo Almorox, Grace, Vancesca Dinh, Carlos Pumar, Jakob Zischka, Nirajan Acharya. Template refreshed with shareable 6-week plans and internal context sections |
 | [User Interviews (overview)](ai-shipping-labs/user-interviews.md) | draft | 2026-04-20 | Overview of the user interview effort, outreach status, and plan tracking. Individual interviews live in interviews/ folder |
-| [Individual Interviews](ai-shipping-labs/interviews/_index.md) | draft | 2026-04-20 | One file per participant with persona assignment: Daniel Ibáñez, Jakob Zischka, Vancesca Dinh, Brad Smith, Leonor, and others |
-| [Course Ideas](ai-shipping-labs/courses.md) | draft | 2026-04-15 | Spec-Driven Dev, Refactoring AI Slop, Python, Data Engineering, CloudCode, testing, DevOps, DDD module |
-| [Activities](ai-shipping-labs/activities.md) | draft | 2026-04-10 | Regular sessions, accountability circles, mentoring, career development, knowledge sharing, member onboarding |
 | [How We Built AI Shipping Labs](ai-shipping-labs/how-we-built-it.md) | draft | 2026-04-07 | Valeriia's V0 website build story, MVP philosophy, hosting journey, agent-built Django platform |
 | [Launch Announcement](ai-shipping-labs/launch-announcement.md) | draft | 2026-04-07 | Newsletter article: community announcement, activities, tiers, early member benefits |
 | [Platform Ideas](ai-shipping-labs/platform-ideas.md) | draft | 2026-04-07 | Business case simulator, career help tools, data collection, cross-linking tools/concepts |
@@ -83,6 +83,7 @@ Recorded ideas without much detail. Just the idea itself, useful for not forgett
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [DataTalks.Club Platform Idea](ideas/data-talks-club-platform.md) | draft | 2026-04-27 | Idea to build (or copy AI Shipping Labs' platform for) a custom DataTalks.Club site with on-site events, registration, follow-up summary emails, calendar, and integrated course management. Revisit in ~3 months, possibly for ML Zoomcamp in September |
 | [Project Approach Reference Doc](ideas/project-approach-reference-doc.md) | draft | 2026-04-22 | Reusable doc for "take my project to production" requests from AI Shipping Labs members - pick one project, describe current + target state, ship end-to-end, metrics from business goals |
 | [Social Post Ideas](ideas/social-post-ideas.md) | draft | 2026-03-12 | Curated social media content ideas and inspiration |
 | [Python Primer Course Idea](ideas/python-primer-course-idea.md) | draft | 2026-03-05 | Paid Python prerequisite course for AI Engineering and Zoomcamps - "Python for AI Engineering" with podcast aggregator project |
@@ -111,11 +112,12 @@ Files at the articles root that don't fit into the above categories.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [OpenClaw Experiments](openclaw-experiments.md) | draft | 2026-04-24 | Testing the OpenClaw bootstrap flow (CLI and Telegram), including WhisperX install, ahead of an AI Shipping Labs group session |
+| [Interesting Resources](interesting-resources.md) | draft | 2026-04-27 | Curated collection of tools, resources, and project ideas for the newsletter: added Tech Debt Audit and Coding Challenges newsletter |
 | [AI Engineering Buildcamp Cohort 2 - Demo Day](demo-day-cohort-2.md) | draft | 2026-04-24 | Capstone projects from Cohort 2 demo: Edu's bikepacking recommender, Pablo's family meal-map, Camila's engineering decision memory agent, Ladden's voice-to-issue Telegram bot (with cloud deployment and Presidio PII scrubbing detail), Spiros' offline medical SOAP notes; plus submitted-but-not-presented projects from Nirajan (Cyber Sachet/Nepal), James Watkins (SnapSplit receipt splitter), Juan Prim (AMR), and LEMTideman (AI regulation assistant) |
 | [Weekly Log](weekly-log.md) | draft | 2026-04-24 | Running log of weekly activities; added weeks of 2026-04-13 (PyConDE Darmstadt, interviews, Buildcamp launch, cohort 2 demo, coding agent workshop) and 2026-04-20 (first AI Shipping Labs workshop on Telepot agents, site newsletter + workshop publishing, office hours, 4 onboarding calls, May sprint prep) |
 | [Community Session Ideas](community-session-ideas.md) | draft | 2026-04-24 | Session ideas proposed by AI Shipping Labs members: "how to pitch your idea" Toastmasters-style session, group-learning/mastermind format, cross-cultural feedback note (Americans silent, Israelis/Germans direct), process for recording ideas without committing to all |
 | [Coming Up with Project Ideas](coming-up-with-project-ideas.md) | draft | 2026-04-23 | Reframed as recurring conversation across workshops/AI Shipping Labs/course students, three project types as a list with overlap, cap-the-time general rule with tech-learning combo, mermaid flowchart for portfolio workflow, Buildcamp cohort 1 demo day examples (cybersecurity, client satisfaction, habit builder, email agent), personal projects section with Alexey's Substack write-ups (dirdotenv, ssh-auto-forward, nobook, microboost, bot master, telegram assistant) |
-| [Interesting Resources](interesting-resources.md) | draft | 2026-04-20 | Curated collection of tools, resources, and project ideas for the newsletter |
 | [Deterministic Coding with Agent Teams](litehive.md) | draft | 2026-04-10 | litehive file-based task manager, tmuxctl, GoZ engine, self-writing system, recovery agent, multiple engines, usage quota tracking, stale agent killing, self-improving tools |
 | [AI Engineering Buildcamp Course Announcement](ai-buildcamp-course-announcement.md) | draft | 2026-04-06 | Course announcement: syllabus, projects, homework agents, capstone progression, hands-on focus |
 | [AI Engineering Field Guide](ai-engineering-field-guide.md) | draft | 2026-03-27 | Job listing pipeline for AI Engineer roles - scraping, deduplication, LLM enrichment |

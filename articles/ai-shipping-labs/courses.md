@@ -1,7 +1,7 @@
 ---
 title: "AI Shipping Labs Course Ideas"
 created: 2026-02-12
-updated: 2026-04-15
+updated: 2026-04-27
 tags: [courses, community, ai-shipping-labs, ideas]
 status: draft
 ---
@@ -93,6 +93,10 @@ Want to create a course about CloudCode and AI Assistant Development as a supple
 - Less structured but very practical content
 - Sharing experience and knowledge with community members[^10]
 
+## Build Docker from scratch workshop
+
+Workshop idea: build Docker from scratch. Inspired by a [tweet from John Crickett](https://x.com/johncrickett/status/2047694453733773472)[^12].
+
 ## Testing workshop
 
 There is not much content available on testing, so want to create a mini-course on testing with focus on Python. Topics would include:
@@ -126,3 +130,4 @@ The plan is to have at least one big course on Maven (if time permits), while th
 [^9]: [20260212_071140_AlexeyDTC_msg1471_transcript.txt](../../inbox/used/20260212_071140_AlexeyDTC_msg1471_transcript.txt)
 [^10]: [20260212_095052_AlexeyDTC_msg1487_transcript.txt](../../inbox/used/20260212_095052_AlexeyDTC_msg1487_transcript.txt)
 [^11]: [20260415_105059_AlexeyDTC_msg3397.md](../../inbox/used/20260415_105059_AlexeyDTC_msg3397.md)
+[^12]: [20260425_113656_AlexeyDTC_msg3663.md](../../inbox/used/20260425_113656_AlexeyDTC_msg3663.md)
