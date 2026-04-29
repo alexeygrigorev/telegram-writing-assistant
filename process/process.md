@@ -149,6 +149,47 @@ You MUST:
 4. Update sources in both articles
 5. Do this immediately, not as a follow-up correction
 
+# AGENT COMMANDS INSIDE VOICE MESSAGES
+
+Some messages contain side-instructions to the agent that look like recommendations but are actually commands. The classic example is the user telling the agent to go look at something locally and bring back information from there. These commands MUST be executed during processing, and they must NEVER appear in user-facing content (plans, articles, recommendations, weekly log, etc.).
+
+## Where the local files live
+
+The user's local code lives under `/home/alexey/git/`. When the user says "go to the git folder", "look in git", "пойди в папку гид", "иди в папку", or names a specific subfolder ("there's a folder v2", "look at the capstone files", etc.), they mean a path under `/home/alexey/git/`. Resolve the path against that root before doing anything else.
+
+## Identifying these commands
+
+Look for phrases (Russian or English) of the shape "go look at X / pull data from X / read the file Y / copy the prompts from Z". They typically appear in the middle of a voice note that is otherwise about something else (a plan, an article, a project), framed as an aside to the agent. Common Russian phrasings:
+
+- "пойди в папку гид"
+- "посмотри файлы в папке X"
+- "это для агента / комментарии для агента"
+- "скопируй оттуда"
+- "возьми данные из папки X"
+
+These are NOT recommendations to a human reader and NOT content to transcribe.
+
+## Processing these commands
+
+When you encounter one:
+
+1. Treat it as a direct action item. Execute it during processing - read the referenced files, extract whatever the user asked for, and bring the result back into the relevant article inline.
+2. The user-facing output (the plan, the article, etc.) must contain the RESULT, not the instruction. For example, if the user says "go to v2 and copy the per-week prompts", the plan should contain the actual prompts inline - not a sentence telling the reader to "open the v2 folder".
+3. Do not paraphrase the command into a recommendation either. Phrases like "use the capstone files as a structural template" are a leakage of the agent command into shared content. Drop them.
+4. The transcript message that contained the command is still a valid source - cite it the same way as any other transcript.
+5. If you cannot execute the command (the path does not exist, the file is empty, etc.), say so explicitly in the processing log and ask the user; do not silently fall back to recommending the path to the reader.
+
+## Example
+
+If the user says: "go please to the git folder, there's a folder v2, in this folder there are files called 'capstone' for each week, copy the prompts from there into the plan"
+
+You MUST:
+1. Open `/home/alexey/git/ai-engineering-buildcamp/v2/{module}/homework/02-capstone.md` for each module
+2. Extract the relevant prompts
+3. Embed the prompts directly in the plan, week by week
+4. Cite the transcript that contained the command as a source
+5. NOT write "open the v2 capstone files" anywhere in the user-facing plan
+
 # PROCESSING WORKFLOW
 
 ## Step 1: Read Everything
