@@ -12,127 +12,134 @@ Internal working document. Share only the `Summary` and `Plan` sections with the
 
 ## Summary
 
-- Current situation: Vishnu already has a very concrete project plan and clear intent. The remaining work is execution rather than ideation.
-- Goal for the next 6 weeks: break the existing plan into weekly milestones and ship a strong demo by the end of the sprint.
-- Main gap to close: structure (weekly breakdown) and a coding-assistant workflow that keeps focus through 6-10 hours per week.
-- Weekly time commitment: 6-10 hours per week, which is enough to finish a solid demo inside the 6-week sprint.
-- Why this plan is the right next step: he does not need help inventing what to build - he needs a weekly cadence, the right tooling, and a few quick wins early on to keep momentum.
+- Current situation: Vishnu has already built the V1 of a multi-agent Medicare plan recommender (5 agents plus a router, Python with Pydantic, DuckDB, Streamlit, and the Anthropic SDK, deliberately no agent framework). The architecture is fixed; the remaining V1 work is verification, evaluation logging, and a testing guide.
+- Goal for the next 6 weeks: ship V1 on synthetic data inside the first two weeks as the quick win, then bring V2 (real CMS Landscape data) close to a demoable state by week 6.
+- Main gap to close: weekly cadence and momentum, not architecture. Vishnu named "maintaining momentum" and "tech stack choice" as his recurring challenges.
+- Weekly time commitment: 6-10 hours per week, which is enough for a strong demo by week 6 if the time is steady.
+- Why this plan is the right next step: he already has a concrete, well-scoped project with V1 nearly done. The leverage is structure (a week-by-week split of his existing plan), one coding assistant used aggressively, and an early end-to-end win to keep momentum through the rest of the sprint.
 
 ## Plan
 
 ### Focus
 
-- Main focus: take the project Vishnu already described in the intake and turn it into a weekly sequence of small, shippable steps.
-- Supporting focus: pick one coding assistant and use it consistently to maintain focus and offload routine work.
+- Main focus: ship V1 in the first 2 weeks, then deliver a demoable V2 with CMS data by week 6.
+- Supporting focus: pick one coding assistant and use it consistently as a focus and momentum tool, not just a code generator.
 
 ### Timeline
 
-The project Vishnu has in mind can be built either as an agentic system or as a plain LLM call against the OpenAI or Anthropic SDK. Either is fine - the agentic flavour is not required.
-
 Week 1:
 
-- Pick a coding assistant and commit to it. Codex if Vishnu has a ChatGPT subscription; Claude Code if he is already using it. Any one of them is fine - the workflow matters more than the choice.
-- Take the existing concrete plan from the intake and split it into 5-6 weekly goals. Each week should be small enough that it can plausibly be finished in 6-10 hours.
+- Pick one coding assistant and commit to a paid plan that fits 6-10 hours per week. Codex is a natural fit if there is already a ChatGPT subscription; Claude Code is fine if it is already in the workflow. Free tiers should be avoided - hitting limits mid-session breaks the flow.
+- Lock the V1 finishing list so the next week is unambiguous: end-to-end verification, evaluation logging that captures each agent's input and output, and the testing guide with the pre-written scenarios.
+- Stay on this one project. Do not start anything new until V1 is shipped.
 
 Week 2:
 
-- Build the first end-to-end version of the project. It should be simple - one input path, one output path, no agentic pieces yet.
-- The goal for this week is a quick win: something that runs end-to-end, even if it is rough. Quick wins early are what keep motivation going across the rest of the sprint.
+- Ship V1 end-to-end on synthetic data: final verification pass, evaluation logging in place, and the testing guide ready for testers.
+- Cut a tagged release and push the repo public on GitHub. The point this week is a visible quick win - everything from intake to audit working on a clean run.
+- Treat this milestone as the motivation anchor for the rest of the sprint.
 
 Week 3:
 
-- Iterate on the first version. If the project will use RAG, add the search piece. If it will stay pure prompt, tighten the prompt and the data.
-- Use the coding assistant aggressively here - let it handle boilerplate so Vishnu can stay focused on the parts that actually matter.
+- Start V2: download the CMS Landscape file, load it into DuckDB, and define the Pydantic contract that lets V1 swap synthetic for real data without touching the agents.
+- Run the existing V1 pipeline against a small slice of CMS data to confirm the contract holds and the Matcher's SQL/scoring rules still produce sensible outputs.
 
 Week 4:
 
-- Add the next layer planned for the project. If the plan calls for an agentic shape, this is the week to introduce it (tools, simple tool-calling loop). Otherwise keep building features on top of the LLM-only version.
-- Cross-check progress against the original concrete plan and drop or defer anything that does not fit in the time left.
+- Scale up the V2 data: full plan catalog, real plan attributes, and the messy edge cases that synthetic data did not have (missing fields, inconsistent formatting, larger result sets).
+- Tighten the Matcher agent: budget fit, drug coverage, star rating, network size, deductible. Update the rules and the SQL so they hold against real numbers.
+- Lean on the coding assistant for the boilerplate parts (data loading, schema mapping, query generation) so attention stays on the rules that actually matter.
 
 Week 5:
 
-- Polish: data handling, prompts, error handling, simple monitoring.
-- Start preparing a short README and a clear "what this does" description for the demo.
+- Tighten the Audit agent's grounding checks against real data. Rule-based checks for budget overruns and uncovered medications should still catch issues; the grounding check should still flag any explanation that drifts from the plan data.
+- Add lightweight monitoring/logging so failures are visible and the evaluation log from week 2 starts producing real signal once a few people use the system.
+- Run V2 against the testing-guide scenarios and fix the worst failures.
 
 Week 6:
 
-- Wrap up the project to a state where it can be demoed. Working deploy or running locally is fine; the bar is "someone can see it work."
-- Record or write up the demo so it can be shared inside the community.
+- Wrap V2 to a state where it can be demoed - locally is fine, a small public deploy (Streamlit Community Cloud, a small VM, or similar) is better.
+- Update the README, add a short walkthrough or recording, and decide what the next iteration looks like (more plan attributes, deeper evaluation, or a production-grade deploy).
 
 ### Project approach
 
-A few principles to keep in mind across the whole sprint, since Vishnu already has a project idea and the goal is to finish it rather than to choose one:
+Additional material - principles for taking a project to a demoable end-to-end state. Vishnu is already doing several of these; treat this as a checklist, not a rebuild:
 
-- Pick one project and stay on it. Do not spread across multiple parallel experiments - the demo bar at week 6 is much easier to clear with one focused project than with several half-finished ones.
-- Frame the work as "current state to target state". Describe where the project is right now and where it should be by week 6. The weekly plan is the delta between those two.
-- Ship end to end early. Even a rough end-to-end version (input, processing, output) by week 2 beats a polished single piece. Add CI/CD, a small cloud deploy (AWS Lambda is a good first target), and Docker once the core flow works.
-- Let evaluation follow from real users and business goals. Pick AI metrics that map onto a real outcome the project should affect, not generic benchmark numbers.
-- Treat deployment, monitoring, and iteration as part of building - not as separate things to study afterwards. They happen when the project is shipped.
+- One project at a time. The 6-week demo bar is much easier to clear when nothing competes for attention. Avoid starting anything new until V2 ships.
+- Frame the work as current state to target state. Where the project is right now (V1 nearly done) and where it should be by week 6 (V2 demoable). The weekly plan is the delta between those two.
+- Ship end to end early. V1 in week 2 is the quick win; V2 grows on top of it. Iterations on top of a working system always beat half-finished new layers.
+- Let evaluation follow business goals. The metrics that matter are "the user finds a plan that fits", "the explanation does not contradict the plan data", "the audit catches budget and coverage issues" - not generic AI benchmarks. The evaluation log from V1 should be shaped around those.
+- Treat deployment, monitoring, and iteration as part of building, not separate phases. The small Streamlit deploy in week 6 is what lets real users (or stand-ins) generate the next list of issues to fix.
 
 ### Resources
 
-- Coding assistant of choice (Codex or Claude Code). If Vishnu has a ChatGPT subscription, Codex is the cheapest entry point. Free tiers should be avoided - hitting limits mid-session breaks the flow.
-- OpenAI SDK or Anthropic SDK - either is enough for this project. No agent framework is required unless the project specifically calls for it.
+- Coding assistant of choice (Codex or Claude Code). With a ChatGPT subscription, Codex is the cheapest entry. If Claude Code is already in the workflow, stay there. Avoid free tiers.
+- Anthropic SDK (already in use) - no agent framework needed; the architecture Vishnu has chosen is the right shape for this project.
+- DuckDB and Pydantic for the data layer; Streamlit for the chat surface (already in use).
+- CMS Landscape file (free, CSV) for the V2 data swap.
+- Zoomcamp material already on hand for any RAG or agent patterns that come up later.
 
 ### Deliverables
 
-- A weekly breakdown of the existing concrete plan into 5-6 small, shippable goals.
-- One project shipped end-to-end by week 6 with a short README and a runnable demo.
-- A clear early-week win (week 2) so motivation stays through the rest of the sprint.
+- V1 shipped end-to-end on synthetic data with verification, evaluation logging, and a testing guide - by end of week 2.
+- V2 running on real CMS data with the Matcher and Audit agents validated against real plans - by end of week 5.
+- A demoable V2 with a short README and walkthrough - by end of week 6.
 
 ### Accountability
 
-- Keep weekly effort in the 6-10 hour band so the 6-week plan stays finishable and consistent.
-- Aim for one demoable project, not several parallel experiments.
-- Use the coding assistant heavily; it doubles as a focus tool, not just a code generator.
+- Weekly check-in: what shipped, what is blocked, what is the goal for the next week. Vishnu named "minor goals plus check-ins" as the accountability format that works for him; the weekly cadence here matches that.
+- Keep effort steady at 6-10 hours per week. The plan does not need more; what it needs is consistency.
+- One project. Do not let a "next idea" pull attention until V2 is demoable.
 
 ### Next Steps
 
 - [ ] [Vishnu] Pick a coding assistant (Codex or Claude Code) and confirm a paid plan that fits 6-10 hours per week.
-- [ ] [Vishnu] Split the existing concrete plan from the intake into 5-6 weekly goals.
-- [ ] [Vishnu] Ship a week-2 quick win: a rough end-to-end version of the project.
+- [ ] [Vishnu] Lock the V1 finishing list (end-to-end verification, evaluation logging, testing guide) and ship V1 by end of week 2.
+- [ ] [Vishnu] Download the CMS Landscape file and prepare the Pydantic contract for the V2 data swap by end of week 3.
 - [ ] [Alexey] Send the written plan.
 
 ## Internal Context
 
 ### Persona
 
-Undetermined. The voice note focuses on execution and time commitment but does not provide enough background to pick a persona confidently. Update once the intake doc is read.
+Alex - The Engineer Transitioning to AI. He has solid engineering skills (built a 5-agent system from scratch in Python with Pydantic, DuckDB, Streamlit, and no agent framework) and is building AI-specific muscle on top. His stated gaps - momentum and tech-stack confidence - are classic Alex.
 
 See [personas.md](../personas.md) for full persona definitions.
 
 ### Background
 
-Vishnu's input is collected in the Google Doc shared in the inbox[^1]. He has a very concrete project plan already and 6-10 hours per week to spend on it - enough for a serious demo by the end of a 6-week sprint, especially if he stays focused and leans on a coding assistant.
+Vishnu started this Medicare plan recommender as part of the Maven Buildcamp and has been carrying it forward alongside a full-time job. The architecture is fixed for V1: 5 specialised agents (Intake, Clarifier, Matcher, Explainer, Audit) plus a Router, sharing Pydantic data contracts. Tech stack is Python, Pydantic, DuckDB, Streamlit, and Anthropic Claude, deliberately no agent framework and no embeddings/vector search. V1 runs on synthetic data; V2 swaps in the CMS Landscape file behind the same Pydantic contract.
+
+He has 6-10 hours per week to spend on it. His stated targets are V1 in 2 weeks and V2 within the following 6 weeks (if the sprint is 10-12 weeks). The plan above maps that into a 6-week window. He named "maintaining momentum" and "tech stack choice" as his recurring challenges and "minor goals plus check-ins" as the accountability format that works for him[^1].
 
 The plan number in the inbox marks this as the 9th personalised plan in the current batch[^1].
 
 ### Intake
 
-The intake is the Google Doc with Vishnu's input collected ahead of this plan[^1]. The contents of the doc are not duplicated here.
+The intake is the Google Doc with Vishnu's input collected ahead of this plan[^1]. Project description, tech-stack decisions, V1/V2 split, and time commitment all live there.
 
 ### Internal Recommendations
 
 Alexey's recommendation after reviewing Vishnu's input[^2]:
 
-1. Vishnu already has a concrete plan. The job is mainly to break it into weeks and figure out how to implement it - not to redesign anything.
+1. He already has a concrete plan. The job is to break it into weeks and figure out implementation - not to redesign anything.
 
-2. The project can be built as something agentic, but it can equally be done with a plain OpenAI or Anthropic SDK call. Do not force the agentic shape if it is not needed.
+2. The project happens to be agentic, but the same project could be done with a plain OpenAI or Anthropic SDK call against a single prompt. Either is fine. The architecture Vishnu picked is appropriate; do not push him toward a framework.
 
-3. 6-10 hours per week is a lot of time for a 5-6 week sprint. That is enough to build a solid demo by the end of the course, especially if Vishnu stays focused and uses an AI assistant aggressively.
+3. 6-10 hours per week over 6 weeks is enough for a solid demo, especially if he stays focused and uses an AI assistant aggressively.
 
-4. Pick any coding assistant. Codex is a natural fit if he has a ChatGPT subscription; Claude Code is also fine if he already uses it. The point is to pick one and use it maximally - it helps with motivation as much as with productivity.
+4. Pick any coding assistant. Codex if he has a ChatGPT subscription; Claude Code if it is already in the workflow. The point is to commit to one and use it maximally - it doubles as a motivation/focus tool.
 
-5. The goal for the early weeks is to land a few quick wins, so motivation carries through the rest of the sprint.
+5. Aim for quick wins early so motivation carries through the rest of the sprint. Shipping V1 in week 2 is the right anchor.
 
-6. Vishnu already has a project idea, so he does not need help choosing a project - he needs help finishing it. Include the general project approach (pick one, current-to-target, ship end to end, business-driven metrics, deployment as part of building) in the shareable plan as additional material.
+6. He has the project idea, so he does not need help choosing - he needs help finishing it. Include the project-approach principles (one project, current-to-target, ship end to end, business-driven metrics, deployment as part of building) as additional material in the shareable plan.
 
 ### Internal Action Items
 
 - [ ] [Alexey] Send Vishnu the written plan.
-- [ ] [Valeriia] Confirm Vishnu's chosen coding assistant and the first weekly goal so the plan can be sanity-checked early.
+- [ ] [Valeriia] Confirm Vishnu's chosen coding assistant and that V1 is on track for week 2.
 
 ### Sources
 
 [^1]: [Google Doc](https://docs.google.com/document/d/1MLNJl3ku1ApQv5Nq9mJm9B3z_55Q2hyQcc2cHc4Qz5s/edit?usp=sharing) via [20260429_131353_AlexeyDTC_msg3733.md](../../../inbox/used/20260429_131353_AlexeyDTC_msg3733.md)
-[^2]: [20260429_131714_AlexeyDTC_msg3735_transcript.txt](../../../inbox/used/20260429_131714_AlexeyDTC_msg3735_transcript.txt), [20260429_134248_AlexeyDTC_msg3741_transcript.txt](../../../inbox/used/feedback/20260429_134248_AlexeyDTC_msg3741_transcript.txt), [20260429_140504_AlexeyDTC_msg3749_transcript.txt](../../../inbox/used/feedback/20260429_140504_AlexeyDTC_msg3749_transcript.txt)
+[^2]: [20260429_131714_AlexeyDTC_msg3735_transcript.txt](../../../inbox/used/20260429_131714_AlexeyDTC_msg3735_transcript.txt), [20260429_134248_AlexeyDTC_msg3741_transcript.txt](../../../inbox/used/feedback/20260429_134248_AlexeyDTC_msg3741_transcript.txt), [20260429_140504_AlexeyDTC_msg3749_transcript.txt](../../../inbox/used/feedback/20260429_140504_AlexeyDTC_msg3749_transcript.txt), [20260429_141713_AlexeyDTC_msg3755_transcript.txt](../../../inbox/used/feedback/20260429_141713_AlexeyDTC_msg3755_transcript.txt)

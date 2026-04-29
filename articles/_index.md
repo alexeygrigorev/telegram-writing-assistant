@@ -51,7 +51,7 @@ Articles about the AI Shipping Labs paid community: vision, activities, courses,
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
-| [Personalised Plans](ai-shipping-labs/plans/_index.md) | draft | 2026-04-29 | Personalised plans with Alexey's recommendations: Vishnu, Motasem Salem, Kushal Kulshreshtha, Edu Gonzalo Almorox, Grace, Vancesca Dinh, Carlos Pumar, Jakob Zischka, Nirajan Acharya. Plus shareable How to Use Your Plan guideline |
+| [Personalised Plans](ai-shipping-labs/plans/_index.md) | draft | 2026-04-29 | Personalised plans with Alexey's recommendations: Vishnu (rewritten with concrete V1/V2 split for Medicare recommender), Motasem Salem, Kushal Kulshreshtha, Edu Gonzalo Almorox, Grace, Vancesca Dinh, Carlos Pumar, Jakob Zischka, Nirajan Acharya. Plus shareable How to Use Your Plan guideline |
 | [Individual Interviews](ai-shipping-labs/interviews/_index.md) | draft | 2026-04-29 | One file per participant with persona assignment: Koray Can Canut, Juan Perez Prim, Daniel Ibáñez, Jakob Zischka, Vancesca Dinh, Brad Smith, Leonor, and others |
 | [Activities](ai-shipping-labs/activities.md) | draft | 2026-04-27 | Regular sessions, accountability circles, mentoring, career development, knowledge sharing, member onboarding, Office Hours tied to LLM Zoomcamp, group course study in autumn |
 | [Course Ideas](ai-shipping-labs/courses.md) | draft | 2026-04-27 | Spec-Driven Dev, Refactoring AI Slop, Python, Data Engineering, CloudCode, testing, DevOps, DDD module, Build Docker from scratch workshop |
