@@ -1,7 +1,7 @@
 ---
 title: "Community Session Ideas"
 created: 2026-04-24
-updated: 2026-04-24
+updated: 2026-04-29
 tags: [ai-shipping-labs, community, ideas, activities, mastermind]
 status: draft
 ---
@@ -9,6 +9,16 @@ status: draft
 # Community Session Ideas
 
 Session ideas proposed by AI Shipping Labs community members, recorded so they do not get lost. These are not promises - the filter is whether an idea is useful to others and whether we can run it without too much time investment[^4].
+
+## AI Engineer Job-Hunt Topics (Sai Kumar G)
+
+Sai Kumar G - a member of Alexey's AI Engineering cohort on Maven - replied to Valeriia's outreach with the topics he would like to see covered in the community[^5]:
+
+- Recent AI Engineering interview questions
+- Mock interviews and strategy for getting interview calls
+- Building personal projects
+
+He framed his own goal as: "I need the plan to build AI project and get the AI Engineer role"[^5].
 
 ## How to Pitch Your Idea
 
@@ -44,3 +54,4 @@ Also relevant: the two people the original conversation was about are both from 
 [^2]: [20260424_104335_AlexeyDTC_msg3600_transcript.txt](../inbox/used/20260424_104335_AlexeyDTC_msg3600_transcript.txt)
 [^3]: [20260424_104334_AlexeyDTC_msg3599_transcript.txt](../inbox/used/20260424_104334_AlexeyDTC_msg3599_transcript.txt)
 [^4]: [20260424_104335_AlexeyDTC_msg3601_transcript.txt](../inbox/used/20260424_104335_AlexeyDTC_msg3601_transcript.txt)
+[^5]: [20260429_104254_valeriia_kuka_msg3723.md](../inbox/used/20260429_104254_valeriia_kuka_msg3723.md)

@@ -3,7 +3,7 @@ title: "Interview: Juan Perez Prim"
 person: Juan Perez Prim
 persona: Undetermined
 created: 2026-04-27
-updated: 2026-04-27
+updated: 2026-04-29
 tags: [ai-shipping-labs, interview, community]
 status: draft
 ---
@@ -31,6 +31,6 @@ The message was forwarded by Valeriia from Juan Perez Prim[^2][^3].
 
 ## Sources
 
-[^1]: [20260427_080026_valeriia_kuka_msg3671.md](../../../inbox/used/20260427_080026_valeriia_kuka_msg3671.md)
+[^1]: [20260427_080026_valeriia_kuka_msg3671.md](../../../inbox/used/20260427_080026_valeriia_kuka_msg3671.md), [20260429_104323_valeriia_kuka_msg3725.md](../../../inbox/used/20260429_104323_valeriia_kuka_msg3725.md) (re-forward of the same response)
 [^2]: [20260427_080024_valeriia_kuka_msg3669.md](../../../inbox/used/20260427_080024_valeriia_kuka_msg3669.md)
 [^3]: [20260427_080036_valeriia_kuka_msg3673.md](../../../inbox/used/20260427_080036_valeriia_kuka_msg3673.md)

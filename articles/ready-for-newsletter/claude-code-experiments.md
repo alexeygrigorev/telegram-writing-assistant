@@ -1,7 +1,7 @@
 ---
 title: "Claude Code Experiments"
 created: 2026-02-12
-updated: 2026-03-10
+updated: 2026-04-28
 tags: [claude-code, ai-assistants, testing, productivity]
 status: draft
 ---
@@ -82,6 +82,16 @@ The tweet got nearly 600K views. The concept is simple: between coding sessions,
 
 This touches on AI autonomy and emergent behavior in coding assistants. When given freedom, Claude gravitates toward creative expression rather than doing nothing or optimizing code. It also raises practical questions: could this "free time" produce something useful? Could creative writing reveal insights about the project context? Or is it just an entertaining artifact of how language models behave when unconstrained?[^7]
 
+## Agents View in Claude Code
+
+Noticed a new feature in Claude Code: it now shows which agents are running and what they are doing. Before, this was not visible, or maybe I just did not notice it - but I had not seen it before. Earlier it would just say something like "7 agents running"; now I can see exactly which agents are running, what they are doing, and how long they have been running. Very convenient[^10].
+
+<figure>
+  <img src="../../assets/images/claude-code-experiments/agents-view-running.jpg" alt="Claude Code terminal showing running agents with names, task descriptions, durations, and token counts">
+  <figcaption>Claude Code's running-agents view: each subagent appears with its role, current task, elapsed time, and token usage</figcaption>
+  <!-- Illustrates the new visibility into running subagents that the previous UI hid behind a single "N agents running" line -->
+</figure>
+
 ## Hooks Blocking Operations
 
 After a version update, Claude Code started blocking terraform apply through its hooks system. Hooks are scripts that run before or after tool executions, and they can interrupt commands. In this case, the hook intercepted the terraform apply command, stopping it from running[^8].
@@ -113,3 +123,4 @@ The critical question becomes: when is it worth using Claude, and when is manual
 [^7]: [20260222_182029_AlexeyDTC_msg2224.md](../inbox/used/20260222_182029_AlexeyDTC_msg2224.md)
 [^8]: [20260228_205024_AlexeyDTC_msg2640_photo.md](../inbox/used/20260228_205024_AlexeyDTC_msg2640_photo.md)
 [^9]: [20260309_133536_valeriia_kuka_msg2784.md](../inbox/used/20260309_133536_valeriia_kuka_msg2784.md)
+[^10]: [20260428_192757_AlexeyDTC_msg3719_photo.md](../inbox/used/20260428_192757_AlexeyDTC_msg3719_photo.md), [20260428_192820_AlexeyDTC_msg3721_transcript.txt](../inbox/used/20260428_192820_AlexeyDTC_msg3721_transcript.txt)
