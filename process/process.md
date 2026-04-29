@@ -173,22 +173,24 @@ These are NOT recommendations to a human reader and NOT content to transcribe.
 
 When you encounter one:
 
-1. Treat it as a direct action item. Execute it during processing - read the referenced files, extract whatever the user asked for, and bring the result back into the relevant article inline.
-2. The user-facing output (the plan, the article, etc.) must contain the RESULT, not the instruction. For example, if the user says "go to v2 and copy the per-week prompts", the plan should contain the actual prompts inline - not a sentence telling the reader to "open the v2 folder".
-3. Do not paraphrase the command into a recommendation either. Phrases like "use the capstone files as a structural template" are a leakage of the agent command into shared content. Drop them.
-4. The transcript message that contained the command is still a valid source - cite it the same way as any other transcript.
-5. If you cannot execute the command (the path does not exist, the file is empty, etc.), say so explicitly in the processing log and ask the user; do not silently fall back to recommending the path to the reader.
+1. Treat it as a direct action item. Execute it during processing - read the referenced files and extract whatever the user asked for.
+2. The user-facing output (the plan, the article, etc.) must contain the RESULT of the lookup, never the instruction. Do not write "open the v2 folder", "look at the capstone files", "use them as a structural template", etc. - those are leaked agent commands. Drop them.
+3. Be judicious about HOW the result lands in the document. Default to summarising the patterns, principles, or facts you found - not to copy-pasting source files verbatim. Wholesale lifts only fit when the user explicitly asks for a verbatim copy AND the content stands alone without its source context. Internal course material, repo paths, and agent-only files almost never stand alone for an external reader, so summarise instead.
+4. When the user frames the lookup as "additional material" or "supplementary", that signals a small reference or principles section, not a replacement of the existing plan. Add it alongside the existing content; do not restructure the plan around it.
+5. The transcript message that contained the command is still a valid source - cite it the same way as any other transcript.
+6. If you cannot execute the command (the path does not exist, the file is empty, the source is internal and would not make sense to a recipient, etc.), say so explicitly in the processing log and ask the user; do not silently fall back to recommending the path to the reader.
 
 ## Example
 
-If the user says: "go please to the git folder, there's a folder v2, in this folder there are files called 'capstone' for each week, copy the prompts from there into the plan"
+If the user says: "go please to the git folder, there's a folder v2, in this folder there are files called 'capstone' for each week, look at them and add the project approach as additional material"
 
 You MUST:
-1. Open `/home/alexey/git/ai-engineering-buildcamp/v2/{module}/homework/02-capstone.md` for each module
-2. Extract the relevant prompts
-3. Embed the prompts directly in the plan, week by week
+1. Open the referenced files under `/home/alexey/git/` to understand the patterns
+2. Distil the principles into a short "project approach" section in the plan (one focused project, current-to-target framing, ship end to end, business-driven metrics, etc.)
+3. Add that section alongside the existing plan, not in place of it
 4. Cite the transcript that contained the command as a source
 5. NOT write "open the v2 capstone files" anywhere in the user-facing plan
+6. NOT copy the per-week prompts from the source files verbatim - those are internal course material and embed assumptions the recipient does not share
 
 # PROCESSING WORKFLOW
 
