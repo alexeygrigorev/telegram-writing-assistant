@@ -112,6 +112,8 @@ Files at the articles root that don't fit into the above categories.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Publishing Zoomcamp Lessons in Text Form](zoomcamp-text-course-publishing.md) | draft | 2026-04-30 | Idea to publish each LLM Zoomcamp / DataTalks.Club lesson as a long written conspectus with diagrams (Paul Iusztin's Substack format), to own destination traffic, show page-level stats, and attract more sponsors |
+| [Data Engineering Zoomcamp Testimonials](data-engineering-zoomcamp-testimonials.md) | draft | 2026-04-30 | Collected DE Zoomcamp testimonials in one place: anonymous "new neural pathways" thank-you, Freeman Onah on the clear course structure, Evgeniia on Spark/Flink/Kestra modules and the overall experience |
 | [Community Session Ideas](community-session-ideas.md) | draft | 2026-04-29 | Session ideas proposed by AI Shipping Labs members: Sai Kumar G request for AI Engineering interview questions / mock interviews / strategy for getting interview calls / building personal projects, plus "how to pitch your idea" Toastmasters-style session, group-learning/mastermind format, cross-cultural feedback note (Americans silent, Israelis/Germans direct), process for recording ideas without committing to all |
 | [Interesting Resources](interesting-resources.md) | draft | 2026-04-27 | Curated collection of tools, resources, and project ideas for the newsletter: added Tech Debt Audit and Coding Challenges newsletter |
 | [OpenClaw Experiments](openclaw-experiments.md) | draft | 2026-04-24 | Testing the OpenClaw bootstrap flow (CLI and Telegram), including WhisperX install, ahead of an AI Shipping Labs group session |
