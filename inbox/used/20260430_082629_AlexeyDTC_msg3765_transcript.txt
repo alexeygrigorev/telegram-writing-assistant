@@ -1,0 +1,10 @@
+---
+source: telegram_voice
+date: 2026-04-30T08:26:29+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260430_082629_AlexeyDTC_msg3765.ogg
+---
+
+Это по поводу спринтов. Мы хотим в AI Shipping Lab сделать accountability sprints. И так я вижу
+формат спринта.

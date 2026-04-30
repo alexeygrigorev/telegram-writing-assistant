@@ -1,7 +1,7 @@
 ---
 title: "AI Shipping Labs Community Activities"
 created: 2026-02-10
-updated: 2026-04-27
+updated: 2026-04-30
 tags: [community, activities, mentoring, accountability, ai-shipping-labs]
 status: draft
 ---
@@ -119,6 +119,22 @@ Benefits of sprints:
 - Ongoing social media promotion - "new cohort starting" creates regular marketing moments[^71]
 
 Continuous activities lose interest over time, like "Book of the Week" or "Project of the Week" where interest fades. Running in sprints with periodic pauses helps avoid this. Sprints can have different focus areas. Taking breaks to rethink and adjust is valuable[^71].
+
+### Sprint weekly call format
+
+This is the format I have in mind for the AI Shipping Labs accountability sprints. People meet once a week on a call, and each person gives a status update in turn (the order can be free or fixed - we can think about it). The status update has three parts[^97]:
+
+- What I worked on this week - so other people know what is going on
+- Blockers - this is where the rest of the community can help
+- Plans for next week - so people know what to expect, and so the speaker has a target to aim for[^97]
+
+Weeks 2 to 5 follow this format. The first call is different: we can spend a bit on the format itself, and ask each person to introduce themselves in about 5 sentences and describe in 5 sentences what they plan to do over the next 5 weeks. We might also want to ask people in advance how they feel about being recorded - some things they would prefer to say off the record[^97].
+
+The last week of the sprint is a demo: people show what they ended up with[^97].
+
+Not everyone will be able to join every call - day jobs, timezones, or just a busy week. People who cannot make a call (or who skip a week) can post the same status in Slack: what I worked on, blockers, plans for next week. The plans are a rough draft and can be adjusted during the week[^97].
+
+The framing for these sprints is "accountability sprints" inside AI Shipping Labs[^98].
 
 ### Monthly themes with deadlines
 
@@ -242,3 +258,5 @@ In a private community, these kinds of discussions can happen more freely. The p
 [^94]: [20260410_095445_AlexeyDTC_msg3338_transcript.txt](../../inbox/used/20260410_095445_AlexeyDTC_msg3338_transcript.txt)
 [^95]: [20260427_091223_AlexeyDTC_msg3677_transcript.txt](../../inbox/used/20260427_091223_AlexeyDTC_msg3677_transcript.txt)
 [^96]: [20260427_091223_AlexeyDTC_msg3678_transcript.txt](../../inbox/used/20260427_091223_AlexeyDTC_msg3678_transcript.txt)
+[^97]: [20260430_082614_AlexeyDTC_msg3763_transcript.txt](../../inbox/used/20260430_082614_AlexeyDTC_msg3763_transcript.txt)
+[^98]: [20260430_082629_AlexeyDTC_msg3765_transcript.txt](../../inbox/used/20260430_082629_AlexeyDTC_msg3765_transcript.txt)
