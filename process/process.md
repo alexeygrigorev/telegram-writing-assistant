@@ -558,6 +558,20 @@ Research articles contain:
 
 Example: "Spec-Driven Development" or "Agentic Memory" - topics to investigate, not completed implementations.
 
+# AI SHIPPING LABS PLAN FILE NAMING
+
+Personal plan files in `articles/ai-shipping-labs/plans/` use a `YYYYMMDD_` prefix based on the file's creation date (the `created` field in the frontmatter). Example: a plan file for Sai Kumar G created on 2026-05-02 lives at `articles/ai-shipping-labs/plans/20260502_sai-kumar-g.md`.
+
+The prefix is for sorting by creation date in the directory listing. The order in `_index.md` is independent and stays sorted by last updated.
+
+The prefix only applies to personal plan files in this folder. Files that should NOT get the prefix:
+- `_index.md` (the index file)
+- `_plan.md` (the template)
+- `how-to-use-plans.md` (shared note for members)
+- Any future shared notes or non-personal documents in the same folder
+
+When creating a new personal plan, copy `_plan.md` to `YYYYMMDD_{person-name}.md` using today's date. Do not apply this prefix convention anywhere else in the repo.
+
 # COURSE NAMING CONVENTIONS
 
 IMPORTANT: These are DIFFERENT courses and must be kept separate:

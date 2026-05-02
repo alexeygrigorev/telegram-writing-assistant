@@ -1,7 +1,7 @@
 ---
 title: "Plan: Koray Can Canut"
 created: 2026-04-30
-updated: 2026-04-30
+updated: 2026-05-02
 tags: [ai-shipping-labs, plan, community]
 status: draft
 ---
@@ -15,8 +15,8 @@ Internal working document. Share only the `Summary` and `Plan` sections with the
 - Current situation: Koray has a working Telegram nutrition bot ([@koraycan_bot](https://t.me/koraycan_bot), repo: [compileandrun/nutrient_bot](https://github.com/compileandrun/nutrient_bot)) that logs meals from photos or text via OpenAI vision, stores logs in BigQuery, runs serverless on Google Cloud Run, and recommends foods to fill daily nutrient gaps. Estimation accuracy is the weak spot, recommendations feel raw, and there is no systematic way to measure prompt or model changes.
 - Goal for the next 6 weeks: build a real evaluation pipeline for the bot, add a small set of agentic decisions and end-to-end tests, and ship a measurably better version of the bot that can be shared as a portfolio piece.
 - Main gap to close: a systematic way to measure quality. Right now changes to prompts, models, or temperature land without a quality signal. Once an evaluation loop is in place, every other improvement (agentic behaviour, fuzzy nutrient lookup, recommendations) can be validated.
-- Weekly time commitment: 20 hours in the first week (before the freelance gig starts on May 4), then 4 hours per week through the rest of the sprint.
-- Why this plan is the right next step: he already has a deployed end-to-end product. The leverage now is concept and structure (evaluation, agentic scenarios planned ahead, tests) rather than building more features. The plan front-loads the conceptual work into the high-time week so the 4-hour weeks have unambiguous tasks.
+- Weekly time commitment: 20 hours in week 1 (before the freelance gig starts on May 4), then 2 hours per week through the rest of the sprint.
+- Why this plan is the right next step: he already has a deployed end-to-end product. The leverage now is concept and structure (evaluation, agentic scenarios planned ahead, tests) rather than building more features. The plan front-loads the conceptual work into the high-time week so the 2-hour weeks have unambiguous tasks - and when 2 hours isn't enough, a coding agent can do most of the implementation as long as the plan is concrete.
 
 ## Plan
 
@@ -28,39 +28,48 @@ Internal working document. Share only the `Summary` and `Plan` sections with the
 
 ### Timeline
 
-Week 1 (pre-sprint, ~20 hours):
+Week 1 (~20 hours):
 
-- Use the high-time window to plan everything the rest of the sprint will execute. The point is that when the 4-hour weeks start, every step is already decided.
+- The most important task this week is to maximally understand the plan. Read every step until each weekly task is concrete enough that you (or a coding agent) can pick it up cold and execute it. The 2-hour weeks depend on this preparation - the better the plan is understood now, the less thinking is needed when time is short later.
+- Use the high-time window to plan everything the rest of the sprint will execute. When the 2-hour weeks start, every step should already be decided.
 - Define what "good" means for the bot. Be explicit and write it down: when is an estimation acceptable, when is a recommendation acceptable, when does the bot need to ask for clarification. This becomes the rubric for both manual labelling and the LLM judge.
 - Draft 15-20 evaluation scenarios using equivalence partitioning (see Resources). Cover the meal types the bot should handle (single dish, mixed plate, drinks, snacks), wrong terminology, blurry or partial photos, multi-meal photos, non-food photos, edge cases like very small or very large portions, and cases where today's targets are already met.
 - Plan the agentic decisions on paper or with ChatGPT (using voice/dictation while commuting works well for this kind of conceptual work). For each decision, write down: when does it trigger, what does the bot do, and how would you test it. Don't implement yet.
 - Decide which features are in scope for this 6-week sprint and which to defer. Reasonable scope: evaluation pipeline + 1-2 agentic decisions + a couple of TDD-style tests. Out of scope: full RAG, multi-agent rewrite, new platforms.
 
-Week 2 (~4 hours):
+Week 2 (~2 hours):
 
 - Run the 15-20 scenarios manually through the current bot and record the outputs (input, output, cost). A simple script that loops over a CSV of scenarios and saves results to JSON is enough.
 - Label each result good or bad against the rubric from week 1. Note the failure type for the bad ones (hallucinated nutrient values, wrong portion estimate, missed clarification, etc.). This is the gold standard dataset.
 
-Week 3 (~4 hours):
+Week 3 (~2 hours):
 
 - Build an LLM judge: a prompt that takes the question, the bot's response, and outputs a label plus reasoning (reasoning before label, so it has to think first).
 - Run the judge over the labelled scenarios and compare with the human labels - count agreements and disagreements.
 - Tweak the judge prompt to address the patterns where it disagrees, without overfitting to specific scenarios.
 
-Week 4 (~4 hours):
+Week 4 (~2 hours):
 
 - With the evaluation loop in place, run experiments. Try a different model (or temperature, or prompt variant) on the same scenarios and compare judge scores side by side. This is where the eval pipeline starts paying for itself.
 - Add a couple of TDD-style integration tests for the most important scenarios (e.g. blurry photo → bot asks for a clearer image, non-food photo → bot returns a parse error, accidental duplicate within a few seconds → handled correctly). These are different from the eval set: they should always pass and protect against regressions.
 
-Week 5 (~4 hours):
+Week 5 (~2 hours):
 
 - Implement one or two of the agentic decisions designed in week 1. Good first targets: "if image confidence is low, ask for a clearer photo before logging" and "if today's nutrient gaps are small, skip the recommendation rather than fabricate one".
 - Re-run the eval pipeline and the integration tests. Confirm the changes improved the judge score and didn't break anything.
 
-Week 6 (~4 hours):
+Week 6 (~2 hours):
 
 - Tighten what is left. Update the README to describe the eval pipeline and the agentic behaviour. Add a short note about the Cloud Run + BigQuery deployment - other AI Shipping Labs members have asked about this and a small write-up would be valuable both for them and for Koray's own portfolio.
 - Decide the next iteration: deeper evaluation, a lightweight nutrient-table search (see Resources), or a portfolio write-up post.
+
+### When 2 hours isn't enough
+
+Two hours is tight. The plan is sized for it, but a given week might not fit. The fallback:
+
+- Hand the week's task to a coding agent. The week-1 plan is detailed enough that the agent has a concrete spec to implement. Run the agent, check what it produced, correct the parts that drift from the plan, and ship.
+- Use commute and walking time for the conceptual work. Voice/dictation conversations with ChatGPT or Claude are fine for thinking through scenarios, agentic decisions, and prompt tweaks. Save the desk time for execution.
+- The week-1 deep read of the plan is what makes both fallbacks work. If the plan is fuzzy, the agent will produce something fuzzy and the commute thinking will go in circles. If the plan is concrete, both fallbacks are productive.
 
 ### Project approach
 
@@ -75,7 +84,7 @@ Additional principles for taking nutrient_bot to a measurably better state. Kora
 
 ### Resources
 
-- Coding assistant of choice (Claude Code or Codex). Both are fine; pick one and commit. Avoid free tiers - hitting limits mid-session breaks 4-hour weeks.
+- Coding assistant of choice (Claude Code or Codex). Both are fine; pick one and commit. Avoid free tiers - hitting limits mid-session breaks 2-hour weeks. The same agent is also the fallback for weeks where 2 hours isn't enough to do the work by hand.
 - AI Engineering Buildcamp evaluation module (week 6). Inside the AI Shipping Labs platform once it is rolled out; ask Alexey for the current location. The core idea to take from it: equivalence partitioning - divide the input space (here: meal photos and text descriptions) into groups where you'd expect similar bot behaviour, then cover each group with at least 2-3 scenarios. Add edge cases (out-of-scope, deliberately confusing inputs) on top. Result: 15-20 scenarios that give a real signal, not 1000 cherry-picked examples.
 - Eugene Yan on LLM evaluation and on AlignEval - good external reading for the eval mindset (label some data, align an LLM judge against it, then trust the judge for the next runs).
 - minsearch ([github.com/alexeygrigorev/minsearch](https://github.com/alexeygrigorev/minsearch)) - a lightweight search engine that fits the use case far better than full RAG. If a fuzzy nutrient-table lookup or recommendation lookup is added later, minsearch is a sensible starting point - cheap, simple, easy to host alongside the existing Cloud Run setup.
@@ -92,7 +101,7 @@ Additional principles for taking nutrient_bot to a measurably better state. Kora
 ### Accountability
 
 - Weekly check-in: what shipped, what is blocked, what is the goal for the next week. Koray named milestones plus deadlines and peer discussion as the formats that work for him.
-- 20 hours in week 1, then 4 hours per week. The plan is sized for those 4-hour weeks - if a week slips, drop a stretch goal rather than extending the week.
+- 20 hours in week 1, then 2 hours per week. The plan is sized for those 2-hour weeks - if a week slips, drop a stretch goal or hand the implementation to a coding agent rather than extending the week.
 - One project. Nutrient_bot only until the sprint demoes; don't start a second project mid-sprint.
 - Share progress in the AI Shipping Labs Slack rather than only one-on-one. Other members have asked about Cloud Run deployments and would benefit from seeing how Koray's bot is set up.
 
@@ -102,8 +111,8 @@ Koray asked whether the data analyst → junior data engineer or junior AI engin
 
 ### Next Steps
 
-- [ ] [Koray] Pick a coding assistant (Claude Code or Codex) and commit to a paid plan that fits the 4-hour weeks.
-- [ ] [Koray] Use week 1 (20 hours) to write the evaluation rubric, draft the 15-20 scenarios, and design the agentic decisions on paper.
+- [ ] [Koray] Pick a coding assistant (Claude Code or Codex) and commit to a paid plan that fits the 2-hour weeks (and serves as the fallback when 2 hours isn't enough).
+- [ ] [Koray] Use week 1 (20 hours) to read the plan deeply, write the evaluation rubric, draft the 15-20 scenarios, and design the agentic decisions on paper.
 - [ ] [Koray] Share progress in the AI Shipping Labs Slack at the weekly check-in cadence.
 - [ ] [Alexey] Send the written plan and point Koray at the Buildcamp evaluation module location.
 - [ ] [Valeriia] Confirm Koray is on the AI Shipping Labs Slack channel and added to the May sprint roster.
@@ -122,7 +131,7 @@ Koray is a former student of Alexey's Data Engineering Zoomcamp (2024 cohort). H
 
 His personal project, nutrient_bot, accepts meal photos or text descriptions, analyses macros and micronutrients with OpenAI vision, stores logs in BigQuery, and runs on Google Cloud Run. The bot has /start, /today, /recommend commands, supports multi-user use, has WHO/FDA-based daily limits, tracks token costs, and includes hard caps to prevent runaway API spend. The repo includes a one-shot deploy.sh that handles Docker build, registry push, Cloud Run deploy, and Telegram webhook registration[^repo].
 
-His freelance gig starts May 4, 2026, so the 20-hour first week is the gap before that, and the 4-hour weeks run alongside the freelance load.
+His freelance gig starts May 4, 2026, so the 20-hour first week is the gap before that, and the 2-hour weeks run alongside the freelance load.
 
 The plan number in the inbox marks this as the 10th personalised plan in the current batch[^1].
 
@@ -155,7 +164,7 @@ Alexey's recommendations after reviewing Koray's input and his bot's repo[^2]:
 
 6. Tests in addition to evaluation. A few TDD-style integration tests for the highest-stakes scenarios (blurry photo, non-food, duplicate within seconds) protect against regressions in a way the eval set does not. Be careful with agent-written tests - they will mock things they shouldn't. Review what gets mocked.
 
-7. Time strategy: use the 20-hour week to plan thoroughly. The conceptual decisions (eval rubric, scenarios, agentic decisions) made in week 1 should be detailed enough that the 4-hour weeks are implementation-only. Concept-heavy work (designing scenarios, talking through edge cases) can also be done while commuting via voice/dictation with ChatGPT.
+7. Time strategy: use the 20-hour week to plan thoroughly and to read the resulting plan deeply. The conceptual decisions (eval rubric, scenarios, agentic decisions) made in week 1 should be detailed enough that the 2-hour weeks are implementation-only. When 2 hours isn't enough, the same plan is concrete enough to hand to a coding agent and then check + correct the output. Concept-heavy work (designing scenarios, talking through edge cases) can also be done while commuting via voice/dictation with ChatGPT.
 
 8. Don't drop the gym. Energy comes from training and simple food. Two hours in the gym beats two hours of grinding code with no energy left over.
 
@@ -164,6 +173,14 @@ Alexey's recommendations after reviewing Koray's input and his bot's repo[^2]:
 10. AI Hero is good if there are gaps - check it for areas (RAG, agents, testing, monitoring, evaluation) where Koray feels weakest. Buildcamp's RAG/agents/testing/monitoring/evaluation modules cover the same ground in more depth.
 
 11. LinkedIn visibility plan is a good idea - the Cloud Run write-up alone would be a strong post once the eval-and-agentic upgrade ships.
+
+Adjustments to the plan after the first pass[^4]:
+
+- The weekly time commitment is 2 hours per week alongside the freelance gig, not 4. Update every reference accordingly.
+- Drop the "pre-sprint" framing on week 1 - it confuses people. Week 1 is just week 1, and the 20-hour budget is what makes it different.
+- Be very concrete with Koray about what to do when 2 hours isn't enough: hand the week's task to a coding agent (the plan should be detailed enough by then to use as the spec), check what the agent produced, and correct the parts that drift. Don't extend the week.
+- The most important task in week 1 is to understand the plan deeply enough that the 2-hour weeks (and the agent fallback) work. Make this explicit so the planning week doesn't get spent only on rubric/scenario/agentic-decision drafts.
+- Conceptual work can be done during free time - while commuting, walking, or otherwise away from the desk - via voice/dictation with ChatGPT or Claude.
 
 ### Internal Action Items
 
@@ -177,4 +194,5 @@ Alexey's recommendations after reviewing Koray's input and his bot's repo[^2]:
 [^1]: [20260429_155342_AlexeyDTC_msg3761.md](../../../inbox/used/20260429_155342_AlexeyDTC_msg3761.md), [Koray's Answers (Google Doc)](https://docs.google.com/document/d/1UItdFnW6F5TNpMzYdI3MhfnV1-dRD1wv4lA8RdTVEpk/edit?usp=sharing), [Meeting Notes (Google Doc)](https://docs.google.com/document/d/1sqqWHwPP01b-q_66vv9yOiWup9mB-zzuf8WQY605SRw/edit?usp=sharing)
 [^2]: [20260430_085223_AlexeyDTC_msg3767_transcript.txt](../../../inbox/used/20260430_085223_AlexeyDTC_msg3767_transcript.txt)
 [^3]: [Meeting Notes (Google Doc)](https://docs.google.com/document/d/1sqqWHwPP01b-q_66vv9yOiWup9mB-zzuf8WQY605SRw/edit?usp=sharing)
+[^4]: [20260502_180319_AlexeyDTC_msg3834_transcript.txt](../../../inbox/used/20260502_180319_AlexeyDTC_msg3834_transcript.txt)
 [^repo]: [github.com/compileandrun/nutrient_bot](https://github.com/compileandrun/nutrient_bot), [@koraycan_bot](https://t.me/koraycan_bot)

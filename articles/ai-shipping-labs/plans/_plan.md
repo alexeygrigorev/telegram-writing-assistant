@@ -10,7 +10,7 @@ status: template
 
 Internal working document. Share only the `Summary` and `Plan` sections with the member. Everything from `Internal Context` onward stays inside AI Shipping Labs.
 
-When preparing a plan, copy this file to `{person-name}.md` and remove sections that do not apply.
+When preparing a plan, copy this file to `YYYYMMDD_{person-name}.md` (using today's date as the prefix) and remove sections that do not apply. The `YYYYMMDD_` prefix matches the file's creation date and only applies to personal plan files in this folder - the template, the index, and shared notes keep their existing names.
 
 Guiding principle: the plan must be transparent about three things - where the person is now, where they are going, and the concrete steps that connect the two[^template1]. Keep the first two sections short, self-contained, and ready to share without extra cleanup.
 

@@ -14,7 +14,7 @@ status: draft
 
 Sam - the technical professional moving to AI. Jakob has basic Python and some theoretical knowledge but describes most of his code as "vibe coded" with AI assistance and found the AI Buildcamp "way too technical". He has scripting-level coding but has not built software systems yet, which matches Sam's gap between "writing scripts" and "building systems".
 
-See [personas.md](../personas.md) for full persona definitions. Related plan: [../plans/jakob-zischka.md](../plans/jakob-zischka.md).
+See [personas.md](../personas.md) for full persona definitions. Related plan: [../plans/20260420_jakob-zischka.md](../plans/20260420_jakob-zischka.md).
 
 ## First Call with Valeriia
 

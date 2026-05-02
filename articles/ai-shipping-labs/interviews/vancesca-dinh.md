@@ -14,7 +14,7 @@ status: draft
 
 Alex - the engineer transitioning to AI. Vancesca has completed one end-to-end AI Buildcamp project and is actively job-searching for an AI role. She specifically wants AWS deployment and agent evaluation experience - the classic Alex profile of someone with engineering skills filling the AI-specific gap.
 
-See [personas.md](../personas.md) for full persona definitions. Related plan: [../plans/vancesca-dinh.md](../plans/vancesca-dinh.md).
+See [personas.md](../personas.md) for full persona definitions. Related plan: [../plans/20260420_vancesca-dinh.md](../plans/20260420_vancesca-dinh.md).
 
 ## Initial Response
 
