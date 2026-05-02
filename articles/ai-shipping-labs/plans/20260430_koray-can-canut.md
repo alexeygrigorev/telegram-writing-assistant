@@ -50,7 +50,6 @@ Week 3 (~2 hours):
 
 Week 4 (~2 hours):
 
-- With the evaluation loop in place, run experiments. Try a different model (or temperature, or prompt variant) on the same scenarios and compare judge scores side by side. This is where the eval pipeline starts paying for itself.
 - Add a couple of TDD-style integration tests for the most important scenarios (e.g. blurry photo → bot asks for a clearer image, non-food photo → bot returns a parse error, accidental duplicate within a few seconds → handled correctly). These are different from the eval set: they should always pass and protect against regressions.
 
 Week 5 (~2 hours):
