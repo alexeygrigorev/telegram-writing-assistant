@@ -373,6 +373,14 @@ When the user mentions a project they implemented and shares a link to it (GitHu
 - Place it prominently - near the title or in the first paragraph
 - Add the link message to Sources
 
+When linking to a GitHub repo (or any URL) in a sentence, leave a space before any footnote marker: `[github.com/user/repo](https://github.com/user/repo) [^2]`, not `https://github.com/user/repo[^2]`. Some renderers swallow the `[^N]` into the link target and the URL stops working.
+
+### Person names
+
+Use the person's real name, not their GitHub handle, Telegram handle, or any other auto-generated identifier. Look for the real name in the project README, GitHub profile bio, the LinkedIn link the user shared, or earlier messages in the same context. Use the GitHub handle only as a fallback when no real name is available.
+
+Watch out for transcription errors on names: voice messages often turn unfamiliar names into the closest English-sounding word (Mladen → "Ladden", Pavlo → "Pablo", Spyros → "Spiros"). When the user shares a LinkedIn link or otherwise corrects a name, treat that name as authoritative and update every occurrence in the article.
+
 ### Final processing
 
 - Translate to English if needed

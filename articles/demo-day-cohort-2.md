@@ -1,7 +1,7 @@
 ---
 title: "AI Engineering Buildcamp Cohort 2 - Demo Day"
 created: 2026-04-24
-updated: 2026-04-24
+updated: 2026-05-02
 tags: [ai-buildcamp, demo-day, capstone-projects, community]
 status: draft
 ---
@@ -10,15 +10,15 @@ status: draft
 
 Demo day for the second cohort of the AI Engineering Buildcamp (from RAG to Agents). Five participants presented their capstone projects live, two via recording. Other cohort members submitted projects through the course platform but did not present at the demo.
 
-Recording: [Demo day on YouTube](https://www.youtube.com/watch?v=4k_3vOINbgM)[^1]
+Recording: [Demo day on YouTube](https://www.youtube.com/watch?v=4k_3vOINbgM) [^1]
 
-All submitted projects are listed on the [course management platform](https://courses.datatalks.club/ai-buildcamp-2/projects)[^2]. The course uses pseudonyms for graded submissions, so projects are matched to authors by GitHub repo owner.
+All submitted projects are listed on the [course management platform](https://courses.datatalks.club/ai-buildcamp-2/projects) [^2]. The course uses pseudonyms for graded submissions, so projects are matched to authors by GitHub repo owner.
 
 ## Projects Presented at Demo Day
 
 ### Bikepacking Recommender Agent (Edu Gonzalo Almorox)
 
-Repo: https://github.com/edugonzaloalmorox/baikpacking-agent[^3]
+Repo: [github.com/edugonzaloalmorox/baikpacking-agent](https://github.com/edugonzaloalmorox/baikpacking-agent) [^3]
 
 A recommender for bike packing events. Bike packing is long-distance cycling where logistics matter as much as physical condition - riders need to know exactly what gear and bags to bring for a specific race. Setup advice is scattered across articles, rider interviews, and equipment lists, with no single place to ask "what should I bring to Transpyr?" and get a grounded answer.
 
@@ -38,13 +38,13 @@ Edu noted that the hardest part was getting good recommendations rather than jus
 
 This project was presented at the demo but was not submitted through the course platform.
 
-### Meal-Map (Pablo)
+### Meal-Map (Pavlo Skorodziievskyi)
 
-Repo: https://github.com/elgrassa/CapstoneMealMapSimplified[^2]
+Repo: [github.com/elgrassa/CapstoneMealMapSimplified](https://github.com/elgrassa/CapstoneMealMapSimplified) [^2]
 
 A family meal-planning agent. The project is designed for personal use - tracking calorie and nutrient consumption for every family member and suggesting meals that respect allergies, medical constraints, age gaps, weight, and breastfeeding status. Generic AI chatbots either do not cite sources, give unsafe medical claims, or are not allergen-aware. Recipe apps skip the nutrition side.
 
-Pablo demoed adding a family member with preferences and allergies, then generating a weekly meal plan with highlighted nutritional gaps versus recommendations. The system flags deficiencies (fiber, calcium) and suggests recipes from the indexed corpus.
+Pavlo demoed adding a family member with preferences and allergies, then generating a weekly meal plan with highlighted nutritional gaps versus recommendations. The system flags deficiencies (fiber, calcium) and suggests recipes from the indexed corpus.
 
 Tech stack: Python 3.13, PydanticAI, OpenAI gpt-4.1-mini, minsearch (BM25), sentence-transformers (RRF hybrid), Streamlit, SQLite, Docker/docker-compose, uv, Makefile, GitHub Actions CI, pytest, mutmut.
 
@@ -59,11 +59,9 @@ Key features:
 - Monitoring: JSONL logs, SQLite feedback DB (thumbs up/down), Streamlit dashboard, logs-to-ground-truth pipeline
 - Cost guardrails: 20 LLM calls/session/hour and a $0.50 per UTC day cap with auto-downgrade to deterministic path
 
-Pablo also covered the deployment side - an external system was pushing directly to main, so he had to disable his commit history and PR checks temporarily. His takeaway: sometimes you need to bypass your CI/CD on purpose. Hybrid search added latency without helping much for this corpus, so he is rethinking that part. Around 40 recipes are indexed so far, and he plans to add more before the submission deadline.
+Pavlo also covered the deployment side - an external system was pushing directly to main, so he had to disable his commit history and PR checks temporarily. His takeaway: sometimes you need to bypass your CI/CD on purpose. Hybrid search added latency without helping much for this corpus, so he is rethinking that part. Around 40 recipes are indexed so far, and he plans to add more before the submission deadline.
 
 ### Engineering Decision Memory Agent (Camila)
-
-Capstone repo: https://github.com/vccat/2026_ai_engineering_capstone[^2]
 
 An agent that indexes architectural decision records (ADRs/ATRs), RFCs, design documents, and postmortems so that engineers can ask questions about past decisions and get structured answers. Engineering teams make hundreds of technical decisions over time. Those decisions live across many documents that nobody has time to read, and the engineers who made them often leave the team. New engineers have no way to understand why the system is the way it is.
 
@@ -87,18 +85,16 @@ Key features:
 
 Next step Camila mentioned: rebuilding the same agent with Spec Kit, using Claude with explicit requirements and constraints to compare the developer experience.
 
-Note: the linked capstone repo currently contains an earlier Kids Science Chatbot version (a different agent built on Pydantic AI with Qdrant over SciShow Kids transcripts). The Engineering Decision Memory Agent is the version Camila demoed live.
-
 The discussion after the demo highlighted how teams often have all the documentation they need (Jira, Coda, Confluence) but lose track of where decisions live once they are made. Indexing only the "paper trail" (ADRs/RFCs) rather than all of Confluence avoids overload, and a tool like this could save hours of ADR review for principal engineers.
 
-### VoiceIssue Agent (Ladden)
+### VoiceIssue Agent (Mladen Marić)
 
-Repo: https://github.com/lomodev-mmaric/voice_issue_code[^2]
-Cloud-hosted review target: https://capstone.lomo.dev[^4]
+Repo: [github.com/lomodev-mmaric/voice_issue_code](https://github.com/lomodev-mmaric/voice_issue_code) [^2]
+Cloud-hosted review target: [capstone.lomo.dev](https://capstone.lomo.dev) [^4]
 
-A Telegram bot that lets you file structured GitHub issues by voice across multiple repositories. The motivation came directly from a problem Alexey shared with Ladden: I have many GitHub repos, sometimes I get an idea on the go (e.g. while shopping), and to capture it I need to open GitHub, find the right repo, create an issue, and type or dictate the description. A bot where you send a voice message and it figures out the right repo and files a structured issue would be much better.
+A Telegram bot that lets you file structured GitHub issues by voice across multiple repositories. The motivation came directly from a problem Alexey shared with Mladen: I have many GitHub repos, sometimes I get an idea on the go (e.g. while shopping), and to capture it I need to open GitHub, find the right repo, create an issue, and type or dictate the description. A bot where you send a voice message and it figures out the right repo and files a structured issue would be much better.
 
-Ladden demoed sending a voice message saying "we have Albanian hackers attacking our front end and there's denial of service, please report it to security team". The bot first evaluated whether this was on-topic, decided it was a legal/security issue rather than a bug, and refused. After a follow-up message providing more technical detail (JavaScript code structure, possible SQL injection), the bot drafted a structured front-end bug report, asked for human approval, and only then created the GitHub issue.
+Mladen demoed sending a voice message saying "we have Albanian hackers attacking our front end and there's denial of service, please report it to security team". The bot first evaluated whether this was on-topic, decided it was a legal/security issue rather than a bug, and refused. After a follow-up message providing more technical detail (JavaScript code structure, possible SQL injection), the bot drafted a structured front-end bug report, asked for human approval, and only then created the GitHub issue.
 
 Implemented flow: repository scope is configured via a GITHUB_REPOS curated list; the user sends a voice or text message to the Telegram bot; voice is transcribed with Whisper (whisper-1); PII is scrubbed using Microsoft Presidio before agent processing; the agent classifies the repo and drafts an issue with title, body, labels, and a confidence score; the user sees the draft and confirms via Approve & Create or Cancel; on approval, the issue is created via the GitHub API and all runs are logged.
 
@@ -114,27 +110,27 @@ Key features:
 - Grafana analytics for aggregate LLM costs, total issues created, and P50 interaction latencies
 - Local CLI mode via Makefile (make cli/bot/admin/dashboard/online-judge/test-all) so components run without Docker
 
-Six-container microservice stack orchestrated by docker-compose: bot, judge, orchestrator (Streamlit, port 8501), session dashboard (Streamlit, port 8502), Postgres, and Grafana (port 3000). Deployed on Google Cloud - Ladden noted you need at least a medium VM (4 GB RAM, 50 GB storage, dual core); smaller instances choke. The $10/month developer credit covers it.
+Six-container microservice stack orchestrated by docker-compose: bot, judge, orchestrator (Streamlit, port 8501), session dashboard (Streamlit, port 8502), Postgres, and Grafana (port 3000). Deployed on Google Cloud - Mladen noted you need at least a medium VM (4 GB RAM, 50 GB storage, dual core); smaller instances choke. The $10/month developer credit covers it.
 
-Two deployment options were submitted for grading: the preferred cloud-hosted evaluation environment, plus sanitized local source code with a local deployment guide PDF (CLOUD_GRADING_GUIDE.pdf and LOCAL_DEPLOYMENT_GUIDE.pdf). Two playground repositories are part of the reference cloud deployment - reviewers testing the bot are asked to specify whether an issue is backend or frontend to avoid off-topic classification: [voiceissue-frontend-test](https://github.com/lomodev-mmaric/voiceissue-frontend-test/issues) and [voiceissue-backend-test](https://github.com/lomodev-mmaric/voiceissue-backend-test/issues)[^4].
+Two deployment options were submitted for grading: the preferred cloud-hosted evaluation environment, plus sanitized local source code with a local deployment guide PDF (CLOUD_GRADING_GUIDE.pdf and LOCAL_DEPLOYMENT_GUIDE.pdf). Two playground repositories are part of the reference cloud deployment - reviewers testing the bot are asked to specify whether an issue is backend or frontend to avoid off-topic classification: [voiceissue-frontend-test](https://github.com/lomodev-mmaric/voiceissue-frontend-test/issues) and [voiceissue-backend-test](https://github.com/lomodev-mmaric/voiceissue-backend-test/issues) [^4].
 
-In the discussion, Ladden mentioned not having tried Logfire - he is using HTTP/OTel into Grafana directly, which works fine. Telegram was chosen over WhatsApp for ease of bot creation: in Telegram you ask BotFather for a token and you have a bot in minutes.
+In the discussion, Mladen mentioned not having tried Logfire - he is using HTTP/OTel into Grafana directly, which works fine. Telegram was chosen over WhatsApp for ease of bot creation: in Telegram you ask BotFather for a token and you have a bot in minutes.
 
-### Offline Medical SOAP Notes (Spiros)
+### Offline Medical SOAP Notes (Spyros)
 
 A local-first dictation app for medical practitioners. The motivation came from a conversation with friends in the medical field (doctors, a psychotherapist) in Canada. They all said: "AI is great, but I would never put my medical documents online." Canadian data laws around US data centers (the data can be subject to US legal access if it leaves Canada) make any cloud tool a non-starter for many practitioners.
 
-The biggest pain point is dictation. Doctors spend up to four to five hours after seeing patients writing up notes. Some now charge for services that require additional dictation. Spiros built a vibe-coded prototype that:
+The biggest pain point is dictation. Doctors spend up to four to five hours after seeing patients writing up notes. Some now charge for services that require additional dictation. Spyros built a vibe-coded prototype that:
 
 1. Transcribes the meeting using a local Whisper model
 2. Diarizes (loosely) by classifying the two roles with a local model
 3. Summarizes the transcript into a SOAP note (Subjective, Objective, Assessment, Plan)
 
-The pitch is: doctor disconnects their computer from the internet, runs the model locally, gets their notes, no escape to the cloud. Spiros tested with a 3-minute recording of a student talking to a patient; processing took up to 10 minutes on his hardware, so performance still needs work.
+The pitch is: doctor disconnects their computer from the internet, runs the model locally, gets their notes, no escape to the cloud. Spyros tested with a 3-minute recording of a student talking to a patient; processing took up to 10 minutes on his hardware, so performance still needs work.
 
 Existing tools (e.g. Mentalyc) are online, which is exactly what these doctors do not want. Even the option of running on-device models (Gemma 3, Apple's on-device AI, Google's edge models) was discussed during Q&A as a future path. The medical and nuclear sectors are very wary of any data center, so an air-gapped tool has a real use case.
 
-Spiros is continuing the project and may apply for a green initiative / waste reduction grant to switch from his nine-to-five to working on it full time.
+Spyros is continuing the project and may apply for a green initiative / waste reduction grant to switch from his nine-to-five to working on it full time.
 
 This project was not submitted through the course platform.
 
@@ -144,7 +140,7 @@ These projects were submitted to the course management platform but were not pre
 
 ### Cyber Sachet (Nirajan Acharya)
 
-Repo: https://github.com/nirajanacharya/Cyber-Agent[^2]
+Repo: [github.com/nirajanacharya/Cyber-Agent](https://github.com/nirajanacharya/Cyber-Agent) [^2]
 
 A bilingual (English/Nepali) AI assistant for cyber security awareness and Nepal cyber law (IT Act 2063, Digital Security Act 2024). Nepali users face fragmented cyber safety guidance and confusing legal references, with English-only technical advice creating a language gap.
 
@@ -162,7 +158,9 @@ Modular layout separates the core agent, knowledge documents, Streamlit UI, obse
 
 ### SnapSplit (James Watkins)
 
-Repo: https://github.com/jimmy3142/ai-engineering-buildcamp-submission[^4]
+Repo: [github.com/jimmy3142/ai-engineering-buildcamp-submission](https://github.com/jimmy3142/ai-engineering-buildcamp-submission) [^4] (private)
+
+The repository is private, so the description below is based on the submission summary rather than direct inspection of the code.
 
 An AI-powered receipt splitting app. The user uploads a photo of a restaurant bill, a Vision model extracts the line items, each person claims what they ordered, and the app calculates who owes what (including shared service charge).
 
@@ -184,7 +182,7 @@ Evaluation:
 
 ### AMR Awareness Platform (Juan Prim)
 
-Repo: https://github.com/juanpprim/amr_ai[^2]
+Repo: [github.com/juanpprim/amr_ai](https://github.com/juanpprim/amr_ai) [^2]
 
 An AI-powered educational RAG platform for Antimicrobial Resistance (AMR). AMR is a global health threat with authoritative information scattered across WHO, CDC, FAO, scientific literature, and government reports - hard for the public, students, and clinicians to access reliably.
 
@@ -198,9 +196,9 @@ Key features:
 
 A `pipeline/` layer (sources registry, scraper, Docling converter, downloader orchestrator) handles ingest from raw HTML/PDFs to markdown; a `rag/` layer chunks markdown, ingests into a persistent ChromaDB collection with BioBERT embeddings, and serves hybrid retrieval. Submission scored 26 on the platform.
 
-### AI Regulation Research Assistant (LEMTideman)
+### AI Regulation Research Assistant (Léonore Tideman)
 
-Repo: https://github.com/LEMTideman/MyAgent[^2]
+Repo: [github.com/LEMTideman/MyAgent](https://github.com/LEMTideman/MyAgent) [^2]
 
 A pydantic-ai agent that answers practical AI compliance questions across jurisdictions (EU, US, NL) and sector-specific frameworks (e.g. automotive). It maps legal obligations to compliance controls and evidence artifacts so practitioners get a single grounded research interface.
 
