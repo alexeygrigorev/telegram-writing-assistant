@@ -46,11 +46,13 @@ Week 3:
 Week 4:
 
 - Compare the two deployed projects. How are they packaged? What config do they need? How do they get a live URL? What runtime do they expect? Write a one-page note on the shared shape - that note is the seed of the platform.
-- Sketch the v0.0.1 platform on paper before any code: the input contract (what does an agent author hand the platform?), the deployment path (what does the platform do with it?), the output (live URL, nothing else). No monitoring, no evaluation, no auth. Naming what is out of scope is as important as naming what is in.
+- Decide the platform's input contract: what does an agent author hand the platform? (A code repo with a manifest file? A container image plus a config? A Python module conforming to a known interface?) Pick on paper - this is the decision that shapes everything else.
+- Decide the deployment path: what does the platform do with that input to produce a live URL? Pick the deployment target (Render, Fly.io, a VM) and the glue (a Python CLI, a Makefile, a GitHub Actions workflow). Pick on paper.
+- Write a unified deployment script - one script you run from your terminal that takes either of the two projects as input (per the contract above) and brings up a live URL. Most of week 4's hours go here. By end of week 4 you should be able to point the script at either repo and watch it deploy. This script is the platform v0.0.1 in its earliest form - everything in week 5 is making it less embarrassing.
 
 Week 5:
 
-- Build the v0.0.1 platform skeleton. Goal: a single deployment path - drop in a new agent (single repo or single config) and the platform deploys it to a live URL. Re-deploy the first project (the RAG) through this path. If the RAG comes up via the platform, the skeleton is real.
+- Turn the week-4 script into a proper platform skeleton: a small repo of its own, a config format you can document on one page, a CLI or single-command entry point, a README an outsider could follow. Re-deploy the RAG through this cleaned-up path. If the RAG comes up via the new entry point with a config file rather than ad-hoc args, the skeleton is real.
 
 Week 6:
 
@@ -79,8 +81,8 @@ Week 6:
 - 10-job-description analysis + first-project scoping note - by end of week 1.
 - Project 1 (RAG) deployed to a public URL - by end of week 2.
 - Project 2 (small agent) deployed to a public URL - by end of week 3.
-- Shared-shape note + v0.0.1 platform sketch - by end of week 4.
-- Platform skeleton with the RAG redeployed through it - by end of week 5.
+- Shared-shape note + unified deployment script that brings up either project from a single command - by end of week 4.
+- Platform skeleton (own repo, config format, CLI, README) with the RAG redeployed through it - by end of week 5.
 - Both projects redeployable via the platform path + post-week-6 roadmap + role-direction call - by end of week 6.
 
 ### Accountability
