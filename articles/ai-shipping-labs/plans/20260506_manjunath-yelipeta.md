@@ -13,80 +13,67 @@ Internal working document. Share only the `Summary` and `Plan` sections with the
 ## Summary
 
 - Current situation: traditional ML engineer (CV/recommendation/classical ML) without LLM or agentic experience. Jobless for two months and is the sole bread-earner for his family, so the sprint has to lead to a shippable project that helps him land a job. He had a difficult prior role with unrealistic timelines and weak evaluation culture, so he is leaning away from AI-first roles toward AI Platform Engineer / MLOps Engineer / Applied AI Engineer titles, but admits the titles feel confusing.
-- Goal for the next 6 weeks: ship a RAG system with comprehensive evaluation as a deployed application. Use the build to figure out which path - AI Engineer (build LLM systems) or AI Platform Engineer (build infrastructure for LLM systems) - actually fits how he wants to work. The role direction is a sprint output, not a precondition.
-- Main gap to close: the entire LLM and agentic application stack - RAG, prompt and tool design, backend engineering beyond FastAPI/Docker, observability, deployment. The ML side (evaluation, failure-mode analysis) is strong and should be visible in the project from week 1.
-- Weekly time commitment: 8-10 hours per week, extendable as the job search and family situation allow.
-- Why this plan is the right next step: he has written and shipped traditional ML, so the engineering instinct is there - what is missing is hands-on experience with LLM applications. Shipping one well-evaluated, deployed RAG project closes that gap and produces the live link he asked for. The role question is best resolved by doing the work, not by reading more job descriptions.
+- Goal for the next 6 weeks: build two small deployed LLM projects (a RAG, then a small agent), then start a v0.0.1 deployment platform that makes shipping the next agent trivial. The two projects are the raw material for the platform - by building them you see what is common, and that commonality becomes the platform's first cut. The platform deliberately ships with no monitoring and no evaluation in v0.0.1; those layers are added gradually after week 6.
+- Main gap to close: the entire LLM and agentic application stack - RAG, prompt and tool design, backend engineering beyond FastAPI/Docker, deployment. Observability and evaluation are deferred on purpose so the v0.0.1 platform stays simple enough to actually ship.
+- Weekly time commitment: 8-10 hours per week, extendable as the job search and family situation allow. The 6-week shape is explicitly a foundation, not the whole picture - the platform direction is a 12-week-plus arc.
+- Why this plan is the right next step: he is leaning toward AI Platform Engineer but has not yet built one LLM application. The fastest way to test whether the platform direction actually fits is to build two simple things, notice what is shared, and start abstracting. That also produces the deployed live URLs hiring committees want to see, even if the platform itself is a v0.0.1.
 
 ## Plan
 
 ### Focus
 
-- Main focus: ship a RAG system with comprehensive evaluation, deployed to a live URL, by end of week 6. The project is the portfolio piece for the job search and the testing ground for the role question.
-- Supporting focus: do a small piece of role research in week 1 - 10 job descriptions for AI Platform Engineer / MLOps Engineer / AI Engineer, what responsibilities they list, what stack they expect. The point is to mirror that language in the CV and LinkedIn, not to commit to a title before the project is built.
-- Supporting focus: AI Hero in parallel, only the modules that fill agent-fundamentals gaps. Skim, do not complete cover-to-cover.
+- Main focus: build a small RAG, then a small agent, then a v0.0.1 deployment platform that makes shipping the next agent trivial. The platform is the 6-week deliverable; the two projects are scaffolding that lets you see what the platform should actually do.
+- Supporting focus: in week 1, do role research - pull 10 AI Platform Engineer / MLOps / AI Engineer job descriptions, ask ChatGPT/Claude to summarise responsibilities, watch the relevant webinars in the [AI Engineering Field Guide](https://github.com/alexeygrigorev/ai-engineering-field-guide). "AI Platform Engineer" is a confusing title to chase before understanding what the role really involves.
+- Supporting focus: AI Hero core course as the entry point for agent fundamentals (agent loops, tool calling). Several of its homework projects can also serve as the seed projects you deploy in weeks 2-3.
 
 ### Timeline
 
 Week 1:
 
-- Concept and data design. Pick the dataset for the RAG system - something concrete and small enough to reason about (e.g., a documentation site, a paper collection in his domain, internal notes). Write a one-page note answering:
-  - What questions should the system answer? Five real questions you want to ask.
-  - What does "good" look like? Right passage retrieved, right answer, source cited - or stricter (full reference, multi-hop reasoning).
-  - What is the failure mode you most care about avoiding? Hallucination is the obvious one; coming from your ML background, frame this as "an evaluation set that catches it before users do".
-- Light role research. Pull 10 recent job descriptions for AI Platform Engineer, MLOps Engineer, and AI Engineer (use the [AI Engineering Field Guide](https://github.com/alexeygrigorev/ai-engineering-field-guide) and standard job boards). Note responsibilities, stack, and seniority. The output is a one-paragraph summary of "the bar I am building toward" for the CV/LinkedIn - not a final career commitment.
+- Role research. Pull 10 recent job descriptions for AI Platform Engineer, MLOps Engineer, and AI Engineer (job boards + the field guide). Ask ChatGPT/Claude to summarise responsibilities and stack. Watch the role webinars in the [AI Engineering Field Guide](https://github.com/alexeygrigorev/ai-engineering-field-guide). Output: a one-paragraph note on what "AI Platform Engineer" actually means in current listings - is it what you thought it was?
+- Pick the first project (the RAG). Keep it small: a documentation site, a paper collection, internal notes - something with five real questions you would actually want to ask. Sketch the architecture on paper before any code.
 - Pick one coding assistant and one paid plan. Avoid free tiers.
-- Start AI Hero in the background. Cover the agent-loop and tool-calling sections only - skip anything you already understand.
+- Start AI Hero core course in the background. Cover the agent-loop and tool-calling modules - they are the foundation for the second project in week 3.
 
 Week 2:
 
-- Build a minimal end-to-end RAG: ingestion → indexing → retrieval → answer with citations. Plain Python, FastAPI for the API, Docker for the container. No agentic framework yet - keep it as straight Python so you can see every step.
-- Write the evaluation harness on day one of the build - five to ten golden questions with expected sources or expected answer fragments. Run it after every meaningful change. This is your strength and the part that should be obvious in the README.
+- Build and deploy the first project (the RAG). Plain Python end to end - ingestion → indexing → retrieval → answer with citations. FastAPI for the API, Docker for the container. No agent framework yet. Push to a low-friction target (Render, Fly.io, a small VM) so the live URL is up by end of week 2. The shape that matters here is "deployed thing", not "polished thing" - skip evaluation harnesses and observability for now; they come later.
 
 Week 3:
 
-- Deploy the v0 RAG somewhere with a public URL. Pick a low-friction target (Render, Fly.io, a small VM). Deployment is part of the build, not a final-week sprint. Why this early: the live link is what hiring committees click; everything after this iterates on a deployed thing rather than a localhost demo.
-- Add observability. Pick one tool (Logfire, Langfuse, OpenTelemetry + a simple dashboard) and wire it in so every retrieval and every LLM call is traceable. This is also the kind of work AI Platform Engineer roles want to see.
+- Build and deploy the second project (a small agent). Take one of the AI Hero homework projects or one of the webinar projects from the field guide as the seed - do not invent from scratch. The point is to have a second deployed thing whose deployment story you can compare to the RAG, not to invent a new product. Push it live by end of week 3.
 
-Week 4:
+Weeks 4-6 - the platform v0.0.1:
 
-- Iterate on the RAG itself based on the evaluation set. Prioritise the failure mode you flagged in week 1. Common moves: better chunking, a re-ranker, query rewriting, better passage selection. One change at a time, scored by the eval harness.
-- Add one agent capability if the project genuinely benefits - e.g., a "follow-up question" loop or a tool that fetches an external reference. Skip if the RAG is already answering well; do not add an agent for the sake of it.
-
-Week 5:
-
-- Pick the single biggest weakness from week 4 and fix it. Either better evaluation coverage (multi-hop questions, robustness checks) or one production-shape concern: rate limiting, request logging, a minimal auth layer if the demo will be public.
-- Write the README in the style hiring committees actually read: problem, dataset, architecture diagram, evaluation methodology, evaluation results, live URL, what you would do next.
-
-Week 6:
-
-- Wrap to demo state. Tag a release. Record a 3-5 minute demo video. Confirm the live URL is reachable from a fresh browser session. The README + live URL + repo is the artefact you point hiring committees at.
-- Decide the role question now that you have built the thing. If the part you most enjoyed was "building the platform for the RAG to live in" (deployment, observability, infrastructure), the next sprint leans AI Platform / MLOps. If it was "making the RAG actually answer well" (retrieval, evaluation, prompts), the next sprint leans AI Engineer. Picking on evidence beats picking on theory.
+- Look at what the RAG and the agent have in common: how they are packaged, what config they need, how they get a live URL, what runtime they expect. That common shape is the seed of the platform.
+- Build the v0.0.1 platform. Goal: drop in a new agent (single repo or single config) and the platform deploys it to a live URL. Nothing else. No monitoring, no evaluation, no auth, no dashboards. Stripping these out is the only way the v0.0.1 ships in the time available.
+- Validate the platform by re-deploying the RAG and the agent through it. If both come up via the platform's deployment path, v0.0.1 is done.
+- Sketch (do not build) the layers that come next: monitoring, log aggregation, automatic instrumentation, evaluation hooks, durable execution. These are the post-week-6 roadmap, not week-6 work. Write them down so the next sprint has a starting point.
+- Decide the role question now that you have built the thing. If the platform-shaped work felt energising, the next sprint leans AI Platform / MLOps and the post-week-6 roadmap is your next 6-week plan. If the project work itself felt better than the platform around it, the direction shifts toward AI Engineer.
 
 ### Project approach
 
-- Strength first, gap second. Your evaluation and failure-mode analysis is the strongest signal in your background - put it in the project from day one. A RAG with a good eval harness reads as "this person actually knows what they are doing" to anyone hiring for AI Engineer or AI Platform roles.
-- Functions before frameworks. Write the retrieval, the prompt assembly, and the answer step as plain functions you can call from a REPL. Wrap in FastAPI later. Skip agent frameworks until you have a reason for one.
-- Deploy as part of building, not at the end. Live URL by end of week 3. Iterations after week 3 happen on the deployed thing.
-- One coding assistant, paid plan, used for boilerplate - not as a black box. Conceptually work through the design first, then have the assistant implement; review every diff. The point is to understand each line, not to outsource the project.
-- The role question is a sprint output. Manjunath's intake reads as "I do not yet know whether I want AI Engineer or AI Platform Engineer". The fastest way to find out is to build a project that touches both sides and notice which side felt energising.
-- Plan can extend past 6 weeks if needed. The 6-week shape gets the v1 shipped; depth in observability/deployment/platform shape is genuinely a 12-week arc, and the sprint is the foundation.
+- Two small things, then a platform - in that order. The two projects exist to surface what the platform should actually do. Skipping straight to "design the platform" is design without input; this is the failure mode to avoid.
+- Strip ruthlessly for v0.0.1. No monitoring, no evaluation, no auth in v0.0.1. Adding them later is straightforward; trying to add them now will mean nothing ships. This is deliberate sequencing, not laziness - the layered build is the whole point.
+- Functions before frameworks. Write retrieval, prompt assembly, and answer steps as plain functions you can call from a REPL. Wrap in FastAPI later. Skip agent frameworks until you have a reason for one.
+- One coding assistant, paid plan. Conceptually work through the design first, then have the assistant implement. Review every diff. The point is to understand each line and have a high-level mental model of how components interact - not to outsource the project. Outsourcing the platform design is the failure mode; outsourcing typing is the goal.
+- Tech choices do not matter much. FastAPI is fine. Pick whatever the coding assistant suggests when in doubt. Optimise for shipping, not for the right framework.
+- Plan extends past 6 weeks. The 6-week shape gets v0.0.1 deployed and the two seed projects shipped. Monitoring, observability, evaluation, durable execution, auth - these are a 12-week-plus arc. Make this explicit so the sprint feels like a foundation, not the whole picture.
 
 ### Resources
 
-- AI Hero - free, useful for filling in agent fundamentals (agent loops, tool calling, evaluation). Skim, do not complete cover to cover.
-- [AI Engineering Field Guide](https://github.com/alexeygrigorev/ai-engineering-field-guide) - browse recent AI Engineer / AI Platform / MLOps job listings to harvest the language and responsibilities to mirror in CV and LinkedIn. Also has the webinars walking through the role landscape.
-- Logfire (or Langfuse / OpenTelemetry) - pick one for observability in week 3. The choice does not matter much; using one consistently does.
-- A coding assistant of choice (Claude Code, Codex, or similar). Pick one and commit.
+- AI Hero core course - the entry point for agent fundamentals. Several homework projects can double as the seed projects you deploy in weeks 2-3.
+- [AI Engineering Field Guide](https://github.com/alexeygrigorev/ai-engineering-field-guide) - browse recent AI Engineer / AI Platform / MLOps job listings, watch the role webinars to clarify what AI Platform Engineer actually means. The webinar projects are also viable seeds for the second project.
+- A coding assistant of choice (Claude Code, Codex, or similar). Pick one, commit, paid plan only.
+- Deployment target: Render, Fly.io, or a small VM. The choice does not matter; using one consistently does.
 
 ### Deliverables
 
-- Concept doc (dataset + five real questions + failure mode you most care about) + 10 job descriptions analysed - by end of week 1.
-- v0 RAG with evaluation harness running locally - by end of week 2.
-- v0 RAG deployed to a public URL with observability wired in - by end of week 3.
-- Iterated RAG with at least one substantial improvement scored by the eval harness - by end of week 4.
-- Hardened version with one production-shape improvement and a hiring-ready README - by end of week 5.
-- Tagged release, demo video, live URL, role-direction call - by end of week 6.
+- 10-job-description analysis + first-project scoping note - by end of week 1.
+- Project 1 (RAG) deployed to a public URL - by end of week 2.
+- Project 2 (small agent) deployed to a public URL - by end of week 3.
+- Platform v0.0.1: both projects redeployable via a single platform path - by end of week 6.
+- Roadmap note for the post-week-6 layers (monitoring, log aggregation, evaluation, durable execution, auth) and a role-direction call - by end of week 6.
 
 ### Accountability
 
@@ -96,10 +83,11 @@ Week 6:
 
 ### Next Steps
 
-- [ ] [Manjunath] Write the concept doc (dataset + five questions + failure mode) and the 10-job-description summary by end of week 1.
-- [ ] [Manjunath] Pick a coding assistant + paid plan; pick the deployment target.
+- [ ] [Manjunath] Pull 10 job descriptions and write the role-research note by end of week 1.
+- [ ] [Manjunath] Pick the first project (RAG dataset + five real questions) and the deployment target.
+- [ ] [Manjunath] Pick a coding assistant + paid plan; start AI Hero core course in parallel.
 - [ ] [Manjunath] Share weekly progress and reflections in the AI Shipping Labs Slack.
-- [ ] [Alexey] Send the written plan and confirm AI Hero is the right entry point for agent fundamentals.
+- [ ] [Alexey] Send the written plan and confirm AI Hero core is the right entry point for agent fundamentals.
 - [ ] [Valeriia] Confirm Manjunath is on the AI Shipping Labs Slack channel and added to the May sprint roster.
 
 ## Internal Context
