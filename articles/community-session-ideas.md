@@ -1,7 +1,7 @@
 ---
 title: "Community Session Ideas"
 created: 2026-04-24
-updated: 2026-04-29
+updated: 2026-05-06
 tags: [ai-shipping-labs, community, ideas, activities, mastermind]
 status: draft
 ---
@@ -9,6 +9,13 @@ status: draft
 # Community Session Ideas
 
 Session ideas proposed by AI Shipping Labs community members, recorded so they do not get lost. These are not promises - the filter is whether an idea is useful to others and whether we can run it without too much time investment[^4].
+
+## Documenting and Refactoring Agent Output (Carlos Pumar)
+
+Carlos Pumar shared two ideas for the next freestyle workshop after the Telepot session[^6]:
+
+- Documenting "learnings" from agent-built projects so they can be reused. When working on a new project with agents, a lot of valuable insights are produced as the agent works. It is hard to decide what to keep and study in greater detail so that next time you understand what the agent has done in the prior project and will probably do in a new one. A workshop showing how Alexey documents these learnings from one project in order to reuse them at a later stage would be useful[^6].
+- Refactoring agent-generated code with named software principles. Look at code an agent has produced, walk through it using known software principles, and have the agent refactor it until the code reads as maintainable. The session would pick whatever code the agent has just produced and iterate on it live[^6].
 
 ## AI Engineer Job-Hunt Topics (Sai Kumar G)
 
@@ -55,3 +62,4 @@ Also relevant: the two people the original conversation was about are both from 
 [^3]: [20260424_104334_AlexeyDTC_msg3599_transcript.txt](../inbox/used/20260424_104334_AlexeyDTC_msg3599_transcript.txt)
 [^4]: [20260424_104335_AlexeyDTC_msg3601_transcript.txt](../inbox/used/20260424_104335_AlexeyDTC_msg3601_transcript.txt)
 [^5]: [20260429_104254_valeriia_kuka_msg3723.md](../inbox/used/20260429_104254_valeriia_kuka_msg3723.md)
+[^6]: [20260506_090635_AlexeyDTC_msg3866.md](../inbox/used/20260506_090635_AlexeyDTC_msg3866.md)

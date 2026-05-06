@@ -1,7 +1,7 @@
 ---
 title: "Weekly Log"
 created: 2026-02-26
-updated: 2026-04-24
+updated: 2026-05-05
 tags: [weekly, log]
 status: draft
 ---
@@ -9,6 +9,20 @@ status: draft
 # Weekly Log
 
 A running log of what was done each week. When a topic has its own detailed article, this log contains a short summary with a link. When there is not much content for a topic, the details go here directly.
+
+## Week of 2026-05-04
+
+### Data Makers Fest in Porto
+
+Was at Data Makers Fest, a conference held in Porto. On Monday ran a workshop called "Introduction to Agentic RAG" - took the first modules of the LLM Zoomcamp / RAG course content, simplified them as much as possible, and turned them into an introduction to agentic RAG[^34].
+
+The next day did interviews with people at the conference - a podcast episode based on those interviews is coming soon. Also took part in a panel discussion and moderated a session about production LLMs. Could not stay for the full conference, but the parts attended went well[^34].
+
+<figure>
+  <img src="../assets/images/weekly-log/data-makers-fest-stage.jpg" alt="Data Makers Fest stage with a panel below a large screen">
+  <figcaption>Data Makers Fest stage during the panel discussion</figcaption>
+  <!-- Photo from Data Makers Fest in Porto, taken during the panel session referenced in the voice note -->
+</figure>
 
 ## Week of 2026-04-20
 
@@ -256,3 +270,4 @@ Upgraded to AWS Business support, got on a call with support at 2 AM. Still wait
 [^31]: [20260328_035435_AlexeyDTC_msg3121_photo.md](../inbox/used/20260328_035435_AlexeyDTC_msg3121_photo.md)
 [^32]: [20260424_125504_AlexeyDTC_msg3622_transcript.txt](../inbox/used/20260424_125504_AlexeyDTC_msg3622_transcript.txt)
 [^33]: [20260424_125600_AlexeyDTC_msg3623_photo.md](../inbox/used/20260424_125600_AlexeyDTC_msg3623_photo.md)
+[^34]: [20260505_145906_AlexeyDTC_msg3864_transcript.txt](../inbox/used/20260505_145906_AlexeyDTC_msg3864_transcript.txt), [20260505_145800_AlexeyDTC_msg3862_photo.md](../inbox/used/20260505_145800_AlexeyDTC_msg3862_photo.md)
