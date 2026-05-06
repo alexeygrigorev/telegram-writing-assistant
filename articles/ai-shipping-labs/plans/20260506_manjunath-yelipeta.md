@@ -43,12 +43,19 @@ Week 3:
 
 - Build and deploy the second project (a small agent). Take one of the AI Hero homework projects or one of the webinar projects from the field guide as the seed - do not invent from scratch. The point is to have a second deployed thing whose deployment story you can compare to the RAG, not to invent a new product. Push it live by end of week 3.
 
-Weeks 4-6 - the platform v0.0.1:
+Week 4:
 
-- Look at what the RAG and the agent have in common: how they are packaged, what config they need, how they get a live URL, what runtime they expect. That common shape is the seed of the platform.
-- Build the v0.0.1 platform. Goal: drop in a new agent (single repo or single config) and the platform deploys it to a live URL. Nothing else. No monitoring, no evaluation, no auth, no dashboards. Stripping these out is the only way the v0.0.1 ships in the time available.
-- Validate the platform by re-deploying the RAG and the agent through it. If both come up via the platform's deployment path, v0.0.1 is done.
-- Sketch (do not build) the layers that come next: monitoring, log aggregation, automatic instrumentation, evaluation hooks, durable execution. These are the post-week-6 roadmap, not week-6 work. Write them down so the next sprint has a starting point.
+- Compare the two deployed projects. How are they packaged? What config do they need? How do they get a live URL? What runtime do they expect? Write a one-page note on the shared shape - that note is the seed of the platform.
+- Sketch the v0.0.1 platform on paper before any code: the input contract (what does an agent author hand the platform?), the deployment path (what does the platform do with it?), the output (live URL, nothing else). No monitoring, no evaluation, no auth. Naming what is out of scope is as important as naming what is in.
+
+Week 5:
+
+- Build the v0.0.1 platform skeleton. Goal: a single deployment path - drop in a new agent (single repo or single config) and the platform deploys it to a live URL. Re-deploy the first project (the RAG) through this path. If the RAG comes up via the platform, the skeleton is real.
+
+Week 6:
+
+- Re-deploy the second project (the agent) through the same platform path. Two projects coming up via one path is the v0.0.1 acceptance bar.
+- Write the post-week-6 roadmap: monitoring, log aggregation, automatic instrumentation, evaluation hooks, durable execution, auth - in the order you would add them. Sketch only, do not build.
 - Decide the role question now that you have built the thing. If the platform-shaped work felt energising, the next sprint leans AI Platform / MLOps and the post-week-6 roadmap is your next 6-week plan. If the project work itself felt better than the platform around it, the direction shifts toward AI Engineer.
 
 ### Project approach
@@ -72,8 +79,9 @@ Weeks 4-6 - the platform v0.0.1:
 - 10-job-description analysis + first-project scoping note - by end of week 1.
 - Project 1 (RAG) deployed to a public URL - by end of week 2.
 - Project 2 (small agent) deployed to a public URL - by end of week 3.
-- Platform v0.0.1: both projects redeployable via a single platform path - by end of week 6.
-- Roadmap note for the post-week-6 layers (monitoring, log aggregation, evaluation, durable execution, auth) and a role-direction call - by end of week 6.
+- Shared-shape note + v0.0.1 platform sketch - by end of week 4.
+- Platform skeleton with the RAG redeployed through it - by end of week 5.
+- Both projects redeployable via the platform path + post-week-6 roadmap + role-direction call - by end of week 6.
 
 ### Accountability
 
