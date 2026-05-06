@@ -34,9 +34,17 @@ Week 1:
 - Set up the environment (whichever assistant is comfortable - Claude Code, Codex). Confirm everything works end-to-end on a tiny script before the course's first proper exercise.
 - Start the first AI Hero module. Aim for one module per week as the default rhythm.
 
-Weeks 2-4:
+Week 2:
 
-- Continue AI Hero, one module per week. After each module, write two or three lines in the Slack channel about what was new and what felt confusing. The note is the accountability layer.
+- Complete the next AI Hero module. Post a 2-3 line Slack note: what was new, what felt confusing. The note is the accountability layer.
+
+Week 3:
+
+- Complete the next AI Hero module. Same Slack note format. If a module feels too dense for a single week, slow the pace rather than skipping the homework - finishing later is fine; finishing without practice is not.
+
+Week 4:
+
+- Complete the next AI Hero module. Same Slack note format. By end of week 4 you should be roughly two-thirds through the course; if you are behind, decide now whether to drop the side-project stretch goal entirely so weeks 5-6 can stay on the capstone.
 
 Week 5:
 
@@ -63,9 +71,11 @@ Week 6:
 ### Deliverables
 
 - Course environment set up, first module done - by end of week 1.
-- One AI Hero module completed each week - weeks 2 to 4.
-- Capstone project chosen and started - week 5.
-- Demo and final post - end of week 6.
+- Next AI Hero module completed + Slack note - by end of week 2.
+- Next AI Hero module completed + Slack note - by end of week 3.
+- Next AI Hero module completed + Slack note + decision on whether to keep the side-project stretch goal - by end of week 4.
+- Capstone project chosen and started - by end of week 5.
+- Demo and final post - by end of week 6.
 
 ### Accountability
 
