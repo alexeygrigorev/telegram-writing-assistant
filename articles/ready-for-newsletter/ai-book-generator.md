@@ -12,25 +12,25 @@ Using AI to generate complete books with text, covers, audio, and multiple outpu
 
 ## Backstory: How This Started
 
-My child has very specific interests and very specific information requests. He wanted books about narrow topics that simply do not exist - especially not as children's books, because the audience for them is essentially one person[^1][^7].
+My child has very specific interests and very specific information requests. He wants books about narrow topics that simply don't exist - especially not as children's books, because the audience for them is essentially one person[^1][^7].
 
 ### The first request: a book about metals
 
-The first request was a book about metals - what metals are, what they do, but only about specific metals he cared about. He wanted palladium, tin, magnesium, titanium, beryllium, lithium, tungsten. He told me what kind of book he wanted, what properties he wanted described, how they are used. We could not find a book like that, and he said this is what he wanted to listen to at bedtime[^7][^8].
+The first request was a book about metals - what metals are, what they do, but only the specific ones he cared about. His list was palladium, tin, magnesium, titanium, beryllium, lithium, tungsten. He told me what properties he wanted described and how they're used. We couldn't find a book like that, and he said this is what he wanted to listen to at bedtime[^7][^8].
 
-I tried doing it through ChatGPT directly. We talked, said let's make a plan, let's figure out what it should look like and try to generate it. ChatGPT generated a table of contents, we iterated on it, and then I asked it to write the first chapter. The result was very bad. Just using ChatGPT for this did not work[^1].
+I tried doing it through ChatGPT directly. We talked, agreed on a plan, and tried to generate the book. ChatGPT produced a table of contents, we iterated on it, and then I asked it to write the first chapter. The result was very bad. ChatGPT alone didn't work for this[^1].
 
-Then I thought about coding agents. They are good at planning - they make a plan and then execute against it. What if I use ChatGPT only as a table-of-contents generator, then take that outline and hand it to a coding agent to actually write the book? This is my normal approach to building applications: iterate with ChatGPT to figure out what I want, then delegate the implementation to a coding agent. Let's do the same thing for a book[^2].
+Then I thought about coding agents. They're good at planning - they make a plan and then execute against it. What if I use ChatGPT only as a table-of-contents generator, then hand that outline to a coding agent to actually write the book? That's my normal approach to building applications: iterate with ChatGPT to figure out what I want, then delegate the implementation to a coding agent. Same thing should work for a book[^2].
 
 ### Iterating with coding agents on the metals book
 
-My son and I sat together with ChatGPT and built up the outline: we want a book about potassium, gallium, and their alloys, here are the chapters. I read it back to him, we adjusted, and once he approved I handed it to the coding agent.
+My son and I sat together with ChatGPT and built up the outline for the metals book - one chapter per metal, with the properties and uses he wanted covered. I read it back to him, we adjusted, and once he approved I handed it to the coding agent[^2].
 
-The first version was rough. Instead of writing prose, the agent wrote bullet points - my guess is that coding agents are tuned more for documentation than for narrative writing. So I tightened the prompt: clearer instructions, explicitly asking for normal prose. I worked through this the same way I described in my piece about coding from the tram stop - create a GitHub issue, let the agent work on it, review the result, create the next issue[^2].
+The first version was rough. Instead of writing prose, the agent wrote bullet points. My guess is that coding agents are tuned more for documentation than for narrative writing. So I tightened the prompt: clearer instructions, explicitly asking for normal prose. I worked through this the same way I described in my piece about coding from the tram stop - create a GitHub issue, let the agent work on it, review the result, create the next issue[^2].
 
-The other problem was that the agent did not finish what I asked for. If I said "this is not in the style I want, please rewrite the whole book in proper prose," it would rewrite the first five chapters and then say "okay, I am tired, I will stop here." I had to fight with that to get it to finish the whole book[^2].
+The other problem was that the agent didn't finish what I asked for. If I said "this isn't the style I want, please rewrite the whole book in proper prose," it would rewrite the first five chapters and then say "okay, I'm tired, I'll stop here." I had to fight with that to get it to finish the whole book[^2].
 
-In parallel I asked the agent to set up automation: auto-publish to a website, auto-generate the EPUB. That part worked well. The metals book ended up needing a fair bit of hand-holding to land in the format I wanted, but my child liked it[^3].
+In parallel I asked the agent to set up automation. I wanted to publish the book as a website I could read from in the browser, and on top of that I wanted EPUB output. The website came first; EPUB was added later just because it was interesting[^22]. That part worked well. The metals book ended up needing a fair bit of hand-holding to land in the format I wanted, but my child liked it[^3].
 
 <figure>
   <img src="../../assets/images/ai-book-generator/metals-book-toc.jpg" alt="Table of contents of the metals book showing chapters 13 to 30">
@@ -38,7 +38,7 @@ In parallel I asked the agent to set up automation: auto-publish to a website, a
   <!-- The book covers both the metals my son specifically asked for and others ChatGPT suggested adding for completeness -->
 </figure>
 
-Source code for the metals book: [github.com/alexeygrigorev/little-book-of-metals-ru](https://github.com/alexeygrigorev/little-book-of-metals-ru) [^4]
+The published book lives at [alexeygrigorev.com/little-book-of-metals-ru](https://alexeygrigorev.com/little-book-of-metals-ru/) [^23]. Source code: [github.com/alexeygrigorev/little-book-of-metals-ru](https://github.com/alexeygrigorev/little-book-of-metals-ru) [^4].
 
 ### Second book: gallium and potassium alloys
 
@@ -58,26 +58,26 @@ Source code: [github.com/alexeygrigorev/gallium-kalium-book-ru](https://github.c
 
 ### Third book: conifers
 
-Then one day my son came home from school. They had been studying conifers in nature science and he wanted to learn more. We read a lot about it through ChatGPT, and then he asked for a book. By that point the workflow was on rails: discuss with ChatGPT, build a plan, [create an issue in GitHub](https://github.com/alexeygrigorev/conifers-book-ru/issues/1), let Copilot work on it, get a book[^10][^11].
+Then one day my son came home from school. They had been studying conifers in natural science class and he wanted to learn more. We read a lot about it through ChatGPT, and then he asked for a book. By that point the workflow was on rails: discuss with ChatGPT, build a plan, [create an issue in GitHub](https://github.com/alexeygrigorev/conifers-book-ru/issues/1), let Copilot work on it, get a book[^10][^11].
 
-Source code: [github.com/alexeygrigorev/conifers-book-ru](https://github.com/alexeygrigorev/conifers-book-ru) [^12]
+Source code: [github.com/alexeygrigorev/conifers-book-ru](https://github.com/alexeygrigorev/conifers-book-ru) [^12].
 
 ### Building a specialized book agent
 
-After the third book I started thinking that Copilot was not the right tool for this. Around the same time a new Gemini model came out, and I wanted to compare GPT, Anthropic, and Gemini on book writing[^11].
+After the third book I started thinking Copilot wasn't the right tool for this. Around the same time a new Gemini model came out, and I wanted to compare GPT, Anthropic, and Gemini on book writing[^11].
 
 I had two reasons to build a dedicated program instead of using a coding agent:
 
-1. As a use case for participants in my course - showing how to build a specialized agent system rather than reaching for a general-purpose coding agent.
+1. A use case for participants in my course - showing how to build a specialized agent system rather than reaching for a general-purpose coding agent.
 2. A suspicion that coding agents are tuned for code, not for books, and that a specialized agent would produce better text.
 
-I built it and experimented. My evaluation method was deliberately informal: I read the text and picked the version I liked best. No formal eval framework - I am the one reading these books with my child, so vibes-based eval was good enough. After the experiments, Gemini came out on top[^11].
+I built it and experimented. My evaluation method was deliberately informal: I read the text and picked the version I liked best. No formal eval framework - I'm the one reading these books with my child, so vibes-based eval was good enough. After the experiments, Gemini came out on top[^11].
 
 The hypothesis - that a specialized book agent would beat a general coding agent - turned out to be right, at least anecdotally. The text from the specialized agent was better than what the coding agents produced[^11].
 
-The workflow it settled into is the same plan-then-execute pattern I use for code, and that I teach in my course:
+The workflow settled into the same plan-then-execute pattern I use for code, and that I teach in my course:
 
-1. The user iterates in a chat interface to define what the book should be about, until the table of contents is right. Always plan before you write, same as code.
+1. You iterate in a chat interface to define what the book should be about, until the table of contents is right. Always plan before you write, same as code.
 2. The chat output is converted into a structured plan - a large YAML document with chapters, sections, and bullet points for each.
 3. A simple `for chapter in plan: generate_chapter(...)` loop runs over the plan. Each chapter call gets context about what came before, but in a compressed form rather than the full prior text.
 
@@ -85,11 +85,11 @@ I show the same pattern in the course for coding agents: build a plan first, the
 
 ### Many books since
 
-With the new approach we have generated quite a few books. I started by re-doing the metals book on the new system - I did not actually need it, I just wanted to put the pipeline through its paces[^13].
+With the new approach we've generated quite a few books. I started by re-doing the metals book on the new system - I didn't actually need it, I just wanted to put the pipeline through its paces[^13].
 
 Then more requests came in:
 
-1. A book about sirens - the things that make warning sounds. He wanted very specific types of sirens, a topic where there is almost nothing online aimed at children[^13].
+1. A book about sirens - the things that make warning sounds. He wanted very specific types of sirens, a topic where there's almost nothing online aimed at children[^13].
 2. A book about fireworks - around New Year, when he got curious about how fireworks actually work[^13].
 3. A book about trains, planes, ships, and other mechanisms. He liked the cable-driven ones and asked for a follow-up book just about cable mechanisms - funiculars, cable cars, that kind of thing. Another very narrow request[^13].
 
@@ -97,13 +97,13 @@ The system handled all of them.
 
 ## How the Book Generator Works
 
-The repository at [github.com/alexeygrigorev/ai-book-generator](https://github.com/alexeygrigorev/ai-book-generator) follows the plan-then-execute pattern described above. Here is what each stage actually does.
+The repository at [github.com/alexeygrigorev/ai-book-generator](https://github.com/alexeygrigorev/ai-book-generator) follows the plan-then-execute pattern described above. Here's what each stage does.
 
 ### Plan generation
 
-Entry point is a Streamlit UI launched via `make ui`. The user fills in a topic and a size (Small / Medium / Large) and starts a chat with Gemini 3 Pro Preview that streams a draft plan into the panel. The user iterates on the plan in chat - each refinement call feeds the current plan plus the new feedback back into Gemini.
+The entry point is a Streamlit UI launched via `make ui`. You fill in a topic and a size (Small / Medium / Large) and start a chat with Gemini 3 Pro Preview that streams a draft plan into the panel. You iterate on the plan in chat - each refinement call feeds the current plan plus the new feedback back into Gemini.
 
-When the user clicks "Ready - Create Structured Plan," the freeform chat plan goes through Gemini one more time with `response_mime_type="application/json"` and a JSON schema generated from the Pydantic `BookPlan` model. The structured output is dumped to `books/<slug>/plan.yaml`. A slice looks like:
+When you click "Ready - Create Structured Plan," the freeform chat plan goes through Gemini one more time with `response_mime_type="application/json"` and a JSON schema generated from the Pydantic `BookPlan` model. The structured output is dumped to `books/<slug>/plan.yaml`. A slice looks like:
 
 ```yaml
 name: My Book
@@ -123,11 +123,16 @@ For headless runs there is also a CLI: `uv run python -m chapter_based.plan -p b
 
 ### Chapter-by-chapter loop
 
-`chapter_based/execute.py` loads the YAML, flattens the parts into a list of chapter specs, and iterates. For each chapter it builds a "book progress" string with the full chapter list - completed chapters marked `[x]`, the current one marked with a "you're currently here" arrow, the rest marked `[ ]`. That outline plus the current chapter's bullet points is what Gemini sees when writing the chapter. The cohesion across chapters comes from the upfront plan, not from passing the actual prior text.
+`chapter_based/execute.py` loads the YAML, flattens the parts into a list of chapter specs, and iterates. For each chapter it builds a "book progress" string with the full chapter list - completed chapters marked `[x]`, the current one marked with a "you're currently here" arrow, the rest marked `[ ]`. That outline plus the current chapter's bullet points is what Gemini sees when writing the chapter. Cohesion across chapters comes from the upfront plan, not from passing the actual prior text.
 
-Output is written to `books/<slug>/part_01/01_chapter.md`, with a `chapter_exists` check so reruns skip what is already there. A `_ready` sentinel file in the book folder marks "do not touch this anymore." Per-part introductions and back-cover text come from fields already in the plan, so they cost no extra LLM calls.
+Output is written to `books/<slug>/part_01/01_chapter.md`, with a `chapter_exists` check so reruns skip what's already there. A `_ready` sentinel file in the book folder marks "don't touch this anymore." Per-part introductions and back-cover text come from fields already in the plan, so they cost no extra LLM calls.
 
-There are two parallel implementations in the repo - `book_generator/` (section-based, more LLM calls per chapter, longer books) and the newer `chapter_based/` (one call per whole chapter, 3000-5000 words). The chapter-based path is the cleaner illustration.
+There are two parallel implementations in the repo:
+
+- `book_generator/` - section-based, more LLM calls per chapter, longer books
+- `chapter_based/` - one call per whole chapter, 3000-5000 words
+
+The chapter-based path is the cleaner illustration.
 
 ### Publishing pipeline
 
@@ -139,15 +144,15 @@ Three publishing scripts read the same `plan.yaml` and walk the `part_XX/*.md` t
 
 ### Audio generation
 
-My son sometimes wants to listen to the books rather than read them, so I added text-to-speech. I tried Gemini's voice generation and it was clearly better than what I had been using elsewhere - including the voice in my AI bedtime stories project. So Gemini is what the book generator uses too.
+My son sometimes wants to listen to the books rather than read them, so I added text-to-speech. I tried Gemini's voice generation and it was clearly better than what I'd been using elsewhere - including the voice in my AI bedtime stories project. So Gemini is what the book generator uses too.
 
 `book_generator/tts.py` calls `models/gemini-2.5-flash-preview-tts` (default voice `Charon`), wraps the returned PCM into WAV, and uploads straight to S3. Generation runs in parallel via `ThreadPoolExecutor`, with a cost lock and a skip-if-already-generated check. A separate `scripts/convert_wav_to_mp3.py` round-trips through ffmpeg for distribution[^15].
 
 ### Cost tracking and conventions
 
-Cost is first-class: `calculate_gemini_3_cost` knows the November 2025 pricing tiers (standard vs over 200k context) and bills "thoughts" tokens as output. A `CostTracker` accumulates per-chapter cost and the running total is shown live in the Streamlit UI.
+Cost is first-class: `calculate_gemini_3_cost` knows the November 2025 pricing tiers (standard vs over 200k context) and bills "thoughts" tokens as output. A `CostTracker` accumulates per-chapter cost and the running total shows live in the Streamlit UI.
 
-File organization is convention-driven: every book lives under `books/<slug>/` with `plan.yaml`, `back_cover.md`, `cover.jpg`, `part_XX/` directories, and the generated `.epub`, `kdp_interior.pdf`, `kdp_cover.pdf`. The `_ready` flag and the per-step `*_exists` checks make every step idempotent and resumable.
+File organization is convention-driven. Every book lives under `books/<slug>/` with `plan.yaml`, `back_cover.md`, `cover.jpg`, `part_XX/` directories, and the generated `.epub`, `kdp_interior.pdf`, `kdp_cover.pdf`. The `_ready` flag and the per-step `*_exists` checks make every step idempotent and resumable.
 
 Everything is wired together with a Makefile: `make ui` -> chat -> `make generate-book` -> `make tts BOOK=...` -> `make ebook BOOK=...` -> `make kdp-interior BOOK=...` -> `make kdp-cover BOOK=...`.
 
@@ -177,21 +182,21 @@ The fireworks book - one of the books generated with this system - came out at 2
 
 ## Cost and Quality
 
-I use the top Gemini model. A book costs less than $5 to generate - I do not remember the exact number off the top of my head. Compared to cheaper models that is a lot, but it is worth it, especially given how long we then read the book together[^13].
+I use the top Gemini model. A book costs less than $5 to generate - I don't remember the exact number off the top of my head. Compared to cheaper models that's a lot, but it's worth it, especially given how long we then read the book together[^13].
 
 The thing I noticed from the very first book six months ago - the metals book and the sirens book - is that the quality from Gemini is genuinely good. That observation is what eventually pushed me to think about doing something with these books beyond reading them at home[^13].
 
 ## Trying to Sell on Amazon
 
-The quality made me think it would be a shame for these books to just sit on my disk - it would be nice to actually sell them. So for the metals book I made an English version specifically to test the publishing flow, end to end. Not just generate the book for ourselves, but try to sell it[^17].
+The quality made me think it would be a shame for these books to just sit on my disk - it would be nice to actually sell them. So for the metals book I made an English version specifically to test the publishing flow end to end. Not just generate the book for ourselves, but try to sell it[^17].
 
-That is why the pipeline does more than just generate text. EPUB came naturally as part of the publishing setup. On top of that I added PDF interior, cover generation, and formatting that fits Amazon's KDP self-publishing format. The idea was: if the books are this good, maybe I can generate them and put them on Amazon[^17].
+That's why the pipeline does more than just generate text. EPUB came naturally as part of the publishing setup. On top of that I added PDF interior, cover generation, and formatting that fits Amazon's KDP self-publishing format. If the books are this good, maybe I can generate them and put them on Amazon[^17].
 
-The book has been on Amazon for about five months. So far it has been bought zero times[^17].
+The book has been on Amazon for about five months. So far it's been bought zero times[^17].
 
-The conclusion is that just generating a book and uploading it is not enough. You have to do active marketing, find niches, do search engine optimization. I do not have time for that, so the project is not abandoned but it is back to being a tool for generating books for me and my son[^17].
+So just generating a book and uploading it isn't enough. You have to do active marketing, find niches, do search engine optimization. I don't have time for that, so the project isn't abandoned, but it's back to being a tool for generating books for me and my son[^17].
 
-There is potential here, though. If you do the research - find what people are searching for but cannot find - there is a real opportunity to help those people and make money doing it[^17].
+There's still potential here. If you do the research - find what people are searching for but can't find - there's a real opportunity to help those people and make money doing it[^17].
 
 ## Image Translation
 
@@ -256,6 +261,8 @@ For the cover I used a simple prompt: "make a cover for the book" plus the book 
 - [20260507_085035_AlexeyDTC_msg3918_transcript.txt](../../inbox/used/20260507_085035_AlexeyDTC_msg3918_transcript.txt)
 - [20260507_085304_AlexeyDTC_msg3920_transcript.txt](../../inbox/used/20260507_085304_AlexeyDTC_msg3920_transcript.txt)
 - [20260507_085428_AlexeyDTC_msg3922_transcript.txt](../../inbox/used/20260507_085428_AlexeyDTC_msg3922_transcript.txt)
+- [20260507_091034_AlexeyDTC_msg3930.md](../../inbox/used/20260507_091034_AlexeyDTC_msg3930.md)
+- [20260507_091108_AlexeyDTC_msg3932_transcript.txt](../../inbox/used/20260507_091108_AlexeyDTC_msg3932_transcript.txt)
 
 [^1]: [20260507_082812_AlexeyDTC_msg3892_transcript.txt](../../inbox/used/20260507_082812_AlexeyDTC_msg3892_transcript.txt)
 [^2]: [20260507_083205_AlexeyDTC_msg3896_transcript.txt](../../inbox/used/20260507_083205_AlexeyDTC_msg3896_transcript.txt)
@@ -278,3 +285,5 @@ For the cover I used a simple prompt: "make a cover for the book" plus the book 
 [^19]: [20260123_121736_valeriia_kuka_msg470_transcript.txt](../../inbox/used/20260123_121736_valeriia_kuka_msg470_transcript.txt)
 [^20]: [20260123_121736_valeriia_kuka_msg489.md](../../inbox/used/20260123_121736_valeriia_kuka_msg489.md)
 [^21]: [20260123_121736_valeriia_kuka_msg488_file.md](../../inbox/used/20260123_121736_valeriia_kuka_msg488_file.md)
+[^22]: [20260507_091108_AlexeyDTC_msg3932_transcript.txt](../../inbox/used/20260507_091108_AlexeyDTC_msg3932_transcript.txt)
+[^23]: [20260507_091034_AlexeyDTC_msg3930.md](../../inbox/used/20260507_091034_AlexeyDTC_msg3930.md)
