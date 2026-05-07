@@ -26,6 +26,7 @@ Articles that are mostly ready for the newsletter. All necessary content is insi
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Generating Books with AI](ready-for-newsletter/ai-book-generator.md) | draft | 2026-05-07 | Backstory: child's specific-topic requests (metals, gallium-kalium alloys, conifers), iterating from ChatGPT-only to Copilot+GitHub-issues to a custom plan-then-execute Gemini agent; how the generator works (Streamlit chat, YAML plan, chapter loop, Pandoc/XeLaTeX/ReportLab publishing, Gemini TTS, Makefile); $5/book, Amazon KDP experiment selling 0 copies in 5 months |
 | [Claude Code Experiments](ready-for-newsletter/claude-code-experiments.md) | draft | 2026-04-28 | Experiments and applications of Claude Code beyond coding, including challenges with communication; added new running-agents view in the Claude Code UI |
 | [FAQ System for Course Management](ready-for-newsletter/faq-system.md) | draft | 2026-04-23 | Community-driven FAQ with RAG-based automation, Google Docs era, Alex Litvinov's Slack bot stack, custom Copilot-built static site generator, GPT-4o cleanup script, FAQ Automation Bot with Mermaid workflow, Claude Code PR review, illustration placeholders added |
 | [Configuring Claude Code](ready-for-newsletter/configuring-claude-code.md) | draft | 2026-04-05 | Configuration, aliases, slash commands, skills, safety hooks, disabling bypass permissions, and token usage reduction |
@@ -41,7 +42,6 @@ Articles that are mostly ready for the newsletter. All necessary content is insi
 | [Nobook: Plain Python Files as Jupyter Notebooks](ready-for-newsletter/nobook.md) | draft | 2026-02-13 | Tool that uses plain .py files as Jupyter notebooks instead of .ipynb JSON |
 | [Minsearch Benchmarking and Optimization](ready-for-newsletter/minsearch-benchmarking-optimization.md) | draft | 2026-02-09 | Optimizing the appendable index through iterative benchmarking |
 | [Course Management Agent](ready-for-newsletter/course-management-agent.md) | draft | 2026-01-23 | Automating course administration tasks with Claude Skills |
-| [Generating Books with AI](ready-for-newsletter/ai-book-generator.md) | draft | 2026-01-23 | Using AI to generate complete books with covers |
 | [Minsearch: Simple Search for Small Datasets](ready-for-newsletter/minsearch-library.md) | draft | 2026-01-23 | Lightweight search library for small databases |
 | [Streaming JSON Parsing with jaxn](ready-for-newsletter/jaxn-streaming-json.md) | draft | 2026-01-23 | Streaming parser for LLM structured output |
 
