@@ -1,7 +1,7 @@
 ---
 title: "Weekly Log"
 created: 2026-02-26
-updated: 2026-05-05
+updated: 2026-05-08
 tags: [weekly, log]
 status: draft
 ---
@@ -14,15 +14,35 @@ A running log of what was done each week. When a topic has its own detailed arti
 
 ### Data Makers Fest in Porto
 
-Was at Data Makers Fest, a conference held in Porto. On Monday ran a workshop called "Introduction to Agentic RAG" - took the first modules of the LLM Zoomcamp / RAG course content, simplified them as much as possible, and turned them into an introduction to agentic RAG[^34].
+Was at Data Makers Fest, a conference held in Porto. On Monday ran a workshop called "Introduction to Agentic RAG" - took the first modules of the LLM Zoomcamp / RAG course content, simplified them as much as possible, and turned them into an introduction to agentic RAG. Specifically, took the first module on RAG and the next module on agents and made a maximum strip-down version - intentionally introductory, since the format is the kind many people find useful when they are new to the area[^34][^35].
 
-The next day did interviews with people at the conference - a podcast episode based on those interviews is coming soon. Also took part in a panel discussion and moderated a session about production LLMs. Could not stay for the full conference, but the parts attended went well[^34].
+The next day was on a panel at the very start of the day, with various audience questions, then asked a question at the end and hosted (moderated) the session about production LLMs. Also recorded interviews with various people at the conference; the podcast episode based on those interviews is still in preparation and should go out in a couple of weeks. Could not stay for the full conference, but the parts attended went well[^34][^35].
 
 <figure>
   <img src="../assets/images/weekly-log/data-makers-fest-stage.jpg" alt="Data Makers Fest stage with a panel below a large screen">
   <figcaption>Data Makers Fest stage during the panel discussion</figcaption>
   <!-- Photo from Data Makers Fest in Porto, taken during the panel session referenced in the voice note -->
 </figure>
+
+### Freestyle Workshop on AWS Lambda Deployment
+
+Ran another freestyle AI Shipping Labs workshop this week. The idea of the freestyle format is that people show up with their own ideas and we implement something together. Discussed some problems participants had and suggested solutions, but no concrete project ideas came out of that, so the workshop pivoted to "let's look at how to deploy to Lambda"[^35].
+
+The motivation: services like Render and similar are not actually serverless. If you deploy something there, the server keeps running all the time and you pay for it continuously. For low-load workloads, deploying as a long-running server does not make sense - Lambda is the right shape, and Alexey had been wanting to figure out how to do this with Lambda for a while[^35].
+
+To see the document from this workshop and take part in future events like it, people need to join the AI Shipping Labs community[^35].
+
+### AI Shipping Labs Migrated to Django
+
+Finally migrated the AI Shipping Labs site from Next.js to Django. There is still a lot of work to do, but the new Django version is now live - going to https://aishippinglabs.com lands on it[^35].
+
+### Sprint Kickoff with 20+ Member Plans
+
+Started the May sprint. Met with members and discussed everyone's goals. Valeriia and Alexey prepared more than 20 plans, so every participant now has a plan. Also had the idea to pair people up so it is easier for them to work together through the sprint[^35].
+
+### DataTalks.Club Migrated to Rustkill
+
+Finally migrated the DataTalks.Club site to Rustkill (spelled R-U-S-T-K-Y-L-L) - same shape as Jekyll, but Rustkill. The build is now much faster[^35].
 
 ## Week of 2026-04-20
 
@@ -271,3 +291,4 @@ Upgraded to AWS Business support, got on a call with support at 2 AM. Still wait
 [^32]: [20260424_125504_AlexeyDTC_msg3622_transcript.txt](../inbox/used/20260424_125504_AlexeyDTC_msg3622_transcript.txt)
 [^33]: [20260424_125600_AlexeyDTC_msg3623_photo.md](../inbox/used/20260424_125600_AlexeyDTC_msg3623_photo.md)
 [^34]: [20260505_145906_AlexeyDTC_msg3864_transcript.txt](../inbox/used/20260505_145906_AlexeyDTC_msg3864_transcript.txt), [20260505_145800_AlexeyDTC_msg3862_photo.md](../inbox/used/20260505_145800_AlexeyDTC_msg3862_photo.md)
+[^35]: [20260508_063626_AlexeyDTC_msg3946_transcript.txt](../inbox/used/20260508_063626_AlexeyDTC_msg3946_transcript.txt)

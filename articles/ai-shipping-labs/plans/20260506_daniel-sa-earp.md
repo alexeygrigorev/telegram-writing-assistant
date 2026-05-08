@@ -1,7 +1,7 @@
 ---
 title: "Plan: Daniel Sa Earp"
 created: 2026-05-06
-updated: 2026-05-06
+updated: 2026-05-07
 tags: [ai-shipping-labs, plan, community]
 status: draft
 ---
@@ -180,7 +180,44 @@ Daniel's closing comment: he is aware his goals are big for 6-8 weeks; he plans 
 
 ### Meeting Notes
 
-Call planned but not yet held. Topics for the call: side project, career direction, accountability cadence, longer-term plan.
+Daniel and Valeriia held a 30-minute call on 2026-05-07. Alexey was not on this call - the original intake call with Alexey is still pending and is the place to cover the side project and the longer-term plan in depth[^3][^4].
+
+Key points from the 2026-05-07 call[^3][^4]:
+
+- Sprint plan reception: Daniel finds the proposed 6-week plan doable and says it gives him much-needed structure - exactly what he was missing as someone new to AI engineering. He acknowledged he is starting a day late (May 7 instead of May 1) but said he will start week 1 the same evening and notify the team if he needs more time.
+- Python course: Daniel will not take the Python course Alexey is preparing during this sprint - he believes the existing plan is already a lot of work. He still wants to see the summary and plans to do the full course later, possibly alongside LLM Zoomcamp. Valeriia agreed to ask Alexey to share the Python course draft.
+- Coding approach: Daniel wants to use ChatGPT/Codex to understand concepts and see examples, then write code by hand, then ask ChatGPT for feedback, and finally post weekly progress on Slack for community feedback. Valeriia confirmed this aligns with Alexey's recommendations - "use AI for explanation as much as for code generation" rather than copy-paste.
+- Existing course content as reference: Valeriia walked Daniel through how LLM Zoomcamp, AI Hero, and the pre-Zoomcamp workshops all have hands-on code examples he can follow. The pre-Zoomcamp workshops will be cut into the LLM Zoomcamp module videos, so attending them gives him the same content earlier. Valeriia agreed to share the Luma link for the Data Talks Club workshops series.
+- Office hours support: Valeriia explained that Alexey plans to host weekly office hours specifically for AI Shipping Labs members doing LLM Zoomcamp - the small-cohort substitute for trying to support all 10,000+ public Zoomcamp participants directly.
+- AI Hero access: Daniel can sign in to the new AI Shipping Labs platform with Google or Slack and access AI Hero there. Valeriia mentioned the platform was published the previous night and not yet announced - some members are still flagged as free plan, but access works. Daniel confirmed he will look at AI Hero in week 5 as planned, focusing on the Python and Docker foundations first.
+- Docker resource: Valeriia recommended the first module of Data Engineering Zoomcamp as a Docker reference Daniel can refer to during the sprint.
+- Long-term guidance: Daniel asked whether he can keep getting some guidance after the 6-week sprint and the LLM Zoomcamp, even if the community grows and per-member attention decreases. Valeriia said it depends on how the community grows and Alexey's availability, but they hope to provide at least some guidance for ongoing members.
+- Tooling tip: Valeriia suggested Daniel use ChatGPT's microphone input for brain-dumping his side project idea before writing it down - the same flow Alexey uses.
+- Future course topics: Daniel suggested the community could eventually offer courses on LLM/AI subjects that LLM Zoomcamp does not cover, and recommended querying the public to find preferred topics. Valeriia acknowledged the suggestion and noted that direct asks like this call help more than broad polls, since people often stay silent when surveyed.
+
+Action items added by this call:
+
+- [ ] [Valeriia] Send these meeting notes to Alexey.
+- [ ] [Valeriia] Ask Alexey to share the Python course draft with Daniel.
+- [ ] [Valeriia] Send Daniel the Luma link for the Data Talks Club workshops series.
+- [ ] [Valeriia] Check Alexey's calendar availability for a 30-minute call on Daniel's side project.
+- [ ] [Daniel] Sign in to the new AI Shipping Labs platform via Google or Slack and access AI Hero there.
+- [ ] [Daniel] Document the side project main idea in this plan document (recorded below in Side Project Idea, recorded by Daniel during the call to follow up on this).
+
+### Side Project Idea (recorded during the 2026-05-07 call)
+
+Daniel intends to start this only after the 6-week sprint - he wants the Python, Docker, APIs, and Elasticsearch foundation in place first. The information is captured here so it does not get lost; the sprint plan does not change[^3][^4].
+
+The project is a chatbot platform for a proprietary educational method in the audiovisual industry. Daniel's wife runs the business and owns the underlying material - documents, PDFs, videos, and lessons that teach this method to other people. She currently uses a custom GPT she built in the ChatGPT web interface, trained on these documents. She wants to sell access to this knowledge as a service to other people in the audiovisual industry.
+
+What needs to be built:
+
+- An AI agent grounded in the proprietary corpus (documents, PDFs, videos, lessons).
+- A website that embeds the agent and lets users interact with it.
+- Login, accounts, and a subscription plan so paying customers can use the chatbot.
+- Rate limiting per user, so an unbounded API bill is not possible if a user asks an unlimited number of questions.
+
+Valeriia's read on the call: the project is "absolutely doable", in the same shape as similar projects from Alexey's courses (corpus-grounded chatbot with citations - the Data Talks Club podcast chatbot idea is one example). The build needs to be staged - the agent first, then the website and integrations, then payments. Daniel asked whether he should write this in the plan document or send it to Alexey directly on Slack, and said he would prefer a 30-minute call with Alexey to discuss it in more depth if that is possible.
 
 ### Internal Recommendations
 
@@ -209,8 +246,11 @@ Alexey's recommendations after reviewing Daniel's intake[^2]:
 - [ ] [Alexey] Send Daniel the written plan and propose call slots.
 - [ ] [Alexey] On the intake call, cover the side project, the career direction, and the medium-term plan.
 - [ ] [Valeriia] Confirm Daniel is on the AI Shipping Labs Slack channel, the LLM Zoomcamp June roster, and the May sprint.
+- [ ] [Valeriia] Follow through on the action items from the 2026-05-07 call (listed under Meeting Notes).
 
 ### Sources
 
 [^1]: [Daniel Sa Earp's intake (Google Doc)](https://docs.google.com/document/d/1QtkLtuYae5f9i9JbElRgRxiBs9IKnGqwhZJktwWxImA/edit?usp=sharing), shared via [20260506_174247_AlexeyDTC_msg3873.md](../../../inbox/used/20260506_174247_AlexeyDTC_msg3873.md).
 [^2]: [20260506_200424_AlexeyDTC_msg3880_transcript.txt](../../../inbox/used/20260506_200424_AlexeyDTC_msg3880_transcript.txt) - Alexey's recommendations after reading the Q&A.
+[^3]: [Meeting notes from Daniel and Valeriia's call, 2026-05-07 (Google Doc)](https://docs.google.com/document/d/1F3rD7jBbjL5p3AK-6XuQiSf1dFhTHz3BebS_9hWJxlw/edit?usp=sharing), shared via [20260507_135305_AlexeyDTC_msg3940.md](../../../inbox/used/20260507_135305_AlexeyDTC_msg3940.md).
+[^4]: [20260507_135305_AlexeyDTC_msg3941_transcript.txt](../../../inbox/used/20260507_135305_AlexeyDTC_msg3941_transcript.txt) - Valeriia's voice summary of the same call, with Alexey's instruction to record this information without changing the plan in [20260507_135934_AlexeyDTC_msg3944_transcript.txt](../../../inbox/used/20260507_135934_AlexeyDTC_msg3944_transcript.txt).
