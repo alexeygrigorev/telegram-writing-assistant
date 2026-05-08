@@ -26,11 +26,15 @@ The next day was on a panel at the very start of the day, with various audience 
 
 ### Freestyle Workshop on AWS Lambda Deployment
 
-Ran another freestyle AI Shipping Labs workshop this week. The idea of the freestyle format is that people show up with their own ideas and we implement something together. Discussed some problems participants had and suggested solutions, but no concrete project ideas came out of that, so the workshop pivoted to "let's look at how to deploy to Lambda"[^35].
+Ran another freestyle AI Shipping Labs workshop this week, on Tuesday: https://aishippinglabs.com/workshops/lambda-agent-deployment[^35][^39]. The idea of the freestyle format is that people show up with their own ideas and we implement something together. Discussed some problems participants had and suggested solutions, but no concrete project ideas came out of that, so the workshop pivoted to "let's look at how to deploy to Lambda"[^35].
 
 The motivation: services like Render and similar are not actually serverless. If you deploy something there, the server keeps running all the time and you pay for it continuously. For low-load workloads, deploying as a long-running server does not make sense - Lambda is the right shape, and Alexey had been wanting to figure out how to do this with Lambda for a while[^35].
 
-To see the document from this workshop and take part in future events like it, people need to join the AI Shipping Labs community[^35].
+What made this workshop different from the usual format is that the topic was not very familiar to me either - it was an opportunity to learn something new, not to teach something I already had figured out. Participants got to watch me actually pick up a new technical area: I knew something about Lambda but not deeply, so during the workshop I worked out how to get the coding parts to do what I wanted, and after the workshop I went back and tried to understand more thoroughly how everything fits together and how the code should be organised[^39].
+
+The pattern that came out of it works like this: ask the agent to implement something, then ask the agent to explain that implementation, then dig into the code yourself until you can describe what is happening end to end. The output of all that is a written document I can use myself later and reuse on future workshops where I talk about the same topic. So the workshop format doubles as a way for me to learn[^39].
+
+To see the document from this workshop and take part in future events like it, people need to join the AI Shipping Labs community[^35]. At the next workshop in this format, participants can again see how I work through a topic I do not yet know completely[^39].
 
 ### AI Shipping Labs Migrated to Django
 
@@ -309,3 +313,4 @@ Upgraded to AWS Business support, got on a call with support at 2 AM. Still wait
 [^36]: [20260508_064433_AlexeyDTC_msg3951_transcript.txt](../inbox/used/20260508_064433_AlexeyDTC_msg3951_transcript.txt)
 [^37]: [20260508_094022_AlexeyDTC_msg3958_photo.md](../inbox/used/20260508_094022_AlexeyDTC_msg3958_photo.md), [20260508_094214_AlexeyDTC_msg3962.md](../inbox/used/20260508_094214_AlexeyDTC_msg3962.md)
 [^38]: [20260508_094159_AlexeyDTC_msg3960.md](../inbox/used/20260508_094159_AlexeyDTC_msg3960.md), [20260508_094214_AlexeyDTC_msg3962.md](../inbox/used/20260508_094214_AlexeyDTC_msg3962.md)
+[^39]: [20260508_141000_AlexeyDTC_msg3972.md](../inbox/used/20260508_141000_AlexeyDTC_msg3972.md)

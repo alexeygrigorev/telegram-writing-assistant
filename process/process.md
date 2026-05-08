@@ -638,6 +638,12 @@ After processing, update `articles/_index.md` so that recently changed articles 
 
 Do the same for `articles/research/_index.md` if any research articles were changed.
 
+### Description column rules
+
+The Description column says what the article IS, not what changed in it last. Keep it short - one sentence describing the article's scope or purpose. Do not list recent updates, recently-added subsections, or per-item details from a child index inside the parent description. The "Last Updated" column already conveys recency; the description should stay stable across processing sessions and only change when the article's scope materially changes.
+
+Index entries that point at another index (e.g. the Personalised Plans row pointing at `plans/_index.md`) should describe the index's scope in one line, not summarise its rows.
+
 ## Step 7: Summary Report
 
 After processing, CREATE a summary file at `inbox/summaries/summary_` + timestamp + `.md` where timestamp is obtained by running:
