@@ -44,6 +44,20 @@ Started the May sprint. Met with members and discussed everyone's goals. Valerii
 
 Finally migrated the DataTalks.Club site to Rustkill (spelled R-U-S-T-K-Y-L-L) - same shape as Jekyll, but Rustkill. The build is now much faster[^35].
 
+The build itself went from 22 seconds down to 1 second - about a 20x speedup. Before the migration, the build took around 2 minutes locally and about 22 seconds in GitHub Actions (CI was already faster than local). After Rustkill, the build itself is roughly 1 second. In GitHub Actions, though, the end-to-end workflow only got about 1.5-2x faster overall - there is a lot of overhead around the actual build (container setup and the rest of the CI prep before and after), so most of the 20x build win is hidden by everything that happens around it. Still a real improvement, and locally the build is now very fast[^36].
+
+### DataTalks.Club Course Management Platform - UI Redesign with Codex
+
+Last week, ran a team of Codex agents to update the DataTalks.Club course management platform to use Tailwind and refresh the design. Iterated on the UI together with the agents and the result is satisfying. There was also some work on the internal admin part - course admin is now even easier[^37].
+
+<figure>
+  <img src="../assets/images/weekly-log/dtc-course-platform-redesign.jpg" alt="Redesigned DataTalks.Club course management platform homepage showing Active Courses with LLM Zoomcamp 2026">
+  <figcaption>Redesigned DataTalks.Club site after the Codex + Tailwind pass, with LLM Zoomcamp 2026 highlighted under Active courses</figcaption>
+  <!-- Screenshot of the public-facing course management site after the Codex-driven redesign described in this section -->
+</figure>
+
+Taking advantage of Codex's 2x limits while they last, so running things in parallel. Most of this work happened from a phone while travelling last week in the Harz mountains[^38].
+
 ## Week of 2026-04-20
 
 ### AI Shipping Labs First Workshop
@@ -292,3 +306,6 @@ Upgraded to AWS Business support, got on a call with support at 2 AM. Still wait
 [^33]: [20260424_125600_AlexeyDTC_msg3623_photo.md](../inbox/used/20260424_125600_AlexeyDTC_msg3623_photo.md)
 [^34]: [20260505_145906_AlexeyDTC_msg3864_transcript.txt](../inbox/used/20260505_145906_AlexeyDTC_msg3864_transcript.txt), [20260505_145800_AlexeyDTC_msg3862_photo.md](../inbox/used/20260505_145800_AlexeyDTC_msg3862_photo.md)
 [^35]: [20260508_063626_AlexeyDTC_msg3946_transcript.txt](../inbox/used/20260508_063626_AlexeyDTC_msg3946_transcript.txt)
+[^36]: [20260508_064433_AlexeyDTC_msg3951_transcript.txt](../inbox/used/20260508_064433_AlexeyDTC_msg3951_transcript.txt)
+[^37]: [20260508_094022_AlexeyDTC_msg3958_photo.md](../inbox/used/20260508_094022_AlexeyDTC_msg3958_photo.md), [20260508_094214_AlexeyDTC_msg3962.md](../inbox/used/20260508_094214_AlexeyDTC_msg3962.md)
+[^38]: [20260508_094159_AlexeyDTC_msg3960.md](../inbox/used/20260508_094159_AlexeyDTC_msg3960.md), [20260508_094214_AlexeyDTC_msg3962.md](../inbox/used/20260508_094214_AlexeyDTC_msg3962.md)
