@@ -28,43 +28,12 @@ Each resource entry follows this simple format:
 
 ## Tools
 
-### ReplaceByClawd
-
-[ReplaceByClawd](https://replacebyclawd.com/) is a playful "irreplaceability game" that takes a LinkedIn profile URL or handle and scores how replaceable the person is by an OpenClaw agent on a 0 to 100 scale. It publishes a leaderboard of top "survivors" with deadpan reasoning for each score, and offers a free OpenClaw agent for a month to anyone who scores below 2. A fun marketing stunt that doubles as a commentary on which roles are actually defensible against AI automation[^49].
-
-### Fabula
-
-[Fabula](https://www.linkedin.com/posts/googleresearch_chi2026-activity-7450071174446850048-Uo2F) is an interactive AI writing tool from Google Research that helps authors structure and refine stories through hierarchical narrative plans grounded in narratological theory. Co-designed with 42 expert writers, it lets theatre makers and screenwriters iteratively develop scenes and beats within a structured planning framework. Presented at CHI 2026, it demonstrates a human-centered approach where AI supports the creative process rather than replacing the author[^46].
-
-### DeepTutor
-
-[DeepTutor](https://github.com/HKUDS/DeepTutor) is an open-source AI tutoring assistant that turns your documents into an interactive learning environment. It combines RAG-powered knowledge bases with multiple learning modes - chat, guided learning journeys, quiz generation, deep research, and an AI co-writer - all sharing the same conversation context. It also supports persistent "TutorBots" that remember your learning history and evolve over time[^45].
-
-### Tech Debt Audit
-
-[Tech Debt Audit](https://github.com/ksimback/tech-debt-skill) is a Claude Code skill that produces a thorough, file-cited tech debt audit of an entire codebase rather than a generic best-practices checklist. It runs a three-phase protocol - orient, audit across nine dimensions, deliver - with required file:line citations on every finding and a "looks bad but is actually fine" section that catches shallow analysis. The output is a persistent TECH_DEBT_AUDIT.md artifact you can commit and re-run, with resolved findings tracked over time[^51].
 
 ## Resources
 
 ## Project ideas
 
 Add project ideas here.
-
-### Awesome AI Apps
-
-[Awesome AI Apps](https://github.com/Arindam200/awesome-ai-apps) is a collection of 70+ practical examples for building LLM-powered applications, covering everything from simple chatbots to advanced multi-agent systems. The projects span starter agents, RAG applications, MCP integrations, memory-enhanced agents, and production-ready workflows using frameworks like Agno, CrewAI, LangChain, PydanticAI, and AWS Strands. It is a great source of inspiration for AI project ideas with working code you can study and extend[^35].
-
-### Career-Ops
-
-[Career-Ops](https://github.com/santifer/career-ops) is an open-source, AI-powered job search system built on Claude Code that turns your terminal into a full job search command center. It evaluates job offers with a structured scoring system, generates ATS-optimized tailored CVs as PDFs, scans 45+ company career portals automatically, and tracks everything in a single pipeline. The author used it to evaluate 740+ job listings, generate 100+ personalized CVs, and land a Head of Applied AI role[^43].
-
-### Code Review Graph
-
-[Code Review Graph](https://github.com/tirth8205/code-review-graph) is an MCP-based tool that builds a local knowledge graph of your codebase so AI coding assistants read only what matters during code reviews. It uses Tree-sitter to parse your code into a structural map of functions, classes, imports, and their relationships, then performs blast-radius analysis on changes to identify the minimal set of affected files. The tool supports 19 languages, updates incrementally in under 2 seconds, and benchmarks show an average 8.2x token reduction compared to naive full-file reads[^44].
-
-### Coding Challenges
-
-[Coding Challenges](https://codingchallenges.substack.com/) is a weekly newsletter by John Crickett that publishes hands-on project challenges designed to help software engineers level up by building real-world tools. Each issue walks through rebuilding well-known software from scratch - things like awk, gzip, Docker, an ebook reader, a Loom clone, or AI agents and coding assistants - giving you a concrete, scoped project to practice on. With over 92,000 subscribers and 100+ challenges in the archive, it is a great source of project ideas for anyone who learns best by doing[^50].
 
 ### Automated GTM Pipeline
 
