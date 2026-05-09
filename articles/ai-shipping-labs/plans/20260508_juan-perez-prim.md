@@ -1,7 +1,7 @@
 ---
 title: "Plan: Juan Perez Prim"
 created: 2026-05-08
-updated: 2026-05-08
+updated: 2026-05-09
 tags: [ai-shipping-labs, plan, community]
 status: draft
 ---
@@ -12,11 +12,11 @@ Internal working document. Share only the `Summary` and `Plan` sections with the
 
 ## Summary
 
-- Current situation: TBD - pending Alexey's recommendations.
-- Goal for the next 6 weeks: TBD - pending Alexey's recommendations.
-- Main gap to close: TBD - pending Alexey's recommendations.
-- Weekly time commitment: TBD - pending Alexey's recommendations.
-- Why this plan is the right next step: TBD - pending Alexey's recommendations.
+- Current situation: Madrid-based data science lead, met Alexey through the Maven AI Engineering Buildcamp. Already shipped [amr_ai](https://github.com/juanpprim/amr_ai), an AMR (Antibiotic Resistance) learning agent: Streamlit chat that produces overviews, quizzes, and flashcards from a hybrid-retrieval RAG over WHO/CDC/FAO/PubMed sources, built with PydanticAI + Claude + ChromaDB + BioBERT[^2]. The build itself is solid; the project has not been deployed yet[^1].
+- Goal for the next 6 weeks: take the existing `amr_ai` Streamlit app from "runs locally" to "deployed and reachable on a secure independent website", with monitoring and evaluation added on top so other people can actually use it for feedback.
+- Main gap to close: deployment + monitoring + evaluation. The build skill is already there - what is missing is the production wrapping (Dockerization, scalability, secure hosting, GitHub Actions pipeline) plus the production-side evaluation Juan has not done before.
+- Weekly time commitment: 5 to 10 hours per week, around a full-time data science lead role and family responsibilities[^1].
+- Why this plan is the right next step: Juan already has the project the Buildcamp arc would normally have him build. The natural next step in the Buildcamp arc - concept → tools → tests → monitoring → evolution - is the part he has not done yet. Doing exactly that for `amr_ai` doubles as a portfolio piece and a base for the long-term goal of generalising the platform to other topics.
 
 ## Plan
 
@@ -24,53 +24,83 @@ This is the shareable part of the document.
 
 ### Focus
 
-- Main focus: TBD - pending Alexey's recommendations.
-- Supporting focus: TBD - pending Alexey's recommendations.
-- Supporting focus: TBD - pending Alexey's recommendations.
+- Main focus: deploy `amr_ai` to a secure independent website. Dockerise the Streamlit app, set up a small Docker-Compose-style stack (app + Chroma store + a reverse proxy for HTTPS), pick a host that does not bankrupt a side project, and wire up GitHub Actions so a push to main updates the live site.
+- Supporting focus: add real evaluation on top of the existing RAG. The Buildcamp workshop walked through this end to end - replicate that pattern on `amr_ai` and use it to compare retrieval/reranker variants and answer-grounding quality.
+- Supporting focus: add monitoring once the site is live. Logfire (or equivalent) for traces and request-level visibility, plus a small dashboard so usage from the five colleagues you share it with is observable rather than guessed at.
 
 ### Timeline
 
 Week 1:
 
-- TBD - pending Alexey's recommendations.
+- Stand up a Docker setup that runs the existing Streamlit app + Chroma collection together. The acceptance bar is "another machine can `docker compose up` and get the same chat experience".
+- Decide the host (Hugging Face Space - private to start - vs. a small VM vs. a managed Streamlit deploy). Private HF Space is the lightest path for the "share with five colleagues" goal Juan named in intake[^1]; a small VM is the right call if the eventual platform direction needs it.
+- Lock down secrets (API keys, DB paths) in env vars / a secret store, not in the repo.
 
 Week 2:
 
-- TBD - pending Alexey's recommendations.
+- Deploy the first version. Get a URL you can send to one colleague and ask them to break.
+- Add HTTPS / a custom domain if the host does not give one for free. Add basic auth or signed links so the URL is not openly indexable.
+- Replay one or two of the colleague's sessions from the logs to confirm what they actually saw.
 
 Week 3:
 
-- TBD - pending Alexey's recommendations.
+- Replay the Buildcamp workshop on monitoring + evaluation against `amr_ai`. Take the workshop's pattern (instrumentation around the RAG step + an evaluation harness over a small held-out set of AMR questions) and wire it in as written, not as a clean-sheet redesign. Goal: reproduce the workshop pattern in your project.
+- Build the eval set: 20-50 AMR questions you would want a clinician/student to be able to ask, with a notion of what a correct grounded answer looks like. The set is the project's quality bar from this point on.
 
 Week 4:
 
-- TBD - pending Alexey's recommendations.
+- Add a CI step in GitHub Actions that runs the eval set on every push. Failing eval scores block deploy. The point is not to chase a high score - it is to make regressions visible.
+- Add monitoring on the deployed site (Logfire or equivalent) so live errors and slow retrievals are visible. Confirm an end-to-end trace from "user types question" to "Chroma returns chunks" to "Claude returns answer" is readable.
 
 Week 5:
 
-- TBD - pending Alexey's recommendations.
+- Iterate on retrieval/reranker variants using the eval set as the scoreboard. The hybrid (BioBERT + BM25 + RRF) stack you already have is a solid baseline; one or two principled experiments (e.g., a different embedding model, a reranker tweak, a chunking change) is enough.
+- Polish the README, the architecture diagram, and the "how this was built" page so the public-facing version of the site has a writeup behind it.
 
 Week 6:
 
-- TBD - pending Alexey's recommendations.
+- Open the site to the five colleagues you mentioned in intake[^1]. Capture their feedback in the eval set so it tightens with real usage.
+- Decide whether the next sprint is: (a) generalising the platform to other topics (your stated long-term goal), (b) moving to a more capable host now that you have real usage, or (c) starting on the second project from your idea list.
+
+### Project approach
+
+- The build is not the bottleneck. `amr_ai` already has a richer stack than most sprint projects start with - PydanticAI agent, hybrid retrieval, BioBERT, Reciprocal Rank Fusion, Docling for PDFs[^3]. The sprint is about adding the production layer around what you have built, not rebuilding it.
+- Streamlit is fine for week-1 deployment. It got you to a working chat. Replacing it with a custom React frontend is a different project; if it ever happens, do it after the sprint, not during it.
+- Replicate the Buildcamp pattern, do not reinvent it. The workshop on monitoring + evaluation is the reference for what to add and in what order. Build the same shape on `amr_ai`, then improve from there.
+- Pair where it accelerates. Manjunath Yelipeta is sprinting on a v0.0.1 deployment platform that takes an AI project as input and produces a live URL ([his plan](20260506_manjunath-yelipeta.md)). His project and your project are on opposite sides of the same problem - there is real value in talking weekly about what each side learns. Pairing is optional but encouraged; treat it as an open conversation, not a dependency.
+- Keep secondary feature work parked. Adding diagrams, images, videos, gamified flashcards, generalising the platform - all good, all out of scope for this sprint. Note them in a follow-up doc so they are not lost; do not let them displace deployment.
 
 ### Resources
 
-- TBD - pending Alexey's recommendations.
+- Buildcamp workshop on monitoring + evaluation - the reference pattern for week 3-4. Use the same structure on `amr_ai` rather than designing from scratch.
+- AI Shipping Labs first workshop on Telepot agents and deployment to Render (week of 2026-04-20) - useful as a deployment-walkthrough reference if you want to see one path end to end. Available to community members; ask Valeriia for the link.
+- Streamlit + Docker deployment docs for whichever host you pick.
+- Logfire (or your monitoring tool of choice) for the production-side traces.
+- The `amr_ai` repo: https://github.com/juanpprim/amr_ai .
 
 ### Deliverables
 
-- TBD - pending Alexey's recommendations.
+- `amr_ai` Dockerised and running locally via `docker compose up` - by end of week 1.
+- First deployed URL accessible over HTTPS with basic access control - by end of week 2.
+- Eval set of 20-50 AMR questions wired into a CI eval step - by end of week 3-4.
+- Live monitoring with end-to-end traces visible - by end of week 4.
+- Public README + architecture writeup, eval-driven retrieval iteration - by end of week 5.
+- Site shared with the five colleagues, feedback captured back into the eval set - by end of week 6.
 
 ### Accountability
 
-- TBD - pending Alexey's recommendations.
+- Weekly async update on what shipped, what is blocked, and the goal for next week - the "structured deadlines and motivation through feedback" Juan asked for in intake[^1].
+- Pair check-in with Manjunath (optional but encouraged) once a week or once a fortnight - 20 minutes is enough.
+- Post the live URL in `#plan-sprints` once it exists; the community is the first set of users.
 
 ### Next Steps
 
-- [ ] [Member] TBD - pending Alexey's recommendations.
-- [ ] [Alexey] TBD - pending Alexey's recommendations.
-- [ ] [Valeriia] TBD - pending Alexey's recommendations.
+- [ ] [Juan] Watch the recording of the first sprint session he missed.
+- [ ] [Juan] Email Valeriia the project GitHub link ([amr_ai](https://github.com/juanpprim/amr_ai)).
+- [ ] [Juan] Decide on the deployment host by end of week 1 (private HF Space is the recommended starting point).
+- [ ] [Juan] Start a short "deferred features" doc so secondary work (diagrams, gamification, generalisation) does not pull the sprint off course.
+- [ ] [Alexey] Send the written plan and confirm the Buildcamp monitoring + evaluation workshop link.
+- [ ] [Valeriia] Connect Juan with Manjunath for a weekly pair check-in if both are open to it.
 
 ## Internal Context
 
@@ -78,7 +108,7 @@ Everything below is for internal use only.
 
 ### Persona
 
-Undetermined. The intake call covers Juan's project, his goal of transitioning toward AI engineering, and his time constraints, but does not give enough engineering-background detail to map cleanly to a persona yet. He has a data science background (not pure computer science) and currently works full-time in a data science lead role with some LLM/GenAI exposure. He is not in a rush to switch jobs - the transition is a desire, not a deadline. Once Alexey records his recommendations, the persona can be revisited.
+Priya - The Improver. Juan already has a working AI project (`amr_ai`, demoed at Buildcamp Cohort 2[^3]) and a stable senior data role. He is not transitioning from zero - he is improving an existing build to production grade and learning the production-engineering side he has not done before. The "no transition deadline, no industry preference" framing reinforces this: the sprint is about depth on what already exists, not breadth into a new stack.
 
 See [personas.md](../personas.md) for full persona definitions.
 
@@ -132,18 +162,32 @@ No intake call yet between Alexey and Juan - the input above was collected on 20
 
 ### Internal Recommendations
 
-Pending. Alexey has not yet recorded his recommendations on this intake.
+Alexey's recommendations after reviewing the intake doc[^4]:
+
+1. He already has the project. `amr_ai` is the AMR learning agent he built during the Maven Buildcamp - PydanticAI agent, hybrid retrieval (BioBERT + BM25 + RRF), Streamlit chat over WHO/CDC/FAO/PubMed sources[^3]. He scored 26 on the Buildcamp submission. The build is solid; deployment is the missing piece.
+
+2. The sprint goal is straightforward: deploy what exists. Streamlit is fine as the first deployed shape - he should not rebuild the frontend during this sprint. After the deploy works, the Buildcamp arc continues with monitoring and evaluation, in that order.
+
+3. The Buildcamp monitoring + evaluation workshop is the reference. He attended a workshop with us where we walked through how to add monitoring and proper evaluation to a project - this is the pattern to replicate on `amr_ai`. That removes the "design-from-scratch" overhead and turns this into a known recipe applied to his project.
+
+4. Pair him with Manjunath. Manjunath's plan is a v0.0.1 deployment platform that takes any AI project and produces a live URL ([his plan](20260506_manjunath-yelipeta.md)). Juan needs exactly that capability for `amr_ai`. They are on opposite sides of the same problem and can compare notes weekly. This pairing is more useful than the Edu pairing flagged earlier - same shape of problem, complementary perspectives.
+
+5. Read on Juan's request: he asked for help with system design (Dockerization, scalability, security, GitHub Actions). All of those land in the deployment-and-monitoring sequence. The plan covers them in week 1-2 (Docker, secrets, hosting), week 4 (CI/CD with eval gating), and week 4 (live monitoring). No need to break those out as separate workstreams.
+
+6. Out of scope this sprint: gamification, diagrams in chat, video embeds, generalising to other topics. All worth doing, none belong in a 6-week deployment-focused sprint. Capture them in a "deferred features" doc so they are not lost.
 
 ### Internal Action Items
 
-- [ ] [Alexey] Record recommendations on Juan's intake (Persona assignment, plan focus, project framing for the AMR learning agent deployment).
-- [ ] [Alexey] Once recommendations are in, fill out the Summary, Plan, and Next Steps sections and send the written plan to Juan.
+- [x] [Alexey] Record recommendations on Juan's intake (Persona assignment, plan focus, project framing for the AMR learning agent deployment) - done 2026-05-09[^4].
+- [ ] [Alexey] Send the written plan and confirm the link to the Buildcamp monitoring + evaluation workshop recording.
 - [ ] [Valeriia] Confirm Juan is on the AI Shipping Labs Slack channel and added to the May sprint roster.
-- [ ] [Valeriia] Follow up with Edu Gonzalo Almorox about pairing with Juan (both data scientists, both in Madrid, both from Alexey's course; Edu works in health economics which overlaps with Juan's AMR project domain).
+- [ ] [Valeriia] Drop the Edu pairing follow-up unless Juan specifically wants it - Manjunath is the higher-priority pairing now (same problem space, opposite sides). Edu can still join the wider conversation, just not as the primary pair.
+- [ ] [Valeriia] Set up the Juan ↔ Manjunath pairing if both are open to a weekly check-in.
 - [ ] [Valeriia] Mention OpenClaw / long-running agent topic in the community channel for group learning, per Juan's interest.
-- [ ] [Juan] Watch the recording of the first sprint session he missed.
-- [ ] [Juan] Email Valeriia the project GitHub link ([amr_ai](https://github.com/juanpprim/amr_ai)).
 
 ### Sources
 
-[^1]: [Juan Perez Prim's intake (Google Doc)](https://docs.google.com/document/d/1j-vldwylQfbFkqOBNmtwHj8of2rq36VGakkP6DX2ev0/edit?usp=sharing), shared via [20260508_084825_AlexeyDTC_msg3955.md](../../../inbox/used/20260508_084825_AlexeyDTC_msg3955.md).
+[^1]: [Juan Perez Prim's intake (Google Doc)](https://docs.google.com/document/d/1j-vldwylQfbFkqOBNmtwHj8of2rq36VGakkP6DX2ev0/edit?usp=sharing), shared via [20260508_084825_AlexeyDTC_msg3955.md](../../../inbox/used/20260508_084825_AlexeyDTC_msg3955.md), and re-confirmed in [20260509_113436_AlexeyDTC_msg3986.md](../../../inbox/used/20260509_113436_AlexeyDTC_msg3986.md).
+[^2]: `amr_ai` GitHub repository: [github.com/juanpprim/amr_ai](https://github.com/juanpprim/amr_ai).
+[^3]: [AI Engineering Buildcamp Cohort 2 - Demo Day](../../demo-day-cohort-2.md) - "AMR Awareness Platform (Juan Prim)" entry, including stack and feature breakdown.
+[^4]: [20260509_113453_AlexeyDTC_msg3988_transcript.txt](../../../inbox/used/20260509_113453_AlexeyDTC_msg3988_transcript.txt) - Alexey's recommendations after reviewing Juan's intake doc.

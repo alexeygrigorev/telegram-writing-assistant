@@ -51,7 +51,7 @@ Articles about the AI Shipping Labs paid community: vision, activities, courses,
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
-| [Personalised Plans](ai-shipping-labs/plans/_index.md) | draft | 2026-05-08 | Personalized 6-week sprint plans for AI Shipping Labs members |
+| [Personalised Plans](ai-shipping-labs/plans/_index.md) | draft | 2026-05-09 | Personalized 6-week sprint plans for AI Shipping Labs members |
 | [Activities](ai-shipping-labs/activities.md) | draft | 2026-04-30 | Regular sessions, accountability circles, mentoring, career development, knowledge sharing, member onboarding, Office Hours tied to LLM Zoomcamp, group course study in autumn, sprint weekly call format (status update with what-I-did/blockers/plans, week-1 intros, last-week demo, async via Slack) |
 | [Individual Interviews](ai-shipping-labs/interviews/_index.md) | draft | 2026-04-29 | One file per participant with persona assignment: Koray Can Canut, Juan Perez Prim, Daniel Ibáñez, Jakob Zischka, Vancesca Dinh, Brad Smith, Leonor, and others |
 | [Course Ideas](ai-shipping-labs/courses.md) | draft | 2026-04-27 | Spec-Driven Dev, Refactoring AI Slop, Python, Data Engineering, CloudCode, testing, DevOps, DDD module, Build Docker from scratch workshop |
@@ -83,6 +83,7 @@ Recorded ideas without much detail. Just the idea itself, useful for not forgett
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Declarative Diagram Generator](ideas/diagram-generator.md) | draft | 2026-05-08 | Tool that takes a declarative diagram description and produces a clean, well-styled SVG with Font Awesome / icon support, then opens cleanly in Inkscape or Figma for manual touch-ups - addresses the stretched / inconsistent output of LLM-generated images and the limited styling of Mermaid |
 | [DataTalks.Club Platform Idea](ideas/data-talks-club-platform.md) | draft | 2026-04-27 | Idea to build (or copy AI Shipping Labs' platform for) a custom DataTalks.Club site with on-site events, registration, follow-up summary emails, calendar, and integrated course management. Revisit in ~3 months, possibly for ML Zoomcamp in September |
 | [Project Approach Reference Doc](ideas/project-approach-reference-doc.md) | draft | 2026-04-22 | Reusable doc for "take my project to production" requests from AI Shipping Labs members - pick one project, describe current + target state, ship end-to-end, metrics from business goals |
 | [Social Post Ideas](ideas/social-post-ideas.md) | draft | 2026-03-12 | Curated social media content ideas and inspiration |

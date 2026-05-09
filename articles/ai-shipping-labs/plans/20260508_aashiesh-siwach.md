@@ -1,7 +1,7 @@
 ---
 title: "Plan: Aashiesh Siwach"
 created: 2026-05-08
-updated: 2026-05-08
+updated: 2026-05-09
 tags: [ai-shipping-labs, plan, community]
 status: draft
 ---
@@ -12,11 +12,12 @@ Internal working document. Share only the `Summary` and `Plan` sections with the
 
 ## Summary
 
-- Current situation: ML engineer with retrieval/reranking and applied AI/NLP experience, looking for real production-grade AI engineering experience. No specific project picked yet[^1][^2].
-- Goal for the next 6 weeks: complete AI Hero as the foundation, pick one project he genuinely wants to use himself, and ship it end to end with tests, monitoring, and evaluation.
-- Main gap to close: a concrete project. The intake describes the kind of role he wants but not a specific problem to build for, so the first job is for Aashiesh to pick one.
-- Weekly time commitment: not yet specified by Aashiesh; the plan is sized as a typical 6-week sprint and can be adjusted once he confirms his hours.
-- Why this plan is the right next step: real AI engineering experience comes from owning a project end to end. Picking the project himself - rather than being assigned one - is a deliberate part of the exercise, because that is exactly what AI engineers in real roles have to do.
+- Current situation: ML engineer based in the UK with a Master's in Business Analytics from the University of Exeter. Has shipped a hybrid search and reranking pipeline, an archive research-paper retrieval pipeline, an AI text detection project, and a climate misinformation RAG tool during a university internship. Currently working as a retail assistant at Primark while looking for a full-time AI/ML role; already enrolled in the 7-day agents course (AI Hero)[^1][^2][^3].
+- Goal for the next 6 weeks: complete AI Hero as the foundation, pick one project he genuinely wants to use himself, and ship it end to end with tests, monitoring, and evaluation. Aashiesh's existing climate misinformation work is a strong default starting point if he wants to continue in that area.
+- Main gap to close: a concrete project he commits to and ships, plus the production-side skills (CI/CD, MLOps, experiment tracking, deployment to AWS / GitHub Actions / Google Cloud) that he has identified as the most-asked-for AI engineering job requirements.
+- Weekly time commitment: not yet quantified - Aashiesh is between his full-time AI/ML job search and a retail role at Primark, so realistic hours need to be confirmed. Plan is sized as a typical 6-week sprint and can be adjusted once he confirms.
+- Hard deadline he has set: needs a full-time AI/ML role by end of August or September 2026 - roughly four months from intake[^3].
+- Why this plan is the right next step: Aashiesh already has the project pieces (RAG, hybrid search, fine-tuning, FastAPI, Streamlit). What is missing is one polished end-to-end demo that puts production engineering on top - exactly what employers in the AI engineering market are asking for. Picking the project himself is part of the exercise.
 
 ## Plan
 
@@ -74,6 +75,12 @@ When picking, score candidates against four criteria and pick the highest total:
 
 Lean toward projects that naturally use multiple LLM tool calls, RAG over a real document set, or an agentic flow with a clear input and output. Avoid topics the course does not cover end to end (training/fine-tuning models, computer vision, self-hosting open-source LLMs, mobile apps).
 
+A climate-related project is a strong default starting point. Aashiesh has already built a climate misinformation RAG pipeline at the University of Exeter and interviewed for a climate-data role in London - that domain knowledge is real and reusable[^3]. There are two community members working in or interested in climate (Diogo Valente Polónia at the European Environment Agency, plus another member - confirm with Valeriia); they are useful contacts for project framing, data sources, and feedback. Reach out via Slack or ask Valeriia for an introduction. Climate is a suggestion, not a constraint - if a different problem scores higher on the four criteria above, pick that.
+
+### After this sprint - LLM Zoomcamp
+
+After AI Hero, the natural next step is LLM Zoomcamp (re-recorded version starting in June, with five workshops mapped to the modules). Plan to bring a project into LLM Zoomcamp that you actually want to ship - the course homework arc is much easier to complete when it is producing something you care about. The 6-week sprint project here can become the LLM Zoomcamp project too if it is sized right.
+
 ### Project approach
 
 A few principles that apply to whatever project Aashiesh picks:
@@ -106,11 +113,13 @@ A few principles that apply to whatever project Aashiesh picks:
 
 ### Next Steps
 
-- [ ] [Aashiesh] Run the project-idea brainstorming prompt and produce 5-10 candidate ideas.
+- [ ] [Aashiesh] Run the project-idea brainstorming prompt and produce 5-10 candidate ideas. The climate misinformation work is a starting point if no other idea wins out.
 - [ ] [Aashiesh] Run the fit-check prompt on the top 1-2 candidates and pick one.
 - [ ] [Aashiesh] Confirm a realistic weekly time commitment so the plan can be sized correctly.
-- [ ] [Aashiesh] Start AI Hero from day 1 in parallel with the idea selection.
+- [ ] [Aashiesh] Continue AI Hero (the 7-day agents course) - already in progress.
+- [ ] [Aashiesh] If picking a climate-adjacent project, ask Valeriia for an intro to the community members already working in that area.
 - [ ] [Alexey] Send the written plan and the project-idea brainstorming prompt.
+- [ ] [Valeriia] Connect Aashiesh with Diogo Valente Polónia (and the other climate-interested community member) once Aashiesh confirms he wants to continue in that area.
 
 ## Internal Context
 
@@ -123,6 +132,22 @@ See [personas.md](../personas.md) for full persona definitions.
 ### Background
 
 Aashiesh is an ML engineer transitioning to a production-ready AI Engineer role. He has built systems including a hybrid search and reranking pipeline and a deployed retrieval API, plus applied AI/NLP work during an internship. He wants to refine these into production-grade applications and build an agentic AI system end to end, and is using AI Shipping Labs sprints for accountability, architecture/deployment feedback, and consistent shipping[^1].
+
+The intake call (2026-05-08, with Valeriia) added significant background detail[^3]:
+
+- Currently in the UK; completed his Master's in Business Analytics at the University of Exeter in September 2024.
+- Originally from India, with a Bachelor's in Business Administration. Worked in his father's manufacturing business, dropped out of computer science engineering due to personal troubles, picked up coding during COVID through a small business analytics course (Python, Tableau, basic ML).
+- Tried to find data analysis / data science roles in India but was told repeatedly that age was a barrier - a final-round interview rejected him explicitly on that basis. One interviewer suggested European countries would not have the same age problem, which led him to apply for UK programmes.
+- Did not get into a data science Master's but was admitted to a Business Analytics Master's, which he used to take optionals in machine learning and prompt engineering.
+- Built a research-paper recommendation system using sentence transformers and cosine similarity during the ML coursework.
+- Built an AI-text-detection project using chain-of-thought prompting during the prompt engineering course (ROC ~0.71).
+- Did an AI/NLP internship at the University of Exeter on a climate misinformation detection tool. First attempted with fine-tuning of an existing fact-checking model (using OpenAI to relabel a dataset into a "football language" - red card / yellow card style); the supervisor was not satisfied with the result. After the three-month internship and a one-month return to India, he came back to the project as a volunteer and rebuilt it using RAG over a corpus of official climate documents, returning grounded answers with references in the same football language style.
+- Currently working as a retail assistant at Primark while looking for a full-time AI/ML role.
+- Hard deadline: full-time role by end of August or September 2026 (~four months from intake).
+- Has already had one AI-related interview (a London climate company, data science role) - went through 2-3 rounds, was rejected because the company filled the role internally; feedback was otherwise positive.
+- Open to both AI engineering and machine learning roles; happy to switch between them.
+- Existing tooling familiarity: Streamlit and FastAPI.
+- Currently doing the 7-day agents course (AI Hero) and aware of the upcoming LLM Zoomcamp re-recording. Posts on LinkedIn about his projects (most recent: a search retrieval pipeline).
 
 See his interview file at [../interviews/aashiesh-siwach.md](../interviews/aashiesh-siwach.md) for more background.
 
@@ -175,7 +200,26 @@ The intake document lists the following ten questions. As of 2026-05-08, Aashies
 
 ### Meeting Notes
 
-No intake call yet - input collected via the Google Doc[^1].
+Aashiesh and Valeriia held an intake call on 2026-05-08 (~25 minutes). Alexey was not on the call[^3].
+
+Key points raised by Aashiesh during the call (in addition to the background notes above):
+
+- Market research read: AI engineering job descriptions consistently ask for the ability to productionise a project using GitHub Actions / AWS / Google Cloud, CI/CD, MLOps tooling, and experiment tracking. He flagged this as the gap he most wants to close.
+- He wants "proper direction" from the community so he does not waste time on things that are not industry-oriented. Direction is what he is asking for, not specific feedback on a finished project.
+- Self-described as "very interested" in AI engineering after the climate RAG work.
+- Wrote his Q&A answers in detail in the intake document and felt there was not much to add live.
+
+Key things Valeriia surfaced during the call[^3]:
+
+- Mentioned a community member working in the climate department of a European nation, with a use case around collecting unstructured climate-related PDFs from member states for retrieval - flagged as a possible future connection if Aashiesh continues in the climate space. (This is Diogo Valente Polónia at the EEA - see [his plan](20260502_diogo-valente-polonia.md) for context.)
+- Walked Aashiesh through the new AI Shipping Labs platform (login via Slack/Gmail, lesson tracking) and confirmed he can already see the AI Hero modules.
+- Explained that the LLM Zoomcamp content is being re-recorded with a workshop per module (workshop on 2026-05-11 is the kick-off), and that those workshops will be cut into the course.
+
+Action items added by this call:
+
+- [ ] [Aashiesh] Continue market research on AI engineering job descriptions to refine the production-skills focus.
+- [ ] [Valeriia] Share the link to the AI Shipping Labs / DataTalks.Club workshop series so Aashiesh can attend the LLM Zoomcamp introduction workshop on 2026-05-11.
+- [ ] [Valeriia] Follow up on the climate community connection if Aashiesh decides to continue in that area.
 
 ### Internal Recommendations
 
@@ -191,13 +235,29 @@ Alexey's recommendation after reviewing Aashiesh's input[^2]:
 
 5. Keep the recommendation short for him - a summary of how to pick a project plus the gist link is enough. Internal course material (the V2 capstone homework) does not need to land in the shareable plan; the principles distilled from it do.
 
+Updates after reviewing the 2026-05-08 call notes[^4]:
+
+6. Climate is a sensible default project area. Aashiesh has already done a climate misinformation RAG project at university and even interviewed at a London climate company. That domain knowledge is reusable, and the RAG-over-PDFs shape lines up well with the production-engineering skills he wants to add (deployment, evaluation, CI/CD). It is not the only option - if his brainstorming surfaces something he genuinely wants more, take that - but it is the best fallback.
+
+7. Connect him with the community members working on climate. Diogo Valente Polónia at the EEA is the obvious one. There is also a second community member (Carmina, exact name to be confirmed with Valeriia) who works on climate projects. Both are useful contacts for project framing, possible data sources, and feedback. He should partner with them where it helps, not work in isolation.
+
+8. He is doing well on AI Hero - he is already going through the 7-day agents course on his own initiative. Do not slow him down; that is the foundation in place.
+
+9. Frame LLM Zoomcamp as the next step after AI Hero. He already plans to attend the introduction workshop on 2026-05-11. The 6-week sprint project should be designed so it can grow into the LLM Zoomcamp project rather than competing with it - one ship, not two.
+
+10. Open question on dev skill level. From Aashiesh's messages alone it is hard to tell how strong his hands-on engineering is in practice. Treat the first week's project work as the signal and adjust scaffolding (more or less explicit guidance) accordingly.
+
 ### Internal Action Items
 
 - [ ] [Alexey] Send Aashiesh the written plan plus the project-idea brainstorming gist link.
 - [ ] [Valeriia] Confirm Aashiesh is on the AI Shipping Labs Slack channel and added to the May sprint roster.
 - [ ] [Valeriia] Follow up with Aashiesh on the open Q&A items in the intake doc and on his weekly time commitment.
+- [ ] [Valeriia] Confirm the second community member's name (Carmina or similar) so Aashiesh can be connected if he chooses the climate angle.
+- [ ] [Valeriia] Send Aashiesh the link to the LLM Zoomcamp introduction workshop on 2026-05-11.
 
 ### Sources
 
 [^1]: [Aashiesh Siwach's intake (Google Doc)](https://docs.google.com/document/d/1RRtifMVLX_isgrn-TbJAyMEObrZgQx0i/edit?usp=sharing&ouid=103720991008355605122&rtpof=true&sd=true), shared via [20260508_084825_AlexeyDTC_msg3954.md](../../../inbox/used/20260508_084825_AlexeyDTC_msg3954.md).
 [^2]: [20260508_135759_AlexeyDTC_msg3970_transcript.txt](../../../inbox/used/20260508_135759_AlexeyDTC_msg3970_transcript.txt)
+[^3]: [Aashiesh Siwach intake call notes, 2026-05-08 (Google Doc with Gemini summary and transcript)](https://docs.google.com/document/d/1IRMJ0DlZc7viLpX4ds3LQ_iVzKAoWPlmgqAToUpyTYE/edit?usp=drivesdk), shared via [20260509_112920_AlexeyDTC_msg3982.md](../../../inbox/used/20260509_112920_AlexeyDTC_msg3982.md).
+[^4]: [20260509_113207_AlexeyDTC_msg3984_transcript.txt](../../../inbox/used/20260509_113207_AlexeyDTC_msg3984_transcript.txt) - Alexey's recommendations after reviewing the call notes.
