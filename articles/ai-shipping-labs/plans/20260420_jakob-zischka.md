@@ -65,8 +65,8 @@ Week 6:
 
 ### Resources
 
-- Python course: https://dev.aishippinglabs.com/courses/python-course/
-- AI Hero course: https://dev.aishippinglabs.com/courses/aihero
+- Python course: https://aishippinglabs.com/courses/python-course/
+- AI Hero course: https://aishippinglabs.com/courses/aihero
 - Project-idea brainstorming prompt: https://gist.github.com/alexeygrigorev/c1c8dc3ece5cba91e1e381eeba2706c1
 - Community accountability channel (`#plan-sprints`): https://app.slack.com/client/T0AFSRP234M/C0AUQBSP4ER
 

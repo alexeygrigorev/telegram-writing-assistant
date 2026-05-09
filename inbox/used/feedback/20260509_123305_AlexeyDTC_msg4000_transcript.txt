@@ -1,0 +1,9 @@
+---
+source: telegram_voice
+date: 2026-05-09T12:33:05+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260509_123305_AlexeyDTC_msg4000.ogg
+---
+
+Ну и по поводу Яхиру, везде у нас в планах, давай поменяем.

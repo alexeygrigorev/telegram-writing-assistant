@@ -30,7 +30,7 @@ Internal working document. Share only the `Summary` and `Plan` sections with the
 
 Week 1:
 
-- Start AI Hero from day 1: https://dev.aishippinglabs.com/courses/aihero. Treat it as the agent-building foundation, not a side track.
+- Start AI Hero from day 1: https://aishippinglabs.com/courses/aihero. Treat it as the agent-building foundation, not a side track.
 - Use the project-idea brainstorming prompt below to come up with 5-10 candidate ideas based on his own friction, hobbies, work, and the ML/AI engineering work he has already done.
 - Look at his existing projects (hybrid search + reranking, deployed retrieval API, internship work) and decide whether one of them is worth turning into the sprint project, or whether a fresh project is better.
 
@@ -93,7 +93,7 @@ A few principles that apply to whatever project Aashiesh picks:
 
 ### Resources
 
-- AI Hero course: https://dev.aishippinglabs.com/courses/aihero
+- AI Hero course: https://aishippinglabs.com/courses/aihero
 - Project-idea brainstorming prompts (gist): https://gist.github.com/alexeygrigorev/c1c8dc3ece5cba91e1e381eeba2706c1
 - Logfire for monitoring once the simple version works.
 - Community accountability channel (`#plan-sprints`).

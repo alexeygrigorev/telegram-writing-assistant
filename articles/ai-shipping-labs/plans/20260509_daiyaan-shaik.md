@@ -36,9 +36,11 @@ This is the shareable part of the document.
 
 ### Timeline
 
+The plan below is dense for a 5-8 hr/week budget. Treat the week boundaries as targets, not contracts. If AI Hero spills into week 3 because evenings get eaten, that is fine - shift everything one week and drop the week 6 polish, not the build/eval/deploy core. The non-negotiable outcome is one shipped, evaluated, deployed project; the calendar is flexible.[^5]
+
 Week 1:
 
-- Start AI Hero: https://dev.aishippinglabs.com/courses/aihero . Aim for the first half of the modules in week 1; treat each module as the "theory block" before the build block on the same concept.
+- Start AI Hero: https://aishippinglabs.com/courses/aihero . Aim for the first half of the modules in week 1; treat each module as the "theory block" before the build block on the same concept.
 - Use the project-idea brainstorming gist to surface 5-10 fintech-adjacent project candidates. Keep the bias toward problems you already feel: things you would use at work (data-science agent team for EDA, internal analytics assistant, model monitoring, data-quality agent, knowledge base over company docs / meeting transcripts) or for yourself.
 - Run the fit-check prompt on the top 1-2 candidates and pick one. The picking has to happen this week - if it slides, the analysis paralysis you flagged in the intake is what's pulling it.
 
@@ -62,7 +64,7 @@ Week 4:
 Week 5:
 
 - Add monitoring: Logfire (or equivalent) for traces and request-level visibility. Confirm an end-to-end trace from user input to answer is readable.
-- Deploy: Hugging Face Spaces (private to start) or a small VM, plus GitHub Actions to push on every commit. The eval set runs in CI and can block deploy on regressions.
+- Deploy: pick a deployment target you are comfortable with (cloud VM, serverless, Hugging Face Spaces, etc.) and ship a live URL, plus GitHub Actions to push on every commit. The eval set runs in CI and can block deploy on regressions.[^5]
 - Tighten the AI-assisted coding loop on this project: write specs before letting an agent run, decompose tasks before handing them off, read the diff line by line, and capture the prompts/skills that worked deterministically into a project-local `.cursorrules` / Claude skill so they fire reliably next time.
 
 Week 6:
@@ -81,7 +83,7 @@ Week 6:
 
 ### Resources
 
-- AI Hero: https://dev.aishippinglabs.com/courses/aihero - the agent-building foundation, weeks 1-2.
+- AI Hero: https://aishippinglabs.com/courses/aihero - the agent-building foundation, weeks 1-2.
 - Project-idea brainstorming gist: https://gist.github.com/alexeygrigorev/c1c8dc3ece5cba91e1e381eeba2706c1 - interview prompt for candidate generation, fit-check prompt for validation.
 - LLM Zoomcamp re-recording starts in June (workshop on 2026-05-11 is the kickoff). Useful as a parallel track once the sprint project is live.
 - Logfire for monitoring once the simple version works.
@@ -219,3 +221,4 @@ Alexey's recommendations after reviewing the intake[^4]:
 [^2]: [Daiyaan Shaik's intake (Google Doc)](https://docs.google.com/document/d/1G2vCdnx5CmaeT6Y4TqiB40eyd2J9TZ55vAefHbOkHSs/edit?usp=sharing), shared via [20260509_114718_AlexeyDTC_msg3990.md](../../../inbox/used/20260509_114718_AlexeyDTC_msg3990.md).
 [^3]: The intake message in the inbox names this person "Daiyaan Shaik": [20260509_114718_AlexeyDTC_msg3990.md](../../../inbox/used/20260509_114718_AlexeyDTC_msg3990.md).
 [^4]: [20260509_115045_AlexeyDTC_msg3992_transcript.txt](../../../inbox/used/20260509_115045_AlexeyDTC_msg3992_transcript.txt) - Alexey's recommendations after reviewing the intake.
+[^5]: [20260509_123256_AlexeyDTC_msg3998_transcript.txt](../../../inbox/used/feedback/20260509_123256_AlexeyDTC_msg3998_transcript.txt) - Alexey's feedback: AI Hero URL changed (no `dev.` prefix), do not pre-pick deployment platform, check the plan is realistic at 5-8 hr/week.
