@@ -8,11 +8,11 @@ When new interview content comes in (a call transcript, written answers, or surv
 
 | Person | Persona | Last Updated | Description |
 |--------|---------|--------------|-------------|
+| [Daniel Ibáñez](daniel-ibanez.md) | Undetermined | 2026-05-09 | Wants a roadmap for AI Engineering and sharing best practices across scenarios; shared a side project he wants to start after the current sprint - turning a custom ChatGPT-based knowledge assistant for the audiovisual / video production market into a paid SaaS with its own accounts, subscriptions, and AI cost controls |
 | [Daiyaan Ahmed](daiyaan-ahmed.md) | Alex | 2026-05-04 | Data lead at a fintech startup, DE Zoomcamp graduate, learning AI through articles/videos but struggling to find time to build, missed AI Engineering Buildcamp deadline, looking for accountability and community |
 | [Aashiesh Siwach](aashiesh-siwach.md) | Alex | 2026-05-03 | ML engineer transitioning to production-ready AI Engineer role, has shipped hybrid search/reranking pipeline and deployed retrieval API, wants to build agentic AI system end to end with community accountability |
 | [Koray Can Canut](koray-can-canut.md) | Sam | 2026-04-29 | Data analyst / analytics engineer with an existing image-analysis project, wants to make it agentic / add RAG, considering a career change to junior data engineer or junior AI engineer, needs flexible monthly membership during a 5-month freelance project |
 | [Juan Perez Prim](juan-perez-prim.md) | Undetermined | 2026-04-29 | Public project amr_ai (GenAI learning via quizzes/lectures/flashcards), interested in AI coding/TDD/architecture/scalability and long-running agents |
-| [Daniel Ibáñez](daniel-ibanez.md) | Undetermined | 2026-04-20 | Wants a roadmap for AI Engineering and sharing best practices across scenarios |
 | [Anonymous AI Shipping Labs Participant (April 2026)](anonymous-participant-april.md) | Priya | 2026-04-20 | Practice-first courses, harness engineering for coding agents, testing/evaluation, building own CLI coding agent |
 | [Vancesca Dinh](vancesca-dinh.md) | Alex | 2026-04-20 | Job-searching, portfolio project, AWS deployment, agent evaluation, DataTalks community contribution |
 | [Brad Smith](brad-smith.md) | Alex | 2026-04-16 | Portfolio projects for employers, consistent tech stack, deployment, data preparation |
