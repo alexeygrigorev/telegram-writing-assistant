@@ -115,7 +115,6 @@ Files at the articles root that don't fit into the above categories.
 | [AI Engineering Field Guide](ai-engineering-field-guide.md) | draft | 2026-03-27 | Job listing pipeline for AI Engineer roles - scraping, deduplication, LLM enrichment |
 | [Trying OpenAI Codex as a Claude Code Alternative](codex-experiments.md) | draft | 2026-03-25 | Trying Codex after hitting Claude Code session limits, agent workflow comparison, no task widget, auto-continue differences, orchestrator idea |
 | [Running Local LLMs for Coding on a Hetzner Server](local-llm-experiments.md) | draft | 2026-03-19 | Hitting Claude Code weekly limits, experimenting with quantized Qwen2.5 and DeepSeek on CPU |
-| [Zoland Talk](zoland-talk.md) | draft | 2026-03-14 | Talk at Zoland meetup about the Telegram writing assistant, code agents, and slides preparation workflow with Claude Code |
 | [Starting Projects with GitHub Copilot](starting-projects-with-github-copilot.md) | draft | 2026-03-13 | Using GitHub Copilot to start projects from the browser, limitations and best workflow with ChatGPT |
 | [Exasol Workshop Infrastructure Setup](exasol-workshop-infrastructure.md) | draft | 2026-03-12 | Secure AWS access setup for Exasol workshop using temporary credentials, Lambda, CodeSpaces/DevContainers, credential flow diagram, open-source project |
 | [Setting Up a Windows Computer for Development](windows-dev-setup.md) | draft | 2026-03-11 | Step-by-step guide to setting up a fresh Windows computer for development: Terminal, Git Bash, Python/UV, NodeJS, Docker, VS Code, Claude Code |
