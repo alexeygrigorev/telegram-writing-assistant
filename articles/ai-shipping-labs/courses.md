@@ -1,7 +1,7 @@
 ---
 title: "AI Shipping Labs Course Ideas"
 created: 2026-02-12
-updated: 2026-04-27
+updated: 2026-05-15
 tags: [courses, community, ai-shipping-labs, ideas]
 status: draft
 ---
@@ -113,6 +113,16 @@ Topics where there is not much content available:
 - Terraform
 - GitHub actions[^10]
 
+### Member interest in a Data Engineering course
+
+An AI Shipping Labs member asked whether there is a similar course for Data Engineering. The topics they want to focus on[^13]:
+
+- Engineering best practices - tests, CI/CD, code quality
+- Production deployment - Docker, FastAPI, REST APIs
+- Kubernetes and container orchestration
+
+This is direct community demand for content that overlaps with the DevOps and infrastructure topics above and the Build Docker from scratch workshop. Could be useful input when scoping future courses.
+
 ## Course format strategy
 
 The plan is to have at least one big course on Maven (if time permits), while the rest would be mini-courses available in the community at tier 3. Will actively ask people what they're interested in and monitor what content they engage with most[^10].
@@ -131,3 +141,4 @@ The plan is to have at least one big course on Maven (if time permits), while th
 [^10]: [20260212_095052_AlexeyDTC_msg1487_transcript.txt](../../inbox/used/20260212_095052_AlexeyDTC_msg1487_transcript.txt)
 [^11]: [20260415_105059_AlexeyDTC_msg3397.md](../../inbox/used/20260415_105059_AlexeyDTC_msg3397.md)
 [^12]: [20260425_113656_AlexeyDTC_msg3663.md](../../inbox/used/20260425_113656_AlexeyDTC_msg3663.md)
+[^13]: [20260512_163356_AlexeyDTC_msg4022.md](../../inbox/used/20260512_163356_AlexeyDTC_msg4022.md)

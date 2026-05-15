@@ -1,7 +1,7 @@
 ---
 title: "Community Session Ideas"
 created: 2026-04-24
-updated: 2026-05-06
+updated: 2026-05-15
 tags: [ai-shipping-labs, community, ideas, activities, mastermind]
 status: draft
 ---
@@ -9,6 +9,25 @@ status: draft
 # Community Session Ideas
 
 Session ideas proposed by AI Shipping Labs community members, recorded so they do not get lost. These are not promises - the filter is whether an idea is useful to others and whether we can run it without too much time investment[^4].
+
+## Memory Layer for AI Agents in Production
+
+A topic to bring to the community: Alexey got a task from a startup to design the memory layer for an AI agent, and wants to learn from people who have already built this in production[^7].
+
+For those who avoided heavy frameworks and built custom memory systems:
+
+- What kind of memory schema worked best for you?
+- Do you store full conversations, per-turn summaries, extracted facts, key decisions, or something else?
+- What looked smart initially but later became hard to scale or maintain?
+
+Retrieval strategy questions:
+
+- When a user asks something in a new session, how do you reconnect it with relevant past context?
+- Do you handle it mostly through the system prompt?
+- Or do you dynamically retrieve and inject relevant memory chunks based on the new query?
+- How are you deciding what is worth remembering long term?
+
+The goal is practical approaches that actually worked in production[^7]. A research article on production memory implementations (ChatGPT, Claude Code, and 5 other open source systems) is in [memory-layer-implementations](../research/memory-layer-implementations.md). The earlier broader research lives in [agentic-memory](../research/agentic-memory.md).
 
 ## Documenting and Refactoring Agent Output (Carlos Pumar)
 
@@ -63,3 +82,4 @@ Also relevant: the two people the original conversation was about are both from 
 [^4]: [20260424_104335_AlexeyDTC_msg3601_transcript.txt](../inbox/used/20260424_104335_AlexeyDTC_msg3601_transcript.txt)
 [^5]: [20260429_104254_valeriia_kuka_msg3723.md](../inbox/used/20260429_104254_valeriia_kuka_msg3723.md)
 [^6]: [20260506_090635_AlexeyDTC_msg3866.md](../inbox/used/20260506_090635_AlexeyDTC_msg3866.md)
+[^7]: [20260515_063504_AlexeyDTC_msg4024.md](../inbox/used/20260515_063504_AlexeyDTC_msg4024.md)
