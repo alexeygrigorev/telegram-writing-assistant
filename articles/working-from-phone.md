@@ -8,9 +8,9 @@ status: draft
 
 # Working from a Phone
 
-Lately I have been on three conferences in a row: first Darmstadt, then Amsterdam, then Porto. The work does not slow down for any of that, so I have to keep things moving.[^1][^2][^3][^29]
+Lately I've been at three conferences in a row: first Darmstadt, then Amsterdam, then Porto. The work doesn't slow down for any of that, so I have to keep things moving.[^1][^2][^3][^29]
 
-On top of the conferences, I have been travelling with my child a lot. We went away during the Easter holidays. May 1st was a long weekend in Germany. And I am dictating this just after we got back from another long weekend, around 14-15 May - we drove to Stuttgart and into the Schwarzwald (Black Forest).[^29]
+On top of the conferences, I've been travelling with my child a lot. We went away during the Easter holidays. May 1st was a long weekend in Germany. And I'm dictating this just after we got back from another long weekend, around 14-15 May - we drove to Stuttgart and into the Schwarzwald (Black Forest).[^29]
 
 My day-to-day schedule is uneven on its own. I take my child to school in the morning, I go to the gym, I have lunch meetings, I pick the child up at 4 PM. Between all those slots I have lots of commute time, plus the rest periods between sets in the gym - every set leaves me with a free minute or two.[^17][^29]
 
@@ -26,13 +26,15 @@ This article is about how I work from the phone during all of this dead time: tr
 
 ## A dedicated remote server
 
-I used to write a lot of code from a tram by leaning on GitHub Copilot - I wrote about that flow earlier in [Shipping Features from my Smartphone with GitHub Copilot](https://alexeyondata.substack.com/p/shipping-features-from-a-tram-stop). Under the hood that was GitHub Actions doing the work for me. It was a kind of "remote environment", but not one I owned - it was GitHub's runtime that I borrowed for each task. That has changed in the last few months. I now have a full dedicated Linux server on rent, running 24/7, and I use it for everything described here. I connect to it over SSH and on it I can install whatever I need - Claude Code, Codex, OpenCode - and they all live there.[^4][^29]
+I used to write a lot of code from a tram by leaning on GitHub Copilot - I wrote about that flow earlier in [Shipping Features from my Smartphone with GitHub Copilot](https://alexeyondata.substack.com/p/shipping-features-from-a-tram-stop). Under the hood that was GitHub Actions doing the work for me. It was a kind of "remote environment", but not one I owned - it was GitHub's runtime that I borrowed for each task.
+
+That's changed in the last few months. I now have a full dedicated Linux server on rent, running 24/7, and I use it for everything described here. I connect to it over SSH and install whatever I need on it: Claude Code, Codex, OpenCode. They all live there.[^4][^29]
 
 On Android I use a client called Termius. I just SSH into the server through it and run whatever I want.[^5]
 
 ## tmuxctl: simplifying tmux
 
-Because I am connecting remotely and might be on the move, I always need tmux so my sessions do not drop. I create a tmux session and the agents live inside it.[^5]
+Because I'm connecting remotely and might be on the move, I always need tmux so my sessions don't drop. I create a tmux session and the agents live inside it.[^5]
 
 Once I started using tmux heavily, I realised typing tmux commands from a phone is painful. The usual flow is `tmux new-session -s some-long-session-name` or `tmux attach -t some-long-session-name`. You can imagine that with long session names, this is essentially impossible to write from a phone. So I built [tmuxctl](https://github.com/alexeygrigorev/tmuxctl) to make this fast:[^5][^6][^7][^29]
 
@@ -41,7 +43,7 @@ Once I started using tmux heavily, I realised typing tmux commands from a phone 
 - `t -` creates (or attaches to) a session named after the current folder
 - `t -web` adds an alias suffix - so in the same folder I can have a code session and a `-web` session running `make dev`
 
-I also lean on Makefiles heavily. From a phone I cannot type long commands, so I keep everything behind a `make dev` style target. I used Makefiles before, but the phone makes them non-negotiable.[^8]
+I also lean on Makefiles heavily. From a phone I can't type long commands, so I keep everything behind a `make dev` style target. I used Makefiles before, but the phone makes them non-negotiable.[^8]
 
 <figure>
   <img src="../assets/images/working-from-phone/tmuxctl-session-list.jpg" alt="Terminal output of the t command listing tmux sessions by index and name">
@@ -53,7 +55,7 @@ I know things can be more touchscreen-friendly than this and I have ideas for im
 
 ## Three agents, three aliases
 
-Inside the session I run agents. I use three of them. Claude Code more and more, Codex when Claude limits run out, and OpenCode after that. None of them are new to me, I have been using all three for a while.[^9]
+Inside the session I run agents. I use three of them. Claude Code more and more, Codex when Claude limits run out, and OpenCode after that. None of them are new to me - I've been using all three for a while.[^9]
 
 I have aliases for all three:[^10][^11]
 
@@ -61,13 +63,15 @@ I have aliases for all three:[^10][^11]
 - `cy` - Codex YOLO
 - `oc` - OpenCode
 
-When I want to start a session, I just type two or three letters. Usually the sessions are already running - I tend to start them from my computer ahead of time - so from the phone I just attach and do something inside.[^11]
+When I want to start a session, I just type two or three letters. Usually the sessions are already running, since I tend to start them from my computer ahead of time. From the phone I just attach and do something inside.[^11]
 
-I know "skip permissions" and "YOLO" sound reckless, and I am aware of the risks. They are acceptable for me because of how this server is isolated. The server itself has no access to production. The Hetzner deployment box is reachable only from my laptop, so a runaway agent on this server cannot push changes anywhere. If an agent does something destructive, the radius is limited to this one machine - and I can rebuild it easily from my bootstrap instructions. That isolation is what makes the bypass modes safe for me to use here.[^29]
+I know "skip permissions" and "YOLO" sound reckless, and I'm aware of the risks. They're acceptable for me because of how this server is isolated. The agents on this remote dev box don't have access to my main AWS account. They can reach a sandbox AWS account, but only through a temporary 2-hour session, so a runaway agent can't touch anything that matters. If an agent does something destructive, the radius is limited to this one machine, and I can rebuild it easily from my bootstrap instructions. That isolation is what makes the bypass modes safe for me to use here.[^29][^30]
 
 ## Portable setup via dotfiles
 
-The aliases and configs are not living on a single machine - they come from my dotfiles project at [github.com/alexeygrigorev/.claude](https://github.com/alexeygrigorev/.claude). I install that project on a machine and it sets up all my aliases automatically. The same dotfiles run on my laptop, my tablet, and my remote server, so the configuration is identical everywhere - all managed through Git. If I ever move to a different machine, one command brings back all my settings for Claude Code, Codex, and OpenCode. That same setup is also what I rely on when restoring the remote server from scratch.[^11][^29]
+The aliases and configs don't live on a single machine - they come from my dotfiles project at [github.com/alexeygrigorev/.claude](https://github.com/alexeygrigorev/.claude). I install that project on a machine and it sets up all my aliases automatically. The same dotfiles run on my laptop, my tablet, and my remote server, so the configuration is identical everywhere - all managed through Git.
+
+If I ever move to a different machine, one command brings back all my settings for Claude Code, Codex, and OpenCode. That same setup is also what I rely on when restoring the remote server from scratch.[^11][^29]
 
 The dotfiles repo also has skills.[^12]
 
@@ -83,9 +87,9 @@ First, I use a special Android keyboard called Typeless. I enter the Claude Code
   <!-- Illustrates how Typeless restructures a brain dump into a coherent prompt before it reaches the agent -->
 </figure>
 
-There are two problems with Typeless. I am still on the free version - I already pay for too many things and have not been ready to add another subscription - so I hit usage limits. When that happens I fall back to Android's built-in voice recognition, which is, to put it mildly, not great. With a terminal it gets confused. Agents still mostly understand what I mean, but it is not ideal.[^13]
+There are two problems with Typeless. I'm still on the free version, and I already pay for too many things, so I haven't been ready to add another subscription. That means I hit usage limits. When that happens I fall back to Android's built-in voice recognition, which is, to put it mildly, not great. With a terminal it gets confused. Agents still mostly understand what I mean, but it's not ideal.[^13]
 
-When the built-in recogniser is not good enough, I switch to Google Recorder. On the phone I open Google Recorder, record what I want to say, then tap Share and create a public link. I send that link to the agent.[^13][^14]
+When the built-in recogniser isn't good enough, I switch to Google Recorder. On the phone I open Google Recorder, record what I want to say, then tap Share and create a public link. I send that link to the agent.[^13][^14]
 
 <figure>
   <img src="../assets/images/working-from-phone/google-recorder-share-menu.jpg" alt="Google Recorder share menu with options for audio, transcript, Google Docs, NotebookLM, video clip and link">
@@ -95,21 +99,21 @@ When the built-in recogniser is not good enough, I switch to Google Recorder. On
 
 I have a skill that knows what to do with a recorder link. It downloads the audio file from there and transcribes it. The skill recognises when a link is from Google Recorder and runs the transcription path.[^14]
 
-A big advantage of Recorder is that it keeps recording when it is in the background. Right now I am recording this very article while the app is minimised. Later I will hand the recording to my Telegram writing assistant, which will turn the notes into a readable text I can edit.[^15]
+A big advantage of Recorder is that it keeps recording when it's in the background. Right now I'm recording this very article while the app is minimised - I'm brain-dumping my ideas for it. Later I'll hand the recording to my Telegram writing assistant, which turns the notes into a readable text I can edit.[^15][^30]
 
 ## From a recording to GitHub issues
 
 Once a recording is transcribed, I can hand it to my orchestrator agent. The orchestrator takes the recording, decomposes it into GitHub issues, and starts working on them.[^16]
 
-This is especially useful when I want to give feedback in the background. I open the AI Shipping Labs site on my phone, start using it, and as I find issues - "I do not like this", "this does not work", "this should be different" - I record them as I go. I end up with a 20-30 minute file. I send that file to the agent on the phone, and the agent transcribes it, decomposes it into issues, and starts work.[^16]
+This is especially useful when I want to give feedback in the background. I open the AI Shipping Labs site on my phone, start using it, and as I find issues - "I don't like this", "this doesn't work", "this should be different" - I record them as I go. I end up with a 20-30 minute file. I send that file to the agent on the phone, and the agent transcribes it, decomposes it into issues, and starts work.[^16]
 
-The same approach works on a plane. On a plane I obviously cannot SSH anywhere. So I run a local version on my own laptop, then take the phone and record feedback into Google Recorder. Recorder works offline. When I leave the plane and turn off airplane mode, I push the recordings to the agent and it does the work from there.[^18]
+The same approach works on a plane. On a plane I obviously can't SSH anywhere. So I run a local version on my own laptop, then take the phone and record feedback into Google Recorder. Recorder works offline. When I leave the plane and turn off airplane mode, I push the recordings to the agent and it does the work from there.[^18]
 
 ## ssh-auto-forward-android: port forwarding from the phone
 
-The last awkward thing about phone work is port forwarding. The Android apps for SSH port forwarding are not great. I already had a tool I love on the computer side - a Python program I described in [5 Useful Utilities I Built with AI Coding Assistants](https://alexeyondata.substack.com/p/5-useful-utilities-i-built-with-ai), [ssh-auto-forward](https://github.com/alexeygrigorev/ssh-auto-forward) [^19], which watches the ports that open on the remote machine and automatically forwards them to localhost. It runs on the computer, in Python.[^19][^29]
+The last awkward thing about phone work is port forwarding. The Android apps for SSH port forwarding aren't great. I already had a tool I love on the computer side: [ssh-auto-forward](https://github.com/alexeygrigorev/ssh-auto-forward) [^19], a Python program I described in [5 Useful Utilities I Built with AI Coding Assistants](https://alexeyondata.substack.com/p/5-useful-utilities-i-built-with-ai). It watches the ports that open on the remote machine and automatically forwards them to localhost. It runs on the computer, in Python.[^19][^29]
 
-I needed the same thing on the phone, so I gave the task to one of the agents - I think OpenCode in this case - and asked it to port the thing to Android. The result is [ssh-auto-forward-android](https://github.com/alexeygrigorev/ssh-auto-forward-android), written in Kotlin. I have not actually looked inside it, just like I never really looked inside the Python version - I do not even know what is in there. But it works the way I need it to.[^19][^20]
+I needed the same thing on the phone, so I gave the task to one of the agents (probably OpenCode) and asked it to port the thing to Android. The result is [ssh-auto-forward-android](https://github.com/alexeygrigorev/ssh-auto-forward-android), written in Kotlin. I haven't actually looked inside it, just like I never really looked inside the Python version - I don't even know what's in there. But it works the way I need it to.[^19][^20]
 
 The flow is simple. I open the app, hit Connect, it connects, and I see the list of remote ports being auto-forwarded.[^21]
 
@@ -127,19 +131,19 @@ When I tap a port row, the browser opens and goes straight to that port on local
   <!-- This is the payoff of the previous screenshot - one tap on the port row and the browser is on localhost talking to the model -->
 </figure>
 
-## Looking at things the phone cannot show
+## Looking at things the phone can't show
 
-Another phone limitation is that I cannot really browse the file system. I can use SFTP, but it is awkward, and sometimes I need to see something visually - a picture, a screenshot the agent produced.[^24]
+Another phone limitation is that I can't really browse the file system. I can use SFTP, but it's awkward, and sometimes I need to see something visually - a picture, a screenshot the agent produced.[^24]
 
-For screenshots I ask the agent to upload them to GitHub, into an issue. I can view the issue on my phone and decide if it is right. Here is an example of [an issue where I have the agent post screenshots](https://github.com/AI-Shipping-Labs/website/issues/655#issuecomment-4460971855).[^24][^25]
+For screenshots I ask the agent to upload them to GitHub, into an issue. I can view the issue on my phone and decide if it's right. Here is an example of [an issue where I have the agent post screenshots](https://github.com/AI-Shipping-Labs/website/issues/655#issuecomment-4460971855).[^24][^25]
 
 I used this approach a bit at first and use it less now. With CI/CD set up, every push runs the tests and auto-deploys to the dev site. I just open the dev site on the phone and see how it looks there. But the screenshots-in-issues option still exists when I want it.[^25]
 
-That CI/CD setup is specific to the AI Shipping Labs site, which I am working on actively. For smaller side projects I do not have a dev environment, so the GitHub-screenshots trick is more relevant there.[^26]
+That CI/CD setup is specific to the AI Shipping Labs site, which I'm working on actively. For smaller side projects I don't have a dev environment, so the GitHub-screenshots trick is more relevant there.[^26]
 
-For other visual problems I sometimes ask an agent for a small throw-away tool. Recently I needed to pick banners for the website. I could not look at them comfortably from the phone, so I told Codex to make me a small HTML page that serves on a specific port where I can like, reject, and comment on banner variants. Nothing general-purpose, a one-shot throwaway app. I open it from the phone, mark what I want, done.[^24][^27]
+For other visual problems I sometimes ask an agent for a small throw-away tool. Recently I needed to pick banners for the website. I couldn't look at them comfortably from the phone, so I told Codex to make me a small HTML page that serves on a specific port where I can like, reject, and comment on banner variants. It's nothing general-purpose, just a one-shot throwaway app. I open it from the phone, mark what I want, done.[^24][^27]
 
-I had been waiting for days for a chance to do this banner review from a computer and it never came. Eventually I just asked Codex for the picker tool so I could like banners and leave comments from the phone, and that is how I ended up choosing the banners for the site.[^27]
+I had been waiting for days for a chance to do this banner review from a computer, and it never came. Eventually I just asked Codex for the picker tool so I could like banners and leave comments from the phone. That's how I ended up choosing the banners for the site.[^27]
 
 <figure>
   <img src="../assets/images/working-from-phone/banner-picker-community-launch.jpg" alt="Banner review tool showing the AI Shipping Labs Community Launch banner variants with like/neutral/reject controls">
@@ -161,21 +165,19 @@ I had been waiting for days for a chance to do this banner review from a compute
 
 ## The Telegram writing assistant
 
-So far I have talked about how I communicate with agents from the phone, but a large part of my work is also writing - I write a lot. As I mentioned in an [earlier post about the Telegram writing assistant](https://alexeyondata.substack.com/p/telegram-assistant), it is an inseparable part of how I work from the phone too.[^17][^29]
+So far I've talked about how I communicate with agents from the phone, but a large part of my work is also writing - I write a lot. As I mentioned in an [earlier post about the Telegram writing assistant](https://alexeyondata.substack.com/p/telegram-assistant), it's an inseparable part of how I work from the phone too.[^17][^29]
 
-All of the above plus my Telegram writing assistant means I can be in the metro, like right now, and still get my thoughts out of my head. I dump them into the Telegram assistant. I can also check on my agents, correct them, or hand them a new task if I need to.[^17]
+All of the above plus my Telegram writing assistant means I can be in the metro, like right now, and still get my thoughts out of my head. I dump them into the Telegram assistant. I can also check on my agents, correct them, or hand them a new task if I need to. I don't have a lot of free time, and this is how I make more of it.[^17][^29]
 
-That is what makes the whole thing work for me. My schedule is uneven - I take the child to school in the morning, I come back, I can start something, then I go to the gym, check progress between sets, come home and do real focused work, then a lunch meeting, transport time, child pickup at 4 PM - and between all those slots I have moments where I am just sitting in a tram or somewhere. Combined with the constant travel, this mobile setup lets me use that time. I do not have a lot of free time, and this is how I make more of it.[^17][^29]
+## Time accounting for this article
 
-## How much time this article actually took
+The 40 minutes I usually quote for an article like this is the first draft - the brain dump - not the total. That part happens in the in-between time itself. Right now I'm at the gym: I've done my warm-up, I've got a few working sets ahead of me, and between sets I have about two minutes of rest each time. I press pause on Google Recorder, do a working set, come back, and pick up where I left off. I got on the tram earlier, talked into Telegram while riding, took screenshots along the way, then switched to the metro. The brain dump itself was around 40 minutes.[^28][^29]
 
-The 40 minutes I usually quote for an article like this is the first draft - the brain dump - not the total. That part happens in the in-between time itself. Right now I am at the gym: I have done my warm-up, I have a few working sets ahead of me, and between sets I have about two minutes of rest each time. I press pause on Google Recorder, do a working set, come back, and pick up where I left off. I got on the tram earlier, talked into Telegram while riding, took screenshots along the way, then switched to the metro. The brain dump itself was around 40 minutes.[^28][^29]
+After that comes the polishing pass, because the agent doesn't get everything right on the first try. The polishing flow is: I open Google Recorder, open the article in parallel, and read through it while recording voice feedback on what needs to change. When I'm done I send that recording to the Telegram writing assistant, and it folds all that feedback into the article. After that there's another style-polish pass by the agent, and finally the human editing pass.[^29]
 
-After that comes the polishing pass, because the agent does not get everything right on the first try. The polishing flow is: I open Google Recorder, open the article in parallel, and read through it while recording voice feedback on what needs to change. When I am done I send that recording to the Telegram writing assistant, and it folds all that feedback into the article. After that there is another style-polish pass by the agent, and finally the human editing pass.[^29]
+In total, several more hours go into editing, maybe 3-4 hours, to bring the article into a proper format. Then Valeria and I go through it together. And out comes the article.[^28]
 
-In total, several more hours go into editing - maybe 3-4 hours - to bring the article into a proper format. Then Valeria and I go through it together. And out comes the article.[^28]
-
-Earlier, an article like this would have taken me much longer - several days, probably, to sit down, write it, and plan the story. In total it now takes much less time than before. That is what lets me share interesting material here and keep trying new things constantly.[^28]
+Earlier, an article like this would have taken me much longer - several days, probably, to sit down, write it, and plan the story. It now takes much less time than before. That's what lets me share interesting material here and keep trying new things constantly.[^28]
 
 ## Sources
 
@@ -208,3 +210,4 @@ Earlier, an article like this would have taken me much longer - several days, pr
 [^27]: [20260515_155640_AlexeyDTC_msg4038_transcript.txt](../inbox/used/20260515_155640_AlexeyDTC_msg4038_transcript.txt)
 [^28]: [20260516_182349_AlexeyDTC_msg4111_transcript.txt](../inbox/used/20260516_182349_AlexeyDTC_msg4111_transcript.txt)
 [^29]: [20260516_191031_AlexeyDTC_msg4130_transcript.txt](../inbox/used/feedback/20260516_191031_AlexeyDTC_msg4130_transcript.txt)
+[^30]: [20260516_193345_AlexeyDTC_msg4138.md](../inbox/used/feedback/20260516_193345_AlexeyDTC_msg4138.md)
