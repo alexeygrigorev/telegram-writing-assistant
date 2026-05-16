@@ -12,7 +12,7 @@ GitHub Copilot has a "Jumpstart your project" feature that lets you describe a p
 
 Still, the approach is interesting. I started several projects this way - SQLiteSearch and possibly dirdotenv. You can start something right in the browser without needing a computer. That is the main appeal[^1].
 
-## How the GitHub project creation works
+## GitHub project creation
 
 When you create a new project on GitHub, there is a text box where you can describe the initial prompt. The problem is that you cannot write much in that prompt box[^2].
 

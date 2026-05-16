@@ -35,7 +35,8 @@ Sometimes the section splitting is convenient because it helps understand what e
 
 ## Alternative Processing Approach
 
-One idea: have two separate processes.[^4]
+One idea is to have two separate processes.[^4]
+
 1. The current process where the agent processes messages and creates articles
 2. A second process where the user prepares the article structure (what sections should be included), and the agent fills that structure based on what's already on GitHub. If there's no information for a section, it should leave it empty.
 
@@ -48,6 +49,8 @@ The most useful improvement would be making it easier to understand what each ar
 The agent processes voice messages from Telegram, transcribes them, and writes output into the articles/ folder. It also attempts to categorize content into articles, update existing articles if a new message is related, and create new articles if no related one exists.[^6]
 
 ## Current issues
+
+The agent currently has three categorization gaps:
 
 1. Feedback and meta-comments are treated as articles. Messages containing feedback on how the agent behaves, instructions on how it should work, or comments about system behavior get written into articles/, even though they are not content.[^6]
 
@@ -75,7 +78,7 @@ These issues were previously recorded as GitHub issues. If they don't make sense
 
 ## Proposed folder restructuring
 
-Alexey agrees that separating internal and external content makes sense. The research folder already exists as a first step. The broader vision for the structure:[^15]
+I agree that separating internal and external content makes sense. The research folder already exists as a first step. The broader vision for the structure:[^15]
 
 - A resources folder with its own index
 - A folder for external/public articles with its own index
@@ -90,14 +93,17 @@ This separation makes sense. The understanding of what the structure should look
 
 This has been hanging as a pending item. The question was: what exactly needs to be done and what's the workflow for implementing it? Where should it live - in the bot or somewhere else?[^7]
 
-Inside the articles folder there is an index - a table showing when an article was added, when it was last updated, and a short description. The idea is to do the same thing for all resources shared via the bot. Right now resources are just a list with short descriptions. The proposed format is a table with:[^8]
+Inside the articles folder there is an index - a table showing when an article was added, when it was last updated, and a short description. I want the same thing for all resources shared via the bot. Right now resources are just a list with short descriptions.
+
+The proposed format is a table with:[^8]
+
 - Resource name
 - Category
 - Short description
 - Date when the resource was added
 - Status: backlog or published
 
-This way the table preserves a record of resources, making it clear what has been shared and what hasn't. This is what the issue is about.[^8]
+The table preserves a record of resources, making it clear what has been shared and what hasn't. The GitHub issue captures this scope.[^8]
 
 How to use this afterwards: automatic updates from Substack won't work because Substack has no API. The workflow would be manual - updating the table to mark what was already published, or sending the bot a list (just copy from the newsletter) and saying "these resources were already published, mark as published."[^9]
 

@@ -18,7 +18,7 @@ This could also become a category on the website where people can see what other
 
 ## GitHub Issue Creator Bot
 
-A project for someone who has many different GitHub projects and sometimes gets ideas while on the go, away from the computer. Currently, opening GitHub on the phone, selecting the right project, choosing an issue template, and manually describing everything is tedious[^2].
+A project for someone who has many different GitHub projects and sometimes gets ideas while on the go, away from the computer. Today this is tedious - you open GitHub on the phone, pick the right project, choose an issue template, and describe everything by hand[^2].
 
 Instead, a Telegram bot can create issues automatically.
 
@@ -37,13 +37,13 @@ An agent that helps people identify projects they can do[^4]. Similar to the "ki
 
 This could be a conversational agent (not an agent, more like a chatbot) that helps people come up with original project ideas[^4].
 
-This is a nice project idea in itself, but it is also a useful project for the community. People can try playing with it. It could be a good lead magnet for the community - they would have to sign up to interact with the agent, and then the agent can suggest different ideas[^4].
+This is a nice project idea on its own, but it is also a useful project for the community. People can try playing with it. It could be a good lead magnet for the community - they would have to sign up to interact with the agent, and then the agent can suggest different ideas[^4].
 
 ## Problem Discovery Framework
 
-A framework for helping people discover problems that need solving. The goal is to help them think about what kinds of things require automation in what they do right now[^6].
+A framework for helping people discover problems that need solving. It helps them think about what kinds of things require automation in what they do right now[^6].
 
-This means coming up with a list of questions you can ask in order to identify problems that can be solved with AI, automation, and agents. These could be opportunities for automation, opportunities for being more effective, but also nice portfolio projects[^6].
+This means coming up with a list of questions you can ask to identify problems that can be solved with AI, automation, and agents. These could be opportunities for automation, opportunities for being more effective, or simply nice portfolio projects[^6].
 
 The best customer is yourself. If you have a problem and want to solve it, you will be your own customer. That is the ideal scenario[^6].
 
@@ -69,11 +69,13 @@ There can be two types of interactions: adding information and asking questions.
 
 Similar to the Telegram Writing Assistant but simpler - you have a bot with a small agent, and you do not need to figure out how to hook up the code yourself[^8].
 
-For storage, the simplest approach is just files. Then you can commit everything to Git. Something like a real Obsidian - not the custom system, but actual Obsidian. You could make an Obsidian client, that is also an idea. You can just organize the structure, or you can take actual Obsidian and build on top of it. Other platforms like Notion are more complicated. But Obsidian is a good fit[^9].
+For storage, the simplest approach is just files. Then you can commit everything to Git. Something like a real Obsidian - not the custom system, but actual Obsidian.
+
+You could make an Obsidian client, that is also an idea. You can just organize the structure, or you can take actual Obsidian and build on top of it. Other platforms like Notion are more complicated, but Obsidian is a good fit[^9].
 
 ## Journaling Agent
 
-A journaling (diary) agent. Every day you record things - this can be a Telegram bot, a website, whatever. Standard journaling: you talk about events that happened in your life, you list three things you are proud of today, and so on[^10].
+A journaling (diary) agent. Every day you record things - this can be a Telegram bot, a website, whatever. Standard journaling means talking about events that happened in your life, listing three things you are proud of today, and so on[^10].
 
 Then you can look at your entries. You can also color-code each day. A cron job can collect entries or remind you if you have not journaled today[^10].
 

@@ -12,7 +12,7 @@ The AI Shipping Labs site has enough content now that we can start actively prom
 
 The hook is simple: all the workshops I have done on Gen.AI (the ones on Maven, the ones on DataTalks.Club, the ones I gave at conferences) are now in one place. The full list lives at [aishippinglabs.com/workshops](https://aishippinglabs.com/workshops) [^3].
 
-## What I did
+## My approach
 
 Over the last few months I have been working on the AI Shipping Labs site. It is mostly ready, I am still polishing it[^2].
 

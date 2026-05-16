@@ -10,7 +10,16 @@ status: draft
 
 [Video](https://www.youtube.com/watch?v=2H8aC-1nqiE)
 
-I got a new Windows computer and recorded a video of myself installing everything from scratch. I want to start with a clean slate. The goal: by the end, have a dev setup with terminal, bash, Python, NodeJS, Docker, VS Code, and other tools. I will also create text instructions from this, which might be more useful than the video itself.[^1][^2]
+I got a new Windows computer and recorded a video of myself installing everything from scratch. I want to start with a clean slate.
+
+I will also create text instructions from this, which might be more useful than the video.[^1][^2]
+
+By the end I want a working dev setup that includes:
+
+- A terminal with bash
+- Python and NodeJS
+- Docker and VS Code
+- The other tools I rely on day to day
 
 ## Windows Terminal
 
@@ -28,7 +37,7 @@ During installation:
 
 Git for Windows comes with MinGW, which gives you bash on Windows. It also installs Vim and other tools.
 
-After installation, restart Windows Terminal. Git Bash should appear as a new profile. If it did not get added automatically, go to Settings, Profiles, add a new profile, and add Git Bash.
+After installation, restart Windows Terminal. Git Bash should appear as a new profile. If it did not get added automatically, go to Settings → Profiles and add a new profile pointing at Git Bash.
 
 ## Setting Git Bash as default
 
@@ -66,7 +75,7 @@ After installation, configure the font size - go to Settings and change:
 
 VS Code should automatically detect Git Bash and make it available in the integrated terminal.
 
-The font will default to Consolas, which works well for coding.
+The font will default to Consolas, which is readable at small sizes and renders punctuation clearly for code.
 
 Copilot configuration can be done separately - it is not critical for the initial setup.
 
@@ -201,7 +210,16 @@ After installing the Python extension, VS Code automatically detects virtual env
 
 ## Summary
 
-The whole setup took over an hour. Everything from the initial list is installed: Windows Terminal, Git Bash, Python (via UV), NodeJS (via NVM), Docker, VS Code, GitHub CLI, Claude Code, and OpenCode. I probably forgot something, but might record a follow-up later.
+The whole setup took over an hour.
+
+Everything from the initial list is installed:
+
+- Windows Terminal and Git Bash
+- Python (via UV) and NodeJS (via NVM)
+- Docker and VS Code
+- GitHub CLI, Claude Code, and OpenCode
+
+I probably forgot something, but might record a follow-up later.
 
 ## Sources
 

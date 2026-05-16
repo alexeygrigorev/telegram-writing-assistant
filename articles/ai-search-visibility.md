@@ -20,9 +20,9 @@ LinkedIn is the second most cited domain across AI models, appearing in 11% of A
 
 AI responses closely mirror LinkedIn source content, with semantic similarity scores of 0.57-0.60. This is higher than Reddit (0.53-0.54) and Quora (0.435), meaning LinkedIn content is more likely to be represented accurately[^1].
 
-## What gets cited
+## Citation patterns
 
-Long-form articles dominate citations, accounting for 50-66% of cited content. Feed posts make up 15-28%. The sweet spot for articles is 500-2,000 words. For posts, it is 50-299 words. 95% of cited posts are original content. Reshares account for only 5%[^1].
+Long-form articles dominate citations, accounting for 50-66% of cited content. Feed posts make up 15-28%. The sweet spot for articles is 500-2,000 words, and 50-299 words for posts. 95% of cited posts are original content, while reshares account for only 5%[^1].
 
 Educational and advice-driven content wins - 54-64% of cited posts focus on sharing knowledge or practical advice. Promotional content has the second-largest share but is cited significantly less[^1].
 
@@ -40,9 +40,9 @@ Use precise, consistent terminology for the brand and category. Maintain both a 
 
 ## AI Overview Tracker
 
-A web app concept for tracking whether a brand appears in Google's AI Overviews (the AI-generated answer boxes at the top of Google search results). The idea is described as a Lovable prompt - a specification designed to be fed into Lovable to generate a working web application[^2].
+A web app concept for tracking whether a brand appears in Google's AI Overviews (the AI-generated answer boxes at the top of Google search results). It is written up as a Lovable prompt - a specification designed to be fed into Lovable to generate a working web application[^2].
 
-## How it works
+## Mechanics
 
 The app takes two inputs: a brand name or domain and a CSV file with search queries. For each query, it calls the SearchAPI (searchapi.io) to retrieve Google search results, detects whether an AI Overview is present, extracts the cited domains, and checks whether the user's brand appears[^2].
 

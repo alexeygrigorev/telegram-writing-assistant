@@ -190,9 +190,11 @@ The same flow works for plans and stories: I open the phone, get a stream of tho
 
 ## Time accounting for this article
 
-The 40 minutes I usually quote for an article like this is the first draft (the brain dump) not the total. That part happens in the in-between time itself. Right now I'm at the gym: I've done my warm-up, I've got a few working sets ahead of me, and between sets I have about two minutes of rest each time. I press pause on Google Recorder, do a working set, come back, and pick up where I left off. I got on the tram earlier, talked into Telegram while riding, took screenshots along the way, then switched to the metro. The brain dump itself was around 40 minutes.[^28][^29]
+The 40 minutes I usually quote for an article like this is the first draft (the brain dump) not the total. That part happens in the in-between time.
 
-After that comes the polishing pass, because the agent doesn't get everything right on the first try. The polishing flow is: I open Google Recorder, open the article in parallel, and read through it while recording voice feedback on what needs to change. When I'm done I send that recording to the Telegram writing assistant, and it folds all that feedback into the article. After that there's another style-polish pass by the agent, and finally the human editing pass.[^29]
+Right now I'm at the gym. I've done my warm-up, I've got a few working sets ahead of me, and between sets I have about two minutes of rest each time. I press pause on Google Recorder, do a working set, come back, and pick up where I left off. I got on the tram earlier, talked into Telegram while riding, took screenshots along the way, then switched to the metro. The brain dump was around 40 minutes.[^28][^29]
+
+After that comes the polishing pass, because the agent doesn't get everything right on the first try. The polishing flow goes like this. I open Google Recorder, open the article in parallel, and read through it while recording voice feedback on what needs to change. When I'm done I send that recording to the Telegram writing assistant, and it folds all that feedback into the article. After that there's another style-polish pass by the agent, and finally the human editing pass.[^29]
 
 In total, several more hours go into editing, maybe 3-4 hours, to bring the article into a proper format. Then Valeria and I go through it together. And out comes the article.[^28]
 

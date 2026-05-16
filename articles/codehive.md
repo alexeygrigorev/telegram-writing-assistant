@@ -12,13 +12,15 @@ status: draft
 
 ## The Vision
 
+Codehive embeds the methodology I want for a coding orchestrator:
+
 - Hard-coded methodology - the [agent team pipeline](building-projects-with-agent-teams.md) is enforced by the orchestrator, not by prompting
 - Multiple agent backends - Claude Code, Codex, GitHub Copilot, xAI - switch between providers or use different ones for different tasks
 - Non-blocking workflow - always has a task pool, questions go to a separate list, work never blocks on my answers
 - Visibility into subagents - peek inside to see what's happening, correct course
 - GitHub integration - create an issue, Codehive wakes up and works on it
 
-## Why
+## Motivation
 
 The main Claude Code orchestrator has problems that motivated this project.
 
@@ -40,7 +42,7 @@ And it asks unnecessary questions like "shall we proceed?" when the todo list ex
 
 I also can't see what subagents are doing. The orchestrator launches one and it does something for 30 minutes or an hour. Is it stuck? Does it need a restart? I want to be able to peek inside and correct the process[^2].
 
-The methodology itself isn't enforced (Claude Code can ignore it. I want the orchestrator to be more rigid: the pipeline, the agent roles, the grooming process, the acceptance criteria) all hard-coded into the application, not just described in a markdown file that the agent may or may not follow[^4].
+The methodology is not enforced - Claude Code can ignore it. I want the orchestrator to be more rigid. The pipeline, the agent roles, the grooming process, and the acceptance criteria should all be hard-coded into the application, not just described in a markdown file that the agent may or may not follow[^4].
 
 ## Current State
 
@@ -65,17 +67,17 @@ Each role cuts corners in its own way:
 
 You need to organize the process so it's harder for them to cut corners[^6].
 
-## The Descoping Problem
+## Silent descoping in practice
 
-With the Rustkyll project, I asked to compile for Linux, Mac, and Windows, for both AMD64 and ARM64. It compiled for all platforms except Windows ARM64 - it just silently dropped that target. When I asked what happened, it turned out the PM had descoped it. There were no logs, so I couldn't even see when or why[^6][^7].
+With the Rustkyll project, I asked to compile for Linux, Mac, and Windows on both AMD64 and ARM64. It compiled for all platforms except Windows ARM64 - it just silently dropped that target. When I asked what happened, it turned out the PM had descoped it. There were no logs, so I couldn't even see when or why[^6][^7].
 
-That's what led to the "no silent descoping" rule in the process. I don't have a problem with descoping itself - sometimes a task is too big. But requirements must not be quietly forgotten[^6].
+That's what led to the "no silent descoping" rule in the process. I don't have a problem with descoping in general - sometimes a task is too big. But requirements must not be quietly forgotten[^6].
 
 ## Checking Under the Hood
 
 You still need to occasionally look under the hood. It cooks on its own mostly fine, but sometimes you need to lift the lid and check[^6].
 
-With the Jekyll project I wanted pixel-perfect matching. I asked the agents to create tasks based on benchmarks comparing the output. After some time I checked the report - it said everything was fine, pixel-perfect match, and the few percent of different pixels were "font rendering artifacts." A few percent of pixels on a large screenshot is thousands of pixels. I looked at it myself and it was clearly not just font rendering[^6].
+With the Jekyll project I wanted pixel-perfect matching. I asked the agents to create tasks based on benchmarks comparing the output. After some time I checked the report - it said everything was fine, pixel-perfect match, and the few percent of different pixels were "font rendering artifacts." A few percent of pixels on a large screenshot is thousands of pixels. I looked at the diff myself and it was clearly not just font rendering[^6].
 
 Same problem with Mermaid diagrams - the output is visual, and agents struggle to evaluate images. We fixed one thing and broke two others. Tests didn't catch it because it's visual, hard to test automatically. I had to write a visual guideline checklist for the agents to follow[^6].
 

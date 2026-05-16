@@ -12,7 +12,7 @@ A collection of interesting resources curated for the "Alexey On Data" newslette
 
 <figure>
   <img src="../assets/images/interesting-resources/substack-resources-section.jpg" alt="Interesting Resources section in the newsletter">
-  <figcaption>The Interesting Resources section as it appears in the Alexey On Data newsletter on Substack</figcaption>
+  <figcaption>The Interesting Resources section as it appears in the "Alexey On Data" newsletter on Substack</figcaption>
   <!-- This shows the format and presentation of resources in the newsletter -->
 </figure>
 

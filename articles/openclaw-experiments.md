@@ -15,8 +15,8 @@ Notes from experimenting with OpenClaw locally. The trigger was an AI Shipping L
 The initial bootstrap flow worked well. When OpenClaw starts up with no identity file, it greets you as a blank slate and asks who you are and what to call it.
 
 <figure>
-  <img src="../assets/images/openclaw-experiments/bootstrap-blank-slate.jpg" alt="OpenClaw bootstrap message describing itself as a fresh workspace with no memories or identity">
-  <figcaption>Bootstrap response: "I just woke up - fresh workspace, no memories, no identity file filled in. Basically a blank slate."</figcaption>
+  <img src="../assets/images/openclaw-experiments/bootstrap-blank-slate.jpg" alt="OpenClaw bootstrap message describing the agent as a fresh workspace with no memories or identity">
+  <figcaption>Bootstrap response: a blank slate with no memories or identity yet.</figcaption>
   <!-- Shows that the bootstrap instructions produce the expected blank-slate intro on first run -->
 </figure>
 
