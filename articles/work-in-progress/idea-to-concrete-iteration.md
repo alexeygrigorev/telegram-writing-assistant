@@ -32,7 +32,9 @@ This workflow is slow because even for small changes, I have to run the entire n
 
 ## Desired Solution
 
-What I want is a way for Claude Code to interact with a live Jupyter session similar to how ChatGPT does with its Python code interpreter. In ChatGPT, when I ask it to write Python code:
+What I want is a way for Claude Code to interact with a live Jupyter session similar to how ChatGPT does with its Python code interpreter.
+
+In ChatGPT, when I ask it to write Python code:
 - It writes and runs code in an interactive session
 - I can ask follow-up questions or give feedback
 - The code state persists between messages
@@ -40,7 +42,9 @@ What I want is a way for Claude Code to interact with a live Jupyter session sim
 
 ## Current Investigation
 
-I'm exploring how to integrate Claude Code with Jupyter notebooks to speed up experimentation. Some options I'm considering:
+I'm exploring how to integrate Claude Code with Jupyter notebooks to speed up experimentation.
+
+Some options I'm considering:
 - MCP (Model Context Protocol) for Jupyter notebooks
 - Understanding how ChatGPT's code analysis feature works with IPython kernels
 - Creating a tool that synchronizes Claude's code session with Jupyter notebook sessions

@@ -67,7 +67,9 @@ Week 6:
 
 The single most important criterion for the project is that it solves a real problem for a real person - even if that person is Aashiesh himself. A finished okay project beats an unfinished ambitious one.
 
-Two prompts help with the picking. They are intended for ChatGPT or Claude (voice mode works much better than typing):
+Two prompts help with the picking.
+
+They are intended for ChatGPT or Claude (voice mode works much better than typing):
 
 - [Project-idea brainstorming prompt](https://gist).github.com/alexeygrigorev/c1c8dc3ece5cba91e1e381eeba2706c1 - the gist contains both prompts. Use the interview prompt if there is no concrete idea yet, and the fit-check prompt to validate one before committing weeks to it.
 

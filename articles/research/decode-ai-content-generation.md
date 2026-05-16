@@ -84,7 +84,9 @@ Brown does three things in order:
 2. Compose the system prompt from six "profile" classes.
 3. Run an evaluator-optimizer loop over the draft.
 
-The six profiles define the voice. Four are generic and static:
+The six profiles define the voice.
+
+Four are generic and static:
 
 - Structure - how prose is laid out on the page (sentences, paragraphs, lists, subheadings).
 - Mechanics - grammatical rules like active voice, point of view, punctuation.
@@ -98,7 +100,9 @@ Two are customizable per user:
 
 Paul calls out two more things on top of the profiles. First, the LLM must respect the article guideline and research over anything else, which keeps it from hallucinating. Second, few-shot examples beat every other trick, because "showing works better than telling"[^1].
 
-The first draft is generated at temperature 0.7 for variety. Then the evaluator-optimizer loop kicks in:
+The first draft is generated at temperature 0.7 for variety.
+
+Then the evaluator-optimizer loop kicks in:
 
 - A Reviewer node at temperature 0.0 checks the draft against the guideline, research, and profiles. It returns structured review objects via Pydantic.
 - If the Reviewer finds issues, an Editor node at temperature 0.1 applies the fixes.
@@ -205,7 +209,9 @@ The article on decodingai.com is effectively a product page for that course, wra
 
 ## How Gemini Nano Banana Image Generation Works
 
-Nano Banana is the nickname for Google's `gemini-2.5-flash-image` model. It is a natively multimodal model trained from the ground up to process text and images in one step[^5]. The capabilities that matter for the style-transfer use case are:
+Nano Banana is the nickname for Google's `gemini-2.5-flash-image` model. It is a natively multimodal model trained from the ground up to process text and images in one step[^5].
+
+The capabilities that matter for the style-transfer use case are:
 
 - Text-to-image. Generate an image from a text prompt.
 - Image + text to image. Pass an image plus a prompt to edit the image (change style, colors, add or remove elements).

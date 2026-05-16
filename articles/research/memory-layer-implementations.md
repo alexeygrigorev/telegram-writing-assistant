@@ -98,7 +98,9 @@ The model only summarizes what you said, not its own responses. Summaries are br
 
 ## Retrieval Strategy: There Isn't One
 
-This is the design observation that matters. ChatGPT has no query-time retrieval system. The entire memory layer is prompt-injection-based:
+This is the design observation that matters. ChatGPT has no query-time retrieval system.
+
+The entire memory layer is prompt-injection-based:
 
 - User Memory is the full set of stored facts, every turn
 - Recent Conversations Summary is the full set of recent summaries, every turn
@@ -175,12 +177,16 @@ The categories Claude tracks:
 
 ## Auto Dream: Background Consolidation
 
-This is the part that is genuinely novel. Auto Dream is a memory-consolidation subagent that runs between sessions. It triggers when both conditions are true:
+This is the part that is genuinely novel. Auto Dream is a memory-consolidation subagent that runs between sessions.
+
+It triggers when both conditions are true:
 
 1. 24 hours since the last dream cycle
 2. More than 5 sessions completed since last consolidation
 
-When triggered, it runs a four-phase process. The exact system prompt was found in the leak:
+When triggered, it runs a four-phase process.
+
+The exact system prompt was found in the leak:
 
 ```mermaid
 flowchart LR
@@ -208,7 +214,9 @@ Separate from project knowledge. Session Memory saves conversation-level summari
 
 ## Retrieval Strategy: Lazy File Loading Plus Grep
 
-There is no vector database. There is no embedding model. Retrieval is:
+There is no vector database. There is no embedding model.
+
+Retrieval is:
 
 1. Always-loaded: full CLAUDE.md, first 200 lines of MEMORY.md
 2. On-demand: read specific topic file when you ask about it
@@ -259,7 +267,9 @@ Memory has three tiers:
 2. Recall Memory - full conversation history, searchable
 3. Archival Memory - vector-indexed long-term storage
 
-Core Memory Blocks are the most interesting abstraction. They are structured XML-like sections in the prompt:
+Core Memory Blocks are the most interesting abstraction.
+
+They are structured XML-like sections in the prompt:
 
 ```xml
 <memory_blocks>
@@ -379,7 +389,9 @@ This is the ReAct memory loop. The agent reasons about contradictions and decide
 
 ## New Pipeline (v3, April 2026): ADD Only
 
-The April 2026 release switched to single-pass ADD-only extraction. The memory log accumulates and nothing is overwritten. Why:
+The April 2026 release switched to single-pass ADD-only extraction. The memory log accumulates and nothing is overwritten.
+
+Why:
 
 - One LLM call instead of two phases
 - No accumulation of "the wrong UPDATE" errors over time
@@ -452,7 +464,9 @@ The mirror of human memory: episodic (raw experiences) plus semantic (extracted 
 
 ## Bi-Temporal Facts
 
-This is the part that differentiates Graphiti from generic knowledge graphs. Every edge has two time axes:
+This is the part that differentiates Graphiti from generic knowledge graphs.
+
+Every edge has two time axes:
 
 - Event time T - when this fact was true in the real world
 - Ingestion time T' - when the system learned about it
@@ -519,7 +533,9 @@ graph TD
 
 ## Namespaces, Not Just Keys
 
-Memories live inside namespaces. A namespace is a tuple like `("user_123", "preferences")` that scopes access. Common patterns:
+Memories live inside namespaces. A namespace is a tuple like `("user_123", "preferences")` that scopes access.
+
+Common patterns:
 
 - `(user_id,)` - per-user isolation
 - `(user_id, "memories")` - typed buckets

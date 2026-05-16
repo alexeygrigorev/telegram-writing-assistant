@@ -58,7 +58,9 @@ Claude set up the git repository and made the initial commit. It configured the 
 
 ## First Successful Test
 
-The first tests were successful. The app is working end-to-end[^5]:
+The first tests were successful.
+
+The app is working end-to-end[^5]:
 
 - Fetched document (13,887 characters)
 - LLM understood the request to make the title more exciting

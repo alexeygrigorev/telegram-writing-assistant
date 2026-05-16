@@ -20,7 +20,9 @@ This could also become a category on the website where people can see what other
 
 A project for someone who has many different GitHub projects and sometimes gets ideas while on the go, away from the computer. Currently, opening GitHub on the phone, selecting the right project, choosing an issue template, and manually describing everything is tedious[^2].
 
-Instead, a Telegram bot can create issues automatically. Here is how it would work[^2]:
+Instead, a Telegram bot can create issues automatically.
+
+Here is how it would work[^2]:
 
 1. Setup: define a specific set of repositories (or all repositories) that the agent should be interested in
 2. Interaction: send a voice note to a Telegram bot

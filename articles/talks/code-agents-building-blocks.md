@@ -77,7 +77,9 @@ Examples:
 - [Lovable.dev](https://lovable.dev/)
 - [v0.dev](https://v0.dev/)
 
-These generate full-stack applications from natural language prompts. My typical workflow:
+These generate full-stack applications from natural language prompts.
+
+My typical workflow:
 
 1. Create the app in Lovable or Bolt.new with a few prompts
 2. Export the code to GitHub
@@ -199,7 +201,9 @@ It was created by analyzing all my existing libraries ([minsearch](https://githu
   <figcaption>The /process command: a markdown file with step-by-step instructions for the agent</figcaption>
 </figure>
 
-[`/process`](https://github.com/alexeygrigorev/telegram-writing-assistant/blob/main/.claude/commands/process.md) - the Telegram writing assistant's main command. This is the most complex skill I have:
+[`/process`](https://github.com/alexeygrigorev/telegram-writing-assistant/blob/main/.claude/commands/process.md) - the Telegram writing assistant's main command.
+
+This is the most complex skill I have:
 
 - Pull latest changes from git
 - Read all files from the inbox
@@ -338,7 +342,9 @@ This talk was presented at a meetup. The preparation process itself was a demons
 
 ## How the Talk Was Prepared
 
-The whole preparation took about an hour. The process went like this[^7]:
+The whole preparation took about an hour.
+
+The process went like this[^7]:
 
 1. Opened the Telegram writing assistant and said: "let's create an article based on which we will then prepare a talk." Gave it the talk plan and pointed it to several sources - the AI DevTools course, the Substack posts, and what had been written in this repository
 2. The assistant gathered everything and created the article. The content was enough for about 50 minutes, but the talk slot was 20 minutes, so it needed to be cut down

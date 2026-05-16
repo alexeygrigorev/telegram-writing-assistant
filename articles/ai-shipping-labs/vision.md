@@ -124,7 +124,9 @@ The domain aishippinglabs.com has been registered[^35].
 
 ## Naming and brand
 
-Current naming challenge: existing names like "AI Builders" and "AI Engineering" are already taken. The ideal name should:
+Current naming challenge: existing names like "AI Builders" and "AI Engineering" are already taken.
+
+The ideal name should:
 - Be connected to building (hands-on creation)
 - Relate to AI
 - Connect with existing brand (newsletter, course, AI Engineering Buildcamp)
@@ -161,7 +163,9 @@ These are people who already have the drive and the project ideas, but need exte
 
 ## Target audience for this focused community
 
-People interested in AI engineering and AI tools who want to be more productive in what they do. The end goal is creating AI products using AI. This includes:
+People interested in AI engineering and AI tools who want to be more productive in what they do. The end goal is creating AI products using AI.
+
+This includes:
 - People who can currently work as ML engineers
 - Data engineers
 - Beginners just starting to learn Python with the goal of becoming data and AI engineers

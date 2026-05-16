@@ -10,7 +10,9 @@ status: draft
 
 ## The Core Problem
 
-There is too much noise in AI right now. New tools, models, frameworks, and techniques appear daily. This creates a cycle: excitement, overwhelm, scattered attention, stalled projects, guilt, more noise-chasing. People who are serious about AI engineering struggle with:
+There is too much noise in AI right now. New tools, models, frameworks, and techniques appear daily. This creates a cycle: excitement, overwhelm, scattered attention, stalled projects, guilt, more noise-chasing.
+
+People who are serious about AI engineering struggle with:
 
 1. Overwhelm and FOMO - contradictory roadmaps, dozens of new tools weekly, fear of choosing the "wrong" stack
 2. Not knowing where to start - or how to approach things even when they have some experience
@@ -129,7 +131,9 @@ All four personas have day jobs. This creates a structural problem that goes bey
 
 This is extremely common. Reddit threads like "5 years of jumping between side projects without finishing" and "A graveyard for my abandoned side projects" get hundreds of upvotes. People describe starting strong, then life/job interrupts, months pass untouched, guilt loop. The ones who break the cycle almost always credit external structure: accountability partners, cohorts, groups that make "next weekend" harder to postpone.
 
-This is where AI Shipping Labs adds unique value for all personas. The community directly attacks the root causes:
+This is where AI Shipping Labs adds unique value for all personas.
+
+The community directly attacks the root causes:
 
 - Micro-commitments over marathons: weekly goals scoped to 1-3 hours, not "build the whole thing this weekend"
 - Async accountability: weekly check-ins, buddy system, public progress shares that create mild social pressure without guilt

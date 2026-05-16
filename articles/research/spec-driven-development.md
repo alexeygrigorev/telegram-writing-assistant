@@ -378,7 +378,9 @@ Phil Winder [wrote about migrating a Python codebase to Go using Claude Code](ht
 
 ## Notes
 
-Previously worked with stop hooks in the Ralph project, but it was quite useless - just "continue" and that's it. The goal is to make this more intelligent:
+Previously worked with stop hooks in the Ralph project, but it was quite useless - just "continue" and that's it.
+
+The goal is to make this more intelligent:
 
 1. The system should look at messages from Claude and respond based on them
 2. Instead of a simple task list like "continue improving", there should be something concrete

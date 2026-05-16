@@ -42,7 +42,9 @@ Three design commitments define the project:
 
 ## Repository Topography
 
-Before looking at architecture, it helps to know what lives where, because the rest of the article keeps pointing back to these files. The repo is Python-heavy, and unusually for a modern project, a small set of large files does most of the work. Here is what each of the big files does and why you would open it - so when a later section mentions `run_agent.py` or `auxiliary_client.py`, you already know what kind of code is in there and what it controls:
+Before looking at architecture, it helps to know what lives where, because the rest of the article keeps pointing back to these files. The repo is Python-heavy, and unusually for a modern project, a small set of large files does most of the work.
+
+Here is what each of the big files does and why you would open it - so when a later section mentions `run_agent.py` or `auxiliary_client.py`, you already know what kind of code is in there and what it controls:
 
 - `run_agent.py` - 633 KB. The conversation loop. Every turn you take with Hermes runs through a function in this file. It is kept as a single file on purpose, so a full read shows you the entire flow without chasing imports. If you want to understand what Hermes does when you send a message, you read this one file.
 - `cli.py` - 472 KB. The interactive TUI you see when you run `hermes chat` in the terminal. This is what renders your messages, streams the model's reply, and shows approval prompts.
@@ -53,7 +55,9 @@ Before looking at architecture, it helps to know what lives where, because the r
 - `batch_runner.py` - 55 KB. Runs the agent across many prompts in parallel and saves the resulting conversations. You reach for this if you want to generate training data or stress-test a new skill against a set of scenarios.
 - `trajectory_compressor.py` - 64 KB. Converts those saved conversations into a format a training script can consume.
 
-Everything else is organized into a handful of directories. Each one maps to one slice of the system, and each one solves a specific problem for you as a user:
+Everything else is organized into a handful of directories.
+
+Each one maps to one slice of the system, and each one solves a specific problem for you as a user:
 
 - `agent/` - the brain of a turn. It holds the pieces that decide what prompt to send to the LLM and what to do with the response. `prompt_builder.py` assembles the system prompt from your identity and memory files. `context_compressor.py` summarizes old turns when the conversation gets too long so you don't run out of context window. `credential_pool.py` rotates API keys when you have several, which matters if you hit rate limits on a single key. `auxiliary_client.py` at 124 KB dispatches side tasks like vision and compression to cheaper models, so the main model can stay focused on your actual question. The Anthropic, Bedrock, and Gemini adapters also live here. Each one translates Hermes' internal message format into the shape that provider's API expects. When a section later talks about prompt caching, memory loading, redaction, or API mode selection, this is the directory it is talking about.
 - `tools/` - the hands of the agent. 47 Python files, each one exposing one tool or tool family the LLM can call. These are the concrete actions Hermes can take on your behalf. The notable ones, and what they let you do: `mcp_tool.py` (101 KB) connects Hermes to any MCP server you configure, so you can plug in third-party integrations without writing new tools. `skills_hub.py` (112 KB) fetches and shares skills with other Hermes users, so you can install capabilities other people wrote. `browser_tool.py` (99 KB) gives the agent a full stealth-mode browser it can drive, which is how it reads pages that block simple HTTP fetches. `terminal_tool.py` (85 KB) is shell access across six different execution backends, so the agent can run commands locally, in Docker, on SSH, or in a serverless cloud VM depending on how much isolation you want. `send_message_tool.py` (63 KB) lets the agent proactively message you on any configured platform, which is what powers "ping me when the job finishes" workflows. `code_execution_tool.py` (61 KB) runs Python in a sandbox. `rl_training_tool.py` (57 KB) lets the agent trigger its own fine-tuning job. `skills_tool.py` (51 KB) is how the agent reads, writes, and amends its skill library - the mechanism behind self-improvement. `delegate_tool.py` (50 KB) spawns a subagent for a scoped task, so the main agent can hand off work and keep its own context clean. `tts_tool.py` (50 KB) generates speech.
@@ -290,7 +294,9 @@ The in-prompt memory uses what the code calls a frozen-snapshot pattern. In plai
 
 ## Skills - Procedural Memory
 
-Skills follow the `agentskills.io` open standard. Each skill is a markdown file with structured frontmatter, optionally bundled with reference files. Skills use progressive disclosure. Progressive disclosure is a pattern where the agent sees only a short index of available skills up front, and loads the full text of one skill only when it decides it needs that skill. In Hermes there are three levels of detail, numbered 0, 1, and 2:
+Skills follow the `agentskills.io` open standard. Each skill is a markdown file with structured frontmatter, optionally bundled with reference files. Skills use progressive disclosure. Progressive disclosure is a pattern where the agent sees only a short index of available skills up front, and loads the full text of one skill only when it decides it needs that skill.
+
+In Hermes there are three levels of detail, numbered 0, 1, and 2:
 
 ```
 Level 0: skills_list()          -> names + descriptions   (~3K tokens)
@@ -308,7 +314,9 @@ SOUL and memory cover who the agent is and what it remembers across sessions. Co
 
 ## Context Files - First Match Wins
 
-On top of SOUL and memory, Hermes loads one project-level context file that tells the agent about the codebase or workspace it is operating in. Only one file is used per project, and Hermes picks it by walking a priority list:
+On top of SOUL and memory, Hermes loads one project-level context file that tells the agent about the codebase or workspace it is operating in.
+
+Only one file is used per project, and Hermes picks it by walking a priority list:
 
 ```mermaid
 flowchart TD
@@ -394,7 +402,9 @@ One detail in the terminal tool worth knowing: a long-lived bash process is kept
 
 The browser tool ships Camofox (a stealth-mode Firefox fork that resists bot detection) as the default, with a Chrome DevTools Protocol alternative for Chromium. `browser_tool.py` is the largest non-MCP tool at 99 KB, which reflects how much code a production-grade browser tool needs - selectors, screenshots, PDF export, cookies, downloads.
 
-Security runs as a horizontal concern across all tools. Three files do the work:
+Security runs as a horizontal concern across all tools.
+
+Three files do the work:
 
 - `approval.py` (41 KB) - interactive approval prompts. When a command looks risky, the agent pauses and asks you before running it.
 - `tirith_security.py` (26 KB) - policy-as-code command scanning. Policy-as-code here means the rules about what shell commands are allowed live in a config file and are enforced by the Tirith binary, not hand-coded into the agent. For you, that means you can edit a text file to change what Hermes is allowed to run, instead of patching Python source.
@@ -441,7 +451,9 @@ Messages get the agent started. The next piece is about what the agent does whil
 
 ## Auxiliary Models and Smart Routing
 
-Not every turn should hit the main model. An auxiliary model, in Hermes, is a separate (usually smaller and cheaper) LLM that handles a side task like reading a screenshot, compressing old turns, or searching past sessions. Using a cheap model for the side task keeps your costs down and your latency low without changing what the main model sees. You configure one per role:
+Not every turn should hit the main model. An auxiliary model, in Hermes, is a separate (usually smaller and cheaper) LLM that handles a side task like reading a screenshot, compressing old turns, or searching past sessions. Using a cheap model for the side task keeps your costs down and your latency low without changing what the main model sees.
+
+You configure one per role:
 
 ```yaml
 auxiliary:
@@ -469,7 +481,9 @@ Inputs, side models, compression, and scheduling are the support system around t
 
 ## Training Integration
 
-Hermes doubles as a data pipeline for training tool-calling models. A handful of files make that possible:
+Hermes doubles as a data pipeline for training tool-calling models.
+
+A handful of files make that possible:
 
 - `batch_runner.py` (55 KB) - runs the agent across many prompts in parallel, saves trajectories. A trajectory is the full record of one conversation: every message, every tool call, every result.
 - `trajectory_compressor.py` (64 KB) - converts conversation histories into training-friendly formats.
@@ -483,7 +497,9 @@ vLLM also ships a native `hermes` tool-call parser (`--tool-call-parser hermes`)
 
 ## OpenClaw Migration
 
-The `hermes claw migrate` command transfers state from OpenClaw installations. This is a useful lens on what "state" means for a personal agent - if you have been using OpenClaw, this is the list of things you keep when you move over. Items migrated include:
+The `hermes claw migrate` command transfers state from OpenClaw installations. This is a useful lens on what "state" means for a personal agent - if you have been using OpenClaw, this is the list of things you keep when you move over.
+
+Items migrated include:
 
 - `SOUL.md` persona file.
 - `MEMORY.md` and `USER.md` entries.

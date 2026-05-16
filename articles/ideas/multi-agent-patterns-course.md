@@ -14,7 +14,9 @@ We illustrate all patterns using three running examples. The first two are descr
 
 ## Example A: Conference Organization (conceptual)
 
-Imagine you are organizing a tech conference. You give the system a brief: "Organize a 200-person AI conference in Berlin in June, budget 50K EUR." The system needs to handle:
+Imagine you are organizing a tech conference.
+
+You give the system a brief: "Organize a 200-person AI conference in Berlin in June, budget 50K EUR." The system needs to handle:
 
 - Finding speakers: search for AI practitioners, check their availability, send invitations, collect bios and talk abstracts
 - Securing a venue: search venues in Berlin, compare capacity/price/AV equipment, negotiate contracts, put down deposits
@@ -37,7 +39,9 @@ This example generalizes to other coordination-heavy planning tasks:
 
 ## Example B: YouTube Video Processing (conceptual)
 
-Imagine you have a YouTube video - say a 45-minute conference talk about building AI agents. You want to turn it into useful structured content. The system takes a video URL and produces:
+Imagine you have a YouTube video - say a 45-minute conference talk about building AI agents. You want to turn it into useful structured content.
+
+The system takes a video URL and produces:
 
 - Clean transcript: fetches the auto-generated or manual captions, cleans up formatting, fixes obvious transcription errors
 - Chapter timestamps: identifies topic changes in the video and creates timestamped chapters ("00:00 - Introduction", "05:23 - What are agents", etc.)
@@ -159,7 +163,9 @@ Classify the video type and route to a specialized processing pipeline:
 
 ## Codebase onboarding example (implemented)
 
-The user asks a question about scikit-learn. The router classifies the intent and dispatches:
+The user asks a question about scikit-learn.
+
+The router classifies the intent and dispatches:
 
 - "How do I set up the dev environment?" → development setup guide agent
 - "What's the architecture of the estimator API?" → code architecture agent
@@ -453,7 +459,9 @@ Andrew Ng highlights this as the most accessible pattern: "relatively quick to i
 
 ## Conference example
 
-A schedule generator agent creates a draft conference schedule (talks, breaks, rooms). An evaluator agent checks for conflicts:
+A schedule generator agent creates a draft conference schedule (talks, breaks, rooms).
+
+An evaluator agent checks for conflicts:
 
 - Are two talks in the same room at the same time?
 - Is there enough time between sessions for room changes?
@@ -514,12 +522,16 @@ The name "Parallelization" comes from Anthropic's "Building Effective Agents" ar
 
 Also known as: Fan-Out/Gather (Google ADK[^google_adk]), Scatter-Gather (AWS[^aws]), Parallel Execution (OpenAI[^openai]).
 
-Multiple agents or LLM calls run simultaneously and their outputs are aggregated[^anthropic]. Anthropic distinguishes two sub-variants:
+Multiple agents or LLM calls run simultaneously and their outputs are aggregated[^anthropic].
+
+Anthropic distinguishes two sub-variants:
 
 - Sectioning: breaking a task into independent subtasks that run in parallel
 - Voting: running the same task multiple times to get diverse outputs
 
-The aggregation step can itself involve semantic reasoning - identifying themes and contradictions, rather than simple merging[^aws]. Framework implementations:
+The aggregation step can itself involve semantic reasoning - identifying themes and contradictions, rather than simple merging[^aws].
+
+Framework implementations:
 
 - Google ADK uses `ParallelAgent` - agents run in separate threads sharing `session.state`, each writing to a unique `output_key` to prevent race conditions[^google_adk]
 - OpenAI SDK implements this via Python's `asyncio.gather`[^openai]

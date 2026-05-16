@@ -142,13 +142,17 @@ When Grace completes a task (like converting a Loom video to a process document)
 
 ## Technical Considerations
 
-Static site approach: the user is considering building this as a static site (GitHub Pages) to avoid database costs. This would mean:
+Static site approach: the user is considering building this as a static site (GitHub Pages) to avoid database costs.
+
+This would mean:
 - No backend database
 - All data stored in Git
 - Jekyll or similar static site generator
 - Free hosting
 
-This approach works for simple sites but may not be ideal for a dynamic task management system. A possible alternative:
+This approach works for simple sites but may not be ideal for a dynamic task management system.
+
+A possible alternative:
 - Build with a database first for functionality
 - Later adapt to static generation if needed
 
@@ -169,7 +173,9 @@ This tool could be useful for others:
 
 ## Potential Extensions
 
-Invoice tracking: the user also mentioned forgetting to send invoices. The system could include:
+Invoice tracking: the user also mentioned forgetting to send invoices.
+
+The system could include:
 - Invoice tracking functionality
 - Reminders for pending invoices
 - Could be separate or integrated into the task system

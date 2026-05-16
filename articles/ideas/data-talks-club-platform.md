@@ -12,7 +12,9 @@ Idea for building a custom platform for DataTalks.Club, similar to (or copied fr
 
 ## What It Should Cover
 
-Whether the full version or a simplified one, it would be cool to have something like this for DataTalks.Club. Concretely:
+Whether the full version or a simplified one, it would be cool to have something like this for DataTalks.Club.
+
+Concretely:
 
 - Events should live on the site itself, or be set up so the person stays on the site, reads the event description, and registers there.
 - After an event, we send follow-up emails with a summary. Right now we don't do this, but it would be great for engagement.

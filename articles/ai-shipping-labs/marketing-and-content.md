@@ -10,7 +10,9 @@ status: draft
 
 ## Marketing Channels and Audience
 
-A key challenge is marketing and finding people who can pay for the community. DataTalks Club may not be the ideal place to find paying members because:
+A key challenge is marketing and finding people who can pay for the community.
+
+DataTalks Club may not be the ideal place to find paying members because:
 - The courses are free
 - Many members are from countries with lower purchasing power (India, Nigeria, etc.)
 - They may not have the ability to pay for a paid community

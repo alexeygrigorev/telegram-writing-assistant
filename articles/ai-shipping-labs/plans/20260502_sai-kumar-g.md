@@ -97,7 +97,9 @@ Additional principles for taking a clean conceptual plan to a shipped first vers
 
 ## Interview prep
 
-Sai also asked for an interview prep plan. The shortest realistic answer: a shipped, well-evaluated project IS the interview prep. Once V1 is running:
+Sai also asked for an interview prep plan. The shortest realistic answer: a shipped, well-evaluated project IS the interview prep.
+
+Once V1 is running:
 
 - Write a short README that explains the architecture, the trade-offs (why three flows, why four tables, why no agent in Flow A), and what you would change next. This is the answer to most "tell me about a project" interview questions.
 - The community session ideas Sai already raised (recent AI Engineering interview questions, mock interviews, strategy for getting interview calls) are tracked in [community-session-ideas.md](../../community-session-ideas.md#ai-engineer-job-hunt-topics-sai-kumar-g) and will be planned as community-wide sessions rather than as part of the personal sprint.

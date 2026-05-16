@@ -122,7 +122,9 @@ Continuous activities lose interest over time, like "Book of the Week" or "Proje
 
 ## Sprint weekly call format
 
-This is the format I have in mind for the AI Shipping Labs accountability sprints. People meet once a week on a call, and each person gives a status update in turn (the order can be free or fixed - we can think about it). The status update has three parts[^97]:
+This is the format I have in mind for the AI Shipping Labs accountability sprints. People meet once a week on a call, and each person gives a status update in turn (the order can be free or fixed - we can think about it).
+
+The status update has three parts[^97]:
 
 - What I worked on this week - so other people know what is going on
 - Blockers - this is where the rest of the community can help
@@ -176,7 +178,9 @@ Another potential community benefit: maintain a regularly updated list of confer
 
 ## Learning in public and personal branding
 
-A key benefit for the paid community: helping members with career advancement through learning in public and personal branding. This would include guidance on:
+A key benefit for the paid community: helping members with career advancement through learning in public and personal branding.
+
+This would include guidance on:
 
 - How to properly do learning in public
 - How to create content effectively
@@ -224,7 +228,9 @@ One advantage of a private community is the ability to share insights and discus
 
 Members can share insights from interviews and discuss interview preparation questions that they might not want to discuss publicly. For example, someone might say they are interviewing somewhere and share what questions are being asked, asking for help preparing. In a public community like DataTalks Club, their current employer might see this[^5].
 
-Some members might want to go to interviews not because they are actively looking for a job, but to understand what the market is asking for and what skills are in demand. They might not want to discuss this publicly because:
+Some members might want to go to interviews not because they are actively looking for a job, but to understand what the market is asking for and what skills are in demand.
+
+They might not want to discuss this publicly because:
 - Their current employer might see it and think they are leaving
 - Some people might consider it unethical to interview without serious intent to change jobs
 - Public visibility could create awkward professional situations

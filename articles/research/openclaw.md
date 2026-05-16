@@ -234,7 +234,9 @@ graph TD
 
 ## Capability Model
 
-A capability is the contract a plugin offers to core: "I can do X, here is how to call me." Every native plugin registers against one or more capability types. The table from `docs/plugins/architecture.md` lists:
+A capability is the contract a plugin offers to core: "I can do X, here is how to call me." Every native plugin registers against one or more capability types.
+
+The table from `docs/plugins/architecture.md` lists:
 
  - Text inference: `api.registerProvider(...)` - openai, anthropic
  - CLI inference backend: `api.registerCliBackend(...)` - openai, anthropic
@@ -311,7 +313,9 @@ Hook decision rules matter. For `before_tool_call`, `{ block: true }` is termina
 
 ## Prompt Cache Stability
 
-The prompt prefix cache is a feature most LLM providers use where identical prompt prefixes reuse previous computation and get billed at a discount. If turn 2 starts with the exact same text as turn 1, the provider charges you less and responds faster. OpenClaw treats prompt-cache stability as correctness and performance critical. When assembling model payloads:
+The prompt prefix cache is a feature most LLM providers use where identical prompt prefixes reuse previous computation and get billed at a discount. If turn 2 starts with the exact same text as turn 1, the provider charges you less and responds faster. OpenClaw treats prompt-cache stability as correctness and performance critical.
+
+When assembling model payloads:
 
  - Ordering from maps, sets, registries, plugin lists, MCP catalogs, filesystem reads, or network results must be made deterministic before building the request
  - Legacy cleanup, pruning, normalization, and migration logic must preserve recent prompt bytes when possible
@@ -438,7 +442,9 @@ This is a pattern worth noting. MCP is still evolving, and binding your core to 
 
 ## Memory System
 
-Memory is a special plugin slot - only one memory plugin can be active at a time, because two competing stores would give the agent inconsistent recall. Multiple backends ship in extensions:
+Memory is a special plugin slot - only one memory plugin can be active at a time, because two competing stores would give the agent inconsistent recall.
+
+Multiple backends ship in extensions:
  - `memory-core` - shared memory infrastructure
  - `memory-lancedb` - vector search using LanceDB (a file-backed vector database, so semantic search runs locally without a server)
  - `memory-wiki` - structured wiki-style storage
@@ -473,7 +479,9 @@ Node commands include `canvas.`, `camera.`, `screen.record`, `location.get`. Tre
 
 ## Canvas and A2UI
 
-The Canvas is an agent-editable live visual workspace served from the same Gateway HTTP server. Two mount points exist:
+The Canvas is an agent-editable live visual workspace served from the same Gateway HTTP server.
+
+Two mount points exist:
  - `/openclaw/canvas/` - agent-editable HTML/CSS/JS
  - `/openclaw/a2ui/` - A2UI host (Agent-to-UI protocol)
 

@@ -64,7 +64,9 @@ Week 6 (~2 hours):
 
 ## When 2 hours isn't enough
 
-Two hours is tight. The plan is sized for it, but a given week might not fit. The fallback:
+Two hours is tight. The plan is sized for it, but a given week might not fit.
+
+The fallback:
 
 - Hand the week's task to a coding agent. The week-1 plan is detailed enough that the agent has a concrete spec to implement. Run the agent, check what it produced, correct the parts that drift from the plan, and ship.
 - Use commute and walking time for the conceptual work. Voice/dictation conversations with ChatGPT or Claude are fine for thinking through scenarios, agentic decisions, and prompt tweaks. Save the desk time for execution.

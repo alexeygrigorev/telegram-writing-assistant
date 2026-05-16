@@ -14,7 +14,9 @@ Claude Code is Anthropic's terminal-based agentic coding assistant. Its source b
 
 ## What It Is
 
-Claude Code runs as a long-lived CLI. A user types a message, the model responds, it can call tools (read files, run bash commands, edit files, spawn sub-agents), and the loop continues until the task is done. The project layers several non-obvious systems on top of that basic agent loop:
+Claude Code runs as a long-lived CLI. A user types a message, the model responds, it can call tools (read files, run bash commands, edit files, spawn sub-agents), and the loop continues until the task is done.
+
+The project layers several non-obvious systems on top of that basic agent loop:
 
  - Streaming tool execution that begins running tools while the API response is still streaming
  - Five context management strategies applied in sequence to keep the conversation fitting in the context window
@@ -77,7 +79,9 @@ The layering goes:
 
 ## Entry Point and Startup
 
-The file `entrypoints/cli.tsx` is the bootstrap. Its design goal is clear from the code - avoid loading heavy modules for simple commands. A `--version` call never touches `main.tsx`:
+The file `entrypoints/cli.tsx` is the bootstrap. Its design goal is clear from the code - avoid loading heavy modules for simple commands.
+
+A `--version` call never touches `main.tsx`:
 
 ```typescript
 if (args.length === 1 && (args[0] === '--version' || args[0] === '-v')) {
@@ -154,7 +158,9 @@ type State = {
 }
 ```
 
-Each `continue` site tags the new state with a `transition` explaining why. The transitions capture the full state space of a turn:
+Each `continue` site tags the new state with a `transition` explaining why.
+
+The transitions capture the full state space of a turn:
 
  - `tool_results` - normal continuation after tools ran
  - `reactive_compact_retry` - retry after emergency compaction
@@ -226,7 +232,9 @@ The streaming optimization is in `StreamingToolExecutor`. When the API sends a `
 
 ## Context Management
 
-Keeping the conversation within the model's context window is handled by five cooperating strategies in `services/compact/`. They are applied in order of severity:
+Keeping the conversation within the model's context window is handled by five cooperating strategies in `services/compact/`.
+
+They are applied in order of severity:
 
  - Snip compaction (`snipCompact.ts`) - drops messages beyond a boundary, keeping recent ones
  - Tool result budget (`toolResultStorage.ts`) - replaces large tool results with truncated versions
@@ -240,7 +248,9 @@ The `compact.ts` file itself is 1,705 lines - one of the largest files in the co
 
 ## Permission System
 
-The permission system is one of the most complex components. Modes include:
+The permission system is one of the most complex components.
+
+Modes include:
 
  - `default` - ask before dangerous operations
  - `auto` - automatically approve (with classifier safety checks)
@@ -278,7 +288,9 @@ Several long-running services operate alongside the agent loop. They live in `sr
 
 ## autoDream: Memory Consolidation
 
-The autoDream service (`services/autoDream/`) runs a forked subagent after enough sessions have accumulated (default threshold: 5 sessions in 24 hours). The dream follows a 4-phase prompt defined in `consolidationPrompt.ts`:
+The autoDream service (`services/autoDream/`) runs a forked subagent after enough sessions have accumulated (default threshold: 5 sessions in 24 hours).
+
+The dream follows a 4-phase prompt defined in `consolidationPrompt.ts`:
 
  - Orient - read `MEMORY.md` and existing topic files
  - Gather - find new signals from daily logs and transcript JSONL files
@@ -295,7 +307,9 @@ Other services: `MagicDocs/` generates documentation for files Claude is editing
 
 ## Build-time Dead Code Elimination
 
-Bun's `feature()` macro is used throughout to let the bundler strip entire code paths. Rather than `import`, the code often uses `require()` inside `feature()` conditionals:
+Bun's `feature()` macro is used throughout to let the bundler strip entire code paths.
+
+Rather than `import`, the code often uses `require()` inside `feature()` conditionals:
 
 ```typescript
 const snipModule = feature('HISTORY_SNIP')
@@ -311,7 +325,9 @@ The buddy system uses `String.fromCharCode()` sequences for species names to avo
 
 ## Undercover Mode
 
-`utils/undercover.ts` activates when `USER_TYPE === 'ant'` (build-time define for Anthropic employee builds) and the repo is not on the internal allowlist. When active, it injects a system instruction telling Claude to avoid:
+`utils/undercover.ts` activates when `USER_TYPE === 'ant'` (build-time define for Anthropic employee builds) and the repo is not on the internal allowlist.
+
+When active, it injects a system instruction telling Claude to avoid:
 
  - Internal model codenames (Capybara, Tengu, etc.)
  - Unreleased model version numbers (opus-4-7, sonnet-4-8)
@@ -336,7 +352,9 @@ KAIROS is a feature flag that turns Claude Code into a proactive agent that watc
 
 ## Streaming Tool Execution
 
-The `StreamingToolExecutor` is a careful piece of engineering. The constructor creates a child `AbortController` specifically for siblings:
+The `StreamingToolExecutor` is a careful piece of engineering.
+
+The constructor creates a child `AbortController` specifically for siblings:
 
 ```typescript
 this.siblingAbortController = createChildAbortController(

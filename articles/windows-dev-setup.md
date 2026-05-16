@@ -89,7 +89,9 @@ uv init
 uv run python main.py
 ```
 
-This downloads Python 3.13 and creates a virtual environment. Then install pip into it:
+This downloads Python 3.13 and creates a virtual environment.
+
+Then install pip into it:
 
 ```bash
 uv pip install pip

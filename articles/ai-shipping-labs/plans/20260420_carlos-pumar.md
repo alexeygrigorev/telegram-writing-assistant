@@ -134,7 +134,9 @@ Carlos already has fairly concrete ideas. The most useful move is to help him wr
 
 For the SME agent idea, the recommendation is to give Carlos something structured to react to. The plan should be framed as a review and a suggestion, not as the final answer.
 
-For the prior project's security/stability issue, Alexey does not want to overclaim expertise. The practical recommendation is:
+For the prior project's security/stability issue, Alexey does not want to overclaim expertise.
+
+The practical recommendation is:
 
 - help Carlos find the old project and any missing context
 - try to reproduce the issue

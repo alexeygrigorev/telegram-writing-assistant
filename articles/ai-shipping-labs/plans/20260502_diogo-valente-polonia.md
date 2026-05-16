@@ -28,7 +28,9 @@ Internal working document. Share only the `Summary` and `Plan` sections with the
 
 ## Why this project
 
-All three candidate projects are interesting and any of them could be built in 6 weeks. The third one (expert elicitation) is picked here for two reasons:
+All three candidate projects are interesting and any of them could be built in 6 weeks.
+
+The third one (expert elicitation) is picked here for two reasons:
 
 - It is the most distinctive and the one Diogo cannot easily get from existing tools. The scraping/structured-dataset and data-explorer ideas are useful but closer to traditional data engineering with an LLM bolted on. Expert elicitation maps onto the domain expertise (climate assessment statements, multi-perspective discussions) that Diogo already has access to at the EEA.
 - Reducing it to a single agent removes the multi-agent complexity while keeping the interesting part - the agent reasoning about a problem from multiple expert perspectives in sequence rather than running multiple agents in parallel.
@@ -154,7 +156,9 @@ Personal productivity, not promotion or job change. He started his current job t
 
 ## Candidate project ideas
 
-Diogo brought three candidate ideas to the call. Final pick is still open[^2]:
+Diogo brought three candidate ideas to the call.
+
+Final pick is still open[^2]:
 
 1. Scraping plus structured datasets. Scrape information that member states report to the EU (for example on climate policy) from the public web, build a structured dataset, and add an evaluation step on top so the dataset quality can be measured. He noted that the team already creates such datasets, but there is no efficient way to evaluate or test the results.
 2. Data explorer / data fetcher. Many of the questions in his organization are "does this data exist somewhere?". Public data on topics like economic losses from extreme floods is held by national organizations but is hard to locate, and access varies (public, request-only, paid). The agent would help locate it and, if a request is needed, automatically file the request.

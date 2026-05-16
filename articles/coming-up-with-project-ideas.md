@@ -22,7 +22,9 @@ With 150 options, some people hit choice paralysis - too many possibilities, no 
 
 ## Three kinds of projects
 
-Before picking an idea, pick the kind of project you're building[^13]. There are three kinds I see most often:
+Before picking an idea, pick the kind of project you're building[^13].
+
+There are three kinds I see most often:
 
 - Portfolio project - built to help you get hired or win clients
 - Course project - built to finish a course and practice the whole engineering loop
@@ -44,7 +46,9 @@ A portfolio project has one job: make it easy for a hiring manager or client to 
 
 Hiring managers don't spend a lot of time looking. Recruiters often move on after a minute or two, and hiring managers usually have five or ten minutes before an interview to scan your GitHub. They want to see immediately what the project does, why it exists, and whether it's close to production - tests, evaluation, CI/CD, a deployment link[^8].
 
-That changes how I'd pick a portfolio project. I wouldn't start with random brainstorming. The process looks more like an algorithm[^14]:
+That changes how I'd pick a portfolio project. I wouldn't start with random brainstorming.
+
+The process looks more like an algorithm[^14]:
 
 ```mermaid
 flowchart TD
@@ -97,7 +101,9 @@ Projects for yourself come from everyday friction[^15]. For me, these are often 
 
 My own projects of this kind almost always start the same way. I'm already working on something real, I notice something annoying, suboptimal, or missing, and I build a small tool that removes the friction[^9]. I'm not usually trying to invent a project from zero - I'm already in the middle of some other workflow, I hit a pain point, and the next project is the tool that fixes it[^9].
 
-Half of this newsletter is made up of write-ups of exactly these kinds of projects[^15][^16]. A few recent ones:
+Half of this newsletter is made up of write-ups of exactly these kinds of projects[^15][^16].
+
+A few recent ones:
 
 - dirdotenv: loads environment variables automatically when you enter a project directory, because direnv uses its own `.envrc` format and my tools already rely on `.env`[^9]
 - ssh-auto-forward: terminal-side automatic port forwarding from remote servers, because VS Code does it automatically but there was no terminal equivalent[^9]

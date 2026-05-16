@@ -87,7 +87,9 @@ Want to continue the AI Engineering course on Maven with focus on creating AI pr
 
 ## CloudCode and AI Assistant Development
 
-Want to create a course about CloudCode and AI Assistant Development as a supplement to the existing AI DevTools content. This would focus on:
+Want to create a course about CloudCode and AI Assistant Development as a supplement to the existing AI DevTools content.
+
+This would focus on:
 - How to configure and customize these tools
 - Specific tricks and workflows discovered from using these tools for two years
 - Less structured but practical content
@@ -99,7 +101,9 @@ Workshop idea: build Docker from scratch. Inspired by a [tweet from John Cricket
 
 ## Testing workshop
 
-There is not much content available on testing, so want to create a mini-course on testing with focus on Python. Topics would include:
+There is not much content available on testing, so want to create a mini-course on testing with focus on Python.
+
+Topics would include:
 - Simple unit tests
 - Integration tests
 - How to test agents (though this might already be covered in AI Buildcamp)
@@ -115,7 +119,9 @@ Topics where there is not much content available:
 
 ## Member interest in a Data Engineering course
 
-An AI Shipping Labs member asked whether there is a similar course for Data Engineering. The topics they want to focus on[^13]:
+An AI Shipping Labs member asked whether there is a similar course for Data Engineering.
+
+The topics they want to focus on[^13]:
 
 - Engineering best practices - tests, CI/CD, code quality
 - Production deployment - Docker, FastAPI, REST APIs

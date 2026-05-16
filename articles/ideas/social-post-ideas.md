@@ -54,7 +54,9 @@ Key points from the post:
 
 Gap 1: Python with real-world context
 
-Most beginners learn Python in isolation - lists, loops, functions, dictionaries - but never build anything meaningful. The fastest way to learn Python is building small, complete tools:
+Most beginners learn Python in isolation - lists, loops, functions, dictionaries - but never build anything meaningful.
+
+The fastest way to learn Python is building small, complete tools:
 - A personal finance dashboard
 - A script that automates boring tasks
 - A mini ETL pipeline pulling data from APIs
@@ -64,7 +66,9 @@ When learning Python for AI engineering, syntax isn't the goal - building things
 
 Gap 2: Understanding RAG beyond the buzzwords
 
-Engineers jump into complex architectures without mastering basics. A reliable RAG pipeline needs only four parts:
+Engineers jump into complex architectures without mastering basics.
+
+A reliable RAG pipeline needs only four parts:
 1. Clean data ingestion
 2. Simple chunking and metadata design
 3. A retrieval setup you can debug

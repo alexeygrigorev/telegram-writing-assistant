@@ -80,7 +80,9 @@ The repository includes several custom slash commands that automate common workf
 
 ## Release Command
 
-Automates the Python library release process. Previously, I did this manually with some automation:
+Automates the Python library release process.
+
+Previously, I did this manually with some automation:
 1. Run tests
 2. Bump version number
 3. Run build
@@ -125,7 +127,9 @@ Previously required:
 3. Running git commands (which I often had to Google or ask ChatGPT for)
 4. Pushing to remote
 
-The `/create-github-repo` command asks for the repository name and handles everything via GitHub CLI. It supports:
+The `/create-github-repo` command asks for the repository name and handles everything via GitHub CLI.
+
+It supports:
 - Using current folder name
 - Suggested name based on codebase analysis
 - Custom name

@@ -16,7 +16,9 @@ The idea came from a conversation with a student who is both working as a salesp
 
 ## Problem Analysis
 
-Students entering AI Engineering Buildcamp and various Zoomcamps need a certain level of Python proficiency to be successful. The goal is to analyze all existing courses to identify the minimum Python requirements:
+Students entering AI Engineering Buildcamp and various Zoomcamps need a certain level of Python proficiency to be successful.
+
+The goal is to analyze all existing courses to identify the minimum Python requirements:
 
 - AI Engineering Buildcamp
 - ML Zoomcamp
@@ -74,7 +76,9 @@ Unlike AI DevTools Zoomcamp which required significant recording time, this cour
 
 ## Reference Material
 
-Paul Iusztin (the Romanian AI educator) has a similar vision - learning Python through projects. His LinkedIn post suggests building small, complete tools like:
+Paul Iusztin (the Romanian AI educator) has a similar vision - learning Python through projects.
+
+His LinkedIn post suggests building small, complete tools like:
 - Personal finance dashboard
 - Automation scripts for boring tasks
 - Mini ETL pipeline pulling data from APIs

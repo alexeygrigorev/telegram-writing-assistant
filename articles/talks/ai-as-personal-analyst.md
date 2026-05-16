@@ -55,7 +55,9 @@ Key insight: ChatGPT acts as an interactive data analyst, not just a chatbot.
 
 ## The Problem
 
-In my free courses, users register via a form and enter their country manually. The input can vary wildly:
+In my free courses, users register via a form and enter their country manually.
+
+The input can vary wildly:
 - USA
 - U.S.A.
 - United States
@@ -89,7 +91,9 @@ This case required a more advanced setup.
 
 ## The Problem
 
-For my paid course, I offer scholarships. In the first year:
+For my paid course, I offer scholarships.
+
+In the first year:
 - 1500+ applications
 - Long-form text answers
 - Complex and partially subjective evaluation criteria

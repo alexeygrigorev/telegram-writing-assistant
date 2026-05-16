@@ -14,7 +14,9 @@ jaxn is a streaming JSON parser that makes it possible to parse JSON while it's 
 
 When you ask an LLM to generate content (like a scary story) without structured output, streaming is straightforward. The tokens arrive one by one and you can display them immediately[^2].
 
-However, when using structured output, the model returns JSON. You can't easily stream JSON directly to users because:
+However, when using structured output, the model returns JSON.
+
+You can't easily stream JSON directly to users because:
 - JSON isn't human-readable until fully parsed
 - Users don't want to see raw JSON tokens
 - The structure isn't complete until the end[^3]

@@ -36,7 +36,9 @@ The goal is to turn this into an independent platform where:
 - Payments / subscriptions are integrated
 - Usage and costs can be controlled sustainably[^2]
 
-One of the main challenges Daniel is trying to solve is designing a pricing and access-control strategy that keeps the business financially sustainable. Since AI usage costs are paid by his company through API consumption, he needs to think carefully about[^2]:
+One of the main challenges Daniel is trying to solve is designing a pricing and access-control strategy that keeps the business financially sustainable.
+
+Since AI usage costs are paid by his company through API consumption, he needs to think carefully about[^2]:
 
 - Subscription models
 - Rate limits

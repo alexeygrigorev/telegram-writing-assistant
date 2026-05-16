@@ -32,7 +32,9 @@ The plan is only a suggestion - a starting point so we have something concrete t
 
 ## The Plan Is Flexible
 
-If you deviate from the plan, that is fine[^1]. As you go through the sprint you will discover things in real time:
+If you deviate from the plan, that is fine[^1].
+
+As you go through the sprint you will discover things in real time:
 
 - Some weeks have a sticking point and need more time
 - Some weeks go faster than expected

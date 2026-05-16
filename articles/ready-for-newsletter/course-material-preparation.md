@@ -54,7 +54,9 @@ This approach enables programmatic notebook manipulation, which is not possible 
 
 ## Video-Driven Synchronization
 
-When recording course videos, the implementation often differs from the prepared documentation. Variables might have different names, or the order of topics might change. A synchronization workflow handles this:
+When recording course videos, the implementation often differs from the prepared documentation. Variables might have different names, or the order of topics might change.
+
+A synchronization workflow handles this:
 
 1. After recording, the transcript is analyzed for topics not in the documentation
 2. The notebook used during recording is identified (not yet committed to git)
@@ -85,7 +87,9 @@ This reduced manual formatting work significantly. Previously, extensive manual 
 
 ## Long-Term Vision: Own Documentation Platform
 
-Maven lacks an API for creating and updating course content programmatically. All content must be manually managed through their interface. This creates several problems:
+Maven lacks an API for creating and updating course content programmatically. All content must be manually managed through their interface.
+
+This creates several problems:
 - Cannot automatically upload generated content
 - Content is locked on Maven's platform
 - Manual work required for every update
@@ -139,7 +143,9 @@ This eliminates hours of manual work that was previously required to sync docume
 
 ## Iterative Skill Improvement
 
-Initially, Claude made mistakes that required correction. Each time an error occurred, Claude was asked to:
+Initially, Claude made mistakes that required correction.
+
+Each time an error occurred, Claude was asked to:
 1. Analyze what went wrong
 2. Update its skills instructions to prevent future occurrences
 3. Apply the fix
@@ -163,7 +169,9 @@ Claude handles the technical verification - ensuring variables are declared, nam
 
 ## Template Generator with Jupyter Integration
 
-The template generator tool allows working with Jupyter notebooks to create course materials. A utility exists that:
+The template generator tool allows working with Jupyter notebooks to create course materials.
+
+A utility exists that:
 - Takes Jupyter notebooks as input
 - Runs the entire notebook to verify it works
 - Extracts cell code and output
@@ -173,7 +181,9 @@ This approach ensures code works before being included in materials, since the n
 
 ## Current Limitation
 
-The current workflow requires running the entire notebook before extracting cells. This means:
+The current workflow requires running the entire notebook before extracting cells.
+
+This means:
 1. Write code in notebook
 2. Run full notebook to verify
 3. Extract cells to template
@@ -183,7 +193,9 @@ This is slow for iterative experimentation. Each small change requires re-runnin
 
 ## Desired Improvement: Jupyter Session Integration with Claude
 
-A faster workflow would connect Claude directly to IPython kernel sessions, similar to how ChatGPT handles code analysis. The idea:
+A faster workflow would connect Claude directly to IPython kernel sessions, similar to how ChatGPT handles code analysis.
+
+The idea:
 - Maintain a persistent Jupyter session
 - Claude can run code in that session directly
 - See output without re-running entire notebooks

@@ -18,7 +18,9 @@ Previously, I delegated some of this to Grace, but it still takes time and is no
 
 ## The Solution: An Agent with Skills
 
-I created a Cloud Agent that uses skills describing how to interact with the course management platform API. The workflow:
+I created a Cloud Agent that uses skills describing how to interact with the course management platform API.
+
+The workflow:
 
 1. First, I used code to create an API endpoint on the course management platform that accepts POST requests with all necessary information
 2. Created a Claude agent with skills describing the API and how to use it
@@ -31,7 +33,9 @@ I spent about 1.5-2 hours setting this up initially. Now for each course, I save
 
 ## Application to Individual Assignments
 
-The same approach works for creating individual homework assignments. My previous workflow:
+The same approach works for creating individual homework assignments.
+
+My previous workflow:
 1. Write homework in a Markdown document
 2. Push to repository
 3. Open the platform admin interface
@@ -53,7 +57,9 @@ Beyond the platform development, I've also automated the creation of course mate
 
 I created a Claude agent with skills describing how to interact with the course management platform API. Now I can describe what I want in text format - which homework assignments to create, what deadlines they should have - and the agent makes the POST requests and sends me a URL to review[^4].
 
-This same approach works for creating individual homework assignments. My previous workflow:
+This same approach works for creating individual homework assignments.
+
+My previous workflow:
 1. Write homework in a Markdown document
 2. Push to repository
 3. Open the platform admin interface

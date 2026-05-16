@@ -12,7 +12,9 @@ Optimizing the minsearch appendable index through iterative benchmarking with AI
 
 ## Context
 
-While preparing the agents section of a course, I needed to demonstrate how an agent can add documents to an existing search index. The minsearch library has two index types:
+While preparing the agents section of a course, I needed to demonstrate how an agent can add documents to an existing search index.
+
+The minsearch library has two index types:
 
 - Simple index: documents are indexed once, nothing can be added
 - Appendable index: documents can be added dynamically after creation
@@ -21,7 +23,9 @@ The appendable index was needed for the agent demonstration, but it had performa
 
 ## Initial Benchmark
 
-I set up a benchmark comparing the two index types using Claude's assistance. We chose Simple Wikipedia as the test dataset because:
+I set up a benchmark comparing the two index types using Claude's assistance.
+
+We chose Simple Wikipedia as the test dataset because:
 - It's written in simple English (A1-A2 level)
 - It's not too large for quick benchmarking
 - It's suitable for testing purposes[^1]

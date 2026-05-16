@@ -111,7 +111,9 @@ The "bitter lesson" post by Gregor Zunic articulates the thesis: "As long as in 
 
 ## Layer 2: Stale Session Recovery in the Daemon
 
-The one place the source code does proactive recovery is CDP session staleness. Chrome can invalidate a session ID mid-task (page navigation, target closed, tab switched). The daemon catches this specifically and re-attaches on the fly. From `daemon.py`[^6]:
+The one place the source code does proactive recovery is CDP session staleness. Chrome can invalidate a session ID mid-task (page navigation, target closed, tab switched). The daemon catches this specifically and re-attaches on the fly.
+
+From `daemon.py`[^6]:
 
 ```python
 try:
@@ -175,7 +177,9 @@ The durable recovery mechanism is `domain-skills/` and `interaction-skills/`. Wh
 
 > If you learned anything non-obvious about how a site works, open a PR to `domain-skills/<site>/` before you finish. Default to contributing.
 
-The tiktok upload skill is a concrete example. It captures[^8]:
+The tiktok upload skill is a concrete example.
+
+It captures[^8]:
 
  - The required URL pattern (`?lang=en` matters)
  - That TikTok pre-fills the caption with the filename and you must clear it
@@ -226,7 +230,9 @@ sequenceDiagram
     A->>A: Open PR
 ```
 
-The daemon's event tap is worth noting. `daemon.py` wraps the CDP event registry's `handle_event` to buffer events in a `deque(maxlen=500)` so the agent can call `drain_events()` and see recent Network/Page/Runtime events[^6]. It also watches specifically for dialogs:
+The daemon's event tap is worth noting. `daemon.py` wraps the CDP event registry's `handle_event` to buffer events in a `deque(maxlen=500)` so the agent can call `drain_events()` and see recent Network/Page/Runtime events[^6].
+
+It also watches specifically for dialogs:
 
 ```python
 async def tap(method, params, session_id=None):
@@ -248,7 +254,9 @@ The green circle (🟢) title-marking is yet another recovery aid: every time th
 
 ## What the Agent Actually Sees
 
-The agent's loop is shaped by SKILL.md. The file is 200+ lines of field-tested advice, essentially a prompt file loaded into the agent's context before any tool call. It includes design constraints, gotchas, and a "what works" section. A few representative rules[^3]:
+The agent's loop is shaped by SKILL.md. The file is 200+ lines of field-tested advice, essentially a prompt file loaded into the agent's context before any tool call. It includes design constraints, gotchas, and a "what works" section.
+
+A few representative rules[^3]:
 
  - "Screenshots first: use `screenshot()` to understand the current page quickly, find visible targets, and decide whether you need a click, a selector, or more navigation."
  - "Clicking: `screenshot()` -> look -> `click(x, y)` -> `screenshot()` again to verify the result. Coordinate clicks pass through iframes/shadow/cross-origin at the compositor level."

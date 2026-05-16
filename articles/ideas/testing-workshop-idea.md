@@ -1,6 +1,8 @@
 ## Testing Workshop Idea
 
-I noticed many people struggle with testing. This relates to the testing content I've been working on. The problem is that not everyone has a good understanding of:
+I noticed many people struggle with testing. This relates to the testing content I've been working on.
+
+The problem is that not everyone has a good understanding of:
 
 - How to use unit tests
 - How to use integration tests
@@ -10,7 +12,9 @@ I noticed many people struggle with testing. This relates to the testing content
 
 Many developers don't have this background. Software developers typically don't struggle because testing is commonly used in development work. But people with more scientific backgrounds, data science, or analytics often lack this experience. The more I work with AI Buildcamp and workshops, the more I see the need for foundational material covering these topics[^6].
 
-I have the knowledge and accumulated material on this subject. The idea is to:
+I have the knowledge and accumulated material on this subject.
+
+The idea is to:
 
 1. Create a testing workshop for NOW (the company)
 2. Create testing material to promote AI Buildcamp

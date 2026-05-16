@@ -24,7 +24,9 @@ Right now with the website project, the orchestrator creates subagents that I ca
 
 ## What Makes This Possible Now
 
-This is still an idea. But I think after I finish the course, I will be able to build it. I now have everything I need:
+This is still an idea. But I think after I finish the course, I will be able to build it.
+
+I now have everything I need:
 
 - The tools and skills for AI-assisted development
 - A server where all of this can run (no need to keep the laptop always on)

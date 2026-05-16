@@ -163,7 +163,9 @@ Clarifying questions: Who faces the problem? How often does it occur? Why is it 
 
 ## Step 3: Ideate - generate solutions
 
-Generate many solutions. Questions to drive generation:
+Generate many solutions.
+
+Questions to drive generation:
 
 - Can this be automated?
 - Can something be predicted?
