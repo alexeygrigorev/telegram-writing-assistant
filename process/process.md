@@ -210,6 +210,39 @@ You MUST:
 5. NOT write "open the v2 capstone files" anywhere in the user-facing plan
 6. NOT copy the per-week prompts from the source files verbatim - those are internal course material and embed assumptions the recipient does not share
 
+# REFERENCES TO PRIOR WRITING
+
+When Alexey says he has already written about something, he means the public Substack archive, not the local repo. Local files like `articles/litehive.md` or other drafts under `articles/` are not "already written about" - they are work in progress and should not be linked as if they were prior publications.
+
+## "I already wrote about this" / "we wrote about this before"
+
+Phrases that trigger a Substack lookup (Russian or English):
+
+- "я уже писал об этом" / "мы об этом писали" / "I already wrote about this"
+- "я говорил уже" / "as I mentioned before"
+- "об этом есть статья" / "there is an article about this"
+
+When you see one of these:
+
+1. Open `articles/substack-archive-index.md` and search by topic, keyword, or utility name. The index has direct URLs for every published Substack post.
+2. Insert the matching Substack URL inline where the reference belongs.
+3. If you cannot find a matching post in the index, do not fall back to linking a local draft. Say so in the processing log instead and ask Alexey - he may have a post that is not yet indexed, or the topic is not actually covered yet.
+4. Do not link `articles/*.md` files as "previously published" cross-references. Those are internal drafts, not published posts.
+
+## "We have notes about this somewhere"
+
+Phrases that trigger a local-notes lookup:
+
+- "у нас где-то есть про это заметки" / "we have notes about this somewhere"
+- "посмотри в заметках" / "look in the notes"
+- "поройся в заметках" / "dig through the notes"
+
+When you see one of these:
+
+1. Search `articles/` (including subfolders) for a draft or research article on the topic.
+2. If the user asks you to "pull info from those notes into the article we are writing", open the matching local file and move the relevant portion into the current article. Treat it as a content transfer, not a cross-reference.
+3. Cite the source transcripts of the original notes alongside the current article's sources when content moves over.
+
 # PROCESSING WORKFLOW
 
 ## Step 1: Read Everything

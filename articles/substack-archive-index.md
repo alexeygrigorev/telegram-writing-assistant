@@ -6,6 +6,9 @@ tags: [reference, index]
 status: draft
 ---
 
+<!-- When listing what an article covers in the Description column, include the specific names of utilities, libraries, projects, and tools mentioned inside. The point of this index is that you can grep for "ssh-auto-forward" or "tmuxctl" and find the post where it is described. -->
+
+
 # Substack Archive Index
 
 Index of articles already published on [alexeyondata.substack.com](https://alexeyondata.substack.com/archive). Use this to find the direct link to a Substack post when Alexey mentions something he has already shared.[^1]
@@ -27,7 +30,7 @@ When processing a message where Alexey says "I already wrote about this" / "I ta
 | 2026-04-07 | An Unexpected Entry Into AI Memory: Milla Jovovich's Open-Source MemPalace | https://alexeyondata.substack.com/p/an-unexpected-entry-into-ai-memory | Why an offline, memory-palace-based system stands out from the usual model-heavy approach to assistant memory. |
 | 2026-04-07 | Last Call for AI Engineering Buildcamp | https://alexeyondata.substack.com/p/last-call-for-ai-engineering-buildcamp | Announcement that the course starts April 13 and no other cohort is planned. |
 | 2026-04-03 | I Built an AI Agent Team for Software Development and Tested on 5 Real Projects | https://alexeyondata.substack.com/p/i-built-an-ai-agent-team-for-software | Agents assigned to PM, SWE, QA, and on-call roles, used across five different software projects. |
-| 2026-03-27 | 5 Useful Utilities I Built with AI Coding Assistants | https://alexeyondata.substack.com/p/5-useful-utilities-i-built-with-ai | Small tools that solved recurring workflow problems across terminal setup, remote development, notebooks, audio, and bot monitoring. |
+| 2026-03-27 | 5 Useful Utilities I Built with AI Coding Assistants | https://alexeyondata.substack.com/p/5-useful-utilities-i-built-with-ai | Small tools that solved recurring workflow problems: `dirdotenv` (auto-loads `.env` / `.envrc` when entering a project directory, cross-platform, multi-shell), `ssh-auto-forward` (terminal-side automatic port forwarding from a remote Hetzner server with a TUI dashboard), `nobook` (use plain Python files with `# @block=name` markers as Jupyter notebooks, plus a CLI mode), `microboost` / Microphone Booster (Windows Tauri + Rust app that fixes quiet USB-C microphones via native Windows APIs), `bot-master` (background daemon + TUI that keeps Telegram bots alive with systemd, exponential-backoff restarts, and a separable monitoring interface). |
 | 2026-03-25 | 50 Theory Interview Questions for AI Engineer Roles | https://alexeyondata.substack.com/p/50-theory-interview-questions-for | Theory interview questions for AI Engineer roles plus downloadable cheatsheets with answers. |
 | 2026-03-20 | I Turned My Telegram Bot into a Multi-Agent Writing System | https://alexeyondata.substack.com/p/i-turned-my-telegram-bot-into-a-multi | The writing assistant now uses separate agents for research, link descriptions, and content verification, plus skills for repeated tasks like slide creation. |
 | 2026-03-16 | Karpathy's Autoresearch Went Viral. Here's How It Works (and One Idea to Try) | https://alexeyondata.substack.com/p/karpathys-autoresearch-went-viral | An agent that runs experiments, edits training code, and improves models in a loop. |
@@ -56,3 +59,4 @@ When processing a message where Alexey says "I already wrote about this" / "I ta
 
 [^1]: [20260516_182543_AlexeyDTC_msg4112.md](../inbox/used/20260516_182543_AlexeyDTC_msg4112.md)
 [^2]: [20260516_185734_AlexeyDTC_msg4124_transcript.txt](../inbox/used/feedback/20260516_185734_AlexeyDTC_msg4124_transcript.txt)
+[^3]: [20260516_191032_AlexeyDTC_msg4131_transcript.txt](../inbox/used/feedback/20260516_191032_AlexeyDTC_msg4131_transcript.txt)

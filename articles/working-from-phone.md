@@ -8,7 +8,13 @@ status: draft
 
 # Working from a Phone
 
-Lately I have been on three conferences in a row (Porto, Amsterdam) and travelled with my child on the May 1st holidays, with more breaks coming up around Easter. Berlin has many holidays in the first half of the year. The work does not slow down for any of that, so I have to keep things moving. On top of the travel, my day-to-day schedule is uneven on its own - I take my child to school in the morning, I go to the gym, I have lunch meetings, I pick the child up at three. I want to use all of that in-between time, because I have too many projects on the go - the AI Shipping Labs site alone takes a lot of work - and I want them to actually progress.[^1][^2][^3][^17]
+Lately I have been on three conferences in a row: first Darmstadt, then Amsterdam, then Porto. The work does not slow down for any of that, so I have to keep things moving.[^1][^2][^3][^29]
+
+On top of the conferences, I have been travelling with my child a lot. We went away during the Easter holidays. May 1st was a long weekend in Germany. And I am dictating this just after we got back from another long weekend, around 14-15 May - we drove to Stuttgart and into the Schwarzwald (Black Forest).[^29]
+
+My day-to-day schedule is uneven on its own. I take my child to school in the morning, I go to the gym, I have lunch meetings, I pick the child up at 4 PM. Between all those slots I have lots of commute time, plus the rest periods between sets in the gym - every set leaves me with a free minute or two.[^17][^29]
+
+I want to use all of that in-between time, because I have too many projects on the go - the AI Shipping Labs site alone takes a lot of work - and I want them to actually progress.[^17]
 
 This article is about how I work from the phone during all of this dead time: trams, school runs, gym rest periods, planes.[^1][^17]
 
@@ -20,17 +26,15 @@ This article is about how I work from the phone during all of this dead time: tr
 
 ## A dedicated remote server
 
-I used to write code from a tram by leaning on GitHub: under the hood that was just GitHub Actions doing the work for me. Now I have a full dedicated Linux server on rent, running 24/7, and I use it for everything described here. I connect to it over SSH and on it I can install whatever I need - Claude Code, Codex, OpenCode - and they all live there.[^4]
+I used to write a lot of code from a tram by leaning on GitHub Copilot - I wrote about that flow earlier in [Shipping Features from my Smartphone with GitHub Copilot](https://alexeyondata.substack.com/p/shipping-features-from-a-tram-stop). Under the hood that was GitHub Actions doing the work for me. It was a kind of "remote environment", but not one I owned - it was GitHub's runtime that I borrowed for each task. That has changed in the last few months. I now have a full dedicated Linux server on rent, running 24/7, and I use it for everything described here. I connect to it over SSH and on it I can install whatever I need - Claude Code, Codex, OpenCode - and they all live there.[^4][^29]
 
 On Android I use a client called Termius. I just SSH into the server through it and run whatever I want.[^5]
 
-## tmuxctl: surviving long session names from a phone
+## tmuxctl: simplifying tmux
 
 Because I am connecting remotely and might be on the move, I always need tmux so my sessions do not drop. I create a tmux session and the agents live inside it.[^5]
 
-Once I started using tmux heavily, I realised typing tmux commands from a phone is painful. The usual flow is `tmux new-session -s some-long-session-name` or `tmux attach -t some-long-session-name`, and my session names get long. That is annoying on a computer and outright unrealistic on a phone. So I built [tmuxctl](https://github.com/alexeygrigorev/tmuxctl).[^5][^6]
-
-I have already covered tmuxctl in [Deterministic Coding with Agent Teams](litehive.md), but the relevant part here is how fast it makes things from a phone:[^7]
+Once I started using tmux heavily, I realised typing tmux commands from a phone is painful. The usual flow is `tmux new-session -s some-long-session-name` or `tmux attach -t some-long-session-name`. You can imagine that with long session names, this is essentially impossible to write from a phone. So I built [tmuxctl](https://github.com/alexeygrigorev/tmuxctl) to make this fast:[^5][^6][^7][^29]
 
 - `t` lists all sessions
 - `t 1` attaches to the session with index 1
@@ -59,9 +63,11 @@ I have aliases for all three:[^10][^11]
 
 When I want to start a session, I just type two or three letters. Usually the sessions are already running - I tend to start them from my computer ahead of time - so from the phone I just attach and do something inside.[^11]
 
+I know "skip permissions" and "YOLO" sound reckless, and I am aware of the risks. They are acceptable for me because of how this server is isolated. The server itself has no access to production. The Hetzner deployment box is reachable only from my laptop, so a runaway agent on this server cannot push changes anywhere. If an agent does something destructive, the radius is limited to this one machine - and I can rebuild it easily from my bootstrap instructions. That isolation is what makes the bypass modes safe for me to use here.[^29]
+
 ## Portable setup via dotfiles
 
-The aliases and configs are not living on a single machine - they come from my dotfiles project at [github.com/alexeygrigorev/.claude](https://github.com/alexeygrigorev/.claude). I install that project on my machine and it sets up all my aliases automatically. If I ever move to a different machine, one command brings back all my settings for Claude Code, Codex, and OpenCode.[^11]
+The aliases and configs are not living on a single machine - they come from my dotfiles project at [github.com/alexeygrigorev/.claude](https://github.com/alexeygrigorev/.claude). I install that project on a machine and it sets up all my aliases automatically. The same dotfiles run on my laptop, my tablet, and my remote server, so the configuration is identical everywhere - all managed through Git. If I ever move to a different machine, one command brings back all my settings for Claude Code, Codex, and OpenCode. That same setup is also what I rely on when restoring the remote server from scratch.[^11][^29]
 
 The dotfiles repo also has skills.[^12]
 
@@ -93,7 +99,7 @@ A big advantage of Recorder is that it keeps recording when it is in the backgro
 
 ## From a recording to GitHub issues
 
-Once a recording is transcribed, I can hand it to my orchestrator agent. The orchestrator takes the recording, decomposes it into GitHub issues, and starts working on them. I have already described the decomposition pattern in [Deterministic Coding with Agent Teams](litehive.md), which is about managing a team of agents.[^16]
+Once a recording is transcribed, I can hand it to my orchestrator agent. The orchestrator takes the recording, decomposes it into GitHub issues, and starts working on them.[^16]
 
 This is especially useful when I want to give feedback in the background. I open the AI Shipping Labs site on my phone, start using it, and as I find issues - "I do not like this", "this does not work", "this should be different" - I record them as I go. I end up with a 20-30 minute file. I send that file to the agent on the phone, and the agent transcribes it, decomposes it into issues, and starts work.[^16]
 
@@ -101,7 +107,7 @@ The same approach works on a plane. On a plane I obviously cannot SSH anywhere. 
 
 ## ssh-auto-forward-android: port forwarding from the phone
 
-The last awkward thing about phone work is port forwarding. The Android apps for SSH port forwarding are not great. I already had a tool I love on the computer side - a Python program I have written about elsewhere, [ssh-auto-forward](https://github.com/alexeygrigorev/ssh-auto-forward) [^19], which watches the ports that open on the remote machine and automatically forwards them to localhost. It runs on the computer, in Python.[^19]
+The last awkward thing about phone work is port forwarding. The Android apps for SSH port forwarding are not great. I already had a tool I love on the computer side - a Python program I described in [5 Useful Utilities I Built with AI Coding Assistants](https://alexeyondata.substack.com/p/5-useful-utilities-i-built-with-ai), [ssh-auto-forward](https://github.com/alexeygrigorev/ssh-auto-forward) [^19], which watches the ports that open on the remote machine and automatically forwards them to localhost. It runs on the computer, in Python.[^19][^29]
 
 I needed the same thing on the phone, so I gave the task to one of the agents - I think OpenCode in this case - and asked it to port the thing to Android. The result is [ssh-auto-forward-android](https://github.com/alexeygrigorev/ssh-auto-forward-android), written in Kotlin. I have not actually looked inside it, just like I never really looked inside the Python version - I do not even know what is in there. But it works the way I need it to.[^19][^20]
 
@@ -155,15 +161,19 @@ I had been waiting for days for a chance to do this banner review from a compute
 
 ## The Telegram writing assistant
 
+So far I have talked about how I communicate with agents from the phone, but a large part of my work is also writing - I write a lot. As I mentioned in an [earlier post about the Telegram writing assistant](https://alexeyondata.substack.com/p/telegram-assistant), it is an inseparable part of how I work from the phone too.[^17][^29]
+
 All of the above plus my Telegram writing assistant means I can be in the metro, like right now, and still get my thoughts out of my head. I dump them into the Telegram assistant. I can also check on my agents, correct them, or hand them a new task if I need to.[^17]
 
-That is what makes the whole thing work for me. My schedule is uneven - I take the child to school in the morning, I come back, I can start something, then I go to the gym, check progress between sets, come home and do real focused work, then a lunch meeting, transport time, child pickup at three - and between all those slots I have moments where I am just sitting in a tram or somewhere. Combined with the constant travel, this mobile setup lets me use that time. I do not have a lot of free time, and this is how I make more of it.[^17]
+That is what makes the whole thing work for me. My schedule is uneven - I take the child to school in the morning, I come back, I can start something, then I go to the gym, check progress between sets, come home and do real focused work, then a lunch meeting, transport time, child pickup at 4 PM - and between all those slots I have moments where I am just sitting in a tram or somewhere. Combined with the constant travel, this mobile setup lets me use that time. I do not have a lot of free time, and this is how I make more of it.[^17][^29]
 
 ## How much time this article actually took
 
-The last session with my Telegram assistant - the one that produced this article - took about 40 minutes in total. I got on the tram, talked into Telegram while riding, took screenshots along the way, then switched to the metro. The session itself was around 40 minutes.[^28]
+The 40 minutes I usually quote for an article like this is the first draft - the brain dump - not the total. That part happens in the in-between time itself. Right now I am at the gym: I have done my warm-up, I have a few working sets ahead of me, and between sets I have about two minutes of rest each time. I press pause on Google Recorder, do a working set, come back, and pick up where I left off. I got on the tram earlier, talked into Telegram while riding, took screenshots along the way, then switched to the metro. The brain dump itself was around 40 minutes.[^28][^29]
 
-After that, several more hours go into editing - maybe 3-4 hours - to bring the article into a proper format. The flow is: brain dump first, then I look at the brain dump with my own eyes, correct it, picture what needs to be there, and prepare it for the final editing pass. Then Valeria and I go through it together. And out comes the article.[^28]
+After that comes the polishing pass, because the agent does not get everything right on the first try. The polishing flow is: I open Google Recorder, open the article in parallel, and read through it while recording voice feedback on what needs to change. When I am done I send that recording to the Telegram writing assistant, and it folds all that feedback into the article. After that there is another style-polish pass by the agent, and finally the human editing pass.[^29]
+
+In total, several more hours go into editing - maybe 3-4 hours - to bring the article into a proper format. Then Valeria and I go through it together. And out comes the article.[^28]
 
 Earlier, an article like this would have taken me much longer - several days, probably, to sit down, write it, and plan the story. In total it now takes much less time than before. That is what lets me share interesting material here and keep trying new things constantly.[^28]
 
@@ -197,3 +207,4 @@ Earlier, an article like this would have taken me much longer - several days, pr
 [^26]: [20260516_181848_AlexeyDTC_msg4104_transcript.txt](../inbox/used/20260516_181848_AlexeyDTC_msg4104_transcript.txt)
 [^27]: [20260515_155640_AlexeyDTC_msg4038_transcript.txt](../inbox/used/20260515_155640_AlexeyDTC_msg4038_transcript.txt)
 [^28]: [20260516_182349_AlexeyDTC_msg4111_transcript.txt](../inbox/used/20260516_182349_AlexeyDTC_msg4111_transcript.txt)
+[^29]: [20260516_191031_AlexeyDTC_msg4130_transcript.txt](../inbox/used/feedback/20260516_191031_AlexeyDTC_msg4130_transcript.txt)
