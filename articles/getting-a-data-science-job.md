@@ -10,7 +10,7 @@ status: draft
 
 A summary of the presentation about getting a data science job[^1]. This is from an old video, made before DataTalksClub, but much of the advice is still relevant today[^2].
 
-The presentation covers the full job search process: how to look for a job, what data science interviews look like, and what happens after.
+The presentation covers the full job search process. It walks through how to look for a job, what data science interviews look like, and what happens after.
 
 <figure>
   <img src="../assets/images/getting-a-data-science-job/summary-slide.jpg" alt="Summary slide from the presentation with key tips for getting a data science job">
@@ -60,7 +60,7 @@ Tips:
 ## Salary Expectations
 
 Two approaches:
-- Say the number upfront - works well when you already know the market and have experience
+- Say the number upfront - useful when you already know the market and have experience
 - Postpone the conversation - works when entering a new field, relocating, or when you don't know the market yet
 
 Regardless of which approach you choose, do research and have a number in mind. Recruiters can be pushy and may not accept "let's talk later" as an answer.
@@ -77,9 +77,9 @@ A technical screening, often done online using platforms like CoderPad or even G
 
 For data science positions, SQL and Python are important. Some companies treat data scientists as software engineers and also check computer science basics (data structures, algorithms).
 
-For basic coding: they check if you know Python basics - lists, sets, dictionaries, loops, if statements.
+For basic coding, they check if you know Python basics - lists and sets, dictionaries, loops and if statements.
 
-For algorithmic questions (binary trees, linked lists, etc.): check with the recruiter first if this is part of the process, because few companies do this. If they do, LeetCode is a great source for practice.
+For algorithmic questions (binary trees, linked lists, etc.), check with the recruiter first whether this is part of the process. Few companies do this, and if they do, LeetCode is a great source for practice.
 
 When solving exercises, take notes so you can come back and review them later.
 
@@ -92,7 +92,7 @@ Warning signs to watch for:
 - Instructions are deliberately unclear and they say "we want to see how you deal with ambiguity"
 - The task "can be solved in two hours" but requires weeks
 
-Positive side: home assignments are a great opportunity to add projects to your portfolio and learn new skills/libraries.
+On the positive side, home assignments are a great opportunity to add projects to your portfolio and learn new skills or libraries.
 
 If you don't want to invest time but still like the company, you can tell them: "I already have similar projects, check my GitHub, I'm happy to continue talking without the assignment." Many will say no, but some will agree.
 
@@ -106,9 +106,9 @@ Examples: "Build a model for predicting car prices (what would you do?" or a vag
 
 For vague questions, you need to ask clarifying questions: how do we measure engagement, what do users do on the platform.
 
-A useful approach: start with a simple baseline, quickly iterate, roll out to production, then improve with more complex models.
+A useful approach is to start with a simple baseline, quickly iterate, roll out to production, then improve with more complex models.
 
-Learning from Kaggle competitions is great preparation for case studies. Go to past competitions, understand the problem, data, features, target, evaluation metric, and check forums to see what solutions worked.
+Learning from Kaggle competitions is great preparation for case studies. Go to past competitions and understand the problem along with the data, features and target. Look at the evaluation metric and check forums to see what solutions worked.
 
 ## System Design Interviews
 
@@ -143,11 +143,11 @@ If the company doesn't have public values, check Amazon's 14 leadership principl
 
 ## After the Interview
 
-Two outcomes: you get an offer, or you don't.
+There are two outcomes - either you get an offer, or you don't.
 
-If rejected: don't take it personally. Treat it as a learning experience. Do a retrospective, understand what went wrong (often nothing was wrong with you personally - someone was just better, or they ran out of money). If you lack some skill, build a project to improve it.
+If you are rejected, don't take it personally. Treat it as a learning experience. Do a retrospective and understand what went wrong (often nothing was wrong with you personally - someone was just better, or they ran out of money). If you lack some skill, build a project to improve it.
 
-If you get an offer: don't rush into agreeing immediately. If you have interviews with other companies, finish them first. Once you get the first offer, tell other companies about it to speed up their process. Having multiple offers is the ideal situation for negotiating salary and benefits. With just one offer, negotiation is difficult.
+If you get an offer, don't rush into agreeing immediately. If you have interviews with other companies, finish them first. Once you get the first offer, tell other companies about it to speed up their process. Having multiple offers is the ideal situation for negotiating salary and benefits. With just one offer, negotiation is difficult.
 
 If you already named a salary number in the initial interview and they offer that exact number, it's hard to negotiate upward.
 

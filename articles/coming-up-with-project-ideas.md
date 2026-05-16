@@ -118,17 +118,37 @@ One thing that helps is keeping a running note of small annoyances. Most of them
 
 Even once you know which kind of project you're doing, an idea isn't a project yet. You still need to narrow it down to something you can start this week. The trap most people fall into is technology-first thinking ("I want to build an agent" or "I want to use RAG") which makes it hard to tell when you're done, and easy to over-engineer the thing before you've even written a useful version[^4].
 
-The way I get past that is to force myself to answer five questions in a few sentences each. Who is the user. What is the input. What is the output. What is the smallest useful version. And how will I know it works. If I can't answer those cleanly, the project is still too vague and I keep going.
+The way I get past that is to force myself to answer five questions in a few sentences each:
 
-Once I can answer them, I check the idea against the type of project I'm building. For a portfolio project, I ask whether it shows the kind of work I want to be hired for. For a course project, I ask whether I can test it, monitor it, and evaluate it over several weeks. For a project I'm doing for myself, I ask whether I'll use it in my own life soon.
+- Who is the user?
+- What is the input?
+- What is the output?
+- What is the smallest useful version?
+- How will I know it works?
+
+If I can't answer those cleanly, the project is still too vague and I keep going.
+
+Once I can answer them, I check the idea against the type of project I'm building:
+
+- For a portfolio project, does it show the kind of work I want to be hired for?
+- For a course project, can I test it, monitor it, and evaluate it over several weeks?
+- For a project I'm doing for myself, will I actually use it in my own life soon?
 
 After that, I start. The first rough repo and README teach me more than another hour of browsing idea lists.
 
-The Buildcamp "From Idea to Submission" material splits this into three situations based on where you're starting from[^5]. If you already have an idea, you run a quick fit check and submit it. If you have a vague idea, you talk it through until it fits in two or three sentences. If you have no idea yet, you browse examples for inspiration, then use an interview-style prompt to pull problems out of your own life. That last path uses the project-idea brainstorming prompt from the Buildcamp gist[^6], which works well paired with a fit-check prompt - one helps you generate candidate ideas, the other helps you reject weak ones.
+The Buildcamp "From Idea to Submission" material splits this into three situations based on where you're starting from[^5]:
+
+- If you already have an idea, run a quick fit check and submit it
+- If you have a vague idea, talk it through until it fits in two or three sentences
+- If you have no idea yet, browse examples for inspiration, then use an interview-style prompt to pull problems out of your own life
+
+That last path uses the project-idea brainstorming prompt from the Buildcamp gist[^6], paired with a fit-check prompt. One helps you generate candidate ideas, the other helps you reject weak ones.
 
 ## The capstone bar
 
-For Buildcamp capstones, the standard is fairly simple[^4]. Solve a real problem that someone cares about. Use data or inputs you can get without heroic effort. Leave a clear path to testing, monitoring, and evaluation from the start. RAG and agents can help, and some projects genuinely need them, but they aren't the point of the project. Don't bolt them on just to make the project sound more advanced[^4].
+For Buildcamp capstones, the standard is fairly simple[^4]. Solve a real problem that someone cares about. Use data or inputs you can get without heroic effort. Leave a clear path to testing, monitoring, and evaluation from the start.
+
+RAG and agents can help, and some projects genuinely need them. They aren't the centerpiece, though. Don't bolt them on just to make the project sound more advanced[^4].
 
 The same bar works outside the course too. A project that solves a real problem with honest data and can be tested, monitored, and evaluated is far more valuable than a showier project that can't be.
 
