@@ -1,7 +1,7 @@
 ---
 title: "Writing Assistant Improvement Ideas"
 created: 2026-02-17
-updated: 2026-02-20
+updated: 2026-05-16
 tags: [telegram-writing-assistant, feedback, improvements]
 status: draft
 ---
@@ -109,6 +109,10 @@ An idea for helping the bot categorize content: when sending a message, include 
 
 This would replace the current approach where the bot tries to infer the intent from the content alone.
 
+## Retry on Transcription Network Errors
+
+While recording voice messages, the bot occasionally returns a transcription failure - an httpx connection error in the network layer, most likely a missed call to Grok. When this happens, the bot should just retry instead of surfacing the error. A single retry would probably be enough to cover the transient case.[^18]
+
 ## Sources
 
 [^1]: [20260217_083630_AlexeyDTC_msg1867_transcript.txt](../inbox/used/20260217_083630_AlexeyDTC_msg1867_transcript.txt)
@@ -128,3 +132,4 @@ This would replace the current approach where the bot tries to infer the intent 
 [^15]: [20260220_071345_AlexeyDTC_msg2119_transcript.txt](../inbox/used/20260220_071345_AlexeyDTC_msg2119_transcript.txt)
 [^16]: [20260220_073330_AlexeyDTC_msg2132.md](../inbox/used/20260220_073330_AlexeyDTC_msg2132.md)
 [^17]: [20260220_073330_AlexeyDTC_msg2133.md](../inbox/used/20260220_073330_AlexeyDTC_msg2133.md)
+[^18]: [20260516_180317_AlexeyDTC_msg4070_transcript.txt](../inbox/used/feedback/20260516_180317_AlexeyDTC_msg4070_transcript.txt)
