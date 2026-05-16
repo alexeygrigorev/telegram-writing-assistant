@@ -6,16 +6,16 @@ tags: [reference, index]
 status: draft
 ---
 
-<!-- When listing what an article covers in the Description column, include the specific names of utilities, libraries, projects, and tools mentioned inside. The point of this index is that you can grep for "ssh-auto-forward" or "tmuxctl" and find the post where it is described. -->
+<!-- When listing what an article covers in the Description column, include the specific names of utilities, libraries, projects, and tools mentioned inside. This index exists so you can grep for "ssh-auto-forward" or "tmuxctl" and find the post where it is described. -->
 
 
 # Substack Archive Index
 
-Index of articles already published on [alexeyondata.substack.com](https://alexeyondata.substack.com/archive). Use this to find the direct link to a Substack post when Alexey mentions something he has already shared.[^1]
+Index of articles already published on [alexeyondata.substack.com](https://alexeyondata.substack.com/archive). Use this to find the direct link to a Substack post when I mention something I have already shared.[^1]
 
-## How to use
+## Usage
 
-When processing a message where Alexey says "I already wrote about this" / "I talked about this" / "as I mentioned before", scan this table by title or description, find the matching post, and insert the URL directly into the article instead of a generic reference.
+When processing a message where I say "I already wrote about this" / "I talked about this" / "as I mentioned before", scan this table by title or description, find the matching post, and insert the URL directly into the article instead of a generic reference.
 
 ## Published articles
 

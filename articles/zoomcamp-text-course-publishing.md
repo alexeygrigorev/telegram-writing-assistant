@@ -8,15 +8,15 @@ status: draft
 
 # Publishing Zoomcamp Lessons in Text Form
 
-Idea for DataTalks.Club courses (LLM Zoomcamp first): publish each lesson as a long written conspectus, not just the YouTube video. The reference is Paul Iusztin's free GitHub course - he posts every lesson as a long Substack note with diagrams and code, and that structure seems to be part of why he attracts sponsors[^1][^2][^3].
+An idea for DataTalks.Club courses, starting with LLM Zoomcamp: publish each lesson as a long written conspectus, not just the YouTube video. The reference is Paul Iusztin's free GitHub course - he posts every lesson as a long Substack note with diagrams and code, and that structure seems to be part of why he attracts sponsors[^1][^2][^3].
 
 ## Reference: Paul Iusztin's Course
 
-Paul has a free course on GitHub. It is fairly popular - around 2.7K stars on GitHub and roughly 7.6K subscribers on Substack. That is fewer GitHub stars than LLM Zoomcamp (around 5K), but he has five sponsors on it: MongoDB, Comet, Opik, Unsloth, and ZenML[^1].
+Paul has a free course on GitHub. It is fairly popular, with around 2.7K stars on GitHub and roughly 7.6K subscribers on Substack. That is fewer GitHub stars than LLM Zoomcamp (around 5K), but he has five sponsors on it - MongoDB, Comet, Opik, Unsloth and ZenML[^1].
 
 His diagrams are clean and easy to follow, and the sponsor names appear inside the diagrams themselves. Each lesson is published as a long conspectus on his Substack, with the diagrams and code inline[^1].
 
-## Why This Could Work for Zoomcamps
+## Fit for Zoomcamps
 
 A few reasons this format is interesting for LLM Zoomcamp and other DataTalks.Club courses[^1][^2][^3]:
 
@@ -28,7 +28,7 @@ A few reasons this format is interesting for LLM Zoomcamp and other DataTalks.Cl
 
 - Page-level statistics matter for sponsors. It would be useful to see how many people visited each page and how they interacted with it. AI Shipping Labs already shows how many people viewed each page - it would be nice to do something similar for DataTalks.Club[^3].
 
-## Why Paul Might Have Five Sponsors
+## Possible reasons for Paul's five sponsors
 
 A few hypotheses about why his sponsorship situation works[^3]:
 
@@ -36,17 +36,17 @@ A few hypotheses about why his sponsorship situation works[^3]:
 - The course may be specifically built for those sponsors. He may have agreed with them up front, the course is only about their tools, and it never changes.
 - Sponsors generally like structure and a polished system - clean schemas, their names inside the visuals, consistent format. That seems to attract them.
 
-LLM Zoomcamp and the other Zoomcamps already attracted sponsors. They started as Alexey's personal projects and grew from there. Adding more structure on top (text versions of lessons with diagrams) might attract more[^3].
+LLM Zoomcamp and the other Zoomcamps already attracted sponsors. They started as my personal projects and grew from there. Adding more structure on top (text versions of lessons with diagrams) might attract more[^3].
 
-## Where to Publish
+## Publishing platform
 
-Substack is one option, but not required. It was just a useful example because Paul publishes there and the stats are visible on the page itself[^3].
+Substack is one option, but not required. It was just a useful example because Paul publishes there and the stats are visible on each page[^3].
 
 For a first version, even publishing on GitHub would already be valuable. The added structure (written lessons, diagrams, sponsors visible inside the schemas) is the point, not the platform. Substack vs GitHub vs our own site can be decided later[^3].
 
-## How to Produce the Content
+## Producing the content
 
-Claude Code did well on Alexey's existing workshops, so it should be able to handle course lessons in a similar way. Code is not strictly required for this part - Valeriia can help, since she already figured out how to download YouTube transcripts and has Cursor set up[^2].
+Claude Code did well on my existing workshops, so it should be able to handle course lessons in a similar way. Code is not strictly required for this part - Valeriia can help, since she already figured out how to download YouTube transcripts and has Cursor set up[^2].
 
 ## Sources
 

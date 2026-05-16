@@ -39,7 +39,7 @@ Articles that are mostly ready for the newsletter. All necessary content is insi
 
 ## AI Shipping Labs
 
-Articles about the AI Shipping Labs paid community: vision, activities, courses, marketing, platform.
+Articles about the AI Shipping Labs paid community. Topics range from vision and activities to courses, marketing, and platform notes.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
@@ -68,7 +68,7 @@ Unfinished articles that need more information, experimentation, or testing befo
 
 ## Ideas
 
-Recorded ideas without much detail. Just the idea itself, useful for not forgetting and reviewing later.
+Recorded ideas without much detail. Just the short idea, useful for not forgetting and reviewing later.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
@@ -134,7 +134,9 @@ Files at the articles root that don't fit into the above categories.
 
 See [Research Articles](research/_index.md) for research and investigation topics.
 
-## How to Use
+## Workflow
+
+These rules describe how this repo is meant to be used:
 
 1. Articles are stored as Markdown files in this directory and its subfolders
 2. Each article follows the template above
