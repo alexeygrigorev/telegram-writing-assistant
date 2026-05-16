@@ -363,7 +363,7 @@ Each module produces a new version of the program:
 
 Map skills to where they are used in the project:
 
-```
+```text
 Python
  |- Variables
  |- Lists

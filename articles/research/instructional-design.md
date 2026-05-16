@@ -68,7 +68,7 @@ Recommended by Alex Migutsky. This book covers how to design courses effectively
 
 A role prompt for getting AI feedback on course design[^6]:
 
-```
+```text
 ## CORE IDENTITY
 You are an instructional designer with 20 years of experience designing corporate
 training and online courses. You are an expert in learning outcomes, curriculum

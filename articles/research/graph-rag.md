@@ -48,7 +48,7 @@ Technical Details:
 - Embeddings are created from LLM-generated summaries of each node, not from raw documents. A Service node is embedded from its service summary, an Incident from its description, a Runbook from its condensed operational steps
 - Graph generation pipeline: chunk source documents, extract elements (entities and relationships) via LLM, generate summaries for each element, convert elements to graph objects (nodes and edges), cluster into communities using hierarchical Leiden, generate community summaries
 - Cypher query example for dependency expansion:
-```
+```text
 MATCH (s:Service {name: "payments-api"})
 OPTIONAL MATCH (s)-[:DEPENDS_ON]->(dep:Service)
 OPTIONAL MATCH (s)-[:OWNED_BY]->(t:Team)
@@ -56,14 +56,14 @@ OPTIONAL MATCH (s)-[:HAS_RUNBOOK]->(r:Runbook)
 RETURN s, collect(dep) AS dependencies, t AS owner, collect(r) AS runbooks
 ```
 - Bounded hop expansion to prevent subgraph explosion:
-```
+```text
 MATCH (s:Service {name: "payments-api"})-[:DEPENDS_ON*1..2]->(dep:Service)
 RETURN s, collect(DISTINCT dep) AS deps_2_hops
 ```
 - Implementation recommendation: LlamaIndex PropertyGraph for agentic GraphRAG queries, with reference implementation at https://developers.llamaindex.ai/python/examples/property_graph/agentic_graph_rag_vertex/
 - Agent framework choice: custom Agent Controller over LangChain/LangGraph. Frameworks hide execution order and error handling behind abstractions that become liabilities in production
 - System prompt priority encoding for MCP vs graph data:
-```
+```text
 When assembling incident context, treat information sources in this order:
 1. MCP servers provide current state (deployments, metrics, discussions)
 2. Graph provides historical patterns and documented structure

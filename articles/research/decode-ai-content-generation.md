@@ -262,7 +262,7 @@ Before reaching for image generation, check whether native Mermaid theming gets 
 
 Mermaid supports a `themeVariables` block in frontmatter config that lets you set brand colors, fonts, borders, and more[^7]:
 
-```
+```dockerfile
 ---
 config:
   theme: base

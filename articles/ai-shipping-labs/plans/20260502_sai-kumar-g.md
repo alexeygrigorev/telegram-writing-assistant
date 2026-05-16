@@ -199,7 +199,7 @@ Schema (four tables): watched_stories is one row per flagged article. Events is 
 
 File / folder layout:
 
-```
+```text
 news-event-tracker/
 ├── README.md
 ├── Dockerfile

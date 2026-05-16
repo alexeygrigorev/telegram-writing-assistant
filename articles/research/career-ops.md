@@ -92,7 +92,7 @@ The system classifies every offer into one of 6 archetypes: AI Platform/LLMOps, 
 
 The batch system uses a conductor-worker architecture. The conductor (Claude Code with Chrome) navigates career portals. For each job listing, it spawns a `claude -p` worker with a clean 200K token context.
 
-```
+```text
 Conductor (claude --chrome)
   ├── Worker 1: claude -p → report + PDF + tracker line
   ├── Worker 2: claude -p → report + PDF + tracker line

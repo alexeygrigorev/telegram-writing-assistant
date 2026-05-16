@@ -57,7 +57,7 @@ Technical Details:
 - Teammate messaging types: `message` (send to specific teammate) and `broadcast` (send to all, use sparingly as costs scale with team size)
 
 Example prompts:
-```
+```bash
 # Parallel code review
 Create an agent team to review PR #142. Spawn three reviewers:
 - One focused on security implications

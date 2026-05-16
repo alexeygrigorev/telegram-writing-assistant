@@ -85,7 +85,7 @@ This is the surprising layer. Many engineers assume ChatGPT runs RAG over the fu
 
 The format looks roughly like this:
 
-```
+```text
 1. Dec 8, 2025: "Building a load balancer in Go"
    - asked about connection pooling
    - discussed health check intervals
@@ -157,7 +157,7 @@ This is the same idea as having a `README.md` your AI assistant reads on every s
 
 The interesting structure is the auto-memory directory:
 
-```
+```text
 ~/.claude/projects/<project>/memory/
 ├── MEMORY.md          # ~150 char/line index, capped at 200 lines (~25KB)
 ├── debugging.md       # Topic file: actual debugging notes

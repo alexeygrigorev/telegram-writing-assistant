@@ -18,7 +18,7 @@ This article looks at how that works in the repo, what counts as "self-healing" 
 
 The pitch in the README captures the model[^1]:
 
-```
+```text
   agent: wants to upload a file
   helpers.py -> upload_file() missing
   agent edits the harness and writes it   helpers.py  192 -> 199 lines

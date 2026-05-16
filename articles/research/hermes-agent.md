@@ -298,7 +298,7 @@ Skills follow the `agentskills.io` open standard. Each skill is a markdown file 
 
 In Hermes there are three levels of detail, numbered 0, 1, and 2:
 
-```
+```text
 Level 0: skills_list()          -> names + descriptions   (~3K tokens)
 Level 1: skill_view(name)       -> full content + metadata
 Level 2: skill_view(name, path) -> specific reference file

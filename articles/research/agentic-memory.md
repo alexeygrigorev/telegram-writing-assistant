@@ -67,7 +67,7 @@ Technical Details:
 - The response generator outputs both a response and a save_memory flag for conditional memory updates
 
 Code patterns:
-```
+```python
 # DSPy signature for extraction
 class MemoryExtract(dspy.Signature):
     """Extract relevant information from the conversation.
