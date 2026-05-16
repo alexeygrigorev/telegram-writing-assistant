@@ -26,11 +26,15 @@ The next day was on a panel at the start of the day, with various audience quest
 
 ## Freestyle Workshop on AWS Lambda Deployment
 
-Ran another freestyle AI Shipping Labs workshop this week, on Tuesday: https://aishippinglabs.com/workshops/lambda-agent-deployment[^35][^39]. The idea of the freestyle format is that people show up with their own ideas and we implement something together. Discussed some problems participants had and suggested solutions, but no concrete project ideas came out of that, so the workshop pivoted to "let's look at how to deploy to Lambda"[^35].
+Ran another freestyle AI Shipping Labs workshop this week, on Tuesday: [Lambda Agent Deployment](https://aishippinglabs.com/workshops/lambda-agent-deployment)[^35][^39]. In the freestyle format, people show up with their own ideas and we implement something together. Discussed some problems participants had and suggested solutions, but no concrete project ideas came out of that, so the workshop pivoted to "let's look at how to deploy to Lambda"[^35].
 
-The motivation: services like Render and similar are not serverless. If you deploy something there, the server keeps running all the time and you pay for it continuously. For low-load workloads, deploying as a long-running server does not make sense - Lambda is the right shape, and Alexey had been wanting to figure out how to do this with Lambda for a while[^35].
+The motivation is straightforward. Services like Render and similar are not serverless. If you deploy something there, the server keeps running all the time and you pay for it continuously.
 
-What made this workshop different from the usual format is that the topic was not familiar to me either - it was an opportunity to learn something new, not to teach something I already had figured out. Participants got to watch me pick up a new technical area: I knew something about Lambda but not deeply, so during the workshop I worked out how to get the coding parts to do what I wanted, and after the workshop I went back and tried to understand more thoroughly how everything fits together and how the code should be organised[^39].
+For low-load workloads, deploying as a long-running server does not make sense. Lambda is the right shape, and I had been wanting to figure out how to do this with Lambda for a while[^35].
+
+What made this workshop different from the usual format is that the topic was not familiar to me either - it was an opportunity to learn something new, not to teach something I already had figured out.
+
+Participants got to watch me pick up a new technical area. I knew something about Lambda but not deeply, so during the workshop I worked out how to get the coding parts to do what I wanted, and after the workshop I went back and tried to understand more thoroughly how everything fits together and how the code should be organised[^39].
 
 The pattern that came out of it works like this: ask the agent to implement something, then ask the agent to explain that implementation, then dig into the code yourself until you can describe what is happening end to end. The output of all that is a written document I can use myself later and reuse on future workshops where I talk about the same topic. So the workshop format doubles as a way for me to learn[^39].
 
@@ -38,17 +42,19 @@ To see the document from this workshop and take part in future events like it, p
 
 ## AI Shipping Labs Migrated to Django
 
-Finally migrated the AI Shipping Labs site from Next.js to Django. There is still a lot of work to do, but the new Django version is now live - going to https://aishippinglabs.com lands on it[^35].
+Finally migrated the AI Shipping Labs site from Next.js to Django. There is still a lot of work to do, but the new Django version is now live - going to [aishippinglabs.com](https://aishippinglabs.com) lands on it[^35].
 
 ## Sprint Kickoff with 20+ Member Plans
 
-Started the May sprint. Met with members and discussed everyone's goals. Valeriia and Alexey prepared more than 20 plans, so every participant now has a plan. Also had the idea to pair people up so it is easier for them to work together through the sprint[^35].
+Started the May sprint. Met with members and discussed everyone's goals. Valeriia and I prepared more than 20 plans, so every participant now has a plan. Also had the idea to pair people up so it is easier for them to work together through the sprint[^35].
 
 ## DataTalks.Club Migrated to Rustkill
 
 Finally migrated the DataTalks.Club site to Rustkill (spelled R-U-S-T-K-Y-L-L) - same shape as Jekyll, but Rustkill. The build is now much faster[^35].
 
-The build itself went from 22 seconds down to 1 second (about a 20x speedup. Before the migration, the build took around 2 minutes locally and about 22 seconds in GitHub Actions (CI was already faster than local). After Rustkill, the build itself is roughly 1 second. In GitHub Actions, though, the end-to-end workflow only got about 1.5-2x faster overall) there is a lot of overhead around the actual build (container setup and the rest of the CI prep before and after), so most of the 20x build win is hidden by everything that happens around it. Still a real improvement, and locally the build is now fast[^36].
+The build went from 22 seconds down to 1 second - about a 20x speedup. Before the migration, the build took around 2 minutes locally and about 22 seconds in GitHub Actions (CI was already faster than local). After Rustkill, the build is roughly 1 second.
+
+In GitHub Actions, though, the end-to-end workflow only got about 1.5-2x faster overall. There is a lot of overhead around the actual build (container setup and the rest of the CI prep before and after), so most of the 20x build win is hidden by everything that happens around it. Still a real improvement, and locally the build is now fast[^36].
 
 ## DataTalks.Club Course Management Platform - UI Redesign with Codex
 
@@ -84,7 +90,7 @@ Held office hours this week. Nothing particularly interesting came out of them[^
 
 Had four onboarding calls this week for new members joining AI Shipping Labs. Next week also has many calls scheduled. Everyone joining the community gets the option to do an onboarding call - some people take it. On these calls we discuss their projects and try to figure out how we can help, then set a plan together[^32].
 
-Preparing for the new sprint that starts in May. The goal is that everyone participating in the sprint has a ready plan for what to do. Details about what the plan is are already written up elsewhere (see [Project Approach Reference Doc](ideas/project-approach-reference-doc.md)). Now putting all of it into practice[^32].
+Preparing for the new sprint that starts in May. Everyone participating in the sprint needs a ready plan for what to do. Details about what the plan looks like are already written up elsewhere (see [Project Approach Reference Doc](ideas/project-approach-reference-doc.md)). Now we are putting all of it into practice[^32].
 
 ## Week of 2026-04-13
 
@@ -114,7 +120,9 @@ Merged the "build your own coding agent" workshop and the workshop about how ski
 
 ## Trying Codex as Claude Code Alternative
 
-Hit Claude Code session limits on a simple file-splitting task (usage jumped from 80% to 100% instantly. Many people reporting the same issue. Started using OpenAI Codex as an alternative. The agent workflow works but requires more babysitting) no task widget, no auto-continue when subagents finish. Limits on Codex feel much more generous. See [Trying OpenAI Codex as a Claude Code Alternative](codex-experiments.md) for details[^22][^23][^24].
+Hit Claude Code session limits on a simple file-splitting task - usage jumped from 80% to 100% instantly. Many people reporting the same issue. Started using OpenAI Codex as an alternative.
+
+The agent workflow works but requires more babysitting - no task widget, no auto-continue when subagents finish. Limits on Codex feel much more generous. See [Trying OpenAI Codex as a Claude Code Alternative](codex-experiments.md) for details[^22][^23][^24].
 
 ## Snowflake Workshop on Agent Evaluations
 
@@ -173,7 +181,7 @@ Claude updated 52 `pyproject.toml` files across all UV projects - 5 already had 
 
 Migrated the AI Hero course to the new AI Shipping Labs platform. Used the same agent teams approach described in [Building Projects with Agent Teams](building-projects-with-agent-teams.md) - this time through GitHub Issues. Shared a link to the existing course content, told the agents "migrate this," and they handled everything. The agents created [a detailed GitHub issue](https://github.com/AI-Shipping-Labs/website/issues/128) with full specifications and completed the migration autonomously[^20].
 
-The course is now live at https://aishippinglabs.com/courses/aihero. This was for the Django version of the platform[^21].
+The course is now live at [aishippinglabs.com/courses/aihero](https://aishippinglabs.com/courses/aihero). This was for the Django version of the platform[^21].
 
 ## Week of 2026-03-03
 
@@ -187,7 +195,7 @@ Still need to finish a couple of remaining sections for AI Engineering Buildcamp
 
 ## AI Engineering Field Guide - Webinar and Curation
 
-Prepared for and ran the Tuesday webinar on AI Engineering job search. The title was "AI Engineer in Berlin, London, Amsterdam, New York, and Los Angeles." For February, added India as a whole country, making 6 geographies total. Considering expanding Berlin to all of Germany in the future.
+Prepared for and ran the Tuesday webinar on AI Engineering job search. The title was "AI Engineer in Berlin, London, Amsterdam, New York and Los Angeles". For February, added India as a whole country, making 6 geographies total. Considering expanding Berlin to all of Germany in the future.
 
 After all deduplication, there are now over 1,600 job listings in the Field Guide. Analyzed over 700 different sources - reports, social media posts (Twitter, Reddit), YouTube videos.
 
@@ -219,7 +227,15 @@ The curriculum is not fully finalized yet (no time right now because of Buildcam
 
 Preparing for an in-person meetup on Tuesday about Exasol. Found a large dataset (NHS Prescription Data with over 1 million records) about prescriptions issued to people in the UK.
 
-Plan to demonstrate: how to collect and ingest this data, set up a staging environment, build a ready-to-use data warehouse for analytics, create a Grafana dashboard for analytics, and orchestrate everything with Kestra. Working with someone from Exasol on this.
+The plan covers how to:
+
+- Collect and ingest this data
+- Set up a staging environment
+- Build a ready-to-use data warehouse for analytics
+- Create a Grafana dashboard
+- Orchestrate everything with Kestra
+
+Working with someone from Exasol on this.
 
 Content was prepared about a month ago, now needs polishing and rehearsal. Still need to figure out how to give access to Exasol for attendees who come without their own AWS account - the assumption is people bring their own AWS account to deploy the database, but not everyone will have one. Also handling logistics like food. If you are in Berlin and want to learn about data ingestion and fast analytics, come to the meetup[^19].
 
@@ -235,7 +251,9 @@ Spent time converting a ChatGPT-generated PNG logo into SVG using Claude Code wi
 
 ## Community Platform
 
-Tested features on the AI Shipping Labs site - set up OAuth tokens for Gmail and GitHub, got Zoom integration working with a one-click meeting creation button, reviewed the admin panel and user dashboard. Created logo with ChatGPT and attempted SVG recreation. All integrations (Gmail, GitHub, Zoom, Slack, Stripe) are now connected. See [Building a Community Platform with Claude Code's Multi-Agent System](ai-shipping-labs/platform-implementation.md) for details[^4][^5][^6].
+Tested features on the AI Shipping Labs site. Set up OAuth tokens for Gmail and GitHub. Got Zoom integration working with a one-click meeting creation button, and reviewed the admin panel and user dashboard.
+
+Created a logo with ChatGPT and attempted SVG recreation. All integrations now run end to end across Gmail and GitHub and Zoom and Slack and Stripe. See [Building a Community Platform with Claude Code's Multi-Agent System](ai-shipping-labs/platform-implementation.md) for details[^4][^5][^6].
 
 ## AI Engineer Webinar Session 2
 
@@ -269,9 +287,19 @@ Started a new article for feature ideas for the AI Shipping Labs site. Includes 
 
 ## Production Incident
 
-Accidentally destroyed the course management platform production database via Terraform destroy. The agent ran terraform destroy with auto-approve, wiping the entire production infrastructure including VPC, RDS, ECS, and load balancers. Backups were deleted along with the database.
+Accidentally destroyed the course management platform production database via Terraform destroy. The agent ran terraform destroy with auto-approve, wiping the entire production infrastructure - VPC and RDS and ECS and load balancers. Backups were deleted along with the database.
 
-Upgraded to AWS Business support, got on a call with support at 2 AM. Still waiting for data recovery. Implemented multiple preventive measures: backups outside Terraform state, S3 backups, automated daily Lambda/Step Functions backup pipeline, deletion protection flags, and migrated Terraform state to S3. See [Course Management Production Incident Report](course-management-production-incident.md)[^15].
+Upgraded to AWS Business support and got on a call with support at 2 AM. Still waiting for data recovery.
+
+Implemented multiple preventive measures:
+
+- Backups outside Terraform state
+- S3 backups
+- Automated daily Lambda/Step Functions backup pipeline
+- Deletion protection flags
+- Migrated Terraform state to S3
+
+See [Course Management Production Incident Report](course-management-production-incident.md)[^15].
 
 ## Sources
 

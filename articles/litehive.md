@@ -16,7 +16,7 @@ In previous articles, I talked about Codehive - a project for orchestrating agen
 
 I thought about what I need from this project. What I want is deterministic execution of tasks. As I described in the article about building projects with agent teams, I want the process to always be followed. I don't want the agent to decide what order to run things in. I want a state machine that decides what to do[^1].
 
-## What litehive Does
+## litehive overview
 
 litehive is a local, file-based task manager. Everything is in YAML files. You add a task, and the system processes it through a defined pipeline[^1].
 
@@ -46,15 +46,19 @@ Many users complain about the same thing. My experience showed that depending on
 
 The first goal is deterministic execution - the state machine decides what happens, not the agent[^2].
 
-The second idea is seamless swap between execution engines. I want to easily switch from one engine to another. For example, if I'm using Claude Code and I hit the limit, I want to be able to plug in other CLI interfaces and use them. And if one of them starts failing during execution, there's a retry mechanism that restarts it. In Claude Code, if something stops because their backend is down, execution doesn't automatically continue - you have to go into the session and continue manually. In litehive, everything is automatic[^2].
+The second idea is seamless swap between execution engines. I want to easily switch from one engine to another. For example, if I'm using Claude Code and I hit the limit, I want to be able to plug in other CLI interfaces and use them.
+
+If one of them starts failing during execution, there's a retry mechanism that restarts it. In Claude Code, if something stops because their backend is down, execution doesn't automatically continue - you have to go into the session and continue manually. In litehive, everything is automatic[^2].
 
 ## Building a Self-Writing System
 
-I used Codex to build litehive because I had run out of Claude Code limits. I installed an SSH client on my phone and logged into my remote server where everything runs. I did this while on vacation - not actively working, just checking in when I had a free minute during downtime[^3].
+I used Codex to build litehive because I had run out of Claude Code limits. I installed an SSH client on my phone and logged into my remote server where everything runs. I did this while on vacation - not actively working, just checking in during downtime[^3].
 
-My first prompt was: look, here's Codehive, I want a stripped version of it as a CLI. And to continue working, we need to use litehive itself to build litehive. The idea was to create a system that writes itself[^3].
+My first prompt described the goal. Here's Codehive, I want a stripped version of it as a CLI. To continue working, we need to use litehive to build litehive - a system that writes its own next version[^3].
 
-I said: plan the tasks, add them to the backlog, and run the process. Write a bash script that does a while loop - if there are tasks in the queue, take one and run it. Why bash? Because it was working on itself, and the next time the next task ran, it would use the new version. The result was a self-writing system. I would drop in, add ideas, and it worked. A couple of things happened during the process that I had to fix[^3].
+I told it to plan the tasks, add them to the backlog, and run the process. Write a bash script that does a while loop - if there are tasks in the queue, take one and run it.
+
+Bash was the right choice here. The script was modifying its own source, so the next iteration of the loop would pick up the new version. The result was a self-writing system. I would drop in, add ideas, and it worked. A couple of things happened during the process that I had to fix[^3].
 
 ## Recovery Agent
 
@@ -72,9 +76,15 @@ It helped, but not completely. Sometimes the recovery agent wouldn't launch, som
 
 I had to check in manually every time, go into SSH, see what's happening, tell it to check the status, fix things, kill processes, restart. Eventually I got tired of doing this manually. I opened another Codex session and said I want to write a tool that sends messages to tmux[^5].
 
-Tmux is what I use to run all these agents on my remote server. It turned out to be convenient that in tmux I can send any prompt ("do a status report", "check if anything is stuck", "if something is stuck, fix it". This was my second Codex session. Codex did it in one shot) exactly what I needed. I had to tweak it a bit afterwards, but the basic functionality was done in one approach[^5].
+Tmux is what I use to run all these agents on my remote server. It turned out to be convenient that in tmux I can send any prompt - "do a status report", "check if anything is stuck", "if something is stuck, fix it". This was my second Codex session, and Codex did it in one shot. I had to tweak it a bit afterwards, but the basic functionality was done in one pass[^5].
 
-Beyond sending commands, tmuxctl makes attaching to sessions much faster. `t 1` attaches to the most recently created session. `t 2` attaches to the second most recent. `t session-name` attaches to a named session. Instead of writing `tmux attach -t session-name` or `tmux new-session -s name`, I just write `t` followed by whatever I need. I also use Typer, a Python library for CLI applications, which gives me tab completion - I can press tab and see all available sessions[^6][^7].
+Beyond sending commands, tmuxctl makes attaching to sessions much faster:
+
+- `t 1` attaches to the most recently created session
+- `t 2` attaches to the second most recent
+- `t session-name` attaches to a named session
+
+Instead of writing `tmux attach -t session-name` or `tmux new-session -s name`, I just write `t` followed by whatever I need. I also use Typer, a Python library for CLI applications, which gives me tab completion - I can press tab and see all available sessions[^6][^7].
 
 ## Automated Poking
 
@@ -86,7 +96,7 @@ Using tmuxctl, every 30 minutes a cron job sends a message: "report your progres
   <!-- Shows the automated status check that runs every 30 minutes via cron -->
 </figure>
 
-I was busy all day - hiking in the Alps. I didn't have the ability or desire to check my phone. When riding a bus or train somewhere, I had a chance to play with the phone and launch some agent sessions. But on the hike itself, that wasn't possible. Thanks to this tool that pokes the agent every 30 minutes and says "don't forget, you should be working", it turned out useful[^8].
+I was busy all day - hiking in the Alps. I didn't have the ability or desire to check my phone. When riding a bus or train somewhere, I had a chance to play with the phone and launch some agent sessions. But on the hike, that wasn't possible. Thanks to this tool that pokes the agent every 30 minutes and says "don't forget, you should be working", it turned out useful[^8].
 
 The combination of two things made a big difference: the recovery agent that fixes issues, and the periodic poking via tmuxctl to keep Codex working[^8].
 
@@ -104,7 +114,15 @@ The automated poking helped, but agents still got stuck sometimes with no output
 
 For all of this, I used Codex because my Claude Code weekly limit ran out quickly. My weekly limit resets Friday to Friday, and it was gone by Monday. So from Monday to Friday I used Codex[^9].
 
-Codex was used as the executor. The main orchestrator where I developed litehive was Codex. Then when my Claude Code limit reset on Friday, I switched to Claude Code and added support for other engines: Claude Code itself, OpenCode, and Gemini. Adding Claude Code support went better through Claude Code itself - it knows itself better[^9].
+Codex was used as the executor. The main orchestrator where I developed litehive was Codex.
+
+When my Claude Code limit reset on Friday, I switched to Claude Code and added support for other engines:
+
+- Claude Code
+- OpenCode
+- Gemini
+
+Adding Claude Code support went better through Claude Code - it knows its own quirks best[^9].
 
 GLM-5 turned out to be slow. Apparently many people use it, so one message can take 7-10 minutes to process. So in parallel I started working on a separate wrapper - instead of using OpenCode, I decided to write my own agent specifically for ZAI[^9].
 
@@ -114,15 +132,15 @@ GLM-5 turned out to be slow. Apparently many people use it, so one message can t
 
 OpenCode has too many bells and whistles. I wanted a minimal CLI executor that can only run bash commands, edit files, and read files. Nothing else. As simple and compact as possible, with nothing unnecessary taking up context, so it would be faster[^10][^11].
 
-The purpose is to use it as a fallback engine when all other agents run out of limits, so work can continue. I used litehive itself to build GoZ - this was a test of litehive on a new project[^9].
+The purpose is to use it as a fallback engine when all other agents run out of limits, so work can continue. I used litehive to build GoZ - this was a test of litehive on a new project[^9].
 
-GoZ is not as powerful as Claude Code or other wrappers like OpenCode, but the goal is just to run agent sessions and continue if they break. As one of the engines in litehive, it serves that purpose[^11].
+GoZ is not as powerful as Claude Code or other wrappers like OpenCode. It just needs to run agent sessions and continue if they break. As one of the engines in litehive, it serves that purpose[^11].
 
 ## Self-Improving Tools
 
-There was a problem with GoZ in litehive (the glm-5.1 model was slow, and token-level streaming made transcripts hard to read. Word boundaries were broken in the output ("park ed", "observ ability", "RES UM ABLE"). The issue was in GoZ's adapter) it was not joining tokens properly[^21][^22].
+There was a problem with GoZ in litehive. The glm-5.1 model was slow, and token-level streaming made transcripts hard to read. Word boundaries were broken in the output ("park ed", "observ ability", "RES UM ABLE"). The issue was in GoZ's adapter, which was not joining tokens properly[^21][^22].
 
-The fix was straightforward: tell the agent to create a task in GoZ to fix it. The agent created task T-0017 in GoZ to fix transcript rendering - joining streaming tokens into complete words and sentences. Since the agent uses itself to build itself, this is an interesting concept: tools that improve themselves[^21][^22].
+The fix was straightforward: tell the agent to create a task in GoZ to fix it. The agent created task T-0017 in GoZ to fix transcript rendering - joining streaming tokens into complete words and sentences. Since the agent uses its own code to build the next version, this is an interesting concept: tools that improve themselves[^21][^22].
 
 <figure>
   <img src="../assets/images/litehive/goz-self-improvement-task.jpg" alt="Terminal showing GoZ creating a task to fix its own transcript rendering">
@@ -134,16 +152,20 @@ The fix was straightforward: tell the agent to create a task in GoZ to fix it. T
 
 There's still a lot of work to do. For GoZ, automatic model switching (between GLM-5 and GLM-5 Turbo during peak hours) is only in the planning stage[^12].
 
-In litehive itself, the main feature I'm working on right now is a usage watcher. It monitors quotas - if Claude Code reaches 90% of its weekly limit, it automatically starts using Codex. If Codex reaches 90%, it adds another engine. This works across all projects. The vision is to use litehive for all future projects with a global config. If I have multiple projects running, they share the same workspace configuration[^12].
+Inside litehive, the main feature I'm working on right now is a usage watcher. It monitors quotas - if Claude Code reaches 90% of its weekly limit, it automatically starts using Codex. If Codex reaches 90%, it adds another engine.
 
-The goal is to be able to work on any project autonomously. I focus on requirements, agents work independently regardless of what's happening with my quotas. This way my dependency on Claude Code goes away. If they keep reducing limits, I'm not tied to them anymore. I can switch to any other engine at any moment, including Codex. I got Codex Pro this week and I'm actively using it[^12].
+This works across all projects. I want to use litehive for all future projects with a global config. If I have multiple projects running, they share the same workspace configuration[^12].
 
-litehive now has a feature that checks how much usage quota remains for Claude, Codex, Copilot, and ZAI. It tracks the limits because each service works differently (Claude and Codex have a 5-hour window, while Copilot uses a monthly limit. The system monitors the remaining percentage and can detect when quotas reset. In the screenshot below, it detected that the Codex quota had reset, and checking manually confirmed it) 100% remaining[^23][^24][^25].
+I want to be able to work on any project autonomously. I focus on requirements, and agents work independently regardless of what's happening with my quotas. This way my dependency on Claude Code goes away. If they keep reducing limits, I'm not tied to them anymore.
+
+I can switch to any other engine at any moment, including Codex. I got Codex Pro this week and I'm actively using it[^12].
+
+litehive now has a feature that checks how much usage quota remains for Claude, Codex, Copilot, and ZAI. It tracks the limits because each service works differently. Claude and Codex have a 5-hour window, while Copilot uses a monthly limit. The system monitors the remaining percentage and can detect when quotas reset. In the screenshot below, it detected that the Codex quota had reset, and checking manually confirmed it at 100% remaining[^23][^24][^25].
 
 <figure>
   <img src="../assets/images/litehive/litehive-quota-status-check.jpg" alt="litehive status check showing quota monitoring and Codex quota reset detection">
   <figcaption>litehive status check - detected that Codex quota reset, confirmed at 100% remaining</figcaption>
-  <!-- Shows the quota monitoring feature in action during a status check -->
+  <!-- Shows the quota monitoring feature triggering on a real reset -->
 </figure>
 
 <figure>
@@ -156,7 +178,9 @@ Codex was celebrating the number of people who joined, so they reset the quotas.
 
 ## Codex CLI
 
-The Codex CLI itself is not as advanced as Claude Code, but you can still do a lot with it. The main thing for me is that I can run a litehive session in it, and it doesn't matter which engine I use - Codex, Claude Code, OpenCode, GoZ. I can launch a litehive session and periodically say "add this task, add that task, watch the execution". It runs in daemon mode, solving tasks, and if something goes wrong, automatic recovery handles it. At least, that's the vision. I hope to get there soon[^13].
+The Codex CLI is not as advanced as Claude Code, but you can still do a lot with it. The main thing for me is that I can run a litehive session in it, and it doesn't matter which engine I use - Codex, Claude Code, OpenCode, or GoZ.
+
+I can launch a litehive session and periodically say "add this task, add that task, watch the execution". It runs in daemon mode, solving tasks, and if something goes wrong, automatic recovery handles it. At least, that's the vision. I hope to get there soon[^13].
 
 ## Sources
 
