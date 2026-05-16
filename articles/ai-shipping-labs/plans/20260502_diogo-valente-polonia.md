@@ -136,7 +136,7 @@ Questionnaire not yet completed. Notes below come from the 2026-04-30 intake cal
 
 - How can the community be most helpful?
 
-Three things, in order: assessing the feasibility of project ideas (so he can manage expectations - "can I do this in two weeks, three weeks?"). Getting new project ideas and tools that he can adapt to his use case. And sharing his work back so it can be useful for other community members. He prefers a discussion-based format - someone he can ask "what do you think, would this take me long to do, is this feasible?"[^2].
+Three things, in order: assessing the feasibility of project ideas (so he can manage expectations ("can I do this in two weeks, three weeks?"). Getting new project ideas and tools that he can adapt to his use case. And sharing his work back so it can be useful for other community members. He prefers a discussion-based format) someone he can ask "what do you think, would this take me long to do, is this feasible?"[^2].
 
 - What is the ideal 6-8 week result?
 
@@ -162,7 +162,7 @@ Final pick is still open[^2]:
 
 1. Scraping plus structured datasets. Scrape information that member states report to the EU (for example on climate policy) from the public web, build a structured dataset, and add an evaluation step on top so the dataset quality can be measured. He noted that the team already creates such datasets, but there is no efficient way to evaluate or test the results.
 2. Data explorer / data fetcher. Many of the questions in his organization are "does this data exist somewhere?". Public data on topics like economic losses from extreme floods is held by national organizations but is hard to locate, and access varies (public, request-only, paid). The agent would help locate it and, if a request is needed, automatically file the request.
-3. Multi-agent expert elicitation. Replicate expert engagements - for example, the multi-perspective discussions used to issue a climate assessment statement - as a multi-agent system.
+3. Multi-agent expert elicitation. Replicate expert engagements (for example, the multi-perspective discussions used to issue a climate assessment statement) as a multi-agent system.
 
 ## Main blocker
 

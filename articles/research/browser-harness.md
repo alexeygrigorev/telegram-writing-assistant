@@ -289,7 +289,7 @@ graph TD
 
 Traditional Playwright and Selenium provide stable primitives with limited built-in recovery. Auto-waiting helps with timing flakes but nothing else. When a selector breaks, the test breaks.
 
-Selector-healing tools (Healenium is the open-source example) record element signatures at test time and at runtime try candidate selectors when the primary fails. They handle one specific failure class - selector drift - and require a persistent record/replay substrate.
+Selector-healing tools (Healenium is the open-source example) record element signatures at test time and at runtime try candidate selectors when the primary fails. They handle one specific failure class (selector drift) and require a persistent record/replay substrate.
 
 Agent frameworks like the earlier Browser Use implementation wrap a model in a message manager, planner, executor, and output parser. Gregor's argument in the "bitter lesson" post is that these abstractions become liabilities - "every abstraction is a liability. every 'helper' is a failure point"[^5]. They freeze assumptions about how intelligence should work and fight the model.
 

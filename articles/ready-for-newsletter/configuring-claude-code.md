@@ -146,7 +146,7 @@ Instead of maintaining these commands in each individual repository, keeping the
 
 ## Subagents
 
-For subagents - specialized agents for tasks like research workflows and verification - see the dedicated [Subagents](subagents.md) article[^10].
+For subagents (specialized agents for tasks like research workflows and verification) see the dedicated [Subagents](subagents.md) article[^10].
 
 ## Skills
 

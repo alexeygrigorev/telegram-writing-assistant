@@ -30,7 +30,7 @@ Here is how the parts relate. At the center sits one long-running Gateway daemon
 
 ## What OpenClaw Is
 
-OpenClaw is a single-user, privacy-first assistant. You run the Gateway on your own hardware (macOS, Linux, Windows via WSL2) and the assistant answers you on whatever channels you wire up. The Gateway is a local daemon - a Node.js process bound by default to `127.0.0.1:18789` - that keeps persistent connections to messaging providers and routes traffic into an agent loop.
+OpenClaw is a single-user, privacy-first assistant. You run the Gateway on your own hardware (macOS, Linux, Windows via WSL2) and the assistant answers you on whatever channels you wire up. The Gateway is a local daemon (a Node.js process bound by default to `127.0.0.1:18789`) that keeps persistent connections to messaging providers and routes traffic into an agent loop.
 
 The project originated as Warelay, evolved through Clawdbot and Moltbot, and now ships as OpenClaw. The VISION doc frames it plainly: "OpenClaw is the AI that does things. It runs on your devices, in your channels, with your rules"[^2]. Its tagline is "EXFOLIATE! EXFOLIATE!" and the mascot is a lobster.
 
@@ -113,13 +113,13 @@ graph TB
     Cron --> Agent
 ```
 
-Everything is typed. The WebSocket protocol uses TypeBox - a TypeScript library that defines a schema once and produces both runtime validators and JSON Schema documents - and those JSON Schema documents then generate the Swift models the iOS client uses. In practice, that means the contract between the Gateway, your iOS app, and any third-party client is described in one place, and a change to the protocol cannot silently break a client. The design invariants from `docs/concepts/architecture.md` state: exactly one Gateway controls a single Baileys (a community-maintained WhatsApp Web client) session per host, the handshake is mandatory (any non-JSON or non-connect first frame is a hard close), and events are not replayed - clients must refresh on gaps[^3].
+Everything is typed. The WebSocket protocol uses TypeBox (a TypeScript library that defines a schema once and produces both runtime validators and JSON Schema documents) and those JSON Schema documents then generate the Swift models the iOS client uses. In practice, that means the contract between the Gateway, your iOS app, and any third-party client is described in one place, and a change to the protocol cannot silently break a client. The design invariants from `docs/concepts/architecture.md` state: exactly one Gateway controls a single Baileys (a community-maintained WhatsApp Web client) session per host, the handshake is mandatory (any non-JSON or non-connect first frame is a hard close), and events are not replayed - clients must refresh on gaps[^3].
 
 ## Why Gateway-Centric
 
 The Gateway owns the single point of contact with messaging providers. Most of these APIs (WhatsApp via Baileys, Telegram via grammY, iMessage bridges) do not tolerate multiple concurrent connections from the same account. Centralizing them in one daemon avoids duplicate sessions, keeps auth state coherent, and gives the agent a single place to do routing decisions. For you that means you don't have to worry about "did I leave another instance running on my old laptop" - the daemon owns the connection, and only one daemon can.
 
-The Canvas (an agent-editable live visual workspace, also called A2UI - Agent-to-UI - because the agent generates and updates the page itself) is served from the same HTTP server under `/openclaw/canvas/` and `/openclaw/a2ui/` on the same port. You will see the practical use of this in the Canvas section later.
+The Canvas (an agent-editable live visual workspace, also called A2UI (Agent-to-UI) because the agent generates and updates the page itself) is served from the same HTTP server under `/openclaw/canvas/` and `/openclaw/a2ui/` on the same port. You will see the practical use of this in the Canvas section later.
 
 That covers what the daemon is. The next thing to look at is what happens during one turn of conversation, end to end.
 
@@ -202,7 +202,7 @@ flowchart TD
 
 DM pairing is the default on Telegram, WhatsApp, Signal, iMessage, Microsoft Teams, Discord, Google Chat, and Slack. Unknown senders get a short pairing code. You run `openclaw pairing approve <channel> <code>` from your CLI to add them to the local allowlist. Public inbound requires explicit opt-in via `dmPolicy="open"` and `"*"` in the allowlist - so the assistant does not accidentally answer strangers unless you have decided that is what you want.
 
-The flow shows what happens after a message is admitted. Most of what makes that flow possible - which channels exist, which models are reachable, which tools the agent can call - is provided by plugins. That is the next layer to look at.
+The flow shows what happens after a message is admitted. Most of what makes that flow possible (which channels exist, which models are reachable, which tools the agent can call) is provided by plugins. That is the next layer to look at.
 
 ## Plugin System: Manifest-First Architecture
 
@@ -251,7 +251,7 @@ The table from `docs/plugins/architecture.md` lists:
  - Web search: `api.registerWebSearchProvider(...)` - google
  - Channel / messaging: `api.registerChannel(...)` - msteams, matrix
 
-Plugins are classified by shape based on what they register: `plain-capability` (one type), `hybrid-capability` (multiple - the OpenAI plugin registers text, speech, media understanding, and image generation all in one), `hook-only` (only hooks, legacy), or `non-capability` (tools, commands, services, routes but no capability). The reason the project bothers tagging shapes at all is that `openclaw plugins inspect <id>` then tells you exactly what each plugin contributes - useful when you are debugging why something isn't showing up in the assistant.
+Plugins are classified by shape based on what they register: `plain-capability` (one type), `hybrid-capability` (multiple (the OpenAI plugin registers text, speech, media understanding, and image generation all in one), `hook-only` (only hooks, legacy), or `non-capability` (tools, commands, services, routes but no capability). The reason the project bothers tagging shapes at all is that `openclaw plugins inspect <id>` then tells you exactly what each plugin contributes) useful when you are debugging why something isn't showing up in the assistant.
 
 ## Manifest Example
 
@@ -289,7 +289,7 @@ The plugin system is the input side: it determines what is plugged in. The agent
 
 ## Agent Loop and Hooks
 
-The agent loop - the "real run" of an agent - turns a message into actions and a final reply. OpenClaw has two hook systems that extensions use to intercept it. Hooks are functions a plugin registers against named events. When the event fires (a tool is about to run, the system prompt is about to be built, a message is about to be sent), every registered hook gets a chance to inspect or change what is happening. For you, hooks are the seam that lets you inject custom behavior - safety policies, audit logging, prompt overrides - without forking the core code.
+The agent loop (the "real run" of an agent) turns a message into actions and a final reply. OpenClaw has two hook systems that extensions use to intercept it. Hooks are functions a plugin registers against named events. When the event fires (a tool is about to run, the system prompt is about to be built, a message is about to be sent), every registered hook gets a chance to inspect or change what is happening. For you, hooks are the seam that lets you inject custom behavior (safety policies, audit logging, prompt overrides) without forking the core code.
 
 Internal hooks (Gateway hooks) are event-driven scripts:
  - `agent:bootstrap` - runs while building bootstrap files before the system prompt is finalized
@@ -451,7 +451,7 @@ Multiple backends ship in extensions:
  - `active-memory` - short-term memory
  - `memory-host-sdk` in `src/memory-host-sdk/` - the host-side SDK
 
-The system has a "dreaming" capability - a background process that consolidates and organizes memories - and a QMD (Query-Match-Decide) engine that handles semantic memory retrieval. In practice, that means the assistant can clean up its own notes overnight and recall things by meaning, not just by keyword, when you ask it something later.
+The system has a "dreaming" capability (a background process that consolidates and organizes memories) and a QMD (Query-Match-Decide) engine that handles semantic memory retrieval. In practice, that means the assistant can clean up its own notes overnight and recall things by meaning, not just by keyword, when you ask it something later.
 
 The Gateway, plugins, and memory cover the server side. The next group of pieces is the client side - the apps you look at.
 

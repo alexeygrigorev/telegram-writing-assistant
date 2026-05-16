@@ -14,11 +14,11 @@ An article about benchmarking SQLiteSearch came from Friday. One of the comments
 
 I had benchmarks for minsearch - it showed fairly good results. I had taken the English Simple Wikipedia dataset with 250,000 documents. Minsearch handled about half of that normally, but it was already slow, and on Amazon it ran out of memory[^1].
 
-I decided to take the same dataset and test SQLiteSearch. Claude found some issues and fixed them, and now it works. On 250,000 documents it works slowly, so I decided that instead of debugging for such large volumes - the library was not designed for this - I would say that up to 100,000 is fine. After 100,000, benchmarks show degradation. This is not the recommended amount of data for this technology - use something else for larger volumes[^1].
+I decided to take the same dataset and test SQLiteSearch. Claude found some issues and fixed them, and now it works. On 250,000 documents it works slowly, so I decided that instead of debugging for such large volumes (the library was not designed for this) I would say that up to 100,000 is fine. After 100,000, benchmarks show degradation. This is not the recommended amount of data for this technology - use something else for larger volumes[^1].
 
 ## Vector Search Benchmarks
 
-For vector search, I looked around and found that Milvus (Zilliz) had benchmarks - two benchmarks, one on 1 million vectors and another on 10 million vectors, plus ground truth labels for what should be returned. They prepared this benchmark and tested it on their vector database and on other databases. Naturally their database showed the best results - otherwise why publish the article[^1].
+For vector search, I looked around and found that Milvus (Zilliz) had benchmarks (two benchmarks, one on 1 million vectors and another on 10 million vectors, plus ground truth labels for what should be returned. They prepared this benchmark and tested it on their vector database and on other databases. Naturally their database showed the best results) otherwise why publish the article[^1].
 
 I took their ready-made benchmark and tested it on SQLiteSearch. On 1 million vectors it worked slowly and recall was mediocre. On 100,000 it was decent. I gave Claude the task to tune it - I do not know what it will or will not do, but at least in terms of performance it behaves fine. On smaller volumes like up to 100,000 it shows itself quite well[^1].
 
@@ -52,7 +52,7 @@ Claude did most of the work. Two additional implementations appeared. The curren
 
 <figure>
   <img src="../../assets/images/benchmarking-sqlitesearch/vdbbench-comparison-table.jpg" alt="Benchmark comparison table showing sqlitesearch performance against cloud vector databases">
-  <figcaption>VDBBench comparison - sqlitesearch vs cloud vector databases on Cohere-1M dataset. VDBBench numbers are multi-process concurrent QPS on dedicated cloud hardware ($1,000/month). sqlitesearch is serial single-process in pure Python - recall and per-query latency are more meaningful for comparison.</figcaption>
+  <figcaption>VDBBench comparison (sqlitesearch vs cloud vector databases on Cohere-1M dataset. VDBBench numbers are multi-process concurrent QPS on dedicated cloud hardware ($1,000/month). sqlitesearch is serial single-process in pure Python) recall and per-query latency are more meaningful for comparison.</figcaption>
   <!-- Benchmark comparison screenshot showing sqlitesearch HNSW, IVF, and LSH results alongside ZillizCloud, Milvus, OpenSearch, ElasticCloud, QdrantCloud, and Pinecone -->
 </figure>
 
@@ -62,7 +62,7 @@ If anyone asks about benchmarks, they are all available now[^5].
 
 SQLiteSearch version 0.0.3 was just released to PyPI[^6].
 
-Despite the benchmarks showing reasonably good results on one million vectors, the recommendation is to not use it at that scale. The code is completely vibe-coded - written entirely by Claude, without personal involvement in the implementation. The million-vector benchmark was done just for fun, out of curiosity - first to see what the code is capable of, and second because it was interesting to add the new functionality[^6].
+Despite the benchmarks showing reasonably good results on one million vectors, the recommendation is to not use it at that scale. The code is completely vibe-coded (written entirely by Claude, without personal involvement in the implementation. The million-vector benchmark was done just for fun, out of curiosity) first to see what the code is capable of, and second because it was interesting to add the new functionality[^6].
 
 The recommendation is to use it for datasets up to 100,000 items, maybe even fewer. If you have more data, you should use other databases that are more production-ready. This is for pet projects and student projects, not production solutions. If you have a million data points, choose something else[^6].
 

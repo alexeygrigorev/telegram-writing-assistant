@@ -54,7 +54,7 @@ Key points from the post:
 
 Gap 1: Python with real-world context
 
-Most beginners learn Python in isolation - lists, loops, functions, dictionaries - but never build anything meaningful.
+Most beginners learn Python in isolation (lists, loops, functions, dictionaries) but never build anything meaningful.
 
 The fastest way to learn Python is building small, complete tools:
 - A personal finance dashboard

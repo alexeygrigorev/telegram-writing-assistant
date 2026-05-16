@@ -33,7 +33,7 @@ Both projects are single-operator tools. Neither is built for teams. Both aim to
 
 ## OpenClaw Overview
 
-OpenClaw is a TypeScript/Node.js assistant organized around a single long-lived Gateway daemon bound to `127.0.0.1:18789` by default. The Gateway owns all messaging connections, client WebSockets, the plugin registry, and the agent loop. Everything else - CLI, macOS menu bar app, iOS node, WebChat, channel plugins, provider plugins - plugs into the Gateway.
+OpenClaw is a TypeScript/Node.js assistant organized around a single long-lived Gateway daemon bound to `127.0.0.1:18789` by default. The Gateway owns all messaging connections, client WebSockets, the plugin registry, and the agent loop. Everything else (CLI, macOS menu bar app, iOS node, WebChat, channel plugins, provider plugins) plugs into the Gateway.
 
 The plugin system is manifest-first. Each plugin ships an `openclaw.plugin.json` that declares what it provides (channels, LLM providers, capabilities, tools, hooks) without loading any runtime code. Core reads the manifest, decides what to activate, and only then calls the plugin's register API. The architecture boundary is enforced in CI: core code cannot import from extension source, and no hardcoded provider/channel lists are allowed in core.
 
@@ -256,7 +256,7 @@ The first axis is what sits at the architectural center: a long-lived control pl
 
 OpenClaw's design centers on the control plane. The Gateway daemon owns the WebSocket protocol, the plugin registry, the routing engine, and the hook system. The agent turn is one consumer of that infrastructure, not the center. This is why so much of the OpenClaw codebase and docs is about the Gateway, pairing, sessions, and plugin manifests.
 
-Hermes Agent's design centers on the conversation loop. `AIAgent.run_conversation()` in one large file is the product. Everything else - the gateway, the cron scheduler, the batch runner, the API server - is a different way to call that function. The infrastructure is thin. The loop carries the weight.
+Hermes Agent's design centers on the conversation loop. `AIAgent.run_conversation()` in one large file is the product. Everything else (the gateway, the cron scheduler, the batch runner, the API server) is a different way to call that function. The infrastructure is thin. The loop carries the weight.
 
 For you as a contributor or operator, this difference shows up everywhere. With OpenClaw you work through a defined extension surface (manifests, hooks, plugin APIs) and the boundaries are enforced in CI. With Hermes you edit the loop directly or drop a new tool file in, and you own more of the correctness work yourself. OpenClaw tests prompt-cache stability as a core invariant. Hermes relies on a frozen-snapshot pattern inside the loop to keep the prefix stable.
 
@@ -274,7 +274,7 @@ For you, the tradeoff is concrete. With OpenClaw you pay more ceremony up front 
 
 The third axis is how far partial model output is allowed to travel. Both systems stream tokens from the LLM provider. The question is whether those partial tokens are forwarded to an external messaging platform (Telegram, WhatsApp, Slack) or kept inside the system until a full reply is ready.
 
-OpenClaw keeps streaming inside. Partial tokens go to first-party clients - the CLI, the macOS app, the WebChat UI - but external messaging channels only receive the final reply. If you chat with the assistant from Telegram, you see one committed message appear. If you chat from the macOS app, you see tokens stream in live. The stated reasons are UX (no flickering partial replies being edited in-place on Telegram) and security (no in-progress reasoning leaking to third-party platforms).
+OpenClaw keeps streaming inside. Partial tokens go to first-party clients (the CLI, the macOS app, the WebChat UI) but external messaging channels only receive the final reply. If you chat with the assistant from Telegram, you see one committed message appear. If you chat from the macOS app, you see tokens stream in live. The stated reasons are UX (no flickering partial replies being edited in-place on Telegram) and security (no in-progress reasoning leaking to third-party platforms).
 
 Hermes streams outside. Partial text flows back through the gateway to whatever platform you are on, and the Telegram message updates as tokens arrive. This matches what most chat-first LLM products do and what most users now expect.
 
@@ -292,9 +292,9 @@ For you, the difference is whether "my work assistant" and "my personal assistan
 
 ## Frozen Identity vs Mutable Identity
 
-The fifth axis is about identity files - SOUL.md, MEMORY.md, USER.md and similar - and when edits to them take effect. These are not established industry terms. In this article "frozen identity" means the contents of the identity files are loaded once at session start and cannot change the system prompt until the next session, while "mutable identity" means those files can be re-read and the system prompt rebuilt mid-session. Both projects carry identity across sessions through these files. They disagree on when edits start to count.
+The fifth axis is about identity files (SOUL.md, MEMORY.md, USER.md and similar) and when edits to them take effect. These are not established industry terms. In this article "frozen identity" means the contents of the identity files are loaded once at session start and cannot change the system prompt until the next session, while "mutable identity" means those files can be re-read and the system prompt rebuilt mid-session. Both projects carry identity across sessions through these files. They disagree on when edits start to count.
 
-Hermes takes the frozen-identity route explicitly. SOUL.md, MEMORY.md, and USER.md are loaded at session start and locked for the duration of the session. Edits made during the session - by you or by the agent itself - go to disk but do not re-enter the system prompt until the next session. The motivation is prefix-cache reuse: LLM providers charge less and respond faster when the prompt prefix is byte-identical across turns, and shifting memory mid-session invalidates that cache.
+Hermes takes the frozen-identity route explicitly. SOUL.md, MEMORY.md, and USER.md are loaded at session start and locked for the duration of the session. Edits made during the session (by you or by the agent itself) go to disk but do not re-enter the system prompt until the next session. The motivation is prefix-cache reuse: LLM providers charge less and respond faster when the prompt prefix is byte-identical across turns, and shifting memory mid-session invalidates that cache.
 
 OpenClaw takes the mutable-identity route. Hooks like `before_prompt_build` can inject or mutate context mid-session. OpenClaw does not structurally forbid prompt-prefix mutation. It instead treats prefix stability as a property to test for, with regression tests that fail if a turn-to-turn change breaks byte-identical prefixes.
 
@@ -304,7 +304,7 @@ For you, the tradeoff is: with Hermes, if you edit your memory mid-session you w
 
 The sixth axis is what the assistant is for from the perspective of its maintainers. "Agent as product" means the assistant is shipped to end users as the final deliverable. "Training pipeline as agent" means the assistant is also a data collection system that feeds trajectories (full records of agent turns, tool calls, and outcomes) back into training runs for a future model.
 
-Hermes is both at once. It ships `rl_training_tool.py` as an in-agent tool, so the agent can launch training jobs against its own trajectories. `batch_runner.py` collects trajectories at scale. The tinker-atropos submodule wires into Nous Research's RL infrastructure. Your sessions can - if you opt in - contribute to training Nous Research's next model.
+Hermes is both at once. It ships `rl_training_tool.py` as an in-agent tool, so the agent can launch training jobs against its own trajectories. `batch_runner.py` collects trajectories at scale. The tinker-atropos submodule wires into Nous Research's RL infrastructure. Your sessions can (if you opt in) contribute to training Nous Research's next model.
 
 OpenClaw is agent-as-product only. There are no training hooks, no trajectory exporter, no RL tool. Session transcripts stay local and exist for memory and debugging, not for fine-tuning.
 
@@ -345,7 +345,7 @@ OpenClaw is built around the infrastructure a personal assistant needs to stay r
 
 Hermes Agent is built around the shape of a single agent turn, with the goal of a self-improving assistant that grows with you. Its design centers on one conversation loop that every entry point funnels into, frozen-snapshot identity for cache stability, auto-created skills that accumulate over time, auxiliary models for side tasks, and a training pipeline wired in. If you want an agent that gets better the more you use it and that treats the conversation loop as the thing worth getting right, Hermes lines up with that.
 
-Historically, Hermes inherited patterns from OpenClaw - SOUL.md, JSONL sessions, the agent-loop structure - and pushed further on the self-improvement and model-agnosticism axes. OpenClaw kept pushing on the control-plane and multi-agent axes. Neither project is strictly better. They optimize for different things.
+Historically, Hermes inherited patterns from OpenClaw (SOUL.md, JSONL sessions, the agent-loop structure) and pushed further on the self-improvement and model-agnosticism axes. OpenClaw kept pushing on the control-plane and multi-agent axes. Neither project is strictly better. They optimize for different things.
 
 If you are building a Telegram writing assistant of your own, these are the concrete patterns worth borrowing from each:
 

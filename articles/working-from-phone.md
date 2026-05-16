@@ -14,7 +14,7 @@ On top of the conferences, I've been travelling with my child a lot. We went awa
 
 My day-to-day schedule is uneven on its own. I take my child to school in the morning, I go to the gym, I have lunch meetings, I pick the child up at 4 PM. Between all those slots I have lots of commute time, plus the rest periods between sets in the gym - every set leaves me with a free minute or two.[^17][^29]
 
-I want to use all of that in-between time, because I have too many projects on the go - the AI Shipping Labs site alone takes a lot of work - and I want them to progress.[^17]
+I want to use all of that in-between time, because I have too many projects on the go (the AI Shipping Labs site alone takes a lot of work) and I want them to progress.[^17]
 
 This article is about how I work from the phone during all of this spare time: trams, school runs, gym rest periods, planes.[^1][^17]
 
@@ -77,7 +77,7 @@ If an agent does something destructive, the radius is limited to this one machin
 
 ## Portable setup via dotfiles
 
-The aliases and configs don't live on a single machine - they come from my dotfiles project at [github.com/alexeygrigorev/.claude](https://github.com/alexeygrigorev/.claude). I install that project on a machine and it sets up all my aliases automatically. The same dotfiles run on my laptop, my tablet, and my remote server, so the configuration is identical everywhere - all managed through Git.
+The aliases and configs don't live on a single machine (they come from my dotfiles project at [github.com/alexeygrigorev/.claude](https://github.com/alexeygrigorev/.claude). I install that project on a machine and it sets up all my aliases automatically. The same dotfiles run on my laptop, my tablet, and my remote server, so the configuration is identical everywhere) all managed through Git.
 
 If I ever move to a different machine, one command brings back all my settings for Claude Code, Codex, and OpenCode. That same setup is also what I rely on when restoring the remote server from scratch.[^11][^29]
 
@@ -113,7 +113,7 @@ A big advantage of Recorder is that it keeps recording when it's in the backgrou
 
 Once a recording is transcribed, I can hand it to my orchestrator agent. The orchestrator takes the recording, decomposes it into GitHub issues, and starts working on them.[^16]
 
-This is especially useful when I want to give feedback in the background. I open the AI Shipping Labs site on my phone, start using it, and as I find issues - "I don't like this", "this doesn't work", "this should be different" - I record them as I go. I end up with a 20-30 minute file. I send that file to the agent on the phone, and the agent transcribes it, decomposes it into issues, and starts work.[^16]
+This is especially useful when I want to give feedback in the background. I open the AI Shipping Labs site on my phone, start using it, and as I find issues ("I don't like this", "this doesn't work", "this should be different") I record them as I go. I end up with a 20-30 minute file. I send that file to the agent on the phone, and the agent transcribes it, decomposes it into issues, and starts work.[^16]
 
 The same approach works on a plane. On a plane I obviously can't SSH anywhere. So I run a local version on my own laptop, then take the phone and record feedback into Google Recorder. Recorder works offline. When I leave the plane and turn off airplane mode, I push the recordings to the agent and it does the work from there.[^18]
 
@@ -190,7 +190,7 @@ The same flow works for plans and stories: I open the phone, get a stream of tho
 
 ## Time accounting for this article
 
-The 40 minutes I usually quote for an article like this is the first draft - the brain dump - not the total. That part happens in the in-between time itself. Right now I'm at the gym: I've done my warm-up, I've got a few working sets ahead of me, and between sets I have about two minutes of rest each time. I press pause on Google Recorder, do a working set, come back, and pick up where I left off. I got on the tram earlier, talked into Telegram while riding, took screenshots along the way, then switched to the metro. The brain dump itself was around 40 minutes.[^28][^29]
+The 40 minutes I usually quote for an article like this is the first draft (the brain dump) not the total. That part happens in the in-between time itself. Right now I'm at the gym: I've done my warm-up, I've got a few working sets ahead of me, and between sets I have about two minutes of rest each time. I press pause on Google Recorder, do a working set, come back, and pick up where I left off. I got on the tram earlier, talked into Telegram while riding, took screenshots along the way, then switched to the metro. The brain dump itself was around 40 minutes.[^28][^29]
 
 After that comes the polishing pass, because the agent doesn't get everything right on the first try. The polishing flow is: I open Google Recorder, open the article in parallel, and read through it while recording voice feedback on what needs to change. When I'm done I send that recording to the Telegram writing assistant, and it folds all that feedback into the article. After that there's another style-polish pass by the agent, and finally the human editing pass.[^29]
 

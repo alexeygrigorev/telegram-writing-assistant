@@ -85,7 +85,7 @@ uv run python -m src.cli "DOC_URL" --text
 
 ## The Suggestion Mode Problem
 
-The tool works well with the Google Docs API - several tests have been done and it works. But there is a problem: it overwrites text instead of making suggestions[^6]. The Google Docs API does not support suggestion mode. There is a [question on Stack Overflow](https://stackoverflow.com/questions/60775916/google-docs-api-edit-text-as-suggestion) about this that is already 5 years old, and nothing has changed since then - the suggestion capability never appeared in the API[^6][^7].
+The tool works well with the Google Docs API (several tests have been done and it works. But there is a problem: it overwrites text instead of making suggestions[^6]. The Google Docs API does not support suggestion mode. There is a [question on Stack Overflow](https://stackoverflow.com/questions/60775916/google-docs-api-edit-text-as-suggestion) about this that is already 5 years old, and nothing has changed since then) the suggestion capability never appeared in the API[^6][^7].
 
 The current workaround is to have the agent apply changes as comments instead of suggestions. It remains to be seen which approach is more convenient - comments or just overwriting directly[^6].
 

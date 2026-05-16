@@ -48,7 +48,7 @@ Started the May sprint. Met with members and discussed everyone's goals. Valerii
 
 Finally migrated the DataTalks.Club site to Rustkill (spelled R-U-S-T-K-Y-L-L) - same shape as Jekyll, but Rustkill. The build is now much faster[^35].
 
-The build itself went from 22 seconds down to 1 second - about a 20x speedup. Before the migration, the build took around 2 minutes locally and about 22 seconds in GitHub Actions (CI was already faster than local). After Rustkill, the build itself is roughly 1 second. In GitHub Actions, though, the end-to-end workflow only got about 1.5-2x faster overall - there is a lot of overhead around the actual build (container setup and the rest of the CI prep before and after), so most of the 20x build win is hidden by everything that happens around it. Still a real improvement, and locally the build is now fast[^36].
+The build itself went from 22 seconds down to 1 second (about a 20x speedup. Before the migration, the build took around 2 minutes locally and about 22 seconds in GitHub Actions (CI was already faster than local). After Rustkill, the build itself is roughly 1 second. In GitHub Actions, though, the end-to-end workflow only got about 1.5-2x faster overall) there is a lot of overhead around the actual build (container setup and the rest of the CI prep before and after), so most of the 20x build win is hidden by everything that happens around it. Still a real improvement, and locally the build is now fast[^36].
 
 ## DataTalks.Club Course Management Platform - UI Redesign with Codex
 
@@ -68,7 +68,7 @@ Taking advantage of Codex's 2x limits while they last, so running things in para
 
 Ran the first workshop at AI Shipping Labs about Telepot and agents. Took an existing Telepot agent, built a frontend for it, and together with attendees packaged it in a Docker container and deployed it on Render[^32].
 
-The workshop was a bit freestyle. Prepared a little in advance but most of it was improvised. Experimenting with a new workshop format where more of the content is freestyle. It ran about two hours - longer than usual - and covered things that are not normally part of workshops, like how projects get started, how the computer is set up, and similar context[^32].
+The workshop was a bit freestyle. Prepared a little in advance but most of it was improvised. Experimenting with a new workshop format where more of the content is freestyle. It ran about two hours (longer than usual) and covered things that are not normally part of workshops, like how projects get started, how the computer is set up, and similar context[^32].
 
 The workshop went well and people liked it. Want to do more workshops in this format based on the feedback from AI Shipping Labs members. Currently turning the workshop into a written document that people can read. The recording is already available, but only to community members[^32].
 
@@ -114,7 +114,7 @@ Merged the "build your own coding agent" workshop and the workshop about how ski
 
 ## Trying Codex as Claude Code Alternative
 
-Hit Claude Code session limits on a simple file-splitting task - usage jumped from 80% to 100% instantly. Many people reporting the same issue. Started using OpenAI Codex as an alternative. The agent workflow works but requires more babysitting - no task widget, no auto-continue when subagents finish. Limits on Codex feel much more generous. See [Trying OpenAI Codex as a Claude Code Alternative](codex-experiments.md) for details[^22][^23][^24].
+Hit Claude Code session limits on a simple file-splitting task (usage jumped from 80% to 100% instantly. Many people reporting the same issue. Started using OpenAI Codex as an alternative. The agent workflow works but requires more babysitting) no task widget, no auto-continue when subagents finish. Limits on Codex feel much more generous. See [Trying OpenAI Codex as a Claude Code Alternative](codex-experiments.md) for details[^22][^23][^24].
 
 ## Snowflake Workshop on Agent Evaluations
 
@@ -213,11 +213,11 @@ Used Claude Code instead of doing it manually to avoid missing things and becaus
 
 Based on this list, came up with a project - the course will use a project-based approach (same methodology as all the Zoomcamps). The project is a podcast aggregator, covering everything from Python basics to advanced topics like database interaction, multithreading, and async. Async is included because AI Engineering Buildcamp uses Pydantic AI which is async-based.
 
-The curriculum is not fully finalized yet - no time right now because of Buildcamp. Doing this as background work - switching to it between recording sessions, brainstorming in ChatGPT during breaks. The course name will be "Python for AI Engineering" (tentative). The goal: after completing this course, students can take any Zoomcamp and the AI Engineering course with the right Python foundation. See [Python Primer Course Idea](ideas/python-primer-course-idea.md) for the full concept[^18].
+The curriculum is not fully finalized yet (no time right now because of Buildcamp. Doing this as background work) switching to it between recording sessions, brainstorming in ChatGPT during breaks. The course name will be "Python for AI Engineering" (tentative). The goal: after completing this course, students can take any Zoomcamp and the AI Engineering course with the right Python foundation. See [Python Primer Course Idea](ideas/python-primer-course-idea.md) for the full concept[^18].
 
 ## Exasol In-Person Meetup Preparation
 
-Preparing for an in-person meetup on Tuesday about Exasol. Found a large dataset - NHS Prescription Data with over 1 million records - about prescriptions issued to people in the UK.
+Preparing for an in-person meetup on Tuesday about Exasol. Found a large dataset (NHS Prescription Data with over 1 million records) about prescriptions issued to people in the UK.
 
 Plan to demonstrate: how to collect and ingest this data, set up a staging environment, build a ready-to-use data warehouse for analytics, create a Grafana dashboard for analytics, and orchestrate everything with Kestra. Working with someone from Exasol on this.
 

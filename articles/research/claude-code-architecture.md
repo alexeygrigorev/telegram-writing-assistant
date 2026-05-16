@@ -244,7 +244,7 @@ They are applied in order of severity:
 
 The reactive compact path (`reactiveCompact.ts`) deserves attention. When the API returns a `prompt_too_long` error mid-stream, the query loop withholds that error from the user, triggers emergency compaction, and retries the request transparently. If recovery succeeds, the user never sees the failure. The flag `hasAttemptedReactiveCompact` in `State` ensures this is a single attempt per turn.
 
-The `compact.ts` file itself is 1,705 lines - one of the largest files in the codebase - because compaction has to handle many edge cases: boundary messages, tool-use/tool-result pairs that must stay together, memory blocks from autoDream, and user-visible message selection.
+The `compact.ts` file itself is 1,705 lines (one of the largest files in the codebase) because compaction has to handle many edge cases: boundary messages, tool-use/tool-result pairs that must stay together, memory blocks from autoDream, and user-visible message selection.
 
 ## Permission System
 

@@ -10,7 +10,7 @@ status: draft
 
 I decided to build the AI Shipping Labs community platform using Claude Code with a multi-agent orchestrator pattern. This article documents the experiment - from requirements to a system of agents that worked autonomously through the night.
 
-I broke one of the entrepreneur commandments here - "don't build before you validate." But I had unused Claude Pro Max tokens, and I wanted to practice this skill. If I can do brain dumps, have agents decompose them into tasks, and then execute autonomously - that is valuable. Even if the idea doesn't work out and half of what the agent builds needs to be thrown away, the experience of setting this up is worth it. Ideally you would validate with real users first, run user interviews, and then build. But vibe coding is fun, and I understand the consequences[^10].
+I broke one of the entrepreneur commandments here ("don't build before you validate." But I had unused Claude Pro Max tokens, and I wanted to practice this skill. If I can do brain dumps, have agents decompose them into tasks, and then execute autonomously) that is valuable. Even if the idea doesn't work out and half of what the agent builds needs to be thrown away, the experience of setting this up is worth it. Ideally you would validate with real users first, run user interviews, and then build. But vibe coding is fun, and I understand the consequences[^10].
 
 This is an experiment. I have no high expectations that everything will work perfectly on the first try. But it is interesting to see what happens[^13].
 
@@ -18,7 +18,7 @@ This is an experiment. I have no high expectations that everything will work per
 
 We were choosing a platform for the community. The initial idea was to use Substack for subscriptions (three plans - monthly and annual) with all paid content behind a paywall, and a separate static site (like DataTalks.Club) linking to Substack. But Substack turned out not to support the tier plans we wanted[^1].
 
-We started looking at other platforms. We wanted a Merchant of Record so we would not have to collect VAT ourselves - something like what Maven does. We found Ghost. Ghost seemed to fit what we needed. But as we started building a wishlist, Ghost did not fully match. For simple content behind a paywall - articles - Ghost works perfectly. For anything more complex, it falls short[^1].
+We started looking at other platforms. We wanted a Merchant of Record so we would not have to collect VAT ourselves (something like what Maven does. We found Ghost. Ghost seemed to fit what we needed. But as we started building a wishlist, Ghost did not fully match. For simple content behind a paywall) articles - Ghost works perfectly. For anything more complex, it falls short[^1].
 
 ## Gathering Requirements
 
@@ -40,7 +40,7 @@ I took that list and told Claude to turn it into a specification - a spec for wh
 
 I had wanted to try storing task decomposition somewhere. I saw demos where people use Linear, Jira, or other tracking systems. I thought - let us try GitHub Projects. It has milestones, a kanban board. I told the agent to create tasks there[^4].
 
-The result was not great. Milestones were unclear. Tasks were too granular - "add this class, add that class" - just a pile of them. But I had not given clear instructions. I just said "here are the specs, decompose into tasks and put them in GitHub Projects." The agent did it its own way. That is not how programmers work - programmers get bigger tasks like "integrate Slack," "integrate Zoom." Full, self-contained tasks[^4].
+The result was not great. Milestones were unclear. Tasks were too granular ("add this class, add that class") just a pile of them. But I had not given clear instructions. I just said "here are the specs, decompose into tasks and put them in GitHub Projects." The agent did it its own way. That is not how programmers work - programmers get bigger tasks like "integrate Slack," "integrate Zoom." Full, self-contained tasks[^4].
 
 Plus the tasks had no acceptance criteria, no clear format[^4].
 
@@ -72,7 +72,7 @@ Two observations led to this:
 
 1. If I already have a session with some dialog and start working on something new, it is better to start fresh (reset). The accumulated context can hurt.
 
-2. The agent tests its own code poorly. Like with programmers and testers - a programmer writes something and is convinced their code works. You often need testers who bring an outside perspective. I noticed the same with agents - the code it implemented in this session, it remembers what it did, so it has a biased view[^6].
+2. The agent tests its own code poorly. Like with programmers and testers (a programmer writes something and is convinced their code works. You often need testers who bring an outside perspective. I noticed the same with agents) the code it implemented in this session, it remembers what it did, so it has a biased view[^6].
 
 ## The Architecture
 

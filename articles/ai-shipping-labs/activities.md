@@ -44,7 +44,7 @@ The goal is to have a proper platform where people can see materials, have a cal
 
 ## Office Hours tied to LLM Zoomcamp
 
-LLM Zoomcamp starts soon, and both people I talked to on Friday want to take it. The idea: do something inside AI Shipping Labs similar to what I did on Maven - office hours and so on - but only for AI Shipping Labs members[^95].
+LLM Zoomcamp starts soon, and both people I talked to on Friday want to take it. The idea: do something inside AI Shipping Labs similar to what I did on Maven (office hours and so on) but only for AI Shipping Labs members[^95].
 
 When LLM Zoomcamp starts, the framing would be: "There's a new community focused on AI, and our course is about AI. If you want to support me and support this course, you can join the community. If it's not for you, the course stays free, but if you want to support us, join the community"[^95].
 
@@ -52,17 +52,17 @@ By that time the Maven course should be finishing or close to finishing, so the 
 
 ## Group course study in autumn
 
-In the autumn we can find another course - not necessarily my own, maybe an open course from somewhere - and announce that we're going through it together. There are a lot of different courses I would also find interesting, and we can just go through them together[^96].
+In the autumn we can find another course (not necessarily my own, maybe an open course from somewhere) and announce that we're going through it together. There are a lot of different courses I would also find interesting, and we can just go through them together[^96].
 
 ## Accountability and Mentoring
 
 ## The mentoring demand
 
-People often ask me if I can mentor them. I usually say no, but suggest they use the community as a mentor - ask questions in the right channels at DataTalks Club and we can help with plans and implementation. Usually people do not do this. They want something more personal - someone to guide them by hand and watch what they are doing[^68].
+People often ask me if I can mentor them. I usually say no, but suggest they use the community as a mentor (ask questions in the right channels at DataTalks Club and we can help with plans and implementation. Usually people do not do this. They want something more personal) someone to guide them by hand and watch what they are doing[^68].
 
 ## Accountability circles
 
-I thought about how to address this within the new paid community. The idea came while riding a tram: create accountability groups or accountability circles. These are groups where people have their own tasks and plans - everyone has different goals - but they meet together regularly[^68].
+I thought about how to address this within the new paid community. The idea came while riding a tram: create accountability groups or accountability circles. These are groups where people have their own tasks and plans (everyone has different goals) but they meet together regularly[^68].
 
 This is similar to mastermind groups where people are roughly at the same level but have slightly different problems. Together they are better than each person individually - they complement each other and the collective level ends up one or two notches higher than any individual[^68].
 
@@ -76,7 +76,7 @@ What happens in these groups: people share progress, talk about blockers, and ge
 
 The same mechanism that makes mentoring effective applies here. A person knows a session is coming in two days, realizes they have done nothing, and sits down to make progress. With group calls, the same effect kicks in - they know the meeting is coming, so they sit down and do the work to have something to show, a demo or progress to discuss[^68].
 
-Scrum masters are usually not technical people. The real help comes from everyone in the team - "you could do this, you could try that." This is essentially group mentoring. The right term is mastermind groups - people at roughly the same level but with slightly different problems who complement each other[^68].
+Scrum masters are usually not technical people. The real help comes from everyone in the team ("you could do this, you could try that." This is essentially group mentoring. The right term is mastermind groups) people at roughly the same level but with slightly different problems who complement each other[^68].
 
 ## Redirecting mentoring requests
 

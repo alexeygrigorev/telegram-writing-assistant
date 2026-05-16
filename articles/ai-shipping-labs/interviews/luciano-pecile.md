@@ -12,7 +12,7 @@ status: draft
 
 ## Persona
 
-Priya - the Improver. Luciano is asking about reliable copilots, evaluation frameworks, production patterns, and integration into existing products - the exact gap Priya has: moving from demos to reliable, production-grade systems.
+Priya (the Improver. Luciano is asking about reliable copilots, evaluation frameworks, production patterns, and integration into existing products) the exact gap Priya has: moving from demos to reliable, production-grade systems.
 
 See [personas.md](../personas.md) for full persona definitions.
 

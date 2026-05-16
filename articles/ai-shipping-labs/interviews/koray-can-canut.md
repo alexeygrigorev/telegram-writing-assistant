@@ -20,7 +20,7 @@ See [personas.md](../personas.md) for full persona definitions.
 
 ## Initial project status and community structure
 
-Koray currently has a project idea, which came from a suggestion from his wife. He considers it similar to the "easy" level projects listed on the community's website, such as taking a picture and analyzing it. He asked how the community guides members - whether it is structured like a course - and asked about availability of materials such as text, video, and code repositories[^1].
+Koray currently has a project idea, which came from a suggestion from his wife. He considers it similar to the "easy" level projects listed on the community's website, such as taking a picture and analyzing it. He asked how the community guides members (whether it is structured like a course) and asked about availability of materials such as text, video, and code repositories[^1].
 
 Valeriia noted that finding a project idea is often a struggle for new members and confirmed that Koray's existing idea is a cool starting point[^1].
 
@@ -50,7 +50,7 @@ Valeriia explained that Alexey's previous AI workshops, including the LLM Zoomca
 
 Koray asked how community interaction is planned to be more rigorous compared to free courses like the Data Engineering Zoomcamp[^1].
 
-Valeriia answered that, unlike the free courses where interactions can become messy, AI Shipping Labs allows Alexey to dedicate more attention through regular office hours - for example once a week - to answer questions and provide more personal feedback[^1].
+Valeriia answered that, unlike the free courses where interactions can become messy, AI Shipping Labs allows Alexey to dedicate more attention through regular office hours (for example once a week) to answer questions and provide more personal feedback[^1].
 
 Koray suggested that running office hours in small groups (e.g. one expert to five people working on similar topics) would be efficient for the expert and beneficial for the participants[^1].
 

@@ -95,7 +95,7 @@ Week 6:
 
 ## Persona
 
-Alex - The Engineer Transitioning to AI. He already has the engineering skills (software engineering background, currently deploys ML models to production, works with databases). The transition here is into using AI assistants to build end-to-end products as a full-stack developer, not into AI engineering itself - his stated focus is AI-assisted software development rather than building AI-native products[^2].
+Alex (The Engineer Transitioning to AI. He already has the engineering skills (software engineering background, currently deploys ML models to production, works with databases). The transition here is into using AI assistants to build end-to-end products as a full-stack developer, not into AI engineering itself) his stated focus is AI-assisted software development rather than building AI-native products[^2].
 
 ## Background
 
@@ -123,7 +123,7 @@ Alexey's recommendation after reviewing Motasem's input[^4]:
 
 6. He should pick one project, not two. Six weeks should be enough to get a first working version. The rest of the project can stretch beyond that.
 
-7. Framework choice is secondary. React rather than Next.js is fine - Alexey himself does not know Next.js well and is not a JavaScript expert, so he would default to React. The general approach is to ask the agent to list the criteria it would use to choose a stack, justify why those criteria matter for this project, then pick. ChatGPT is enough for that conversation. No need to spend coding-agent budget on it. For his own projects Alexey defaults to Django because he already knows it - the same logic applies here, but the criteria-first conversation can override the default.
+7. Framework choice is secondary. React rather than Next.js is fine (Alexey himself does not know Next.js well and is not a JavaScript expert, so he would default to React. The general approach is to ask the agent to list the criteria it would use to choose a stack, justify why those criteria matter for this project, then pick. ChatGPT is enough for that conversation. No need to spend coding-agent budget on it. For his own projects Alexey defaults to Django because he already knows it) the same logic applies here, but the criteria-first conversation can override the default.
 
 8. He can read along and ask the coding agents to explain how things work if he wants to understand the system, not just ship it.
 

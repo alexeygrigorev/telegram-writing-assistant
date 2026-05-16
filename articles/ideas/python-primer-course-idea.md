@@ -122,7 +122,7 @@ All of this is built on top of the content from AI Engineering Buildcamp[^20].
 
 ## Current Status (March 2026)
 
-The curriculum is not fully finalized yet - no time right now because of working on Buildcamp. Doing this as background work - switching to it between recording sessions, brainstorming in ChatGPT during breaks. For example, spending an hour working on Buildcamp content, then switching to another window where the Python course research is happening, checking progress, asking questions. This background approach works well for brainstorming and research phases[^20].
+The curriculum is not fully finalized yet (no time right now because of working on Buildcamp. Doing this as background work) switching to it between recording sessions, brainstorming in ChatGPT during breaks. For example, spending an hour working on Buildcamp content, then switching to another window where the Python course research is happening, checking progress, asking questions. This background approach works well for brainstorming and research phases[^20].
 
 ## Sources
 

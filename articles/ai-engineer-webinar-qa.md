@@ -22,7 +22,7 @@ Question: Have you seen someone get hired into an AI Engineering role without a 
 
 Yes, I have. Both before, during the ML era, and now. Computer science education is not critical, but it helps. It gives a certain signal that a person knows something. But that does not mean there are no other ways to get the same knowledge[^4].
 
-When I was conducting interviews - I am not doing that now, but when I did - I never looked at education. I absolutely did not care. I only looked at how the person performed during the interview. I do not care what university someone attended. I know that in some countries one university is considered more prestigious than another. I am from a small city, from a small university. I do not care about a person's education. The only signal I look at is how the person performed during the interview. That is it, nothing else[^4].
+When I was conducting interviews (I am not doing that now, but when I did) I never looked at education. I absolutely did not care. I only looked at how the person performed during the interview. I do not care what university someone attended. I know that in some countries one university is considered more prestigious than another. I am from a small city, from a small university. I do not care about a person's education. The only signal I look at is how the person performed during the interview. That is it, nothing else[^4].
 
 ## Expectations for an experienced data scientist
 
@@ -30,7 +30,7 @@ Question: What are the expectations from a 7-8 years experienced data scientist 
 
 There should not be problems with this. Making requests to OpenAI and doing evaluation - data scientists have evaluations as a superpower. Because data scientists have been doing this for 7-8 years if that is all you were doing. I understand that you designed experiments, ran experiments, observed how models behave, and so on[^5].
 
-This is important in AI engineering, but most likely what you are missing - again, my guesses, I do not know the exact expectations - is that you will need to pull up the engineering side. Practically, even if you are at the same level as other AI engineers, thanks to your experience in Data Science you can bring expertise specifically in evaluations[^5].
+This is important in AI engineering, but most likely what you are missing (again, my guesses, I do not know the exact expectations) is that you will need to pull up the engineering side. Practically, even if you are at the same level as other AI engineers, thanks to your experience in Data Science you can bring expertise specifically in evaluations[^5].
 
 The expectations will not be different. If I am conducting an interview, I will not make allowances for the fact that someone was not doing AI engineering before. You need to know everything. But I understand that everyone has strengths and weaker areas. I would focus on: first, highlight that you understand evaluations well, that it is your superpower. And for things where you might be lagging, pull them up to at least the minimum level[^5].
 
@@ -44,7 +44,7 @@ This question was answered during the live webinar[^6].
 
 Question: As a recent MS Data Science graduate, what should I focus on to enter AI engineering, given my experience with RAG and AI-powered document intelligence systems?[^2]
 
-This is my bias, but when I see someone I immediately think - they might know theory, but how are things with practice? I do not know. So I want to see signals that show practice is fine. That you can show some project where you have tests and everything. That is what I want to see. Then yes, for me it will be a signal that you are good with engineering - not just theory, but practice is on par too[^7].
+This is my bias, but when I see someone I immediately think (they might know theory, but how are things with practice? I do not know. So I want to see signals that show practice is fine. That you can show some project where you have tests and everything. That is what I want to see. Then yes, for me it will be a signal that you are good with engineering) not just theory, but practice is on par too[^7].
 
 ## Presenting the decisions file
 

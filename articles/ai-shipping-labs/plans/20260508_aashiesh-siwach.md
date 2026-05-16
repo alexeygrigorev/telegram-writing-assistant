@@ -77,7 +77,7 @@ When picking, score candidates against four criteria and pick the highest total:
 
 Lean toward projects that naturally use multiple LLM tool calls, RAG over a real document set, or an agentic flow with a clear input and output. Avoid topics the course does not cover end to end (training/fine-tuning models, computer vision, self-hosting open-source LLMs, mobile apps).
 
-A climate-related project is a strong default starting point. Aashiesh has already built a climate misinformation RAG pipeline at the University of Exeter and interviewed for a climate-data role in London - that domain knowledge is real and reusable[^3]. There are two community members working in or interested in climate (Diogo Valente Polónia at the European Environment Agency, plus another member - confirm with Valeriia). They are useful contacts for project framing, data sources, and feedback. Reach out via Slack or ask Valeriia for an introduction. Climate is a suggestion, not a constraint - if a different problem scores higher on the four criteria above, pick that.
+A climate-related project is a strong default starting point. Aashiesh has already built a climate misinformation RAG pipeline at the University of Exeter and interviewed for a climate-data role in London (that domain knowledge is real and reusable[^3]. There are two community members working in or interested in climate (Diogo Valente Polónia at the European Environment Agency, plus another member) confirm with Valeriia). They are useful contacts for project framing, data sources, and feedback. Reach out via Slack or ask Valeriia for an introduction. Climate is a suggestion, not a constraint - if a different problem scores higher on the four criteria above, pick that.
 
 ## After this sprint - LLM Zoomcamp
 
@@ -127,7 +127,7 @@ A few principles that apply to whatever project Aashiesh picks:
 
 ## Persona
 
-Alex - The Engineer Transitioning to AI. Aashiesh has machine learning engineering foundations and has already shipped retrieval and reranking pipelines. He is now looking to round those out into production-grade AI engineering work with agentic systems[^1]. This places him squarely in the Alex archetype - an engineer crossing into LLM and agent work from an existing ML/engineering base.
+Alex (The Engineer Transitioning to AI. Aashiesh has machine learning engineering foundations and has already shipped retrieval and reranking pipelines. He is now looking to round those out into production-grade AI engineering work with agentic systems[^1]. This places him squarely in the Alex archetype) an engineer crossing into LLM and agent work from an existing ML/engineering base.
 
 See [personas.md](../personas.md) for full persona definitions.
 
@@ -239,7 +239,7 @@ Alexey's recommendation after reviewing Aashiesh's input[^2]:
 
 Updates after reviewing the 2026-05-08 call notes[^4]:
 
-6. Climate is a sensible default project area. Aashiesh has already done a climate misinformation RAG project at university and even interviewed at a London climate company. That domain knowledge is reusable, and the RAG-over-PDFs shape lines up well with the production-engineering skills he wants to add (deployment, evaluation, CI/CD). It is not the only option - if his brainstorming surfaces something he genuinely wants more, take that - but it is the best fallback.
+6. Climate is a sensible default project area. Aashiesh has already done a climate misinformation RAG project at university and even interviewed at a London climate company. That domain knowledge is reusable, and the RAG-over-PDFs shape lines up well with the production-engineering skills he wants to add (deployment, evaluation, CI/CD). It is not the only option (if his brainstorming surfaces something he genuinely wants more, take that) but it is the best fallback.
 
 7. Connect him with the community members working on climate. Diogo Valente Polónia at the EEA is the obvious one. There is also a second community member (Carmina, exact name to be confirmed with Valeriia) who works on climate projects. Both are useful contacts for project framing, possible data sources, and feedback. He should partner with them where it helps, not work in isolation.
 

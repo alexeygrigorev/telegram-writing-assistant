@@ -44,7 +44,7 @@ Setting up a process and thinking through where all the data comes from is the k
 
 ## Cross-Linking Tools and Concepts Across the Site
 
-The Curated Links and Event Recordings sections on the website share many of the same tools, frameworks, and concepts - things like RAG, MCP, and so on. They come up repeatedly across different events and articles. The idea is to have connectivity between all pages of the site, with direct links from any page that mentions a tool or concept to a dedicated page in the tools and concepts repository. This repository could be called a "collection of tools" or a "vocabulary" - a single place where every tool and concept has its own entry, and all other pages link to it[^7].
+The Curated Links and Event Recordings sections on the website share many of the same tools, frameworks, and concepts (things like RAG, MCP, and so on. They come up repeatedly across different events and articles. The idea is to have connectivity between all pages of the site, with direct links from any page that mentions a tool or concept to a dedicated page in the tools and concepts repository. This repository could be called a "collection of tools" or a "vocabulary") a single place where every tool and concept has its own entry, and all other pages link to it[^7].
 
 ## Sources
 

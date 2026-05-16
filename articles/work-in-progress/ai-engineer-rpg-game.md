@@ -40,7 +40,7 @@ I was excited seeing the detailed plan. But 20 minutes later it said "done, chec
 
 I tried running it and nothing worked. The graphics were off - the image was flipped, mirrored, and running off screen. One limitation is that I cannot tell the agent to launch the game, look at it, and fix things by itself. I do not know how to set up this feedback loop. With browser-based apps I can imagine launching through a browser and somehow controlling it, but with desktop applications I have no idea how to do this[^2].
 
-I sent a screenshot showing what was wrong. After two more iterations, it got significantly better. By the third iteration, it looked like what I wanted. The graphics are simple - basic shapes - but for a start it is fine[^2].
+I sent a screenshot showing what was wrong. After two more iterations, it got significantly better. By the third iteration, it looked like what I wanted. The graphics are simple (basic shapes) but for a start it is fine[^2].
 
 <figure>
   <p>Video: First version of the AI engineering game (0m 31s, 1080p) - <a href="https://t.me/c/3688590333/1627">View on Telegram</a></p>
@@ -52,7 +52,7 @@ I was doing this in the background while my main focus was course recording and 
 
 ## Future plans
 
-I want to attach LLMs to all the NPC characters. I will use some LLM - maybe OpenAI, maybe Anthropic, I have not decided yet. They do not need to be full agents - just conversational, like a conversational chatbot with some prompts. The NPCs should be characters I can walk up to and have actual conversations with[^3].
+I want to attach LLMs to all the NPC characters. I will use some LLM (maybe OpenAI, maybe Anthropic, I have not decided yet. They do not need to be full agents) just conversational, like a conversational chatbot with some prompts. The NPCs should be characters I can walk up to and have actual conversations with[^3].
 
 For agents, the maximum would be a database with interview questions. Both the player and the agents could have some memory. I have not figured out all the details yet[^3].
 

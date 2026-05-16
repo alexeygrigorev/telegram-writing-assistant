@@ -12,7 +12,7 @@ status: draft
 
 ## Persona
 
-Undetermined. Daniel's response so far only describes what he wants from the community - not his background, engineering level, or AI/ML experience - so there is not enough to map him to a persona yet.
+Undetermined. Daniel's response so far only describes what he wants from the community (not his background, engineering level, or AI/ML experience) so there is not enough to map him to a persona yet.
 
 See [personas.md](../personas.md) for full persona definitions.
 

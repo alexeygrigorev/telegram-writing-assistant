@@ -8,11 +8,11 @@ status: draft
 
 # OpenCode Experiments with GLM-5
 
-Experimenting with OpenCode - an open-source AI coding assistant - using the new GLM-5 model from Z.AI.
+Experimenting with OpenCode (an open-source AI coding assistant) using the new GLM-5 model from Z.AI.
 
 ## Getting Started with OpenCode
 
-When I installed OpenCode, it just started working. I am not sure how or which API key it used. I asked it to use my Z.AI key - they recently released a new model (GLM-5) and I wanted to try it with OpenCode. I also heard good things about OpenCode - it has more features, so I wanted to try it[^1].
+When I installed OpenCode, it just started working. I am not sure how or which API key it used. I asked it to use my Z.AI key (they recently released a new model (GLM-5) and I wanted to try it with OpenCode. I also heard good things about OpenCode) it has more features, so I wanted to try it[^1].
 
 <figure>
   <img src="../../assets/images/opencode-experiments/opencode-terminal-setup.jpg" alt="Terminal showing OpenCode setup with Z.AI API key configuration">
@@ -24,7 +24,7 @@ When I installed OpenCode, it just started working. I am not sure how or which A
 
 I tried OpenCode first in terminal mode. I am not a fan of the terminal mode, neither in Claude Code nor in OpenCode. The desktop version is more convenient[^2].
 
-The desktop mode in OpenCode is built on Visual Studio Code - it looks like a VS Code fork, adapted for AI coding. It is convenient - I can open multiple projects and sessions at the same time[^3].
+The desktop mode in OpenCode is built on Visual Studio Code (it looks like a VS Code fork, adapted for AI coding. It is convenient) I can open multiple projects and sessions at the same time[^3].
 
 <figure>
   <img src="../../assets/images/opencode-experiments/opencode-desktop-new-session.jpg" alt="OpenCode desktop app showing new session with project explorer and GLM-5 model">
@@ -40,7 +40,7 @@ The desktop mode in OpenCode is built on Visual Studio Code - it looks like a VS
 
 OpenCode has the usual two modes like other AI assistants - a planning mode and a build mode. I spent about an hour getting familiar with it. I noticed I needed a subagent feature but have not explored that yet[^3].
 
-I was doing all this in the background while my main task was recording course videos. When Claude Code was doing something for the course - for example, updating document descriptions from transcripts for the Maven site - I would switch over and check what OpenCode was doing[^3].
+I was doing all this in the background while my main task was recording course videos. When Claude Code was doing something for the course (for example, updating document descriptions from transcripts for the Maven site) I would switch over and check what OpenCode was doing[^3].
 
 I can also run OpenCode as a web service. My plan is to try this - with Claude Code it would require more effort to set up, but with OpenCode it works without problems[^3].
 
@@ -91,7 +91,7 @@ One of the reasons I started looking at alternatives is the screen flickering in
 
 ## Coming Back to OpenCode After Hitting Claude Code Limits
 
-After several months of using Claude Code, I hit the weekly token limit for the first time. Since all Anthropic limits were exhausted, I remembered my OpenCode experiments. The terminal app in OpenCode is much more pleasant to use - there is no flickering screen issue at all. Everything is smooth. It is less compact than Claude Code - could be made more compact - but overall it is a much more pleasant experience without that distracting flickering[^10].
+After several months of using Claude Code, I hit the weekly token limit for the first time. Since all Anthropic limits were exhausted, I remembered my OpenCode experiments. The terminal app in OpenCode is much more pleasant to use (there is no flickering screen issue at all. Everything is smooth. It is less compact than Claude Code) could be made more compact - but overall it is a much more pleasant experience without that distracting flickering[^10].
 
 ## Overall Impressions
 

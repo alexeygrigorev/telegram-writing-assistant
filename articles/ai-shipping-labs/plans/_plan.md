@@ -85,7 +85,7 @@ Everything below is for internal use only.
 
 ## Persona
 
-[Alex - The Engineer Transitioning to AI / Priya - The Improver / Sam - The Technical Professional Moving to AI / Taylor - The Research-to-Engineering Transitioner / Undetermined] - short reason for the assignment.
+[Alex (The Engineer Transitioning to AI / Priya) The Improver / Sam (The Technical Professional Moving to AI / Taylor) The Research-to-Engineering Transitioner / Undetermined] - short reason for the assignment.
 
 Use both the short name and the archetype title so nobody has to remember the shorthand.
 

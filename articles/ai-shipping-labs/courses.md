@@ -75,7 +75,7 @@ Students are already asking about paid courses. This is a positive signal for th
 
 ## AI Data Engineering course
 
-Want to create a course on data engineering for AI - how all these AI tools can be used to build pipelines. This area is underserved - little content exists on how data gets into agents in reality. Everyone talks about having a clean dataset and building an agent, but not how the data gets there. Several modules on the new Maven course should be dedicated to this topic[^6].
+Want to create a course on data engineering for AI (how all these AI tools can be used to build pipelines. This area is underserved) little content exists on how data gets into agents in reality. Everyone talks about having a clean dataset and building an agent, but not how the data gets there. Several modules on the new Maven course should be dedicated to this topic[^6].
 
 ## Market demand
 

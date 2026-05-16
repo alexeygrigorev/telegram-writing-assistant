@@ -36,13 +36,13 @@ A few hypotheses about why his sponsorship situation works[^3]:
 - The course may be specifically built for those sponsors. He may have agreed with them up front, the course is only about their tools, and it never changes.
 - Sponsors generally like structure and a polished system - clean schemas, their names inside the visuals, consistent format. That seems to attract them.
 
-LLM Zoomcamp and the other Zoomcamps already attracted sponsors. They started as Alexey's personal projects and grew from there. Adding more structure on top - text versions of lessons with diagrams - might attract more[^3].
+LLM Zoomcamp and the other Zoomcamps already attracted sponsors. They started as Alexey's personal projects and grew from there. Adding more structure on top (text versions of lessons with diagrams) might attract more[^3].
 
 ## Where to Publish
 
 Substack is one option, but not required. It was just a useful example because Paul publishes there and the stats are visible on the page itself[^3].
 
-For a first version, even publishing on GitHub would already be valuable. The added structure - written lessons, diagrams, sponsors visible inside the schemas - is the point, not the platform. Substack vs GitHub vs our own site can be decided later[^3].
+For a first version, even publishing on GitHub would already be valuable. The added structure (written lessons, diagrams, sponsors visible inside the schemas) is the point, not the platform. Substack vs GitHub vs our own site can be decided later[^3].
 
 ## How to Produce the Content
 

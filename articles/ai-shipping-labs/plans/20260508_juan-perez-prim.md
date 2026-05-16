@@ -108,7 +108,7 @@ Everything below is for internal use only.
 
 ## Persona
 
-Priya - The Improver. Juan already has a working AI project (`amr_ai`, demoed at Buildcamp Cohort 2[^3]) and a stable senior data role. He is not transitioning from zero - he is improving an existing build to production grade and learning the production-engineering side he has not done before. The "no transition deadline, no industry preference" framing reinforces this: the sprint is about depth on what already exists, not breadth into a new stack.
+Priya (The Improver. Juan already has a working AI project (`amr_ai`, demoed at Buildcamp Cohort 2[^3]) and a stable senior data role. He is not transitioning from zero) he is improving an existing build to production grade and learning the production-engineering side he has not done before. The "no transition deadline, no industry preference" framing reinforces this: the sprint is about depth on what already exists, not breadth into a new stack.
 
 See [personas.md](../personas.md) for full persona definitions.
 
@@ -128,7 +128,7 @@ Cross-reference the matching interview at [../interviews/juan-perez-prim.md](../
 
 The Google Doc is a Gemini-generated transcript and summary from Juan and Valeriia's intake call on 2026-05-07[^1]. There was no separate free-form written input. Juan opened the call by giving context on how he joined and what he wants from the community:
 
-> So, I joined - I mean, I know Alexey, I met him through one of the platforms, Maven. So one of the courses, it was the AI Engineering Buildcamp. My background is in data science. So I'm not a computer science by study. So I'm more on the engineering side that moved forward to the data side... And then my situation is - I use a little bit of the tools of AI, but I want to know - since I have not done much, it's easier to do it with someone or a community, you can push yourself a little bit higher than if you're more alone. So one of the things in the community that I think is interesting is sharing tips, getting some profiles, maybe even collaborate on projects with other people or for Alexey... I have a project I did for the bootcamp, the Maven one - I wanted to evolve it, keep it evolving a little bit. So that's going to be my goal. And what I want to do is, one is learning purposes, and second is - I'm open to looking for jobs. I have a full-time job but maybe would like to transition to another role.
+> So, I joined (I mean, I know Alexey, I met him through one of the platforms, Maven. So one of the courses, it was the AI Engineering Buildcamp. My background is in data science. So I'm not a computer science by study. So I'm more on the engineering side that moved forward to the data side... And then my situation is) I use a little bit of the tools of AI, but I want to know (since I have not done much, it's easier to do it with someone or a community, you can push yourself a little bit higher than if you're more alone. So one of the things in the community that I think is interesting is sharing tips, getting some profiles, maybe even collaborate on projects with other people or for Alexey... I have a project I did for the bootcamp, the Maven one) I wanted to evolve it, keep it evolving a little bit. So that's going to be my goal. And what I want to do is, one is learning purposes, and second is - I'm open to looking for jobs. I have a full-time job but maybe would like to transition to another role.
 
 ## Questions and Answers
 

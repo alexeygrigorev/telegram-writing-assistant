@@ -10,7 +10,7 @@ status: draft
 
 The AI Shipping Labs site has enough content now that we can start actively promoting it. Everything there seems to more or less work. I think Friday's newsletter (the one we send through AppStack) is a good moment to dedicate to the site and the update[^1].
 
-The hook is simple: all the workshops I have done on Gen.AI - the ones on Maven, the ones on DataTalks.Club, the ones I gave at conferences - are now in one place. The full list lives at [aishippinglabs.com/workshops](https://aishippinglabs.com/workshops) [^3].
+The hook is simple: all the workshops I have done on Gen.AI (the ones on Maven, the ones on DataTalks.Club, the ones I gave at conferences) are now in one place. The full list lives at [aishippinglabs.com/workshops](https://aishippinglabs.com/workshops) [^3].
 
 ## What I did
 
@@ -33,7 +33,7 @@ The list at [aishippinglabs.com/workshops](https://aishippinglabs.com/workshops)
 
 ## Open vs members-only
 
-Workshops I did earlier are open[^1]. The two most recent ones - on agent deployment - are members-only, available to AI Shipping Labs members[^1][^3].
+Workshops I did earlier are open[^1]. The two most recent ones (on agent deployment) are members-only, available to AI Shipping Labs members[^1][^3].
 
 I also want to hide the open workshops behind registration. People will see the first part of the workshop, and to read further they will need to register. This is useful for two reasons. First, it is genuinely valuable to have all these workshops in one place - go and watch them. Second, we collect registrations[^1].
 

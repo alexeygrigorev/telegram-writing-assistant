@@ -30,7 +30,7 @@ Here is how those groups relate. At the center sits one conversation loop. Aroun
 
 ## What It Is
 
-Hermes is a single agent runtime with many front-ends. Every entry point - the TUI, the messaging gateway, ACP editor integration, batch runner, and the API server - calls the same conversation loop: `AIAgent.run_conversation()` in `run_agent.py`. Everything else is an input or output for that loop. In practice, this means the agent you talk to from Telegram is the same agent you talk to from the terminal, with the same memory, the same skills, and the same tool set. Switching platforms doesn't reset the conversation or lose context.
+Hermes is a single agent runtime with many front-ends. Every entry point (the TUI, the messaging gateway, ACP editor integration, batch runner, and the API server) calls the same conversation loop: `AIAgent.run_conversation()` in `run_agent.py`. Everything else is an input or output for that loop. In practice, this means the agent you talk to from Telegram is the same agent you talk to from the terminal, with the same memory, the same skills, and the same tool set. Switching platforms doesn't reset the conversation or lose context.
 
 The product is a personal assistant, not a professional coding tool. Hermes is built to live beyond your laptop. You can talk to it from Telegram while it works on a cloud VM, it remembers past conversations, it writes its own skills from experience, and it builds a model of you across sessions. This is a different category from Claude Code, which is an IDE-embedded coding copilot, and from OpenClaw, which was a single-use Telegram-first assistant.
 
@@ -65,7 +65,7 @@ Each one maps to one slice of the system, and each one solves a specific problem
 - `plugins/memory/` - optional long-term memory backends. Eight providers - byterover, hindsight, holographic, honcho, mem0, openviking, retaindb, supermemory - any of which you can plug in for semantic search, knowledge graphs, or fact extraction. If you do not configure one, Hermes still has working memory via markdown files and SQLite. These are upgrades for when the built-in memory isn't enough.
 - `skills/` - a pre-built library of capabilities organized by category: apple, autonomous-ai-agents, creative, data-science, devops, diagramming, email, feeds, gaming, github, mcp, media, mlops, note-taking, productivity, research, red-teaming, smart-home, social-media, software-development, and more. You inherit these on install, so out of the box Hermes already knows how to work with GitHub, run a research pipeline, or update your smart home. The agent writes new ones into `~/.hermes/skills/` over time.
 
-The takeaway is this. Hermes is a single loop (`run_agent.py`) surrounded by three pluggable stacks - providers in `agent/`, capabilities in `tools/`, inputs in `gateway/platforms/` - and two data stores (`~/.hermes/` on disk, and a SQLite database). For you that means there are only three places where you will typically customize Hermes: you swap providers to change which model is thinking, you enable or disable tools to change what the agent can do, and you turn platforms on in the gateway to change where the agent can reach you. Nothing else needs to move. The next section shows how those pieces connect at runtime.
+The takeaway is this. Hermes is a single loop (`run_agent.py`) surrounded by three pluggable stacks (providers in `agent/`, capabilities in `tools/`, inputs in `gateway/platforms/`) and two data stores (`~/.hermes/` on disk, and a SQLite database). For you that means there are only three places where you will typically customize Hermes: you swap providers to change which model is thinking, you enable or disable tools to change what the agent can do, and you turn platforms on in the gateway to change where the agent can reach you. Nothing else needs to move. The next section shows how those pieces connect at runtime.
 
 ## Architecture
 
@@ -410,7 +410,7 @@ Three files do the work:
 - `tirith_security.py` (26 KB) - policy-as-code command scanning. Policy-as-code here means the rules about what shell commands are allowed live in a config file and are enforced by the Tirith binary, not hand-coded into the agent. For you, that means you can edit a text file to change what Hermes is allowed to run, instead of patching Python source.
 - `url_safety.py`, `osv_check.py`, `path_security.py` - URL reputation checks, package vulnerability checks against the OSV database, and path traversal checks for file operations.
 
-The approval flow is worth a closer look because it is the piece you touch most often. Rather than prompting you for every shell command (too noisy) or allowing everything (too unsafe), an auxiliary LLM - that is, a separate smaller model running as a safety reviewer - assesses each command, auto-approves the obviously safe ones, and only escalates genuinely risky ones to you. In practice you get far fewer prompts than a strict allowlist would produce, without giving up the security review.
+The approval flow is worth a closer look because it is the piece you touch most often. Rather than prompting you for every shell command (too noisy) or allowing everything (too unsafe), an auxiliary LLM (that is, a separate smaller model running as a safety reviewer) assesses each command, auto-approves the obviously safe ones, and only escalates genuinely risky ones to you. In practice you get far fewer prompts than a strict allowlist would produce, without giving up the security review.
 
 That covers the core loop. The next four sections cover what happens around it: how messages reach the loop, how side tasks stay cheap, how long conversations survive, and how scheduled work runs without you being at the keyboard.
 
@@ -447,7 +447,7 @@ The pairing protocol in `gateway/pairing.py` handles how new people join your ag
 
 The mirror module supports cross-platform continuity. You can start a conversation on Telegram and continue it on Discord, and the agent sees both sides as one thread, so you don't have to repeat yourself when you switch devices. The session key resolution that makes this work lives in `gateway/session.py` (48 KB).
 
-Messages get the agent started. The next piece is about what the agent does while it is thinking. Some of that work - reading a screenshot, summarizing old turns, searching past sessions - doesn't need the main model, and that is what auxiliary models are for.
+Messages get the agent started. The next piece is about what the agent does while it is thinking. Some of that work (reading a screenshot, summarizing old turns, searching past sessions) doesn't need the main model, and that is what auxiliary models are for.
 
 ## Auxiliary Models and Smart Routing
 
@@ -463,7 +463,7 @@ auxiliary:
   session_search: { provider: auto, timeout: 30 }
 ```
 
-The `agent/auxiliary_client.py` module is 124 KB - by far the largest in `agent/` - because it contains the per-provider quirks for using cheaper models as specialists. Vision analysis of a screenshot, LLM-assisted web page extraction, compression of an overflowing context, and LLM-summarized session search all run on smaller models chosen for the task. In practice, this means a screenshot analysis that would cost you real money on a flagship model runs for cents on a cheap vision model, while the main model stays focused on whatever you asked.
+The `agent/auxiliary_client.py` module is 124 KB (by far the largest in `agent/`) because it contains the per-provider quirks for using cheaper models as specialists. Vision analysis of a screenshot, LLM-assisted web page extraction, compression of an overflowing context, and LLM-summarized session search all run on smaller models chosen for the task. In practice, this means a screenshot analysis that would cost you real money on a flagship model runs for cents on a cheap vision model, while the main model stays focused on whatever you asked.
 
 ## Context Compression
 

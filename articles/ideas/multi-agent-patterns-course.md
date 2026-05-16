@@ -182,7 +182,7 @@ Also known as: Subagent (this is how I prefer to call this pattern), Nested Chat
 
 An agent uses another agent as a tool call. The subagent runs in isolation with its own context window, processes a subtask, returns a result, and the parent agent continues. The parent retains control throughout[^4].
 
-The core problem this solves is context management. Every agent has a finite context window, and complex tasks can fill it quickly. By delegating context-heavy subtasks to subagents, the main agent's context stays clean[^1]. The subagent handles the heavy lifting - reading thousands of issues, exploring a large codebase, processing raw API data - and returns only a concise summary.
+The core problem this solves is context management. Every agent has a finite context window, and complex tasks can fill it quickly. By delegating context-heavy subtasks to subagents, the main agent's context stays clean[^1]. The subagent handles the heavy lifting (reading thousands of issues, exploring a large codebase, processing raw API data) and returns only a concise summary.
 
 Claude Code uses this pattern: an exploration subagent searches the codebase and returns findings to the main coding agent[^3]. Google ADK implements it with `AgentTool` - a subagent is wrapped and included in the parent agent's `tools` list. The parent calls it synchronously, gets results back, and continues[^google_adk].
 
@@ -399,7 +399,7 @@ Given "organize the conference", the planner creates an initial plan. After step
 
 ## YouTube example
 
-Given "create a comprehensive analysis of this video", the planner creates an initial plan. After step 2 (topics identified), it sees the video has no code - so it drops step 5 (extract code examples) and adds a step to extract diagrams instead. After step 4 (summary created), it discovers the speaker references 3 papers - it adds a step to fetch and summarize those papers.
+Given "create a comprehensive analysis of this video", the planner creates an initial plan. After step 2 (topics identified), it sees the video has no code (so it drops step 5 (extract code examples) and adds a step to extract diagrams instead. After step 4 (summary created), it discovers the speaker references 3 papers) it adds a step to fetch and summarize those papers.
 
 ## Other examples
 
@@ -663,7 +663,7 @@ Three agents collaborate on building the scikit-learn onboarding guide in a shar
 - Community agent: analyzes issues, PRs, and maintainer activity
 - Pedagogy agent: structures the guide for a newcomer's learning path
 
-The architecture agent describes the estimator inheritance hierarchy. The pedagogy agent responds: "This is too detailed for a first read - let's start with a simple example of `fit`/`predict` before diving into base classes." The community agent adds: "There are 15 open issues tagged 'good first issue' in `sklearn/preprocessing/` - that's a good module to start with since the estimator pattern is simple there." They iterate until the guide balances technical accuracy with approachability.
+The architecture agent describes the estimator inheritance hierarchy. The pedagogy agent responds: "This is too detailed for a first read (let's start with a simple example of `fit`/`predict` before diving into base classes." The community agent adds: "There are 15 open issues tagged 'good first issue' in `sklearn/preprocessing/`) that's a good module to start with since the estimator pattern is simple there." They iterate until the guide balances technical accuracy with approachability.
 
 ## Building Blocks
 

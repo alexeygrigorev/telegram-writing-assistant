@@ -111,9 +111,9 @@ She framed her motivation specifically around hearing other non-programmer membe
 
 Verbatim, from the voice and text messages forwarded by Alexey[^1][^2]:
 
-> I am listening to people who joined the community, and Rafael for example. I see they are not all super technical, not all have engineering experience, and that is encouraging. I would like to participate too, because I have ideas for projects, including for DataTalks.Club - lots of automation ideas, but maybe not enough knowledge. And not enough time, with all the other tasks. Maybe I need to reconsider priorities. In parallel I am doing an audit for DataTalks.Club - the content-marketing side, separate from automation. So yes - it is nice that different people are joining. It is inspiring that my ideas could also be implemented at some point[^1].
+> I am listening to people who joined the community, and Rafael for example. I see they are not all super technical, not all have engineering experience, and that is encouraging. I would like to participate too, because I have ideas for projects, including for DataTalks.Club (lots of automation ideas, but maybe not enough knowledge. And not enough time, with all the other tasks. Maybe I need to reconsider priorities. In parallel I am doing an audit for DataTalks.Club) the content-marketing side, separate from automation. So yes - it is nice that different people are joining. It is inspiring that my ideas could also be implemented at some point[^1].
 
-> I think with 3-4 hours a week I will move slowly. But I can try to find time after work too, if I have a concrete plan. If only talking about the course - just taking it - 3-4 hours should definitely be enough[^2].
+> I think with 3-4 hours a week I will move slowly. But I can try to find time after work too, if I have a concrete plan. If only talking about the course (just taking it) 3-4 hours should definitely be enough[^2].
 
 ## Questions and Answers
 

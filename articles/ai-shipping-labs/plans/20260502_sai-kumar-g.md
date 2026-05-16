@@ -129,7 +129,7 @@ LinkedIn: Sai Kumar G
 
 GitHub (project repo, just started): [github.com/saig217/future-event-remainder](https://github.com/saig217/future-event-remainder)
 
-He previously responded to Valeriia's outreach with topics he wanted the community to cover - recent AI Engineering interview questions, mock interviews and strategy for getting interview calls, and building personal projects - and framed his goal as: "I need the plan to build AI project and get the AI Engineer role". Captured in [community-session-ideas.md](../../community-session-ideas.md#ai-engineer-job-hunt-topics-sai-kumar-g).
+He previously responded to Valeriia's outreach with topics he wanted the community to cover (recent AI Engineering interview questions, mock interviews and strategy for getting interview calls, and building personal projects) and framed his goal as: "I need the plan to build AI project and get the AI Engineer role". Captured in [community-session-ideas.md](../../community-session-ideas.md#ai-engineer-job-hunt-topics-sai-kumar-g).
 
 ## Intake
 
@@ -137,7 +137,7 @@ He previously responded to Valeriia's outreach with topics he wanted the communi
 
 I do have a two plus years of experience in Azure data engineering and my goals for this community is to stay updated with the latest AI tech without overwhelming updates from the social platforms[^2].
 
-About the project: A Telegram bot that solves the problem of forgetting future-dated events buried inside news articles - court verdicts, product launches, earnings calls, sports rosters, movie releases - by extracting those events when a user forwards an article, scheduling reminders, and re-verifying each event 1-2 days before it fires to catch postponements or cancellations. The intended user is a heavy news consumer (initially himself) who follows AI, tech, markets, and sports across many sources and cannot manually track every "this will happen on date X" mention. The system uses the Telegram Bot API for input, a web fetcher and an LLM with structured output (Pydantic) for event extraction, a relational database for storage, a scheduler for reminders, and a freshness-check agent with web search and page-fetch tools. Output is Telegram messages: confirmation on flagging, proactive alerts when a date shifts, and the final reminder on the event day with a summary and source link[^2].
+About the project: A Telegram bot that solves the problem of forgetting future-dated events buried inside news articles (court verdicts, product launches, earnings calls, sports rosters, movie releases) by extracting those events when a user forwards an article, scheduling reminders, and re-verifying each event 1-2 days before it fires to catch postponements or cancellations. The intended user is a heavy news consumer (initially himself) who follows AI, tech, markets, and sports across many sources and cannot manually track every "this will happen on date X" mention. The system uses the Telegram Bot API for input, a web fetcher and an LLM with structured output (Pydantic) for event extraction, a relational database for storage, a scheduler for reminders, and a freshness-check agent with web search and page-fetch tools. Output is Telegram messages: confirmation on flagging, proactive alerts when a date shifts, and the final reminder on the event day with a summary and source link[^2].
 
 ## Questions and Answers
 

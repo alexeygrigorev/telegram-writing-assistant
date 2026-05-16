@@ -230,7 +230,7 @@ Consider the Telegram writing assistant. One of its tasks is to analyze an artic
 
 This is where subagents help. A subagent is a separate agent that starts with a fresh context window. It does not occupy the main agent's context. I can tell it: "look at this article, summarize it, write the result to this file, and tell me when you're done." The main agent only sees "done" - none of the article content pollutes its context. The main agent stays focused on orchestrating the overall workflow, putting things in the right place, while the context-heavy work happens in isolation.
 
-Subagents also enable parallelism. When you need to process multiple items - URLs, applications, batches - subagents can run in parallel while the main agent continues with other work.
+Subagents also enable parallelism. When you need to process multiple items (URLs, applications, batches) subagents can run in parallel while the main agent continues with other work.
 
 There is also the problem of context rot. When an agent has a long session with many tasks, it starts forgetting things or accidentally skipping steps. This is why running a verifier as a separate subagent at the end of a flow is so helpful. When the main agent verifies itself, it tends to say "everything looks fine." But a fresh agent that starts with a clean context window is much better at catching what was missed or accidentally omitted.
 

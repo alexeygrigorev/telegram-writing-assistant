@@ -102,7 +102,7 @@ After the assignment, some companies have a defense session where you present yo
 
 Similar to home assignments but without code. A discussion on how to approach a problem.
 
-Examples: "Build a model for predicting car prices - what would you do?" or a vague question like "We want to increase user engagement - how?"
+Examples: "Build a model for predicting car prices (what would you do?" or a vague question like "We want to increase user engagement) how?"
 
 For vague questions, you need to ask clarifying questions: how do we measure engagement, what do users do on the platform.
 

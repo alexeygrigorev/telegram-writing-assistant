@@ -10,7 +10,7 @@ status: draft
 
 ## Overview
 
-This article analyzes a Claude skill (custom instruction set) designed to generate full interactive courses from a single topic prompt[^1]. The skill produces a complete Vite + React application with D3.js visualizations, quizzes, and a dark-themed UI. The file is named `ic.md` (likely "interactive course")[^2]. The focus is on how the course is created - the prompt engineering and content generation approach - not the course content itself[^3].
+This article analyzes a Claude skill (custom instruction set) designed to generate full interactive courses from a single topic prompt[^1]. The skill produces a complete Vite + React application with D3.js visualizations, quizzes, and a dark-themed UI. The file is named `ic.md` (likely "interactive course")[^2]. The focus is on how the course is created (the prompt engineering and content generation approach) not the course content itself[^3].
 
 ## The Prompt / Project Structure
 
@@ -18,7 +18,7 @@ This article analyzes a Claude skill (custom instruction set) designed to genera
 
 ## How It Works
 
-The prompt takes a single argument - a topic name - and generates an entire interactive course as a web application. The user types something like "Build Interactive Course on Statistics" and the skill handles everything else.
+The prompt takes a single argument (a topic name) and generates an entire interactive course as a web application. The user types something like "Build Interactive Course on Statistics" and the skill handles everything else.
 
 The prompt is roughly 1,270 lines long. It follows a 9-step sequential process that guides Claude through scaffolding, component creation, curriculum design, and page generation.
 
@@ -28,7 +28,7 @@ Step 1 - Decisions and Optional Questions. The prompt explicitly tells Claude to
 
 Step 2 - Project Scaffolding. A fixed Vite + React project structure with exact file paths. Uses Tailwind CSS v4, D3.js, React Flow, and React Router. Every file name and directory is specified upfront.
 
-Step 3 - Shared Components. Four reusable UI components are provided verbatim - Claude must copy them exactly. These are `Explain.jsx` (explanation blocks, formula boxes, symbol legends, key takeaways), `Quiz.jsx` (mixed multiple-choice and text-input with per-answer feedback), `ArchitectureDiagram.jsx` (React Flow wrapper for system diagrams), and `SequenceDiagram.jsx` (pure SVG step-through message flows).
+Step 3 (Shared Components. Four reusable UI components are provided verbatim) Claude must copy them exactly. These are `Explain.jsx` (explanation blocks, formula boxes, symbol legends, key takeaways), `Quiz.jsx` (mixed multiple-choice and text-input with per-answer feedback), `ArchitectureDiagram.jsx` (React Flow wrapper for system diagrams), and `SequenceDiagram.jsx` (pure SVG step-through message flows).
 
 Step 4 - Curriculum Data Structure. A centralized `curriculum.js` file defines all sections and pages. Each section gets a color from a fixed palette. This drives both the sidebar navigation and the home page grid.
 

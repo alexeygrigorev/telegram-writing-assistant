@@ -40,7 +40,7 @@ And it asks unnecessary questions like "shall we proceed?" when the todo list ex
 
 I also can't see what subagents are doing. The orchestrator launches one and it does something for 30 minutes or an hour. Is it stuck? Does it need a restart? I want to be able to peek inside and correct the process[^2].
 
-The methodology itself isn't enforced - Claude Code can ignore it. I want the orchestrator to be more rigid: the pipeline, the agent roles, the grooming process, the acceptance criteria - all hard-coded into the application, not just described in a markdown file that the agent may or may not follow[^4].
+The methodology itself isn't enforced (Claude Code can ignore it. I want the orchestrator to be more rigid: the pipeline, the agent roles, the grooming process, the acceptance criteria) all hard-coded into the application, not just described in a markdown file that the agent may or may not follow[^4].
 
 ## Current State
 

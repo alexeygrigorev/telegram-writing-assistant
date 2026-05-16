@@ -194,9 +194,9 @@ No intake call yet - input collected via the Google Doc[^2] and the initial outr
 
 Alexey's recommendations after reviewing the intake[^4]:
 
-1. The detailed answers do most of the work. He has already articulated what he wants in fairly concrete terms - shipping one LLM project, fintech-adjacent, with proper evaluation - so the plan is more about structuring his own picture than redirecting it.
+1. The detailed answers do most of the work. He has already articulated what he wants in fairly concrete terms (shipping one LLM project, fintech-adjacent, with proper evaluation) so the plan is more about structuring his own picture than redirecting it.
 
-2. Open question on "fundamentals". The intake repeatedly says he wants to "strengthen fundamentals" and "understand how AI works under the hood" but does not specify what that means. If he means transformer internals (attention, tokenisation, training), this plan is the wrong shape - he should look at Karpathy's "Neural Networks: Zero to Hero" or equivalent. If he means LLM application fundamentals (embeddings, RAG internals, evaluation, agents, tool calling) - which is what his Q5 list says - then this plan is correct. Most signals point at the second reading, but confirm before he commits to week 1.
+2. Open question on "fundamentals". The intake repeatedly says he wants to "strengthen fundamentals" and "understand how AI works under the hood" but does not specify what that means. If he means transformer internals (attention, tokenisation, training), this plan is the wrong shape (he should look at Karpathy's "Neural Networks: Zero to Hero" or equivalent. If he means LLM application fundamentals (embeddings, RAG internals, evaluation, agents, tool calling)) which is what his Q5 list says - then this plan is correct. Most signals point at the second reading, but confirm before he commits to week 1.
 
 3. If the second reading is correct, the path is the standard one: AI Hero first to give him the agent foundation, then the same project-selection structure used for other members. The brainstorming gist is the picking tool, the four-criterion scoring is the filter, and one chosen project carries the rest of the sprint.
 

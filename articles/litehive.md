@@ -72,7 +72,7 @@ It helped, but not completely. Sometimes the recovery agent wouldn't launch, som
 
 I had to check in manually every time, go into SSH, see what's happening, tell it to check the status, fix things, kill processes, restart. Eventually I got tired of doing this manually. I opened another Codex session and said I want to write a tool that sends messages to tmux[^5].
 
-Tmux is what I use to run all these agents on my remote server. It turned out to be convenient that in tmux I can send any prompt - "do a status report", "check if anything is stuck", "if something is stuck, fix it". This was my second Codex session. Codex did it in one shot - exactly what I needed. I had to tweak it a bit afterwards, but the basic functionality was done in one approach[^5].
+Tmux is what I use to run all these agents on my remote server. It turned out to be convenient that in tmux I can send any prompt ("do a status report", "check if anything is stuck", "if something is stuck, fix it". This was my second Codex session. Codex did it in one shot) exactly what I needed. I had to tweak it a bit afterwards, but the basic functionality was done in one approach[^5].
 
 Beyond sending commands, tmuxctl makes attaching to sessions much faster. `t 1` attaches to the most recently created session. `t 2` attaches to the second most recent. `t session-name` attaches to a named session. Instead of writing `tmux attach -t session-name` or `tmux new-session -s name`, I just write `t` followed by whatever I need. I also use Typer, a Python library for CLI applications, which gives me tab completion - I can press tab and see all available sessions[^6][^7].
 
@@ -120,7 +120,7 @@ GoZ is not as powerful as Claude Code or other wrappers like OpenCode, but the g
 
 ## Self-Improving Tools
 
-There was a problem with GoZ in litehive - the glm-5.1 model was slow, and token-level streaming made transcripts hard to read. Word boundaries were broken in the output ("park ed", "observ ability", "RES UM ABLE"). The issue was in GoZ's adapter - it was not joining tokens properly[^21][^22].
+There was a problem with GoZ in litehive (the glm-5.1 model was slow, and token-level streaming made transcripts hard to read. Word boundaries were broken in the output ("park ed", "observ ability", "RES UM ABLE"). The issue was in GoZ's adapter) it was not joining tokens properly[^21][^22].
 
 The fix was straightforward: tell the agent to create a task in GoZ to fix it. The agent created task T-0017 in GoZ to fix transcript rendering - joining streaming tokens into complete words and sentences. Since the agent uses itself to build itself, this is an interesting concept: tools that improve themselves[^21][^22].
 
@@ -138,7 +138,7 @@ In litehive itself, the main feature I'm working on right now is a usage watcher
 
 The goal is to be able to work on any project autonomously. I focus on requirements, agents work independently regardless of what's happening with my quotas. This way my dependency on Claude Code goes away. If they keep reducing limits, I'm not tied to them anymore. I can switch to any other engine at any moment, including Codex. I got Codex Pro this week and I'm actively using it[^12].
 
-litehive now has a feature that checks how much usage quota remains for Claude, Codex, Copilot, and ZAI. It tracks the limits because each service works differently - Claude and Codex have a 5-hour window, while Copilot uses a monthly limit. The system monitors the remaining percentage and can detect when quotas reset. In the screenshot below, it detected that the Codex quota had reset, and checking manually confirmed it - 100% remaining[^23][^24][^25].
+litehive now has a feature that checks how much usage quota remains for Claude, Codex, Copilot, and ZAI. It tracks the limits because each service works differently (Claude and Codex have a 5-hour window, while Copilot uses a monthly limit. The system monitors the remaining percentage and can detect when quotas reset. In the screenshot below, it detected that the Codex quota had reset, and checking manually confirmed it) 100% remaining[^23][^24][^25].
 
 <figure>
   <img src="../assets/images/litehive/litehive-quota-status-check.jpg" alt="litehive status check showing quota monitoring and Codex quota reset detection">

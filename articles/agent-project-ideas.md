@@ -35,7 +35,7 @@ This is just a suggestion to run with or use as inspiration[^2].
 
 An agent that helps people identify projects they can do[^4]. Similar to the "kid-parent" Claude slash commands described in a previous Substack article[^4].
 
-This could be a conversational agent - not an agent, more like a chatbot - that helps people come up with original project ideas[^4].
+This could be a conversational agent (not an agent, more like a chatbot) that helps people come up with original project ideas[^4].
 
 This is a nice project idea in itself, but it is also a useful project for the community. People can try playing with it. It could be a good lead magnet for the community - they would have to sign up to interact with the agent, and then the agent can suggest different ideas[^4].
 

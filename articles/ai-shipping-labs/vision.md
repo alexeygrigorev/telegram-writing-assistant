@@ -62,7 +62,7 @@ As an entrepreneur with no employer, I want to earn money from what I create. I 
 
 ## DataTalks Club mission remains unchanged
 
-The principle of DataTalks Club - free education for everyone regardless of income or location - stays the same. The club will not become closed. I plan to continue developing DataTalks Club through 2025 and 2026[^33].
+The principle of DataTalks Club (free education for everyone regardless of income or location) stays the same. The club will not become closed. I plan to continue developing DataTalks Club through 2025 and 2026[^33].
 
 ## LLM Zoomcamp example
 

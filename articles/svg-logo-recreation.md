@@ -16,7 +16,7 @@ We have new websites and I wanted to add an icon - a nice-looking logo. Besides 
 
 I took two screenshots of what was on the website and gave them to ChatGPT to generate a logo based on those screenshots. It generated one. I showed it to Valera, she said let's tweak it a bit. On the second iteration it was more or less OK[^3].
 
-But ChatGPT generates PNG. I wanted a vector image - SVG - so the logo could scale to any size, be used anywhere, and take up less space. This problem is similar to what I tried to solve before when converting certificates from images to HTML/CSS[^3].
+But ChatGPT generates PNG. I wanted a vector image (SVG) so the logo could scale to any size, be used anywhere, and take up less space. This problem is similar to what I tried to solve before when converting certificates from images to HTML/CSS[^3].
 
 <figure>
   <img src="../assets/images/svg-logo-recreation/original-logo-chatgpt.jpg" alt="Original rocket logo generated with ChatGPT">
@@ -28,7 +28,7 @@ But ChatGPT generates PNG. I wanted a vector image - SVG - so the logo could sca
 
 The first attempt was to ask ChatGPT directly to make the SVG. It thought for 3 minutes and produced something completely incoherent. Then it thought for 5 minutes and produced something even worse[^3].
 
-I thought the problem was lack of feedback - no way to iterate. I told Claude: convert the PNG to SVG, render the SVG back to PNG, look at it, and try to match the original. Keep iterating until it works. But the result was terrible - even worse than ChatGPT[^1][^3].
+I thought the problem was lack of feedback (no way to iterate. I told Claude: convert the PNG to SVG, render the SVG back to PNG, look at it, and try to match the original. Keep iterating until it works. But the result was terrible) even worse than ChatGPT[^1][^3].
 
 <figure>
   <img src="../assets/images/svg-logo-recreation/claude-code-svg-attempt.jpg" alt="SVG created directly by Claude Code">
@@ -42,7 +42,7 @@ Then I started googling "PNG to SVG transformation" and found an Adobe service w
 
 Before googling more, I had the idea that Claude needs help finding the anchor points in the image - based on those, create the SVG and then compare. I imagined how I would do it manually: open Inkscape, remove some anchor points from the curves, try to make them smoother. I told Claude: use OpenCV, do it that way. Claude installed OpenCV (I did not have it) and started working on it. I told it to simplify anchor points and smooth curves like I would in Inkscape, but that did not produce good results either[^3].
 
-At this point I was ready to give up and just use PNG. But then I decided to ask ChatGPT how people convert PNG to SVG. It gave many options, and one of them was OpenCV - the same conclusion I had already reached on my own. It also mentioned Inkscape - a tool I had also found independently. ChatGPT even wrote actual conversion code, step by step[^3].
+At this point I was ready to give up and just use PNG. But then I decided to ask ChatGPT how people convert PNG to SVG. It gave many options, and one of them was OpenCV (the same conclusion I had already reached on my own. It also mentioned Inkscape) a tool I had also found independently. ChatGPT even wrote actual conversion code, step by step[^3].
 
 I also found potrace, which produces better bezier curves. The combination of potrace and OpenCV gives decent results[^1].
 
@@ -68,7 +68,7 @@ It had been working for about 30 minutes and the result still was not great, but
 
 I decided to try a second attempt from scratch. I took the code ChatGPT wrote and gave it to Claude: forget everything we did before and try reproducing the image using this code. I also upscaled the original PNG to 1024x1024 first - working from a larger image instead of a small one also helped[^3].
 
-Claude could not get ChatGPT's code running, so it rewrote everything in pure OpenCV. And it worked - Claude segmented the image into pieces, converted each piece to SVG, then assembled everything into one image. It simplified shapes, found circles that could just be replaced with a `<circle>` element. Initially the result was angular, but then at some iteration I noticed Claude started creating Python files - it shifted from writing SVG by hand to writing Python scripts that generate the SVG files[^3]. After 16 iterations, it reached MSE ~97 (1.4% mean pixel error)[^2].
+Claude could not get ChatGPT's code running, so it rewrote everything in pure OpenCV. And it worked (Claude segmented the image into pieces, converted each piece to SVG, then assembled everything into one image. It simplified shapes, found circles that could just be replaced with a `<circle>` element. Initially the result was angular, but then at some iteration I noticed Claude started creating Python files) it shifted from writing SVG by hand to writing Python scripts that generate the SVG files[^3]. After 16 iterations, it reached MSE ~97 (1.4% mean pixel error)[^2].
 
 <figure>
   <img src="../assets/images/svg-logo-recreation/final-result-iter016.jpg" alt="Final SVG result after 16 iterations">

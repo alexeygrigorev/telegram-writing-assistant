@@ -217,7 +217,7 @@ What needs to be built:
 - Login, accounts, and a subscription plan so paying customers can use the chatbot.
 - Rate limiting per user, so an unbounded API bill is not possible if a user asks an unlimited number of questions.
 
-Valeriia's read on the call: the project is "absolutely doable", in the same shape as similar projects from Alexey's courses (corpus-grounded chatbot with citations - the Data Talks Club podcast chatbot idea is one example). The build needs to be staged - the agent first, then the website and integrations, then payments. Daniel asked whether he should write this in the plan document or send it to Alexey directly on Slack, and said he would prefer a 30-minute call with Alexey to discuss it in more depth if that is possible.
+Valeriia's read on the call: the project is "absolutely doable", in the same shape as similar projects from Alexey's courses (corpus-grounded chatbot with citations (the Data Talks Club podcast chatbot idea is one example). The build needs to be staged) the agent first, then the website and integrations, then payments. Daniel asked whether he should write this in the plan document or send it to Alexey directly on Slack, and said he would prefer a 30-minute call with Alexey to discuss it in more depth if that is possible.
 
 ## Internal Recommendations
 

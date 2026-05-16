@@ -157,7 +157,7 @@ Alexey's recommendations after reviewing Koray's input and his bot's repo[^2]:
 
 2. The "improve estimation" goal maps almost exactly to evaluation. The right next step is not to chase better prompts blindly - it's to build an eval pipeline first, so prompt/model/temperature changes can be measured. The Buildcamp evaluation module (homework on equivalence partitioning) is the conceptual reference. The principle to extract is "divide the input space into groups, cover each group with a few scenarios, then label and align an LLM judge against the manual labels."
 
-3. Agentic behaviour is mostly a planning problem. Koray's instinct is right: clarify on unclear photos, skip recommendations when daily targets are met. The work to do upfront is to enumerate the scenarios on paper or with ChatGPT before implementing - "продумать все сценарии до того, как ты имплементируешь агента" - so the implementation phase is mechanical.
+3. Agentic behaviour is mostly a planning problem. Koray's instinct is right: clarify on unclear photos, skip recommendations when daily targets are met. The work to do upfront is to enumerate the scenarios on paper or with ChatGPT before implementing ("продумать все сценарии до того, как ты имплементируешь агента") so the implementation phase is mechanical.
 
 4. Rule-based deduplication is a natural fit for an LLM check. He can keep the rule-based logic and add a light LLM check on top for the cases the rule misses. Cost/latency vs precision trade-off is something to measure once eval is in place.
 

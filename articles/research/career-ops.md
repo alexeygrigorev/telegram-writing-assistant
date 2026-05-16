@@ -130,7 +130,7 @@ The only npm dependency is Playwright. Everything else is vanilla Node.js with `
 
 ## The system learns from the user over time
 
-The first evaluations are not great because the system does not know you yet. The CLAUDE.md instructions explicitly tell the user this. As you feed it more context - your CV, career story, proof points, preferences - it improves. The onboarding process asks probing questions: "What's your superpower?", "What excites you?", "Any deal-breakers?"
+The first evaluations are not great because the system does not know you yet. The CLAUDE.md instructions explicitly tell the user this. As you feed it more context (your CV, career story, proof points, preferences) it improves. The onboarding process asks probing questions: "What's your superpower?", "What excites you?", "Any deal-breakers?"
 
 After every evaluation, the system updates `_profile.md` with what it learned from user feedback. This creates a compounding effect where later evaluations are much more accurate.
 

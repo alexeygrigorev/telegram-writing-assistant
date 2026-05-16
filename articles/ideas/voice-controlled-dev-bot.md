@@ -8,13 +8,13 @@ status: draft
 
 # Voice-Controlled Development Bot
 
-I like this flow with Telegram - I record a voice message, it reacts and does something. I have been thinking about this for a while: I want a general-purpose bot that does anything I ask. For example, I want to create an issue in some repository - I would dictate the command and the bot would do it[^1].
+I like this flow with Telegram (I record a voice message, it reacts and does something. I have been thinking about this for a while: I want a general-purpose bot that does anything I ask. For example, I want to create an issue in some repository) I would dictate the command and the bot would do it[^1].
 
 ## The Vision
 
 I know there is OpenClaw or something like that, but I would be interested in building this myself and understanding how it works. I imagine a thing that I simply tell what to do, and it changes its own code and executes different commands. Like I say "I want this feature" and it goes and implements it, changing its own code[^1].
 
-Security is a concern. It should not do anything harmful. If I run it in a Docker sandbox - I want to explore this - it would not be able to access any files outside its container. I could program by voice: record a Telegram message and it executes my commands[^1].
+Security is a concern. It should not do anything harmful. If I run it in a Docker sandbox (I want to explore this) it would not be able to access any files outside its container. I could program by voice: record a Telegram message and it executes my commands[^1].
 
 ## Why This Matters
 

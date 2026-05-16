@@ -107,7 +107,7 @@ Week 6:
 
 ## Persona
 
-Alex - The Engineer Transitioning to AI (preliminary). Manjunath has shipped traditional ML (CV/recommendation/classical), with limited backend exposure (FastAPI, Docker only) and no LLM/agentic experience. He fits Alex more than Taylor - he is not a researcher or theoretical specialist - though his engineering depth is closer to "ML engineer" than to "full-stack/backend engineer". The plan treats the LLM/RAG/agentic side as the main gap.
+Alex (The Engineer Transitioning to AI (preliminary). Manjunath has shipped traditional ML (CV/recommendation/classical), with limited backend exposure (FastAPI, Docker only) and no LLM/agentic experience. He fits Alex more than Taylor) he is not a researcher or theoretical specialist - though his engineering depth is closer to "ML engineer" than to "full-stack/backend engineer". The plan treats the LLM/RAG/agentic side as the main gap.
 
 See [personas.md](../personas.md) for full persona definitions.
 
@@ -115,7 +115,7 @@ See [personas.md](../personas.md) for full persona definitions.
 
 Manjunath is a traditional ML engineer pivoting to AI/LLM work. He is unemployed since around early March 2026 and is the sole bread-earner for his family, which constrains both weekly time (8-10 hours) and the urgency of shipping a portfolio piece that helps with the job search.
 
-He has had a difficult prior role - his director pushed for production AI without proper evaluation or failure-mode analysis - and is wary of AI-first roles where the same dynamics could repeat. He initially leaned toward AI Platform Engineer / MLOps roles for stability, but after his own role research and current referrals he is pivoting the first sprint to AI Engineering (RAG, agents, evals, cost/latency). The platform direction remains his longer-term end goal.
+He has had a difficult prior role (his director pushed for production AI without proper evaluation or failure-mode analysis) and is wary of AI-first roles where the same dynamics could repeat. He initially leaned toward AI Platform Engineer / MLOps roles for stability, but after his own role research and current referrals he is pivoting the first sprint to AI Engineering (RAG, agents, evals, cost/latency). The platform direction remains his longer-term end goal.
 
 The role question is unresolved and the sprint is partly a way to figure it out.
 
@@ -189,7 +189,7 @@ Alexey's recommendations after reviewing Manjunath's intake[^2]:
 
 3. There is no ready plan for AI Platform Engineer specifically (LLM platforms are a different beast than the data platforms Alexey has built). For AI Engineer there is a known plan. For AI Platform Engineer the plan has to be co-built. The sprint deliberately gives him a shape that touches both - a deployed RAG with observability is recognisable to both kinds of hiring committee.
 
-4. The platform-shaped end state - "drop in an agent and the platform automatically wires monitoring, instrumentation, log collection" - would be a genuinely interesting community project to build over time. For this sprint, frame it as the natural next step after a single deployed RAG, not the v1.
+4. The platform-shaped end state ("drop in an agent and the platform automatically wires monitoring, instrumentation, log collection") would be a genuinely interesting community project to build over time. For this sprint, frame it as the natural next step after a single deployed RAG, not the v1.
 
 5. Project mechanics: build simple end-to-end pieces first (RAG, then maybe a small agent), notice what is shared between them, and only then think about what a platform on top would look like. Without two or three concrete deployed projects, "build a platform" is design without input.
 
