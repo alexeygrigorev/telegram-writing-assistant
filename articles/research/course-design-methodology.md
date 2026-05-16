@@ -22,7 +22,7 @@ Bloom's Taxonomy serves as a checklist for levels, not as a primary framework.
 
 ## Frameworks
 
-### Backward Design
+## Backward Design
 
 The most popular approach in modern education. Start from the learning outcome, then design content.
 
@@ -42,7 +42,7 @@ For a Python course preparing students for other courses, the capability list sh
 - Write a processing script
 - Organize code into modules
 
-### Bloom's Taxonomy
+## Bloom's Taxonomy
 
 A hierarchy of understanding levels:
 
@@ -66,7 +66,7 @@ Example for a programming course:
 
 Each module should move the student one level higher.
 
-### Constructive Alignment
+## Constructive Alignment
 
 All course elements must be aligned:
 
@@ -85,7 +85,7 @@ Verification example for an API module:
 
 If all four match, the course is aligned.
 
-### Competency-Based Learning
+## Competency-Based Learning
 
 Focus on skills, not knowledge.
 
@@ -95,7 +95,7 @@ Structure: Skill -> Subskill -> Practice -> Project
 
 Used in bootcamps, online schools, and corporate training.
 
-### Spiral Curriculum
+## Spiral Curriculum
 
 Return to the same concepts at a deeper level each time.
 
@@ -109,7 +109,7 @@ Example for Machine Learning:
 
 Benefits: better retention, systemic understanding.
 
-### Problem-Based Learning (PBL)
+## Problem-Based Learning (PBL)
 
 Build the course around problems, not topics.
 
@@ -117,7 +117,7 @@ Instead of separate modules for SQL, Python, Visualization - use one problem: "b
 
 Makes learning contextual.
 
-### Cognitive Load Theory
+## Cognitive Load Theory
 
 The brain can absorb a limited amount of information at once.
 
@@ -141,7 +141,7 @@ Key principle - Worked Example -> Practice -> Variation:
 
 A step-by-step process with questions, deliverables, quality checks, and transition criteria at each stage.
 
-### Stage 0: Context and Course Boundaries
+## Stage 0: Context and Course Boundaries
 
 Goal: understand why the course exists and who it is for.
 
@@ -166,7 +166,7 @@ Quality checks:
 
 Gate: you can answer "this course exists so students can do X, Y, Z in other courses" in one paragraph.
 
-### Stage 1: Python Needs Analysis
+## Stage 1: Python Needs Analysis
 
 Goal: turn "Python is needed" into a list of specific skills and patterns.
 
@@ -191,7 +191,7 @@ Quality checks:
 
 Gate: you can show a table "Skill -> where needed -> importance."
 
-### Stage 2: Outcome Map
+## Stage 2: Outcome Map
 
 Goal: create outcomes that are verifiable.
 
@@ -215,7 +215,7 @@ Quality checks:
 
 Gate: there is a rubric that another instructor could use to evaluate work without you.
 
-### Stage 3: Project Decomposition
+## Stage 3: Project Decomposition
 
 Goal: turn the RSS aggregator into a "learning staircase."
 
@@ -239,7 +239,7 @@ Quality checks:
 
 Gate: each project step "pulls" exactly a limited set of new skills.
 
-### Stage 4: Course Skeleton
+## Stage 4: Course Skeleton
 
 Goal: assemble the course into a sequence.
 
@@ -263,7 +263,7 @@ Quality checks:
 
 Gate: the course can be run "by plan" without improvisation - it is clear what to do each week.
 
-### Stage 5: Lesson Design (Cognitive Load)
+## Stage 5: Lesson Design (Cognitive Load)
 
 Goal: make lessons "digestible."
 
@@ -288,7 +288,7 @@ Quality checks:
 
 Gate: you can take any lesson and deliver it in 30-60 minutes with a predictable result.
 
-### Stage 6: Pilot and Iterations
+## Stage 6: Pilot and Iterations
 
 Goal: test the reality of the course, not the theory.
 
@@ -325,27 +325,27 @@ Use this at every stage:
 
 ## Example Course Structure (RSS Podcast Aggregator)
 
-### Module 1 - Python Basics
+## Module 1 - Python Basics
 
 Goal: write simple programs. Topics: variables, types, lists, dicts, loops. Practice: process a list of episodes.
 
-### Module 2 - Functions
+## Module 2 - Functions
 
 Goal: structure code. Topics: functions, parameters, return. Practice: parse episode.
 
-### Module 3 - Files
+## Module 3 - Files
 
 Goal: save data. Topics: files, json. Practice: save episodes.
 
-### Module 4 - HTTP
+## Module 4 - HTTP
 
 Goal: work with APIs. Topics: requests, HTTP, JSON. Practice: download RSS.
 
-### Module 5 - Parsing
+## Module 5 - Parsing
 
 Goal: process XML. Topics: xml parsing. Practice: parse RSS feed.
 
-### Module 6 - CLI
+## Module 6 - CLI
 
 Goal: write CLI programs. Topics: argparse. Practice: rss fetch, rss list, rss download.
 
@@ -388,7 +388,7 @@ Example: Lesson on Lists -> Exercise: filter episodes -> Project step: implement
 
 ## Templates
 
-### Course Brief (1 page)
+## Course Brief (1 page)
 
 - Who it is for:
 - After the course, the student will be able to:
@@ -398,11 +398,11 @@ Example: Lesson on Lists -> Exercise: filter episodes -> Project step: implement
 - Final project:
 - Success criteria:
 
-### Outcome Template
+## Outcome Template
 
 "Student is able to [action] in the context of [scenario] by the criterion of [how we verify]."
 
-### Lesson Template
+## Lesson Template
 
 - Problem:
 - Concept:

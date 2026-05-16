@@ -22,7 +22,7 @@ This is a useful pattern. In the AI Engineering Buildcamp course (my course on M
 
 The idea behind Ralphex is appealing, but the implementation did not work so well in practice - the agent does things but without clear instructions it struggles[^1].
 
-### Three-Phase Workflow
+## Three-Phase Workflow
 
 1. Planning phase - create implementation plans through dialogue with Claude. The AI explores the codebase, asks clarifying questions, and generates structured plans
 
@@ -30,7 +30,7 @@ The idea behind Ralphex is appealing, but the implementation did not work so wel
 
 3. Review phase - launches 5 specialized review agents in parallel via Claude Code's Task tool, covering quality assessment, implementation correctness, testing adequacy, over-engineering detection, and documentation completeness
 
-### Key Architectural Decisions
+## Key Architectural Decisions
 
 Fresh session per task is the central design decision. Rather than running a single long Claude Code session, Ralphex launches a new process for each task iteration, each review iteration, and each external review evaluation. This prevents context window degradation and keeps the model sharp. State is communicated through the file system (plan file checkboxes, git commits) rather than through conversational context[^3].
 
@@ -42,7 +42,7 @@ Parallel review agents via Claude's Task tool: during code review, a single Clau
 
 No-commit detection for review convergence: the review loop captures the git HEAD hash before each Claude session and compares it after. If HEAD hasn't changed, Claude found nothing to fix and the loop terminates[^3].
 
-### Key Advantages
+## Key Advantages
 
 - No context degradation - each task executes in a separate Claude session, maintaining fresh context throughout long feature implementations
 - Atomic progress - commits after each completed task, so failed executions don't lose completed work
@@ -50,7 +50,7 @@ No-commit detection for review convergence: the review loop captures the git HEA
 - Structured planning - unlike simple ralph loops that re-run the same prompt, Ralphex manages explicit structured plans
 - Resumable - if interrupted mid-execution, completed tasks remain committed on the feature branch and re-running continues from the first incomplete task
 
-### Technical Details
+## Technical Details
 
 Written in Go. Uses Claude Code's `--output-format stream-json` for streaming output parsing. Supports Docker isolation for sandboxed execution. Configuration cascades: CLI flags > project-local config > global config > embedded defaults. Template-driven prompts with variable expansion and agent references[^3].
 

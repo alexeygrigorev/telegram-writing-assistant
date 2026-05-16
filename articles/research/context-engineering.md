@@ -16,7 +16,7 @@ How context engineering principles and the 12-factor agent framework can improve
 
 ## Resources
 
-### 12 Factors of AI Agents (Talk)
+## 12 Factors of AI Agents (Talk)
 
 Source: https://youtu.be/8kMaTybvDUw
 
@@ -81,7 +81,7 @@ Quotes:
 - "Not every problem needs an agent."
 - "Find something right at the boundary of what the model can do reliably, and if you can figure out how to get it right reliably because you've engineered reliability into your system, then you will have created something magical."[^1]
 
-### State of Context Engineering in 2026 (Workshop)
+## State of Context Engineering in 2026 (Workshop)
 
 Source: https://x.com/Aurimas_Gr/status/2034035800548192258
 

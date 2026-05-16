@@ -90,7 +90,7 @@ In most browser automation tools, self-healing means one of these:
 
 Browser Harness does none of these mechanically. Its self-healing is structural and operates at four layers.
 
-### Layer 1: Agent-Edited Primitives (the headline feature)
+## Layer 1: Agent-Edited Primitives (the headline feature)
 
 The helpers file is a working document, not an API. If the agent tries to call `upload_file()` and it doesn't exist, the agent writes it. The CDP layer is always reachable via the `cdp()` helper, so no matter what primitive is missing, the model can fall back to raw `Input.dispatchMouseEvent`, `DOM.setFileInputFiles`, or whatever CDP method does the job.
 
@@ -109,7 +109,7 @@ The README story is exactly this: the agent realized it needed this function, wr
 
 The "bitter lesson" post by Gregor Zunic articulates the thesis: "As long as in principle everything is possible, LLMs are extremely good at fixing themselves on the fly"[^5]. The harness exposes the whole action space via `cdp()` and then trusts the model.
 
-### Layer 2: Stale Session Recovery in the Daemon
+## Layer 2: Stale Session Recovery in the Daemon
 
 The one place the source code does proactive recovery is CDP session staleness. Chrome can invalidate a session ID mid-task (page navigation, target closed, tab switched). The daemon catches this specifically and re-attaches on the fly. From `daemon.py`[^6]:
 
@@ -145,7 +145,7 @@ sid = None if method.startswith("Target.") else (req.get("session_id") or self.s
 
 Target operations go to the browser context, not a tab session, so a stale tab session cannot poison browser-wide operations like listing tabs or creating new ones.
 
-### Layer 3: User-Facing Recovery Helpers
+## Layer 3: User-Facing Recovery Helpers
 
 The harness provides `ensure_real_tab()` for the model to call when it suspects it is attached to the wrong target (omnibox popup, `chrome://`, closed tab)[^4]:
 
@@ -169,7 +169,7 @@ The agent is taught via `SKILL.md` when to call this: "Wrong/stale tab: `ensure_
 
 Similarly, `restart_daemon()` in `admin.py` is a last-resort reset the agent can invoke when the WebSocket is hung ("no close frame received or sent"). It sends `{"meta":"shutdown"}`, then SIGTERMs the PID, then unlinks socket and pid files[^7]. A follow-up `browser-harness` call auto-spawns a fresh daemon via `ensure_daemon()`. The function's misnomer is intentional, per the docstring: "restart_daemon is misnamed - it only stops the daemon ... The 'run-it-again-to-restart' workflow is why it was named that way".
 
-### Layer 4: The Skills Knowledge Base
+## Layer 4: The Skills Knowledge Base
 
 The durable recovery mechanism is `domain-skills/` and `interaction-skills/`. When an agent figures out something non-obvious about a site, `SKILL.md` instructs it to commit a markdown file describing what it learned[^3]:
 

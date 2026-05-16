@@ -21,7 +21,7 @@ This could be interesting for:
 
 ## Example: Jupyter Session Integration for Claude Code
 
-### Initial Problem
+## Initial Problem
 
 When working with code in Jupyter notebooks, I currently have to:
 1. Write and run code in Jupyter cells
@@ -30,7 +30,7 @@ When working with code in Jupyter notebooks, I currently have to:
 
 This workflow is slow because even for small changes, I have to run the entire notebook again to make sure everything still works before inserting cells into the template[^2].
 
-### Desired Solution
+## Desired Solution
 
 What I want is a way for Claude Code to interact with a live Jupyter session similar to how ChatGPT does with its Python code interpreter. In ChatGPT, when I ask it to write Python code:
 - It writes and runs code in an interactive session
@@ -38,7 +38,7 @@ What I want is a way for Claude Code to interact with a live Jupyter session sim
 - The code state persists between messages
 - It's much faster than the manual notebook approach
 
-### Current Investigation
+## Current Investigation
 
 I'm exploring how to integrate Claude Code with Jupyter notebooks to speed up experimentation. Some options I'm considering:
 - MCP (Model Context Protocol) for Jupyter notebooks
@@ -47,7 +47,7 @@ I'm exploring how to integrate Claude Code with Jupyter notebooks to speed up ex
 
 The goal is to let Claude maintain a Python session where it can run code and see outputs, similar to how I work in Jupyter, but faster. This would accelerate the iteration cycle when developing course materials and examples[^2].
 
-### Status
+## Status
 
 This is currently an idea being explored. The key insight is that documenting the idea now allows me to return to it later with more context, or discuss it with others (like ChatGPT) to make it more concrete[^2].
 

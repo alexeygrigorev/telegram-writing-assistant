@@ -30,7 +30,7 @@ This approach lets us test agents using natural language descriptions instead of
 
 Here is an example from the AI Engineering Buildcamp course - a daily tasks agent with judge-based tests[^1].
 
-### The Judge Agent
+## The Judge Agent
 
 The judge is created as a separate agent with specific instructions:
 
@@ -59,7 +59,7 @@ def create_judge():
 
 Source: [github.com/alexeygrigorev/my-daily-tasks-agent/blob/main/tests/judge.py](https://github.com/alexeygrigorev/my-daily-tasks-agent/blob/main/tests/judge.py)
 
-### Evaluating Performance
+## Evaluating Performance
 
 The judge receives the agent's output, tool calls, and evaluation criteria:
 
@@ -96,7 +96,7 @@ Tool calls:
 
 Source: [github.com/alexeygrigorev/my-daily-tasks-agent/blob/main/tests/judge.py](https://github.com/alexeygrigorev/my-daily-tasks-agent/blob/main/tests/judge.py)
 
-### Writing Tests with Criteria
+## Writing Tests with Criteria
 
 Tests describe expected behavior in natural language:
 

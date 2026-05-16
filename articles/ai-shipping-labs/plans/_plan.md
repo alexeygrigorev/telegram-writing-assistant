@@ -30,13 +30,13 @@ Short snapshot that can be pasted into an email, Slack DM, or Notion page. Keep 
 
 This is the shareable part of the document.
 
-### Focus
+## Focus
 
 - Main focus:
 - Supporting focus:
 - Supporting focus:
 
-### Timeline
+## Timeline
 
 Break the work into 6 weekly mini-goals. Each week should be concrete, time-bounded, and small enough to check off[^template1].
 
@@ -58,22 +58,22 @@ Week 5:
 Week 6:
 - ...
 
-### Resources
+## Resources
 
 - [Resource name](https://example.com/) - why it matters now
 - ...
 
-### Deliverables
+## Deliverables
 
 - ...
 - ...
 
-### Accountability
+## Accountability
 
 - ...
 - ...
 
-### Next Steps
+## Next Steps
 
 - [ ] [Member] ...
 - [ ] [Alexey] ...
@@ -83,7 +83,7 @@ Week 6:
 
 Everything below is for internal use only.
 
-### Persona
+## Persona
 
 [Alex - The Engineer Transitioning to AI / Priya - The Improver / Sam - The Technical Professional Moving to AI / Taylor - The Research-to-Engineering Transitioner / Undetermined] - short reason for the assignment.
 
@@ -91,37 +91,37 @@ Use both the short name and the archetype title so nobody has to remember the sh
 
 See [personas.md](../personas.md) for full persona definitions and the associated starting points and gaps.
 
-### Background
+## Background
 
 Short summary of the person: role, years of experience, location if relevant, current AI/ML exposure, and how they came into AI Shipping Labs (course, newsletter, recommendation).
 
 Cross-reference the matching interview at [../interviews/{person-name}.md](../interviews/).
 
-### Intake
+## Intake
 
-#### Initial Input
+## Initial Input
 
 The person's initial message or free-form answer when they first responded to the outreach.
 
-#### Questions and Answers
+## Questions and Answers
 
 Keep the questions as close to verbatim as possible so different plans remain comparable.
 
-### Meeting Notes
+## Meeting Notes
 
 Dates, participants, clarifications, decision points, and anything useful for future follow-ups.
 
-### Internal Recommendations
+## Internal Recommendations
 
 Alexey's working recommendation, tradeoffs, caveats, and anything we do not want to present as polished external guidance yet.
 
-### Internal Action Items
+## Internal Action Items
 
 - [ ] [Alexey] ...
 - [ ] [Valeriia] ...
 - [ ] [Member name] ...
 
-### Sources
+## Sources
 
 Link back to the intake document, the interview file, and any raw inbox messages used to produce this plan.
 

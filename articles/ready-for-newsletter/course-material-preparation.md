@@ -109,11 +109,11 @@ However, once automation is in place, material preparation becomes much faster. 
 
 The current workflow for preparing course materials leverages Claude Skills to automate repetitive tasks. Over multiple iterations of feedback and refinement, the skills have improved significantly.
 
-### The Template System
+## The Template System
 
 Code is stored in Jupyter notebooks while content is in markdown documents. When editing the template, the markdown result updates in real-time. This allows immediate preview of changes without manual synchronization[^8].
 
-### Notebook Interaction with Claude
+## Notebook Interaction with Claude
 
 Claude can interact with Jupyter notebooks through the console:
 - Inserting needed commands
@@ -127,7 +127,7 @@ The workflow:
 4. Have Claude run everything to verify it works before recording
 5. Record the video using the prepared template[^8]
 
-### Post-Recording Synchronization
+## Post-Recording Synchronization
 
 After recording, Claude helps update the documentation:
 1. Takes the final notebook used during recording
@@ -137,7 +137,7 @@ After recording, Claude helps update the documentation:
 
 This eliminates hours of manual work that was previously required to sync documentation with recorded videos.
 
-### Iterative Skill Improvement
+## Iterative Skill Improvement
 
 Initially, Claude made mistakes that required correction. Each time an error occurred, Claude was asked to:
 1. Analyze what went wrong
@@ -146,7 +146,7 @@ Initially, Claude made mistakes that required correction. Each time an error occ
 
 After 20-30 iterations of this feedback loop, the skills now work correctly about 80% of the time. Some manual fixes are still needed, but the automation saves significant time overall[^8].
 
-### Shift in Focus
+## Shift in Focus
 
 With this workflow, more time is spent on:
 - Writing and testing code
@@ -171,7 +171,7 @@ The template generator tool allows working with Jupyter notebooks to create cour
 
 This approach ensures code actually works before being included in materials, since the notebook runs end-to-end and only working cells are inserted into templates.
 
-### Current Limitation
+## Current Limitation
 
 The current workflow requires running the entire notebook before extracting cells. This means:
 1. Write code in notebook
@@ -181,7 +181,7 @@ The current workflow requires running the entire notebook before extracting cell
 
 This is slow for iterative experimentation. Each small change requires re-running previous steps that are already known to work.
 
-### Desired Improvement: Jupyter Session Integration with Claude
+## Desired Improvement: Jupyter Session Integration with Claude
 
 A faster workflow would connect Claude directly to IPython kernel sessions, similar to how ChatGPT handles code analysis. The idea:
 - Maintain a persistent Jupyter session

@@ -16,7 +16,7 @@ How to build effective memory layers for agents that can persist context across 
 
 ## Resources
 
-### Eric Tramel: Searchable Agent Memory
+## Eric Tramel: Searchable Agent Memory
 
 Status: URL Not Found (404)
 
@@ -34,7 +34,7 @@ The advantage over vector databases: no embedding computation, simpler infrastru
 
 Action needed: Verify correct URL or locate an archived version of this content[^4].
 
-### TowardsDataScience: Custom LLM Memory Layers
+## TowardsDataScience: Custom LLM Memory Layers
 
 Source: https://towardsdatascience.com/how-to-build-your-own-custom-llm-memory-layer-from-scratch/
 
@@ -92,7 +92,7 @@ Quotes:
 
 Note: The original URL (building-custom-llm-memory-layers-5f12a877881d) returns 404. This summary is based on the current article "How to Build Your Own Custom LLM Memory Layer from Scratch" which covers the same topic area. Full code repo: https://github.com/avbiswas/mem0-dspy[^5].
 
-### GitHub Blog: Building an Agentic Memory System for GitHub Copilot
+## GitHub Blog: Building an Agentic Memory System for GitHub Copilot
 
 Source: https://github.blog/ai-and-ml/github-copilot/building-an-agentic-memory-system-for-github-copilot/
 
@@ -139,7 +139,7 @@ Quotes:
 - "Information retrieval is an asymmetrical problem: It's hard to solve, but easy to verify"
 - "If an inexperienced developer opens a pull request that updates only one of these locations, Copilot code review will flag the omission and suggest the missing updates, automatically transferring knowledge from a more experienced team member to a newer one"
 
-### LinkedIn: Why I Stopped Letting LLMs Build My Knowledge Graphs
+## LinkedIn: Why I Stopped Letting LLMs Build My Knowledge Graphs
 
 Source: https://www.linkedin.com/pulse/why-i-stopped-letting-llms-build-my-knowledge-graphs-what-malaraju-ycxbc
 
@@ -184,7 +184,7 @@ Quotes:
 - "The quality of your ontology is defined as much by what you exclude as by what you include."
 - "No single retrieval method is sufficient. Combine them with RRF and let each method compensate for the others' blind spots."
 
-### The-Vibe-Company/companion
+## The-Vibe-Company/companion
 
 [companion](https://github.com/The-Vibe-Company/companion) is a web UI for Claude Code built on a reverse-engineered WebSocket protocol.
 
@@ -220,7 +220,7 @@ Quotes:
 - "Claude Code is powerful but stuck in a terminal. You can't easily run multiple sessions, there's no visual feedback on tool calls, and if the process dies your context is gone."
 - "We reverse-engineered the undocumented WebSocket protocol hidden inside the CLI and built a web UI on top of it. No API key needed, it runs on your existing Claude Code subscription."
 
-### Reddit: Everyone's Trying Vectors and Graphs for AI Memory. We Went Back to SQL.
+## Reddit: Everyone's Trying Vectors and Graphs for AI Memory. We Went Back to SQL.
 
 Source: https://www.reddit.com/r/AI_Agents/comments/1nkx0bz/everyones_trying_vectors_and_graphs_for_ai_memory/
 Referenced in: [20260211_152925_AlexeyDTC_msg1451.md](../../inbox/used/20260211_152925_AlexeyDTC_msg1451.md)
@@ -261,13 +261,13 @@ Quotes:
 - "With Postgres, you can layer on extensions like pgvector for semantic search, or graph extensions. Instead of wiring up three different systems, agents could just connect to one database"
 - "99% of software solutions can be a relational database with some batch jobs and a web server"
 
-### Reddit: Please Stop Creating "Memory for Your Agent" Frameworks
+## Reddit: Please Stop Creating "Memory for Your Agent" Frameworks
 
 Source: https://www.reddit.com/r/ClaudeCode/comments/1r4asf6/please_stop_creating_memory_for_your_agent/[^12][^13]
 
 Overview: A provocative post in r/ClaudeCode by u/thurn2 (61 upvotes, 86% upvote ratio) arguing that the proliferation of third-party "agent memory" frameworks and MCP plugins is unnecessary because Claude Code already ships with comprehensive memory capabilities. The post sparked a nuanced community debate about where built-in memory ends and where custom solutions become necessary, revealing a spectrum of opinions from "documentation is all you need" to "memory is the biggest unsolved problem in the agentic world."
 
-### Key Ideas
+## Key Ideas
 
 - Claude Code already provides multiple layers of memory: CLAUDE.md files (project-scoped and directory-scoped), MEMORY.md files, SKILL.md files, README files, a tasks system, a planning system, and an auto-memory system
 - The OP's core argument is that writing documentation is the right form of memory for agents - these are files the agent can read and write, scoped to the right level, and they serve double duty as human-readable docs
@@ -275,7 +275,7 @@ Overview: A provocative post in r/ClaudeCode by u/thurn2 (61 upvotes, 86% upvote
 - A counter-argument emerged from users working at scale (500k+ lines across 6 repos): simple file-based memory breaks down for large codebases where you need semantic search across massive amounts of code context
 - Some users pointed out that Claude's auto-memory system, while well-designed in principle, does not trigger reliably enough on its own - it needs periodic system-level reminders (similar to how Anthropic already uses reminders for the TodoWrite tool)
 
-### Key Insights
+## Key Insights
 
 - File-based memory (markdown docs in the repo) is a surprisingly effective memory system for coding agents because it is version-controlled, human-readable, scoped to directories, and requires zero infrastructure
 - The real failure mode of agent memory is not storage or retrieval but context window management - every memory system that injects context must justify its token cost against the degradation in reasoning quality
@@ -284,7 +284,7 @@ Overview: A provocative post in r/ClaudeCode by u/thurn2 (61 upvotes, 86% upvote
 - Commit history itself can serve as a form of memory - it records what changed, when, and why, and is already indexed and searchable
 - Context window size is a hard constraint on memory usefulness: beyond approximately 150k tokens, models enter "hallucination and lying territory" regardless of how good the memory system is
 
-### Community Perspectives
+## Community Perspectives
 
 The community split roughly into three camps:
 
@@ -301,7 +301,7 @@ Quotes:
 - "I almost never see Claude use it [auto-memory], even at times it should. [...] With these reminders, I found myself benefiting from much better Claude-initiated auto-memory updates." - u/lucianw
 - "If you've reached compaction, you've already messed up. [...] If you want to maximize intelligence you need to keep things at 100k context window. More than 150k and you're entering hallucinations and lying territory." - u/james__jam
 
-### MemPalace: A Fully Local Memory System Using the Memory Palace Technique
+## MemPalace: A Fully Local Memory System Using the Memory Palace Technique
 
 Full article: [MemPalace](mempalace.md)
 

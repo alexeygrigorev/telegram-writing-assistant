@@ -20,13 +20,13 @@ Internal working document. Share only the `Summary` and `Plan` sections with the
 
 ## Plan
 
-### Focus
+## Focus
 
 - Main focus: pick one concrete DataTalks.Club project and commit to it.
 - Supporting focus: build it locally in Python first, then deploy it to AWS Lambda.
 - Supporting focus: if useful, add one extra engineering signal such as evaluation or a scheduled/cron job.
 
-### Timeline
+## Timeline
 
 Week 1:
 
@@ -58,26 +58,26 @@ Week 6:
 - Write the README, clarify the architecture, polish the demo, and share the project in the community.
 - Decide whether the next step is maintenance, iteration, or a second project.
 
-### Resources
+## Resources
 
 - DataTalks.Club hackathon issue list - gives Vancesca ready-made problems instead of a blank ideation step.
 - [AI Engineering Field Guide](../../ai-engineering-field-guide.md) - useful for checking which kinds of portfolio projects map well to target roles.
 - Project-idea brainstorming prompt: https://gist.github.com/alexeygrigorev/c1c8dc3ece5cba91e1e381eeba2706c1
 
-### Deliverables
+## Deliverables
 
 - One deployed AWS-hosted project in Python.
 - A project that clearly demonstrates API usage and deployment.
 - README/demo materials good enough for portfolio use.
 - Optional scheduled or evaluation feature if it strengthens the final result.
 
-### Accountability
+## Accountability
 
 - Define the end result early so implementation does not stall in the scoping phase.
 - Push to GitHub regularly and use that as the default progress log.
 - Use community sync-ups or a peer-learning session to keep the project moving through the final stretch.
 
-### Next Steps
+## Next Steps
 
 - [ ] [Vancesca] Pick one project from the shortlist and write down what "done" looks like.
 - [ ] [Vancesca] Confirm whether the extra feature should be evaluation, scheduling, or both.
@@ -85,17 +85,17 @@ Week 6:
 
 ## Internal Context
 
-### Persona
+## Persona
 
 Undetermined - closest to Alex (The Engineer Transitioning to AI), but the intake does not establish the background clearly enough to assign that archetype with confidence.
 
-### Background
+## Background
 
 Vancesca is looking for an AI role, already has one project from the AI Buildcamp, and wants another end-to-end portfolio project. She would ideally like the project to also support DataTalks.Club. Her interests cluster around AWS deployment, agent evaluation, and clearer problem definition.
 
-### Intake
+## Intake
 
-#### Initial Input
+## Initial Input
 
 Thanks so much for reaching out. My son is home for Easter, so my focus has been a bit scattered these past few weeks. I really appreciate your persistence and kindness in letting me know about this program.
 
@@ -109,7 +109,7 @@ As for what I'm working on or hoping to get out of this:
 - I'm especially interested in evaluating agents.
 - To maintain motivation, I'd like to have a coffee chat with the community where anyone can join and we talk about AI, our projects, things we're working on, etc. - kind of a peer learning thing. I wouldn't mind hosting it if it's something we can build.
 
-#### Questions and Answers
+## Questions and Answers
 
 **If you build one more project now, what do you want it to prove to employers about you?**
 
@@ -138,11 +138,11 @@ About 20 hours.
 
 The start and the end, so coming up with ideas and maintaining the project once it's "finished".
 
-### Meeting Notes
+## Meeting Notes
 
 No separate intake call notes are currently attached in this file.
 
-### Internal Recommendations
+## Internal Recommendations
 
 For Vancesca, Alexey's main recommendation is to anchor the next project in a concrete DataTalks.Club problem so that she does not have to invent the scope from scratch[^3].
 
@@ -166,13 +166,13 @@ Full DTC hackathon issue list captured in the original notes:
 
 Alexey also wants Vancesca involved in the planning itself, with room to react to the proposed scope rather than just receive a fixed prescription.
 
-### Internal Action Items
+## Internal Action Items
 
 - [ ] [Vancesca] Pick a project from the DTC issue list and confirm that she actually likes it.
 - [ ] [Alexey] Help sketch the implementation once the project is chosen.
 - [ ] [Vancesca] Decide whether the cron/scheduling feature belongs in the first version or as a later enhancement.
 
-### Sources
+## Sources
 
 [^1]: [Google Doc](https://docs.google.com/document/d/1fJT6wQMA_bK9nwYXmfeGuXiA0k8a8fheZB9NyVbCZCQ/edit?usp=sharing)
 [^2]: [20260420_083739_AlexeyDTC_msg3443.md](../../../inbox/used/20260420_083739_AlexeyDTC_msg3443.md)

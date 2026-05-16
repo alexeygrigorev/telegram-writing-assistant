@@ -20,12 +20,12 @@ Internal working document. Share only the `Summary` and `Plan` sections with the
 
 ## Plan
 
-### Focus
+## Focus
 
 - Main focus: complete AI Hero from start to finish, including the homework and the final demo. Aim for steady weekly progress, not speed.
 - Supporting focus (bonus, only if main focus is on track): pick one small DataTalks.Club idea - a Q&A agent over DataTalks.Club podcasts is a good candidate - and apply what the course teaches as a personal side project. This is explicitly a stretch goal; it is fine to drop if the course is taking the full 3-4 hours per week.
 
-### Timeline
+## Timeline
 
 The detailed week-by-week structure follows AI Hero itself. The plan only adds the wrappers around it.
 
@@ -55,20 +55,20 @@ Week 6:
 - Final demo. A 5-minute walkthrough is enough - what the agent does, what surprised you, what would be the next step.
 - Decide whether the next sprint extends the demo project, or picks up one of the DataTalks.Club automation ideas with the engineering basics now in place.
 
-### Project approach
+## Project approach
 
 - Pace honestly. 3-4 hours a week with the course is doable; 3-4 hours with the course + a side project is not. The course is the hard requirement; side projects only enter if the course is comfortably on track.
 - This will be harder for you than for most other members on the same plan, simply because the engineering vocabulary is newer. That is normal and expected. Every step in the course that takes longer than the recommended time is a fair trade for understanding.
 - Use a coding assistant from day one. Treat it as the on-call tutor: explain things you do not recognise, suggest the next small step, generate boilerplate. Do not let it generate code you cannot read - if the assistant produces something opaque, ask it to explain rather than running it.
 - Use the AI Shipping Labs Slack the same way members do - ask questions, share progress, post the demo at the end. Doing this from inside the community makes the format easier to recommend later.
 
-### Resources
+## Resources
 
 - AI Hero - free, the main learning track for the sprint.
 - A coding assistant of choice - Claude Code, Codex, or similar. One paid plan, used consistently.
 - AI Shipping Labs Slack - peer support, weekly progress posts, demo at the end.
 
-### Deliverables
+## Deliverables
 
 - Course environment set up, first module done - by end of week 1.
 - Next AI Hero module completed + Slack note - by end of week 2.
@@ -77,13 +77,13 @@ Week 6:
 - Capstone project chosen and started - by end of week 5.
 - Demo and final post - by end of week 6.
 
-### Accountability
+## Accountability
 
 - One short Slack post per week: what was new, what felt confusing, what is next. The format does not need to be polished; the consistency is the point.
 - Treat the course completion as the success metric. Side project is a bonus, not a target.
 - 3-4 hours per week. If a heavier work week makes that impossible, drop the side-project track first; do not drop a course module to fit a project.
 
-### Next Steps
+## Next Steps
 
 - [ ] [Valeriia] Pick the coding assistant + paid plan; start AI Hero module 1.
 - [ ] [Valeriia] Post weekly progress in the AI Shipping Labs Slack.
@@ -91,13 +91,13 @@ Week 6:
 
 ## Internal Context
 
-### Persona
+## Persona
 
 Sam - The Technical Professional Moving to AI (preliminary). Valeriia is a non-programmer working in content marketing for DataTalks.Club. Already a daily AI-assistant user but without engineering background. The "non-programmer who wants to use AI tools to build small things" path matches Sam.
 
 See [personas.md](../personas.md) for full persona definitions.
 
-### Background
+## Background
 
 Valeriia is on the AI Shipping Labs team, running outreach, intake conversations, and content for DataTalks.Club. In the course of running onboarding for less-technical members, she has been thinking about what it would look like to participate as a member rather than only as the host[^1].
 
@@ -105,9 +105,9 @@ She has automation ideas for DataTalks.Club content but feels she does not have 
 
 She framed her motivation specifically around hearing other non-programmer members (e.g., Rafael) join and realising she could participate too[^1].
 
-### Intake
+## Intake
 
-#### Initial Input
+## Initial Input
 
 Verbatim, from the voice and text messages forwarded by Alexey[^1][^2]:
 
@@ -115,15 +115,15 @@ Verbatim, from the voice and text messages forwarded by Alexey[^1][^2]:
 
 > I think with 3-4 hours a week I will move slowly. But I can try to find time after work too, if I have a concrete plan. If only talking about the course - just taking it - 3-4 hours should definitely be enough[^2].
 
-#### Questions and Answers
+## Questions and Answers
 
 Structured intake questionnaire not used here - input collected via the messages above.
 
-### Meeting Notes
+## Meeting Notes
 
 No intake call needed - Valeriia is on the team and the conversation continues in person.
 
-### Internal Recommendations
+## Internal Recommendations
 
 Alexey's recommendations[^3]:
 
@@ -137,12 +137,12 @@ Alexey's recommendations[^3]:
 
 5. Side-project automation ideas for DataTalks.Club stay parked for now. They become realistic after the engineering basics are in place.
 
-### Internal Action Items
+## Internal Action Items
 
 - [ ] [Alexey] Send Valeriia the written plan.
 - [ ] [Alexey/Valeriia] At the end of the sprint, decide whether the next one extends the capstone or picks up a DataTalks.Club automation idea.
 
-### Sources
+## Sources
 
 [^1]: [20260506_200501_AlexeyDTC_msg3882_transcript.txt](../../../inbox/used/20260506_200501_AlexeyDTC_msg3882_transcript.txt) - Valeriia's voice note (forwarded by Alexey) about wanting to join the sprint as a member.
 [^2]: [20260506_200501_AlexeyDTC_msg3883.md](../../../inbox/used/20260506_200501_AlexeyDTC_msg3883.md) - Valeriia's text on weekly time budget.

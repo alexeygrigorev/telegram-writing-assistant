@@ -30,7 +30,7 @@ This serves as motivation for the framework below. People who are more skilled a
 
 For some people, finding projects is not a problem at all. The problem is the opposite - there are more ideas than free time. Here is how projects naturally come up[^2][^3][^4]:
 
-### Source 1: Noticing suboptimal things while working
+## Source 1: Noticing suboptimal things while working
 
 The most reliable source of project ideas is simply doing things - working on projects, pet projects, anything. While working, things come up that are suboptimal, could be improved, or have no existing solution[^3][^4].
 
@@ -42,13 +42,13 @@ Looking for a Python solution, the only library available internally launches a 
 
 This is how many libraries and projects were born: MinSearch, CQ, LightSearch. They all appeared because there was no existing solution for a specific need. For example, there was surprisingly no suitable in-memory search library for Python. The problem was solved relatively quickly even before AI assistants were popular. More time was spent figuring out how to publish the library than writing it[^4].
 
-### Source 2: Wanting to understand how something works
+## Source 2: Wanting to understand how something works
 
 The best way to understand something is to implement it yourself. Now with AI agents, you don't even have to implement it yourself - the agent writes the code and you understand how things work by reading it[^3].
 
 Example: the automatic SSH port forwarding project. After getting a new server, the goal was to automatically forward ports from anything running on the server to localhost through the firewall, keeping everything blocked except SSH (port 22). A solution might already exist, but the point was to understand how it works[^3].
 
-### Source 3: Someone asks a question
+## Source 3: Someone asks a question
 
 Hearing questions frequently leads to project ideas. This happens at meetups and other events where people ask how to do something or what the current state of something is[^5].
 
@@ -64,7 +64,7 @@ A ChatGPT conversation explored this topic using Design Thinking methodology and
 
 The ChatGPT conversation identified several established frameworks that can be adapted for helping students find project ideas[^6]:
 
-### Design Thinking
+## Design Thinking
 
 The most popular approach for student projects. The standard framework for finding product or project ideas.
 
@@ -99,17 +99,17 @@ Validation:
 - Is there data available?
 - Is there a success metric?
 
-### SCAMPER
+## SCAMPER
 
 A checklist method for creative thinking through directed questions: Substitute, Combine, Adapt, Modify, Put to other uses, Eliminate, Reverse.
 
 Example: if a student chose "task calendar" as a theme, SCAMPER questions help explore it from different angles - can ML replace something? Can calendar be combined with email and notes? Can it be made real-time or into a recommender?
 
-### CDIO framework
+## CDIO framework
 
 A popular model in engineering universities: Conceive, Design, Implement, Operate. Questions guide students from "what do we want to improve?" through "how will it work?" to "how to verify it works?"
 
-### Engineering idea generation framework
+## Engineering idea generation framework
 
 From engineering literature, ideas go through 4 stages: Framing (problem context), Ideation (generating ideas), Selection (choosing an idea), Evaluation (assessment).
 
@@ -117,7 +117,7 @@ From engineering literature, ideas go through 4 stages: Framing (problem context
 
 An adapted version simplified to 4 steps, designed to work for anyone - students, professionals, freelancers, hobbyists[^6]:
 
-### Step 1: Observe - observation of life
+## Step 1: Observe - observation of life
 
 Goal: find real problems. Best projects come from work, personal life, hobbies, information, data, digital tools.
 
@@ -152,7 +152,7 @@ Data (especially useful for AI projects):
 
 Exercise: make a list of at least 20 problems. Problems can be small. The first ten ideas are almost always obvious - the interesting ones come after.
 
-### Step 2: Define - formulate the problem
+## Step 2: Define - formulate the problem
 
 Pick 3-5 problems from the list and turn them into clear formulations.
 
@@ -161,7 +161,7 @@ Right: "Students spend too much time searching for learning materials."
 
 Clarifying questions: Who faces the problem? How often does it occur? Why is it a problem? What happens now?
 
-### Step 3: Ideate - generate solutions
+## Step 3: Ideate - generate solutions
 
 Generate many solutions. Questions to drive generation:
 
@@ -171,7 +171,7 @@ Generate many solutions. Questions to drive generation:
 - Can something be classified?
 - Can information be extracted?
 
-### Step 4: Select - choose a project
+## Step 4: Select - choose a project
 
 Evaluate ideas using a matrix:
 

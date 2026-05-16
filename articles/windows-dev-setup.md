@@ -30,11 +30,11 @@ Git for Windows comes with MinGW, which gives you bash on Windows. It also insta
 
 After installation, restart Windows Terminal. Git Bash should appear as a new profile. If it did not get added automatically, go to Settings, Profiles, add a new profile, and add Git Bash.
 
-### Setting Git Bash as default
+## Setting Git Bash as default
 
 Go to Settings, Startup, and change the default profile to Git Bash.
 
-### Customizing the terminal
+## Customizing the terminal
 
 Change the font to Consolas (or your preferred font) and increase the font size for readability - especially useful when recording videos. Adjust the terminal size in columns and rows (for example, 100 columns and 28 rows).
 
@@ -76,7 +76,7 @@ Install UV (Python package manager) using the official install command in PowerS
 
 After installation, restart the shell or run the provided command to add UV to your PATH. Verify with `where uv` (PowerShell) or `which uv` (bash).
 
-### Setting up a global Python
+## Setting up a global Python
 
 UV can download Python automatically. To set up a "global" Python that is always available:
 
@@ -95,7 +95,7 @@ This downloads Python 3.13 and creates a virtual environment. Then install pip i
 uv pip install pip
 ```
 
-### Configuring PATH in .bashrc
+## Configuring PATH in .bashrc
 
 Edit `~/.bashrc` to add the bin directory and the Python scripts to your PATH:
 

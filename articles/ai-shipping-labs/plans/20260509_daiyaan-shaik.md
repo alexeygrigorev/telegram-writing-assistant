@@ -28,13 +28,13 @@ If (b): this plan is right - it covers exactly that ground via AI Hero plus a sp
 
 This is the shareable part of the document.
 
-### Focus
+## Focus
 
 - Main focus: ship one fintech-adjacent LLM application end to end. Most likely a RAG over a corpus you actually want to query (your own notes, internal docs, meeting transcripts, or a public fintech corpus), with proper evaluation, basic monitoring, and a live URL.
 - Supporting focus: complete AI Hero in the first two weeks as the agent-building foundation. Treat it as the theory side of the alternating cadence you asked for - read/build a module, then apply the concept to your project.
 - Supporting focus: tighten the AI-assisted coding workflow on this project specifically - better specs, smaller decomposed tasks, deterministic skills/tools that fire when you expect them to, and a habit of reading what Cursor / Claude Code generated rather than running it.
 
-### Timeline
+## Timeline
 
 The plan below is dense for a 5-8 hr/week budget. Treat the week boundaries as targets, not contracts. If AI Hero spills into week 3 because evenings get eaten, that is fine - shift everything one week and drop the week 6 polish, not the build/eval/deploy core. The non-negotiable outcome is one shipped, evaluated, deployed project; the calendar is flexible.[^5]
 
@@ -73,7 +73,7 @@ Week 6:
 - Demo to the AI Shipping Labs community via Slack. Capture feedback.
 - Decide the next sprint: deeper on this project (fine-tuning experiment, agent extensions), or move to the second project from your candidate list.
 
-### Project approach
+## Project approach
 
 - One project, not three. The intake lists several fintech-adjacent project shapes (data-science agents, knowledge base, internal analytics assistant, model monitoring, data-quality agent). Pick one for this sprint. The others are good follow-ups; trying two in parallel is the fastest way to ship neither.
 - Production-quality means useful, not extensive. You said in the intake that you want to ship a tiny product the community or other people can actually use or learn from - that is the right bar. Tests, logging, evaluation, monitoring, and a clean README are the minimum; security, cost tracking, CI/CD policies are layers you add only if the project itself needs them.
@@ -81,7 +81,7 @@ Week 6:
 - The Zoomcamp cadence is yours. You said the alternating theory-then-build worked for you in DE Zoomcamp / MLOps Zoomcamp. The week-by-week plan is built around that: each week has a concept (RAG basics, retrieval, evaluation, monitoring, deployment) and the build that uses it.
 - Fixed cadence, not flexible. You flagged ADHD and said fixed weekly check-ins work better than flexible ones. Pick a day for the weekly update and treat it as a hard appointment.
 
-### Resources
+## Resources
 
 - AI Hero: https://aishippinglabs.com/courses/aihero - the agent-building foundation, weeks 1-2.
 - Project-idea brainstorming gist: https://gist.github.com/alexeygrigorev/c1c8dc3ece5cba91e1e381eeba2706c1 - interview prompt for candidate generation, fit-check prompt for validation.
@@ -89,7 +89,7 @@ Week 6:
 - Logfire for monitoring once the simple version works.
 - Community accountability channel (`#plan-sprints`).
 
-### Deliverables
+## Deliverables
 
 - AI Hero completed - by end of week 2.
 - One-paragraph project card + chosen project + corpus secured - by end of week 2.
@@ -98,14 +98,14 @@ Week 6:
 - Live monitoring + deployed URL with CI eval gating - by end of week 5.
 - Public README + architecture writeup + community demo - by end of week 6.
 
-### Accountability
+## Accountability
 
 - Weekly deliverables and demo-based milestones - the format you asked for in intake.
 - Fixed weekly check-in day (pick one, stick to it).
 - Public progress in `#plan-sprints` Slack: a 3-line update each week (shipped / blocked / next).
 - One project. Resist the urge to start a parallel "small experiment" - that is the analysis paralysis you flagged.
 
-### Next Steps
+## Next Steps
 
 - [ ] [Daiyaan] Confirm what "fundamentals" means to you (LLM internals vs. building LLM systems) so the plan can be tuned or replaced before week 1.
 - [ ] [Daiyaan] Run the project-idea brainstorming prompt and produce 5-10 fintech-adjacent candidates by end of week 1.
@@ -118,13 +118,13 @@ Week 6:
 
 Everything below is for internal use only.
 
-### Persona
+## Persona
 
 Alex - The Engineer Transitioning to AI (with significant Priya overlap). Daiyaan has solid software / data engineering experience (Databricks, full lifecycle, MLOps Zoomcamp graduate) and uses Cursor + Claude Code heavily, but has not built an LLM application end to end at the depth he wants. The "engineer transitioning into LLM/agent work from an existing engineering base" framing is the closest fit; he leans toward Priya in that he has shipped some applied AI/ML work already and is now sharpening it.
 
 See [personas.md](../personas.md) for full persona definitions.
 
-### Background
+## Background
 
 Daiyaan is a data lead at a small fintech startup, owning the full data lifecycle from ingestion to ML deployment on Databricks. He uses AI tools (Cursor, Claude Code) heavily in his day-to-day workflow and continuously upgrades his MLOps, logging, and ML system practices through articles and crash courses[^2].
 
@@ -136,9 +136,9 @@ A note on the name: the original interview file uses "Daiyaan Ahmed" (the name h
 
 Cross-reference the matching interview at [../interviews/daiyaan-ahmed.md](../interviews/daiyaan-ahmed.md).
 
-### Intake
+## Intake
 
-#### Initial Input
+## Initial Input
 
 Daiyaan's free-form input from the intake document[^2]:
 
@@ -156,7 +156,7 @@ Daiyaan's free-form input from the intake document[^2]:
 >
 > Happy to jump on a call, I'm available anytime after 7PM ET on weekdays and 10AM to 7PM ET on weekends. Really excited to get started!!!
 
-#### Questions and Answers
+## Questions and Answers
 
 Verbatim Q&A from the intake document[^2]:
 
@@ -186,11 +186,11 @@ Verbatim Q&A from the intake document[^2]:
 
 13. What would make the next 6 to 8 weeks worthwhile? - "One shipped AI project I can point to and genuine confidence in RAG/LLM system design fundamentals."
 
-### Meeting Notes
+## Meeting Notes
 
 No intake call yet - input collected via the Google Doc[^2] and the initial outreach message[^1].
 
-### Internal Recommendations
+## Internal Recommendations
 
 Alexey's recommendations after reviewing the intake[^4]:
 
@@ -208,14 +208,14 @@ Alexey's recommendations after reviewing the intake[^4]:
 
 7. The AI-assisted workflow gap is real and worth treating as a sub-deliverable. He flagged that his current skills hallucinate or do not fire deterministically. The sprint project is the right place to practise: write specs first, decompose before delegating, capture the prompts that worked into project-local rules. Do not make it a separate workstream; make it the way the project gets built.
 
-### Internal Action Items
+## Internal Action Items
 
 - [ ] [Alexey] Send Daiyaan the written plan plus the project-idea brainstorming gist link.
 - [ ] [Alexey] Confirm with Daiyaan which reading of "fundamentals" applies before he commits to week 1.
 - [ ] [Valeriia] Confirm Daiyaan is on the AI Shipping Labs Slack channel and added to the May sprint roster.
 - [ ] [Valeriia] Confirm canonical surname (Ahmed vs Shaik) and reconcile the interview file and the plan file.
 
-### Sources
+## Sources
 
 [^1]: [20260504_215616_AlexeyDTC_msg3860.md](../../../inbox/used/20260504_215616_AlexeyDTC_msg3860.md) - Daiyaan's first message in the community (under the name "Daiyaan Ahmed"), source for the existing interview file.
 [^2]: [Daiyaan Shaik's intake (Google Doc)](https://docs.google.com/document/d/1G2vCdnx5CmaeT6Y4TqiB40eyd2J9TZ55vAefHbOkHSs/edit?usp=sharing), shared via [20260509_114718_AlexeyDTC_msg3990.md](../../../inbox/used/20260509_114718_AlexeyDTC_msg3990.md).

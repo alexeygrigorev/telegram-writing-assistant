@@ -21,12 +21,12 @@ Internal working document. Share only the `Summary` and `Plan` sections with the
 
 ## Plan
 
-### Focus
+## Focus
 
 - Main focus: pick one project he wants to use himself, ship a simple end-to-end version, then layer in tests, monitoring, and evaluation.
 - Supporting focus: complete AI Hero in parallel as the agent-building foundation.
 
-### Timeline
+## Timeline
 
 Week 1:
 
@@ -63,7 +63,7 @@ Week 6:
 - Deploy somewhere (Streamlit Community Cloud, a small Lambda, or a small VM) so the system is reachable, not just runnable on his laptop.
 - Record a short walkthrough/demo and decide what the next iteration looks like.
 
-### How to pick the project
+## How to pick the project
 
 The single most important criterion for the project is that it solves a real problem for a real person - even if that person is Aashiesh himself. A finished okay project beats an unfinished ambitious one.
 
@@ -77,11 +77,11 @@ Lean toward projects that naturally use multiple LLM tool calls, RAG over a real
 
 A climate-related project is a strong default starting point. Aashiesh has already built a climate misinformation RAG pipeline at the University of Exeter and interviewed for a climate-data role in London - that domain knowledge is real and reusable[^3]. There are two community members working in or interested in climate (Diogo Valente Polónia at the European Environment Agency, plus another member - confirm with Valeriia); they are useful contacts for project framing, data sources, and feedback. Reach out via Slack or ask Valeriia for an introduction. Climate is a suggestion, not a constraint - if a different problem scores higher on the four criteria above, pick that.
 
-### After this sprint - LLM Zoomcamp
+## After this sprint - LLM Zoomcamp
 
 After AI Hero, the natural next step is LLM Zoomcamp (re-recorded version starting in June, with five workshops mapped to the modules). Plan to bring a project into LLM Zoomcamp that you actually want to ship - the course homework arc is much easier to complete when it is producing something you care about. The 6-week sprint project here can become the LLM Zoomcamp project too if it is sized right.
 
-### Project approach
+## Project approach
 
 A few principles that apply to whatever project Aashiesh picks:
 
@@ -91,27 +91,27 @@ A few principles that apply to whatever project Aashiesh picks:
 - Let evaluation follow business goals. The metrics that matter are problem-specific - "the system answers correctly", "the agent picks the right tool", "the output does not contradict the source data" - not generic AI benchmarks.
 - Treat deployment, monitoring, and iteration as part of building, not separate phases. Real users (or himself as a user) generate the next list of issues to fix.
 
-### Resources
+## Resources
 
 - AI Hero course: https://aishippinglabs.com/courses/aihero
 - Project-idea brainstorming prompts (gist): https://gist.github.com/alexeygrigorev/c1c8dc3ece5cba91e1e381eeba2706c1
 - Logfire for monitoring once the simple version works.
 - Community accountability channel (`#plan-sprints`).
 
-### Deliverables
+## Deliverables
 
 - A project card (one paragraph: problem, user, input, processing, output, success metric) by end of week 2.
 - Simple end-to-end version of the project by end of week 3.
 - Tests, monitoring, and evaluation in place by end of week 5.
 - Deployed demo with a clean README and a short walkthrough by end of week 6.
 
-### Accountability
+## Accountability
 
 - Weekly async update on what shipped, what is blocked, and the goal for the next week.
 - Weekly check-ins land best on the same day each week so the cadence sticks.
 - One project. Do not let a "next idea" pull attention until the chosen project is demoable.
 
-### Next Steps
+## Next Steps
 
 - [ ] [Aashiesh] Run the project-idea brainstorming prompt and produce 5-10 candidate ideas. The climate misinformation work is a starting point if no other idea wins out.
 - [ ] [Aashiesh] Run the fit-check prompt on the top 1-2 candidates and pick one.
@@ -123,13 +123,13 @@ A few principles that apply to whatever project Aashiesh picks:
 
 ## Internal Context
 
-### Persona
+## Persona
 
 Alex - The Engineer Transitioning to AI. Aashiesh has machine learning engineering foundations and has already shipped retrieval and reranking pipelines; he is now looking to round those out into production-grade AI engineering work with agentic systems[^1]. This places him squarely in the Alex archetype - an engineer crossing into LLM and agent work from an existing ML/engineering base.
 
 See [personas.md](../personas.md) for full persona definitions.
 
-### Background
+## Background
 
 Aashiesh is an ML engineer transitioning to a production-ready AI Engineer role. He has built systems including a hybrid search and reranking pipeline and a deployed retrieval API, plus applied AI/NLP work during an internship. He wants to refine these into production-grade applications and build an agentic AI system end to end, and is using AI Shipping Labs sprints for accountability, architecture/deployment feedback, and consistent shipping[^1].
 
@@ -151,9 +151,9 @@ The intake call (2026-05-08, with Valeriia) added significant background detail[
 
 See his interview file at [../interviews/aashiesh-siwach.md](../interviews/aashiesh-siwach.md) for more background.
 
-### Intake
+## Intake
 
-#### Initial Input
+## Initial Input
 
 Aashiesh's free-form input from the intake document[^1]:
 
@@ -174,7 +174,7 @@ Aashiesh's free-form input from the intake document[^1]:
 > Thanks again!
 > Ashish
 
-#### Questions and Answers
+## Questions and Answers
 
 The intake document lists the following ten questions. As of 2026-05-08, Aashiesh has not yet filled in answers - the questions are recorded here verbatim so the structure stays comparable to other plans.
 
@@ -198,7 +198,7 @@ The intake document lists the following ten questions. As of 2026-05-08, Aashies
 
 10. What would make you feel that, at the end of the next 6 to 8 weeks, the plan was worthwhile? By the end of the plan, what result would feel meaningful: a shipped agentic AI system, a production-grade RAG app, stronger deployment confidence, a polished portfolio project, or clearer readiness for AI Engineer roles? - (no answer provided)
 
-### Meeting Notes
+## Meeting Notes
 
 Aashiesh and Valeriia held an intake call on 2026-05-08 (~25 minutes). Alexey was not on the call[^3].
 
@@ -221,7 +221,7 @@ Action items added by this call:
 - [ ] [Valeriia] Share the link to the AI Shipping Labs / DataTalks.Club workshop series so Aashiesh can attend the LLM Zoomcamp introduction workshop on 2026-05-11.
 - [ ] [Valeriia] Follow up on the climate community connection if Aashiesh decides to continue in that area.
 
-### Internal Recommendations
+## Internal Recommendations
 
 Alexey's recommendation after reviewing Aashiesh's input[^2]:
 
@@ -247,7 +247,7 @@ Updates after reviewing the 2026-05-08 call notes[^4]:
 
 10. Open question on dev skill level. From Aashiesh's messages alone it is hard to tell how strong his hands-on engineering is in practice. Treat the first week's project work as the signal and adjust scaffolding (more or less explicit guidance) accordingly.
 
-### Internal Action Items
+## Internal Action Items
 
 - [ ] [Alexey] Send Aashiesh the written plan plus the project-idea brainstorming gist link.
 - [ ] [Valeriia] Confirm Aashiesh is on the AI Shipping Labs Slack channel and added to the May sprint roster.
@@ -255,7 +255,7 @@ Updates after reviewing the 2026-05-08 call notes[^4]:
 - [ ] [Valeriia] Confirm the second community member's name (Carmina or similar) so Aashiesh can be connected if he chooses the climate angle.
 - [ ] [Valeriia] Send Aashiesh the link to the LLM Zoomcamp introduction workshop on 2026-05-11.
 
-### Sources
+## Sources
 
 [^1]: [Aashiesh Siwach's intake (Google Doc)](https://docs.google.com/document/d/1RRtifMVLX_isgrn-TbJAyMEObrZgQx0i/edit?usp=sharing&ouid=103720991008355605122&rtpof=true&sd=true), shared via [20260508_084825_AlexeyDTC_msg3954.md](../../../inbox/used/20260508_084825_AlexeyDTC_msg3954.md).
 [^2]: [20260508_135759_AlexeyDTC_msg3970_transcript.txt](../../../inbox/used/20260508_135759_AlexeyDTC_msg3970_transcript.txt)

@@ -20,13 +20,13 @@ Internal working document. Share only the `Summary` and `Plan` sections with the
 
 ## Plan
 
-### Focus
+## Focus
 
 - Main focus: finish the current project and deploy it properly.
 - Supporting focus: add visible engineering signals such as tests, monitoring, and CI/CD.
 - Supporting focus: define the next company/domain direction only after the first project is clearly shipped.
 
-### Timeline
+## Timeline
 
 Week 1:
 
@@ -58,7 +58,7 @@ Week 6:
 - Polish the deployed version and close the biggest engineering gaps.
 - If useful, sketch the next layer: Terraform for cleaner infra or a second project brief in a target company/domain direction.
 
-### Resources
+## Resources
 
 - Edu's existing AI Buildcamp capstone - fastest path because the context already exists.
 - Docker - makes the project runnable and easier to ship.
@@ -66,20 +66,20 @@ Week 6:
 - AWS Lambda - simple first deployment platform.
 - Terraform - optional next step once the basic deployment path works.
 
-### Deliverables
+## Deliverables
 
 - One deployed project that can be shown to employers.
 - Dockerized app plus automated test/deploy workflow.
 - Basic monitoring and one documented evaluation/improvement loop.
 - Optional second project brief or prototype aligned to a target company or domain.
 
-### Accountability
+## Accountability
 
 - Weekly async update covering what was shipped, what broke, and what the next deployment milestone is.
 - Share one visible milestone with the community: deployed dev environment, production deploy, or evaluation report.
 - Keep scope small enough that the plan still fits inside 8 to 10 hours per week.
 
-### Next Steps
+## Next Steps
 
 - [ ] [Edu] Finish dockerizing the current project and list the blockers.
 - [ ] [Edu] Pick the first deployment target, starting with AWS Lambda if no stronger preference exists.
@@ -87,21 +87,21 @@ Week 6:
 
 ## Internal Context
 
-### Persona
+## Persona
 
 Taylor - The Research-to-Engineering Transitioner. Strong data science background, but the main gap is production engineering, deployment, and MLOps.
 
-### Background
+## Background
 
 Edu is a senior data scientist working in health economics in Madrid. He has built RAG and agentic systems, but mostly at PoC level and without owning the full deployment path. He wants to position himself for AI-engineering-type roles and needs more proof of engineering execution.
 
-### Intake
+## Intake
 
-#### Initial Input
+## Initial Input
 
 A bit of background from me. I am a senior data scientist working for a health economics consultancy based in Madrid, Spain. I belong to the Data and Tech team, and our aim is to build data products that support the day-to-day of our colleagues in the business units. I have worked across several industries, academia, media, biotech, and now health economics. My roles have transitioned from analytics to ML - although, since this year, I am supporting the analytics tasks at my company too. As I mentioned above, my goal for the forthcoming months is to search for positions that have a greater AI component. In my current position I have had the chance to build some RAG but they were clearly PoC rather than products and I was contributing mainly to the initial stage - not being present in the whole pipeline (the deployment has been devoted to the DEs). I guess I would like to be involved in projects where I can have more hands-on real experience integrating AI.
 
-#### Questions and Answers
+## Questions and Answers
 
 **What do you feel is currently missing between your profile today and the type of role you want next?**
 
@@ -143,11 +143,11 @@ Around 8 - 10 h.
 
 Have a proper product/project that can I can be attractive to hiring managers and that proves I am decently competent at AI.
 
-### Meeting Notes
+## Meeting Notes
 
 No separate intake call notes are currently attached in this file.
 
-### Internal Recommendations
+## Internal Recommendations
 
 Edu already completed the course and his interest is more around growing as an engineer, so the plan should lean heavily toward deployment and DevOps[^3].
 
@@ -161,13 +161,13 @@ Alexey's rough recommendation:
 6. If engineering is the main focus, Terraform is worth exploring for dev/prod setup.
 7. Start with a simple platform such as AWS Lambda before anything more complex.
 
-### Internal Action Items
+## Internal Action Items
 
 - [ ] [Edu] Finish the current project deployment.
 - [ ] [Edu] Decide whether to deepen the existing project or build a second one after deployment.
 - [ ] [Alexey] Review Edu's chosen deployment path and give feedback on the CI/CD setup.
 
-### Sources
+## Sources
 
 [^1]: [Google Doc](https://docs.google.com/document/d/1vSXH0Tvr47d62qCm7llK5AAjUWmDJpE3NB_X5TR4N6U/edit?usp=sharing)
 [^2]: [20260420_083739_AlexeyDTC_msg3445.md](../../../inbox/used/20260420_083739_AlexeyDTC_msg3445.md)

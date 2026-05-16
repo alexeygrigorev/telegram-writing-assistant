@@ -14,7 +14,7 @@ A talk about practical automation using AI to replace complex Excel workflows, c
 
 This talk shares practical examples of using AI to automate routine but time-consuming tasks without building complex systems or hiring a team.
 
-### What Attendees Will Learn
+## What Attendees Will Learn
 
 - How to replace complex Excel formulas and VLOOKUP chains with simple conversations in ChatGPT
 - How to turn messy user input (like 100+ variations of country names) into clean, structured analytics
@@ -25,7 +25,7 @@ This is not about theory. It is about saving hours every week by treating AI as 
 
 ## Use Case 1: Replacing Complex Excel Logic with ChatGPT
 
-### The Problem
+## The Problem
 
 My partner works in import/export, and her team frequently deals with Excel spreadsheets involving:
 - Multiple tables
@@ -35,7 +35,7 @@ My partner works in import/export, and her team frequently deals with Excel spre
 
 For me as a developer, this is straightforward using Python and pandas. But even simple tasks could take 1-1.5 hours when accounting for setup and debugging.
 
-### The New Approach
+## The New Approach
 
 Instead of writing code manually:
 
@@ -53,7 +53,7 @@ Key insight: ChatGPT acts as an interactive data analyst, not just a chatbot.
 
 ## Use Case 2: Country Name Normalization
 
-### The Problem
+## The Problem
 
 In my free courses, users register via a form and enter their country manually. The input can vary wildly:
 - USA
@@ -68,7 +68,7 @@ For reporting and sponsor presentations, I need:
 - Aggregation by regions (North America, Europe, etc.)
 - Reliable structured data
 
-### The Solution
+## The Solution
 
 Using ChatGPT:
 - Upload the dataset
@@ -87,7 +87,7 @@ Key takeaway: AI helps transform messy real-world data into structured insights 
 
 This case required a more advanced setup.
 
-### The Problem
+## The Problem
 
 For my paid course, I offer scholarships. In the first year:
 - 1500+ applications
@@ -96,11 +96,11 @@ For my paid course, I offer scholarships. In the first year:
 
 Manual review was extremely time-consuming.
 
-### First Attempt (ChatGPT Only)
+## First Attempt (ChatGPT Only)
 
 I copied submissions manually into ChatGPT and asked it to evaluate them. It worked, but required too much manual effort.
 
-### Current Solution (Claude Code + Local LLM Workflow)
+## Current Solution (Claude Code + Local LLM Workflow)
 
 Now I:
 1. Download the full dataset locally
@@ -117,7 +117,7 @@ This saves dozens of hours per selection cycle.
 
 ## When to Use ChatGPT vs Claude Code
 
-### ChatGPT is sufficient when:
+## ChatGPT is sufficient when:
 - Tasks are small or one-time
 - You need quick Excel analytics
 - Data sensitivity is not critical
@@ -125,7 +125,7 @@ This saves dozens of hours per selection cycle.
 
 You only need a subscription.
 
-### Claude Code is better when:
+## Claude Code is better when:
 - You work with large datasets
 - You analyze text at scale
 - The workflow is recurring

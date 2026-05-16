@@ -20,39 +20,39 @@ The question is: how can this be improved? The core idea is to make each week ma
 
 The idea is to give students a step-by-step guided project that grows week by week. Each week they add a small piece of code or do a specific action. The goal is to make it maximally frictionless so they do not get stuck[^1].
 
-### Week 1: Project Idea and Repository Setup
+## Week 1: Project Idea and Repository Setup
 
 Ask students to come up with a project idea. During this first week, they should already create a repository with a README where they describe their idea[^1][^2].
 
-### Week 2-3: Agents and Tools
+## Week 2-3: Agents and Tools
 
 When we get to agents, students need to prepare tools. Even if they do not have tools yet, they should create a design document in the README. Give them a class where the tools are already implemented, and tell them to adapt it to their requirements. Give them an agent that already calls this class. What they need to change is the instructions and the tools[^2].
 
-### Week 4: Tests
+## Week 4: Tests
 
 Give them code for tests. Show them a test with a judge and a regular unit test. Their task is to adapt these tests for their own project and run them to make sure they work[^2].
 
-### Week 5: Logging
+## Week 5: Logging
 
 Connect LogFire and have data flowing[^2].
 
-### Week 6: Evaluation
+## Week 6: Evaluation
 
 Connect an evaluation tool. Come up with 10 questions on your own or use an LLM to generate 10 questions[^2].
 
 The approach is to lead them step by step, by the hand. In the end they will have their own working project[^2].
 
-### Sample Project Format
+## Sample Project Format
 
 The sample project should be in text format, not video. This makes it easier to change and update. Students copy code from it. The idea is not to explain things again, but to provide a reference project: "here is a sample project, you can build yours based on it"[^3].
 
 Can even take a maximally simple project and lead students through it across the entire course[^3].
 
-### Providing Structure
+## Providing Structure
 
 Students can be given a project structure to follow. They can fork a template project or create a project with the specified structure. This way they do not waste time on setup and can focus on making progress on the actual course content. Each week they are told "add this code here, add that there." This keeps things maximally actionable and reduces friction[^1].
 
-### AI Assistant for Completion
+## AI Assistant for Completion
 
 Students could launch an AI assistant at the end of the course that would complete the remaining parts of their project based on the code they have built up week by week. The main thing is that they make progress step by step, and then the assistant can finish what is left. The code needs to be prepared in a way that the assistant can work with it[^1].
 
@@ -114,11 +114,11 @@ Be specific. Point out what works, what doesn't, and exactly how to fix it. Use
 learning science to justify recommendations.
 ```
 
-### How to Use This Agent
+## How to Use This Agent
 
 Alex explains this is how the agent should be used: before preparing any content, run it through this role for feedback on the curriculum design. This can be applied for new modules that will be planned, though it is unlikely to be applied to the current course since it is already underway[^8].
 
-### Micro Tip: Narrative Arc
+## Micro Tip: Narrative Arc
 
 Always ask this role about the narrative arc in lectures and modules[^7]. Example prompt: "Check the narrative arc of this week lectures"[^7b].
 

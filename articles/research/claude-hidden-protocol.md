@@ -16,7 +16,7 @@ The hidden or undocumented patterns that make Claude Code significantly more eff
 
 ## Resources
 
-### The Hidden Protocol
+## The Hidden Protocol
 
 Based on the research document "Advanced Claude Code Patterns That Move the Needle", there are several key patterns:
 
@@ -30,7 +30,7 @@ Based on the research document "Advanced Claude Code Patterns That Move the Need
 
 5. **Stop Hooks**: Using hooks to intercept when an agent is about to stop and prompt it to verify completion
 
-### Companion Context Pattern
+## Companion Context Pattern
 
 From the companion framework research, the pattern of maintaining a companion context file that:
 - Lives alongside your code
@@ -40,7 +40,7 @@ From the companion framework research, the pattern of maintaining a companion co
 
 This creates a "living specification" that grows with the codebase rather than becoming stale like traditional documentation[^7].
 
-### Advanced Claude Code Patterns That Move the Needle (Google Doc)
+## Advanced Claude Code Patterns That Move the Needle (Google Doc)
 
 Source: https://docs.google.com/document/d/1I9r21TyQuAO1y2ecztBU0PSCpjHSL_vZJiA5v276Wro/edit
 
@@ -78,7 +78,7 @@ A quick-reference system for managing complex prompts that need to be reused and
 
 **Status**: Document requires direct access. Request access or ask the document owner for a copy to extract full details.
 
-### Claude Code Code-Review Plugin
+## Claude Code Code-Review Plugin
 
 Source: https://github.com/anthropics/claude-code/blob/main/plugins/code-review/README.md
 

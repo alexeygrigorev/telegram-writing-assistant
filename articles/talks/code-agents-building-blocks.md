@@ -18,7 +18,7 @@ Coding assistants appear in many forms today. Before diving into the building bl
 
 <!-- PLACEHOLDER: overview diagram showing the categories of code agents arranged as a spectrum from low autonomy (chat) to high autonomy (autonomous agents) -->
 
-### Chat-Based Assistants
+## Chat-Based Assistants
 
 Examples:
 
@@ -35,7 +35,7 @@ You paste code and ask questions. Good for exploration, brainstorming, and quick
   <figcaption>Claude.ai: a chat-based assistant - paste code, ask questions, get answers</figcaption>
 </figure>
 
-### IDE Agents
+## IDE Agents
 
 Examples:
 
@@ -52,7 +52,7 @@ These sit inside your editor with direct access to the codebase. They can sugges
   <figcaption>Claude in VS Code: implementing a plan step by step with file tree, code, and session history visible</figcaption>
 </figure>
 
-### CLI/Terminal Agents
+## CLI/Terminal Agents
 
 Examples:
 
@@ -69,7 +69,7 @@ These run in the terminal with full access to the filesystem and shell. They can
   <figcaption>Claude Code: a CLI agent entering plan mode to build a FastAPI backend from a voice prompt</figcaption>
 </figure>
 
-### Project Bootstrappers
+## Project Bootstrappers
 
 Examples:
 
@@ -96,7 +96,7 @@ For the "Day of AI Engineer" webinar, I created an entire marketplace app ([Trov
   <figcaption>Trova: the finished marketplace app after polishing with Claude Code</figcaption>
 </figure>
 
-### More
+## More
 
 - Computer use agents ([Anthropic Computer Use](https://docs.anthropic.com/en/docs/agents-and-tools/computer-use), [OpenAI Operator](https://operator.chatgpt.com/))
 - Tester and reviewer agents ([CodeRabbit](https://coderabbit.ai/), [PR Agent](https://github.com/Codium-ai/pr-agent))
@@ -129,11 +129,11 @@ The bot itself was built by Claude Code. I describe it in detail on [Substack](h
 
 Skills (also called playbooks or commands) are reusable, step-by-step workflows that encode best practices into repeatable procedures.
 
-### What Are Skills?
+## What Are Skills?
 
 A skill is a structured set of instructions that tells the agent exactly what to do for a specific type of task. Instead of giving the agent a vague instruction like "release this library," you give it a detailed playbook with every step spelled out.
 
-### Skills vs Commands
+## Skills vs Commands
 
 In practice, there are two related concepts:
 
@@ -148,7 +148,7 @@ Both encode reusable workflows. The difference is who initiates them: the agent 
 
 In Claude Code, commands and skills are merged into a single system - both are markdown files in the `.claude/` directory, and the agent can discover skills while users trigger commands with `/name`. In other tools like [OpenCode](https://github.com/nicepkg/OpenCode), these may be separate systems with different configuration.
 
-### How Skills Are Implemented
+## How Skills Are Implemented
 
 Skills are loaded automatically through a tool call. When an agent starts, it gets a list of all skill names and short descriptions. When a task comes in that matches a skill, the agent calls a `load_skill(name)` tool to get the full content. This is lazy loading - the agent only loads what it needs, keeping the context clean.
 
@@ -161,7 +161,7 @@ In the [agent-skills workshop](https://github.com/alexeygrigorev/workshops/tree/
 
 This is what makes skills powerful - the implementation is simple, yet it is now a standard pattern across most coding agents. Claude Code, GitHub Copilot, Codex CLI, and OpenCode all support skills or commands in some form.
 
-### Examples from Practice
+## Examples from Practice
 
 All my skills and commands are in a public GitHub repo: [github.com/alexeygrigorev/.claude](https://github.com/alexeygrigorev/.claude). Here are the ones I use most:
 
@@ -230,7 +230,7 @@ Subagents also enable parallelism. When you need to process multiple items - URL
 
 There is also the problem of context rot. When an agent has a long session with many tasks, it starts forgetting things or accidentally skipping steps. This is why running a verifier as a separate subagent at the end of a flow is so helpful. When the main agent verifies itself, it tends to say "everything looks fine." But a fresh agent that starts with a clean context window is much better at catching what was missed or accidentally omitted.
 
-### The Planner-Executor Pattern
+## The Planner-Executor Pattern
 
 The most common subagent pattern. First, the planner creates a detailed implementation plan. Then, for each step in the plan, a fresh executor agent handles the implementation.
 
@@ -246,7 +246,7 @@ Why this works:
 - Failed steps do not pollute the context of subsequent steps
 - Progress is atomic - completed steps are committed, so failures do not lose work
 
-### Subagents in the Telegram Writing Assistant
+## Subagents in the Telegram Writing Assistant
 
 The Telegram writing assistant uses three subagents, each defined as a markdown file in [`.claude/agents/`](https://github.com/alexeygrigorev/telegram-writing-assistant/tree/main/.claude/agents):
 
@@ -285,7 +285,7 @@ Main Agent (/process) -> spawns:
   - verify-content -> check nothing was missed
 All results flow back to Main Agent -> git commit -->
 
-### Subagents for Batch Processing
+## Subagents for Batch Processing
 
 For [reviewing 2,500+ scholarship applications](https://alexeyondata.substack.com/p/how-i-reviewed-2500-ai-bootcamp-scholarship) for the AI Bootcamp, I used Claude Code with multiple commands running in parallel via subagents. Each subagent handled a batch of applications with consistent evaluation criteria defined in a markdown command file. The AI did preliminary screening, then I manually reviewed the top 50. This reduced the work from approximately two full days to 4-5 hours.
 
@@ -296,7 +296,7 @@ For [reviewing 2,500+ scholarship applications](https://alexeyondata.substack.co
 
 ## How to Create and Iterate on Skills
 
-### Creating a New Skill
+## Creating a New Skill
 
 1. Interact with the agent and let it do the task
 2. Observe how it behaves and correct it when it goes wrong
@@ -306,7 +306,7 @@ For [reviewing 2,500+ scholarship applications](https://alexeyondata.substack.co
 
 If the project already has skills, the agent automatically follows the same format.
 
-### Improving an Existing Skill
+## Improving an Existing Skill
 
 With the Telegram writing assistant, the `/process` command keeps getting better through use:
 
@@ -336,7 +336,7 @@ This talk was presented at a meetup. The preparation process itself was a demons
   <!-- Photo from the actual meetup where this talk was delivered -->
 </figure>
 
-### How the Talk Was Prepared
+## How the Talk Was Prepared
 
 The whole preparation took about an hour. The process went like this[^7]:
 
@@ -349,7 +349,7 @@ The whole preparation took about an hour. The process went like this[^7]:
 
 The whole approach is: dictate first or use sources to make an article, review the article, then turn the article into slides, and iterate on the slides. No need to waste time transferring everything into Google Docs manually. The focus stays on content, not on making slides[^7].
 
-### Slides from Articles as a Reusable Skill
+## Slides from Articles as a Reusable Skill
 
 Making slides from articles turned out to be a great reusable skill. This should be packaged as a proper skill that can be reused for future talks[^8].
 

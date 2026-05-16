@@ -20,13 +20,13 @@ Internal working document. Share only the `Summary` and `Plan` sections with the
 
 ## Plan
 
-### Focus
+## Focus
 
 - Main focus: build one end-to-end data-ingestion project with Python, the GitHub API, Docker, and Elasticsearch. By the end of week 6, fetching new and updated issues from a real GitHub repo and storing them in Elasticsearch on a schedule.
 - Supporting focus: get unblocked on Python software-engineering shape - classes, project structure, environments, packaging - using the project as the carrier. Stop using AI as a black box; understand what it produces.
 - Supporting focus (light): if there is room after the project is solid, start AI Hero with the first day or two on search. Skip the agent material - that lands in LLM Zoomcamp.
 
-### Timeline
+## Timeline
 
 Week 1:
 
@@ -60,7 +60,7 @@ Week 6:
 - Walk through what you understand now that you did not understand six weeks ago. This is the meta-deliverable: the increase in Python/engineering confidence is the actual sprint outcome, with the GitHub-issues project as the visible artefact.
 - Decide whether the side project mentioned during intake is the right next sprint, or whether to use LLM Zoomcamp's homework projects instead.
 
-### Project approach
+## Project approach
 
 - Analytics-engineering skills transfer. You already know how to model data (SQL/dbt) and run incremental loads. The GitHub-issues project is the same shape - source of truth → transform → load → make queryable - just with a different stack. Lean on the parts that are familiar; the new bits are Python project structure, Docker, and the API client.
 - Stop using AI as a black box. Daniel flagged this himself: Claude does the project structure, Docker, etc., but he wants to actually understand it. Concrete rule for the sprint: when AI generates code, read it line by line, ask it to explain anything unfamiliar, and rewrite at least one part by hand to confirm you can. The point is comprehension, not output.
@@ -68,7 +68,7 @@ Week 6:
 - Out-of-scope is recorded, not abandoned. The career decision (analytics engineer vs data/AI engineer), the side project, and "AI in my day job" are explicitly parked behind the LLM Zoomcamp prep for this sprint. They reappear after week 6.
 - Skip CI/CD this time. It is genuinely useful but not the right gap to close before LLM Zoomcamp; revisit later.
 
-### Resources
+## Resources
 
 - LLM Zoomcamp - the main learning track for AI starting in June. AI Shipping Labs is the structure-and-accountability layer around it.
 - AI Hero - free, light reference for the search side of RAG. Day 1-2 only during this sprint.
@@ -76,7 +76,7 @@ Week 6:
 - [Elasticsearch's Python client docs](https://elasticsearch-py.readthedocs.io/) - read the relevant sections of the official docs rather than relying on AI summaries. This is part of the "stop using AI as a black box" rule.
 - A coding assistant of choice (Claude Code, Codex, or similar). Use it for explanation as much as for code generation.
 
-### Deliverables
+## Deliverables
 
 - Project skeleton + working "fetch and print one issue" script - by end of week 1.
 - Issues-only ingestion pipeline writing to Elasticsearch (in Docker) - by end of week 2.
@@ -85,19 +85,19 @@ Week 6:
 - Tightened project, README, AI Hero search material started - by end of week 5.
 - Tagged release ready to show in LLM Zoomcamp - by end of week 6.
 
-### Accountability
+## Accountability
 
 - Study schedule (Daniel's preference) - block the 2 hr/workday + 3-4 hr/non-workday in the calendar at the start of the week.
 - Weekly or biweekly check-in. The biweekly cadence is fine if a week feels short - the goal is consistent progress, not reporting volume.
 - Feedback on work: post the week's commit (or a snippet of code you are unsure about) in the AI Shipping Labs Slack and ask for a read. The community is the substitute for a lone analytics engineer not having peers to bounce engineering questions off.
 
-### Longer arc
+## Longer arc
 
 - 6-week sprint: end-to-end ingestion project, ready for LLM Zoomcamp.
 - 3-4 month: complete LLM Zoomcamp with a final project that builds on this ingestion pipeline (e.g., RAG over GitHub issues).
 - 12-month: clearer call on analytics engineer vs data/AI engineer, informed by what the LLM Zoomcamp project surfaces. Side project resumes once Python and AI confidence are higher.
 
-### Next Steps
+## Next Steps
 
 - [ ] [Daniel] Pick the GitHub repo to ingest and write the one-page concept doc by end of week 1.
 - [ ] [Daniel] Confirm a coding-assistant choice and a schedule of weekly time blocks.
@@ -107,21 +107,21 @@ Week 6:
 
 ## Internal Context
 
-### Persona
+## Persona
 
 Sam - The Technical Professional Moving to AI (preliminary). Daniel works mainly with SQL/dbt and uses Python for data analysis but not for building systems. He himself describes his level as "neither technical nor completely non-technical", and the engineering-shape gaps he names (classes, project structure, environments, APIs, deployment) match Sam's profile precisely.
 
 See [personas.md](../personas.md) for full persona definitions.
 
-### Background
+## Background
 
 Daniel is a Brazilian analytics engineer based in Brazil with a full-time job. He uses SQL and dbt as his main stack, with Databricks at work and Airflow as a "light user" (he can build and debug DAGs but did not set the platform up). He has been trying for the last few months to learn more about AI for both daily life and work, but feels overwhelmed by the volume of AI content online. He is considering whether to stay an analytics engineer or move to a more technical role (data engineer or AI engineer)[^1].
 
 He plans to join LLM Zoomcamp in June and attend the pre-Zoomcamp workshops. He has signed up to AI Shipping Labs at the premium tier specifically to take courses, finish his side project, become more technical, and stay current through a curated lens. He flagged that he prefers a quick chat to discuss a few of the questions in more depth, particularly the side project and how to combine analytics engineering with AI[^1].
 
-### Intake
+## Intake
 
-#### Initial Input
+## Initial Input
 
 Daniel's free-form input from the intake document[^1]:
 
@@ -148,7 +148,7 @@ He asked three follow-up questions[^1]:
 - Can the plan include a track to become more technical with general tools (like Python)?
 - Is focusing on both data engineering and AI simultaneously too much?
 
-#### Questions and Answers
+## Questions and Answers
 
 1. What should this plan help you achieve in the next 6 to 8 weeks? - "For the next 6 to 8 weeks I believe that learning and getting deeper into AI will be just fine! I assume that will already make me a bit more technical as well." (He reframed the long list as a long-run goal, not a 6-week one.)
 
@@ -178,7 +178,7 @@ He asked three follow-up questions[^1]:
 
 Daniel's closing comment: he is aware his goals are big for 6-8 weeks; he plans to stay in the community for the long haul and would value a longer-term plan in addition to the short one.
 
-### Meeting Notes
+## Meeting Notes
 
 Daniel and Valeriia held a 30-minute call on 2026-05-07. Alexey was not on this call - the original intake call with Alexey is still pending and is the place to cover the side project and the longer-term plan in depth[^3][^4].
 
@@ -204,7 +204,7 @@ Action items added by this call:
 - [ ] [Daniel] Sign in to the new AI Shipping Labs platform via Google or Slack and access AI Hero there.
 - [ ] [Daniel] Document the side project main idea in this plan document (recorded below in Side Project Idea, recorded by Daniel during the call to follow up on this).
 
-### Side Project Idea (recorded during the 2026-05-07 call)
+## Side Project Idea (recorded during the 2026-05-07 call)
 
 Daniel intends to start this only after the 6-week sprint - he wants the Python, Docker, APIs, and Elasticsearch foundation in place first. The information is captured here so it does not get lost; the sprint plan does not change[^3][^4].
 
@@ -219,7 +219,7 @@ What needs to be built:
 
 Valeriia's read on the call: the project is "absolutely doable", in the same shape as similar projects from Alexey's courses (corpus-grounded chatbot with citations - the Data Talks Club podcast chatbot idea is one example). The build needs to be staged - the agent first, then the website and integrations, then payments. Daniel asked whether he should write this in the plan document or send it to Alexey directly on Slack, and said he would prefer a 30-minute call with Alexey to discuss it in more depth if that is possible.
 
-### Internal Recommendations
+## Internal Recommendations
 
 Alexey's recommendations after reviewing Daniel's intake[^2]:
 
@@ -241,14 +241,14 @@ Alexey's recommendations after reviewing Daniel's intake[^2]:
 
 9. Out-of-scope items (career direction, side project, AI in his day job, broader Python proficiency) get recorded for future plans. The intake call is the natural place to cover the side project and start sketching the longer-term arc Daniel asked for.
 
-### Internal Action Items
+## Internal Action Items
 
 - [ ] [Alexey] Send Daniel the written plan and propose call slots.
 - [ ] [Alexey] On the intake call, cover the side project, the career direction, and the medium-term plan.
 - [ ] [Valeriia] Confirm Daniel is on the AI Shipping Labs Slack channel, the LLM Zoomcamp June roster, and the May sprint.
 - [ ] [Valeriia] Follow through on the action items from the 2026-05-07 call (listed under Meeting Notes).
 
-### Sources
+## Sources
 
 [^1]: [Daniel Sa Earp's intake (Google Doc)](https://docs.google.com/document/d/1QtkLtuYae5f9i9JbElRgRxiBs9IKnGqwhZJktwWxImA/edit?usp=sharing), shared via [20260506_174247_AlexeyDTC_msg3873.md](../../../inbox/used/20260506_174247_AlexeyDTC_msg3873.md).
 [^2]: [20260506_200424_AlexeyDTC_msg3880_transcript.txt](../../../inbox/used/20260506_200424_AlexeyDTC_msg3880_transcript.txt) - Alexey's recommendations after reading the Q&A.

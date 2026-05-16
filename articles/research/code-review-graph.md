@@ -25,7 +25,7 @@ The pipeline has four stages:
 3. On each change, trace all callers, dependents, and tests that could be affected (the "blast radius")
 4. Serve this minimal context to the AI assistant via MCP (Model Context Protocol)
 
-### Graph Schema
+## Graph Schema
 
 Nodes have five kinds: File, Class, Function, Type, Test. Each node stores its qualified name, file path, line range, language, parameters, return type, and a SHA-256 hash of the file content.
 
@@ -33,27 +33,27 @@ Edges have seven kinds: CALLS, IMPORTS_FROM, INHERITS, IMPLEMENTS, CONTAINS, TES
 
 The database is SQLite in WAL mode, stored at `.code-review-graph/graph.db`. Thread safety uses `threading.Lock` for caches and `check_same_thread=False` for the connection.
 
-### Blast Radius Analysis
+## Blast Radius Analysis
 
 When a file changes, the graph does a BFS (breadth-first search) traversal from the changed nodes outward through edges. It collects every caller, dependent, and test that could be affected. The AI then reads only these files instead of the whole project.
 
 The analysis has 100% recall (never misses an affected file) with average 0.38 precision (some false positives). The conservative approach is deliberate - better to flag too many files than miss a broken dependency.
 
-### Incremental Updates
+## Incremental Updates
 
 On every git commit or file save, a hook fires. The system diffs changed files, checks SHA-256 hashes, and re-parses only what changed. A 2,900-file project re-indexes in under 2 seconds. Parsing uses a thread pool (up to 8 workers by default, configurable via `CRG_PARSE_WORKERS`).
 
-### Change Impact Analysis
+## Change Impact Analysis
 
 The `changes.py` module maps git diffs to affected functions. It parses `git diff --unified=0` output, extracts line ranges per file, then maps those ranges to graph nodes. Each change gets a risk score based on how many dependents, flows, and test gaps it touches. Security-sensitive changes (matching keywords from a built-in list) get flagged separately.
 
-### Execution Flow Detection
+## Execution Flow Detection
 
 The `flows.py` module detects entry points (functions with no incoming CALLS edges, framework-decorated handlers, conventional patterns like `main`, `test_*`, `handle_*`). It traces execution paths via forward BFS through CALLS edges and scores each flow for criticality.
 
 Framework detection covers: Express/Flask/FastAPI route decorators, Click commands, Celery tasks, Spring annotations, and more.
 
-### Community Detection
+## Community Detection
 
 Groups related code using the Leiden algorithm (via igraph) or simpler file-based grouping. Produces an architecture overview with coupling warnings. Can auto-generate a markdown wiki from the community structure.
 
@@ -119,19 +119,19 @@ Monorepo case: Next.js with 27,700+ files funneled down to about 15 files for re
 
 ## Key Patterns
 
-### Token-efficient context serving
+## Token-efficient context serving
 
 The "get minimal context first, then drill down" pattern is worth noting. Instead of dumping everything, the system returns a compact summary (about 100 tokens) with suggestions for what to query next. This is a pull-based architecture for AI context.
 
-### Conservative blast radius
+## Conservative blast radius
 
 Perfect recall at the cost of precision. The system would rather give the AI a few extra files than miss a broken dependency. This is the right trade-off for code review where false negatives (missed bugs) are more costly than false positives (reading an extra file).
 
-### SHA-256 hash-based change detection
+## SHA-256 hash-based change detection
 
 Files are hashed on read. The hash is stored in the graph. On update, only files whose hash changed get re-parsed. This is faster than timestamp-based detection and avoids unnecessary work when a file is touched but not modified.
 
-### Structural context over raw code
+## Structural context over raw code
 
 Instead of feeding raw source files to the AI, the graph provides structural summaries: which functions call which, what tests cover what, where the inheritance chains go. This is a more token-efficient representation of the same information.
 
@@ -152,7 +152,7 @@ The approach is related to static analysis tools like CodeQL and Semgrep but foc
 
 ## Resources
 
-### GitHub Repository
+## GitHub Repository
 
 Source: https://github.com/tirth8205/code-review-graph
 

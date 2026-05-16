@@ -45,7 +45,7 @@ Alex is the most common persona in the current data, Priya and Taylor are the ra
 
 ## Alex - The Engineer Transitioning to AI
 
-### Starting point
+## Starting point
 
 Across the eight Alex-tagged plans plus the zoom calls and interviews, the typical Alex arrives looking like this:
 
@@ -55,7 +55,7 @@ Across the eight Alex-tagged plans plus the zoom calls and interviews, the typic
 - Heavy or growing user of coding agents. Daiyaan uses Cursor and Claude Code daily ([20260509_daiyaan-shaik.md](20260509_daiyaan-shaik.md)); Motasem wants to learn the spec-driven agent-team workflow ([20260427_motasem-salem.md](20260427_motasem-salem.md)); Ivan Dubograi (zoom call 2026-04-27) is already running a manager + dev + tester sub-agent pattern with Spec-Driven Development. The Alex picks-a-coding-assistant step in week 1 is real - free tiers do not survive a 6-week sprint.
 - The "where do I start" feeling is not about content; it is about choosing one project and committing. Alex usually has more ideas than time. The anonymous Buildcamp participant interview ([../interviews/anonymous-buildcamp-participant.md](../interviews/anonymous-buildcamp-participant.md)) sums it up: "content is not the problem - the problem is accountability".
 
-### 6-month plan
+## 6-month plan
 
 The personal plans in this folder cover only the first 6 weeks. The 6-month arc below is a synthesis of the "next sprint" sketches at the end of each Alex plan, the longer-arc notes (Dianne's 3 / 12-month framing, Manjunath's platform pivot, Daiyaan's analysis-paralysis-to-shipping arc), and the 1:1 patterns. The arc is one shipped project per sprint, deepened in the right direction.
 
@@ -98,7 +98,7 @@ Month 6 - Public portfolio and the next sprint.
 - Job applications start running in parallel for anyone targeting a role move - the Ivan Dubograi pattern of "apply early to surface what interviewers actually ask, even before the portfolio feels ready" (Ivan Dubograi zoom call 2026-04-27).
 - Plan the next 6-month arc based on what real usage and interviews surfaced. The arc above is one possible path; some Alexes will pivot to Priya territory once their projects are shipping and the new gap is depth rather than first-time experience.
 
-### 6-week sprint plan
+## 6-week sprint plan
 
 The Alex template draws from the patterns in [20260509_daiyaan-shaik.md](20260509_daiyaan-shaik.md), [20260508_aashiesh-siwach.md](20260508_aashiesh-siwach.md), [20260506_manjunath-yelipeta.md](20260506_manjunath-yelipeta.md), [20260427_motasem-salem.md](20260427_motasem-salem.md), [20260427_kushal-kulshreshtha.md](20260427_kushal-kulshreshtha.md), [20260420_grace.md](20260420_grace.md), [20260502_dianne-bronola.md](20260502_dianne-bronola.md).
 
@@ -134,7 +134,7 @@ Week 6:
 - Demo in the AI Shipping Labs Slack `#plan-sprints` channel.
 - Decide the next sprint: deepen this project, second project, or pivot direction.
 
-### Why this plan fits - worked examples
+## Why this plan fits - worked examples
 
 Daiyaan Shaik ([20260509_daiyaan-shaik.md](20260509_daiyaan-shaik.md)) - data lead at a fintech startup, 5-8 hr/week, ADHD, alternating theory-then-build cadence requested.
 
@@ -152,7 +152,7 @@ Manjunath Yelipeta ([20260506_manjunath-yelipeta.md](20260506_manjunath-yelipeta
 - Week 5 carves out a cost-and-latency optimization pass because Manjunath flagged it explicitly in his feedback and AI Hero does not cover it. The logging from week 4 supplies the measurement data, so the optimization week is real numbers rather than guesswork.
 - Docker, Kubernetes and DevOps self-study sit in parallel outside the 8-10 hour budget. This preserves the AI Platform direction he names as his long-term end goal without compromising the AI Engineering sprint deliverable that the job search actually needs first.
 
-### Plans that exemplify this persona
+## Plans that exemplify this persona
 
 - [Daiyaan Shaik](20260509_daiyaan-shaik.md) - data lead at a fintech startup, MLOps Zoomcamp graduate, 5-8 hr/week, alternating theory-then-build cadence requested.
 - [Aashiesh Siwach](20260508_aashiesh-siwach.md) - UK-based ML engineer with shipped retrieval pipelines, hard end-of-summer 2026 deadline for a full-time AI/ML role.
@@ -167,7 +167,7 @@ Manjunath Yelipeta ([20260506_manjunath-yelipeta.md](20260506_manjunath-yelipeta
 
 Only two plans are tagged Priya in the current data: [Juan Perez Prim](20260508_juan-perez-prim.md) and [Nirajan Acharya](20260420_nirajan-acharya.md). The interviews add three more Priya signals (Chandra, Luciano Pecile, anonymous-participant-april). The template below is therefore the lightest-sourced of the four - treat it as provisional and refine as more Priya plans land.
 
-### Starting point
+## Starting point
 
 - Already has at least one shipped AI project, often with a non-trivial stack. Juan has [amr_ai](https://github.com/juanpprim/amr_ai), a PydanticAI + ChromaDB + BioBERT hybrid-retrieval RAG over WHO/CDC/FAO/PubMed sources, scored 26 on the Maven Buildcamp submission ([20260508_juan-perez-prim.md](20260508_juan-perez-prim.md)). Nirajan topped the Buildcamp Cohort 2 leaderboard and has a deployed AI project ([20260420_nirajan-acharya.md](20260420_nirajan-acharya.md)). Chandra has "gotten good at Kiro and is picking up speed with Claude Code" and is asking about inference optimisation ([../interviews/chandra.md](../interviews/chandra.md)). The build skill is there; the gap is elsewhere.
 - The gap is production / depth, not first-time AI experience. Juan asked specifically for help with system design, Dockerisation, scalability, security, GitHub Actions ([20260508_juan-perez-prim.md](20260508_juan-perez-prim.md)). Nirajan wants "production-level standards: system optimization, handling edge cases, advanced evaluation, team-based development environments" ([20260420_nirajan-acharya.md](20260420_nirajan-acharya.md)). Luciano Pecile is asking about reliable copilots, eval frameworks, integration into existing products ([../interviews/luciano-pecile.md](../interviews/luciano-pecile.md)).
@@ -175,7 +175,7 @@ Only two plans are tagged Priya in the current data: [Juan Perez Prim](20260508_
 - Tendency to under-specify the target state. Nirajan's intake was full of phrases like "production-ready AI agents" and "industry workflows" without a concrete build plan; the core internal recommendation was "describe current state, describe target state, work the gap" ([20260420_nirajan-acharya.md](20260420_nirajan-acharya.md)). Priya often needs help defining what "better" actually means before the sprint can be sized.
 - Already a community contributor in some form. Juan met Alexey through Maven and joined to share tips and collaborate ([20260508_juan-perez-prim.md](20260508_juan-perez-prim.md)). Nirajan teaches as well and gets reused course material permission ([../1x1/2026-04-27-nirajan-acharya-summary.md](~/git/zoom-calls/1x1/2026-04-27-nirajan-acharya-summary.md)). Chandra wants to lead community sessions on MCP ([../1x1/2026-04-28-chandra-yarlagadda-summary.md](~/git/zoom-calls/1x1/2026-04-28-chandra-yarlagadda-summary.md)).
 
-### 6-month plan
+## 6-month plan
 
 Month 1 - Define the target state, ship the production layer on the existing project.
 
@@ -208,7 +208,7 @@ Month 6 - Public artefacts and direction call.
 - Substack / LinkedIn write-ups of the strongest project ([../1x1/2026-04-28-chandra-yarlagadda-summary.md](~/git/zoom-calls/1x1/2026-04-28-chandra-yarlagadda-summary.md) for the cadence pattern: one post per week, collected posts roll up into one long-form article).
 - Decide the longer arc: stay applied (more projects), go deeper into a platform direction, or pivot toward a senior IC / consulting / side-product play. Chandra's call is the clearest version of this fork.
 
-### 6-week sprint plan
+## 6-week sprint plan
 
 Drawn from [20260508_juan-perez-prim.md](20260508_juan-perez-prim.md) and [20260420_nirajan-acharya.md](20260420_nirajan-acharya.md).
 
@@ -243,7 +243,7 @@ Week 6:
 - Demo in `#plan-sprints`.
 - Decide the next sprint: deepen, generalise, or start a second project.
 
-### Why this plan fits - worked examples
+## Why this plan fits - worked examples
 
 Juan Perez Prim ([20260508_juan-perez-prim.md](20260508_juan-perez-prim.md)) - Madrid data science lead with `amr_ai` already built, 5-10 hr/week.
 
@@ -253,14 +253,14 @@ Juan Perez Prim ([20260508_juan-perez-prim.md](20260508_juan-perez-prim.md)) - M
 - The "no rebuilding the frontend, no gamification, no generalisation" guardrail addresses the long idea list he brought to the intake call (diagrams, images, videos in chat, points for flashcards, generalising to other topics). At 5-10 hr/week with a full-time DS lead role and family responsibilities, those would each cost the deployment milestone.
 - Pairing with Manjunath is suggested because Manjunath is building a deployment platform that takes a project as input and produces a live URL - the exact capability Juan needs for `amr_ai`. The pair is two sides of the same problem rather than a generic accountability buddy.
 
-### Plans that exemplify this persona
+## Plans that exemplify this persona
 
 - [Juan Perez Prim](20260508_juan-perez-prim.md) - Madrid-based data science lead, `amr_ai` already built, sprint is about adding the production layer (deployment, monitoring, eval) rather than building.
 - [Nirajan Acharya](20260420_nirajan-acharya.md) - Buildcamp Cohort 2 leaderboard top, 30-40 hr/week, deployed AI project already, needs sharper focus and a clearer target state.
 
 ## Sam - The Technical Professional Moving to AI
 
-### Starting point
+## Starting point
 
 Sam is the most varied persona in the current data. Six plans plus several zoom calls show several distinct sub-shapes - data analyst, analytics engineer, non-programmer marketing / community team member, cloud data engineer, domain expert with a side-project itch. The common thread is the gap between "I can write scripts that do data work" and "I can build and ship software systems".
 
@@ -272,7 +272,7 @@ Sam is the most varied persona in the current data. Six plans plus several zoom 
 
 Sam is the persona where the standard AI Engineering arc takes longest because the engineering scaffolding has to be built alongside. The honest framing from [personas.md](../personas.md): "the fastest path for Sam is to build coding comfort first, then the AI content becomes much more valuable".
 
-### 6-month plan
+## 6-month plan
 
 Month 1 - Engineering shape, not AI depth.
 
@@ -305,7 +305,7 @@ Month 6 - Decision point.
 - Sam often arrives with a career-direction question that the sprint deliberately parked. Daniel wants to decide between analytics engineer and data / AI engineer; Koray asked about a junior-AI-engineer move; Sai wants AI Engineer interview prep. By month 6, with one or two shipped projects and demonstrated engineering muscle, the question becomes answerable from evidence rather than speculation ([20260506_daniel-sa-earp.md](20260506_daniel-sa-earp.md), [20260430_koray-can-canut.md](20260430_koray-can-canut.md), [20260502_sai-kumar-g.md](20260502_sai-kumar-g.md)).
 - For non-programmer Sams who finished AI Hero: the capstone is the demo, and the next sprint picks one DataTalks.Club-style automation idea with the engineering basics in place ([20260506_valeriia-kuka.md](20260506_valeriia-kuka.md)).
 
-### 6-week sprint plan
+## 6-week sprint plan
 
 The Sam sprint has the widest variance across plans, because the right week 1 depends heavily on Sam's specific sub-shape. The template below is the modal pattern from [20260506_daniel-sa-earp.md](20260506_daniel-sa-earp.md), [20260502_sai-kumar-g.md](20260502_sai-kumar-g.md), [20260430_koray-can-canut.md](20260430_koray-can-canut.md), [20260420_jakob-zischka.md](20260420_jakob-zischka.md), [20260506_valeriia-kuka.md](20260506_valeriia-kuka.md). The most important thing is the explicit anti-pattern: do not start by introducing an agent.
 
@@ -341,7 +341,7 @@ Week 6:
 - Demo in `#plan-sprints`. The meta-deliverable for Sam is "the increase in engineering confidence" - the project is the visible artefact, the confidence is the actual outcome ([20260506_daniel-sa-earp.md](20260506_daniel-sa-earp.md)).
 - For Sams who deferred a side project: decide whether the next sprint is the side project or something else.
 
-### Why this plan fits - worked examples
+## Why this plan fits - worked examples
 
 Diogo Valente Polónia ([20260502_diogo-valente-polonia.md](20260502_diogo-valente-polonia.md)) - industrial / data engineer at the European Environment Agency, ~5-10 hr/week.
 
@@ -359,7 +359,7 @@ Sai Kumar G ([20260502_sai-kumar-g.md](20260502_sai-kumar-g.md)) - Azure cloud d
 - Week 5's specific test scenarios (article with one clear event, no future-dated events, postponed event, uncertain event) come from the failure paths he himself sketched in the intake. The plan does not invent acceptance criteria - it returns his own design as a test list.
 - 15 hr/week with weekend overflow makes the agent-by-hand discipline realistic. The budget is there for him to actually write the agent loop and tool definitions himself rather than delegating them, which is the only configuration in which the plan delivers the skills he named.
 
-### Plans that exemplify this persona
+## Plans that exemplify this persona
 
 - [Daniel Sa Earp](20260506_daniel-sa-earp.md) - Brazilian analytics engineer, SQL / dbt, the canonical "scripts-to-systems" gap. Sprint is the engineering-shape build before LLM Zoomcamp in June.
 - [Valeriia Kuka](20260506_valeriia-kuka.md) - non-programmer in DataTalks.Club content marketing, 3-4 hr/week. AI Hero is the entire scope of the sprint.
@@ -374,7 +374,7 @@ Sai Kumar G ([20260502_sai-kumar-g.md](20260502_sai-kumar-g.md)) - Azure cloud d
 
 Only two plans are tagged Taylor: [Luca](20260503_luca.md) and [Edu Gonzalo Almorox](20260420_edu-gonzalo-almorox.md). The interview / zoom data is even thinner. The template below is therefore the least-grounded of the four - treat it as provisional. Add more Taylor plans before treating it as canonical.
 
-### Starting point
+## Starting point
 
 - Strong AI / ML / research background that does not translate directly to shipped software. Luca has ~22 years in public and private research / education institutes in Italy, is preparing the Google Generative AI Leader (GAIL) certification, and runs his own coding agent (Hermes) on Oracle Cloud A1 + Ollama on a Minisforum with RTX 3090, connected via Tailscale ([20260503_luca.md](20260503_luca.md)). Edu is a senior data scientist in health economics in Madrid who has built RAG and agentic systems at PoC level but has not owned full deployment ([20260420_edu-gonzalo-almorox.md](20260420_edu-gonzalo-almorox.md)).
 - Articulate about model behaviour but vague about production. Edu names the gap clearly: "I have managed to build a RAG/Agent system that delivers very decent results. However, I have missed the last step - deploy it as a solution that can be accessible to people and that is scalable" ([20260420_edu-gonzalo-almorox.md](20260420_edu-gonzalo-almorox.md)). Luca's prioritisation question is about scope control rather than technical feasibility, and his existing two AI Dev Tools Zoomcamp capstones are both unfinished ([20260503_luca.md](20260503_luca.md)).
@@ -382,7 +382,7 @@ Only two plans are tagged Taylor: [Luca](20260503_luca.md) and [Edu Gonzalo Almo
 - Time budget tends to be the largest of any persona because the job hunt and the sprint reinforce each other. Luca 20 hr/week ([20260503_luca.md](20260503_luca.md)). Edu 8-10 hr/week is the lower end ([20260420_edu-gonzalo-almorox.md](20260420_edu-gonzalo-almorox.md)).
 - The portfolio question matters - hiring committees for AI Engineer / technologist roles in research-adjacent contexts value both rigour and pragmatism, and the publication / theoretical credibility on its own is not enough ([20260503_luca.md](20260503_luca.md)). Lead with "research scientist who ships production-grade AI tooling", not "researcher transitioning to AI engineering".
 
-### 6-month plan
+## 6-month plan
 
 Month 1 - Finish dockerising and deploy what already exists.
 
@@ -417,7 +417,7 @@ Month 6 - Public artefacts and applications.
 - Tagged release on GitHub, short demo video, README that hiring committees can read.
 - Active job applications using the AI Engineering Field Guide ([github.com/alexeygrigorev/ai-engineering-field-guide](https://github.com/alexeygrigorev/ai-engineering-field-guide)) to harvest the responsibilities and language to mirror in CV and LinkedIn ([20260503_luca.md](20260503_luca.md)).
 
-### 6-week sprint plan
+## 6-week sprint plan
 
 Drawn from [20260503_luca.md](20260503_luca.md) and [20260420_edu-gonzalo-almorox.md](20260420_edu-gonzalo-almorox.md).
 
@@ -456,7 +456,7 @@ Week 6:
 - Tagged release, README, short demo video. Sixth LinkedIn post.
 - Decide the next sprint and the job-application cadence.
 
-### Why this plan fits - worked examples
+## Why this plan fits - worked examples
 
 Luca ([20260503_luca.md](20260503_luca.md)) - Italian researcher (~22 years), unemployed since end of February 2026, preparing GAIL certification, runs Hermes on Oracle Cloud A1 + Ollama on a Minisforum with RTX 3090, 20 hr/week.
 
@@ -474,7 +474,7 @@ Edu Gonzalo Almorox ([20260420_edu-gonzalo-almorox.md](20260420_edu-gonzalo-almo
 - Cost containment is built into the deployment choice (AWS Lambda as the simple starting platform). He flagged that he is funding the project out of pocket and wants to "keep an eye at the costs"; a serverless target with a free tier matches the constraint without forcing a platform-engineering detour.
 - Terraform sits in week 6 as an optional next layer rather than a required deliverable. At 8-10 hr/week alongside a senior consultancy role, deploy + tests + monitoring + eval already fills the sprint; Terraform is the next-sprint seed, not the current one.
 
-### Plans that exemplify this persona
+## Plans that exemplify this persona
 
 - [Luca](20260503_luca.md) - Italian researcher (~22 years), unemployed since end of February, preparing GAIL certification, running Hermes on his own infrastructure. Three-phase sprint: configure Hermes as the runtime (weeks 1-2), document and understand (week 3), reimplement as a standalone framework application (weeks 4-5), demo (week 6).
 - [Edu Gonzalo Almorox](20260420_edu-gonzalo-almorox.md) - senior data scientist in health economics (Madrid), strong AI side but PoC-level deployments. Sprint focuses on finishing and deploying the Buildcamp capstone with tests, monitoring, CI/CD, and an evaluation loop.

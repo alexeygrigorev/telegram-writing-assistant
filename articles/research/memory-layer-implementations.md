@@ -68,7 +68,7 @@ graph TD
     DB2 -.injected as list.-> E
 ```
 
-### User Memory
+## User Memory
 
 This is the layer people mean when they say "ChatGPT memory". A list of atomic factual entries like "User is a software engineer at a fintech startup", "User prefers Python over JavaScript", "User is training for a marathon in October". Gupta found 33 entries stored about him. Other users report storage limits in the 100-300 entry range depending on tier.
 
@@ -79,7 +79,7 @@ Two ways a fact lands here:
 
 You can delete entries by asking. The model knows the right tool to call.
 
-### Recent Conversations Summary
+## Recent Conversations Summary
 
 This is the surprising layer. Many engineers assume ChatGPT runs RAG over the full conversation history. It does not. Instead it stores a small pre-computed list of summaries (~15 entries) of recent chats, each two-to-four lines describing what you asked about. These get injected directly into the prompt every turn.
 
@@ -96,7 +96,7 @@ The format looks roughly like this:
 
 The model only summarizes what you said, not its own responses. Summaries are brief on purpose, since they sit in every prompt.
 
-### Retrieval Strategy: There Isn't One
+## Retrieval Strategy: There Isn't One
 
 This is the design observation that matters. ChatGPT has no query-time retrieval system. The entire memory layer is prompt-injection-based:
 
@@ -106,7 +106,7 @@ This is the design observation that matters. ChatGPT has no query-time retrieval
 
 When token budget runs short, current-session messages get trimmed first. Permanent facts and recent summaries stay.
 
-### What Looked Smart, What Hurts
+## What Looked Smart, What Hurts
 
 The simple-by-design choice trades depth for speed and predictability:
 
@@ -145,13 +145,13 @@ graph TD
 | Session Memory | Claude (every ~5K tokens) | `~/.claude/projects/<project>/<session>/session-memory/` | Relevant past sessions |
 | Auto Dream | Claude (periodic) | Same dir as Auto Memory | Runs between sessions, no load |
 
-### CLAUDE.md: Human-Authored Rules
+## CLAUDE.md: Human-Authored Rules
 
 CLAUDE.md is the file you write to enforce rules. Coding standards, build commands, architecture decisions, team conventions. The leak confirmed that CLAUDE.md is not just a convention - it is baked into the system prompt, with explicit instructions to look for and respect it at the project root and in subdirectories.
 
 This is the same idea as having a `README.md` your AI assistant reads on every session. Version-controlled, scoped to the directory, zero infrastructure.
 
-### MEMORY.md: Agent-Authored Index Plus Topic Files
+## MEMORY.md: Agent-Authored Index Plus Topic Files
 
 The interesting structure is the auto-memory directory:
 
@@ -173,7 +173,7 @@ The categories Claude tracks:
 - Architecture notes - key files, module relationships
 - Your preferences - communication style, tool choices
 
-### Auto Dream: Background Consolidation
+## Auto Dream: Background Consolidation
 
 This is the part that is genuinely novel. Auto Dream is a memory-consolidation subagent that runs between sessions. It triggers when both conditions are true:
 
@@ -202,11 +202,11 @@ Safety constraints are encoded too. During a dream cycle, Claude can only write 
 
 In one observed case, Auto Dream consolidated memory from 913 sessions in roughly 8-9 minutes.
 
-### Session Memory: Cross-Session Conversation Continuity
+## Session Memory: Cross-Session Conversation Continuity
 
 Separate from project knowledge. Session Memory saves conversation-level summaries every ~5K tokens, stored per-session at `~/.claude/projects/<project>/<session>/session-memory/`. When you start a new session, relevant past sessions get pulled in.
 
-### Retrieval Strategy: Lazy File Loading Plus Grep
+## Retrieval Strategy: Lazy File Loading Plus Grep
 
 There is no vector database. There is no embedding model. Retrieval is:
 
@@ -216,7 +216,7 @@ There is no vector database. There is no embedding model. Retrieval is:
 
 The index plus topic files structure is the trick. The 200-line cap on MEMORY.md keeps the always-on cost bounded. The index points to topic files which only get loaded when relevant.
 
-### What Looked Smart, What Hurts
+## What Looked Smart, What Hurts
 
 Smart choices:
 
@@ -251,7 +251,7 @@ graph TD
     CM -.injected XML-style.-> Prompt[Prompt to LLM]
 ```
 
-### Storage Layout
+## Storage Layout
 
 Memory has three tiers:
 
@@ -287,7 +287,7 @@ You can also create custom blocks. The description field is load-bearing. It tel
 
 Shared blocks let multiple agents attach the same block. Update once, visible everywhere. This is how Letta supports multi-agent coordination - parent agents watch subagent result blocks update in real time.
 
-### What Gets Stored
+## What Gets Stored
 
 - Core memory: agent persona, user facts, current task state, working scratchpad
 - Recall memory: every message ever exchanged (full conversation history)
@@ -295,7 +295,7 @@ Shared blocks let multiple agents attach the same block. Update once, visible ev
 
 Archival memory entries carry tags for filtering during retrieval.
 
-### Retrieval Strategy
+## Retrieval Strategy
 
 Core memory: always in context. No retrieval needed.
 
@@ -305,13 +305,13 @@ Archival memory: agent calls `archival_memory_search(query, tags=[...], page=0)`
 
 The agent decides. There is no automatic injection of relevant memories at prompt time (other than core memory). The agent uses tools when it judges that it needs to recall something.
 
-### Decision: What Is Worth Remembering
+## Decision: What Is Worth Remembering
 
 The agent runs through memory-editing tools (`memory_replace`, `memory_insert`, `memory_rethink`, `archival_memory_insert`) inside its reasoning loop. Letta calls this self-managed memory. The system prompt instructs the agent to update memory when it learns something important.
 
 This is the same trade-off Claude Code's auto-memory has: it relies on the agent to make the right judgment call. When the agent forgets to save, the information is lost.
 
-### What Scales, What Hurts
+## What Scales, What Hurts
 
 Smart:
 
@@ -352,7 +352,7 @@ sequenceDiagram
     L-->>U: Response
 ```
 
-### Storage Schema
+## Storage Schema
 
 A memory entry has:
 
@@ -368,7 +368,7 @@ Mem0 supports three levels:
 - Session memory - scoped to one session
 - Agent memory - facts the agent stated/confirmed, stored first-class
 
-### Old Pipeline (v2): Extract + Update
+## Old Pipeline (v2): Extract + Update
 
 The original Mem0 architecture had a two-phase loop:
 
@@ -377,7 +377,7 @@ The original Mem0 architecture had a two-phase loop:
 
 This is the ReAct memory loop. The agent reasons about contradictions and decides whether to overwrite.
 
-### New Pipeline (v3, April 2026): ADD Only
+## New Pipeline (v3, April 2026): ADD Only
 
 The April 2026 release switched to single-pass ADD-only extraction. The memory log accumulates and nothing is overwritten. Why:
 
@@ -388,7 +388,7 @@ The April 2026 release switched to single-pass ADD-only extraction. The memory l
 
 Benchmark gains on LongMemEval: 67.8 to 94.8 (+27 points). The biggest wins were on temporal queries (+29.6) and multi-hop reasoning (+23.1).
 
-### Multi-Signal Retrieval
+## Multi-Signal Retrieval
 
 Search combines three signals:
 
@@ -398,13 +398,13 @@ Search combines three signals:
 
 Scores get fused. Optional spaCy NLP integration for entity extraction. Temporal reasoning ranks the right dated instance for queries about current state vs past events vs upcoming plans.
 
-### Decision: What Is Worth Remembering
+## Decision: What Is Worth Remembering
 
 The extraction LLM has a docstring-style prompt that tells it to extract "atomic, self-contained facts about the user". If the conversation does not contain anything worth extracting, return an empty list. This is the same pattern the TowardsDataScience custom-memory article describes (see [agentic-memory.md](agentic-memory.md)).
 
 The shift from "extract + update + delete" to "ADD only" is the most interesting design lesson. The v2 update logic was conceptually elegant but produced cascading errors. By treating memory as an append-only log and pushing all reconciliation into retrieval-time ranking, you get a simpler and more accurate system.
 
-### What Scales, What Hurts
+## What Scales, What Hurts
 
 Smart:
 
@@ -442,7 +442,7 @@ graph TD
     N2 --> C1
 ```
 
-### Three-Subgraph Architecture
+## Three-Subgraph Architecture
 
 - Episode subgraph (Ge) - raw input data (messages, text, JSON), non-lossy
 - Semantic Entity subgraph (Gs) - entities derived from episodes, connected by semantic edges
@@ -450,7 +450,7 @@ graph TD
 
 The mirror of human memory: episodic (raw experiences) plus semantic (extracted knowledge) plus community-level summaries.
 
-### Bi-Temporal Facts
+## Bi-Temporal Facts
 
 This is the part that differentiates Graphiti from generic knowledge graphs. Every edge has two time axes:
 
@@ -461,7 +461,7 @@ Every edge also has a validity window `(t_valid, t_invalid)`. When new informati
 
 This solves the staleness problem differently than GitHub's citation-based verification (see [agentic-memory.md](agentic-memory.md)). Instead of verifying at read time, Graphiti tracks validity windows at write time and invalidates contradictions automatically.
 
-### Storage Backends
+## Storage Backends
 
 Graphiti requires a real graph database:
 
@@ -472,19 +472,19 @@ Graphiti requires a real graph database:
 
 The hybrid retrieval combines semantic embedding similarity, BM25 keyword search, and graph traversal. Reciprocal Rank Fusion merges results. Zep's production stack reports sub-200ms p95 latency.
 
-### Custom Ontology
+## Custom Ontology
 
 You can define entity and edge types upfront using Pydantic models. This is the prescribed ontology mode. You can also let structure emerge from the data (learned mode). The combination is powerful: anchor to known domain concepts, let unexpected patterns appear.
 
 This connects to the Fixed Entity Architecture argument from the existing research (see [agentic-memory.md](agentic-memory.md)) - manually defined domain concepts plus learned connections.
 
-### Decision: What Is Worth Remembering
+## Decision: What Is Worth Remembering
 
 Graphiti is opinionated: everything ingested becomes an episode. The LLM-driven extractor decides what entities and relationships to create. Contradictions are not discarded; they are timestamped and invalidated.
 
 This is the opposite trade-off from ChatGPT (explicit-fact storage only). Graphiti stores everything and figures out what is current via temporal queries.
 
-### What Scales, What Hurts
+## What Scales, What Hurts
 
 Smart:
 
@@ -517,7 +517,7 @@ graph TD
     S[(LangGraph BaseStore<br/>InMemory / Postgres)]
 ```
 
-### Namespaces, Not Just Keys
+## Namespaces, Not Just Keys
 
 Memories live inside namespaces. A namespace is a tuple like `("user_123", "preferences")` that scopes access. Common patterns:
 
@@ -528,7 +528,7 @@ Memories live inside namespaces. A namespace is a tuple like `("user_123", "pref
 
 Namespaces prevent cross-user memory leakage by construction. Two different users cannot see each other's memories unless you explicitly share a namespace.
 
-### Two Integration Patterns
+## Two Integration Patterns
 
 Hot path (agent decides):
 
@@ -551,7 +551,7 @@ A memory manager runs after the conversation completes. It uses `trustcall.creat
 
 The advantage of the background pattern: extraction does not eat tokens during the user-facing turn. The disadvantage: the agent in the current session cannot benefit from facts extracted from this session yet.
 
-### Storage Backend
+## Storage Backend
 
 LangMem leans on LangGraph's `BaseStore`:
 
@@ -561,11 +561,11 @@ LangMem leans on LangGraph's `BaseStore`:
 
 Embeddings configured in the store (`"openai:text-embedding-3-small"`). The store handles both key-value access and vector search.
 
-### Decision: What Is Worth Remembering
+## Decision: What Is Worth Remembering
 
 Same as Mem0: an extractor prompt decides. The trustcall library is used to enforce schema, so extraction produces structured Pydantic objects rather than free text.
 
-### What Scales, What Hurts
+## What Scales, What Hurts
 
 Smart:
 
@@ -598,7 +598,7 @@ flowchart LR
     R --> VS
 ```
 
-### Storage Layout
+## Storage Layout
 
 Two layers:
 
@@ -607,7 +607,7 @@ Two layers:
 
 Both backed by graph plus vector store. Backends are pluggable: Memgraph, Neo4j, Kuzu for graph; Qdrant, LanceDB, pgvector for vectors.
 
-### Four Operations
+## Four Operations
 
 The API is minimal:
 
@@ -616,21 +616,21 @@ The API is minimal:
 - `cognee.forget(dataset=...)` - delete
 - `cognee.improve()` - re-run the cognify step to refine the graph
 
-### What Gets Remembered
+## What Gets Remembered
 
 Cognee accepts any format - text, documents, conversations. The cognify pipeline classifies, chunks, extracts entities and relationships, generates summaries, and embeds everything. You get both semantic search and graph traversal over the result.
 
 The `node_set` parameter scopes ingestion. `node_set=["research"]` puts the chunks into a specific subgraph for filtered retrieval later.
 
-### Decision: What Is Worth Remembering
+## Decision: What Is Worth Remembering
 
 Everything you `remember()` goes in. The cognify step is where extraction quality matters - it is the LLM-driven entity and relationship extraction stage.
 
-### Retrieval Strategy
+## Retrieval Strategy
 
 Auto-routed search. The `recall()` call picks the best strategy: semantic similarity, graph traversal, summary lookup, or full-text. Session memory is queried first if a `session_id` is provided, falling through to the graph if no hit.
 
-### What Scales, What Hurts
+## What Scales, What Hurts
 
 Smart:
 
@@ -658,7 +658,7 @@ graph TD
     E1 --> Storage[(ChromaDB +<br/>link graph)]
 ```
 
-### Note Structure
+## Note Structure
 
 Each memory is a structured note, not a raw fact:
 
@@ -671,7 +671,7 @@ Each memory is a structured note, not a raw fact:
 
 The note generation is LLM-driven. When you call `memory_system.add_note(content)`, the system uses the LLM to generate the surrounding metadata.
 
-### Three-Stage Lifecycle
+## Three-Stage Lifecycle
 
 1. Note Construction - generate the structured note with all attributes
 2. Link Generation - search historical memories via ChromaDB similarity, establish links where meaningful similarities exist
@@ -679,20 +679,20 @@ The note generation is LLM-driven. When you call `memory_system.add_note(content
 
 The evolution step is what makes this distinct. Most systems either overwrite (Mem0 v2), invalidate (Graphiti), or append (Mem0 v3). A-MEM mutates old memories when new context shifts their interpretation.
 
-### Storage Backend
+## Storage Backend
 
 - ChromaDB for vector embeddings (defaults to `all-MiniLM-L6-v2`)
 - A separate link graph stored alongside (NetworkX DiGraph in the MCP server variant)
 
-### Retrieval Strategy
+## Retrieval Strategy
 
 `search_agentic(query, k=5)` does semantic search via ChromaDB plus graph traversal over the linked notes. Results include the matched notes plus their typed connections.
 
-### Decision: What Is Worth Remembering
+## Decision: What Is Worth Remembering
 
 The agent calls `add_note()` explicitly. There is no automatic extraction from raw conversation - the agent (or wrapper code) decides when something is worth storing. This is closer to Letta's archival memory pattern than to Mem0's automated extraction.
 
-### What Scales, What Hurts
+## What Scales, What Hurts
 
 Smart:
 
@@ -721,7 +721,7 @@ After surveying the seven systems, the same axes show up repeatedly. Here is a s
 | Cognee | Graph + vector via ECL pipeline | Auto-routed | Anything you call `remember()` on | You explicitly + LLM cognify step |
 | A-MEM | Structured notes in ChromaDB + link graph | Semantic + graph traversal | Notes with content, context, keywords, tags, links | Agent or wrapper, explicit add_note |
 
-### Recurring Trade-Offs
+## Recurring Trade-Offs
 
 A few patterns show up across every system:
 
@@ -733,7 +733,7 @@ Agent-managed vs background. Letta, LangMem hot path, and Claude Code rely on th
 
 Append-only vs update-in-place. Mem0 v3 explicitly moved to append-only. Graphiti invalidates rather than deletes. A-MEM mutates. Mem0 v2 (the old design) had update logic that accumulated errors over time. The pattern: append-only is easier to reason about and version, and push reconciliation into retrieval-time ranking.
 
-### Decision Points for Your Own Memory Layer
+## Decision Points for Your Own Memory Layer
 
 If you are designing a memory layer from scratch, these are the questions worth answering before picking infrastructure:
 

@@ -16,13 +16,13 @@ This article analyzes a Claude skill (custom instruction set) designed to genera
 
 Source: https://drive.google.com/file/d/1zvu42kRJPsnRhekDHSDfbExr1zFVHpqH/view?usp=sharing
 
-### How It Works
+## How It Works
 
 The prompt takes a single argument - a topic name - and generates an entire interactive course as a web application. The user types something like "Build Interactive Course on Statistics" and the skill handles everything else.
 
 The prompt is roughly 1,270 lines long. It follows a 9-step sequential process that guides Claude through scaffolding, component creation, curriculum design, and page generation.
 
-### The 9-Step Pipeline
+## The 9-Step Pipeline
 
 Step 1 - Decisions and Optional Questions. The prompt explicitly tells Claude to decide things on its own (number of sections, visualization tools) rather than asking the user. It sets smart defaults: "zero to hero" audience level, English language. Only three optional questions are allowed, and only briefly.
 
@@ -42,7 +42,7 @@ Step 8 - Quiz Authoring. Detailed rules for creating 20 questions per page.
 
 Step 9 - Build Process. Specific order of operations and a parallelism strategy for large courses.
 
-### Prompt Engineering Techniques
+## Prompt Engineering Techniques
 
 The prompt uses several notable patterns.
 
@@ -58,7 +58,7 @@ Technique: Quality constraints on quiz content. The quiz rules are unusually spe
 
 Technique: Parallelism instructions for the agent. Step 9 tells Claude to use background agents for large courses, splitting page generation across 3+ agents. Each agent gets the full component code and templates. This is a meta-instruction - telling the AI how to organize its own work.
 
-### Page Structure Pattern
+## Page Structure Pattern
 
 Every content page follows the same 6-part structure:
 
@@ -71,13 +71,13 @@ Every content page follows the same 6-part structure:
 
 This structure is rigid by design. It creates predictable learning experiences regardless of topic.
 
-### Design System
+## Design System
 
 The prompt includes a complete design system reference: specific hex colors for backgrounds, text hierarchy rules, card styles, button variants, grid layouts, and font sizes. All courses share the same dark theme (slate-900 background, indigo accents).
 
 The color palette is consistent across all visualization types. D3 charts use indigo for primary data, emerald for secondary, amber for highlights, red for errors. Architecture diagrams use the same colors for node types (indigo for services, emerald for databases, amber for external systems).
 
-### What Makes This Effective
+## What Makes This Effective
 
 The prompt works because it is extremely specific about the output format while leaving content decisions to Claude. It does not try to teach Claude how to explain statistics or networking. Instead, it gives Claude a rigid container (the page template, the quiz format, the component library) and lets Claude fill it with domain knowledge.
 
@@ -85,7 +85,7 @@ The "copy exactly" approach for shared components means Claude spends zero token
 
 The quiz requirements force depth. Writing 20 questions per page with personalized wrong-answer feedback requires genuine understanding of common misconceptions in the topic area.
 
-### Limitations and Observations
+## Limitations and Observations
 
 The prompt is tightly coupled to a specific tech stack (Vite, React 18, Tailwind v4, D3 v7). Updating any dependency would require rewriting the prompt.
 
@@ -104,7 +104,7 @@ The prompt does not address content accuracy verification. It trusts Claude's tr
 
 ## Resources
 
-### Interactive Course Builder Skill (ic.md)
+## Interactive Course Builder Skill (ic.md)
 
 Source: https://drive.google.com/file/d/1zvu42kRJPsnRhekDHSDfbExr1zFVHpqH/view?usp=sharing
 
@@ -127,7 +127,7 @@ Actionable Patterns:
 - Specify difficulty distribution for generated content (30/50/20 easy/medium/hard)
 - Give each parallel agent the full context (component code + templates + rules) for consistent output
 
-### Generated Output: Learn Quantum Computing
+## Generated Output: Learn Quantum Computing
 
 Source: https://qc.vassilyv.me
 

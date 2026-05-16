@@ -78,7 +78,7 @@ This function copies a master Claude configuration file to the current directory
 
 The repository includes several custom slash commands that automate common workflows. These commands can be used across all projects and devices - changes to the commands are automatically synchronized.
 
-### Release Command
+## Release Command
 
 Automates the Python library release process. Previously, I did this manually with some automation:
 1. Run tests
@@ -101,7 +101,7 @@ Key features:
 
 The command also generates release notes by looking at commits since the last tag, which I previously left empty or filled manually. This saves time and provides better documentation[^5].
 
-### init-library Command
+## init-library Command
 
 Initializes a new Python library with a consistent structure. This was created after analyzing all my existing libraries (minsearch, toyaikit, jackson, gitsource) to find common patterns[^6].
 
@@ -115,7 +115,7 @@ The command creates:
 
 The structure is designed to work with the `/release` command - libraries initialized this way follow the expected format for automated releases[^7].
 
-### create-github-repo Command
+## create-github-repo Command
 
 When working in a directory and deciding something is ready to publish to GitHub, this command handles the creation process[^8].
 
@@ -146,7 +146,7 @@ For subagents - specialized agents for tasks like research workflows and verific
 
 ## Skills
 
-### Refactor Pass Skill
+## Refactor Pass Skill
 
 A skill for performing a refactoring pass focused on simplicity after recent changes. This is useful when the user asks for a refactor, cleanup pass, simplification, or dead-code removal and expects build/tests to verify behavior.
 
@@ -168,7 +168,7 @@ This skill should be added to the Claude configuration to handle post-coding cle
   <!-- This skill can be added to Claude Code configuration for automated cleanup passes -->
 </figure>
 
-### Fetch YouTube Skill
+## Fetch YouTube Skill
 
 A new skill that fetches YouTube video transcripts. This was needed for the Data Engineering Zoomcamp - Bruin company prepared videos for module 5, and I wanted to make a transcript of that module to create a retro video. So I created a new skill for it and tested it right away. It works great[^13][^14].
 
@@ -230,7 +230,7 @@ Source: https://x.com/LLMJunky/status/2040127436864586166[^20]
 
 Ideas for what can be added to the .claude library next[^15][^16]:
 
-### Workflow Orchestration
+## Workflow Orchestration
 
 1. Plan Mode Default
    - Enter plan mode for any non-trivial task (3+ steps or architectural decisions)
@@ -268,7 +268,7 @@ Ideas for what can be added to the .claude library next[^15][^16]:
    - Zero context switching required from the user
    - Go fix failing CI tests without being told how
 
-### Task Management
+## Task Management
 
 1. Plan First: Write plan to tasks/todo.md with checkable items
 2. Verify Plan: Check in before starting implementation
@@ -277,7 +277,7 @@ Ideas for what can be added to the .claude library next[^15][^16]:
 5. Document Results: Add review section to tasks/todo.md
 6. Capture Lessons: Update tasks/lessons.md after corrections
 
-### Core Principles
+## Core Principles
 
 - Simplicity First: Make every change as simple as possible. Impact minimal code.
 - No Laziness: Find root causes. No temporary fixes. Senior developer standards.

@@ -50,17 +50,17 @@ He framed his own goal as: "I need the plan to build AI project and get the AI E
 
 A community member proposed a session on how to pitch your idea and how to convey thoughts to different audiences, in a Toastmasters style[^1].
 
-### Using the group learning format
+## Using the group learning format
 
 Valeriia's suggestion: run this through the existing group learning format. The person who requested the topic - "how to pitch his ideas" - picks a source himself (a book, a blog post), reads it, finds the information, and then makes a presentation about it. Other members give him feedback and share their own experience[^2].
 
 This pushes the format beyond hard and soft skills. A mastermind has one person's request at the centre. Other participants first ask clarifying questions to enter the context of what has already been done, and only then share their ideas - not just to share personal experience, but to help solve the specific problem in front of them[^2].
 
-### Mastermind moderation
+## Mastermind moderation
 
 Masterminds have defined rules for how the session should go. Valeriia has participated in one before but has never moderated. She is willing to read up on the format and run the session[^2].
 
-### Cross-cultural note on feedback
+## Cross-cultural note on feedback
 
 A related point from the same conversation: when conveying ideas to different audiences, the feedback styles differ sharply by culture. With Israelis and Germans the feedback is direct - they will simply say they did not like something and will not continue. Americans often do not say this directly. They stay silent. So you do not always know in advance what they thought - they might just need time, or they might have disliked something and will not tell you[^3].
 

@@ -16,7 +16,7 @@ So far only one person has responded, but the plan is to gradually fill this art
 
 Questions about the AI Engineer role (LLM / GenAI). You can answer briefly or in detail, by text or voice. If something is uncomfortable, skip it[^2].
 
-### Interviews
+## Interviews
 
 If you recently interviewed for an AI/LLM role, answer the questions below. If you interviewed at multiple companies, it would be helpful to describe each process separately.
 
@@ -26,7 +26,7 @@ If you recently interviewed for an AI/LLM role, answer the questions below. If y
 4. What questions or tasks were given at each stage? (examples if you remember)
 5. Was there a take-home assignment? If yes, what did you need to do and how long did it take?
 
-### Real Work with AI
+## Real Work with AI
 
 If you already work with AI/LLM, answer the questions below.
 
@@ -40,7 +40,7 @@ If you already work with AI/LLM, answer the questions below.
 
 ## Response: Nick
 
-### Real Work with AI
+## Real Work with AI
 
 Role: Data Engineer at a B2B tech company[^4].
 
@@ -48,7 +48,7 @@ The company does a lot of different things. The specific team works on anonymiza
 
 The problem AI solves: data anonymization and validation that data has been properly anonymized[^4].
 
-### Typical Tasks
+## Typical Tasks
 
 Three main areas of work[^4]:
 
@@ -58,7 +58,7 @@ Three main areas of work[^4]:
 
 3. Data Engineering and human-in-the-loop workflows.
 
-### Tools and Technologies
+## Tools and Technologies
 
 Everything available on the market. For coding, and not just coding but also research, document search, writing documentation, etc. - Claude Code is used with all possible extensions and tooling[^4].
 
@@ -66,15 +66,15 @@ Beyond Claude Code, there are custom agentic solutions where under the hood you 
 
 Also frequently uses agentic tools developed within the company - either in the format of chat bots or data agents that do data processing for you[^4].
 
-### RAG, Agents, Fine-Tuning, Evals, Datasets, Production Infra
+## RAG, Agents, Fine-Tuning, Evals, Datasets, Production Infra
 
 All of it is present, both at the corporation level and at the specific team level. Everything on the market and things that don't exist on the market yet are being used to optimize agentic solutions[^4].
 
-### Engineering vs Research
+## Engineering vs Research
 
 Engineering in its pure form. Evals, guardrails, LLM-as-judge, assisted coding, and any agents running in autonomous mode[^4].
 
-### Advice for Entering the Role
+## Advice for Entering the Role
 
 Don't start with autonomous agents. Build a good agentic solution that requires human-in-the-loop first, because having collected all that information, it will be much easier to build an autonomous agent on evals and guardrails later[^4].
 
@@ -84,7 +84,7 @@ In startups, enterprise, and big tech, agentic development evolves completely di
 
 Be in the top 10% of the industry. This is almost impossible right now - follow trends, while somehow filtering the digital stream, and try to optimize yourself. Working with a single context is already becoming a critically lacking skill. If you're not working in three, four, five contexts in parallel, it will be very difficult to enter the industry, and even more so to maintain yourself in this industry at top companies[^4].
 
-### Interview Process Opinions
+## Interview Process Opinions
 
 First: no coding at all. None whatsoever. If you want to understand how a person thinks, it's either debugging or working with a project for an hour to an hour and a half. Ideally in a setup where the person can show their own environment - come with prepared skills and show how they work. In companies where there are no restrictions, ideally the person should demonstrate their own setup[^4].
 

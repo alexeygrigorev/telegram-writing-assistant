@@ -28,21 +28,21 @@ Key principle: the value should come from the community, not just from the found
 
 ## Regular Sessions
 
-### Building sessions
+## Building sessions
 
 Regular sessions (once or twice a month) where we get on a call for 1.5-2 hours and work on something together. This can be a problem being worked on right now, or a problem someone brings. The idea is to build something together live[^86].
 
-### Accountability standups
+## Accountability standups
 
 Regular meetings where people report on their goals and progress - similar to standups at a company. Each person has an idea they want to work on (alone or with someone). For example: "I am looking for a job as an AI engineer. Here is what I am doing: I am working on a project, I have a plan, I have deliverables." They share what they did, what they plan to do, and what blockers they have[^86].
 
 This can happen once a week. The question is who can lead these - ideally Valeria could run them. The preference is to focus on the building sessions personally, while getting to know all new members to understand how to help them specifically and collect ideas about what to do together[^86].
 
-### Events calendar
+## Events calendar
 
 The goal is to have a proper platform where people can see materials, have a calendar with events, and understand what activities are available and what is planned. People should be able to see a schedule and know what to expect[^86].
 
-### Office Hours tied to LLM Zoomcamp
+## Office Hours tied to LLM Zoomcamp
 
 LLM Zoomcamp starts soon, and both people I talked to on Friday want to take it. The idea: do something inside AI Shipping Labs similar to what I did on Maven - office hours and so on - but only for AI Shipping Labs members[^95].
 
@@ -50,17 +50,17 @@ When LLM Zoomcamp starts, the framing would be: "There's a new community focused
 
 By that time the Maven course should be finishing or close to finishing, so the office hours can be run personally for AI Shipping Labs subscribers[^95].
 
-### Group course study in autumn
+## Group course study in autumn
 
 In the autumn we can find another course - not necessarily my own, maybe an open course from somewhere - and announce that we're going through it together. There are a lot of different courses I would also find interesting, and we can just go through them together[^96].
 
 ## Accountability and Mentoring
 
-### The mentoring demand
+## The mentoring demand
 
 People often ask me if I can mentor them. I usually say no, but suggest they use the community as a mentor - ask questions in the right channels at DataTalks Club and we can help with plans and implementation. Usually people do not do this. They want something more personal - someone to guide them by hand and watch what they are doing[^68].
 
-### Accountability circles
+## Accountability circles
 
 I thought about how to address this within the new paid community. The idea came while riding a tram: create accountability groups or accountability circles. These are groups where people have their own tasks and plans - everyone has different goals - but they meet together regularly[^68].
 
@@ -72,13 +72,13 @@ These groups can be organized by focus area:
 
 What happens in these groups: people share progress, talk about blockers, and get help from each other. It works like a regular standup at a company - you say what you did, what your plans are, and what blockers you have. Team members help resolve blockers and suggest solutions[^68].
 
-### Why this works
+## Why this works
 
 The same mechanism that makes mentoring effective applies here. A person knows a session is coming in two days, realizes they have done nothing, and sits down to make progress. With group calls, the same effect kicks in - they know the meeting is coming, so they sit down and do the work to have something to show, a demo or progress to discuss[^68].
 
 Scrum masters are usually not technical people. The real help comes from everyone in the team - "you could do this, you could try that." This is essentially group mentoring. The right term is mastermind groups - people at roughly the same level but with slightly different problems who complement each other[^68].
 
-### Redirecting mentoring requests
+## Redirecting mentoring requests
 
 I want to send all people who ask me for mentoring to this community. I will say: "Look, here is what we do. We create these groups. I will not mentor you personally, but I will give you a structure to follow." We can discuss their plan together. This does not have to be synchronous - we do not have to schedule calls[^69].
 
@@ -86,7 +86,7 @@ A framework can be designed where people describe their problem and I provide a 
 
 This starts as one-on-one but can be automated over time. Initially it takes a lot of my involvement, but as more ready-made plans accumulate, the task becomes just selecting a similar plan and adjusting it for the person[^69].
 
-### Validating the idea
+## Validating the idea
 
 I will write to everyone who has recently asked me for mentoring and ask how interested they would be in this. A woman recently reached out wanting help with AI skills - she seems like an ideal candidate for this. Once we formulate this better and launch the community, I will reach out, offer a call, and tell her about this idea[^70].
 
@@ -108,7 +108,7 @@ The same day, two people wrote asking for career consultations. One said even 50
   <!-- Shows demand for career consultations and how the paid community could serve these people -->
 </figure>
 
-### Sprint-based format
+## Sprint-based format
 
 Instead of running these groups continuously (like "every Tuesday"), a more organized approach would be to run them in sprints or cohorts[^71].
 
@@ -120,7 +120,7 @@ Benefits of sprints:
 
 Continuous activities lose interest over time, like "Book of the Week" or "Project of the Week" where interest fades. Running in sprints with periodic pauses helps avoid this. Sprints can have different focus areas. Taking breaks to rethink and adjust is valuable[^71].
 
-### Sprint weekly call format
+## Sprint weekly call format
 
 This is the format I have in mind for the AI Shipping Labs accountability sprints. People meet once a week on a call, and each person gives a status update in turn (the order can be free or fixed - we can think about it). The status update has three parts[^97]:
 
@@ -136,13 +136,13 @@ Not everyone will be able to join every call - day jobs, timezones, or just a bu
 
 The framing for these sprints is "accountability sprints" inside AI Shipping Labs[^98].
 
-### Monthly themes with deadlines
+## Monthly themes with deadlines
 
 Another idea for accountability in Tier 1 (the newsletter tier): dedicate each month to a specific topic. For example, April is the month of RAG. Provide a plan for how to study it, set deadlines, and send short reminder messages - "today is the deadline for this part, did you do it or not?" This gives structure even without the community tier[^88].
 
 It could also work to announce peer review at the end of each month. Although peer review might be too complex since people join at different times. The core idea is that beyond content, there should be a plan with deadlines and accountability reminders[^88].
 
-### Member onboarding process
+## Member onboarding process
 
 For existing community members, the plan is to create a format for understanding each person's goals. What do they want to learn in the next month? What project do they want to build? Then give them personal feedback (as promised in the launch) and help them start building or studying a topic. Events should be added to the shared calendar where members present what they built and discuss their problems[^89][^90].
 
@@ -154,13 +154,13 @@ The outreach message to members: "Hi, we are launching the community. I previous
 
 For those who do not want to get on a call, a Google Form with the same questions works. For those who do not want to fill out a form, the same questions can be asked through chat. Having a standardized set of questions makes it easier for Alexey to review all the applications. The goal is to learn the most important things about each person[^94].
 
-### Launch preparation
+## Launch preparation
 
 Vishnu, who was on a previous call, wrote asking when the community launches. Valeriia told him Monday and that there will be a newsletter announcement today. An announcement is also needed inside the community about the launch and the planned events. The events are all on Luma AI Shipping Labs (Valeriia added Alexey as an admin there) and need to be reviewed to make sure everything looks right[^89].
 
 ## Career Development
 
-### Resume review sessions
+## Resume review sessions
 
 When doing resume review sessions that are visible to the community as learning, there is a question of how to select participants:
 
@@ -170,11 +170,11 @@ When doing resume review sessions that are visible to the community as learning,
 
 One challenge: people usually need resume reviews immediately when job searching, not on a monthly schedule. A possible approach is when you join the premium tier, you get added to a waitlist, and we do a certain number per month[^53].
 
-### Conference speaking support
+## Conference speaking support
 
 Another potential community benefit: maintain a regularly updated list of conferences and help community members participate as speakers by connecting them with organizers. This provides tangible career value and public speaking experience[^29].
 
-### Learning in public and personal branding
+## Learning in public and personal branding
 
 A key benefit for the paid community: helping members with career advancement through learning in public and personal branding. This would include guidance on:
 
@@ -192,7 +192,7 @@ The community aspect is important here - when more people are involved in a foun
 
 Examples of content that could be shared include behind-the-scenes work for community projects, such as building visualization tools or websites. The community manager role encompasses moderating, creating content, formatting, and promoting both content and the community itself[^30].
 
-### Mentorship and guidance
+## Mentorship and guidance
 
 - Direct mentorship for implementation challenges
 - Updated content based on evolving techniques
@@ -203,7 +203,7 @@ The environment should reproduce the conditions that accelerate career growth, s
 
 ## Knowledge Sharing
 
-### Research and content reviews
+## Research and content reviews
 
 Based on research of other communities like "AI Native Engineer", potential activities include:
 

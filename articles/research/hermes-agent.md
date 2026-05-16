@@ -267,11 +267,11 @@ The prompt isn't just a shell around your message. It carries identity, long-ter
 
 Hermes treats identity and memory as first-class artifacts stored on disk in plain markdown, so you can read and edit them yourself.
 
-### SOUL.md - Identity
+## SOUL.md - Identity
 
 `SOUL.md` is the first thing in the system prompt and replaces the default built-in identity. You put the tone, voice, communication style, and personality you want into it, and the agent behaves accordingly. Because the file lives in `~/.hermes/` rather than in a project directory, the same identity follows the agent across projects - you don't have to re-tell it who it is every time you change folders. The default stub in `hermes_cli/default_soul.py` is only 654 bytes. You grow it yourself over time, and the agent can also edit it when you ask.
 
-### Memory - Four Layers
+## Memory - Four Layers
 
 Hermes keeps memory in four places. Two of them get copied into the system prompt on every turn (so the agent always sees them), and two stay on disk and are only fetched when needed:
 
@@ -288,7 +288,7 @@ The 8 memory plugins sit in a separate layer for when the in-prompt files aren't
 
 The in-prompt memory uses what the code calls a frozen-snapshot pattern. In plain terms: when a session starts, MEMORY.md and USER.md are read once and baked into the system prompt, and the prompt is never edited for the rest of the session. If the agent edits those files during the session, the changes go to disk immediately but don't show up in the prompt until you start the next session. This is the trade for keeping the prefix cache intact - worth knowing so you don't expect the agent to notice its own memory edit mid-conversation.
 
-### Skills - Procedural Memory
+## Skills - Procedural Memory
 
 Skills follow the `agentskills.io` open standard. Each skill is a markdown file with structured frontmatter, optionally bundled with reference files. Skills use progressive disclosure. Progressive disclosure is a pattern where the agent sees only a short index of available skills up front, and loads the full text of one skill only when it decides it needs that skill. In Hermes there are three levels of detail, numbered 0, 1, and 2:
 

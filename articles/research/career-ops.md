@@ -31,7 +31,7 @@ Key capabilities:
 
 The system is built as a collection of "modes" (prompt files) that Claude Code reads as instructions. There is no traditional application server. Claude Code is the runtime.
 
-### Core Components
+## Core Components
 
 The project has two layers, defined in a strict data contract:
 
@@ -52,7 +52,7 @@ System Layer (safe to auto-update):
 
 This separation means the system can update itself without touching your personal data.
 
-### Mode System
+## Mode System
 
 Each mode is a markdown file that defines behavior for one task. There are 14 modes:
 
@@ -75,7 +75,7 @@ Each mode is a markdown file that defines behavior for one task. There are 14 mo
 
 Modes also come in German (`modes/de/`) and French (`modes/fr/`) for DACH and Francophone job markets.
 
-### Evaluation Pipeline
+## Evaluation Pipeline
 
 When you paste a job URL, the system runs through 6 blocks:
 
@@ -88,7 +88,7 @@ When you paste a job URL, the system runs through 6 blocks:
 
 The system classifies every offer into one of 6 archetypes: AI Platform/LLMOps, Agentic/Automation, Technical AI PM, AI Solutions Architect, AI Forward Deployed, or AI Transformation. The archetype determines which proof points and framing to use.
 
-### Batch Processing
+## Batch Processing
 
 The batch system uses a conductor-worker architecture. The conductor (Claude Code with Chrome) navigates career portals. For each job listing, it spawns a `claude -p` worker with a clean 200K token context.
 
@@ -101,7 +101,7 @@ Conductor (claude --chrome)
 
 Workers run in parallel (configurable with `--parallel N`). State is tracked in a TSV file for resumability. Failed evaluations can be retried with `--retry-failed`.
 
-### Portal Scanner
+## Portal Scanner
 
 The scanner operates at three levels:
 
@@ -111,7 +111,7 @@ The scanner operates at three levels:
 
 Results from all three levels are merged and deduplicated against scan history.
 
-### PDF Generation
+## PDF Generation
 
 CVs are generated as PDF using Playwright/Puppeteer. The system fills an HTML template (`templates/cv-template.html`) with content tailored to each job description, then renders it to PDF. Fonts are self-hosted (Space Grotesk + DM Sans). Unicode characters are normalized to ASCII for ATS compatibility.
 
@@ -128,29 +128,29 @@ The only npm dependency is Playwright. Everything else is vanilla Node.js with `
 
 ## Key Insights
 
-### The system learns from the user over time
+## The system learns from the user over time
 
 The first evaluations are not great because the system does not know you yet. The CLAUDE.md instructions explicitly tell the user this. As you feed it more context - your CV, career story, proof points, preferences - it improves. The onboarding process asks probing questions: "What's your superpower?", "What excites you?", "Any deal-breakers?"
 
 After every evaluation, the system updates `_profile.md` with what it learned from user feedback. This creates a compounding effect where later evaluations are much more accurate.
 
-### Data contract as upgrade strategy
+## Data contract as upgrade strategy
 
 The strict user/system layer separation is smart. It means the project can ship updates (new modes, better scoring logic, bug fixes) without risking user data. The `update-system.mjs` script checks for updates, applies them to system-layer files only, and supports rollback. This is rare for an open-source CLI tool.
 
-### Claude Code as the entire application layer
+## Claude Code as the entire application layer
 
 There is almost no traditional application code. The "application" is a collection of markdown prompt files that Claude Code interprets. The Node.js scripts are thin utilities for tasks that need deterministic behavior (PDF rendering, file merging, dedup). This is an extreme example of "prompt as code."
 
-### Archetype-driven personalization
+## Archetype-driven personalization
 
 Instead of generic resume optimization, the system classifies each role into an archetype and adapts everything - which proof points to highlight, how to frame experience, which STAR stories to prepare. This produces much better results than keyword matching.
 
-### The interview story bank compounds
+## The interview story bank compounds
 
 Each evaluation generates 6-10 STAR+Reflection stories mapped to JD requirements. These accumulate in `interview-prep/story-bank.md`. Over time, you build a reusable bank of 5-10 master stories that can answer any behavioral question. The Reflection component (what was learned, what would be done differently) signals seniority.
 
-### Anti-spam philosophy
+## Anti-spam philosophy
 
 The system explicitly discourages applying to low-scoring offers. The scoring threshold (4.0/5) is high. The README states: "Your time is valuable, and so is the recruiter's." This is the opposite of the typical job search automation tool that blasts hundreds of applications.
 
@@ -190,11 +190,11 @@ The batch runner pattern (conductor + `claude -p` workers) is reusable for any t
 
 ## Resources
 
-### GitHub Repository
+## GitHub Repository
 
 Source: https://github.com/santifer/career-ops
 
-### Author's Case Study
+## Author's Case Study
 
 Source: https://santifer.io/career-ops-system
 

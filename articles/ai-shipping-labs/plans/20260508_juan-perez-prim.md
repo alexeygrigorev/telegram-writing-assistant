@@ -22,13 +22,13 @@ Internal working document. Share only the `Summary` and `Plan` sections with the
 
 This is the shareable part of the document.
 
-### Focus
+## Focus
 
 - Main focus: deploy `amr_ai` to a secure independent website. Dockerise the Streamlit app, set up a small Docker-Compose-style stack (app + Chroma store + a reverse proxy for HTTPS), pick a host that does not bankrupt a side project, and wire up GitHub Actions so a push to main updates the live site.
 - Supporting focus: add real evaluation on top of the existing RAG. The Buildcamp workshop walked through this end to end - replicate that pattern on `amr_ai` and use it to compare retrieval/reranker variants and answer-grounding quality.
 - Supporting focus: add monitoring once the site is live. Logfire (or equivalent) for traces and request-level visibility, plus a small dashboard so usage from the five colleagues you share it with is observable rather than guessed at.
 
-### Timeline
+## Timeline
 
 Week 1:
 
@@ -62,7 +62,7 @@ Week 6:
 - Open the site to the five colleagues you mentioned in intake[^1]. Capture their feedback in the eval set so it tightens with real usage.
 - Decide whether the next sprint is: (a) generalising the platform to other topics (your stated long-term goal), (b) moving to a more capable host now that you have real usage, or (c) starting on the second project from your idea list.
 
-### Project approach
+## Project approach
 
 - The build is not the bottleneck. `amr_ai` already has a richer stack than most sprint projects start with - PydanticAI agent, hybrid retrieval, BioBERT, Reciprocal Rank Fusion, Docling for PDFs[^3]. The sprint is about adding the production layer around what you have built, not rebuilding it.
 - Streamlit is fine for week-1 deployment. It got you to a working chat. Replacing it with a custom React frontend is a different project; if it ever happens, do it after the sprint, not during it.
@@ -70,7 +70,7 @@ Week 6:
 - Pair where it accelerates. Manjunath Yelipeta is sprinting on a v0.0.1 deployment platform that takes an AI project as input and produces a live URL ([his plan](20260506_manjunath-yelipeta.md)). His project and your project are on opposite sides of the same problem - there is real value in talking weekly about what each side learns. Pairing is optional but encouraged; treat it as an open conversation, not a dependency.
 - Keep secondary feature work parked. Adding diagrams, images, videos, gamified flashcards, generalising the platform - all good, all out of scope for this sprint. Note them in a follow-up doc so they are not lost; do not let them displace deployment.
 
-### Resources
+## Resources
 
 - Buildcamp workshop on monitoring + evaluation - the reference pattern for week 3-4. Use the same structure on `amr_ai` rather than designing from scratch.
 - AI Shipping Labs first workshop on Telepot agents and deployment to Render (week of 2026-04-20) - useful as a deployment-walkthrough reference if you want to see one path end to end. Available to community members; ask Valeriia for the link.
@@ -78,7 +78,7 @@ Week 6:
 - Logfire (or your monitoring tool of choice) for the production-side traces.
 - The `amr_ai` repo: https://github.com/juanpprim/amr_ai .
 
-### Deliverables
+## Deliverables
 
 - `amr_ai` Dockerised and running locally via `docker compose up` - by end of week 1.
 - First deployed URL accessible over HTTPS with basic access control - by end of week 2.
@@ -87,13 +87,13 @@ Week 6:
 - Public README + architecture writeup, eval-driven retrieval iteration - by end of week 5.
 - Site shared with the five colleagues, feedback captured back into the eval set - by end of week 6.
 
-### Accountability
+## Accountability
 
 - Weekly async update on what shipped, what is blocked, and the goal for next week - the "structured deadlines and motivation through feedback" Juan asked for in intake[^1].
 - Pair check-in with Manjunath (optional but encouraged) once a week or once a fortnight - 20 minutes is enough.
 - Post the live URL in `#plan-sprints` once it exists; the community is the first set of users.
 
-### Next Steps
+## Next Steps
 
 - [ ] [Juan] Watch the recording of the first sprint session he missed.
 - [ ] [Juan] Email Valeriia the project GitHub link ([amr_ai](https://github.com/juanpprim/amr_ai)).
@@ -106,13 +106,13 @@ Week 6:
 
 Everything below is for internal use only.
 
-### Persona
+## Persona
 
 Priya - The Improver. Juan already has a working AI project (`amr_ai`, demoed at Buildcamp Cohort 2[^3]) and a stable senior data role. He is not transitioning from zero - he is improving an existing build to production grade and learning the production-engineering side he has not done before. The "no transition deadline, no industry preference" framing reinforces this: the sprint is about depth on what already exists, not breadth into a new stack.
 
 See [personas.md](../personas.md) for full persona definitions.
 
-### Background
+## Background
 
 Juan is based in Madrid and has a full-time data science lead role with some touchpoints with LLM/GenAI work, but not as much as he would like. His background is data science (not pure computer science) with prior industry experience in retail, pharma, and engineering. He met Alexey through the Maven AI Engineering Buildcamp and joined AI Shipping Labs to learn, share tips, and possibly collaborate on community projects. He is open to transitioning toward an AI engineering role but has no strict deadline or industry preference.
 
@@ -122,15 +122,15 @@ He had a complicated month leading up to the intake call - his wife was sick and
 
 Cross-reference the matching interview at [../interviews/juan-perez-prim.md](../interviews/juan-perez-prim.md).
 
-### Intake
+## Intake
 
-#### Initial Input
+## Initial Input
 
 The Google Doc is a Gemini-generated transcript and summary from Juan and Valeriia's intake call on 2026-05-07[^1]. There was no separate free-form written input; Juan opened the call by giving context on how he joined and what he wants from the community:
 
 > So, I joined - I mean, I know Alexey, I met him through one of the platforms, Maven. So one of the courses, it was the AI Engineering Buildcamp. My background is in data science. So I'm not a computer science by study. So I'm more on the engineering side that moved forward to the data side... And then my situation is - I use a little bit of the tools of AI, but I want to know - since I have not done much, it's easier to do it with someone or a community, you can push yourself a little bit higher than if you're more alone. So one of the things in the community that I think is interesting is sharing tips, getting some profiles, maybe even collaborate on projects with other people or for Alexey... I have a project I did for the bootcamp, the Maven one - I wanted to evolve it, keep it evolving a little bit. So that's basically going to be my goal. And what I want to do is, one is learning purposes, and second is - I'm open to looking for jobs. I have a full-time job but maybe would like to transition to another role.
 
-#### Questions and Answers
+## Questions and Answers
 
 Questions are paraphrased from Valeriia's prompts during the call; answers are condensed from Juan's responses[^1]. Timestamps reference the transcript.
 
@@ -156,11 +156,11 @@ Questions are paraphrased from Valeriia's prompts during the call; answers are c
 
 11. Are there other tools or topics you want to explore in the community? - "Long-running agents - I'd like to try OpenClaw, and there's another one I think called GilLoad, and another that runs as a service through Telegram. I haven't gone deeper yet but it's on my to-do list. I'm also curious about coding assistants like Cursor and other AI tools, and would be interested in community group learning activities or standups where people research and share knowledge on specific topics."
 
-### Meeting Notes
+## Meeting Notes
 
 No intake call yet between Alexey and Juan - the input above was collected on 2026-05-07 via Valeriia's intake call (recorded as a Google Doc with Gemini-generated summary, next steps, and transcript)[^1].
 
-### Internal Recommendations
+## Internal Recommendations
 
 Alexey's recommendations after reviewing the intake doc[^4]:
 
@@ -176,7 +176,7 @@ Alexey's recommendations after reviewing the intake doc[^4]:
 
 6. Out of scope this sprint: gamification, diagrams in chat, video embeds, generalising to other topics. All worth doing, none belong in a 6-week deployment-focused sprint. Capture them in a "deferred features" doc so they are not lost.
 
-### Internal Action Items
+## Internal Action Items
 
 - [x] [Alexey] Record recommendations on Juan's intake (Persona assignment, plan focus, project framing for the AMR learning agent deployment) - done 2026-05-09[^4].
 - [ ] [Alexey] Send the written plan and confirm the link to the Buildcamp monitoring + evaluation workshop recording.
@@ -185,7 +185,7 @@ Alexey's recommendations after reviewing the intake doc[^4]:
 - [ ] [Valeriia] Set up the Juan ↔ Manjunath pairing if both are open to a weekly check-in.
 - [ ] [Valeriia] Mention OpenClaw / long-running agent topic in the community channel for group learning, per Juan's interest.
 
-### Sources
+## Sources
 
 [^1]: [Juan Perez Prim's intake (Google Doc)](https://docs.google.com/document/d/1j-vldwylQfbFkqOBNmtwHj8of2rq36VGakkP6DX2ev0/edit?usp=sharing), shared via [20260508_084825_AlexeyDTC_msg3955.md](../../../inbox/used/20260508_084825_AlexeyDTC_msg3955.md), and re-confirmed in [20260509_113436_AlexeyDTC_msg3986.md](../../../inbox/used/20260509_113436_AlexeyDTC_msg3986.md).
 [^2]: `amr_ai` GitHub repository: [github.com/juanpprim/amr_ai](https://github.com/juanpprim/amr_ai).

@@ -47,7 +47,7 @@ The most useful improvement would be making it easier to understand what each ar
 
 The agent processes voice messages from Telegram, transcribes them, and writes output into the articles/ folder. It also attempts to categorize content into articles, update existing articles if a new message is related, and create new articles if no related one exists.[^6]
 
-### Current issues
+## Current issues
 
 1. Feedback and meta-comments are treated as articles. Messages containing feedback on how the agent behaves, instructions on how it should work, or comments about system behavior get written into articles/, even though they are not content.[^6]
 
@@ -55,7 +55,7 @@ The agent processes voice messages from Telegram, transcribes them, and writes o
 
 3. The articles/ folder is overloaded. It currently contains drafts meant for newsletters or social media, meta feedback, and raw idea dumps. This makes it harder to reason about what content is production-bound vs exploratory vs meta.[^6]
 
-### Desired behavior
+## Desired behavior
 
 Separate content by intent:[^6]
 
@@ -65,7 +65,7 @@ Separate content by intent:[^6]
 
 3. ideas/ (or ideas marker inside articles/) - Store raw, undeveloped ideas that are not yet part of any active article. Includes brain dumps, early thoughts, and standalone ideas without a clear process or structure. These should not automatically become full articles. They should be stored for future reference. If kept inside articles/, they must be clearly marked as "idea" or similar.
 
-### Examples of mixed content
+## Examples of mixed content
 
 The articles folder currently has content that arguably belongs elsewhere. For example, [task-management-app-idea.md](task-management-app-idea.md) and [hetzner-server-setup.md](hetzner-server-setup.md) - these are internal ideas and implementation stories that sit alongside articles meant for the newsletter. They won't be shared publicly, and there won't be newsletter issues about them. Currently, embryonic ideas and ready articles live in the same place, mixed with ideas that will probably never be published - like detailed marketing plans for the paid community.[^10][^11][^12]
 
@@ -73,7 +73,7 @@ On the other hand, some of these internal ideas might eventually become publishe
 
 These issues were previously recorded as GitHub issues. If they don't make sense to implement, they can just be closed.[^14]
 
-### Proposed folder restructuring
+## Proposed folder restructuring
 
 Alexey agrees that separating internal and external content makes sense. The research folder already exists as a first step. The broader vision for the structure:[^15]
 

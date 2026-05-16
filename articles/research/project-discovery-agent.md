@@ -30,7 +30,7 @@ Goal: understand what the person's life looks like[^1].
 
 The agent asks open-ended questions and follows up with clarifications.
 
-### Hobbies block
+## Hobbies block
 
 Questions:
 - What hobbies do you have?
@@ -43,23 +43,23 @@ Follow-ups:
 - What tools do you use?
 - Are there communities around this?
 
-### Work and activity block
+## Work and activity block
 
 - What are you currently doing (work, study, projects)?
 - What tasks do you do most often?
 - What takes the most time?
 
-### Interests block
+## Interests block
 
 - What technologies interest you?
 - What projects do you consider cool?
 - What would you like to learn to do?
 
-### Session result
+## Session result
 
 The AI creates a profile with key areas, interests, technologies, and tools.
 
-### Homework
+## Homework
 
 The AI asks the person to pay attention to their daily routines during the next few days and write down things that annoy them, take too long, or feel manual.
 
@@ -72,7 +72,7 @@ Questions:
 - What tasks repeat?
 - What annoys you?
 
-### Category-specific questions
+## Category-specific questions
 
 Automation: What do you do manually?
 
@@ -82,17 +82,17 @@ Data: What data do you have?
 
 Tools: What apps annoy you?
 
-### Hobby-specific questions
+## Hobby-specific questions
 
 - What is inconvenient in your hobby?
 - What tasks repeat there?
 - What do people discuss as a problem in those communities?
 
-### Expanding the list
+## Expanding the list
 
 The AI helps expand the problem list based on the person's profile from Session 1.
 
-### Homework
+## Homework
 
 Talk to colleagues, friends, and online communities. Ask them: "What problem would you solve if you could?"
 
@@ -100,18 +100,18 @@ Talk to colleagues, friends, and online communities. Ask them: "What problem wou
 
 Goal: turn problems into many solutions[^1].
 
-### Step 1: Select 3 problems
+## Step 1: Select 3 problems
 
 The AI asks:
 - Which problem seems the most interesting?
 - Which one comes up most often?
 - Which one do you understand best?
 
-### Step 2: Generate ideas
+## Step 2: Generate ideas
 
 Rule: at least 10 ideas per problem.
 
-### Catalyst questions
+## Catalyst questions
 
 The AI uses directed questions to trigger ideas:
 
@@ -122,7 +122,7 @@ The AI uses directed questions to trigger ideas:
 - Search: can search be improved?
 - Analysis: can data be analyzed?
 
-### Result
+## Result
 
 A list of 10+ ideas grouped by problem.
 
@@ -130,7 +130,7 @@ A list of 10+ ideas grouped by problem.
 
 Goal: choose the best project and formulate it[^1].
 
-### Evaluation criteria
+## Evaluation criteria
 
 The AI asks the person to rate each idea:
 
@@ -141,7 +141,7 @@ The AI asks the person to rate each idea:
 | Data | Is data available? |
 | Complexity | Can it be done? |
 
-### Technical specification
+## Technical specification
 
 After choosing an idea, the agent asks engineering questions:
 
@@ -151,7 +151,7 @@ After choosing an idea, the agent asks engineering questions:
 - Output: what does the system produce?
 - Evaluation: how to measure success?
 
-### Final result
+## Final result
 
 The AI generates a project card with the problem, solution, data, model, output, and evaluation metric.
 
@@ -159,7 +159,7 @@ The AI generates a project card with the problem, solution, data, model, output,
 
 The conversation follows a tree structure with branches. Each node has a goal, 1-2 questions, and a next step.
 
-### Stage 0 - Setup (2-3 minutes)
+## Stage 0 - Setup (2-3 minutes)
 
 Goal: set the constraints so it is easier to filter ideas later.
 
@@ -170,7 +170,7 @@ Questions:
 
 Output: project constraints.
 
-### Stage 1 - Domain Scan (10 minutes)
+## Stage 1 - Domain Scan (10 minutes)
 
 Goal: find 2-4 domains where the person genuinely cares.
 
@@ -184,7 +184,7 @@ If the person doesn't know or answers vaguely, use the help branch:
 
 Output: shortlist of domains.
 
-### Stage 2 - Problem Harvest (15-25 minutes)
+## Stage 2 - Problem Harvest (15-25 minutes)
 
 The most important stage. Goal: collect raw material - 20+ problems, frictions, manual work.
 
@@ -197,7 +197,7 @@ Facilitator rule: do not discuss solutions. Only "what happens."
 
 Output: raw problem list.
 
-### Stage 3 - Problem Shaping (10-15 minutes)
+## Stage 3 - Problem Shaping (10-15 minutes)
 
 Goal: turn raw material into good problem statements and select 3-5 best ones.
 
@@ -210,7 +210,7 @@ Formulation template: [Who] experiences [what] in [context] because [why].
 
 Output: 3-5 clear problems.
 
-### Stage 4 - Solution Sprint (15-20 minutes)
+## Stage 4 - Solution Sprint (15-20 minutes)
 
 Goal: 10 ideas for 1 problem (or 30 ideas for 3 problems).
 
@@ -228,7 +228,7 @@ Catalyst questions:
 
 Output: list of solutions.
 
-### Stage 5 - Feasibility Gate (10 minutes)
+## Stage 5 - Feasibility Gate (10 minutes)
 
 Goal: filter out what won't work.
 
@@ -240,7 +240,7 @@ Goal: filter out what won't work.
 
 Output: 1-3 finalists.
 
-### Stage 6 - Project Definition (5-10 minutes)
+## Stage 6 - Project Definition (5-10 minutes)
 
 Goal: lock in the project so work can start tomorrow.
 
@@ -250,7 +250,7 @@ Template:
 - Quality metric
 - Plan for 3 sprints
 
-### Stage 7 - Homework Loop (between sessions)
+## Stage 7 - Homework Loop (between sessions)
 
 If the person "doesn't know" or "nothing comes to mind," the agent gives short assignments:
 
@@ -262,52 +262,52 @@ If the person "doesn't know" or "nothing comes to mind," the agent gives short a
 
 A systematic approach to generate 30-60 problems. Go through 8 lenses. Target: 5-10 problems per lens.
 
-### Lens A - Friction
+## Lens A - Friction
 
 - What annoys you?
 - Where does "something always break"?
 - Where do you have to do extra clicks/steps?
 
-### Lens B - Time sinks
+## Lens B - Time sinks
 
 - What takes disproportionately long?
 - What do you end up doing "in batches" on weekends?
 
-### Lens C - Manual repetition
+## Lens C - Manual repetition
 
 - What repeats weekly?
 - What gets copied between services?
 - Where do you have to "combine" data manually?
 
-### Lens D - Decision pain
+## Lens D - Decision pain
 
 - Where is it hard to choose?
 - Where are there too many options?
 - Where do you lack confidence/data?
 
-### Lens E - Information chaos
+## Lens E - Information chaos
 
 - Where is it hard to find what you need?
 - Where are documents/chats/emails too long?
 - Where is it hard to identify the main point?
 
-### Lens F - Tracking and accountability
+## Lens F - Tracking and accountability
 
 - What do you want to track but find tedious?
 - Where is there no transparency of progress?
 
-### Lens G - Quality and errors
+## Lens G - Quality and errors
 
 - Where do people often make mistakes?
 - Where are deadlines/steps missed?
 - Where are there "typical" failures?
 
-### Lens H - Community complaints
+## Lens H - Community complaints
 
 - What do people argue about or complain about?
 - What questions repeat "every day"?
 
-### Practice: 50 problems in 30 minutes
+## Practice: 50 problems in 30 minutes
 
 1. Pick 2 domains (e.g. hobby + work)
 2. For each lens, write at least 3 items
@@ -318,7 +318,7 @@ A systematic approach to generate 30-60 problems. Go through 8 lenses. Target: 5
 
 Not project ideas but triggers that give the brain something to latch onto. Each trigger comes with questions and example project types.
 
-### Trigger 1 - Data inventory
+## Trigger 1 - Data inventory
 
 Questions:
 - What data do you already have? (files, notes, trackers, logs, histories)
@@ -327,7 +327,7 @@ Questions:
 
 Project types: dashboard/analytics, forecast/scoring, anomaly detection, search/indexing.
 
-### Trigger 2 - Routine automation
+## Trigger 2 - Routine automation
 
 Questions:
 - What do you do by hand every week?
@@ -336,7 +336,7 @@ Questions:
 
 Project types: ETL pipeline, API integrations, workflow automation, "assistant bot" for routine.
 
-### Trigger 3 - Knowledge search and navigation
+## Trigger 3 - Knowledge search and navigation
 
 Questions:
 - Where do you most often search for things?
@@ -344,7 +344,7 @@ Questions:
 
 Project types: semantic search, RAG / Q&A on personal data, summarization + action item extraction, knowledge graph (light version).
 
-### Trigger 4 - Recommendations
+## Trigger 4 - Recommendations
 
 Questions:
 - Where do you choose from thousands of options? (books, courses, games, exercises, recipes)
@@ -352,7 +352,7 @@ Questions:
 
 Project types: recommender system, personalized collections, ranking/scoring.
 
-### Trigger 5 - Planning and habits
+## Trigger 5 - Planning and habits
 
 Questions:
 - Where do you break down?
@@ -360,7 +360,7 @@ Questions:
 
 Project types: tracker + "will I break down" prediction, smart reminders (context-aware), behavior pattern analysis.
 
-### Trigger 6 - Quality evaluation
+## Trigger 6 - Quality evaluation
 
 Questions:
 - Where is result quality important but evaluation is subjective? (photos, texts, workouts)
@@ -368,7 +368,7 @@ Questions:
 
 Project types: scoring model, "good/bad" classification, progress analysis.
 
-### Trigger 7 - Community and content
+## Trigger 7 - Community and content
 
 Questions:
 - What chats/forums do you participate in?
@@ -377,7 +377,7 @@ Questions:
 
 Project types: topic classification, chat search, auto-FAQ / bots, toxicity/spam detection (if applicable).
 
-### Trigger 8 - Marketplaces and prices
+## Trigger 8 - Marketplaces and prices
 
 Questions:
 - What do you buy/compare?
@@ -403,7 +403,7 @@ Ready-made "skeletons" the agent can suggest:
 
 ## Agent implementation details[^4]
 
-### State the agent maintains
+## State the agent maintains
 
 - domains[]
 - problems_raw[]
@@ -413,13 +413,13 @@ Ready-made "skeletons" the agent can suggest:
 - constraints (time, data, tooling)
 - homework_log
 
-### Behavior rules
+## Behavior rules
 
 - 1-2 questions per turn
 - Every 5-7 messages: brief summary + what's next
 - If "I don't know," activate the Homework Loop or Trigger Library
 
-### Agent tone
+## Agent tone
 
 Open question: should the agent be strict (like an interviewer) or soft (like a coach)? The tone of the prompt and answer structure needs to be tuned accordingly[^4].
 

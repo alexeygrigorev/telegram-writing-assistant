@@ -16,7 +16,7 @@ How to use LLMs not just for code generation but for knowledge management - buil
 
 ## Resources
 
-### Karpathy Tweet: LLM Knowledge Bases
+## Karpathy Tweet: LLM Knowledge Bases
 
 Source: https://x.com/karpathy/status/2039805659525644595
 
@@ -32,7 +32,7 @@ Key Ideas:
 - LLM "health checks" over the wiki find inconsistent data, impute missing data with web searches, and find interesting connections for new articles
 - The natural next step is synthetic data generation and finetuning to have the LLM "know" the data in its weights instead of just context windows
 
-### Karpathy Gist: LLM Wiki Pattern
+## Karpathy Gist: LLM Wiki Pattern
 
 Source: https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f
 

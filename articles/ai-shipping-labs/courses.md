@@ -16,7 +16,7 @@ A course about becoming a good product manager to effectively communicate with A
 
 The course would teach how to properly communicate to agents what they need to do and how to manage development when the team is made of agents[^1].
 
-### Course structure
+## Course structure
 
 The course can cover software development methodologies more broadly - how teamwork happens, what roles exist in a team. Then map this to agents: you are now the product manager, the agents are the implementers[^2].
 
@@ -28,11 +28,11 @@ Topics to cover[^2]:
 - Specifications - they must exist
 - Kanban
 
-### Final project
+## Final project
 
 The course output will be a kanban board for agents - an application that everyone builds together throughout the course. The graduation project is to build any project of their choosing[^2].
 
-### Domain-driven design module
+## Domain-driven design module
 
 The course could include a domain-driven design component[^11]:
 - Have event storming sessions
@@ -63,7 +63,7 @@ One caveat: when I am the only user of the code, if something breaks, I just run
 
 The Python course idea is to take all existing Zoomcamps and the Buildcamp, analyze what Python is needed there, and create a course based on that. Target audience: both AI and data engineers[^5].
 
-### Student interest
+## Student interest
 
 Students are already asking about paid courses. This is a positive signal for the Python course idea[^8].
 
@@ -77,7 +77,7 @@ Students are already asking about paid courses. This is a positive signal for th
 
 Want to create a course on data engineering for AI - how all these AI tools can be used to build pipelines. This area is underserved - little content exists on how data actually gets into agents in reality. Everyone talks about having a clean dataset and building an agent, but not how the data gets there. Several modules on the new Maven course should be dedicated to this topic[^6].
 
-### Market demand
+## Market demand
 
 There seems to be less demand and less content about data engineering for AI compared to generic AI engineering. This might actually be an advantage - an underserved niche where we can create something and see how it works. The community should cover these topics to attract people interested in both areas[^7].
 
@@ -113,7 +113,7 @@ Topics where there is not much content available:
 - Terraform
 - GitHub actions[^10]
 
-### Member interest in a Data Engineering course
+## Member interest in a Data Engineering course
 
 An AI Shipping Labs member asked whether there is a similar course for Data Engineering. The topics they want to focus on[^13]:
 

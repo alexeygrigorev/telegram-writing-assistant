@@ -20,13 +20,13 @@ Internal working document. Share only the `Summary` and `Plan` sections with the
 
 ## Plan
 
-### Focus
+## Focus
 
 - Main focus: build the first version of the expert-elicitation agent (project #3 from the candidate list) using a single agent, not a multi-agent system. The single-agent constraint is deliberate - multi-agent makes things much more complex and tangled, especially in a 6-week build with limited weekly hours.
 - Supporting focus: deploy the agent so it is actually usable at work. The deliverable is "a tool I'm actively using now at work", not a notebook.
 - Supporting focus: implement the underlying logic (data lookups, expert-perspective prompts, synthesis step) as plain Python functions first, then wrap them in an agent that decides when to call which one.
 
-### Why this project
+## Why this project
 
 All three candidate projects are interesting and any of them could be built in 6 weeks. The third one (expert elicitation) is picked here for two reasons:
 
@@ -35,7 +35,7 @@ All three candidate projects are interesting and any of them could be built in 6
 
 If Diogo strongly prefers one of the other two, both are also sensible. The data-explorer/fetcher option in particular is a fine alternative because the team often hits the "does this data exist somewhere?" question. The principle is: pick one this week and start, do not shop the list further.
 
-### Timeline
+## Timeline
 
 Week 1:
 
@@ -68,7 +68,7 @@ Week 6:
 - Wrap to a state where the tool is used at least once a week as part of Diogo's actual work. Update the README so the next iteration (more perspectives, deeper data sources, a multi-agent split if it becomes necessary) is easy to plan.
 - Decide what the next 6-week iteration looks like, or whether to switch to a second project at this point.
 
-### Project approach
+## Project approach
 
 - Pick one project and start. Choice paralysis is the actual blocker; the project pick above resolves it. Switching projects mid-sprint is more expensive than picking the wrong one and finishing.
 - One agent, not multi-agent. Multi-agent looks elegant in diagrams; in code it usually means tangled message passing and many places where things can fail silently. Single agent with a good toolset is the right starting point. If a multi-agent split becomes necessary later, the existing tools and prompts carry over.
@@ -76,14 +76,14 @@ Week 6:
 - Functions before agent. If you can call the tools directly and get good answers, the agent's job is orchestration rather than reasoning from scratch. Easier to debug, easier to iterate.
 - Deployment is part of building. The 10 hours per week budget includes deployment - the tool is not "done" until Diogo is actually using it at work.
 
-### Resources
+## Resources
 
 - AI Engineering Buildcamp - already enrolled. The course covers the conceptual-to-implementation pattern for agents; following the modules is the primary reference.
 - AI Shipping Labs first workshop on Telepot agents and deployment to Render (community recording, week of 2026-04-20) - useful as a deployment-walkthrough reference if Diogo wants to see one path end to end. Available to community members; ask Valeriia for the link.
 - Coding assistant of choice (Claude Code or Codex). Pick one and commit.
 - The EEA's existing reports and the multi-perspective expert engagement materials Diogo already has access to - the source content for the agent's tools.
 
-### Deliverables
+## Deliverables
 
 - Concept doc + project pick locked - by end of week 1.
 - Underlying functions returning useful output on a real question - by end of week 2.
@@ -92,13 +92,13 @@ Week 6:
 - Iterated version with prompts and tools tightened from real use - by end of week 5.
 - Tool in regular use, README updated, next-iteration plan written - by end of week 6.
 
-### Accountability
+## Accountability
 
 - Weekly check-in: what shipped, what is blocked, what is the goal for the next week. Diogo named "discussion-based, someone he can ask 'is this feasible'" as the format that works for him; the weekly cadence is built around that.
 - 10 hours per week build budget on top of course time. If a week slips, drop a stretch goal rather than extending the week.
 - Share progress in the AI Shipping Labs Slack - other members work in adjacent domains and can help calibrate "is this a 2-week or a 4-week task" questions.
 
-### Next Steps
+## Next Steps
 
 - [ ] [Diogo] Complete the questionnaire so the plan has a clean intake on file.
 - [ ] [Diogo] Confirm the project pick (default: expert-elicitation single-agent) by end of week 1.
@@ -108,13 +108,13 @@ Week 6:
 
 ## Internal Context
 
-### Persona
+## Persona
 
 Undetermined - to assign once Diogo has selected a project and answered the questionnaire. Provisionally close to Sam (technical professional moving deeper into AI), since he has industrial engineering plus data-engineering experience and wants to add AI engineering on top.
 
 See [personas.md](../personas.md) for full persona definitions.
 
-### Background
+## Background
 
 Diogo's background is in industrial engineering with a data-science specialization. His first job was a traineeship at the EU in Brussels, where most of his time was actually data engineering rather than data science (organizations typically hire data scientists without first putting good data engineering in place). He moved to Copenhagen earlier this year and now works at the European Environment Agency on data integration across multiple projects, with the European Climate Risk Assessment as his main focus[^2].
 
@@ -122,13 +122,13 @@ He no longer codes most of the day - his role is closer to managing what needs t
 
 Email: diogovalentepcs@gmail.com[^2]
 
-### Intake
+## Intake
 
-#### Initial Input
+## Initial Input
 
 Diogo joined AI Shipping Labs as part of the AI Engineering Buildcamp paid course (which includes free access to the community). He requested a clarification call to understand the course and the community before deciding what to commit to[^2].
 
-#### Questions and Answers
+## Questions and Answers
 
 Questionnaire not yet completed. Notes below come from the 2026-04-30 intake call with Valeriia[^2].
 
@@ -152,7 +152,7 @@ Roughly 5 to 10 hours per week building, outside the course content (with course
 
 Personal productivity, not promotion or job change. He started his current job two months ago and is not looking to move. He wants to understand AI engineering possibilities so he can eventually manage and outsource such projects effectively[^2].
 
-#### Candidate project ideas
+## Candidate project ideas
 
 Diogo brought three candidate ideas to the call. Final pick is still open[^2]:
 
@@ -160,11 +160,11 @@ Diogo brought three candidate ideas to the call. Final pick is still open[^2]:
 2. Data explorer / data fetcher. Many of the questions in his organization are "does this data exist somewhere?". Public data on topics like economic losses from extreme floods is held by national organizations but is hard to locate, and access varies (public, request-only, paid). The agent would help locate it and, if a request is needed, automatically file the request.
 3. Multi-agent expert elicitation. Replicate expert engagements - for example, the multi-perspective discussions used to issue a climate assessment statement - as a multi-agent system.
 
-#### Main blocker
+## Main blocker
 
 Time to decide which of the three ideas is most feasible, most interesting, and best on time-versus-output. He explicitly does not have much time and wants the highest-value choice for the smallest time spend[^2].
 
-### Meeting Notes
+## Meeting Notes
 
 2026-04-30 - intake call with Valeriia[^2]:
 
@@ -176,7 +176,7 @@ Time to decide which of the three ideas is most feasible, most interesting, and 
   - [Alexey] Assess feasibility and prepare the 6-week plan.
   - [Valeriia] Communicate the plan and feedback back to Diogo.
 
-### Internal Recommendations
+## Internal Recommendations
 
 Alexey's recommendations after reviewing Diogo's intake[^3]:
 
@@ -195,7 +195,7 @@ Alexey's recommendations after reviewing Diogo's intake[^3]:
 
 6. Goal alignment is correct. Diogo wants personal productivity (a tool he uses at work), not a job change. The plan should hold to that - "do I use this tool weekly?" is the real success metric, not portfolio polish.
 
-### Internal Action Items
+## Internal Action Items
 
 - [ ] [Diogo] Complete the questionnaire so the plan has a clean intake on file.
 - [ ] [Diogo] Confirm the project pick (default: expert-elicitation single-agent) by end of week 1.
@@ -203,7 +203,7 @@ Alexey's recommendations after reviewing Diogo's intake[^3]:
 - [ ] [Alexey] Confirm Diogo can access the AI Shipping Labs workshop recording on Telepot deployment.
 - [ ] [Valeriia] Confirm Diogo is on the AI Shipping Labs Slack channel and added to the May sprint roster.
 
-### Sources
+## Sources
 
 [^1]: [20260430_162055_AlexeyDTC_msg3795.md](../../../inbox/used/20260430_162055_AlexeyDTC_msg3795.md) - shared as plan number 12.
 [^2]: [Diogo Valente Polónia's intake meeting notes (Google Doc)](https://docs.google.com/document/d/1uildbS9wgPuyHAeF2xnfzmztjHYbxwDjew6_FXtLouY/edit?usp=sharing)

@@ -29,7 +29,7 @@ All these courses likely have similar Python requirements[^2].
 
 The vision is a focused Python primer course that gets students to the proficiency level needed for AI Engineering and Zoomcamp participation.
 
-### Teaching Philosophy
+## Teaching Philosophy
 
 Based on experience, the best way to learn anything is through projects, not just reading books. While there are many excellent Python books like ThinkPython, they don't typically use a project-based approach[^4].
 
@@ -37,7 +37,7 @@ Each module would include:
 1. An instructor-led demo project
 2. A homework assignment where students build something similar but not identical - requiring them to think for themselves rather than copying and pasting[^6]
 
-### Business Model
+## Business Model
 
 Several key decisions about the course format:
 
@@ -48,7 +48,7 @@ Several key decisions about the course format:
 - Time investment: 2-3 evenings to create
 - Goal: Test if this concept is viable before expanding to other topics like Git[^8]
 
-### Distribution Strategy
+## Distribution Strategy
 
 The course serves as a funnel:
 1. Students purchase the affordable Python primer
@@ -68,11 +68,11 @@ There are strategic reasons for keeping this separate from Data Talks Club:
 
 ## Format Decisions
 
-### No Video Content
+## No Video Content
 
 Unlike AI DevTools Zoomcamp which required significant recording time, this course would be text-based with minimal video. This significantly reduces time investment. The positioning: video courses cost more, text-based courses are more affordable[^10].
 
-### Reference Material
+## Reference Material
 
 Paul Iusztin (the Romanian AI educator) has a similar vision - learning Python through projects. His LinkedIn post suggests building small, complete tools like:
 - Personal finance dashboard

@@ -12,7 +12,7 @@ status: draft
 
 We illustrate all patterns using three running examples. The first two are described conceptually to explain how each pattern works. The third one (Codebase Onboarding Guide) is what we actually implement with code.
 
-### Example A: Conference Organization (conceptual)
+## Example A: Conference Organization (conceptual)
 
 Imagine you are organizing a tech conference. You give the system a brief: "Organize a 200-person AI conference in Berlin in June, budget 50K EUR." The system needs to handle:
 
@@ -35,7 +35,7 @@ This example generalizes to other coordination-heavy planning tasks:
 - Travel planning (flights, hotels, activities, transport, visa requirements)
 - Relocation/moving to a new city (apartments, schools, jobs, visa, utilities)
 
-### Example B: YouTube Video Processing (conceptual)
+## Example B: YouTube Video Processing (conceptual)
 
 Imagine you have a YouTube video - say a 45-minute conference talk about building AI agents. You want to turn it into useful structured content. The system takes a video URL and produces:
 
@@ -59,7 +59,7 @@ This example generalizes to other content processing tasks:
 - Document analysis (parse PDFs, extract data, summarize, compare across documents)
 - Course material creation (analyze source content, structure lessons, generate exercises)
 
-### Example C: Codebase Onboarding Guide (implemented)
+## Example C: Codebase Onboarding Guide (implemented)
 
 This is the example we actually build with code. The use case: you just joined a team or you want to contribute to an open source project, and you need to understand a large codebase quickly. You give the system a GitHub repository URL and it produces an onboarding guide.
 
@@ -118,7 +118,7 @@ All three patterns below answer the same question: which agent should handle thi
 - Agents as Tools (Subagent): a parent agent is working on a bigger task, needs help with a subtask, dispatches to a subagent, gets results back, and continues its own work. There is a surrounding task context - the parent keeps working after the subagent returns.
 - Handoffs: there is an ongoing conversation with a user. The current agent realizes someone else should take over and transfers the whole conversation. The original agent is done - the new agent continues talking to the user.
 
-### 1a. Simple Routing `both`
+## 1a. Simple Routing `both`
 
 The name "Routing" comes from Anthropic's "Building Effective Agents" article[^anthropic], which defines it as: "Routing classifies an input and directs it to a specialized followup task."
 
@@ -131,7 +131,7 @@ Framework implementations:
 - Google ADK uses an `LlmAgent` with `AutoFlow` to route via `transfer_to_agent()` calls[^google_adk]
 - OpenAI SDK uses "Structured Output Routing" - the LLM classifies a task into a structured output (e.g., `{"category": "billing"}`), then code selects the next agent based on that classification[^openai]
 
-#### Conference example
+## Conference example
 
 Incoming emails to the conference inbox are classified and routed:
 
@@ -142,7 +142,7 @@ Incoming emails to the conference inbox are classified and routed:
 
 Each downstream agent has specialized prompts and tools for its domain. The router does not coordinate between them - it just dispatches.
 
-#### YouTube example
+## YouTube example
 
 Classify the video type and route to a specialized processing pipeline:
 
@@ -151,13 +151,13 @@ Classify the video type and route to a specialized processing pipeline:
 - Podcast interview → conversation structure, key arguments
 - Product demo → feature extraction, competitor comparison
 
-#### Other examples
+## Other examples
 
 - Customer service: categorizing queries (general questions, refund requests, technical support) and routing each to a specialized handler[^anthropic]
 - Model selection routing: routing easy questions to a cheaper model, hard questions to a capable model[^anthropic]
 - Contract review: "Can you help me review my contract terms?" is classified as a legal task and routed to a contract review agent[^aws]
 
-#### Codebase onboarding example (implemented)
+## Codebase onboarding example (implemented)
 
 The user asks a question about scikit-learn. The router classifies the intent and dispatches:
 
@@ -168,7 +168,7 @@ The user asks a question about scikit-learn. The router classifies the intent an
 
 Each downstream agent has specialized prompts and access to relevant parts of the repo.
 
-### 1b. Agents as Tools (Subagent) `*` `both`
+## 1b. Agents as Tools (Subagent) `*` `both`
 
 The name "Agents as Tools" comes from the OpenAI Agents SDK[^openai].
 
@@ -180,7 +180,7 @@ The core problem this solves is context management. Every agent has a finite con
 
 Claude Code uses this pattern: an exploration subagent searches the codebase and returns findings to the main coding agent[^3]. Google ADK implements it with `AgentTool` - a subagent is wrapped and included in the parent agent's `tools` list. The parent calls it synchronously, gets results back, and continues[^google_adk].
 
-#### Conference example
+## Conference example
 
 The main conference organizer agent delegates to specialized subagents:
 
@@ -188,7 +188,7 @@ The main conference organizer agent delegates to specialized subagents:
 - Sponsor research subagent: researches potential sponsors, checks their past conference sponsorships, returns a ranked list.
 - Speaker search subagent: finds available speakers in the AI space, checks their schedules, returns candidates with bios.
 
-#### YouTube example
+## YouTube example
 
 The main processing agent delegates to specialized subagents:
 
@@ -196,12 +196,12 @@ The main processing agent delegates to specialized subagents:
 - Topic extraction subagent: reads the full transcript, identifies themes, extracts key concepts. Returns a structured list of topics.
 - Resource extraction subagent: scans the transcript for all URLs, tools, papers, and libraries mentioned. Returns a clean resource list.
 
-#### Other examples
+## Other examples
 
 - A ReportWriter agent delegates research to a ResearchAssistant subagent, which itself manages WebSearchAgent and SummarizerAgent[^google_adk]
 
 
-#### Codebase onboarding example (implemented)
+## Codebase onboarding example (implemented)
 
 The user asks: "Help me onboard onto scikit-learn." The main agent needs to understand the project, but scikit-learn has ~2,500 files and ~3,000 open issues - too much for one agent's context.
 
@@ -215,7 +215,7 @@ The main agent calls an issue analysis subagent:
 
 The main agent never sees the 3,000 raw issues - it just gets the clean summary and continues building the onboarding guide. The subagent exists because the data is too large for the main agent's context window.
 
-### 1c. Handoffs `orchestrated`
+## 1c. Handoffs `orchestrated`
 
 The name "Handoffs" comes from the OpenAI Agents SDK[^openai_handoffs], where it is one of the two primary multi-agent mechanisms alongside Agents as Tools.
 
@@ -225,7 +225,7 @@ The active agent transfers full control of the conversation to another agent. Th
 
 When multiple agents can hand off to each other in a network (without a central supervisor), each agent can transfer to any other agent it knows about, and the "active agent" shifts fluidly across the group.
 
-#### Conference example
+## Conference example
 
 An attendee asks a question to the conference assistant chatbot:
 
@@ -234,17 +234,17 @@ An attendee asks a question to the conference assistant chatbot:
 - That agent takes over the conversation, asks for the attendee's passport details, generates the invitation letter, and handles follow-ups
 - If the attendee then asks about the schedule, the visa agent hands off to a program agent
 
-#### YouTube example
+## YouTube example
 
 A batch video processor receives a video URL. The dispatcher agent does initial analysis and discovers it is a 3-hour conference recording with multiple speakers. It hands off entirely to a "long-form multi-speaker" processing agent that specializes in speaker diarization, per-talk segmentation, and individual talk summarization. A short tutorial video would be handed off to a "tutorial processing" agent instead.
 
-#### Other examples
+## Other examples
 
 - Customer support triage: triage agent hands off to billing agent, refund agent, or FAQ agent based on the issue type[^openai_handoffs]
 - Escalation handoffs with structured data: the handoff includes a reason for escalation via a Pydantic model[^openai_handoffs]
 - Google ADK's Coordinator/Dispatcher routes to specialists via `transfer_to_agent()` - billing vs. technical support[^google_adk]
 
-#### Codebase onboarding example (implemented)
+## Codebase onboarding example (implemented)
 
 The user asks the onboarding assistant: "How do I run the tests in scikit-learn?"
 
@@ -262,7 +262,7 @@ All three patterns execute steps in sequence. The difference is how the sequence
 - Static Plan-and-Execute: an LLM creates the plan upfront, then the plan is executed step by step without changes. The plan is fixed once created.
 - Dynamic Plan-and-Execute: an LLM creates an initial plan, but revises it after each step. Steps can be added, removed, or modified based on what the executor discovers.
 
-### 2a. Prompt Chaining `workflow`
+## 2a. Prompt Chaining `workflow`
 
 The name "Prompt Chaining" comes from Anthropic's "Building Effective Agents" article[^anthropic], which defines it as: "Prompt chaining decomposes a task into a sequence of steps, where each LLM call processes the output of the previous one."
 
@@ -270,7 +270,7 @@ Also known as: Sequential Pipeline (Google ADK[^google_adk]), Agent Chaining / P
 
 Programmatic checks called "gates" can be inserted between steps to verify the process stays on track[^anthropic]. The key difference from Orchestrator-Workers: the sequence is fixed and predefined, not determined dynamically by a central agent.
 
-#### Conference example
+## Conference example
 
 A fixed pipeline for processing each speaker submission:
 
@@ -282,7 +282,7 @@ A fixed pipeline for processing each speaker submission:
 
 Each step's output feeds the next.
 
-#### YouTube example
+## YouTube example
 
 A fixed pipeline for processing the video:
 
@@ -294,14 +294,14 @@ A fixed pipeline for processing the video:
 
 Each step's output feeds the next.
 
-#### Other examples
+## Other examples
 
 - Generating marketing copy, then translating it to a different language[^anthropic]
 - Writing a document outline, running a validation check against criteria, then drafting the full document[^anthropic]
 - Blog writing pipeline: research agent → outline agent → drafting agent → critique agent → improvement agent[^openai]
 - PDF processing: parser agent extracts text, extractor agent pulls structured data, summarizer agent creates a synopsis[^google_adk]
 
-#### Codebase onboarding example (implemented)
+## Codebase onboarding example (implemented)
 
 A fixed sequence of LLM calls, each processing the previous one's output:
 
@@ -312,7 +312,7 @@ A fixed sequence of LLM calls, each processing the previous one's output:
 
 Each step transforms the previous output into something more refined. The sequence is fixed - always the same 4 steps in the same order.
 
-### 2b. Static Plan-and-Execute `*` `workflow`
+## 2b. Static Plan-and-Execute `*` `workflow`
 
 The name "Plan-and-Execute" comes from LangChain[^langchain], which defines it as: "a planner which prompts an LLM to generate a multi-step plan" and "executor(s) which accept the user query and a step in the plan and invoke 1 or more tools to complete that task."
 
@@ -334,7 +334,7 @@ Benefits: faster execution (avoiding LLM calls between each action), cost reduct
 
 LangChain's ReWOO variant fits here - it adds variable references between steps (`#E1`, `#E2`) so steps can reference earlier outputs, but the plan itself is fixed upfront. This reduces LLM calls since there is no replanning[^langchain].
 
-#### Conference example
+## Conference example
 
 Given "organize the conference", the planner creates a step-by-step plan:
 
@@ -351,7 +351,7 @@ Given "organize the conference", the planner creates a step-by-step plan:
 
 The plan is handed to an executor that works through each step in order. The plan does not change during execution.
 
-#### YouTube example
+## YouTube example
 
 Given "create a comprehensive analysis of this video", the planner creates a fixed plan:
 
@@ -365,12 +365,12 @@ Given "create a comprehensive analysis of this video", the planner creates a fix
 
 The executor runs through all 7 steps regardless of what it finds.
 
-#### Other examples
+## Other examples
 
 - Pose matching (HuggingGPT): detect the pose from a photo, then generate a new image matching that pose - a fixed two-step plan[^ng]
 - ReWOO: plan with variable references (`#E1 = search("topic")`, `#E2 = summarize(#E1)`) executed without replanning[^langchain]
 
-#### Codebase onboarding example (implemented)
+## Codebase onboarding example (implemented)
 
 The planner creates a fixed plan for generating the onboarding guide:
 
@@ -383,24 +383,24 @@ The planner creates a fixed plan for generating the onboarding guide:
 
 The executor runs through all 6 steps in order without replanning.
 
-### 2c. Dynamic Plan-and-Execute `*` `orchestrated`
+## 2c. Dynamic Plan-and-Execute `*` `orchestrated`
 
 The dynamic variant adds replanning: after each step, the planner reassesses and can add, remove, or modify remaining steps based on what the executor discovered[^langchain]. LLMCompiler takes this further by streaming a DAG of tasks with dependencies, enabling parallel execution of independent steps (claims 3.6x speedup)[^langchain].
 
-#### Conference example
+## Conference example
 
 Given "organize the conference", the planner creates an initial plan. After step 2 (venues found), it reassesses - the best venue is more expensive than expected, so it adds a step to find additional sponsors. After step 7 (speaker submissions reviewed), it discovers too few submissions in the "MLOps" track, so it adds a step to do targeted outreach to MLOps speakers.
 
-#### YouTube example
+## YouTube example
 
 Given "create a comprehensive analysis of this video", the planner creates an initial plan. After step 2 (topics identified), it sees the video has no code - so it drops step 5 (extract code examples) and adds a step to extract diagrams instead. After step 4 (summary created), it discovers the speaker references 3 papers - it adds a step to fetch and summarize those papers.
 
-#### Other examples
+## Other examples
 
 - Essay writing: plan an outline, decide what web searches are needed, write a first draft, review, revise, iterate - the plan evolves as the agent discovers gaps[^ng]
 - Online research: break "research topic X" into subtopics, search for each, but add new subtopics as the agent discovers them during research[^ng]
 
-#### Codebase onboarding example (implemented)
+## Codebase onboarding example (implemented)
 
 The planner creates an initial plan for the onboarding guide. After step 2 (identifying modules), it sees that scikit-learn has a `sklearn/utils/` module with many helper functions - it adds a step to document common utilities. After step 4 (analyzing the estimator API), it realizes the API is complex enough to warrant a separate "API cheat sheet" section and adds that step.
 
@@ -412,7 +412,7 @@ All three patterns check output quality. The difference is how the checking work
 - Fixed Evaluator-Optimizer: instead of a human, an agent evaluates the output. A while loop in your code: run generator, run evaluator, check pass/fail, loop or break.
 - Dynamic Evaluator-Optimizer: an orchestrator decides when to invoke evaluation, what to evaluate, and what to do with the feedback.
 
-### 3a. Human-in-the-Loop `workflow`
+## 3a. Human-in-the-Loop `workflow`
 
 The name "Human-in-the-Loop" comes from Google ADK[^google_adk], which defines it as a pattern where agents pause execution at defined checkpoints to request human authorization.
 
@@ -422,24 +422,24 @@ Agents handle routine work autonomously but pause at defined checkpoints to requ
 
 AutoGen implements this via human input modes (`NEVER`, `ALWAYS`, `TERMINATE`) on `ConversableAgent`[^autogen].
 
-#### Conference example
+## Conference example
 
 The agent researches venues and negotiates pricing autonomously. When it is ready to sign a contract and put down a deposit (irreversible financial commitment), it pauses and presents the recommendation to the human organizer for approval. Same for speaker invitations - the agent drafts the invitation but pauses before sending, since a sent invitation represents a commitment.
 
-#### YouTube example
+## YouTube example
 
 The agent processes the video and generates a blog post. Before publishing to the website or sending a newsletter, it pauses for human review. The human checks that the summary accurately represents the video and that no claims are misattributed.
 
-#### Other examples
+## Other examples
 
 - A TransactionAgent processes routine analysis but invokes ApprovalTool before executing high-value transfers[^google_adk]
 - Deployment pipelines: automated tests run, but a human must approve production deployment[^aws]
 
-#### Codebase onboarding example (implemented)
+## Codebase onboarding example (implemented)
 
 The agent generates the onboarding guide for scikit-learn automatically. Before sharing it with the new contributor, it pauses for a senior maintainer to review: "Is the architecture description accurate? Are these really the best first issues to recommend? Is the contribution workflow up to date?" The maintainer corrects one outdated section about the CI setup (they migrated from Travis to GitHub Actions), approves the rest, and the guide is shared.
 
-### 3b. Fixed Evaluator-Optimizer `*` `workflow`
+## 3b. Fixed Evaluator-Optimizer `*` `workflow`
 
 The name "Evaluator-Optimizer" comes from Anthropic's "Building Effective Agents" article[^anthropic], which defines it as: "one LLM call generates a response while another provides evaluation and feedback in a loop." Andrew Ng uses the broader term "Reflection", which also covers the single-agent variant where an agent critiques its own output[^ng].
 
@@ -451,7 +451,7 @@ A common use case is QA loops at the end of a task: a coding agent writes code, 
 
 Andrew Ng highlights this as the most accessible pattern: "relatively quick to implement" yet yields "surprising performance gains." He showed that GPT-3.5 with a Reflection workflow achieves 95.1% on HumanEval, compared to GPT-4 zero-shot at 67.0%[^ng].
 
-#### Conference example
+## Conference example
 
 A schedule generator agent creates a draft conference schedule (talks, breaks, rooms). An evaluator agent checks for conflicts:
 
@@ -461,21 +461,21 @@ A schedule generator agent creates a draft conference schedule (talks, breaks, r
 
 If conflicts are found, the generator revises. The loop continues until the schedule passes all checks. The loop logic is in code: `while not evaluator.passes(schedule): schedule = generator.revise(schedule, evaluator.feedback)`.
 
-#### YouTube example
+## YouTube example
 
 A timestamp generator creates chapter timestamps for the video. A verifier agent checks whether each timestamp actually corresponds to a topic change in the transcript - it reads the transcript around each timestamp and verifies. If timestamps are off, it feeds back corrections. The loop continues until all timestamps are accurate[^3].
 
-#### Other examples
+## Other examples
 
 - SQL query generation: generator creates queries, critic validates SQL syntax, looping until valid[^google_adk]
 - Code generation: generate code, run tests, if tests fail feed errors back, regenerate, loop[^ng]
 - Literary translation: a translator LLM drafts a translation, an evaluator critiques nuance, tone, and accuracy, they iterate in a fixed loop[^anthropic]
 
-#### Codebase onboarding example (implemented)
+## Codebase onboarding example (implemented)
 
 The guide generator writes a section about scikit-learn's module structure. The evaluator checks it against the actual repo: does the file path `sklearn/ensemble/` actually exist? Is the API description correct - does `RandomForestClassifier` really inherit from `BaseEnsemble`? It calls `gh api` to verify file paths and reads actual source files to check class hierarchies. If the guide says something wrong, the evaluator feeds back corrections and the generator rewrites. The loop is hardcoded: generate section → verify facts → loop until all facts check out.
 
-### 3c. Dynamic Evaluator-Optimizer `*` `orchestrated`
+## 3c. Dynamic Evaluator-Optimizer `*` `orchestrated`
 
 Also known as: Iterative Refinement (Google ADK[^google_adk]).
 
@@ -483,20 +483,20 @@ In the dynamic variant, an orchestrator decides when to invoke evaluation and wh
 
 The orchestrator might evaluate after some steps but not others, try a completely different approach if feedback is consistently negative, or escalate to a different agent if the current one cannot improve further.
 
-#### Conference example
+## Conference example
 
 The orchestrator generates a budget breakdown. Instead of a fixed pass/fail loop, the orchestrator reads the evaluator's qualitative feedback ("catering budget seems high for 200 people, consider negotiating group rates") and decides what to do - maybe it calls a catering research agent to check market rates, then revises the budget with that new information. The orchestrator adapts its strategy based on the nature of the feedback.
 
-#### YouTube example
+## YouTube example
 
 The orchestrator generates a blog post from the video. The evaluator says "the section on tool use is too vague - the speaker gave specific examples that are missing." The orchestrator decides to re-read the relevant portion of the transcript, extract the specific examples, and regenerate just that section rather than the whole post.
 
-#### Other examples
+## Other examples
 
 - Policy summary generation: generator drafts, evaluator checks coverage, tone, and legal correctness, orchestrator decides which aspects to prioritize[^aws]
 - Code performance optimization: initial draft generated, critiqued for efficiency, orchestrator decides whether to optimize algorithm or just clean up implementation[^google_adk]
 
-#### Codebase onboarding example (implemented)
+## Codebase onboarding example (implemented)
 
 The orchestrator generates the onboarding guide. The evaluator says "the architecture section is accurate but too dense for newcomers." The orchestrator decides to split it into a quick-start overview and a detailed deep-dive, rather than just simplifying. It re-invokes the generator with different instructions for each section.
 
@@ -508,7 +508,7 @@ All three patterns involve multiple agents working on different parts of a probl
 - Orchestrator-Workers: a central agent (the orchestrator) dynamically decides what subtasks are needed and delegates to workers. The orchestrator adapts based on each worker's results.
 - Multi-Agent Collaboration: agents are peers with no supervisor. They share a conversation and collaborate, each contributing from their specialty. A speaker selection mechanism determines who acts next.
 
-### 4a. Parallelization `workflow`
+## 4a. Parallelization `workflow`
 
 The name "Parallelization" comes from Anthropic's "Building Effective Agents" article[^anthropic], which defines it as: "LLMs can sometimes work simultaneously on a task and have their outputs aggregated programmatically."
 
@@ -524,7 +524,7 @@ The aggregation step can itself involve semantic reasoning - identifying themes 
 - Google ADK uses `ParallelAgent` - agents run in separate threads sharing `session.state`, each writing to a unique `output_key` to prevent race conditions[^google_adk]
 - OpenAI SDK implements this via Python's `asyncio.gather`[^openai]
 
-#### Conference example
+## Conference example
 
 When evaluating a conference venue, run three checks in parallel (sectioning):
 
@@ -542,7 +542,7 @@ For speaker evaluation (voting): three different evaluation prompts independentl
 
 The scores are aggregated to make an accept/reject decision.
 
-#### YouTube example
+## YouTube example
 
 Process a video transcript in parallel (sectioning):
 
@@ -553,7 +553,7 @@ Process a video transcript in parallel (sectioning):
 
 All run simultaneously on the same transcript, then results are combined into a single structured output.
 
-#### Other examples
+## Other examples
 
 - Implementing guardrails: one LLM processes the user query while another screens for inappropriate content[^anthropic]
 - Reviewing code for vulnerabilities with multiple prompts, each looking for different issues[^anthropic]
@@ -561,7 +561,7 @@ All run simultaneously on the same transcript, then results are combined into a 
 - "Summarize insights across these 10 reports" - scatter to 10 parallel summarization tasks, then aggregate[^aws]
 - Evaluating content appropriateness with multiple reviewers, using threshold-based consensus (voting)[^anthropic]
 
-#### Codebase onboarding example (implemented)
+## Codebase onboarding example (implemented)
 
 Analyze multiple aspects of scikit-learn in parallel (sectioning):
 
@@ -572,7 +572,7 @@ Analyze multiple aspects of scikit-learn in parallel (sectioning):
 
 All four run simultaneously via `asyncio.gather`, then results are combined into the onboarding guide.
 
-### 4b. Orchestrator-Workers `*` `orchestrated`
+## 4b. Orchestrator-Workers `*` `orchestrated`
 
 The name "Orchestrator-Workers" comes from Anthropic's "Building Effective Agents" article[^anthropic], which defines it as: "a central LLM dynamically breaks down tasks, delegates them to worker LLMs, and synthesizes their results."
 
@@ -582,7 +582,7 @@ A central LLM dynamically breaks down tasks, delegates them to worker LLMs, and 
 
 LangGraph calls this "Agent Supervisor" - "an agent whose tools are other agents" - and implements it with `create_supervisor`[^langgraph]. AWS frames it as the agentic evolution of Step Functions-style central orchestration[^aws]. LangGraph also defines a "Hierarchical Agent Teams" extension - a multi-tier architecture where supervisors connect to agents that are themselves full LangGraph graphs with their own teams, creating tree-like structures for complex task decomposition[^langgraph].
 
-#### Conference example
+## Conference example
 
 Given "Organize a 200-person AI conference in Berlin in June", the orchestrator agent dynamically decides what needs to happen:
 
@@ -592,7 +592,7 @@ Given "Organize a 200-person AI conference in Berlin in June", the orchestrator 
 - Notices a speaker cancelled, asks the speaker search worker to find a replacement in the same topic area
 - The orchestrator adapts its plan based on each worker's results - the subtasks are not predetermined
 
-#### YouTube example
+## YouTube example
 
 Given a video URL, the orchestrator examines the transcript and dynamically decides what processing is needed:
 
@@ -602,13 +602,13 @@ Given a video URL, the orchestrator examines the transcript and dynamically deci
 
 The orchestrator decides which workers to invoke based on the content it sees.
 
-#### Other examples
+## Other examples
 
 - Coding tasks that require changes across multiple files, where the orchestrator identifies which files need changes and delegates each to a worker[^anthropic]
 - Search tasks requiring information gathering from multiple sources, where the orchestrator decides what to search for[^anthropic]
 - "Create a project brief and summarize top 5 competitors" - orchestrator assigns research agent, summarization agent, brief-writer agent[^aws]
 
-#### Codebase onboarding example (implemented)
+## Codebase onboarding example (implemented)
 
 The user asks: "Help me understand scikit-learn well enough to contribute." The orchestrator examines the repo and dynamically decides what to investigate:
 
@@ -619,7 +619,7 @@ The user asks: "Help me understand scikit-learn well enough to contribute." The 
 
 The orchestrator adapts based on what it discovers - it does not follow a fixed checklist.
 
-### 4c. Multi-Agent Collaboration `orchestrated`
+## 4c. Multi-Agent Collaboration `orchestrated`
 
 The name "Multi-Agent Collaboration" comes from Andrew Ng's agentic design patterns[^ng], where he defines it as: "More than one AI agent work together, splitting up tasks and discussing and debating ideas, to come up with better solutions than a single agent would."
 
@@ -629,21 +629,21 @@ Multiple agents participate in a shared conversation where all agents see each o
 
 The key distinction from Orchestrator-Workers: the supervisor pattern uses independent scratchpads where only final outputs are shared, while multi-agent collaboration uses a shared scratchpad where all intermediate steps are visible to everyone[^langgraph]. This means full transparency but higher verbosity.
 
-#### Conference example
+## Conference example
 
 Three agents collaborate on designing the conference schedule: a content agent focuses on topic diversity and talk quality, a logistics agent focuses on room capacities and timing constraints, and a budget agent tracks costs. The content agent proposes adding a workshop track. The logistics agent responds that there are not enough rooms. The budget agent suggests renting an extra room and shows the cost impact. The content agent adjusts - maybe a panel instead of parallel workshops. They iterate in a shared conversation until they converge on a schedule that satisfies content quality, logistical feasibility, and budget constraints.
 
-#### YouTube example
+## YouTube example
 
 Three agents collaborate on creating course material from a video: a content expert agent identifies the key learning objectives, a pedagogy agent structures the lesson with exercises and quizzes, and a technical accuracy agent verifies all code examples and claims against the original transcript. The pedagogy agent proposes a hands-on exercise, the technical accuracy agent points out the code version in the video is outdated, the content expert suggests an alternative. They iterate in a shared thread until the course module is solid.
 
-#### Other examples
+## Other examples
 
 - Virtual software company (ChatDev): CEO, designer, programmer, and tester agents collaborating to build software[^ng]
 - Software development teams with agents as software engineer, product manager, designer, QA engineer - each with independent workflows[^ng]
 - AutoGen Group Chat with coder, executor, scientist: custom speaker selection retries coder on execution failure[^autogen]
 
-#### Codebase onboarding example (implemented)
+## Codebase onboarding example (implemented)
 
 Three agents collaborate on building the scikit-learn onboarding guide in a shared conversation:
 
@@ -657,7 +657,7 @@ The architecture agent describes the estimator inheritance hierarchy. The pedago
 
 These are foundational capabilities that underpin the patterns above, rather than multi-agent patterns themselves.
 
-### Tool Use (Augmented LLM)
+## Tool Use (Augmented LLM)
 
 Andrew Ng defines Tool Use as one of his four foundational agentic patterns: the LLM is given tools such as web search, code execution, or any function to help it gather information, take action, or process data[^ng]. Anthropic describes the building block as the "Augmented LLM" - an LLM enhanced with retrieval, tools, and memory[^anthropic]. This is mature enough "to work fairly reliably" in production[^ng].
 

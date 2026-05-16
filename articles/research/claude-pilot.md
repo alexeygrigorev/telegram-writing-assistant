@@ -16,7 +16,7 @@ How Claude Pilot enforces quality guardrails on Claude Code sessions, and what a
 
 ## Resources
 
-### GitHub: maxritter/claude-pilot
+## GitHub: maxritter/claude-pilot
 
 Source: https://github.com/maxritter/claude-pilot[^1][^2]
 
@@ -26,7 +26,7 @@ It is a commercial, source-available product (not open source) with Solo and Tea
 
 The tagline captures it well: "Claude Code is powerful. Pilot makes it reliable."
 
-### Two Modes of Operation
+## Two Modes of Operation
 
 Pilot offers two workflows:
 
@@ -34,7 +34,7 @@ Pilot offers two workflows:
 
 2. /spec Mode (Spec-Driven Development) - for complex features. It follows a pipeline: Discuss, Plan, Approve, Implement, Verify, Done. Each task is implemented with strict TDD (RED, GREEN, REFACTOR). A plan-verifier sub-agent validates the plan before implementation. A spec-verifier sub-agent reviews the code after implementation. Issues loop back automatically.
 
-### The Hooks Pipeline
+## The Hooks Pipeline
 
 The core enforcement mechanism is a pipeline of hooks that fire at every stage of development:
 
@@ -43,7 +43,7 @@ The core enforcement mechanism is a pipeline of hooks that fire at every stage o
 - PreToolUse hooks: tool_redirect.py routes tools to appropriate contexts during plan/implement phases
 - Stop hooks: spec_stop_guard.py blocks stopping if a spec has PENDING or COMPLETE status (forces verification to complete), session summarizer saves observations to persistent memory
 
-### Smart Model Routing
+## Smart Model Routing
 
 Pilot routes different phases to different models based on reasoning requirements:
 
@@ -53,7 +53,7 @@ Pilot routes different phases to different models based on reasoning requirement
 
 The insight: implementation is the easy part when the plan is good. Invest reasoning power in planning and verification, use fast execution where a clear spec makes quality predictable.
 
-### Endless Mode
+## Endless Mode
 
 Context window management solved through real-time monitoring:
 
@@ -63,15 +63,15 @@ Context window management solved through real-time monitoring:
 - During /spec, Pilot will not start a new phase when context is high - it hands off instead
 - Multiple sessions can run in parallel on the same project
 
-### /sync - Codebase Discovery
+## /sync - Codebase Discovery
 
 The /sync command explores the codebase, builds a semantic search index (using Vexor), discovers undocumented patterns, updates project documentation, and creates custom skills. It is a 10-phase process that reads existing rules, indexes the codebase, compares discovered vs documented patterns, syncs project.md, updates MCP server documentation, and creates new skills.
 
-### /learn - Online Learning
+## /learn - Online Learning
 
 Captures non-obvious discoveries as reusable skills. Triggered automatically after 10+ minute investigations, or manually. Skills are stored and can be shared across teams via /vault.
 
-### /vault - Team Knowledge Sharing
+## /vault - Team Knowledge Sharing
 
 A private Git repository for sharing rules, commands, and skills across a team. Assets are versioned automatically.
 
@@ -91,41 +91,41 @@ A private Git repository for sharing rules, commands, and skills across a team. 
 
 ## Actionable Patterns
 
-### Pattern 1: Hook-Based Quality Gates
+## Pattern 1: Hook-Based Quality Gates
 
 Instead of relying on prompts to encourage good behavior, use Claude Code's hook system to enforce it programmatically. Hooks fire at SessionStart, PreToolUse, PostToolUse, and Stop events. Each hook can be blocking (stops execution until resolved) or non-blocking (shows warnings). This is the most transferable pattern - any Claude Code wrapper can use hooks to enforce project-specific rules.
 
-### Pattern 2: Sub-Agent Verification
+## Pattern 2: Sub-Agent Verification
 
 Use separate Claude invocations (sub-agents) to verify work done by the main agent. The plan-verifier checks completeness before implementation. The spec-verifier performs code review after implementation. The key: the verifier has a different perspective than the implementer because it starts from the spec, not from the code.
 
-### Pattern 3: Worktree Isolation
+## Pattern 3: Worktree Isolation
 
 Use git worktrees to isolate experimental work. The main branch stays clean. When work is verified, squash merge back. This is a safety net that makes it possible to walk away - if the agent makes a mess, it is contained in a worktree.
 
-### Pattern 4: Context Budgeting with Forced Handoffs
+## Pattern 4: Context Budgeting with Forced Handoffs
 
 Monitor context usage in real-time. Define thresholds (warn, force handoff). Save continuation state to disk. Start new sessions that load the continuation state. This turns context limits from a hard wall into a managed transition.
 
-### Pattern 5: Conditional Rule Loading
+## Pattern 5: Conditional Rule Loading
 
 Rules (markdown files) can use frontmatter with `paths` to activate only when working with matching file types. Python rules load only when editing .py files. This keeps the context budget efficient - you are not spending tokens on irrelevant rules.
 
-### Pattern 6: Persistent Memory Across Sessions
+## Pattern 6: Persistent Memory Across Sessions
 
 A 3-layer memory system: search past context, timeline of observations, and new observations saved at session end. This is implemented via MCP server (mem-search) and hooks that capture/load observations. The result: sessions are not isolated - they build on each other.
 
-### Pattern 7: Semantic Code Search via Vexor
+## Pattern 7: Semantic Code Search via Vexor
 
 Instead of relying solely on grep and file glob, build a semantic search index of the codebase. Vexor creates vector embeddings for code, enabling natural language queries. This gives the agent better codebase understanding, especially for the planning phase.
 
-### Pattern 8: The /sync Bootstrap
+## Pattern 8: The /sync Bootstrap
 
 A single command that explores the codebase, discovers patterns, and generates documentation. This bootstrapping step means the agent starts every session with genuine understanding of the project, not generic assumptions.
 
 ## Technical Details
 
-### Core Architecture
+## Core Architecture
 
 - Pilot CLI binary: installed to ~/.pilot/bin/pilot, manages sessions, worktrees, licensing, and context
 - Shell alias: `pilot` or `ccp` starts Claude Code with Endless Mode, auto-update, and license check
@@ -135,7 +135,7 @@ A single command that explores the codebase, discovers patterns, and generates d
 - Commands: slash commands in .claude/commands/ for specific workflows
 - Skills: reusable knowledge created by /learn, stored as files
 
-### Tech Stack and Dependencies
+## Tech Stack and Dependencies
 
 - Runtime: Python 3.12+, Node.js
 - Package manager: uv (for Python), npm/pnpm (for TypeScript)
@@ -147,7 +147,7 @@ A single command that explores the codebase, discovers patterns, and generates d
 - Licensing: Polar API (api.polar.sh), cached locally, works offline for up to 7 days
 - Console: web-based UI at localhost:41777 for visualizing workflow
 
-### Built-in Rules (22 total)
+## Built-in Rules (22 total)
 
 Quality Enforcement (4): TDD enforcement, verification before completion, execution verification, workflow enforcement
 

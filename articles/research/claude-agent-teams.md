@@ -16,7 +16,7 @@ How to effectively use agent teams to parallelize complex AI workflows, coordina
 
 ## Resources
 
-### Claude Code Docs: Orchestrate Teams of Claude Code Sessions
+## Claude Code Docs: Orchestrate Teams of Claude Code Sessions
 
 Source: https://code.claude.com/docs/en/agent-teams
 

@@ -20,27 +20,27 @@ See [personas.md](../personas.md) for full persona definitions. Related plan: [.
 
 Valeriia talked to Jacob. He decided to join the community and buy the Tier 1 plan. She explained the difference between the tiers[^7].
 
-### Background
+## Background
 
 Jacob switched to a new job recently and now has more free time. He found Alexey through a recommendation and took the AI Engineering Buildcamp. Before that, he tried the LLM Zoomcamp and another AI Engineering course from a different creator. He started with Data Science, then Computer Science, and now Applied AI. He is studying these topics at his university[^7].
 
-### The problem: accountability, not content
+## The problem: accountability, not content
 
 Jacob said he does not have a problem finding content. His problem is accountability - maintaining a steady study routine and staying consistent. This is the same pattern as the earlier Buildcamp-participant interview. He joined Tier 1 because he likes how Alexey teaches and his approach to courses, but said Tier 1 was not very useful for him because it was more theoretical[^7].
 
-### Moving to Tier 2
+## Moving to Tier 2
 
 Valeriia suggested that if his goal is accountability and consistency, Tier 2 might be a better fit. Tier 2 includes joining the community, getting initial support from Alexey to plan a project, and regular meetings (once a week or twice a month) where community members share their projects[^8].
 
 Jacob said he was convinced. He will try subscribing for one month at 50 euros. If he likes how things go, he will continue. Otherwise he will leave. Valeriia told him she is always happy to stay in touch and hear his feedback[^8].
 
-### Python course interest
+## Python course interest
 
 Valeriia told Jacob that he inspired the creation of a Python course. He said he was very happy to hear that and that such a course would be very useful for him. He already took a Python course elsewhere but would be happy to take one from Alexey to reinforce his knowledge, because he likes how Alexey teaches[^9].
 
 Valeriia said she would ask Alexey which tier will have access to this course. She remembers that early access could be given to those who just joined[^9].
 
-### Ideas from the conversation
+## Ideas from the conversation
 
 Valeriia had an idea about Tier 1 content strategy. Even though Jacob said he does not have a problem finding content, some topics are still unclear to him. The idea is to have text-based content inside the newsletter covering specific topics like MCP, RAG, and others. This way people in Tier 1 learn through text content on topics that interest them or that they struggle with. The paid newsletter could also share what community members built after a month of work - "if you joined, you could build this too"[^9].
 

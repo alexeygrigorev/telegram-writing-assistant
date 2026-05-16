@@ -65,13 +65,13 @@ Each role cuts corners in its own way:
 
 You need to organize the process so it's harder for them to cut corners[^6].
 
-### The Descoping Problem
+## The Descoping Problem
 
 With the Rustkyll project, I asked to compile for Linux, Mac, and Windows, for both AMD64 and ARM64. It compiled for all platforms except Windows ARM64 - it just silently dropped that target. When I asked what happened, it turned out the PM had descoped it. There were no logs, so I couldn't even see when or why[^6][^7].
 
 That's what led to the "no silent descoping" rule in the process. I don't have a problem with descoping itself - sometimes a task is too big. But requirements must not be quietly forgotten[^6].
 
-### Checking Under the Hood
+## Checking Under the Hood
 
 You still need to occasionally look under the hood. It cooks on its own mostly fine, but sometimes you need to lift the lid and check[^6].
 

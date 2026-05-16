@@ -20,13 +20,13 @@ Internal working document. Share only the `Summary` and `Plan` sections with the
 
 ## Plan
 
-### Focus
+## Focus
 
 - Main focus: strengthen Python and practical engineering confidence without getting buried in theory.
 - Supporting focus: run the AI Hero course alongside the Python course for early AI-building wins.
 - Supporting focus: choose one small personal project and grow it gradually from local utility to a simple AI app.
 
-### Timeline
+## Timeline
 
 Week 1:
 
@@ -63,26 +63,26 @@ Week 6:
 - Write a short README.
 - Demo the project in the community accountability channel and decide on the next 6-week arc.
 
-### Resources
+## Resources
 
 - Python course: https://aishippinglabs.com/courses/python-course/
 - AI Hero course: https://aishippinglabs.com/courses/aihero
 - Project-idea brainstorming prompt: https://gist.github.com/alexeygrigorev/c1c8dc3ece5cba91e1e381eeba2706c1
 - Community accountability channel (`#plan-sprints`): https://app.slack.com/client/T0AFSRP234M/C0AUQBSP4ER
 
-### Deliverables
+## Deliverables
 
 - One shortlist of 3 to 5 project ideas before the final choice.
 - One small working AI application that solves a real problem for Jakob.
 - A short README/demo so the project can be shared with the community.
 
-### Accountability
+## Accountability
 
 - Cap weekly effort at a realistic number of hours instead of overloading early.
 - If stuck for more than about 30 minutes, ask Claude Code and then post in the community channel.
 - Ship something small every week, even if rough.
 
-### Next Steps
+## Next Steps
 
 - [ ] [Jakob] Continue the Python course with modules 2 and 3 and note what feels easy vs. shaky.
 - [ ] [Jakob] Retry the AI Hero course and post in the accountability channel if the Jupyter issue repeats.
@@ -90,17 +90,17 @@ Week 6:
 
 ## Internal Context
 
-### Persona
+## Persona
 
 Sam - The Technical Professional Moving to AI. Strong motivation and some coding exposure, but still needs engineering foundations, structure, and confidence before deeper AI engineering work will stick.
 
-### Background
+## Background
 
 Jakob is in a career transition and currently studying Applied AI at IU University, but most of his experience so far has been theoretical rather than technical. He has used major AI tools extensively, has completed the first parts of some AI courses, and is strongly motivated to become an AI engineer. The recurring blockers are overwhelm, limited Python confidence, and the lack of a clear short-term path.
 
-### Intake
+## Intake
 
-#### Questions and Answers
+## Questions and Answers
 
 **What would you most like to achieve in the next 1 to 3 months?**
 
@@ -158,9 +158,9 @@ What still feels unclear or difficult:
 
 Jakob's own conclusion from the intake: he wants to stop being an engaged AI observer and start being a builder.
 
-### Meeting Notes
+## Meeting Notes
 
-#### Intake Call with Valeriia (Apr 15, 2026)
+## Intake Call with Valeriia (Apr 15, 2026)
 
 - Main need: short-term goals, structure, and a routine.
 - AI Buildcamp felt too technical for his current level.
@@ -168,13 +168,13 @@ Jakob's own conclusion from the intake: he wants to stop being an engaged AI obs
 - Wants suggested resources, not just topics.
 - Is open to different forms of accountability and community support.
 
-#### Follow-up Notes with Valeriia
+## Follow-up Notes with Valeriia
 
 - The core issue is accountability and consistency more than the lack of content.
 - Tier 2 was discussed as a better fit than Tier 1 because of the accountability and community support.
 - Jakob was happy that Alexey's Python course was being created for people in a similar situation.
 
-#### 1x1 with Alexey (Apr 23, 2026)
+## 1x1 with Alexey (Apr 23, 2026)
 
 Key points:
 
@@ -185,7 +185,7 @@ Key points:
 - Real learning will come from building a small project, not just consuming more course material.
 - Alexey suggested collecting daily annoyances as project ideas and promised to send a brainstorming prompt.
 
-### Internal Recommendations
+## Internal Recommendations
 
 Alexey's earlier recommendation after reviewing the notes was:
 
@@ -201,7 +201,7 @@ The 1x1 refined that recommendation into a more concrete 6-week structure:
 - AI Hero should run in parallel, but with a slower pace than its "7 day" framing implies
 - the first real goal is not a production app, but a working local AI application that solves one real problem for Jakob
 
-### Internal Action Items
+## Internal Action Items
 
 - [ ] [Alexey] Share the gist with prompts for defining a project topic.
 - [ ] [Alexey] Share the list of LLM Zoomcamp project links where possible.
@@ -209,7 +209,7 @@ The 1x1 refined that recommendation into a more concrete 6-week structure:
 - [ ] [Alexey] Send the Slack prompt template for project-idea brainstorming.
 - [ ] [Jakob] Post updates and blockers in the community accountability channel.
 
-### Sources
+## Sources
 
 [^1]: [Google Doc](https://docs.google.com/document/d/1cRa5kvXgdHNaWMgqwES6I9HZ7lBvQu_ckNpvMIODu_s/edit?usp=sharing)
 [^2]: [20260420_083739_AlexeyDTC_msg3441.md](../../../inbox/used/20260420_083739_AlexeyDTC_msg3441.md)

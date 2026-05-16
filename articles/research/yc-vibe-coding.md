@@ -88,37 +88,37 @@ The proven workflows that founders use to build products with AI assistance. The
 
 ## Claude Code Workflow Patterns
 
-### Give It Memory
+## Give It Memory
 
 - At the start of every session, read your memory file before responding to the first message
 - Save preferences as they're learned. When corrected, persist the correction immediately
 - Without this, every session starts from zero - re-explaining stack, style, and rules
 
-### Build a System That Scales
+## Build a System That Scales
 
 - Keep the memory index under 60 lines. If a topic needs more than 2 lines, create a linked file: lessons.md, preferences.md, [project].md
 - When told to save memory, categorize each item and route it to the right file automatically
 - Every 10 sessions, deduplicate and condense all memory files. Prune anything outdated
 
-### Build Multi-Agent Teams
+## Build Multi-Agent Teams
 
 - The coordinator plans, delegates, and reviews. It never writes code directly
 - Use Codex for code tasks and a research model for writing. Write a plan file before launching any worker
 - One model doing everything sequentially is slow. Two workers in parallel, split by domain, is fast
 
-### Show Work
+## Show Work
 
 - Never go silent for more than 60 seconds. Print what phase you're in before and after every step
 - If something fails, show the exact error. Long tasks fail silently
 - Phase markers before and after each step. When it dies, you know exactly where
 
-### Automate Workflows
+## Automate Workflows
 
 - Save prompts as slash commands. Run the full sequence end to end without stopping for approval
 - If you type the same 5-step prompt more than twice, it should be a single command
 - Compound workflows turn 20 minutes of prompting into one line
 
-### Let Claude Maintain Itself
+## Let Claude Maintain Itself
 
 - Run memory maintenance every X days. Deduplicate entries, prune stale references, keep all files under their line limits
 - Scheduled cleanup means your workspace stays organized without manual intervention

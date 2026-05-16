@@ -12,7 +12,7 @@ Research on Graph RAG - using knowledge graphs to enhance retrieval-augmented ge
 
 ## Resources
 
-### Designing a Production Engineer Agent with GraphRAG
+## Designing a Production Engineer Agent with GraphRAG
 
 Source: https://www.decodingai.com/p/designing-production-engineer-agent-graphrag
 

@@ -16,7 +16,7 @@ How to get AI-generated UI that does not look like slop. What principles and pro
 
 ## Resources
 
-### Reddit: "I Condensed Years of Design Experience into a Single Skill"
+## Reddit: "I Condensed Years of Design Experience into a Single Skill"
 
 Source: https://www.reddit.com/r/vibecoding/comments/1r1vhee/
 
@@ -33,18 +33,18 @@ Community feedback highlights:
 - Some users reported strangely placed buttons and unclear UX flow, showing the skill is not a silver bullet
 - Responsive layout handling remains an open question, especially for complex dashboard-style interfaces
 
-### The Interface-Design Skill (Full Analysis)
+## The Interface-Design Skill (Full Analysis)
 
 Source: https://skills.sh/dammyjay93/interface-design/interface-design
 GitHub: https://github.com/dammyjay93/interface-design
 
 This is the complete skill file that gets loaded into AI coding assistants. It is essentially a long design brief that changes how the AI approaches UI generation. The skill targets dashboards, admin panels, SaaS apps, tools, settings pages, and data interfaces. It explicitly excludes landing pages and marketing sites.
 
-### The Core Problem It Addresses
+## The Core Problem It Addresses
 
 The skill opens with a direct statement: "You will generate generic output. Your training has seen thousands of dashboards. The patterns are strong." The gap between stated design intent (described in prose) and actual code generation (which pulls from trained patterns) is where defaults win. Process alone does not guarantee craft. The AI has to catch itself.
 
-### Where Defaults Hide
+## Where Defaults Hide
 
 The skill identifies four areas where AI models default without realizing it:
 
@@ -58,7 +58,7 @@ The skill identifies four areas where AI models default without realizing it:
 
 The trap: thinking some decisions are creative and others are structural. Everything is design. The moment you stop asking "why this?" is the moment defaults take over.
 
-### Intent-First Design Process
+## Intent-First Design Process
 
 Before touching code, the skill requires answering three questions out loud:
 
@@ -70,11 +70,11 @@ Before touching code, the skill requires answering three questions out loud:
 
 If you cannot answer these with specifics, stop. Ask the user. Do not guess. Do not default.
 
-### The Sameness Test
+## The Sameness Test
 
 The skill introduces a powerful heuristic: "If another AI, given a similar prompt, would produce substantially the same output - you have failed." This is not about being different for its own sake. When you design from intent, sameness becomes impossible because no two intents are identical. When you design from defaults, everything looks the same.
 
-### Product Domain Exploration
+## Product Domain Exploration
 
 Before proposing any visual direction, the skill requires producing four outputs:
 
@@ -85,7 +85,7 @@ Before proposing any visual direction, the skill requires producing four outputs
 
 The test: read your proposal, remove the product name. Could someone identify what this is for? If not, it is generic.
 
-### Craft Foundations
+## Craft Foundations
 
 The skill lays out specific technical principles:
 
@@ -97,7 +97,7 @@ Infinite Expression: Same concepts (sidebar, cards, metrics) have infinite varia
 
 Color: Every product exists in a world with colors. Before reaching for a palette, spend time in the product's world. Temperature is one axis but also consider: quiet or loud? Dense or spacious? Serious or playful? Geometric or organic?
 
-### Design Token Architecture
+## Design Token Architecture
 
 Every color traces back to primitives: foreground (text hierarchy), background (surface elevation), border (separation hierarchy), brand, and semantic (destructive, warning, success).
 
@@ -105,7 +105,7 @@ Text hierarchy needs four levels - primary, secondary, tertiary, muted. Using on
 
 Depth strategy: pick ONE approach and commit. Borders-only (clean, technical), subtle shadows (soft, approachable), layered shadows (premium), or surface color shifts.
 
-### The Mandate (Quality Gates)
+## The Mandate (Quality Gates)
 
 Before showing the user, the skill requires running four self-checks:
 
@@ -114,11 +114,11 @@ Before showing the user, the skill requires running four self-checks:
 3. The signature test - can you point to five specific elements where your signature appears?
 4. The token test - read your CSS variables out loud, do they sound like they belong to this product?
 
-### Design Memory System
+## Design Memory System
 
 The skill saves design decisions to `.interface-design/system.md` which loads automatically in every new session. This file stores: direction and personality, depth strategy, spacing base unit, color palette, and exact component measurements. This prevents the common problem of design decisions drifting across sessions (button heights going from 36px to 38px to 40px, random spacing values appearing).
 
-### Comparison Dashboard
+## Comparison Dashboard
 
 Source: https://interface-design.dev/examples.html
 

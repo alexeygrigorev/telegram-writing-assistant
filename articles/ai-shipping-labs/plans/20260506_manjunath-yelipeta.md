@@ -20,13 +20,13 @@ Internal working document. Share only the `Summary` and `Plan` sections with the
 
 ## Plan
 
-### Focus
+## Focus
 
 - Main focus: complete AI Hero in weeks 1-2 as the foundation, then ship one deployed LLM application end to end on your own corpus in weeks 3-6 - applying the AI Hero patterns and then going beyond them with a real eval set and a cost-and-latency optimization pass.
 - Supporting focus: in week 1, do role research - pull 10 AI Engineer / Applied AI Engineer job descriptions, ask ChatGPT/Claude to summarise responsibilities, watch the relevant role webinars in the [AI Engineering Field Guide](https://github.com/alexeygrigorev/ai-engineering-field-guide).
 - Parallel track (outside the 8-10 hour budget): Docker, Kubernetes, and DevOps fundamentals self-study. This keeps the AI Platform direction alive for the post-sprint pivot.
 
-### Timeline
+## Timeline
 
 Week 1:
 
@@ -61,7 +61,7 @@ Week 6:
 - Sketch the post-week-6 platform direction. The platform-shaped end state (drop in an agent, get monitoring + deployment for free) is the next sprint's seed. Sketch only - input contract, deployment target, the rough roadmap - do not build.
 - Decide the next-sprint direction. If interview pipeline lights up on AI Engineer roles, the next sprint deepens AI Engineering. If the platform-shaped work feels more energising and the K8s/DevOps self-study is paying off, the next sprint pivots to the v0.0.1 deployment platform.
 
-### Project approach
+## Project approach
 
 - One project, deepened week by week. The single project covers all four areas Manjunath named (RAG, agents, evals, cost/latency) by growing in capability rather than spreading thin across multiple builds. Each week's redeploy proves the previous week's work actually shipped.
 - Strip ruthlessly in week 2. No monitoring, no evaluation, no auth in the first build. Evaluation is the week-4 workstream by design - keep the initial build simple enough that there is time to evaluate it properly later.
@@ -71,14 +71,14 @@ Week 6:
 - Plan extends past 6 weeks. The 6-week shape gets one deployed project with eval and cost stories. The platform direction (monitoring, log aggregation, automatic instrumentation, durable execution, auth) is the next sprint. The AI Engineering work is the foundation the platform sits on, not a detour from the platform goal.
 - Docker/K8s/DevOps self-study runs in parallel, outside the sprint budget, to keep the platform skills warm for the post-sprint pivot.
 
-### Resources
+## Resources
 
 - AI Hero core course: https://aishippinglabs.com/courses/aihero - the foundation course, completed in weeks 1-2. Its day-by-day shape (chunking, search, agent, eval, deployment, README) is also the template you apply to your own project in weeks 3-6.
 - [AI Engineering Field Guide](https://github.com/alexeygrigorev/ai-engineering-field-guide) - browse recent AI Engineer / Applied AI Engineer job listings, watch the role webinars.
 - A coding assistant of choice (Claude Code, Codex, or similar). Pick one, commit, paid plan only.
 - Deployment target: Render, Fly.io, or a small VM. The choice does not matter; using one consistently does.
 
-### Deliverables
+## Deliverables
 
 - 10-job-description analysis (AI Engineer / Applied AI Engineer) + project scoping note + corpus identified - by end of week 1.
 - AI Hero completed (deployed RAG agent on course default data) + project card + corpus secured - by end of week 2.
@@ -87,13 +87,13 @@ Week 6:
 - Cost/latency optimization pass with before/after numbers, redeployed - by end of week 5.
 - README + LinkedIn/resume update + post-week-6 platform sketch + next-sprint direction call - by end of week 6.
 
-### Accountability
+## Accountability
 
 - Checklist-based milestones with brief weekly reflections (Manjunath's stated preference). Each week's deliverable is a checkbox; the reflection is two or three lines on what was learned and what was harder than expected.
 - 8-10 hours per week on the sprint. The plan is sized for the lower end so a heavier job-search week can drop a stretch goal rather than the milestone.
 - Active in the AI Shipping Labs Slack - both asking and answering questions. Stakeholder communication is one of the gaps Manjunath named; using the community as a low-stakes practice ground for explaining technical work is the cheapest path to closing it.
 
-### Next Steps
+## Next Steps
 
 - [ ] [Manjunath] Pull 10 AI Engineer / Applied AI Engineer job descriptions and write the role-research note by end of week 1.
 - [ ] [Manjunath] Pick the first project (RAG dataset + five real questions) and the deployment target.
@@ -105,13 +105,13 @@ Week 6:
 
 ## Internal Context
 
-### Persona
+## Persona
 
 Alex - The Engineer Transitioning to AI (preliminary). Manjunath has shipped traditional ML (CV/recommendation/classical), with limited backend exposure (FastAPI, Docker only) and no LLM/agentic experience. He fits Alex more than Taylor - he is not a researcher or theoretical specialist - though his engineering depth is closer to "ML engineer" than to "full-stack/backend engineer". The plan treats the LLM/RAG/agentic side as the main gap.
 
 See [personas.md](../personas.md) for full persona definitions.
 
-### Background
+## Background
 
 Manjunath is a traditional ML engineer pivoting to AI/LLM work. He is unemployed since around early March 2026 and is the sole bread-earner for his family, which constrains both weekly time (8-10 hours) and the urgency of shipping a portfolio piece that helps with the job search.
 
@@ -119,9 +119,9 @@ He has had a difficult prior role - his director pushed for production AI withou
 
 The role question is unresolved and the sprint is partly a way to figure it out.
 
-### Intake
+## Intake
 
-#### Initial Input
+## Initial Input
 
 Manjunath's free-form input from the intake document[^1]:
 
@@ -137,7 +137,7 @@ Manjunath's free-form input from the intake document[^1]:
 
 He referenced the AI Shipping Labs blog article on AI-first vs AI-support vs ML jobs as the source of the categories he is using.
 
-#### Questions and Answers
+## Questions and Answers
 
 1. Which career path should this sprint help you explore? - "These titles seems a bit confusing to me. As a result of my past experience I am leaning more towards AI platform engineer and MLops Engineer roles."
 
@@ -165,7 +165,7 @@ He referenced the AI Shipping Labs blog article on AI-first vs AI-support vs ML 
 
 13. What would make this 6-week plan worthwhile? - "All of the above mentioned are required. But a shipped project would make much sense for me. I have joined this course to be industry ready and grab a job."
 
-#### Member Feedback (2026-05-12)
+## Member Feedback (2026-05-12)
 
 Manjunath sent the following after reading the v1 plan:
 
@@ -175,11 +175,11 @@ Manjunath sent the following after reading the v1 plan:
 
 This drove the v2 plan above. The first sprint pivots from "two projects then a v0.0.1 deployment platform" to "two projects deepened with capability + eval + cost/latency, all redeployed". Deployment stays as the through-line. The platform direction is preserved as the next-sprint arc.
 
-### Meeting Notes
+## Meeting Notes
 
 No intake call yet - input collected via the Google Doc[^1].
 
-### Internal Recommendations
+## Internal Recommendations
 
 Alexey's recommendations after reviewing Manjunath's intake[^2]:
 
@@ -203,17 +203,17 @@ Alexey's recommendations after reviewing Manjunath's intake[^2]:
 
 10. Direction adjustment (2026-05-12): Manjunath did the role research without prompting and concluded that AI Engineer roles are the immediate market match. The plan now follows the standard one-project AI Engineering shape used for Daiyaan ([20260509_daiyaan-shaik.md](20260509_daiyaan-shaik.md)), anchored explicitly in AI Hero modules - weeks 1-2 finish AI Hero (the foundation course Manjunath has access to), weeks 3-6 apply the same day-by-day shape (build, eval, deploy, polish) to his own corpus, with week 5 carved out for the cost/latency focus area Manjunath named (AI Hero does not directly cover this). The platform direction is preserved as the next-sprint target. The v1 two-project + platform plan is kept below for reference.
 
-### Internal Action Items
+## Internal Action Items
 
 - [ ] [Alexey] Send Manjunath the updated written plan reflecting the AI Engineering pivot.
 - [ ] [Alexey] Confirm AI Hero is the right entry point for agent fundamentals.
 - [ ] [Valeriia] Confirm Manjunath is on the AI Shipping Labs Slack channel and added to the May sprint roster.
 
-### Previous Plan (v1, 2026-05-06)
+## Previous Plan (v1, 2026-05-06)
 
 The original plan version, before Manjunath's 2026-05-12 feedback shifted the first sprint toward AI Engineering depth. Kept here for reference.
 
-#### v1 Summary
+## v1 Summary
 
 - Current situation: traditional ML engineer (CV/recommendation/classical ML) without LLM or agentic experience. Jobless for two months and is the sole bread-earner for his family, so the sprint has to lead to a shippable project that helps him land a job. He had a difficult prior role with unrealistic timelines and weak evaluation culture, so he is leaning away from AI-first roles toward AI Platform Engineer / MLOps Engineer / Applied AI Engineer titles, but admits the titles feel confusing.
 - Goal for the next 6 weeks: build two small deployed LLM projects (a RAG, then a small agent), then start a v0.0.1 deployment platform that makes shipping the next agent trivial. The two projects are the raw material for the platform - by building them you see what is common, and that commonality becomes the platform's first cut. The platform deliberately ships with no monitoring and no evaluation in v0.0.1; those layers are added gradually after week 6.
@@ -221,13 +221,13 @@ The original plan version, before Manjunath's 2026-05-12 feedback shifted the fi
 - Weekly time commitment: 8-10 hours per week, extendable as the job search and family situation allow. The 6-week shape is explicitly a foundation, not the whole picture - the platform direction is a 12-week-plus arc.
 - Why this plan is the right next step: he is leaning toward AI Platform Engineer but has not yet built one LLM application. The fastest way to test whether the platform direction actually fits is to build two simple things, notice what is shared, and start abstracting. That also produces the deployed live URLs hiring committees want to see, even if the platform itself is a v0.0.1.
 
-#### v1 Focus
+## v1 Focus
 
 - Main focus: build a small RAG, then a small agent, then a v0.0.1 deployment platform that makes shipping the next agent trivial. The platform is the 6-week deliverable; the two projects are scaffolding that lets you see what the platform should actually do.
 - Supporting focus: in week 1, do role research - pull 10 AI Platform Engineer / MLOps / AI Engineer job descriptions, ask ChatGPT/Claude to summarise responsibilities, watch the relevant webinars in the [AI Engineering Field Guide](https://github.com/alexeygrigorev/ai-engineering-field-guide). "AI Platform Engineer" is a confusing title to chase before understanding what the role really involves.
 - Supporting focus: AI Hero core course as the entry point for agent fundamentals (agent loops, tool calling). Several of its homework projects can also serve as the seed projects you deploy in weeks 2-3.
 
-#### v1 Timeline
+## v1 Timeline
 
 Week 1:
 
@@ -261,7 +261,7 @@ Week 6:
 - Write the post-week-6 roadmap: monitoring, log aggregation, automatic instrumentation, evaluation hooks, durable execution, auth - in the order you would add them. Sketch only, do not build.
 - Decide the role question now that you have built the thing. If the platform-shaped work felt energising, the next sprint leans AI Platform / MLOps and the post-week-6 roadmap is your next 6-week plan. If the project work itself felt better than the platform around it, the direction shifts toward AI Engineer.
 
-#### v1 Project approach
+## v1 Project approach
 
 - Two small things, then a platform - in that order. The two projects exist to surface what the platform should actually do. Skipping straight to "design the platform" is design without input; this is the failure mode to avoid.
 - Strip ruthlessly for v0.0.1. No monitoring, no evaluation, no auth in v0.0.1. Adding them later is straightforward; trying to add them now will mean nothing ships. This is deliberate sequencing, not laziness - the layered build is the whole point.
@@ -270,7 +270,7 @@ Week 6:
 - Tech choices do not matter much. FastAPI is fine. Pick whatever the coding assistant suggests when in doubt. Optimise for shipping, not for the right framework.
 - Plan extends past 6 weeks. The 6-week shape gets v0.0.1 deployed and the two seed projects shipped. Monitoring, observability, evaluation, durable execution, auth - these are a 12-week-plus arc. Make this explicit so the sprint feels like a foundation, not the whole picture.
 
-#### v1 Deliverables
+## v1 Deliverables
 
 - 10-job-description analysis + first-project scoping note - by end of week 1.
 - Project 1 (RAG) deployed to a public URL - by end of week 2.
@@ -279,7 +279,7 @@ Week 6:
 - Platform skeleton (own repo, config format, CLI, README) with the RAG redeployed through it - by end of week 5.
 - Both projects redeployable via the platform path + post-week-6 roadmap + role-direction call - by end of week 6.
 
-### Sources
+## Sources
 
 [^1]: [Manjunath Yelipeta's intake (Google Doc)](https://docs.google.com/document/d/1ZpbzJzAmL9t7FcGlcLi8gIo-k5XiXwpAxzNj7kdoxNc/edit?usp=sharing), shared via [20260506_174247_AlexeyDTC_msg3872.md](../../../inbox/used/20260506_174247_AlexeyDTC_msg3872.md).
 [^2]: [20260506_195055_AlexeyDTC_msg3878_transcript.txt](../../../inbox/used/20260506_195055_AlexeyDTC_msg3878_transcript.txt) - Alexey's recommendations after reading the Q&A.

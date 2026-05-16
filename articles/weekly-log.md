@@ -12,7 +12,7 @@ A running log of what was done each week. When a topic has its own detailed arti
 
 ## Week of 2026-05-04
 
-### Data Makers Fest in Porto
+## Data Makers Fest in Porto
 
 Was at Data Makers Fest, a conference held in Porto. On Monday ran a workshop called "Introduction to Agentic RAG" - took the first modules of the LLM Zoomcamp / RAG course content, simplified them as much as possible, and turned them into an introduction to agentic RAG. Specifically, took the first module on RAG and the next module on agents and made a maximum strip-down version - intentionally introductory, since the format is the kind many people find useful when they are new to the area[^34][^35].
 
@@ -24,7 +24,7 @@ The next day was on a panel at the very start of the day, with various audience 
   <!-- Photo from Data Makers Fest in Porto, taken during the panel session referenced in the voice note -->
 </figure>
 
-### Freestyle Workshop on AWS Lambda Deployment
+## Freestyle Workshop on AWS Lambda Deployment
 
 Ran another freestyle AI Shipping Labs workshop this week, on Tuesday: https://aishippinglabs.com/workshops/lambda-agent-deployment[^35][^39]. The idea of the freestyle format is that people show up with their own ideas and we implement something together. Discussed some problems participants had and suggested solutions, but no concrete project ideas came out of that, so the workshop pivoted to "let's look at how to deploy to Lambda"[^35].
 
@@ -36,21 +36,21 @@ The pattern that came out of it works like this: ask the agent to implement some
 
 To see the document from this workshop and take part in future events like it, people need to join the AI Shipping Labs community[^35]. At the next workshop in this format, participants can again see how I work through a topic I do not yet know completely[^39].
 
-### AI Shipping Labs Migrated to Django
+## AI Shipping Labs Migrated to Django
 
 Finally migrated the AI Shipping Labs site from Next.js to Django. There is still a lot of work to do, but the new Django version is now live - going to https://aishippinglabs.com lands on it[^35].
 
-### Sprint Kickoff with 20+ Member Plans
+## Sprint Kickoff with 20+ Member Plans
 
 Started the May sprint. Met with members and discussed everyone's goals. Valeriia and Alexey prepared more than 20 plans, so every participant now has a plan. Also had the idea to pair people up so it is easier for them to work together through the sprint[^35].
 
-### DataTalks.Club Migrated to Rustkill
+## DataTalks.Club Migrated to Rustkill
 
 Finally migrated the DataTalks.Club site to Rustkill (spelled R-U-S-T-K-Y-L-L) - same shape as Jekyll, but Rustkill. The build is now much faster[^35].
 
 The build itself went from 22 seconds down to 1 second - about a 20x speedup. Before the migration, the build took around 2 minutes locally and about 22 seconds in GitHub Actions (CI was already faster than local). After Rustkill, the build itself is roughly 1 second. In GitHub Actions, though, the end-to-end workflow only got about 1.5-2x faster overall - there is a lot of overhead around the actual build (container setup and the rest of the CI prep before and after), so most of the 20x build win is hidden by everything that happens around it. Still a real improvement, and locally the build is now very fast[^36].
 
-### DataTalks.Club Course Management Platform - UI Redesign with Codex
+## DataTalks.Club Course Management Platform - UI Redesign with Codex
 
 Last week, ran a team of Codex agents to update the DataTalks.Club course management platform to use Tailwind and refresh the design. Iterated on the UI together with the agents and the result is satisfying. There was also some work on the internal admin part - course admin is now even easier[^37].
 
@@ -64,7 +64,7 @@ Taking advantage of Codex's 2x limits while they last, so running things in para
 
 ## Week of 2026-04-20
 
-### AI Shipping Labs First Workshop
+## AI Shipping Labs First Workshop
 
 Ran the first workshop at AI Shipping Labs about Telepot and agents. Took an existing Telepot agent, built a frontend for it, and together with attendees packaged it in a Docker container and deployed it on Render[^32].
 
@@ -72,15 +72,15 @@ The workshop was a bit freestyle. Prepared a little in advance but most of it wa
 
 The workshop went well and people liked it. Want to do more workshops in this format based on the feedback from AI Shipping Labs members. Currently turning the workshop into a written document that people can read. The recording is already available, but only to community members[^32].
 
-### AI Shipping Labs Site Work
+## AI Shipping Labs Site Work
 
 Work on the AI Shipping Labs site is on-demand - whatever is concretely needed right now gets built. This week that meant making the newsletter work and adding the ability to publish workshops on the site[^32].
 
-### Office Hours
+## Office Hours
 
 Held office hours this week. Nothing particularly interesting came out of them[^32].
 
-### Onboarding Calls
+## Onboarding Calls
 
 Had four onboarding calls this week for new members joining AI Shipping Labs. Next week also has many calls scheduled. Everyone joining the community gets the option to do an onboarding call - some people take it. On these calls we discuss their projects and try to figure out how we can help, then set a plan together[^32].
 
@@ -88,7 +88,7 @@ Preparing for the new sprint that starts in May. The goal is that everyone parti
 
 ## Week of 2026-04-13
 
-### PyConDE in Darmstadt
+## PyConDE in Darmstadt
 
 Was in Darmstadt for PyConDE, the Python and PyData conference. Did interviews with people there. The interviews are ready and will be released soon[^32][^33].
 
@@ -98,43 +98,43 @@ Was in Darmstadt for PyConDE, the Python and PyData conference. Did interviews w
   <!-- Photo from the PyConDE Darmstadt trip during the week of April 13 -->
 </figure>
 
-### AI Engineering Buildcamp Launch
+## AI Engineering Buildcamp Launch
 
 The AI Engineering Buildcamp course started. The first lesson happened while in Darmstadt, and the second lesson followed after[^32].
 
-### Buildcamp Cohort 2 Demo
+## Buildcamp Cohort 2 Demo
 
 Students from the second cohort did a demo on Tuesday[^32].
 
-### Coding Agent Workshop
+## Coding Agent Workshop
 
 Merged the "build your own coding agent" workshop and the workshop about how skills work into a single new workshop. Presented it at the conference in Darmstadt[^32].
 
 ## Week of 2026-03-24
 
-### Trying Codex as Claude Code Alternative
+## Trying Codex as Claude Code Alternative
 
 Hit Claude Code session limits on a simple file-splitting task - usage jumped from 80% to 100% instantly. Many people reporting the same issue. Started using OpenAI Codex as an alternative. The agent workflow works but requires more babysitting - no task widget, no auto-continue when subagents finish. Limits on Codex feel much more generous. See [Trying OpenAI Codex as a Claude Code Alternative](codex-experiments.md) for details[^22][^23][^24].
 
-### Snowflake Workshop on Agent Evaluations
+## Snowflake Workshop on Agent Evaluations
 
 Had a session with Snowflake about evaluating AI agents. Josh (developer advocate at Snowflake, previously at TruEra which got acquired by Snowflake) presented a very interesting approach to evals. He showed a concrete approach to evaluations - what rubrics to use and how their evaluation process works. He demonstrated it live during the session. The workshop was very useful, and many people will find it helpful[^25][^26].
 
 Workshop recording: https://www.youtube.com/live/oMmJvlNuDZE[^26]
 
-### AI Shipping Labs
+## AI Shipping Labs
 
 Spent a lot of time on AI Shipping Labs this week. The Django website already looks good. Tested many features[^25].
 
-### AI Hero Course Restructuring
+## AI Hero Course Restructuring
 
 Split the AI Hero course into submodules - they are now more granular. Incorporated feedback received from students into the course[^25].
 
-### Codex Experiments
+## Codex Experiments
 
 Also experimented with Codex this week due to Claude Code limits on GitHub[^25].
 
-### UV Security: Protecting Against Compromised Packages
+## UV Security: Protecting Against Compromised Packages
 
 In light of the recent LiteLLM attack (the package was compromised), added a `exclude-newer = "7 days"` setting to UV configuration. This prevents UV from picking up any package version released within the last 7 days, giving the community time to detect malware and yank compromised versions before they get installed[^27][^28].
 
@@ -169,7 +169,7 @@ Claude updated 52 `pyproject.toml` files across all UV projects - 5 already had 
 
 ## Week of 2026-03-17
 
-### AI Hero Course Migration
+## AI Hero Course Migration
 
 Migrated the AI Hero course to the new AI Shipping Labs platform. Used the same agent teams approach described in [Building Projects with Agent Teams](building-projects-with-agent-teams.md) - this time through GitHub Issues. Shared a link to the existing course content, told the agents "migrate this," and they handled everything. The agents created [a detailed GitHub issue](https://github.com/AI-Shipping-Labs/website/issues/128) with full specifications and completed the migration autonomously[^20].
 
@@ -177,7 +177,7 @@ The course is now live at https://aishippinglabs.com/courses/aihero. This was fo
 
 ## Week of 2026-03-03
 
-### AI Buildcamp - Monitoring Module
+## AI Buildcamp - Monitoring Module
 
 Finished the DIY Monitoring Platform section, which was slightly behind schedule. Changed the approach from the previous cohort - Pydantic LogFire is now the main focus because it is very simple to integrate. The DIY Monitoring Platform is now an optional section.
 
@@ -185,7 +185,7 @@ Getting data out of LogFire is not as straightforward as it could be, but covere
 
 Still need to finish a couple of remaining sections for AI Engineering Buildcamp this week[^19].
 
-### AI Engineering Field Guide - Webinar and Curation
+## AI Engineering Field Guide - Webinar and Curation
 
 Prepared for and ran the Tuesday webinar on AI Engineering job search. The title was "AI Engineer in Berlin, London, Amsterdam, New York, and Los Angeles." For February, added India as a whole country, making 6 geographies total. Considering expanding Berlin to all of Germany in the future.
 
@@ -195,7 +195,7 @@ Extracted a large number of interview questions from these sources, then curated
 
 The webinar is now available. The GitHub repository is AI Engineering Field Guide - asking people to star it and share it on social media. Could create a template for how people can promote this repository[^16][^17].
 
-### Apache Flink Workshop
+## Apache Flink Workshop
 
 Ran a workshop on Wednesday about Apache Flink for Data Engineering Zoomcamp. The original content was created by Zac Wilson, who did a Flink stream last year. Updated and reworked the material.
 
@@ -205,7 +205,7 @@ About 80-90% of the content is based on Zac's original material, updated to the 
 
 The workshop went very well on Wednesday. Since this is not a primary area of expertise (not a practicing data engineer), relied fully on Zac's content, which is solid since Zac is a Flink specialist. Could not have answered deep Data Engineering or Flink usage questions, but no such questions came up[^17].
 
-### Python for AI Engineering Course
+## Python for AI Engineering Course
 
 Started preparing a Python course for the AI Engineering community. Asked Claude Code to analyze all existing courses - ML Zoomcamp, Data Engineering Zoomcamp, MLOps Zoomcamp, LLM Ops Zoomcamp, AI Engineering Buildcamp, and AI Hero course. Did not include AI DevTools Zoomcamp because code there is generated, not written by hand.
 
@@ -215,7 +215,7 @@ Based on this list, came up with a project - the course will use a project-based
 
 The curriculum is not fully finalized yet - no time right now because of Buildcamp. Doing this as background work - switching to it between recording sessions, brainstorming in ChatGPT during breaks. The course name will be "Python for AI Engineering" (tentative). The goal: after completing this course, students can take any Zoomcamp and the AI Engineering course with the right Python foundation. See [Python Primer Course Idea](ideas/python-primer-course-idea.md) for the full concept[^18].
 
-### Exasol In-Person Meetup Preparation
+## Exasol In-Person Meetup Preparation
 
 Preparing for an in-person meetup on Tuesday about Exasol. Found a large dataset - NHS Prescription Data with over 1 million records - about prescriptions issued to people in the UK.
 
@@ -225,49 +225,49 @@ Content was prepared about a month ago, now needs polishing and rehearsal. Still
 
 ## Week of 2026-02-24
 
-### Telegram Writing Assistant
+## Telegram Writing Assistant
 
 Added YouTube transcript processing and external audio file support. The bot can now accept audio files recorded outside of Telegram and process them through the same Whisper transcription pipeline. YouTube URL processing also works now. See [What's New in the Telegram Writing Assistant](ready-for-newsletter/telegram-writing-assistant-updates.md) for details[^1][^2].
 
-### PNG to SVG Conversion
+## PNG to SVG Conversion
 
 Spent time converting a ChatGPT-generated PNG logo into SVG using Claude Code with OpenCV. Went through multiple approaches before finding one that works. See [Recreating a PNG Logo as SVG with Claude Code](svg-logo-recreation.md) for the full story[^3].
 
-### Community Platform
+## Community Platform
 
 Tested features on the AI Shipping Labs site - set up OAuth tokens for Gmail and GitHub, got Zoom integration working with a one-click meeting creation button, reviewed the admin panel and user dashboard. Created logo with ChatGPT and attempted SVG recreation. All integrations (Gmail, GitHub, Zoom, Slack, Stripe) are now connected. See [Building a Community Platform with Claude Code's Multi-Agent System](ai-shipping-labs/platform-implementation.md) for details[^4][^5][^6].
 
-### AI Engineer Webinar Session 2
+## AI Engineer Webinar Session 2
 
 Ran the second "Defining the Role of AI Engineer" session with 200 attendees. Presented data-driven analysis of 895 job descriptions - RAG is the top skill, 93% of roles need more than just GenAI, Python dominates at 82.5%. Answered live Q&A. See [Defining the Role of AI Engineer: Webinar Q&A](ai-engineer-role-definition-qa.md)[^7].
 
-### Testing Agents
+## Testing Agents
 
 Added a workflow for generating tests from usage sessions - record yourself using the agent on video, transcribe with Whisper, feed to ChatGPT to generate test scenarios. Also gave students a homework assignment to test an SQL analytics agent. See [Testing AI Agents with the Judge Pattern](ready-for-newsletter/testing-agents-with-judge-pattern.md)[^8].
 
-### SQLiteSearch Benchmarking and Release
+## SQLiteSearch Benchmarking and Release
 
 Continued benchmarking, hit scaling issues with vector search on 1 million records. The LSH approach breaks at that scale. Claude suggested HNSW, started implementing it[^9].
 
 Published version 0.0.3 to PyPI with HNSW and IVF implementations. HNSW is the best performer at 6ms query speed on 1M vectors. Recommended for up to 100K items. See [Benchmarking SQLiteSearch](ready-for-newsletter/benchmarking-sqlitesearch.md)[^14].
 
-### Course Materials
+## Course Materials
 
 Working on the monitoring module for AI Buildcamp. Using Langfuse with Pydantic AI integration. Expanded the monitoring content from the previous cohort. Planning to re-record the DIY self-monitoring part with Grafana. See [Course Material Preparation](ready-for-newsletter/course-material-preparation.md)[^10].
 
-### DataTasks
+## DataTasks
 
 Started implementing the task management app using Claude Code (Opus 4.6). Reused an existing repo. Claude Code followed the PROCESS.md workflow - grooming issues first, then implementing in batches of 2 with parallel PM agents. See [Task Management App Idea](ideas/task-management-app-idea.md)[^11].
 
-### AI Agent Project Ideas
+## AI Agent Project Ideas
 
 Started collecting project ideas for AI Buildcamp students. Ideas include a GitHub issue creator bot, project idea generator agent, problem discovery framework, job market analytics agent, knowledge management bot, and journaling agent. See [AI Agent Project Ideas](agent-project-ideas.md)[^12].
 
-### Community Platform Features
+## Community Platform Features
 
 Started a new article for feature ideas for the AI Shipping Labs site. Includes a business case simulator inspired by Karpov.Courses, career help and job search tools, and data collection strategy. See [Community Platform Feature Ideas](community-platform-features.md)[^13].
 
-### Production Incident
+## Production Incident
 
 Accidentally destroyed the course management platform production database via Terraform destroy. The agent ran terraform destroy with auto-approve, wiping the entire production infrastructure including VPC, RDS, ECS, and load balancers. Backups were deleted along with the database.
 

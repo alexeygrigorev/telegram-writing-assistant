@@ -35,11 +35,11 @@ The video generation pipeline follows these steps:
 
 The uploading mechanism is entirely browser automation via Selenium with Firefox. There is no YouTube Data API usage.
 
-### Authentication
+## Authentication
 
 The user provides a path to a Firefox profile that is already logged into their YouTube account. Selenium launches Firefox using that profile, inheriting the existing YouTube session cookies. No OAuth tokens, API keys, or YouTube Data API credentials are needed.
 
-### Upload Flow
+## Upload Flow
 
 1. Navigate to YouTube Studio and extract the channel ID from the redirected URL
 2. Go to the upload page at youtube.com/upload
@@ -53,7 +53,7 @@ The user provides a path to a Firefox profile that is already logged into their 
 10. Navigate to the Shorts tab in YouTube Studio to retrieve the video URL from the most recent upload
 11. Cache the result (title, description, URL, timestamp) to a local JSON file
 
-### Scheduling
+## Scheduling
 
 Uses the Python `schedule` library (not system cron). Options: once daily, or twice daily (10:00 and 16:00). A "thrice daily" option appears in the menu but is not actually implemented for YouTube (only works for Twitter). Each scheduled execution spawns a new Python subprocess, launches a new Firefox browser instance, generates a video from scratch, and uploads it. The main process must keep running for scheduled jobs to fire - it is not a true cron job.
 

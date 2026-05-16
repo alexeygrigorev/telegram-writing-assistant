@@ -16,7 +16,7 @@ How to architect a Telegram bot backed by the Anthropic API so that it goes beyo
 
 ## Resources
 
-### GitHub Gist: You Could've Invented OpenClaw
+## GitHub Gist: You Could've Invented OpenClaw
 
 Source: [https://gist.github.com/dabit3/bc60d3bea0b02927995cd9bf53c3db32](https://gist.github.com/dabit3/bc60d3bea0b02927995cd9bf53c3db32)
 
@@ -28,25 +28,25 @@ OpenClaw itself is a larger open-source project for building persistent AI assis
 
 The tutorial follows an incremental build approach. Each iteration solves a specific limitation of the previous one:
 
-### Version 0: Stateless Bot
+## Version 0: Stateless Bot
 
 A minimal Telegram bot using `python-telegram-bot` and the Anthropic Python SDK. Each message is independent - no memory, no tools, no personality. The entire bot is about 15 lines of code.
 
 The key elements: `Application.builder().token()` for Telegram setup, `client.messages.create()` for the Anthropic API call, `MessageHandler(filters.TEXT, handle_message)` for routing, and `app.run_polling()` for the event loop.
 
-### Version 1: Persistent Sessions via JSONL
+## Version 1: Persistent Sessions via JSONL
 
 Conversation history is stored as JSONL files (one file per user, one JSON object per line). On each message, the full history is loaded, the new message is appended, the entire history is sent to the Anthropic API, and the response is appended back.
 
 The JSONL format is chosen for crash safety: append-only writes mean at most one line is lost on process crash. Session files live in a directory keyed by user ID.
 
-### Version 2: Personality via System Prompt (SOUL.md)
+## Version 2: Personality via System Prompt (SOUL.md)
 
 A markdown string defining the agent's identity, behavioral rules, and boundaries is injected as the `system` parameter on every API call. This transforms a generic assistant into a specific persona.
 
 The tutorial calls this pattern "SOUL.md" - a file that gives the agent a name, personality traits, and behavioral constraints. The more specific the SOUL, the more consistent the agent's behavior.
 
-### Version 3: Tool Use with Agent Loop
+## Version 3: Tool Use with Agent Loop
 
 Tools are defined as JSON schemas following the Anthropic tool use format. The tutorial implements four tools: `run_command` (shell execution), `read_file`, `write_file`, and `web_search`.
 
@@ -54,75 +54,75 @@ The agent loop is the core pattern: call the API with tools defined, check if `s
 
 A `serialize_content` helper converts Anthropic response objects into JSON-serializable dicts for session storage.
 
-### Version 4: Permission Controls
+## Version 4: Permission Controls
 
 A safety layer for tool execution. Commands are classified as safe (allowlisted base commands like `ls`, `cat`, `git`), previously approved (stored in `exec-approvals.json`), or needing approval. Dangerous patterns like `rm`, `sudo`, and piped `curl | sh` are flagged.
 
 Approvals are persisted to a JSON file, so each command only needs approval once. OpenClaw extends this with glob patterns (approve `git *` once) and three tiers: ask (prompt user), record (log but allow), and ignore (auto-allow).
 
-### Version 5: Gateway Pattern (Multi-Channel)
+## Version 5: Gateway Pattern (Multi-Channel)
 
 The key architectural insight: the agent loop function (`run_agent_turn`) is channel-agnostic. It takes messages and returns text. To add a second channel, you add a Flask HTTP endpoint that calls the same function with the same session store.
 
 This means a user can send a message via Telegram, then query via HTTP using the same user ID, and get continuity. Same sessions, same memory, same agent. The tutorial calls this the "gateway pattern" and notes that OpenClaw extends it to Telegram, Discord, WhatsApp, Slack, Signal, and iMessage through a plugin adapter system.
 
-### Version 6: Context Compaction
+## Version 6: Context Compaction
 
 When conversation history exceeds a token threshold (estimated at ~4 chars per token), the older half of messages is summarized by a separate API call. The summary replaces the old messages as a single "conversation summary" user message, followed by the recent messages.
 
 This prevents hitting context window limits during long conversations while preserving key facts, decisions, and open tasks.
 
-### Version 7: Long-Term Memory
+## Version 7: Long-Term Memory
 
 Two tools are added: `save_memory` (writes a markdown file keyed by a label like "user-preferences") and `memory_search` (keyword search across memory files). Memory files live in a separate directory from sessions, so they survive session resets.
 
 The SOUL is updated to instruct the agent to use these tools proactively. OpenClaw's production version uses vector search with embeddings for semantic matching.
 
-### Version 8: Command Queue (Per-Session Locking)
+## Version 8: Command Queue (Per-Session Locking)
 
 A `defaultdict(threading.Lock)` provides per-session mutexes. Each session key gets its own lock, so concurrent messages from the same user are serialized while different users can proceed in parallel.
 
 This prevents data corruption when two messages arrive simultaneously for the same session (e.g., one from Telegram and one from HTTP).
 
-### Version 9: Scheduled Tasks (Heartbeats)
+## Version 9: Scheduled Tasks (Heartbeats)
 
 Using the `schedule` library, recurring tasks fire the agent on a timer. Each heartbeat uses its own session key (e.g., `cron:morning-briefing`) to avoid polluting the main conversation history. Heartbeats call the same `run_agent_turn` function - they are just timer-triggered messages.
 
 OpenClaw extends this with full cron expressions and routes heartbeats through a separate queue lane so they never block real-time conversations.
 
-### Version 10: Multi-Agent Routing
+## Version 10: Multi-Agent Routing
 
 Multiple agent configurations, each with its own SOUL and session prefix, are routed based on message content. The tutorial uses prefix commands (`/research` routes to a "Scout" agent). Agents share the memory directory, so one agent can save findings and another can search for them later.
 
 ## Key Technical Patterns
 
-### Pattern 1: JSONL for Session Persistence
+## Pattern 1: JSONL for Session Persistence
 
 One file per session, one JSON object per line, append-only writes. Crash-safe and simple. The file path encodes the session key (user ID, agent prefix, or cron job name). This avoids the complexity of a database for session storage.
 
-### Pattern 2: The Agent Loop
+## Pattern 2: The Agent Loop
 
 The while-true loop that handles tool use is the fundamental building block. Call the API, check stop_reason, execute tools, feed results back, repeat. Every feature in the system (multi-agent, heartbeats, gateway) is built on top of this same loop.
 
-### Pattern 3: Channel-Agnostic Agent Logic
+## Pattern 3: Channel-Agnostic Agent Logic
 
 By keeping the agent loop free of any channel-specific code, adding new interfaces becomes trivial. The agent function takes a session key, user text, and agent config. It returns response text. Whether that text came from Telegram, HTTP, Discord, or a cron job is irrelevant to the agent.
 
-### Pattern 4: Session Key as Identity
+## Pattern 4: Session Key as Identity
 
 The session key determines what conversation the agent sees. Using `user_id` gives per-user sessions. Using `cron:task-name` gives isolated scheduled sessions. Using `agent:researcher:user_id` gives per-agent-per-user sessions. This single abstraction handles all scoping needs.
 
-### Pattern 5: Memory as Files, Not Database
+## Pattern 5: Memory as Files, Not Database
 
 Long-term memory is stored as markdown files in a dedicated directory. The key is the filename, the content is the knowledge. Search is keyword-based (checking if query words appear in file content). This is simple enough to build in minutes and sufficient for many use cases.
 
-### Pattern 6: Content Serialization for Persistence
+## Pattern 6: Content Serialization for Persistence
 
 Anthropic API responses contain Python objects (TextBlock, ToolUseBlock) that are not directly JSON-serializable. A `serialize_content` helper converts them to plain dicts before storing. This is a practical detail that trips up many implementations.
 
 ## Comparison to Building a Telegram Bot with Anthropic API
 
-### What This Approach Does Well
+## What This Approach Does Well
 
 1. Incremental complexity. Starting from 15 lines and adding one feature at a time makes each architectural decision clear. You understand why each component exists because you felt its absence.
 
@@ -134,7 +134,7 @@ Anthropic API responses contain Python objects (TextBlock, ToolUseBlock) that ar
 
 5. Safety as a first-class concern. Adding permission controls for shell execution before deploying is critical. The persistent approval list is a practical pattern that avoids repeated prompting.
 
-### What Is Missing or Could Be Improved
+## What Is Missing or Could Be Improved
 
 1. No streaming. All API calls use synchronous `messages.create()`. For a Telegram bot, this means the user sees nothing until the entire response is generated. Streaming with `messages.stream()` would provide a better user experience, especially for long responses.
 
@@ -150,7 +150,7 @@ Anthropic API responses contain Python objects (TextBlock, ToolUseBlock) that ar
 
 7. No conversation branching. The linear message history does not support editing or regenerating previous messages. Once a message is appended, it stays.
 
-### Patterns Worth Adopting
+## Patterns Worth Adopting
 
 1. The JSONL session format is worth considering for its simplicity and crash safety.
 

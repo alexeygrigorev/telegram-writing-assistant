@@ -20,13 +20,13 @@ Internal working document. Share only the `Summary` and `Plan` sections with the
 
 ## Plan
 
-### Focus
+## Focus
 
 - Main focus: ship one full-stack project end-to-end, using a coding agent throughout.
 - Supporting focus: learn the agent-team / spec-driven development workflow from the AI Dev Tools Zoomcamp module 2 and the article on managing agent teams.
 - Supporting focus: set up a project structure with proper frontend, backend, and end-to-end tests so spec-driven development with multiple agents can run cleanly on top.
 
-### Timeline
+## Timeline
 
 Week 1:
 
@@ -64,27 +64,27 @@ Week 6:
 - Finish the project to a state where it can be demoed and shared. A short README, a working deploy, and a clear "what this does" is enough.
 - If anything remains unclear about the agent-team workflow, ask the coding agent to explain how each piece works - it is fine to read along and learn while it builds.
 
-### Resources
+## Resources
 
 - AI Dev Tools Zoomcamp - module 2: walk-through of frontend + backend + OpenAPI layer + CI/CD on a small site. Use this as the structural reference for the project.
 - Article on managing agent teams (spec-driven development): pattern for breaking work into specs and running multiple agents on top of a tested project.
 - Coding agent of choice (Claude Code, Codex, or similar): paid plan in the $100/mo range for 15 hrs/week of work, or the cheapest Codex plan as a starting point with a planned upgrade.
 - ChatGPT or the coding agent itself for tech-stack selection conversations - cheaper than burning agent credits on stack debates.
 
-### Deliverables
+## Deliverables
 
 - One full-stack project shipped end-to-end, with frontend, backend, and an API layer.
 - Frontend, backend, and end-to-end tests in place to support spec-driven development.
 - A working agent-team workflow on this project, where features are added through specs rather than direct agent prompts.
 - Short README/demo so the project can be shared.
 
-### Accountability
+## Accountability
 
 - Keep effort at 10-15 hours/week so the 6-week plan stays finishable.
 - Resist the urge to add a second project. One shipped end-to-end project is the goal.
 - Do not get stuck on framework choice. Pick one (e.g. React on the frontend), commit, and move on.
 
-### Next Steps
+## Next Steps
 
 - [ ] [Motasem] Pick one project and a coding agent + plan.
 - [ ] [Motasem] Watch module 2 of the AI Dev Tools Zoomcamp and read the article on managing agent teams.
@@ -93,21 +93,21 @@ Week 6:
 
 ## Internal Context
 
-### Persona
+## Persona
 
 Alex - The Engineer Transitioning to AI. He already has the engineering skills (software engineering background, currently deploys ML models to production, works with databases). The transition here is into using AI assistants to build end-to-end products as a full-stack developer, not into AI engineering itself - his stated focus is AI-assisted software development rather than building AI-native products[^2].
 
-### Background
+## Background
 
 Motasem Salem is an ML engineer with a software engineering background. He deploys models to production and works with databases. His main interest is using AI to build end-to-end products that look like full-stack software development work. When asked whether he was also interested in AI-native products of the kind the community typically builds, he said yes, but his actual focus is on regular software development with AI assistants[^2].
 
 The plan number in the inbox marks this as the 8th personalised plan in the current batch[^3].
 
-### Intake
+## Intake
 
 The intake is the Google Doc with Motasem's input collected ahead of this plan[^1]. The contents of the doc are not duplicated here.
 
-### Internal Recommendations
+## Internal Recommendations
 
 Alexey's recommendation after reviewing Motasem's input[^4]:
 
@@ -127,12 +127,12 @@ Alexey's recommendation after reviewing Motasem's input[^4]:
 
 8. He can read along and ask the coding agents to explain how things work if he wants to actually understand the system, not just ship it.
 
-### Internal Action Items
+## Internal Action Items
 
 - [ ] [Alexey] Send Motasem the written plan plus the links to module 2 of the AI Dev Tools Zoomcamp and the agent-team article.
 - [ ] [Valeriia] Confirm the project Motasem ends up choosing so we can sanity-check the scope against the 6-week sprint.
 
-### Sources
+## Sources
 
 [^1]: [Google Doc](https://docs.google.com/document/d/1CiMQn77AE7wtcId_qXSi7bVI0FMFOgJ4vKukeg1QUxo/edit?usp=sharing)
 [^2]: [20260427_185609_AlexeyDTC_msg3711_transcript.txt](../../../inbox/used/20260427_185609_AlexeyDTC_msg3711_transcript.txt)

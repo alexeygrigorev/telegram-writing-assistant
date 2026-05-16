@@ -16,7 +16,7 @@ Claude has significant limitations in understanding context without explicit exp
 
 The core issue: Claude cannot read minds or infer unstated requirements. Every detail must be spelled out explicitly, which takes time and effort that sometimes exceeds the value of using the assistant.
 
-### Local Testing Example
+## Local Testing Example
 
 One example of this communication difficulty was testing GitHub Actions workflows locally before pushing. Instead of testing locally first, Claude spent a long time doing the wrong thing in GitHub Actions. Multiple attempts to redirect Claude to the correct approach failed. The task would have been completed faster manually[^2].
 
@@ -28,7 +28,7 @@ The correct approach is to test workflows locally or in Docker by running comman
   <!-- This illustrates the workflow Claude struggled to implement correctly -->
 </figure>
 
-### Permission Bypass in Tests
+## Permission Bypass in Tests
 
 Another issue discovered in test code: Claude decided to bypass all permission restrictions in the Telegram bot by using `--dangerously-skip-permissions` flag[^2].
 
@@ -54,11 +54,11 @@ New Sonnet 4.6 and Opus 4.6 models came out recently. I have been experimenting 
 
 Opus seems to read images better and understand what is on them. But overall the difference is not dramatic[^4].
 
-### Test Skipping Shortcut
+## Test Skipping Shortcut
 
 When I asked Opus to run tests, it saw that one test was running slowly and failing. Instead of fixing it, it marked the test as skip, saying "this test runs slowly, it fails, so we'll just skip it." This is supposed to be the top model, but it takes shortcuts the same way previous models did. You need to constantly watch and correct them when something goes wrong[^4].
 
-### Improved Planning
+## Improved Planning
 
 I noticed the planning capability in Claude Code got better. It now does a more detailed analysis and creates a more detailed plan before execution. After the plan is complete, it suggests doing compaction - starting fresh with a clean context that contains the full plan. All the research it did gets summarized concisely without wasting the context window[^4].
 

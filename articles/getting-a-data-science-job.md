@@ -48,7 +48,7 @@ An interview is not an exam - it's a two-way process. You also assess the compan
 
 Rejections are fine. There can be millions of reasons: they hired a different candidate, they ran out of money, the company went bankrupt. Don't take them personally. Just keep interviewing.
 
-### Initial Call with Recruiter
+## Initial Call with Recruiter
 
 A general introduction: the recruiter explains what the company does and what the position is about, then asks you to tell about yourself.
 
@@ -57,7 +57,7 @@ Tips:
 - Prepare a short introduction about yourself (a few sentences) and learn it by heart
 - They will ask about salary expectations
 
-### Salary Expectations
+## Salary Expectations
 
 Two approaches:
 - Say the number upfront - works well when you already know the market and have experience
@@ -65,13 +65,13 @@ Two approaches:
 
 Regardless of which approach you choose, do research and have a number in mind. Recruiters can be pushy and may not accept "let's talk later" as an answer.
 
-### Theory Screening
+## Theory Screening
 
 Theoretical data science and machine learning questions: what is linear regression, what is overfitting, what is the ROC curve, etc.
 
 The interviewer doesn't expect detailed answers. A few sentences that answer the question on an intuitive level are enough, without going deep into mathematics. If they ask something you don't know, be upfront about it - the interviewer will give a hint or move to another question.
 
-### Coding Screening
+## Coding Screening
 
 A technical screening, often done online using platforms like CoderPad or even Google Docs. Sometimes on-site on a whiteboard.
 
@@ -83,7 +83,7 @@ For algorithmic questions (binary trees, linked lists, etc.): check with the rec
 
 When solving exercises, take notes so you can come back and review them later.
 
-### Home Assignments
+## Home Assignments
 
 A task to do at home: they give you a dataset and ask you to build something - train a model, predict prices, classify listings.
 
@@ -98,7 +98,7 @@ If you don't want to invest time but still like the company, you can tell them: 
 
 After the assignment, some companies have a defense session where you present your solution and discuss it. Having this step is actually a good sign.
 
-### Case Study Interviews
+## Case Study Interviews
 
 Similar to home assignments but without code. A discussion on how to approach a problem.
 
@@ -110,7 +110,7 @@ A useful approach: start with a simple baseline, quickly iterate, roll out to pr
 
 Learning from Kaggle competitions is great preparation for case studies. Go to past competitions, understand the problem, data, features, target, evaluation metric, and check forums to see what solutions worked.
 
-### System Design Interviews
+## System Design Interviews
 
 Focuses on the engineering side. Examples: design a system for duplicate detection, spam detection, search autocomplete.
 
@@ -128,7 +128,7 @@ This is typically not for junior positions. Senior positions include it more oft
 
 The difference between case studies and system design: case studies focus on the initial steps (formulating the problem for machine learning), while system design is about productionizing and engineering the solution.
 
-### Behavioral Questions
+## Behavioral Questions
 
 Questions to see if there's a cultural fit. Examples: "Tell me about a time when you disagreed with someone," "When you needed to go beyond your duties."
 

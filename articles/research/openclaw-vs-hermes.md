@@ -250,7 +250,7 @@ See [hermes-agent.md](hermes-agent.md) for the file-level tour.
 
 The table shows a lot of surface differences. Underneath them, six deeper design axes drive most of the choices. Each subsection below picks one axis, defines what the two approaches mean in plain terms, compares how each project lands on it, and explains what the difference means for you as an operator or contributor.
 
-### Control Plane vs Conversation Loop
+## Control Plane vs Conversation Loop
 
 The first axis is what sits at the architectural center: a long-lived control plane, or the agent's own turn logic. A control plane here means the permanent infrastructure that owns connections, routing, plugins, and sessions - the code that stays running between turns. A conversation loop means the per-turn function that builds a prompt, calls the model, and runs tools.
 
@@ -260,7 +260,7 @@ Hermes Agent's design centers on the conversation loop. `AIAgent.run_conversatio
 
 For you as a contributor or operator, this difference shows up everywhere. With OpenClaw you work through a defined extension surface (manifests, hooks, plugin APIs) and the boundaries are enforced in CI. With Hermes you edit the loop directly or drop a new tool file in, and you own more of the correctness work yourself. OpenClaw tests prompt-cache stability as a core invariant; Hermes relies on a frozen-snapshot pattern inside the loop to keep the prefix stable.
 
-### Manifest-First vs Code-First Extensibility
+## Manifest-First vs Code-First Extensibility
 
 The second axis is how extensions are declared. "Manifest-first" means plugins ship a JSON file that declares what they provide (channels, providers, tools, config schemas, env vars) before any of their code runs. "Code-first" means a plugin is just source code in a known directory - the system discovers and loads the code, and the code itself is the declaration.
 
@@ -270,7 +270,7 @@ Hermes is code-first. A tool is a Python file in `tools/`. A platform adapter is
 
 For you, the tradeoff is concrete. With OpenClaw you pay more ceremony up front (write a manifest, match a schema, satisfy CI boundary checks) and you get stricter boundaries and auditability in return. With Hermes you can add a new tool by dropping one file into `tools/` and importing it - faster to write, but you lose the "see before you run" guarantee and the CI rules that stop core from leaking into extensions.
 
-### Streaming Inside vs Streaming Outside
+## Streaming Inside vs Streaming Outside
 
 The third axis is how far partial model output is allowed to travel. Both systems stream tokens from the LLM provider. The question is whether those partial tokens are forwarded to an external messaging platform (Telegram, WhatsApp, Slack) or kept inside the system until a full reply is ready.
 
@@ -280,7 +280,7 @@ Hermes streams outside. Partial text flows back through the gateway to whatever 
 
 For you as a user, the practical difference is whether chatting with the assistant on Telegram feels like ChatGPT (watch the answer build up) or like sending an email (one reply appears when it is ready). For you as an operator, it also decides whether any partial reasoning ever lands inside a third-party messaging service's storage.
 
-### Multi-Agent Isolation vs Single Agent with Orchestration
+## Multi-Agent Isolation vs Single Agent with Orchestration
 
 The fourth axis is how the system handles different contexts or tasks. "Multi-agent isolation" means running several independently configured agents on the same host, each with its own memory, workspace, and tools, and routing incoming messages to the right one. "Single agent with orchestration" means one agent handles everything, but it can temporarily spawn sub-sessions or call specialized helpers from inside its conversation loop.
 
@@ -290,7 +290,7 @@ Hermes takes the single-agent-with-orchestration route. There is one agent per i
 
 For you, the difference is whether "my work assistant" and "my personal assistant" are two separately-configured agents that cannot see each other's state, or one agent that handles both. If you want a hard wall between contexts, OpenClaw gives you that at the routing layer. If you want one agent that can temporarily become a coding agent, a research agent, or a writing assistant through in-loop delegation, Hermes is built for that.
 
-### Frozen Identity vs Mutable Identity
+## Frozen Identity vs Mutable Identity
 
 The fifth axis is about identity files - SOUL.md, MEMORY.md, USER.md and similar - and when edits to them take effect. These are not established industry terms; in this article "frozen identity" means the contents of the identity files are loaded once at session start and cannot change the system prompt until the next session, while "mutable identity" means those files can be re-read and the system prompt rebuilt mid-session. Both projects carry identity across sessions through these files; they disagree on when edits start to count.
 
@@ -300,7 +300,7 @@ OpenClaw takes the mutable-identity route. Hooks like `before_prompt_build` can 
 
 For you, the tradeoff is: with Hermes, if you edit your memory mid-session you will be surprised that the agent does not "notice" until next session, but you are guaranteed consistent cache behaviour. With OpenClaw, memory edits can take effect immediately, but you trust tests rather than structure to keep the cache hot.
 
-### Training-Pipeline-As-Agent vs Agent-As-Product
+## Training-Pipeline-As-Agent vs Agent-As-Product
 
 The sixth axis is what the assistant is for from the perspective of its maintainers. "Agent as product" means the assistant is shipped to end users as the final deliverable. "Training pipeline as agent" means the assistant is also a data collection system that feeds trajectories (full records of agent turns, tool calls, and outcomes) back into training runs for a future model.
 
@@ -312,7 +312,7 @@ For you, this matters in two ways. First, if you care about contributing data to
 
 ## Summary
 
-### When to Pick OpenClaw
+## When to Pick OpenClaw
 
  - You want a hardened control plane with enforceable architecture boundaries.
  - You need real multi-agent isolation (work vs personal with separate workspaces).
@@ -324,7 +324,7 @@ For you, this matters in two ways. First, if you care about contributing data to
  - You want a Canvas/A2UI live visual workspace the agent can render into.
  - You want MCP support but do not want MCP spec churn to destabilize your gateway.
 
-### When to Pick Hermes Agent
+## When to Pick Hermes Agent
 
  - You want radical model agnosticism across 200+ models and 9 provider API shapes.
  - You need the terminal tool to run on Modal, Daytona, Singularity, or an SSH box, not just Docker.
@@ -337,7 +337,7 @@ For you, this matters in two ways. First, if you care about contributing data to
  - You may contribute trajectories to Nous Research's model training.
  - You want natural-language cron scheduling with multi-platform delivery.
 
-### Key Takeaways
+## Key Takeaways
 
 Both projects solve the same surface problem and land in different places because they optimize for different underlying goals.
 

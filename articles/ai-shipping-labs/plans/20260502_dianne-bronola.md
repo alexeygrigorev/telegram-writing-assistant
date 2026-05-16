@@ -20,13 +20,13 @@ Internal working document. Share only the `Summary` and `Plan` sections with the
 
 ## Plan
 
-### Focus
+## Focus
 
 - Main focus: design the Learning Companion Agent end to end - what knowledge it stores, how it surfaces it for retention, how it asks interview questions, how it reviews code. Ship a first version as the Buildcamp capstone.
 - Supporting focus: do the workflow manually first. Build the data structure and process a few real learning sessions by hand before introducing an agent. The agent only enters once the manual process is clear.
 - Supporting focus: keep the focus on the capstone. The internal AI tool at her company is parked behind the capstone for now - that is a 3-month goal, not a 6-week one.
 
-### Timeline
+## Timeline
 
 Week 1:
 
@@ -61,7 +61,7 @@ Week 6:
 - Wrap to a state that can be demoed at the sprint and submitted as the Buildcamp capstone. README that explains the data structure, the manual workflow, and what the agent automates.
 - Decide what the next iteration looks like - more agent capabilities, deeper integration with course materials, or moving on to the internal-AI-tool design once she has more exposure to her team's problems.
 
-### Project approach
+## Project approach
 
 - Manual first, automation second. The data structure and the workflow live in the design step. The agent is a wrapper that automates a manual process you already understand. Trying to design the agent before you understand the manual workflow is the most common way these projects stall.
 - One project at a time. The capstone is the one project. The internal AI tool at her company is a 3-month goal and is parked until she has more exposure to her team's problems.
@@ -69,14 +69,14 @@ Week 6:
 - Use the active community. The DE Zoomcamp experience Dianne wants to recreate ("someone is always there to answer questions") is what AI Shipping Labs Slack is for. Asking questions there - and answering them once she is past a step - is the structural equivalent.
 - Keep the longer arc visible. Capstone in 6 weeks, internal AI tool in 3 months, AI-heavy engineering role in 12 months. The capstone is the foundation that makes the next two possible.
 
-### Resources
+## Resources
 
 - AI Engineering Buildcamp - already enrolled. The course modules are the primary reference for the build.
 - Obsidian - reference for how a personal knowledge tool can be shaped. The reading is "what does Obsidian's data model look like, and what would an agent on top of it do?", not "use Obsidian as the storage layer". Worth a couple of hours, no more.
 - AI Shipping Labs Slack - the active community substitute for the DE Zoomcamp experience Dianne specifically named.
 - Coding assistant of choice (Claude Code or Codex). Pick one and commit.
 
-### Deliverables
+## Deliverables
 
 - Concept doc (data structure + how she wants to receive the data) - by end of week 1.
 - Data structure built, workflow run manually on three or four real sessions - by end of week 2.
@@ -85,19 +85,19 @@ Week 6:
 - Iterated version with prompts and data fields tightened from real use - by end of week 5.
 - Capstone-ready demo, README, and submission - by end of week 6.
 
-### Accountability
+## Accountability
 
 - Weekly check-in: what shipped, what is blocked, what is the goal for the next week. Dianne named "weekly progress and deliverables" as the format that works for her.
 - 10-15 hours per week. The plan is sized for the lower end so a busy week can drop a stretch goal rather than the milestone.
 - One project until it ships. The Learning Companion Agent is the only project; the internal AI tool at her company waits until after the capstone.
 - Active in the AI Shipping Labs Slack - both asking questions and answering others' questions. This is the part that recreates the DE Zoomcamp experience.
 
-### Longer arc
+## Longer arc
 
 - 3-month goal: scope an internal AI tool at her company, once she has more exposure to her team's problems and the data + sponsorship constraints.
 - 12-month goal: an AI-heavy engineering role. The capstone plus the internal-tool work plus a clearly-told portfolio is the path.
 
-### Next Steps
+## Next Steps
 
 - [ ] [Dianne] Write the concept doc (data structure + how she wants to receive the data) by end of week 1.
 - [ ] [Dianne] Build the data structure and run the workflow manually on three or four real sessions by end of week 2.
@@ -108,21 +108,21 @@ Week 6:
 
 ## Internal Context
 
-### Persona
+## Persona
 
 Alex - The Engineer Transitioning to AI (preliminary, to confirm). Dianne is an iOS engineer with a platform-engineering background trying to move into a data-heavier / AI-focused role; she has gotten interviews but is gated by project evidence, interview readiness, and confidence. That maps to Alex.
 
 See [personas.md](../personas.md) for full persona definitions.
 
-### Background
+## Background
 
 Dianne is an iOS engineer with a background in platform engineering for mobile and web frameworks. She has been trying for years to move into a more data-heavy software engineering role but keeps running into the same wall: she either does not meet the requirements, or the available roles come with a pay cut. She has been typecast as a frontend/mobile engineer and is actively trying to change that narrative[^2][^3].
 
 She specifically named the Data Engineering Zoomcamp as the experience she wants to recreate - project-based, code-along, with an active community where someone is always available to answer questions[^2].
 
-### Intake
+## Intake
 
-#### Initial Input
+## Initial Input
 
 Hi Val! I hope it's not too late. I'm still finding my rhythm with the course schedule[^3].
 
@@ -134,7 +134,7 @@ For years, I've been trying to move into a more data-heavy software engineering 
 
 Topics I'm most interested in: how to scope and pitch an internal AI tool, and how to build a portfolio that shifts how people perceive you. I've been typecast as a frontend/mobile engineer, and I'm actively trying to change that narrative[^3].
 
-#### Questions and Answers
+## Questions and Answers
 
 1. What do you hope to achieve with this plan in the next 6 to 8 weeks?
 
@@ -180,11 +180,11 @@ Probably FOMO with AI - too much noise. It is not that she is not moving forward
 
 For the 6-8 weeks, she will focus on her capstone project. She wants to build a Learning Companion Agent - something that would help her retain her knowledge, start adding interview questions, review her code with, etc. She is still brainstorming the features but the main goal is to make sure she retains all the knowledge she is learning while building. AI tool within her company is a 3-month goal; AI-heavy engineering position is a 12-month goal[^2].
 
-### Meeting Notes
+## Meeting Notes
 
 No intake call yet - input collected via the Google Doc[^2] and Dianne's initial reply to Valeriia's outreach[^3].
 
-### Internal Recommendations
+## Internal Recommendations
 
 Alexey's recommendations after reviewing Dianne's intake[^4]:
 
@@ -205,12 +205,12 @@ Alexey's recommendations after reviewing Dianne's intake[^4]:
 
 7. 15 hours per week is a strong fit. Internal AI tool stays parked behind the capstone for now (her own framing - 3-month goal, not 6-week one). AI-heavy engineering role is the 12-month frame.
 
-### Internal Action Items
+## Internal Action Items
 
 - [ ] [Alexey] Send Dianne the written plan.
 - [ ] [Valeriia] Confirm Dianne is on the AI Shipping Labs Slack channel and added to the May sprint roster.
 
-### Sources
+## Sources
 
 [^1]: [20260501_085705_AlexeyDTC_msg3818.md](../../../inbox/used/20260501_085705_AlexeyDTC_msg3818.md) - shared as plan number 13.
 [^2]: [Dianne Bronola's intake (Google Doc)](https://docs.google.com/document/d/1M2UgXpocJiZq2rMjcI-7O6sN9f2ov4U3BizyHm1axoU/edit?usp=sharing)

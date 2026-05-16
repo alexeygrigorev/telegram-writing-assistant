@@ -20,13 +20,13 @@ Internal working document. Share only the `Summary` and `Plan` sections with the
 
 ## Plan
 
-### Focus
+## Focus
 
 - Main focus: build an offline evaluation pipeline for nutrient_bot - representative scenarios, manual labels, and an LLM judge aligned with those labels.
 - Supporting focus: add a few targeted end-to-end tests in test-driven-development style for specific scenarios (blurry photo handling, accidental duplicate, non-food image).
 - Supporting focus: pre-design the agentic decisions on paper or with ChatGPT before implementing them (clarify on unclear photo, skip recommendation when daily targets are met, duplicate detection).
 
-### Timeline
+## Timeline
 
 Week 1 (~20 hours):
 
@@ -62,7 +62,7 @@ Week 6 (~2 hours):
 - Tighten what is left. Update the README to describe the eval pipeline and the agentic behaviour. Add a short note about the Cloud Run + BigQuery deployment - other AI Shipping Labs members have asked about this and a small write-up would be valuable both for them and for Koray's own portfolio.
 - Decide the next iteration: deeper evaluation, a lightweight nutrient-table search (see Resources), or a portfolio write-up post.
 
-### When 2 hours isn't enough
+## When 2 hours isn't enough
 
 Two hours is tight. The plan is sized for it, but a given week might not fit. The fallback:
 
@@ -70,7 +70,7 @@ Two hours is tight. The plan is sized for it, but a given week might not fit. Th
 - Use commute and walking time for the conceptual work. Voice/dictation conversations with ChatGPT or Claude are fine for thinking through scenarios, agentic decisions, and prompt tweaks. Save the desk time for execution.
 - The week-1 deep read of the plan is what makes both fallbacks work. If the plan is fuzzy, the agent will produce something fuzzy and the commute thinking will go in circles. If the plan is concrete, both fallbacks are productive.
 
-### Project approach
+## Project approach
 
 Additional principles for taking nutrient_bot to a measurably better state. Koray is already doing several of these; treat this as a checklist, not a rebuild.
 
@@ -81,7 +81,7 @@ Additional principles for taking nutrient_bot to a measurably better state. Kora
 - Keep the gym. Energy comes from training and simple food, not from skipping them to study more. Two hours in the gym beats two hours of forced learning.
 - Ship one thing end-to-end before adding new layers. Eval pipeline first, then agentic behaviour, then maybe lightweight search - not all in parallel.
 
-### Resources
+## Resources
 
 - Coding assistant of choice (Claude Code or Codex). Both are fine; pick one and commit. Avoid free tiers - hitting limits mid-session breaks 2-hour weeks. The same agent is also the fallback for weeks where 2 hours isn't enough to do the work by hand.
 - AI Engineering Buildcamp evaluation module (week 6). The core idea to take from it: equivalence partitioning - divide the input space (here: meal photos and text descriptions) into groups where you'd expect similar bot behaviour, then cover each group with at least 2-3 scenarios. Add edge cases (out-of-scope, deliberately confusing inputs) on top. Result: 15-20 scenarios that give a real signal, not 1000 cherry-picked examples.
@@ -89,7 +89,7 @@ Additional principles for taking nutrient_bot to a measurably better state. Kora
 - minsearch ([github.com/alexeygrigorev/minsearch](https://github.com/alexeygrigorev/minsearch)) - a lightweight search engine that fits the use case far better than full RAG. If a fuzzy nutrient-table lookup or recommendation lookup is added later, minsearch is a sensible starting point - cheap, simple, easy to host alongside the existing Cloud Run setup.
 - LLM Zoomcamp (free) - for the broader RAG/agent context if the project later grows in that direction. Not needed for this sprint.
 
-### Deliverables
+## Deliverables
 
 - A documented evaluation rubric and a set of 15-20 scenarios with manual labels - by end of week 2.
 - An LLM judge aligned against the manual labels, with reported agreement metrics - by end of week 3.
@@ -97,18 +97,18 @@ Additional principles for taking nutrient_bot to a measurably better state. Kora
 - One or two agentic decisions implemented and validated through the eval pipeline - by end of week 5.
 - An updated README covering the eval pipeline, the new agentic behaviour, and a short note on the Cloud Run + BigQuery setup - by end of week 6.
 
-### Accountability
+## Accountability
 
 - Weekly check-in: what shipped, what is blocked, what is the goal for the next week. Koray named milestones plus deadlines and peer discussion as the formats that work for him.
 - 20 hours in week 1, then 2 hours per week. The plan is sized for those 2-hour weeks - if a week slips, drop a stretch goal or hand the implementation to a coding agent rather than extending the week.
 - One project. Nutrient_bot only until the sprint demoes; don't start a second project mid-sprint.
 - Share progress in the AI Shipping Labs Slack rather than only one-on-one. Other members have asked about Cloud Run deployments and would benefit from seeing how Koray's bot is set up.
 
-### Career direction note
+## Career direction note
 
 Koray asked whether the data analyst → junior data engineer or junior AI engineer move is realistic. The honest answer: yes, but the strongest evidence is a shipped, evaluated AI product. nutrient_bot already has the deployment story (Cloud Run, BigQuery, serverless, multi-user). Adding evaluation, agentic decisions, and tests turns it into a portfolio piece that demonstrates the engineering discipline employers screen for. Once the sprint wraps, a short write-up of the eval-and-agentic upgrade and a LinkedIn post about the Cloud Run setup are both natural follow-ups.
 
-### Next Steps
+## Next Steps
 
 - [ ] [Koray] Pick a coding assistant (Claude Code or Codex) and commit to a paid plan that fits the 2-hour weeks (and serves as the fallback when 2 hours isn't enough).
 - [ ] [Koray] Use week 1 (20 hours) to read the plan deeply, write the evaluation rubric, draft the 15-20 scenarios, and design the agentic decisions on paper.
@@ -118,13 +118,13 @@ Koray asked whether the data analyst → junior data engineer or junior AI engin
 
 ## Internal Context
 
-### Persona
+## Persona
 
 Sam - The Technical Professional Moving to AI. Koray is a data analyst / analytics engineer (5-6 years) who has built an end-to-end AI product but self-describes the gap as "Python still needs improvement, LLM does all the coding, I just try to understand what it's doing." That's the classic Sam scripts-to-systems gap, even though the deployed bot is more sophisticated than the typical Sam baseline.
 
 See [personas.md](../personas.md) for full persona definitions.
 
-### Background
+## Background
 
 Koray is a former student of Alexey's Data Engineering Zoomcamp (2024 cohort). He met Alexey in person in Berlin and trusts him, which is why he is trying AI Shipping Labs. He has been job-hunting, has a five-month full-time freelance gig starting May 4, 2026 (running through October 15, 2026), and signed up to AI Shipping Labs partly as a small token of appreciation for what he got from the free Zoomcamp[^1].
 
@@ -134,7 +134,7 @@ His freelance gig starts May 4, 2026, so the 20-hour first week is the gap befor
 
 The plan number in the inbox marks this as the 10th personalised plan in the current batch[^1].
 
-### Intake
+## Intake
 
 The intake is the Google Doc with Koray's input collected ahead of this plan[^1]. The meeting notes from the call with Valeriia are in a separate Google Doc[^1]; the same content is captured in [interviews/koray-can-canut.md](../interviews/koray-can-canut.md).
 
@@ -147,7 +147,7 @@ Highlights from the answers:
 - Wanted help: weekly roadmap of things to learn or build, distinction between "core skills (without LLM help)" and "things to do with LLM", peer discussion or group learning, milestones and deadlines.
 - Career questions: realistic chance at junior AI engineer / junior data engineer roles, portfolio strategy, LinkedIn visibility strategy.
 
-### Internal Recommendations
+## Internal Recommendations
 
 Alexey's recommendations after reviewing Koray's input and his bot's repo[^2]:
 
@@ -181,14 +181,14 @@ Adjustments to the plan after the first pass[^4]:
 - The most important task in week 1 is to understand the plan deeply enough that the 2-hour weeks (and the agent fallback) work. Make this explicit so the planning week doesn't get spent only on rubric/scenario/agentic-decision drafts.
 - Conceptual work can be done during free time - while commuting, walking, or otherwise away from the desk - via voice/dictation with ChatGPT or Claude.
 
-### Internal Action Items
+## Internal Action Items
 
 - [ ] [Alexey] Send Koray the written plan and point him at the Buildcamp v2 evaluation module (location to confirm once it's on the AI Shipping Labs platform).
 - [ ] [Alexey] Mention Koray's Cloud Run + BigQuery setup in the Slack as a reference for other members asking about that deployment pattern.
 - [ ] [Valeriia] Confirm Koray is on the AI Shipping Labs Slack channel and the May sprint roster.
 - [ ] [Valeriia] Ask Alexey about the policy for removing dropped members from the Slack channel and notify Koray (open question from the call[^3]).
 
-### Sources
+## Sources
 
 [^1]: [20260429_155342_AlexeyDTC_msg3761.md](../../../inbox/used/20260429_155342_AlexeyDTC_msg3761.md), [Koray's Answers (Google Doc)](https://docs.google.com/document/d/1UItdFnW6F5TNpMzYdI3MhfnV1-dRD1wv4lA8RdTVEpk/edit?usp=sharing), [Meeting Notes (Google Doc)](https://docs.google.com/document/d/1sqqWHwPP01b-q_66vv9yOiWup9mB-zzuf8WQY605SRw/edit?usp=sharing)
 [^2]: [20260430_085223_AlexeyDTC_msg3767_transcript.txt](../../../inbox/used/20260430_085223_AlexeyDTC_msg3767_transcript.txt)

@@ -35,11 +35,11 @@ People who ask for mentoring in the existing community are a potential audience 
 
 Ideas and planning for how to promote and market the paid community. These are initial ideas to build into a more systematic plan over time[^1].
 
-### The Need for a Plan
+## The Need for a Plan
 
 We need to think about how to build a marketing plan and how we will promote the community. This is useful both for the course and for the community. Maven already has tools for this - things like Lightning Lessons and lead magnets. We will need to come up with all of this ourselves. Obviously we will use social media, but we can approach it more systematically and put together at least a rough promotion plan[^1].
 
-### Marketing Funnel
+## Marketing Funnel
 
 A rough outline of the funnel, besides social media[^2]:
 
@@ -48,11 +48,11 @@ A rough outline of the funnel, besides social media[^2]:
 - Free newsletter, where we advertise the paid community
 - Short webinars to promote the community
 
-### Lead Magnets
+## Lead Magnets
 
 Based on the recent webinar, Learning Paths could work as lead magnets. For example, a Learning Path for Data Engineers or a Learning Path for Frontend Engineers. These could be published on Maven as well[^5].
 
-### Community as a Funnel Step
+## Community as a Funnel Step
 
 The course price is quite high, so the level of trust people need to have is also high. Not everyone is ready to spend $1700 on someone they don't know well. A possible solution: let them first buy something small, see that they get a lot of value from it, and then buy something more expensive like the course[^6].
 
@@ -60,11 +60,11 @@ Right now there are a lot of people on the course waitlist, but only tenths of a
 
 The community works as the intermediate step in the funnel that helps convert more people. Instead of going directly from awareness to a high-priced course, people enter through the community, experience value firsthand, and then upgrade[^6].
 
-### Open Questions
+## Open Questions
 
 There are still questions about where paid content will live - on Substack or on the website[^2].
 
-### Content Strategy for Tiers
+## Content Strategy for Tiers
 
 There will be a closed repository of event recordings from the community, written tutorials that come from those events, and all other materials shared in the closed community[^3].
 
@@ -74,43 +74,43 @@ The paid newsletter publishes these materials gradually for tier 1 members - not
 
 Discussion with Valeria about how to develop the blog and content inside AI Shipping Labs[^79].
 
-### Content based on AI Engineer role analysis
+## Content based on AI Engineer role analysis
 
 Based on the analysis we already have about the AI Engineer role, we know what skills and tools an AI engineer needs, and roughly how to prepare for interviews. This will be the foundation for the first blog posts or pages on the website, similar to what we did with theoretical interview questions[^79].
 
-### Using conference talks as content sources
+## Using conference talks as content sources
 
 Looking at the AI Engineer conference (organized by Swyx), which had talks about Context Engineering, RAG, and similar topics. The idea is to use the skills and tools data from the AI Engineer role analysis to narrow down article topics and base them on this data. This applies not just to articles but to courses as well[^79].
 
-### Workshops as content pipeline
+## Workshops as content pipeline
 
 One approach: create workshops (for example, Python workshops for AI engineers), then turn those workshops into articles. This creates a pipeline from interactive sessions to written content[^79].
 
-### Listicles as easy content format
+## Listicles as easy content format
 
 Listicles are a lightweight content format that can be produced relatively easily with AI help. Even though someone could ask ChatGPT for the same information, an organized article is more useful than a ChatGPT response. The example is the cheat sheets done for the Data Engineering course at DataTalks Club. These lists bring traffic to the page[^79].
 
-### Concept explainer articles
+## Concept explainer articles
 
 An idea for content that Valeria can produce independently: articles that explain a concept (like what is RAG, what is GraphRAG, what is Agentic RAG) without direct implementation. Similar to what Turing Post, The Sequence, and Xenia do - they explain a concept and link to a package or resource where it can be implemented. These articles study a topic, review what others have said about it, but do not give direct instructions on how to apply it. This is a hypothesis about whether it would be interesting to people in the community[^80].
 
-### Paid content ideas
+## Paid content ideas
 
 Some of the materials being prepared can be made into paid content in the newsletter. The concept explainer articles (without implementation) could become paid articles for subscribers who buy the resources-only package (without community). The Karpathy-style trend analysis articles also have potential as paid content - people like it when someone they trust explains trends in a way that is quick to read and easy to understand. These articles do not take much time to produce and editing goes quickly because the information is straightforward[^81].
 
-### Audience research using forums
+## Audience research using forums
 
 Looking at forums, especially Reddit, to research what people are asking about and what their problems are. This is the same thing currently being done through interviews, but at scale. Grok (at grok.com, not the one inside Twitter) can be used for this research since the agent does better research there. The existing tools built for finding questions for community brainstorming can also be reused for this research[^82][^84][^85].
 
-### Target audience definition
+## Target audience definition
 
 The target audience: people interested in AI engineering who want to develop in this area - either transitioning into it or already working there and wanting to improve their skills. Plus everyone interested in AI tools that make them more productive. This can be defined more precisely, and then we can look at what problems this audience has and what help they need[^83].
 
-### Content based on audience problems
+## Content based on audience problems
 
 The approach: look at what problems the target audience has (through community research, Reddit, Twitter, interviews) and then think about what content we can create to solve those problems[^84].
 
-### Overview articles that funnel into the community
+## Overview articles that funnel into the community
 
 Valeria's suggestion on how to turn the AI Engineer role research into content that also promotes AI Shipping Labs. The idea is to make an overview article after the research: describe what hiring managers look at in general, give an overview of the most important points, and where relevant explain how to choose a GitHub project and what goes into it. The article itself stays at the general level[^97].
 
@@ -122,30 +122,30 @@ Depending on how broad the topic is and how deep you can go on each piece, works
 
 [Lenny's Newsletter](https://www.lennysnewsletter.com/) is a good reference for developing the paid community. Several ideas from their model[^78]:
 
-### Lenny's Product Pass
+## Lenny's Product Pass
 
 Access to paid subscriptions on products. Every paid subscriber gets this. Whenever a new paid product is added to the bundle, they make a newsletter issue about it. This creates ongoing value for subscribers and gives them a reason to stay[^78].
 
-### Community Wisdom
+## Community Wisdom
 
 A weekly hand-curated digest of the most helpful conversations from their member-only Slack community. It is a subscriber-only email delivered every Saturday, highlighting the most helpful conversations. This is similar to our idea of surfacing community content for tier 1 members[^78].
 
-### Chatbot with the Creator
+## Chatbot with the Creator
 
 [LennyBot](https://www.lennybot.com/) - a chatbot based on the newsletter creator that answers subscriber questions. This could be an interesting feature for our community as well[^78].
 
-### Community Offerings
+## Community Offerings
 
 What they offer inside their community[^78]:
 - Real-talk conversations about product, growth, and career
 - Mentorship programs, book clubs, live AMAs, and hands-on workshops
 - Monthly community meetups across five continents
 
-### Curated Course List
+## Curated Course List
 
 They have a list of recommended courses on [Maven](https://maven.com/lenny). When you enroll in a course from their list, you receive $1,395 in free credits for tools including Superhuman, Linear, Sprig, Dovetail, and Gamma. Each offer can only be used once across all courses, and credits are only available for new customers of each tool[^78].
 
-### Merchandise
+## Merchandise
 
 They also have [merch/swag](https://lennyswag.com/en-eur) as an additional engagement channel[^78].
 
@@ -163,11 +163,11 @@ The technical side of how Paul generates the branded diagrams and runs his pipel
 
 ## Content Reuse and Planning
 
-### Content Reuse System
+## Content Reuse System
 
 I want to build a system for myself that helps achieve different formats by reusing existing content. The goal is to understand where content lives and what can be pulled from it for different purposes[^73].
 
-### Community Content Plan
+## Community Content Plan
 
 For the community, the goal is to create an events plan and content plan. Once we conduct research and understand what people need, we can build a calendar showing how often different events happen and what content to expect. This way people can set their expectations based on a clear schedule[^73].
 

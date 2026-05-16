@@ -16,14 +16,14 @@ Some time ago we discussed the todo list app idea. Now I want to return to it an
 
 The main goal: make it maximally cheap. No hosting costs at all.
 
-### Architecture
+## Architecture
 
 - Backend: AWS Lambda with JavaScript
 - Database: DynamoDB
 - Frontend: vanilla JavaScript (no React), served from the Lambda on the index request
 - Multiple JS files that get packaged together
 
-### Local Development
+## Local Development
 
 The setup should be maximally lightweight:
 
@@ -32,7 +32,7 @@ The setup should be maximally lightweight:
 - Run and test everything locally without hassle
 - Local environment should be as close to Lambda as possible
 
-### Deployment
+## Deployment
 
 - Deploy through Lambda and DynamoDB
 - If Docker is needed for packaging the deployment, that is acceptable
@@ -41,7 +41,7 @@ The setup should be maximally lightweight:
 - Could put JavaScript files on S3, but probably not needed
 - Simple zip archive deployment would be ideal
 
-### Testing
+## Testing
 
 - Local testing should be easy and straightforward
 - Integration testing: run Lambda in Docker and test through that
@@ -95,7 +95,7 @@ A unified task management system that combines:
 - Automated task capture from multiple sources
 - Template-based deadline management
 
-### Core Concepts
+## Core Concepts
 
 Templates (Playbooks):
 - Newsletter template
@@ -112,7 +112,7 @@ Two views:
 1. Project/Card View - Like Trello, high-level organization
 2. Task List View - All tasks from all projects in a simple table
 
-### Task Types
+## Task Types
 
 Template-based tasks:
 - Created automatically when a project is instantiated from a template
@@ -130,7 +130,7 @@ Recurring tasks:
 - Automatically added to the task list on schedule
 - Configurable schedule
 
-### Simple Task Interface
+## Simple Task Interface
 
 Each task should have:
 - Date

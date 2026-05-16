@@ -40,13 +40,13 @@ I asked Claude to take the bots that were running on AWS - on that instance I me
 
 ## Security Setup
 
-### Firewall
+## Firewall
 
 I asked Claude Code to configure the firewall and verify it. If any application starts on the server, there is no access from outside. Only port 22 (SSH) is open, everything else is closed. I connect via SSH, do port forwarding, and can work. I also set up VS Code to connect there[^6].
 
 All of this took less than an hour to configure[^6].
 
-### Credentials
+## Credentials
 
 I am not moving my AWS admin key to the server. If someone compromises it, all infrastructure is at risk. The OpenAI key is project-specific - if it gets compromised, I can just delete it, and I have spending limits configured to get notifications if someone starts spending money[^5].
 
@@ -56,7 +56,7 @@ On the other hand, some things are better not done on this server at all. I am s
 
 There is risk of infected packages on the local laptop too, but it seems smaller than on a remote Hetzner server. While speaking this message, I realize the laptop also needs to be more careful[^5].
 
-### SSH Access
+## SSH Access
 
 Even if someone sees the IP and tries to get in through port 22, they will not succeed. I set a very complex root password, and my user access is through SSH key. From outside, breaking in should be extremely difficult or impossible. But I am still trying to be more careful with credentials[^6].
 

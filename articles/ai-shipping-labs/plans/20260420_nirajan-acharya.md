@@ -20,13 +20,13 @@ Internal working document. Share only the `Summary` and `Plan` sections with the
 
 ## Plan
 
-### Focus
+## Focus
 
 - Main focus: double down on one existing project instead of splitting attention across several.
 - Supporting focus: derive evaluation and monitoring from business goals rather than chasing abstract AI metrics.
 - Supporting focus: add the production signals that matter most: clearer scope, deployment flow, monitoring, and iterative improvement.
 
-### Timeline
+## Timeline
 
 Week 1:
 
@@ -58,26 +58,26 @@ Week 6:
 - Summarize what improved, what the metrics now say, and what the next iteration should be.
 - Decide whether the next step is deeper hardening of the same project or a second project only after the first one is truly in a stronger state.
 
-### Resources
+## Resources
 
 - Nirajan's existing deployed project - the fastest route to job-ready proof.
 - AI Engineering Buildcamp material on evaluation and deployment - enough foundation already exists there.
 - Tuesday workshop material on version control and deployment pipelines - useful for tightening the production workflow.
 
-### Deliverables
+## Deliverables
 
 - A written current-state vs. target-state document for the project.
 - One upgraded deployed project with clearer monitoring, evaluation, or reliability signals.
 - Metrics tied to business goals rather than generic AI claims.
 - A prioritized backlog for the next iteration, based on real usage or realistic feedback.
 
-### Accountability
+## Accountability
 
 - Weekly shipped-change update: what changed in the product, what was learned, and what is next.
 - Resist the urge to open parallel projects before the chosen one reaches the target state.
 - Use real user feedback or realistic usage evidence as the main checkpoint, not just personal intuition.
 
-### Next Steps
+## Next Steps
 
 - [ ] [Nirajan] Describe the current state of the project in detail.
 - [ ] [Nirajan] Describe the target state he wants the project to reach.
@@ -85,17 +85,17 @@ Week 6:
 
 ## Internal Context
 
-### Persona
+## Persona
 
 Priya - The Improver. Already capable and already shipping, but now needs sharper focus, stronger production patterns, and a clearer approach to evaluation and iteration.
 
-### Background
+## Background
 
 Nirajan reached out after topping the leaderboard of AI Engineering Buildcamp Cohort 2. He already has a deployed AI project and wants to become more job-ready for real-world AI roles. The challenge is not lack of effort or time; it is defining the next concrete step instead of speaking at the level of abstractions.
 
-### Intake
+## Intake
 
-#### Initial Input
+## Initial Input
 
 Hi Valeriia, thanks for reaching out!
 
@@ -112,7 +112,7 @@ A personalized plan from Alexey would be really valuable for aligning my progres
 
 Looking forward to your guidance!
 
-#### Questions and Answers
+## Questions and Answers
 
 **What would be most useful for you to achieve in the next 2 to 3 months?**
 
@@ -158,11 +158,11 @@ I can commit around 30-40 hours per week with full focus and consistency.
 
 If I can confidently position myself for AI roles with a strong, production-level portfolio and a clear understanding of real-world workflows, I would consider the plan highly successful.
 
-### Meeting Notes
+## Meeting Notes
 
 No separate intake call notes are currently attached in this file.
 
-### Internal Recommendations
+## Internal Recommendations
 
 Nirajan is already quite advanced, so Alexey does not want to jump straight into prescribing work without first understanding what Nirajan himself wants the current project to become[^3].
 
@@ -181,14 +181,14 @@ Other important internal notes:
 - Much of the desired "industry workflow" experience will emerge naturally once the project is actually deployed and iterated on.
 - If Nirajan wants help, the most useful thing is not more general advice but clearer specificity about the project and the desired outcome.
 
-### Internal Action Items
+## Internal Action Items
 
 - [ ] [Alexey] Create a general reference document on how to approach "take my project to production" requests.
 - [ ] [Nirajan] Describe the current state of the project in detail.
 - [ ] [Nirajan] Describe the target state he wants the project to reach.
 - [ ] [Nirajan] Clarify the parts of his answers that were still abstract or unclear.
 
-### Sources
+## Sources
 
 [^1]: [20260420_093134_valeriia_kuka_msg3467.md](../../../inbox/used/20260420_093134_valeriia_kuka_msg3467.md)
 [^2]: [Google Doc](https://docs.google.com/document/d/1Ausmg6-Ozwn7D3CXf4EdZLm6Xu9S12A8ZJFuB8HftaE/edit?usp=sharing)

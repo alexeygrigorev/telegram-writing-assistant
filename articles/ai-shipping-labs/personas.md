@@ -33,7 +33,7 @@ Note: they don't need to know Python specifically. Any programming background wo
 
 ## Four Personas
 
-### Alex - The Engineer Transitioning to AI
+## Alex - The Engineer Transitioning to AI
 
 Software engineer (full-stack, backend, web dev, DevOps, data engineer) or recent CS grad/bootcamp alum switching into AI engineering. Has solid programming and engineering skills but little/no production AI experience.
 
@@ -52,7 +52,7 @@ What they say:
 
 What they need from us: a clear phased path (LLM fundamentals, RAG, agents, evals) with weekly check-ins and co-building sessions. They already know engineering - they need AI-specific guidance and permission to ignore everything else and focus on one thing.
 
-### Priya - The Improver
+## Priya - The Improver
 
 Already working as a junior/mid AI or ML engineer. Has built and shipped AI features but wants to go deeper - better evals, more reliable agents, production-grade systems. Feels "I should be better by now."
 
@@ -71,7 +71,7 @@ What they say:
 
 What they need from us: structured project sprints to build something real end-to-end, peer feedback, seminars where members research and present topics, a low-noise environment to go deep on what actually matters.
 
-### Sam - The Technical Professional Moving to AI
+## Sam - The Technical Professional Moving to AI
 
 Non-engineer technical professional - data analyst, business analyst, PM with coding skills, or similar. Can write code (Python scripts, SQL, data manipulation) but has not built software systems. Wants to learn how to build AI-powered tools and applications.
 
@@ -90,7 +90,7 @@ What they say:
 
 What they need from us: a structured path that bridges their coding skills to building real AI applications - starting with APIs and basic engineering concepts, then moving to RAG and agents. Hands-on building from day one, a supportive group of peers, and permission to ignore advanced topics until ready.
 
-### Taylor - The Research-to-Engineering Transitioner
+## Taylor - The Research-to-Engineering Transitioner
 
 Researcher, academic, or data scientist with deep theoretical foundations (math, stats, model architecture) but a gap in production engineering. Knows how models work but not how to make them work reliably at scale.
 
@@ -111,7 +111,7 @@ What they need from us: structured cohorts that bridge theory to engineering (pr
 
 ## What Is Common and What Is Not
 
-### Common across all four
+## Common across all four
 
 All four personas share the same core needs:
 
@@ -123,7 +123,7 @@ All four personas share the same core needs:
 
 They also share the same frustration: too much noise, too many options, not enough follow-through. None of them need another roadmap or tool recommendation. They need a place that helps them actually build and ship.
 
-### The "next weekend" problem
+## The "next weekend" problem
 
 All four personas have day jobs. This creates a structural problem that goes beyond FOMO: excitement on Friday, plans for "next weekend," weekend fills with rest/family/errands, project untouched, repeat guilt, eventual abandonment. It is not laziness - it is energy depletion from the day job, limited willpower after work hours, and the high cognitive load of AI work making it feel "too big" for fragmented time.
 
@@ -138,7 +138,7 @@ This is where AI Shipping Labs adds unique value for all personas. The community
 - Co-working energy: voice channels where people code together for 1-2 hours, breaking the isolation of solo side-project work
 - Celebrating consistency over perfection: tracking "weeks touched" streaks, not just completion
 
-### What differs: starting points
+## What differs: starting points
 
 The key difference is not what they want (all want to build production AI) but where they start:
 
@@ -151,7 +151,7 @@ The key difference is not what they want (all want to build production AI) but w
 
 Alex and Taylor are mirror images - one has engineering but no AI, the other has AI but no engineering. Priya is furthest along and mainly needs depth and peers. Sam has the longest path.
 
-### How easy it is to serve each persona
+## How easy it is to serve each persona
 
 Alex, Priya, and Taylor are the core audience - they already have strong skills on one side and need to fill in the other. The community's main content (cohorts on RAG, agents, evals, deployment) directly serves them.
 
@@ -160,7 +160,7 @@ Alex, Priya, and Taylor are the core audience - they already have strong skills 
 - Priya is already capable. They benefit most from the community itself - peers, accountability, advanced project sprints, seminars.
 - Sam is the hardest to serve. They need to get comfortable with engineering fundamentals (APIs, version control, deployment) before the AI-specific content clicks. We welcome them and want to create content for them, but they will need to invest extra time getting up to speed with coding and software engineering basics. We can provide resources and a supportive path for this, but the main community content assumes at least basic engineering comfort. Sam benefits most from the structured environment and peer support while building those foundational skills.
 
-### Implications for content and community design
+## Implications for content and community design
 
 The main cohorts and activities should target the middle ground: people who can code and want to build AI. This serves Alex, Taylor, and Priya directly.
 

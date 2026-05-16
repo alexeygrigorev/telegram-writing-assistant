@@ -16,7 +16,7 @@ How context engineering and spec-driven development really work for agents and C
 
 ## Resources
 
-### Get Shit Done (GSD)
+## Get Shit Done (GSD)
 
 Source: https://github.com/gsd-build/get-shit-done
 
@@ -57,7 +57,7 @@ Quotes:
 - "The complexity is in the system, not in your workflow. Behind the scenes: context engineering, XML prompt formatting, subagent orchestration, state management. What you see: a few commands that just work."
 - "Each task gets its own commit immediately after completion" - enabling git bisect to find exact failing tasks and independent reversion of any piece of work
 
-### tmc-marketplace iterative-engineering
+## tmc-marketplace iterative-engineering
 
 Source: https://github.com/tmchow/tmc-marketplace/tree/main/plugins/iterative-engineering
 
@@ -98,7 +98,7 @@ Quotes:
 - "Tech plan describes what, not how - Plans capture architecture, query strategies, and test scenarios. They don't pre-write method bodies - that's brittle and gets followed blindly"
 - "Iteration improves quality - A review after a review can still find improvements"
 
-### Spec-Driven Development Explained (Video)
+## Spec-Driven Development Explained (Video)
 
 Source: https://www.youtube.com/watch?v=mViFYTwWvcM
 
@@ -127,7 +127,7 @@ Quotes:
 - "Having a spec like this is much better than having the LLM guess what solution is going to hopefully best fit the user's request."
 - "We can use spec coding to flip the traditional development model so that we have this spec and that becomes the primary artifact that drives all downstream work."[^14]
 
-### FullStack-Agent Research
+## FullStack-Agent Research
 
 Source: https://x.com/omarsar0/status/2020891961511809456
 
@@ -168,7 +168,7 @@ Quotes:
 
 Paper: https://arxiv.org/abs/2602.03798[^6]
 
-### Compound Engineering
+## Compound Engineering
 
 Source: https://every.to/guides/compound-engineering
 
@@ -208,7 +208,7 @@ Quotes:
 - "First attempts have a 95 percent garbage rate. Second attempts are still 50 percent. This isn't failure - it's the process."
 - "An hour spent creating a review agent saves 10 hours of review over the next year."
 
-### Taskmaster
+## Taskmaster
 
 Source: https://github.com/blader/taskmaster
 
@@ -253,7 +253,7 @@ Quotes:
 - "If work remains, the agent continues. If truly done, the agent confirms and the hook allows the stop on the next cycle."
 - "IMPORTANT: The user's latest instructions always take priority. If the user said to stop, move on, or skip something, respect that - do not force completion of work the user no longer wants."
 
-### Superpowers
+## Superpowers
 
 Source: https://github.com/obra/superpowers
 
@@ -295,7 +295,7 @@ Technical Details:
 - Skills are classified as either rigid (TDD, debugging, verification: follow exactly, no adaptation) or flexible (patterns: adapt principles to context)
 - The project is MIT licensed and currently at v4.3.0 (as of February 2026)
 
-### GitHub Spec Kit
+## GitHub Spec Kit
 
 Source: https://github.com/github/spec-kit
 
@@ -335,7 +335,7 @@ Quotes:
 - "The spec is completely detached from the implementation. If at some point you switch to Hugo or any other static site generator, you use the same spec."
 - "Go in with your hands and start typing and entering requirements. It's a markdown file. You don't need to ask the LLM to do this."
 
-### Spec Kit Walkthrough (Video)
+## Spec Kit Walkthrough (Video)
 
 Source: https://www.youtube.com/watch?v=a9eR1xsfvHg
 
@@ -366,7 +366,7 @@ This is genuinely useful. You work with agents like you work with people on a te
 
 Spec-driven development seems to come from this same direction. Still need to fully understand it, but from what it looks like, this is exactly it. There are articles to prepare about this too, and an idea for making a course about this[^15].
 
-### Practical Validation
+## Practical Validation
 
 Phil Winder [wrote about migrating a Python codebase to Go using Claude Code](https://www.linkedin.com/posts/drphilwinder_i-just-migrated-a-production-python-codebase-activity-7430343296205459456-eXUm) and concluded: "Claude is a powerful but literal executor. The gaps in your design become the bugs in your system." This reinforces why spec-driven development matters - without clear specifications, agents fill the gaps with their own assumptions[^18].
 

@@ -44,15 +44,15 @@ The result was not great. Milestones were unclear. Tasks were too granular - "ad
 
 Plus the tasks had no acceptance criteria, no clear format[^4].
 
-### Choosing Django
+## Choosing Django
 
 The project was already on Next.js. I decided to rewrite it to Django. This was my decision because I knew Django. Next.js uses JavaScript and TypeScript, and I might not be able to handle it. If something breaks, it is easier for me to understand Python code. I have known Django since 2010. Plus the course management platform is on Django, and I have done other Django projects recently. It was a safe choice - if something goes wrong, I can always fix it and tell the agent "here, you are doing this wrong, here are the best practices"[^4][^18].
 
-### First Task: Migrate to Django
+## First Task: Migrate to Django
 
 The first task was to migrate the existing site from Next.js to Django. A Django project consists of multiple applications. These applications are fairly independent of each other and work within one project. I supervised this, told the agent how things work in Django. The problem was that the agent decided to create too many apps - it wanted to make an app for every small thing. I said no, explained how to structure it properly. I decomposed everything with the agent, figured out what goes where. The task had clear acceptance criteria: the site must fully preserve the existing design and functionality[^4][^19].
 
-### Iterating on Task Format
+## Iterating on Task Format
 
 For the first task, I decided to try a different approach. I wanted something like the Ralph Loop (my previous experiment). With Ralph, the instructions were like "keep improving until the computer shuts down." Here I wanted specifics. First I wanted to decompose everything into clear tasks. Then I wanted the agent to take tasks from the pool of decomposed tasks and work until they are done[^5][^20].
 
@@ -66,7 +66,7 @@ I now understand how to decompose tasks for agents. If I leave it to the agent, 
 
 I decided to try a new approach. Instead of doing everything in the main Claude Code session, I would use subagents[^6].
 
-### Why Subagents
+## Why Subagents
 
 Two observations led to this:
 
@@ -74,13 +74,13 @@ Two observations led to this:
 
 2. The agent tests its own code poorly. Like with programmers and testers - a programmer writes something and is convinced their code works. You often need testers who bring an outside perspective. I noticed the same with agents - the code it implemented in this session, it remembers what it did, so it has a biased view[^6].
 
-### The Architecture
+## The Architecture
 
 I ended up with two core subagents: one Software Engineer and one Tester. The Software Engineer implements a feature, says "I am done." Then verification passes to the Tester. The Tester checks and says "you messed up here, here, and here." This goes back to the Software Engineer. They iterate until both agree the task is done - the Software Engineer says "ready" and the Tester accepts[^6].
 
 I made an agent-orchestrator (manager) that calls these subagents. The orchestrator purely manages - it has no biased relationship with the code. If I ran everything in the main session and then ran a tester in the same session, the tester might say "nah, it is fine" and do nothing. With separate subagents, the orchestrator calls the Software Engineer, the Software Engineer implements, then the orchestrator calls the Tester, the Tester tests, and the orchestrator passes Tester feedback back to the Software Engineer. Since these are subagents, they can work in parallel[^6].
 
-### The Work Loop
+## The Work Loop
 
 The orchestrator looks at GitHub Issues, pulls two tasks. I open a Claude Code session, say "look at what tasks are in GitHub, sort them, pick two by some criteria." For each task it launches a Software Engineer, and after the Software Engineer finishes, it launches a Tester. The two tasks should ideally be independent so they can run in parallel[^7].
 
@@ -100,13 +100,13 @@ When the orchestrator picks the next tasks, it checks dependencies to decide whi
 
 I wanted the orchestrator to keep working until the backlog is empty. The trick: I add a task that says "when you finish all current tasks, go to GitHub, pull the next two issues, and add them to the todo list." This creates a loop - when work finishes, it picks the next two tasks and assigns them to the Software Engineer and Tester cycle. It keeps going until there are no more tasks on GitHub[^7].
 
-### The On-Call Engineer
+## The On-Call Engineer
 
 The second task was to set up CI/CD - so that tests run automatically. I added a third subagent whose job is to monitor CI/CD status after each push. If something breaks, this agent finds who is responsible, opens an issue, documents what broke, and tries to fix it[^8].
 
 The orchestrator coordinates: if the On-Call Engineer says "something is broken" but the Software Engineer is currently working on that area, the orchestrator says "calm down, the Software Engineer is working on this, wait." But if the Software Engineer finished a feature and pushed it, and that broke something else - the On-Call Engineer fixes it independently. Its job is to keep CI/CD green[^8].
 
-### Adding the Product Manager
+## Adding the Product Manager
 
 I renamed the agents. The implementer became "Software Engineer" because it sounds better. I also added a Product Manager role. I want to be able to create an issue myself and then tell the PM: "now figure out how this should look in practice, how to properly implement it." In real work, the PM usually has the final say in acceptance - not just the Tester. The Tester checks everything from the user's perspective, but the PM should have the last word[^26][^27].
 
@@ -123,7 +123,7 @@ The Product Manager's responsibilities:
   <!-- Screenshot showing the new agent naming convention -->
 </figure>
 
-### Why Not Ralph Loop
+## Why Not Ralph Loop
 
 Ralph Loop would not work well here because the subagents run in the background. The orchestrator launches an agent and then waits - it does nothing until the subagent finishes and reports back. The stop hook from Ralph would probably trigger while the subagent is still working but the orchestrator is "sleeping." The todo-list-based loop works better for this[^4b].
 
@@ -213,11 +213,11 @@ This is what Claude did for the website after 1.5 days of work. The first time I
 
 I finally got around to checking the features on the Labs site. Some things had been sitting with the "human" tag. By the process I asked the agent to follow, features that require human verification are marked with the "human" tag and not closed automatically. I started going through the GitHub issues tagged "human"[^31].
 
-### OAuth Tokens
+## OAuth Tokens
 
 I needed to create OAuth tokens for Gmail and GitHub so the sign-in buttons would work. I generated tokens for both. Claude told me to add them to the .env file[^31].
 
-### Zoom Integration
+## Zoom Integration
 
 The Zoom integration worked, but initially not the way I wanted to use it. It was not fully configured. You had to create events through the admin panel, and then it would make a Zoom meeting. I said I want a button instead. It was remade a bit, and everything worked[^31][^32].
 
@@ -237,11 +237,11 @@ I press "Create Meeting" and it creates a meeting. Zoom automatically creates a 
 
 I left some remarks about the interface - things I did not like. But those are about comfort, not functionality. The functionality works. I asked the agent to create GitHub issues for the UI improvements, and asked another agent to start implementing them[^32].
 
-### New Features: Recordings to S3 and YouTube
+## New Features: Recordings to S3 and YouTube
 
 I created a new feature request: Zoom recordings should automatically go to S3. I do not want to store recordings only in Zoom. They should automatically end up in S3, and people who missed events can watch them from there. All automatically, without any manual work. I also asked to set up automatic upload of everything to YouTube. I do not know if it will work, but it is cool[^32].
 
-### The Admin Panel and User Dashboard
+## The Admin Panel and User Dashboard
 
 This is what the admin panel looks like - a course management dashboard showing courses, their status, instructors, and access levels[^37].
 
@@ -259,7 +259,7 @@ And this is the home screen that a user sees after logging in. It shows sections
   <!-- Shows the authenticated user experience that the agent built -->
 </figure>
 
-### Remaining Work
+## Remaining Work
 
 What is still left to check:
 
@@ -270,11 +270,11 @@ What is still left to check:
 
 The specific flow I want to test now: make a purchase in Stripe and get automatically added to Slack. Currently there are only two people in Slack. I want to verify that after paying, a new account becomes the third person[^34].
 
-### Content Management Vision
+## Content Management Vision
 
 I want articles stored on GitHub because it is much simpler to manage them in markdown than through the site interface. My vision: you work in GitHub, push, and a GitHub Action fires that automatically updates the site. I prefer this to going to the site and editing there. First, I can use all the tools I already use for this. Second, automation. Right now when I write courses, everything is in GitHub and then I have to manually transfer it to the site. I want to just commit to GitHub and have it automatically appear on the site. This still needs to be finalized[^33].
 
-### Overall Impressions
+## Overall Impressions
 
 I am surprised that things just work out of the box. I have only checked two features so far (OAuth and Zoom), but I already like the result. I was worried the agent would produce garbage since it worked for a long time. But the process of having features well-planned first, with multiple agents with different roles - this setup seems to work[^31].
 

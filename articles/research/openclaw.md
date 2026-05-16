@@ -115,7 +115,7 @@ graph TB
 
 Everything is typed. The WebSocket protocol uses TypeBox - a TypeScript library that defines a schema once and produces both runtime validators and JSON Schema documents - and those JSON Schema documents then generate the Swift models the iOS client uses. In practice, that means the contract between the Gateway, your iOS app, and any third-party client is described in one place, and a change to the protocol cannot silently break a client. The design invariants from `docs/concepts/architecture.md` state: exactly one Gateway controls a single Baileys (a community-maintained WhatsApp Web client) session per host, the handshake is mandatory (any non-JSON or non-connect first frame is a hard close), and events are not replayed - clients must refresh on gaps[^3].
 
-### Why Gateway-Centric
+## Why Gateway-Centric
 
 The Gateway owns the single point of contact with messaging providers. Most of these APIs (WhatsApp via Baileys, Telegram via grammY, iMessage bridges) do not tolerate multiple concurrent connections from the same account. Centralizing them in one daemon avoids duplicate sessions, keeps auth state coherent, and gives the agent a single place to do routing decisions. For you that means you don't have to worry about "did I leave another instance running on my old laptop" - the daemon owns the connection, and only one daemon can.
 
@@ -170,7 +170,7 @@ Final replies get shaped before delivery: the silent token `NO_REPLY` is filtere
 
 The flow above assumes you are already a known sender. The next subsection covers what happens for somebody the Gateway has never seen before.
 
-### Inbound Decision Flow
+## Inbound Decision Flow
 
 Unknown senders do not reach the agent by default. The pairing flow intercepts them first.
 
@@ -232,7 +232,7 @@ graph TD
     L --> M[Core surfaces consume]
 ```
 
-### Capability Model
+## Capability Model
 
 A capability is the contract a plugin offers to core: "I can do X, here is how to call me." Every native plugin registers against one or more capability types. The table from `docs/plugins/architecture.md` lists:
 
@@ -251,7 +251,7 @@ A capability is the contract a plugin offers to core: "I can do X, here is how t
 
 Plugins are classified by shape based on what they actually register: `plain-capability` (one type), `hybrid-capability` (multiple - the OpenAI plugin registers text, speech, media understanding, and image generation all in one), `hook-only` (only hooks, legacy), or `non-capability` (tools, commands, services, routes but no capability). The reason the project bothers tagging shapes at all is that `openclaw plugins inspect <id>` then tells you exactly what each plugin contributes - useful when you are debugging why something isn't showing up in the assistant.
 
-### Manifest Example
+## Manifest Example
 
 Here is the Telegram plugin manifest from `extensions/telegram/openclaw.plugin.json`:
 
@@ -272,7 +272,7 @@ Here is the Telegram plugin manifest from `extensions/telegram/openclaw.plugin.j
 
 This is deliberately minimal. The manifest tells core what the plugin provides (a channel named `telegram`), what env vars it needs, and what config shape it accepts - all without importing any runtime code. Core can validate configs, show setup hints, and plan activation from metadata alone. For you that means the assistant can tell you "you need to set `TELEGRAM_BOT_TOKEN` first" before it ever loads the plugin's TypeScript.
 
-### Core Stays Extension-Agnostic
+## Core Stays Extension-Agnostic
 
 The AGENTS.md file makes this rule explicit and enforces it in CI[^6]:
 
@@ -309,7 +309,7 @@ Plugin hooks run inside the agent loop or gateway pipeline:
 
 Hook decision rules matter. For `before_tool_call`, `{ block: true }` is terminal and stops lower-priority handlers. `{ block: false }` is a no-op and does not clear a prior block. For `message_sending`, `{ cancel: true }` is terminal; `{ cancel: false }` does not clear a prior cancel. This matters for security: a later-loaded "permissive" plugin cannot accidentally undo an earlier plugin's block. For you that means once you install a safety plugin that blocks something, no other plugin can quietly turn that block off.
 
-### Prompt Cache Stability
+## Prompt Cache Stability
 
 The prompt prefix cache is a feature most LLM providers use where identical prompt prefixes reuse previous computation and get billed at a discount. If turn 2 starts with the exact same text as turn 1, the provider charges you less and responds faster. OpenClaw treats prompt-cache stability as correctness and performance critical. When assembling model payloads:
 
@@ -414,7 +414,7 @@ OpenClaw supports 40+ LLM providers, visible in the `extensions/` directory:
 
 Each provider is its own plugin under `extensions/<name>/` and registers through `api.registerProvider(...)`. Core owns the generic inference loop; provider plugins own provider-specific behavior through typed hooks. For you that means trying a new model is a config change, not a code change.
 
-### Auth Profile Rotation
+## Auth Profile Rotation
 
 OpenClaw supports multiple auth profiles per provider with automatic rotation:
  - Cooldown tracking with auto-expiry for failed profiles
@@ -506,39 +506,39 @@ That covers the system end to end. The closing section gathers the design choice
 
 Several design decisions stand out when compared to other assistant frameworks.
 
-### Manifest-First Control Plane
+## Manifest-First Control Plane
 
 Most plugin systems load plugins to ask them what they can do. OpenClaw reads the manifest first and only loads the plugin when it actually needs to execute something. Discovery, validation, enablement, setup hints, and activation planning are all metadata-driven. The rule "host loads plugins; plugins do not load host internals" keeps the dependency direction clean.
 
-### Gateway as the Only Singleton
+## Gateway as the Only Singleton
 
 One daemon, one WhatsApp session, one control plane. This avoids the "two bots connected to the same account" problem that plagues simpler setups and makes the system's concurrency model explicit.
 
-### Session Lanes and Global Lanes
+## Session Lanes and Global Lanes
 
 Runs are serialized per session key and optionally through a global lane. This is a simple but important design: without it, two concurrent messages in the same chat would produce interleaved tool calls and corrupted history.
 
-### Streaming Stays Inside
+## Streaming Stays Inside
 
 The agent streams to first-party clients (macOS app, CLI, WebChat) but only sends final replies to external messaging channels. Telegram users do not see tokens stream in. This is both a UX choice (no flickering partial replies in chat) and a security choice (no leaking partial reasoning to third parties).
 
-### Prompt Cache Stability as a Contract
+## Prompt Cache Stability as a Contract
 
 OpenClaw treats prompt prefix stability turn-to-turn as a tested invariant. Most assistant frameworks do not think about this. The cost savings and latency reduction from preserving cache hits are significant at scale, and OpenClaw has regression tests for it.
 
-### Bridge-Over-Builtin for MCP
+## Bridge-Over-Builtin for MCP
 
 Using `mcporter` as a bridge instead of building MCP into core is a deliberate bet that the MCP spec will keep churning. It means OpenClaw is not forced to track every spec change, and MCP failures do not take down the Gateway.
 
-### Capability-Typed Plugins
+## Capability-Typed Plugins
 
 Classifying plugins by what they actually register (plain-capability, hybrid-capability, hook-only, non-capability) lets the project give different compatibility guarantees and surface advisory warnings for older patterns. It also makes `openclaw plugins inspect <id>` useful for debugging.
 
-### Multi-Agent Isolation
+## Multi-Agent Isolation
 
 Routing different channels to different agents with different workspaces is a clean way to separate concerns. Your work Telegram and personal Signal can be the same assistant or two different ones, and the isolation is at the routing layer, not bolted on to user code.
 
-### Node Protocol for Mobile
+## Node Protocol for Mobile
 
 Treating mobile apps as "nodes" that expose commands (camera, screen record, location) to the agent is an elegant inversion. The Gateway never calls phone APIs directly; instead it sends a typed WebSocket command and the phone executes it on-device. For you that means new mobile capabilities arrive as app updates, not as Gateway changes.
 

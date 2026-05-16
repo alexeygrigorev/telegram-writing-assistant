@@ -33,16 +33,16 @@ If created, the course would likely be:
 
 There are multiple reasons for preferring paid courses:
 
-### Financial Reasons
+## Financial Reasons
 - Additional income source - revenue from DataTalks Club isn't always sufficient
 - Monetizing expertise and experience directly[^2]
 
-### Audience Benefits
+## Audience Benefits
 - AI DevTools Zoomcamp already provides free content with substantial value
 - People who follow the link already learn a lot
 - Paid course allows structuring knowledge more comprehensively[^2]
 
-### Personal Motivation
+## Personal Motivation
 - AI Buildcamp success demonstrates people are willing to pay for this expertise
 - Students in paid courses tend to be more engaged
 - Satisfaction from earning directly from knowledge and experience[^2]

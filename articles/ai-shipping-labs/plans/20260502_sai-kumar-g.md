@@ -20,13 +20,13 @@ Internal working document. Share only the `Summary` and `Plan` sections with the
 
 ## Plan
 
-### Focus
+## Focus
 
 - Main focus: ship a working first version of the News Event Reminder bot in 6 weeks, in sync with the AI Engineering Buildcamp progression (concept → tools → tests → monitoring → evolution).
 - Supporting focus: build the agent yourself rather than letting a coding assistant build it for you. The point is to learn how agents work end to end.
 - Supporting focus: implement the underlying tools (event extraction, scheduler, freshness check) as plain Python functions first, then wire them into an agent that calls them.
 
-### Timeline
+## Timeline
 
 Week 1:
 
@@ -63,7 +63,7 @@ Week 6:
 - Cut a tagged release on GitHub, update the README to show the architecture and how to run it locally, and prepare a short demo (screen recording or live walkthrough at the sprint demo).
 - This is the Buildcamp "evolution" milestone.
 
-### Project approach
+## Project approach
 
 Additional principles for taking a clean conceptual plan to a shipped first version:
 
@@ -73,14 +73,14 @@ Additional principles for taking a clean conceptual plan to a shipped first vers
 - Sync the build to the Buildcamp arc. Buildcamp goes concept → tools → tests → monitoring → evolution. The weekly plan above maps the bot onto that same arc, so the course content reinforces what you are building each week.
 - Ship one project. The bot is the project for this sprint. Do not start a second one until V1 ships.
 
-### Resources
+## Resources
 
 - AI Engineering Buildcamp - already enrolled. The course modules are the primary reference; no extra courses needed.
 - AI Hero - free, useful for filling in agent fundamentals if any module feels too dense. Cover whichever pieces (tool calling, agent loops, evaluation) feel weakest.
 - [github.com/alexeygrigorev/telegram-writing-assistant](https://github.com/alexeygrigorev/telegram-writing-assistant) - reference repo for the shape of a Telegram-bot-plus-agent system. Skim for patterns (how messages are received, how the bot triggers downstream processing, how external tools are called) rather than copying code.
 - Coding assistant of choice (Claude Code, Codex, or similar). Pick one and commit to a paid plan that fits 15 hours per week.
 
-### Deliverables
+## Deliverables
 
 - Telegram bot skeleton with end-to-end flag-and-reply path - by end of week 2.
 - Day-of reminder firing reliably from the scheduler - by end of week 3.
@@ -88,21 +88,21 @@ Additional principles for taking a clean conceptual plan to a shipped first vers
 - End-to-end tests and a small monitoring view - by end of week 5.
 - Tagged release, README, and demo ready - by end of week 6.
 
-### Accountability
+## Accountability
 
 - Weekly check-in: what shipped, what is blocked, what is the goal for the next week. Sai named "weekly check-ins and fixed deliverables" as the format that works for him; the weekly goals above match that.
 - 15 hours per week, more on weekends. The plan is sized to that budget; if a week slips, drop a stretch goal rather than extending the week.
 - One project until it ships. The News Event Reminder bot is the only project until the demo.
 - Share progress in the AI Shipping Labs Slack so other members can ask questions and learn from the agent-building decisions.
 
-### Interview prep
+## Interview prep
 
 Sai also asked for an interview prep plan. The shortest realistic answer: a shipped, well-evaluated project IS the interview prep. Once V1 is running:
 
 - Write a short README that explains the architecture, the trade-offs (why three flows, why four tables, why no agent in Flow A), and what you would change next. This is the answer to most "tell me about a project" interview questions.
 - The community session ideas Sai already raised (recent AI Engineering interview questions, mock interviews, strategy for getting interview calls) are tracked in [community-session-ideas.md](../../community-session-ideas.md#ai-engineer-job-hunt-topics-sai-kumar-g) and will be planned as community-wide sessions rather than as part of the personal sprint.
 
-### Next Steps
+## Next Steps
 
 - [ ] [Sai] Pick a coding assistant (Claude Code or Codex) and confirm a paid plan that fits 15 hours per week.
 - [ ] [Sai] Get the Telegram bot skeleton accepting forwarded messages by end of week 1.
@@ -113,13 +113,13 @@ Sai also asked for an interview prep plan. The shortest realistic answer: a ship
 
 ## Internal Context
 
-### Persona
+## Persona
 
 Sam - The Technical Professional Moving to AI (preliminary, to confirm). Sai has 2+ years as an Azure cloud data engineer and a clear project idea, but has not started building it yet. He is the classic data-engineer-moving-into-AI profile that fits Sam.
 
 See [personas.md](../personas.md) for full persona definitions.
 
-### Background
+## Background
 
 Sai Kumar G is a member of Alexey's AI Engineering cohort on Maven. He is a Cloud Data Engineer with two-plus years of experience in Azure data engineering. His goal for the AI Shipping Labs community is to stay updated with the latest AI tech without being overwhelmed by the noise on social platforms[^2].
 
@@ -129,15 +129,15 @@ GitHub (project repo, just started): [github.com/saig217/future-event-remainder]
 
 He previously responded to Valeriia's outreach with topics he wanted the community to cover - recent AI Engineering interview questions, mock interviews and strategy for getting interview calls, and building personal projects - and framed his goal as: "I need the plan to build AI project and get the AI Engineer role". Captured in [community-session-ideas.md](../../community-session-ideas.md#ai-engineer-job-hunt-topics-sai-kumar-g).
 
-### Intake
+## Intake
 
-#### Initial Input
+## Initial Input
 
 I do have a two plus years of experience in Azure data engineering and my goals for this community is to stay updated with the latest AI tech without overwhelming updates from the social platforms[^2].
 
 About the project: A Telegram bot that solves the problem of forgetting future-dated events buried inside news articles - court verdicts, product launches, earnings calls, sports rosters, movie releases - by extracting those events when a user forwards an article, scheduling reminders, and re-verifying each event 1-2 days before it fires to catch postponements or cancellations. The intended user is a heavy news consumer (initially himself) who follows AI, tech, markets, and sports across many sources and cannot manually track every "this will happen on date X" mention. The system uses the Telegram Bot API for input, a web fetcher and an LLM with structured output (Pydantic) for event extraction, a relational database for storage, a scheduler for reminders, and a freshness-check agent with web search and page-fetch tools. Output is Telegram messages: confirmation on flagging, proactive alerts when a date shifts, and the final reminder on the event day with a summary and source link[^2].
 
-#### Questions and Answers
+## Questions and Answers
 
 1. What do you hope to achieve with this plan in the next 6 to 8 weeks?
 
@@ -223,11 +223,11 @@ news-event-tracker/
     └── run.py
 ```
 
-### Meeting Notes
+## Meeting Notes
 
 No intake call yet - input collected via the Google Doc[^2].
 
-### Internal Recommendations
+## Internal Recommendations
 
 Alexey's recommendations after reviewing Sai's intake[^3]:
 
@@ -249,13 +249,13 @@ Alexey's recommendations after reviewing Sai's intake[^3]:
 
 9. Interview prep is best treated as a side effect of the shipped project rather than a parallel track. A working, well-evaluated bot plus a clear README that explains the trade-offs is the strongest answer to most interview questions. The community already has Sai's broader interview-prep requests (recent AI Engineering interview questions, mock interviews, strategy for getting interview calls) captured in [community-session-ideas.md](../../community-session-ideas.md#ai-engineer-job-hunt-topics-sai-kumar-g) and those will be planned as community-wide sessions.
 
-### Internal Action Items
+## Internal Action Items
 
 - [ ] [Alexey] Send Sai the written plan.
 - [ ] [Alexey] Confirm the AI Hero entry point for agent fundamentals if Sai wants the extra reading.
 - [ ] [Valeriia] Confirm Sai is on the AI Shipping Labs Slack channel and added to the May sprint roster.
 
-### Sources
+## Sources
 
 [^1]: [20260430_162055_AlexeyDTC_msg3794.md](../../../inbox/used/20260430_162055_AlexeyDTC_msg3794.md) - shared as plan number 11.
 [^2]: [Sai Kumar G's intake (Google Doc)](https://docs.google.com/document/d/1417RoEHm0VH52R8iFjXTBDlMpRGTRgjJVEz3LDEityU/edit?usp=sharing)
