@@ -44,6 +44,10 @@ Translate from Russian/mixed language to English, but preserve all information:
 
 Words to avoid: delve, crucial, pivotal, testament, underscore (verb), vibrant, intricate, garner, bolster, foster, showcase, enhance, emphasize, highlight, leverage (verb), multifaceted, realm, captivating, elevate, boasts (meaning "has"), key (overused adjective).
 
+### Travel vocabulary
+
+Never use "drive", "drove", or "driving" in the literal car sense - Alexey does not own a car, so transcripts that come out as "we drove to X" are always wrong. Use "we went to X", "we travelled to X", or another mode-neutral verb. Compound adjectives like "data-driven", "spec-driven", "skill-driven" are fine - this rule is about driving a car.
+
 ### Inclusive Language
 - Use gender-neutral terms: "person," "someone," "they" instead of "guy," "man," "he"
 - Example: "marketing person" not "marketing guy"

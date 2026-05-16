@@ -10,13 +10,13 @@ status: draft
 
 Lately I've been at three conferences in a row: first Darmstadt, then Amsterdam, then Porto. The work doesn't slow down for any of that, so I have to keep things moving.[^1][^2][^3][^29]
 
-On top of the conferences, I've been travelling with my child a lot. We went away during the Easter holidays. May 1st was a long weekend in Germany. And I'm dictating this just after we got back from another long weekend, around 14-15 May - we drove to Stuttgart and into the Schwarzwald (Black Forest).[^29]
+On top of the conferences, I've been travelling with my child a lot. We went away during the Easter holidays. May 1st was a long weekend in Germany. And I'm dictating this just after we got back from another long weekend, around 14-15 May - we went to Stuttgart and into the Schwarzwald (Black Forest).[^29]
 
 My day-to-day schedule is uneven on its own. I take my child to school in the morning, I go to the gym, I have lunch meetings, I pick the child up at 4 PM. Between all those slots I have lots of commute time, plus the rest periods between sets in the gym - every set leaves me with a free minute or two.[^17][^29]
 
 I want to use all of that in-between time, because I have too many projects on the go - the AI Shipping Labs site alone takes a lot of work - and I want them to actually progress.[^17]
 
-This article is about how I work from the phone during all of this dead time: trams, school runs, gym rest periods, planes.[^1][^17]
+This article is about how I work from the phone during all of this spare time: trams, school runs, gym rest periods, planes.[^1][^17]
 
 <figure>
   <img src="../assets/images/working-from-phone/claude-code-session-on-phone.jpg" alt="Claude Code session on phone showing task list and prompt input">
@@ -26,9 +26,11 @@ This article is about how I work from the phone during all of this dead time: tr
 
 ## A dedicated remote server
 
-I used to write a lot of code from a tram by leaning on GitHub Copilot - I wrote about that flow earlier in [Shipping Features from my Smartphone with GitHub Copilot](https://alexeyondata.substack.com/p/shipping-features-from-a-tram-stop). Under the hood that was GitHub Actions doing the work for me. It was a kind of "remote environment", but not one I owned - it was GitHub's runtime that I borrowed for each task.
+Working from a phone is not new for me. I already wrote about this flow earlier in [Shipping Features from my Smartphone with GitHub Copilot](https://alexeyondata.substack.com/p/shipping-features-from-a-tram-stop), where I leaned on GitHub Copilot to write code from a tram. Under the hood that was GitHub Actions doing the work for me. It was a kind of "remote environment", but not one I owned - it was GitHub's runtime that I borrowed for each task.
 
-That's changed in the last few months. I now have a full dedicated Linux server on rent, running 24/7, and I use it for everything described here. I connect to it over SSH and install whatever I need on it: Claude Code, Codex, OpenCode. They all live there.[^4][^29]
+I've been practicing phone work for a long time - I built my whole DataTalks.Club routine around it, so I could keep things moving from anywhere.
+
+That's changed in the last few months. I now have a full dedicated Linux server on rent, running 24/7, and I use it for everything described here. I connect to it over SSH and install whatever I need on it: Claude Code, Codex, OpenCode. They all live there.[^4][^29][^31]
 
 On Android I use a client called Termius. I just SSH into the server through it and run whatever I want.[^5]
 
@@ -41,7 +43,7 @@ Once I started using tmux heavily, I realised typing tmux commands from a phone 
 - `t` lists all sessions
 - `t 1` attaches to the session with index 1
 - `t -` creates (or attaches to) a session named after the current folder
-- `t -web` adds an alias suffix - so in the same folder I can have a code session and a `-web` session running `make dev`
+- `t -web` is for when I don't want to connect to the existing session with that name - the suffix after the dash creates a separate session, so in the same folder I can have a code session and a `-web` session running `make dev`
 
 I also lean on Makefiles heavily. From a phone I can't type long commands, so I keep everything behind a `make dev` style target. I used Makefiles before, but the phone makes them non-negotiable.[^8]
 
@@ -65,7 +67,13 @@ I have aliases for all three:[^10][^11]
 
 When I want to start a session, I just type two or three letters. Usually the sessions are already running, since I tend to start them from my computer ahead of time. From the phone I just attach and do something inside.[^11]
 
-I know "skip permissions" and "YOLO" sound reckless, and I'm aware of the risks. They're acceptable for me because of how this server is isolated. The agents on this remote dev box don't have access to my main AWS account. They can reach a sandbox AWS account, but only through a temporary 2-hour session, so a runaway agent can't touch anything that matters. If an agent does something destructive, the radius is limited to this one machine, and I can rebuild it easily from my bootstrap instructions. That isolation is what makes the bypass modes safe for me to use here.[^29][^30]
+I know "skip permissions" and "YOLO" sound reckless, and I'm aware of the risks. They're acceptable for me because of how this server is isolated.
+
+The reason I'm careful with AWS now is that one Gemini agent dropped my production database not long ago - I wrote about that in [How I Dropped Our Production Database and Now Pay 10% More for AWS](https://alexeyondata.substack.com/p/how-i-dropped-our-production-database). After that I made sure to never leave AWS access open to an agent.
+
+The agents on this remote dev box don't have access to my main AWS account. They can reach a sandbox AWS account, but only through a temporary 2-hour session, so a runaway agent can't touch anything that matters.
+
+If an agent does something destructive, the radius is limited to this one machine, and I can rebuild it easily from my bootstrap instructions. That isolation is what makes the bypass modes safe for me to use here.[^29][^30][^31]
 
 ## Portable setup via dotfiles
 
@@ -169,6 +177,17 @@ So far I've talked about how I communicate with agents from the phone, but a lar
 
 All of the above plus my Telegram writing assistant means I can be in the metro, like right now, and still get my thoughts out of my head. I dump them into the Telegram assistant. I can also check on my agents, correct them, or hand them a new task if I need to. I don't have a lot of free time, and this is how I make more of it.[^17][^29]
 
+## Behind the scenes: how this article was made
+
+I use Telegram a lot. Right now, as I'm dictating this, I'm in the metro. Here's a small behind-the-scenes look at how this very article came together:[^31]
+
+1. I dictated my thoughts into the Telegram writing assistant, along with screenshots from the phone.[^31]
+2. The agent took the brain dump and restructured it into a draft article.[^31]
+3. I read the result, didn't like parts of it, and recorded another voice note with corrections. The agent did another polishing pass on top - I ran agents several times this way.[^31]
+4. Once the structure was close enough, a human came in for final editing.[^31]
+
+The same flow works for plans and stories: I open the phone, get a stream of thoughts out, then look at it and do the restructuring. Most of the restructuring is done by the agent. What I don't like, I rearrange. And then a human polishes the result.[^31]
+
 ## Time accounting for this article
 
 The 40 minutes I usually quote for an article like this is the first draft - the brain dump - not the total. That part happens in the in-between time itself. Right now I'm at the gym: I've done my warm-up, I've got a few working sets ahead of me, and between sets I have about two minutes of rest each time. I press pause on Google Recorder, do a working set, come back, and pick up where I left off. I got on the tram earlier, talked into Telegram while riding, took screenshots along the way, then switched to the metro. The brain dump itself was around 40 minutes.[^28][^29]
@@ -211,3 +230,4 @@ Earlier, an article like this would have taken me much longer - several days, pr
 [^28]: [20260516_182349_AlexeyDTC_msg4111_transcript.txt](../inbox/used/20260516_182349_AlexeyDTC_msg4111_transcript.txt)
 [^29]: [20260516_191031_AlexeyDTC_msg4130_transcript.txt](../inbox/used/feedback/20260516_191031_AlexeyDTC_msg4130_transcript.txt)
 [^30]: [20260516_193345_AlexeyDTC_msg4138.md](../inbox/used/feedback/20260516_193345_AlexeyDTC_msg4138.md)
+[^31]: [20260516_202338_AlexeyDTC_msg4144_transcript.txt](../inbox/used/feedback/20260516_202338_AlexeyDTC_msg4144_transcript.txt)
