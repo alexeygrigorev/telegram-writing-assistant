@@ -23,7 +23,7 @@ Internal working document. Share only the `Summary` and `Plan` sections with the
 ## Focus
 
 - Main focus: build one end-to-end data-ingestion project with Python, the GitHub API, Docker, and Elasticsearch. By the end of week 6, fetching new and updated issues from a real GitHub repo and storing them in Elasticsearch on a schedule.
-- Supporting focus: get unblocked on Python software-engineering shape - classes, project structure, environments, packaging - using the project as the carrier. Stop using AI as a black box; understand what it produces.
+- Supporting focus: get unblocked on Python software-engineering shape - classes, project structure, environments, packaging - using the project as the carrier. Stop using AI as a black box. Understand what it produces.
 - Supporting focus (light): if there is room after the project is solid, start AI Hero with the first day or two on search. Skip the agent material - that lands in LLM Zoomcamp.
 
 ## Timeline
@@ -31,7 +31,7 @@ Internal working document. Share only the `Summary` and `Plan` sections with the
 Week 1:
 
 - Pick the data source. GitHub issues from one well-known public project is the recommended choice (Kubernetes, Pandas, Airflow - any large repo with active issues and comments). Decide which repo and why.
-- Set up the Python project from scratch by hand. uv-based project, virtual environment, a `pyproject.toml`, a folder structure that makes sense to you. Write the first script that uses `requests` to fetch the latest issues from the GitHub API. The point is to write this *yourself*, using AI for explanations of concepts you have not seen before, not as a code generator.
+- Set up the Python project from scratch by hand. uv-based project, virtual environment, a `pyproject.toml`, a folder structure that makes sense to you. Write the first script that uses `requests` to fetch the latest issues from the GitHub API. The point is to write this yourself, using AI for explanations of concepts you have not seen before, not as a code generator.
 - Run Elasticsearch locally in Docker via docker-compose. Confirm it is up and you can write a single document to an index using the Python client.
 
 Week 2:
@@ -41,7 +41,7 @@ Week 2:
 
 Week 3:
 
-- Add update detection. On a re-run, detect issues that have changed since last ingest and update them in Elasticsearch instead of re-inserting. The bookkeeping (last-seen timestamp, ETag, or whatever you choose) is the engineering bit; this is where SQL/dbt instinct translates well - you are doing incremental loads, just into Elasticsearch instead of a warehouse.
+- Add update detection. On a re-run, detect issues that have changed since last ingest and update them in Elasticsearch instead of re-inserting. The bookkeeping (last-seen timestamp, ETag, or whatever you choose) is the engineering bit. This is where SQL/dbt instinct translates well - you are doing incremental loads, just into Elasticsearch instead of a warehouse.
 - Add comments ingestion. For each issue, fetch its comments and store them so they are searchable alongside the issue.
 
 Week 4:
@@ -62,11 +62,11 @@ Week 6:
 
 ## Project approach
 
-- Analytics-engineering skills transfer. You already know how to model data (SQL/dbt) and run incremental loads. The GitHub-issues project is the same shape - source of truth → transform → load → make queryable - just with a different stack. Lean on the parts that are familiar; the new bits are Python project structure, Docker, and the API client.
-- Stop using AI as a black box. Daniel flagged this himself: Claude does the project structure, Docker, etc., but he wants to actually understand it. Concrete rule for the sprint: when AI generates code, read it line by line, ask it to explain anything unfamiliar, and rewrite at least one part by hand to confirm you can. The point is comprehension, not output.
+- Analytics-engineering skills transfer. You already know how to model data (SQL/dbt) and run incremental loads. The GitHub-issues project is the same shape - source of truth → transform → load → make queryable - just with a different stack. Lean on the parts that are familiar. The new bits are Python project structure, Docker, and the API client.
+- Stop using AI as a black box. Daniel flagged this himself: Claude does the project structure, Docker, etc., but he wants to understand it. Concrete rule for the sprint: when AI generates code, read it line by line, ask it to explain anything unfamiliar, and rewrite at least one part by hand to confirm you can. The point is comprehension, not output.
 - Elasticsearch first, deployment later. Elasticsearch is great for personal projects locally but expensive to deploy. For this sprint, run it locally in Docker - that is enough. If a deployment exercise becomes useful later, pick a project that does not need Elasticsearch (or use a cheaper alternative like sqlite-vec) for that piece.
 - Out-of-scope is recorded, not abandoned. The career decision (analytics engineer vs data/AI engineer), the side project, and "AI in my day job" are explicitly parked behind the LLM Zoomcamp prep for this sprint. They reappear after week 6.
-- Skip CI/CD this time. It is genuinely useful but not the right gap to close before LLM Zoomcamp; revisit later.
+- Skip CI/CD this time. It is genuinely useful but not the right gap to close before LLM Zoomcamp. Revisit later.
 
 ## Resources
 
@@ -102,7 +102,7 @@ Week 6:
 - [ ] [Daniel] Pick the GitHub repo to ingest and write the one-page concept doc by end of week 1.
 - [ ] [Daniel] Confirm a coding-assistant choice and a schedule of weekly time blocks.
 - [ ] [Daniel] Share weekly progress in the AI Shipping Labs Slack.
-- [ ] [Alexey] Send the written plan; agree on the call date to discuss the side project, the career question, and the medium-term plan.
+- [ ] [Alexey] Send the written plan. Agree on the call date to discuss the side project, the career question, and the medium-term plan.
 - [ ] [Valeriia] Confirm Daniel is on the AI Shipping Labs Slack channel, on the LLM Zoomcamp roster for June, and added to the May sprint.
 
 ## Internal Context
@@ -176,7 +176,7 @@ He asked three follow-up questions[^1]:
 
 (The intake document numbering jumps from 8 to 10 - question 9 is missing from the source.)
 
-Daniel's closing comment: he is aware his goals are big for 6-8 weeks; he plans to stay in the community for the long haul and would value a longer-term plan in addition to the short one.
+Daniel's closing comment: he is aware his goals are big for 6-8 weeks. He plans to stay in the community for the long haul and would value a longer-term plan in addition to the short one.
 
 ## Meeting Notes
 
@@ -206,7 +206,7 @@ Action items added by this call:
 
 ## Side Project Idea (recorded during the 2026-05-07 call)
 
-Daniel intends to start this only after the 6-week sprint - he wants the Python, Docker, APIs, and Elasticsearch foundation in place first. The information is captured here so it does not get lost; the sprint plan does not change[^3][^4].
+Daniel intends to start this only after the 6-week sprint - he wants the Python, Docker, APIs, and Elasticsearch foundation in place first. The information is captured here so it does not get lost. The sprint plan does not change[^3][^4].
 
 The project is a chatbot platform for a proprietary educational method in the audiovisual industry. Daniel's wife runs the business and owns the underlying material - documents, PDFs, videos, and lessons that teach this method to other people. She currently uses a custom GPT she built in the ChatGPT web interface, trained on these documents. She wants to sell access to this knowledge as a service to other people in the audiovisual industry.
 
@@ -231,7 +231,7 @@ Alexey's recommendations after reviewing Daniel's intake[^2]:
 
 4. The right preparation project: an end-to-end data-ingestion pipeline using Python and an API. Concretely - take GitHub issues from a large public project, fetch via requests, store them in Elasticsearch in Docker, handle updates and comments. This sits at the crossover of data engineering (ingestion, incremental loads, schema design) and AI engineering (Elasticsearch as a search backend). Six weeks of build is enough to make him max-prepared for LLM Zoomcamp, and the project doubles as a strong starter for the LLM Zoomcamp final project.
 
-5. Why Elasticsearch specifically: companies often use it; getting hands-on with it now pays off later. The constraint to be honest about: it is expensive to deploy for personal projects, so the production-deployment exercise belongs to a different project (not Elasticsearch). For this sprint, local Docker is enough.
+5. Why Elasticsearch specifically: companies often use it. Getting hands-on with it now pays off later. The constraint to be honest about: it is expensive to deploy for personal projects, so the production-deployment exercise belongs to a different project (not Elasticsearch). For this sprint, local Docker is enough.
 
 6. He flagged using AI as a black box - this is the most important thing to address. The plan should explicitly say "stop outsourcing comprehension". The project gives him a setting where he has to write Python project structure, Docker, and an API client himself, with AI as an explainer rather than a code generator.
 

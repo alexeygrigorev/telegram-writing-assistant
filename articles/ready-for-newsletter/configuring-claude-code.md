@@ -10,7 +10,7 @@ status: draft
 
 Configuration, aliases, and tools for working with Claude Code across projects and devices.
 
-Code: https://github.com/alexeygrigorev/.claude/[^3]
+[Code](https://github.com/alexeygrigorev/.claude/)[^3]
 
 ## The Problem
 
@@ -109,7 +109,7 @@ The command creates:
 - Proper project structure with package directory, tests, CI workflows
 - pyproject.toml with correct build configuration (hatchling)
 - Makefile with standard targets (test, setup, shell, publish-build, publish-test, publish, publish-clean)
-- __version__.py file for version management
+- version.py file for version management
 - .github/workflows/test.yml for CI
 - Standard .gitignore and .python-version files
 
@@ -172,7 +172,7 @@ This skill should be added to the Claude configuration to handle post-coding cle
 
 A new skill that fetches YouTube video transcripts. This was needed for the Data Engineering Zoomcamp - Bruin company prepared videos for module 5, and I wanted to make a transcript of that module to create a retro video. So I created a new skill for it and tested it right away. It works great[^13][^14].
 
-Code: https://github.com/alexeygrigorev/.claude/tree/main/skills/fetch-youtube[^13]
+[Code](https://github.com/alexeygrigorev/.claude/tree/main/skills/fetch-youtube)[^13]
 
 The collection of skills will keep growing over time[^14].
 
@@ -224,7 +224,7 @@ This switches the default model to Sonnet (cheaper than Opus), increases the com
 
 Inside a Claude Code session, run `/effort medium` to reduce the effort level. Then go to `/config` and set "verbose output" to false to cut unnecessary tokens in output.
 
-Source: https://x.com/LLMJunky/status/2040127436864586166[^20]
+[Source](https://x.com/LLMJunky/status/2040127436864586166)[^20]
 
 ## Potential Improvements
 

@@ -10,11 +10,11 @@ status: draft
 
 A paid course ($499) called "Agentic AI Engineering" by Towards AI (Louis-Francois Bouchard / @Whats_AI) and Decoding AI (Paul Iusztin). It teaches production-grade AI agent development through 34 lessons, 17 Jupyter notebooks (available free on GitHub), and a complete multi-agent project. Self-paced with lifetime access[^1].
 
-Source tweet: https://x.com/Whats_AI/status/2032064189141856572
+[Source tweet](https://x.com/Whats_AI/status/2032064189141856572)
 
-Course page: https://academy.towardsai.net/courses/agent-engineering
+[Course page](https://academy.towardsai.net/courses/agent-engineering)
 
-GitHub repo (free notebooks): https://github.com/towardsai/agentic-ai-engineering-course
+[GitHub repo (free notebooks)](https://github.com/towardsai/agentic-ai-engineering-course)
 
 ## Course Structure
 

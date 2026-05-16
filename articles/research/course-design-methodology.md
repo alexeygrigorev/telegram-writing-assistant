@@ -172,7 +172,7 @@ Goal: turn "Python is needed" into a list of specific skills and patterns.
 
 Questions to ask:
 
-- What 20-50 code fragments/patterns actually appear in subsequent courses?
+- What 20-50 code fragments/patterns appear in subsequent courses?
 - Which libraries/tools are mandatory: requests? pandas? pathlib? typing?
 - What is must-have vs. nice-to-have?
 - What typical mistakes do students make in other courses (from your experience)?
@@ -234,8 +234,8 @@ Deliverables:
 
 Quality checks:
 
-- Early win: the project comes "alive" very quickly
-- No jumps where "suddenly 6 new ideas are needed at once"
+- Early win: the project comes "alive" quickly
+- No jumps where "6 new ideas are needed at once"
 
 Gate: each project step "pulls" exactly a limited set of new skills.
 

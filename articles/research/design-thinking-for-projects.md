@@ -40,7 +40,7 @@ There is a templating system for course content preparation - a Markdown documen
 
 Looking for a Python solution, the only library available internally launches a browser to render SVG. This works for one or two images but is slow and inconvenient for large volumes. There is no Python API for it. A Rust library exists but was not explored. Claude Code was asked to implement a Python solution instead[^2].
 
-This is how many libraries and projects were born: MinSearch, CQ, LightSearch. They all appeared because there was no existing solution for a specific need. For example, there was surprisingly no suitable in-memory search library for Python. The problem was solved relatively quickly even before AI assistants were popular. More time was spent figuring out how to publish the library than writing it[^4].
+This is how many libraries and projects were born: MinSearch, CQ, LightSearch. They all appeared because there was no existing solution for a specific need. For example, there was no suitable in-memory search library for Python. The problem was solved relatively quickly even before AI assistants were popular. More time was spent figuring out how to publish the library than writing it[^4].
 
 ## Source 2: Wanting to understand how something works
 

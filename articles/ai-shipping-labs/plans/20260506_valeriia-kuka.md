@@ -13,9 +13,9 @@ Internal working document. Share only the `Summary` and `Plan` sections with the
 ## Summary
 
 - Current situation: works on the team running AI Shipping Labs, primarily on content marketing for DataTalks.Club. Already uses AI assistants in day-to-day work but is not a programmer. Listening to onboarding intakes from less-technical members has been motivating - she would like to participate as a member herself, learn the AI engineering basics, and become more comfortable in technical conversations.
-- Goal for the next 6 weeks: complete the AI Hero course (modules + homework + final demo) and end the sprint with a working agent of her own. Treat the course completion as the main goal; any extra side project is a bonus.
+- Goal for the next 6 weeks: complete the AI Hero course (modules + homework + final demo) and end the sprint with a working agent of her own. Treat the course completion as the main goal. Any extra side project is a bonus.
 - Main gap to close: hands-on AI engineering basics. Without them, automation ideas for DataTalks.Club stay as "ideas she wishes she could build". The course closes that gap.
-- Weekly time commitment: 3-4 hours per week as a baseline. Course-only this is enough; a side project on top of the course is not realistic at that budget.
+- Weekly time commitment: 3-4 hours per week as a baseline. Course-only this is enough. A side project on top of the course is not realistic at that budget.
 - Why this plan is the right next step: Valeriia is in the same position as several non-programmer members - the path that has worked for them is "use a coding assistant + take AI Hero". This plan adopts the same shape, with realistic expectations about pace.
 
 ## Plan
@@ -23,7 +23,7 @@ Internal working document. Share only the `Summary` and `Plan` sections with the
 ## Focus
 
 - Main focus: complete AI Hero from start to finish, including the homework and the final demo. Aim for steady weekly progress, not speed.
-- Supporting focus (bonus, only if main focus is on track): pick one small DataTalks.Club idea - a Q&A agent over DataTalks.Club podcasts is a good candidate - and apply what the course teaches as a personal side project. This is explicitly a stretch goal; it is fine to drop if the course is taking the full 3-4 hours per week.
+- Supporting focus (bonus, only if main focus is on track): pick one small DataTalks.Club idea - a Q&A agent over DataTalks.Club podcasts is a good candidate - and apply what the course teaches as a personal side project. This is explicitly a stretch goal. It is fine to drop if the course is taking the full 3-4 hours per week.
 
 ## Timeline
 
@@ -40,11 +40,11 @@ Week 2:
 
 Week 3:
 
-- Complete the next AI Hero module. Same Slack note format. If a module feels too dense for a single week, slow the pace rather than skipping the homework - finishing later is fine; finishing without practice is not.
+- Complete the next AI Hero module. Same Slack note format. If a module feels too dense for a single week, slow the pace rather than skipping the homework - finishing later is fine. Finishing without practice is not.
 
 Week 4:
 
-- Complete the next AI Hero module. Same Slack note format. By end of week 4 you should be roughly two-thirds through the course; if you are behind, decide now whether to drop the side-project stretch goal entirely so weeks 5-6 can stay on the capstone.
+- Complete the next AI Hero module. Same Slack note format. By end of week 4 you should be roughly two-thirds through the course. If you are behind, decide now whether to drop the side-project stretch goal entirely so weeks 5-6 can stay on the capstone.
 
 Week 5:
 
@@ -57,7 +57,7 @@ Week 6:
 
 ## Project approach
 
-- Pace honestly. 3-4 hours a week with the course is doable; 3-4 hours with the course + a side project is not. The course is the hard requirement; side projects only enter if the course is comfortably on track.
+- Pace honestly. 3-4 hours a week with the course is doable; 3-4 hours with the course + a side project is not. The course is the hard requirement. Side projects only enter if the course is comfortably on track.
 - This will be harder for you than for most other members on the same plan, simply because the engineering vocabulary is newer. That is normal and expected. Every step in the course that takes longer than the recommended time is a fair trade for understanding.
 - Use a coding assistant from day one. Treat it as the on-call tutor: explain things you do not recognise, suggest the next small step, generate boilerplate. Do not let it generate code you cannot read - if the assistant produces something opaque, ask it to explain rather than running it.
 - Use the AI Shipping Labs Slack the same way members do - ask questions, share progress, post the demo at the end. Doing this from inside the community makes the format easier to recommend later.
@@ -79,13 +79,13 @@ Week 6:
 
 ## Accountability
 
-- One short Slack post per week: what was new, what felt confusing, what is next. The format does not need to be polished; the consistency is the point.
+- One short Slack post per week: what was new, what felt confusing, what is next. The format does not need to be polished. The consistency is the point.
 - Treat the course completion as the success metric. Side project is a bonus, not a target.
-- 3-4 hours per week. If a heavier work week makes that impossible, drop the side-project track first; do not drop a course module to fit a project.
+- 3-4 hours per week. If a heavier work week makes that impossible, drop the side-project track first. Do not drop a course module to fit a project.
 
 ## Next Steps
 
-- [ ] [Valeriia] Pick the coding assistant + paid plan; start AI Hero module 1.
+- [ ] [Valeriia] Pick the coding assistant + paid plan. Start AI Hero module 1.
 - [ ] [Valeriia] Post weekly progress in the AI Shipping Labs Slack.
 - [ ] [Alexey] Send the written plan and confirm AI Hero is the right entry point.
 
@@ -127,11 +127,11 @@ No intake call needed - Valeriia is on the team and the conversation continues i
 
 Alexey's recommendations[^3]:
 
-1. Same shape as for other non-programmer members: take AI Hero, pair with a coding assistant. The course is the structured path; the assistant is the tutor.
+1. Same shape as for other non-programmer members: take AI Hero, pair with a coding assistant. The course is the structured path. The assistant is the tutor.
 
 2. Goal of the sprint is to come out of it comfortable with AI engineering basics so she can hold technical conversations more fluently. Building one finished agent (via the course) makes that real. Anything beyond the course is a bonus.
 
-3. Account for the course being harder for Valeriia than for engineering-background members. Course time of 6-7 hours per week is the recommended pace including homework; with 3-4 hours per week available, accept that the course will take the full sprint and possibly a little longer. Better to finish at week 7 than to drop the course at week 5.
+3. Account for the course being harder for Valeriia than for engineering-background members. Course time of 6-7 hours per week is the recommended pace including homework. With 3-4 hours per week available, accept that the course will take the full sprint and possibly a little longer. Better to finish at week 7 than to drop the course at week 5.
 
 4. The DataTalks.Club podcast Q&A agent is a good candidate for the capstone - small, useful, and uses public material she already knows well. But only after the course material is comfortably on track.
 

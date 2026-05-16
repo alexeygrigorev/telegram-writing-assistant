@@ -8,7 +8,7 @@ status: draft
 
 # Hermes Agent: Nous Research's Self-Improving Personal Agent
 
-Repository: https://github.com/NousResearch/hermes-agent
+[Repository](https://github.com/NousResearch/hermes-agent)
 
 Hermes Agent is an open-source, Python-based AI agent runtime built by Nous Research. Launched in February 2026 as the successor to OpenClaw, it ships as a self-improving personal assistant with a closed learning loop, a platform-agnostic agent core, 47 tools spread across 20 toolsets, a 16-platform messaging gateway, and six terminal backends ranging from a local shell to serverless Modal/Daytona VMs.
 
@@ -42,9 +42,9 @@ Three design commitments define the project:
 
 ## Repository Topography
 
-Before looking at architecture, it helps to know what lives where, because the rest of the article keeps pointing back to these files. The repo is Python-heavy, and unusually for a modern project, a small set of very large files does most of the work. Here is what each of the big files does and why you would open it - so when a later section mentions `run_agent.py` or `auxiliary_client.py`, you already know what kind of code is in there and what it controls:
+Before looking at architecture, it helps to know what lives where, because the rest of the article keeps pointing back to these files. The repo is Python-heavy, and unusually for a modern project, a small set of large files does most of the work. Here is what each of the big files does and why you would open it - so when a later section mentions `run_agent.py` or `auxiliary_client.py`, you already know what kind of code is in there and what it controls:
 
-- `run_agent.py` - 633 KB. The conversation loop. Every turn you take with Hermes runs through a function in this file. It is kept as a single file on purpose, so a full read shows you the entire flow without chasing imports. If you want to understand what Hermes actually does when you send a message, you read this one file.
+- `run_agent.py` - 633 KB. The conversation loop. Every turn you take with Hermes runs through a function in this file. It is kept as a single file on purpose, so a full read shows you the entire flow without chasing imports. If you want to understand what Hermes does when you send a message, you read this one file.
 - `cli.py` - 472 KB. The interactive TUI you see when you run `hermes chat` in the terminal. This is what renders your messages, streams the model's reply, and shows approval prompts.
 - `hermes_cli/main.py` - 310 KB. The top-level `hermes` command that dispatches to subcommands like chat, gateway, migrate, and cron. This is the file to look at if you want to add or understand a CLI command.
 - `hermes_cli/config.py` - 150 KB. Reads and writes `~/.hermes/config.yaml`. It handles provider selection, auxiliary model setup, and platform credentials - everything you configure when you set up Hermes for the first time.
@@ -55,10 +55,10 @@ Before looking at architecture, it helps to know what lives where, because the r
 
 Everything else is organized into a handful of directories. Each one maps to one slice of the system, and each one solves a specific problem for you as a user:
 
-- `agent/` - the brain of a turn. It holds the pieces that decide what prompt to send to the LLM and what to do with the response. `prompt_builder.py` assembles the system prompt from your identity and memory files. `context_compressor.py` summarizes old turns when the conversation gets too long so you don't run out of context window. `credential_pool.py` rotates API keys when you have several, which matters if you hit rate limits on a single key. `auxiliary_client.py` at 124 KB dispatches side tasks like vision and compression to cheaper models, so the main model can stay focused on your actual question. The Anthropic, Bedrock, and Gemini adapters also live here; each one translates Hermes' internal message format into the shape that provider's API expects. When a section later talks about prompt caching, memory loading, redaction, or API mode selection, this is the directory it is talking about.
+- `agent/` - the brain of a turn. It holds the pieces that decide what prompt to send to the LLM and what to do with the response. `prompt_builder.py` assembles the system prompt from your identity and memory files. `context_compressor.py` summarizes old turns when the conversation gets too long so you don't run out of context window. `credential_pool.py` rotates API keys when you have several, which matters if you hit rate limits on a single key. `auxiliary_client.py` at 124 KB dispatches side tasks like vision and compression to cheaper models, so the main model can stay focused on your actual question. The Anthropic, Bedrock, and Gemini adapters also live here. Each one translates Hermes' internal message format into the shape that provider's API expects. When a section later talks about prompt caching, memory loading, redaction, or API mode selection, this is the directory it is talking about.
 - `tools/` - the hands of the agent. 47 Python files, each one exposing one tool or tool family the LLM can call. These are the concrete actions Hermes can take on your behalf. The notable ones, and what they let you do: `mcp_tool.py` (101 KB) connects Hermes to any MCP server you configure, so you can plug in third-party integrations without writing new tools. `skills_hub.py` (112 KB) fetches and shares skills with other Hermes users, so you can install capabilities other people wrote. `browser_tool.py` (99 KB) gives the agent a full stealth-mode browser it can drive, which is how it reads pages that block simple HTTP fetches. `terminal_tool.py` (85 KB) is shell access across six different execution backends, so the agent can run commands locally, in Docker, on SSH, or in a serverless cloud VM depending on how much isolation you want. `send_message_tool.py` (63 KB) lets the agent proactively message you on any configured platform, which is what powers "ping me when the job finishes" workflows. `code_execution_tool.py` (61 KB) runs Python in a sandbox. `rl_training_tool.py` (57 KB) lets the agent trigger its own fine-tuning job. `skills_tool.py` (51 KB) is how the agent reads, writes, and amends its skill library - the mechanism behind self-improvement. `delegate_tool.py` (50 KB) spawns a subagent for a scoped task, so the main agent can hand off work and keep its own context clean. `tts_tool.py` (50 KB) generates speech.
-- `gateway/platforms/` - the ears and mouths. One adapter per messaging platform. You enable the platforms you actually use (probably Telegram), and each adapter converts platform-native events into the same internal event format, so the agent core doesn't need to know whether the message came from Slack or from an iMessage thread. The full list: bluebubbles, dingtalk, discord, email, feishu, homeassistant, matrix, mattermost, qqbot, signal, slack, sms, telegram, webhook, wecom, weixin, whatsapp, and an api_server.
-- `plugins/memory/` - optional long-term memory backends. Eight providers - byterover, hindsight, holographic, honcho, mem0, openviking, retaindb, supermemory - any of which you can plug in for semantic search, knowledge graphs, or fact extraction. If you do not configure one, Hermes still has working memory via markdown files and SQLite; these are upgrades for when the built-in memory isn't enough.
+- `gateway/platforms/` - the ears and mouths. One adapter per messaging platform. You enable the platforms you use (probably Telegram), and each adapter converts platform-native events into the same internal event format, so the agent core doesn't need to know whether the message came from Slack or from an iMessage thread. The full list: bluebubbles, dingtalk, discord, email, feishu, homeassistant, matrix, mattermost, qqbot, signal, slack, sms, telegram, webhook, wecom, weixin, whatsapp, and an api_server.
+- `plugins/memory/` - optional long-term memory backends. Eight providers - byterover, hindsight, holographic, honcho, mem0, openviking, retaindb, supermemory - any of which you can plug in for semantic search, knowledge graphs, or fact extraction. If you do not configure one, Hermes still has working memory via markdown files and SQLite. These are upgrades for when the built-in memory isn't enough.
 - `skills/` - a pre-built library of capabilities organized by category: apple, autonomous-ai-agents, creative, data-science, devops, diagramming, email, feeds, gaming, github, mcp, media, mlops, note-taking, productivity, research, red-teaming, smart-home, social-media, software-development, and more. You inherit these on install, so out of the box Hermes already knows how to work with GitHub, run a research pipeline, or update your smart home. The agent writes new ones into `~/.hermes/skills/` over time.
 
 The takeaway is this. Hermes is a single loop (`run_agent.py`) surrounded by three pluggable stacks - providers in `agent/`, capabilities in `tools/`, inputs in `gateway/platforms/` - and two data stores (`~/.hermes/` on disk, and a SQLite database). For you that means there are only three places where you will typically customize Hermes: you swap providers to change which model is thinking, you enable or disable tools to change what the agent can do, and you turn platforms on in the gateway to change where the agent can reach you. Nothing else needs to move. The next section shows how those pieces connect at runtime.
@@ -197,7 +197,7 @@ graph TB
 
 The three stacks (providers, tools, adapters) connect only at the agent core, never to each other. That isolation is what lets you run the same Hermes config on a $5 VPS and on a GPU cluster, or point the same agent at a cheap local model for draft work and a flagship API model for harder tasks.
 
-With the layout clear, the next question is what actually happens during one turn of conversation.
+With the layout clear, the next question is what happens during one turn of conversation.
 
 ## How It Works: Conversation Flow
 
@@ -332,7 +332,7 @@ flowchart TD
 
 This is a compatibility feature with other coding agents. If you already have an `AGENTS.md` or `CLAUDE.md` in your project from using another agent, Hermes picks it up with no changes. You only need to create `.hermes.md` if you want to keep a separate file that only Hermes reads.
 
-With context in place, the next question is which LLM actually handles the turn. That decision is made by the provider resolver.
+With context in place, the next question is which LLM handles the turn. That decision is made by the provider resolver.
 
 ## Provider Resolution and API Modes
 
@@ -373,7 +373,7 @@ The `credential_pool.py` module (53 KB) rotates across multiple API keys for the
 
 Figuring out how many tokens fit in a given model is its own problem, because every provider reports it differently. Hermes falls back through nine sources in order: explicit config, custom provider settings, a persistent local cache, the endpoint's `/models` API, Anthropic's registry, OpenRouter's API, Nous Portal, models.dev (3,800+ models), and a 128K default. The practical result: you rarely have to hand-configure the context window even for obscure or newly-released models. A new model shows up, Hermes figures out its window size on its own.
 
-The provider decides which model does the thinking. The tool system decides what the agent can actually do in the world.
+The provider decides which model does the thinking. The tool system decides what the agent can do in the world.
 
 ## Tool System
 
@@ -406,7 +406,7 @@ That covers the core loop. The next four sections cover what happens around it: 
 
 ## Messaging Gateway
 
-The gateway is a separate long-running process that routes messages from 16 platforms into the same agent loop. Each platform has an adapter in `gateway/platforms/` that converts platform-native events into a uniform `MessageEvent`. A `MessageEvent` is Hermes' internal format for "somebody sent a message"; by the time the event reaches the agent core, the code no longer needs to know whether it came from Telegram, Discord, or email. For you, that means adding a new platform doesn't touch the agent - it only means writing one more adapter. The full adapter list: bluebubbles, dingtalk, discord, email, feishu, feishu_comment, homeassistant, matrix, mattermost, qqbot, signal, slack, sms, telegram, webhook, wecom, weixin, whatsapp, plus an api_server.
+The gateway is a separate long-running process that routes messages from 16 platforms into the same agent loop. Each platform has an adapter in `gateway/platforms/` that converts platform-native events into a uniform `MessageEvent`. A `MessageEvent` is Hermes' internal format for "somebody sent a message". By the time the event reaches the agent core, the code no longer needs to know whether it came from Telegram, Discord, or email. For you, that means adding a new platform doesn't touch the agent - it only means writing one more adapter. The full adapter list: bluebubbles, dingtalk, discord, email, feishu, feishu_comment, homeassistant, matrix, mattermost, qqbot, signal, slack, sms, telegram, webhook, wecom, weixin, whatsapp, plus an api_server.
 
 ```mermaid
 flowchart LR
@@ -437,7 +437,7 @@ The pairing protocol in `gateway/pairing.py` handles how new people join your ag
 
 The mirror module supports cross-platform continuity. You can start a conversation on Telegram and continue it on Discord, and the agent sees both sides as one thread, so you don't have to repeat yourself when you switch devices. The session key resolution that makes this work lives in `gateway/session.py` (48 KB).
 
-Messages get the agent started; the next piece is about what the agent does while it is thinking. Some of that work - reading a screenshot, summarizing old turns, searching past sessions - doesn't need the main model, and that is what auxiliary models are for.
+Messages get the agent started. The next piece is about what the agent does while it is thinking. Some of that work - reading a screenshot, summarizing old turns, searching past sessions - doesn't need the main model, and that is what auxiliary models are for.
 
 ## Auxiliary Models and Smart Routing
 
@@ -451,7 +451,7 @@ auxiliary:
   session_search: { provider: auto, timeout: 30 }
 ```
 
-The `agent/auxiliary_client.py` module is 124 KB - by far the largest in `agent/` - because it contains the per-provider quirks for using cheaper models as specialists. Vision analysis of a screenshot, LLM-assisted web page extraction, compression of an overflowing context, and LLM-summarized session search all run on smaller models chosen for the task. In practice, this means a screenshot analysis that would cost you real money on a flagship model runs for cents on a cheap vision model, while the main model stays focused on whatever you actually asked.
+The `agent/auxiliary_client.py` module is 124 KB - by far the largest in `agent/` - because it contains the per-provider quirks for using cheaper models as specialists. Vision analysis of a screenshot, LLM-assisted web page extraction, compression of an overflowing context, and LLM-summarized session search all run on smaller models chosen for the task. In practice, this means a screenshot analysis that would cost you real money on a flagship model runs for cents on a cheap vision model, while the main model stays focused on whatever you asked.
 
 ## Context Compression
 
@@ -463,7 +463,7 @@ Budget pressure is communicated to the agent inline. At 70% of the iteration bud
 
 `cron/scheduler.py` (46 KB) and `cron/jobs.py` (27 KB) implement scheduled tasks with natural-language specs. A cron job here is a one-line instruction the agent has written to itself, or one that you asked for. On schedule, a fresh `AIAgent` session runs with the instruction as your turn, and the result is delivered through any configured platform - so the daily report lands in the Telegram chat you already use, not in a log file you have to go find.
 
-This makes "send me a daily report to Telegram at 8am", "scan my GitHub issues every night and summarize to Slack", or "back up my workspace weekly" all plausible as natural-language commands. The cron surface is deliberately thin - the agent's tool set is what does the work; the scheduler just decides when to run.
+This makes "send me a daily report to Telegram at 8am", "scan my GitHub issues every night and summarize to Slack", or "back up my workspace weekly" all plausible as natural-language commands. The cron surface is deliberately thin - the agent's tool set is what does the work. The scheduler just decides when to run.
 
 Inputs, side models, compression, and scheduling are the support system around the loop. The next section is a different angle on the project - Hermes as a data pipeline for training the next model.
 
@@ -501,11 +501,11 @@ The wizard detects `~/.openclaw` and offers migration automatically during first
 
 A few design decisions stand out after reading the repo structure.
 
-The in-repository `run_agent.py` is 633 KB. Most production agents split that into 30 modules. Hermes keeps the core loop in one very large file on purpose - it is the single point of convergence for every entry point, every provider, every tool. The cost is cognitive load for contributors; the benefit is that a full read of the loop shows everything that happens in a turn, with no hidden indirection. If you want to audit what Hermes does, you read one file.
+The in-repository `run_agent.py` is 633 KB. Most production agents split that into 30 modules. Hermes keeps the core loop in one large file on purpose - it is the single point of convergence for every entry point, every provider, every tool. The cost is cognitive load for contributors. The benefit is that a full read of the loop shows everything that happens in a turn, with no hidden indirection. If you want to audit what Hermes does, you read one file.
 
 The frozen-snapshot memory pattern is a conscious trade. Most agent frameworks re-render the system prompt each turn, so memory edits take effect immediately. Hermes freezes at session start so the LLM prefix cache stays hot. For long conversations this is a noticeable cost and latency saver, but if you expect real-time memory updates it is a surprise until you know how it works.
 
-The auxiliary-model architecture is the most practical answer to "one model does everything". `auxiliary_client.py` at 124 KB is larger than most agent repos in total. Vision, web extraction, compression, and session search all get their own cheap models. Main-model turns stay focused on reasoning, and you pay flagship-model prices only for work that actually needs flagship-model quality.
+The auxiliary-model architecture is the most practical answer to "one model does everything". `auxiliary_client.py` at 124 KB is larger than most agent repos in total. Vision, web extraction, compression, and session search all get their own cheap models. Main-model turns stay focused on reasoning, and you pay flagship-model prices only for work that needs flagship-model quality.
 
 The gateway's 16-platform surface is larger than what any single developer would build. It exists because this is an agent for personal use, and people live on different platforms. The uniformity of the `MessageEvent` abstraction is what makes 16 adapters tractable. Adding a 17th is mostly writing a connector, not touching the agent.
 
@@ -513,7 +513,7 @@ Smart approvals via an auxiliary LLM are a concrete answer to the friction probl
 
 The self-improving skill loop is the feature most different from Claude Code and OpenClaw. Skills get written by the agent after complex tasks, get amended during use, and persist across sessions. Over weeks this produces a personal agent that knows how you work in a way a stateless agent cannot.
 
-The repository's `rl_training_tool.py` and `batch_runner.py` reveal that this is also a data-collection pipeline for Nous Research's model training. Every Hermes user who opts in is contributing trajectories for the next generation of tool-calling models. That is a different business model than Claude Code: Anthropic sells the model via the agent; Nous ships the agent to improve the model.
+The repository's `rl_training_tool.py` and `batch_runner.py` reveal that this is also a data-collection pipeline for Nous Research's model training. Every Hermes user who opts in is contributing trajectories for the next generation of tool-calling models. That is a different business model than Claude Code: Anthropic sells the model via the agent. Nous ships the agent to improve the model.
 
 ## Comparison: Hermes vs Claude Code vs OpenClaw
 

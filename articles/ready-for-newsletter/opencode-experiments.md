@@ -24,7 +24,7 @@ When I installed OpenCode, it just started working. I am not sure how or which A
 
 I tried OpenCode first in terminal mode. I am not a fan of the terminal mode, neither in Claude Code nor in OpenCode. The desktop version is more convenient[^2].
 
-The desktop mode in OpenCode is built on Visual Studio Code - it looks like a VS Code fork, adapted for AI coding. It is very convenient - I can open multiple projects and sessions at the same time[^3].
+The desktop mode in OpenCode is built on Visual Studio Code - it looks like a VS Code fork, adapted for AI coding. It is convenient - I can open multiple projects and sessions at the same time[^3].
 
 <figure>
   <img src="../../assets/images/opencode-experiments/opencode-desktop-new-session.jpg" alt="OpenCode desktop app showing new session with project explorer and GLM-5 model">
@@ -55,9 +55,9 @@ Both were done in the background while I was recording course videos.
 
 ## Transferring Skills and Commands from Claude Code
 
-It was very easy to transfer skills and commands from Claude Code to OpenCode. I added my code hooks and skills to the OpenCode configuration with an instruction to automatically sync them. Now all my hooks and skills from Claude Code are automatically duplicated into OpenCode too. They exist in both places. OpenCode does not read commands from Claude Code directly, so this automatic duplication is very convenient[^5][^6].
+It was easy to transfer skills and commands from Claude Code to OpenCode. I added my code hooks and skills to the OpenCode configuration with an instruction to automatically sync them. Now all my hooks and skills from Claude Code are automatically duplicated into OpenCode too. They exist in both places. OpenCode does not read commands from Claude Code directly, so this automatic duplication is convenient[^5][^6].
 
-The commands are automatically added to the shared repository: https://github.com/alexeygrigorev/.claude[^6]
+[The commands are automatically added to the shared repository](https://github.com/alexeygrigorev/.claude)[^6]
 
 ## Extracting JavaScript from the Claude Code Binary
 
@@ -95,7 +95,7 @@ After several months of using Claude Code, I hit the weekly token limit for the 
 
 ## Overall Impressions
 
-My impression of OpenCode is positive. The desktop mode is great. As for GLM-5, it is decent but I do not really see a big difference from the previous GLM-4. All these agents cut corners and you need to watch them and set up proper processes. Right now I just used plain OpenCode with no custom processes set up. I think I need to set up proper workflows and then the results will be better[^4].
+My impression of OpenCode is positive. The desktop mode is great. As for GLM-5, it is decent but I do not see a big difference from the previous GLM-4. All these agents cut corners and you need to watch them and set up proper processes. Right now I just used plain OpenCode with no custom processes set up. I think I need to set up proper workflows and then the results will be better[^4].
 
 The testing challenge remains unsolved - I have no idea how to test desktop applications in any agent, not just OpenCode. I can extract core functionality into separate testable modules, but testing the UI is something I do not know how to do[^4].
 

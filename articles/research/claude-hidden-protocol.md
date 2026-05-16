@@ -20,15 +20,15 @@ The hidden or undocumented patterns that make Claude Code significantly more eff
 
 Based on the research document "Advanced Claude Code Patterns That Move the Needle", there are several key patterns:
 
-1. **Context Engineering**: Structuring your project context files (PROJECT.md, REQUIREMENTS.md, ROADMAP.md) in specific ways that the agent can better parse and follow
+1. Context Engineering: Structuring your project context files (PROJECT.md, REQUIREMENTS.md, ROADMAP.md) in specific ways that the agent can better parse and follow
 
-2. **XML Prompt Formatting**: Using XML-style tags in prompts creates clearer boundaries for the agent to understand different sections of instructions
+2. XML Prompt Formatting: Using XML-style tags in prompts creates clearer boundaries for the agent to understand different sections of instructions
 
-3. **Atomic Git Commits**: Training the agent to make smaller, focused commits that are easier to review and revert
+3. Atomic Git Commits: Training the agent to make smaller, focused commits that are easier to review and revert
 
-4. **Subagent Orchestration**: Knowing when to spawn specialized subagents for specific tasks rather than keeping everything in the main conversation
+4. Subagent Orchestration: Knowing when to spawn specialized subagents for specific tasks rather than keeping everything in the main conversation
 
-5. **Stop Hooks**: Using hooks to intercept when an agent is about to stop and prompt it to verify completion
+5. Stop Hooks: Using hooks to intercept when an agent is about to stop and prompt it to verify completion
 
 ## Companion Context Pattern
 
@@ -42,45 +42,45 @@ This creates a "living specification" that grows with the codebase rather than b
 
 ## Advanced Claude Code Patterns That Move the Needle (Google Doc)
 
-Source: https://docs.google.com/document/d/1I9r21TyQuAO1y2ecztBU0PSCpjHSL_vZJiA5v276Wro/edit
+[Source](https://docs.google.com/document/d/1I9r21TyQuAO1y2ecztBU0PSCpjHSL_vZJiA5v276Wro/edit)
 
-**Note**: This document is access-restricted and could not be fully retrieved. The outline suggests the following patterns are covered:
+Note: This document is access-restricted and could not be fully retrieved. The outline suggests the following patterns are covered:
 
-**Key Patterns (from document outline)**:
+Key Patterns (from document outline):
 
-1. **Error Logging System**: A pattern for tracking failures and successes to improve agent performance over time
+1. Error Logging System: A pattern for tracking failures and successes to improve agent performance over time
    - Workflow for logging errors with interview questions
    - Success logging for positive reinforcement
 
-2. **Commands as Lightweight Local Apps**: Using /commands instead of skills for certain use cases
+2. Commands as Lightweight Local Apps: Using /commands instead of skills for certain use cases
    - When to prefer commands over skills
    - How to structure them effectively
 
-3. **Hooks for Deterministic Safety**: Using hooks to intercept and verify agent actions
+3. Hooks for Deterministic Safety: Using hooks to intercept and verify agent actions
    - Setup patterns for safety hooks
    - Preventing catastrophic actions
 
-4. **Context Hygiene**: Managing context window effectively
+4. Context Hygiene: Managing context window effectively
    - CLAUDE.md discipline for maintaining clean project instructions
    - Compaction techniques for context management
    - "Double-Escape Time Travel" pattern
 
-5. **Subagent Control**: Orchestration patterns for spawning and managing specialized subagents
+5. Subagent Control: Orchestration patterns for spawning and managing specialized subagents
 
-6. **Lean Tool Stack**: Curated tool recommendations including:
+6. Lean Tool Stack: Curated tool recommendations including:
    - Context7 MCP
    - Dev Browser / Playwright MCP
 
-7. **Prompt Engineering on Steroids**: The "Reprompter System" for advanced prompt management
+7. Prompt Engineering on Steroids: The "Reprompter System" for advanced prompt management
 
-**Actionable Pattern: The Reprompter System**
+Actionable Pattern: The Reprompter System
 A quick-reference system for managing complex prompts that need to be reused and refined over time.
 
-**Status**: Document requires direct access. Request access or ask the document owner for a copy to extract full details.
+Status: Document requires direct access. Request access or ask the document owner for a copy to extract full details.
 
 ## Claude Code Code-Review Plugin
 
-Source: https://github.com/anthropics/claude-code/blob/main/plugins/code-review/README.md
+[Source](https://github.com/anthropics/claude-code/blob/main/plugins/code-review/README.md)
 
 Overview: The Code Review Plugin for Claude Code automates pull request reviews by deploying multiple specialized AI agents in parallel, each examining code changes from a different angle. Rather than relying on a single pass, the system launches four independent agents: two for CLAUDE.md guideline compliance, one for bug detection in the changed code, and one for historical context analysis via git blame. Each agent produces findings that are then independently scored on a 0-100 confidence scale, with a default threshold of 80 filtering out false positives before any feedback is surfaced[^8].
 
@@ -97,13 +97,13 @@ Key Insights:
 - Redundancy in agent design (two separate CLAUDE.md compliance agents) is an intentional strategy to increase coverage and reduce missed guideline violations
 - The bug detection agent is scoped exclusively to changes introduced in the PR, deliberately ignoring pre-existing issues, which prevents the common anti-pattern of automated reviewers flagging legacy technical debt
 - The history analyzer agent using git blame adds a temporal dimension to review that static analysis tools lack
-- The confidence scoring system is not a simple heuristic; each issue is scored independently by a dedicated scorer, and for CLAUDE.md issues the system verifies the guideline is explicitly stated, not inferred
+- The confidence scoring system is not a simple heuristic. Each issue is scored independently by a dedicated scorer, and for CLAUDE.md issues the system verifies the guideline is explicitly stated, not inferred
 - The output format includes full SHA links with line ranges, making every finding directly navigable in the GitHub UI
 
 Actionable Patterns:
-- Maintain specific, well-structured CLAUDE.md files at the repository and directory level; the quality of automated review is directly proportional to the clarity of documented guidelines
+- Maintain specific, well-structured CLAUDE.md files at the repository and directory level. The quality of automated review is directly proportional to the clarity of documented guidelines
 - Use the local terminal output mode (`/code-review` without `--comment`) during development iteration, reserving `--comment` for finalized reviews or CI pipelines
-- Update CLAUDE.md files based on recurring review patterns; if the plugin repeatedly flags a category of issue, codify the rule explicitly to improve future detection accuracy
+- Update CLAUDE.md files based on recurring review patterns. If the plugin repeatedly flags a category of issue, codify the rule explicitly to improve future detection accuracy
 - Customize the agent architecture by adding domain-specific agents (security, performance, accessibility, documentation) by editing the command file at `commands/code-review.md`
 
 Technical Details:

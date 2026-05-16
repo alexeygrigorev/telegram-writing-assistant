@@ -16,7 +16,7 @@ A massive thank you to @Alexey Grigorev and the entire DataTalks.Club team! This
 
 ## Freeman Onah
 
-Hi everyone, I want to use this opportunity to thank all of our tutors, they have contributed immensely to our learning. The clear structure of this course made it possible for me to understand concepts I couldn't have understood elsewhere. I really appreciate and thank you all for the time devoted to the teachings. God bless[^3].
+Hi everyone, I want to use this opportunity to thank all of our tutors, they have contributed immensely to our learning. The clear structure of this course made it possible for me to understand concepts I couldn't have understood elsewhere. I appreciate and thank you all for the time devoted to the teachings. God bless[^3].
 
 <figure>
   <img src="../assets/images/data-engineering-zoomcamp-testimonials/freeman-onah-testimonial.jpg" alt="Freeman Onah's message thanking the tutors and praising the clear course structure">

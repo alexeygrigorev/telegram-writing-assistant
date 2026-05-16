@@ -22,7 +22,7 @@ Since the weekly limit was running out, I decided to experiment with running a l
 
 I wanted to compare multiple approaches: local quantized models via llama.cpp, plus CLI tools for Gemini and GitHub Copilot. The main question was how independent I can be from paid services and how much worse the quality is[^1].
 
-Objectively measuring quality is hard - by benchmarks, quantized models lose significantly to closed models. But I wanted to evaluate subjectively. For example, I did not really notice the difference between Opus 4.5 and 4.6, even though people say the difference is fantastic. If I do not notice the difference between those, maybe I also will not notice the difference between an open-source model and a closed model. If that is the case, for simple tasks I might be able to get by with a self-hosted model[^1].
+Objectively measuring quality is hard - by benchmarks, quantized models lose significantly to closed models. But I wanted to evaluate subjectively. For example, I did not notice the difference between Opus 4.5 and 4.6, even though people say the difference is fantastic. If I do not notice the difference between those, maybe I also will not notice the difference between an open-source model and a closed model. If that is the case, for simple tasks I might be able to get by with a self-hosted model[^1].
 
 ## Benchmarking Quantized Models
 
@@ -36,7 +36,7 @@ I ran benchmarks using llama-bench with the Qwen2.5-Coder-14B-Instruct model (Q5
 
 ## Results: Not Fast Enough on CPU
 
-I experimented with quantized Qwen2.5 and DeepSeek models. The first one (Qwen) is very slow. The second (DeepSeek) is a bit faster but still feels slow. We are probably not there yet to run good coding models on CPU fast enough for a productive workflow[^3].
+I experimented with quantized Qwen2.5 and DeepSeek models. The first one (Qwen) is slow. The second (DeepSeek) is a bit faster but still feels slow. We are probably not there yet to run good coding models on CPU fast enough for a productive workflow[^3].
 
 <figure>
   <p>Video: Screen recording of local LLM experiments with quantized models (0m 46s, 2018x1216) - <a href="https://t.me/c/3688590333/3014">View on Telegram</a></p>

@@ -42,7 +42,7 @@ Then I started googling "PNG to SVG transformation" and found an Adobe service w
 
 Before googling more, I had the idea that Claude needs help finding the anchor points in the image - based on those, create the SVG and then compare. I imagined how I would do it manually: open Inkscape, remove some anchor points from the curves, try to make them smoother. I told Claude: use OpenCV, do it that way. Claude installed OpenCV (I did not have it) and started working on it. I told it to simplify anchor points and smooth curves like I would in Inkscape, but that did not produce good results either[^3].
 
-At this point I was ready to give up and just use PNG. But then I decided to ask ChatGPT how people actually convert PNG to SVG. It gave many options, and one of them was OpenCV - the same conclusion I had already reached on my own. It also mentioned Inkscape - a tool I had also found independently. ChatGPT even wrote actual conversion code, step by step[^3].
+At this point I was ready to give up and just use PNG. But then I decided to ask ChatGPT how people convert PNG to SVG. It gave many options, and one of them was OpenCV - the same conclusion I had already reached on my own. It also mentioned Inkscape - a tool I had also found independently. ChatGPT even wrote actual conversion code, step by step[^3].
 
 I also found potrace, which produces better bezier curves. The combination of potrace and OpenCV gives decent results[^1].
 
@@ -116,7 +116,7 @@ The process Claude followed[^2]:
 - pypotrace - would not build without libagg
 - Smoothing all shapes uniformly - distorted the rectangle's straight edges
 - Catmull-Rom bezier smoothing in general - looks nicer visually but increased MSE from 97 to 130
-- SVG glow filter - barely moved MSE (98.0 to 97.8); the original's glow is too subtle to replicate well
+- SVG glow filter - barely moved MSE (98.0 to 97.8). The original's glow is too subtle to replicate well
 
 ## Bottom Line
 

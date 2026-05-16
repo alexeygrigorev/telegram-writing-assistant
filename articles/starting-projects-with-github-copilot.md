@@ -22,7 +22,7 @@ A better approach is to create an empty project first, then create GitHub Issues
 
 I use it when I have an idea and want a prototype, but I am not at my computer. I can ask Copilot to put something together, and then continue working on it at home later. That is the main advantage[^2].
 
-The downside is that I cannot manage what it does in real time. I give a prompt, it works for about half an hour, and then I only see the result. It does not always produce what I want, so it is very important to give precise instructions[^2].
+The downside is that I cannot manage what it does in real time. I give a prompt, it works for about half an hour, and then I only see the result. It does not always produce what I want, so it is important to give precise instructions[^2].
 
 ## Best workflow: ChatGPT first, then Copilot
 

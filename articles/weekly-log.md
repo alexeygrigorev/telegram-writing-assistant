@@ -16,7 +16,7 @@ A running log of what was done each week. When a topic has its own detailed arti
 
 Was at Data Makers Fest, a conference held in Porto. On Monday ran a workshop called "Introduction to Agentic RAG" - took the first modules of the LLM Zoomcamp / RAG course content, simplified them as much as possible, and turned them into an introduction to agentic RAG. Specifically, took the first module on RAG and the next module on agents and made a maximum strip-down version - intentionally introductory, since the format is the kind many people find useful when they are new to the area[^34][^35].
 
-The next day was on a panel at the very start of the day, with various audience questions, then asked a question at the end and hosted (moderated) the session about production LLMs. Also recorded interviews with various people at the conference; the podcast episode based on those interviews is still in preparation and should go out in a couple of weeks. Could not stay for the full conference, but the parts attended went well[^34][^35].
+The next day was on a panel at the start of the day, with various audience questions, then asked a question at the end and hosted (moderated) the session about production LLMs. Also recorded interviews with various people at the conference. The podcast episode based on those interviews is still in preparation and should go out in a couple of weeks. Could not stay for the full conference, but the parts attended went well[^34][^35].
 
 <figure>
   <img src="../assets/images/weekly-log/data-makers-fest-stage.jpg" alt="Data Makers Fest stage with a panel below a large screen">
@@ -28,9 +28,9 @@ The next day was on a panel at the very start of the day, with various audience 
 
 Ran another freestyle AI Shipping Labs workshop this week, on Tuesday: https://aishippinglabs.com/workshops/lambda-agent-deployment[^35][^39]. The idea of the freestyle format is that people show up with their own ideas and we implement something together. Discussed some problems participants had and suggested solutions, but no concrete project ideas came out of that, so the workshop pivoted to "let's look at how to deploy to Lambda"[^35].
 
-The motivation: services like Render and similar are not actually serverless. If you deploy something there, the server keeps running all the time and you pay for it continuously. For low-load workloads, deploying as a long-running server does not make sense - Lambda is the right shape, and Alexey had been wanting to figure out how to do this with Lambda for a while[^35].
+The motivation: services like Render and similar are not serverless. If you deploy something there, the server keeps running all the time and you pay for it continuously. For low-load workloads, deploying as a long-running server does not make sense - Lambda is the right shape, and Alexey had been wanting to figure out how to do this with Lambda for a while[^35].
 
-What made this workshop different from the usual format is that the topic was not very familiar to me either - it was an opportunity to learn something new, not to teach something I already had figured out. Participants got to watch me actually pick up a new technical area: I knew something about Lambda but not deeply, so during the workshop I worked out how to get the coding parts to do what I wanted, and after the workshop I went back and tried to understand more thoroughly how everything fits together and how the code should be organised[^39].
+What made this workshop different from the usual format is that the topic was not familiar to me either - it was an opportunity to learn something new, not to teach something I already had figured out. Participants got to watch me pick up a new technical area: I knew something about Lambda but not deeply, so during the workshop I worked out how to get the coding parts to do what I wanted, and after the workshop I went back and tried to understand more thoroughly how everything fits together and how the code should be organised[^39].
 
 The pattern that came out of it works like this: ask the agent to implement something, then ask the agent to explain that implementation, then dig into the code yourself until you can describe what is happening end to end. The output of all that is a written document I can use myself later and reuse on future workshops where I talk about the same topic. So the workshop format doubles as a way for me to learn[^39].
 
@@ -48,7 +48,7 @@ Started the May sprint. Met with members and discussed everyone's goals. Valerii
 
 Finally migrated the DataTalks.Club site to Rustkill (spelled R-U-S-T-K-Y-L-L) - same shape as Jekyll, but Rustkill. The build is now much faster[^35].
 
-The build itself went from 22 seconds down to 1 second - about a 20x speedup. Before the migration, the build took around 2 minutes locally and about 22 seconds in GitHub Actions (CI was already faster than local). After Rustkill, the build itself is roughly 1 second. In GitHub Actions, though, the end-to-end workflow only got about 1.5-2x faster overall - there is a lot of overhead around the actual build (container setup and the rest of the CI prep before and after), so most of the 20x build win is hidden by everything that happens around it. Still a real improvement, and locally the build is now very fast[^36].
+The build itself went from 22 seconds down to 1 second - about a 20x speedup. Before the migration, the build took around 2 minutes locally and about 22 seconds in GitHub Actions (CI was already faster than local). After Rustkill, the build itself is roughly 1 second. In GitHub Actions, though, the end-to-end workflow only got about 1.5-2x faster overall - there is a lot of overhead around the actual build (container setup and the rest of the CI prep before and after), so most of the 20x build win is hidden by everything that happens around it. Still a real improvement, and locally the build is now fast[^36].
 
 ## DataTalks.Club Course Management Platform - UI Redesign with Codex
 
@@ -118,9 +118,9 @@ Hit Claude Code session limits on a simple file-splitting task - usage jumped fr
 
 ## Snowflake Workshop on Agent Evaluations
 
-Had a session with Snowflake about evaluating AI agents. Josh (developer advocate at Snowflake, previously at TruEra which got acquired by Snowflake) presented a very interesting approach to evals. He showed a concrete approach to evaluations - what rubrics to use and how their evaluation process works. He demonstrated it live during the session. The workshop was very useful, and many people will find it helpful[^25][^26].
+Had a session with Snowflake about evaluating AI agents. Josh (developer advocate at Snowflake, previously at TruEra which got acquired by Snowflake) presented a interesting approach to evals. He showed a concrete approach to evaluations - what rubrics to use and how their evaluation process works. He demonstrated it live during the session. The workshop was useful, and many people will find it helpful[^25][^26].
 
-Workshop recording: https://www.youtube.com/live/oMmJvlNuDZE[^26]
+[Workshop recording](https://www.youtube.com/live/oMmJvlNuDZE)[^26]
 
 ## AI Shipping Labs
 
@@ -179,7 +179,7 @@ The course is now live at https://aishippinglabs.com/courses/aihero. This was fo
 
 ## AI Buildcamp - Monitoring Module
 
-Finished the DIY Monitoring Platform section, which was slightly behind schedule. Changed the approach from the previous cohort - Pydantic LogFire is now the main focus because it is very simple to integrate. The DIY Monitoring Platform is now an optional section.
+Finished the DIY Monitoring Platform section, which was slightly behind schedule. Changed the approach from the previous cohort - Pydantic LogFire is now the main focus because it is simple to integrate. The DIY Monitoring Platform is now an optional section.
 
 Getting data out of LogFire is not as straightforward as it could be, but covered how to do that for students. Incorporated all the feedback from the previous cohort[^16][^17].
 
@@ -191,7 +191,7 @@ Prepared for and ran the Tuesday webinar on AI Engineering job search. The title
 
 After all deduplication, there are now over 1,600 job listings in the Field Guide. Analyzed over 700 different sources - reports, social media posts (Twitter, Reddit), YouTube videos.
 
-Extracted a large number of interview questions from these sources, then curated the most relevant ones. Prioritized questions that had real support from people in social media confirming they were actually asked in interviews. Avoided SEO-optimized sites that may have just used ChatGPT to generate question lists without real research behind them. Removed trivial encyclopedic questions as useless and focused on meaningful questions that demonstrate real understanding. A lot of work went into categorizing, filtering, and curating all of this.
+Extracted a large number of interview questions from these sources, then curated the most relevant ones. Prioritized questions that had real support from people in social media confirming they were asked in interviews. Avoided SEO-optimized sites that may have just used ChatGPT to generate question lists without real research behind them. Removed trivial encyclopedic questions as useless and focused on meaningful questions that demonstrate real understanding. A lot of work went into categorizing, filtering, and curating all of this.
 
 The webinar is now available. The GitHub repository is AI Engineering Field Guide - asking people to star it and share it on social media. Could create a template for how people can promote this repository[^16][^17].
 
@@ -203,13 +203,13 @@ The code was already ready, so restructured it step by step in the usual teachin
 
 About 80-90% of the content is based on Zac's original material, updated to the latest versions - Flink 2.x and Python 3.12 (3.13 is not supported by Flink yet). A lot of testing was needed to make sure everything worked. Claude Code helped but required a lot of guidance.
 
-The workshop went very well on Wednesday. Since this is not a primary area of expertise (not a practicing data engineer), relied fully on Zac's content, which is solid since Zac is a Flink specialist. Could not have answered deep Data Engineering or Flink usage questions, but no such questions came up[^17].
+The workshop went well on Wednesday. Since this is not a primary area of expertise (not a practicing data engineer), relied fully on Zac's content, which is solid since Zac is a Flink specialist. Could not have answered deep Data Engineering or Flink usage questions, but no such questions came up[^17].
 
 ## Python for AI Engineering Course
 
 Started preparing a Python course for the AI Engineering community. Asked Claude Code to analyze all existing courses - ML Zoomcamp, Data Engineering Zoomcamp, MLOps Zoomcamp, LLM Ops Zoomcamp, AI Engineering Buildcamp, and AI Hero course. Did not include AI DevTools Zoomcamp because code there is generated, not written by hand.
 
-Used Claude Code instead of doing it manually to avoid missing things and because as an experienced Python developer, some things might seem obvious but are not for beginners. The approach assumes zero Python knowledge. The analysis produced a very good list of required Python topics.
+Used Claude Code instead of doing it manually to avoid missing things and because as an experienced Python developer, some things might seem obvious but are not for beginners. The approach assumes zero Python knowledge. The analysis produced a good list of required Python topics.
 
 Based on this list, came up with a project - the course will use a project-based approach (same methodology as all the Zoomcamps). The project is a podcast aggregator, covering everything from Python basics to advanced topics like database interaction, multithreading, and async. Async is included because AI Engineering Buildcamp uses Pydantic AI which is async-based.
 

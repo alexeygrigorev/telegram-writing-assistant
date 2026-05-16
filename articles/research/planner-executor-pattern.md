@@ -14,7 +14,7 @@ Research on the planner-executor pattern: first you plan thoroughly, then you us
 
 The pattern is called planner-executor. First the planner creates a plan, then for each step you launch an agent from scratch, with a clean context. The idea is that each step of the plan fits into the context window[^1][^2].
 
-This is a useful pattern. In the AI Engineering Buildcamp course (my course on Maven), I show students how to build their own coding agent using this setup: first a very good model creates a plan, then a weaker model can already write code. With a good plan, the model that takes longer to execute (and spends more tokens on context) handles it better[^2].
+This is a useful pattern. In the AI Engineering Buildcamp course (my course on Maven), I show students how to build their own coding agent using this setup: first a good model creates a plan, then a weaker model can already write code. With a good plan, the model that takes longer to execute (and spends more tokens on context) handles it better[^2].
 
 ## Ralphex
 

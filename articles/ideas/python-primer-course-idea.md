@@ -101,13 +101,13 @@ Used Claude Code to analyze all existing courses to determine what Python topics
 - AI Engineering Buildcamp
 - AI Hero course
 
-Did not include AI DevTools Zoomcamp because code there is generated, not written by hand. Used Claude Code instead of doing this manually for two reasons: (1) could miss things doing it by hand, and (2) as an experienced Python developer, some things seem obvious but are not obvious for beginners. The approach assumes zero Python knowledge. The analysis produced a very good list of required Python topics[^20].
+Did not include AI DevTools Zoomcamp because code there is generated, not written by hand. Used Claude Code instead of doing this manually for two reasons: (1) could miss things doing it by hand, and (2) as an experienced Python developer, some things seem obvious but are not obvious for beginners. The approach assumes zero Python knowledge. The analysis produced a good list of required Python topics[^20].
 
 ## Project: Podcast Aggregator
 
 Based on the analysis, chose a single project for the entire course - a podcast aggregator. This follows the same project-based methodology used across all Zoomcamps. Most Zoomcamps (except ML Zoomcamp, which uses one project per module) use a single project throughout the entire course. A single project makes it easier for students to transition between modules without switching context[^20].
 
-The project covers everything from the very basics of Python to advanced topics:
+The project covers everything from the basics of Python to advanced topics:
 
 - Python fundamentals
 - Database interaction

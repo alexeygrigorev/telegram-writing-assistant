@@ -8,7 +8,7 @@ status: draft
 
 # Voice-Controlled Development Bot
 
-I really like this flow with Telegram - I record a voice message, it reacts and does something. I have been thinking about this for a while: I want a general-purpose bot that does anything I ask. For example, I want to create an issue in some repository - I would dictate the command and the bot would do it[^1].
+I like this flow with Telegram - I record a voice message, it reacts and does something. I have been thinking about this for a while: I want a general-purpose bot that does anything I ask. For example, I want to create an issue in some repository - I would dictate the command and the bot would do it[^1].
 
 ## The Vision
 

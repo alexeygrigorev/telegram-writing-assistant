@@ -8,13 +8,13 @@ status: draft
 
 # Decoding AI Content Pipeline: Paul Iusztin's Agentic Writing Workflow and Branded Mermaid Images
 
-Primary source: https://www.decodingai.com/i/194297155/generating-branded-images
+[Primary source](https://www.decodingai.com/i/194297155/generating-branded-images)
 
 Paul Iusztin (founder of Decoding AI, co-author of the LLM Engineer's Handbook) publishes one in-depth technical article per week. He built an agentic pipeline that automates around 90% of the writing work so he can keep building instead of writing full time. One of the more interesting pieces of that pipeline is the step that turns plain Mermaid diagrams into branded, styled PNGs using Gemini's Nano Banana model. This article pulls out what his system does, how the branded-image step works, and what you could copy for the telegram-writing-assistant agent.
 
 Valeriia has been studying Paul's content - his newsletter and his social media. He recently shared an agent that writes his social media posts, with workshop code included, and then a separate newsletter issue about an agent that writes his Substack articles. She assumes Paul uses all of this to promote his own AI engineering course[^2]. Paul has not released the code for the full Substack-writing agent, which she reads as a deliberate choice because it is his personal development and he teaches this on the course[^2].
 
-She flagged Paul's article[^9] as something that could improve the telegram-writing-assistant agent. Both the pipeline itself and the social-posts side are interesting. She wanted to sit down and actually understand how it works end-to-end - how it works from an engineering perspective - so she could apply it in her own work or for improving the agent. She is not yet at the level of someone who understands the engineering fully, but gets some of it; the missing piece is just the time to dig in, which she did not have[^10]. Alexey then asked to research both the article and how Paul generates his branded diagrams, including online research on the Mermaid styling techniques[^11].
+She flagged Paul's article[^9] as something that could improve the telegram-writing-assistant agent. Both the pipeline itself and the social-posts side are interesting. She wanted to sit down and understand how it works end-to-end - how it works from an engineering perspective - so she could apply it in her own work or for improving the agent. She is not yet at the level of someone who understands the engineering fully, but gets some of it. The missing piece is just the time to dig in, which she did not have[^10]. Alexey then asked to research both the article and how Paul generates his branded diagrams, including online research on the Mermaid styling techniques[^11].
 
 ## What You Get From This Article
 
@@ -24,11 +24,11 @@ The article covers three groups of things:
 2. The Mermaid-to-branded-image step in detail - the orchestrator-worker pattern, parallel subagents, the Gemini Nano Banana prompt, and the specific few-shot trick Paul says made it work.
 3. Applying the same idea elsewhere - how Nano Banana works, how Mermaid theming compares as a cheaper alternative, and how this maps onto the telegram-writing-assistant project that already produces Mermaid diagrams.
 
-The first group is the architecture tour. The second is the part you care about if you want to copy one specific technique. The third ties it back to something you can actually use.
+The first group is the architecture tour. The second is the part you care about if you want to copy one specific technique. The third ties it back to something you can use.
 
 ## The Overall Pipeline
 
-Paul describes the system as five components plus a memory layer, connected through files on disk. Each component reads artifacts written by the previous one and writes its own. The filesystem is the contract; per-component state lives in databases (PostgreSQL for Nova, SQLite checkpointer for Brown)[^1].
+Paul describes the system as five components plus a memory layer, connected through files on disk. Each component reads artifacts written by the previous one and writes its own. The filesystem is the contract. Per-component state lives in databases (PostgreSQL for Nova, SQLite checkpointer for Brown)[^1].
 
 The five components are:
 
@@ -248,7 +248,7 @@ for part in response.candidates[0].content.parts:
             f.write(part.inline_data.data)
 ```
 
-Google's prompting guide for Nano Banana repeats the same advice Paul follows: describe the scene, don't just list keywords; show, don't tell; and keep reference-image bundles small because they inflate tokens fast[^6].
+Google's prompting guide for Nano Banana repeats the same advice Paul follows: describe the scene, don't just list keywords. Show, don't tell. And keep reference-image bundles small because they inflate tokens fast[^6].
 
 ## Mermaid Theming as a Cheaper Alternative
 
@@ -278,7 +278,7 @@ A practical comparison:
 |----------|------|------|
 | Mermaid themeVariables | Free, deterministic, editable SVG, versioned with the source | Limited visual range, no custom icons, no real layout control |
 | Nano Banana style transfer | Unlimited visual style, matches a brand reference | Around $0.30 to $1 per image, non-deterministic, output is a fixed PNG |
-| Hybrid (theme first, image second) | Cheap baseline; generate branded image only when you need the polished version | More code to maintain, two rendering paths |
+| Hybrid (theme first, image second) | Cheap baseline. Generate branded image only when you need the polished version | More code to maintain, two rendering paths |
 
 For a weekly flagship article, the Nano Banana pass is worth the $6. For a daily newsletter with quick turnarounds, themed Mermaid probably wins.
 
@@ -303,7 +303,7 @@ A few adjacent tools show up in the space:
 - Diagrams-as-code with D2 or Graphviz - more layout control than Mermaid, still deterministic, but still generic-looking without theming work.
 - Midjourney or Stable Diffusion with ControlNet - image-generation alternatives to Nano Banana. They support style transfer but do not natively understand diagram structure, so they tend to mangle labels.
 
-Nano Banana is interesting for this use case because it natively handles text-plus-image inputs in one model call. You do not need a separate text-to-image stage; you pass the Mermaid source and a style reference together and get a rendered image back.
+Nano Banana is interesting for this use case because it natively handles text-plus-image inputs in one model call. You do not need a separate text-to-image stage. You pass the Mermaid source and a style reference together and get a rendered image back.
 
 ## What Makes Paul's Approach Interesting
 

@@ -12,19 +12,19 @@ Setting up a dedicated Hetzner server for running bots, AI workloads, and develo
 
 ## The Problem
 
-The Telegram bot currently requires the computer to be always on. This is not very convenient. I want to be able to turn off the computer without worrying about the bot stopping[^2].
+The Telegram bot currently requires the computer to be always on. This is not convenient. I want to be able to turn off the computer without worrying about the bot stopping[^2].
 
-On top of the bot, the agent that builds the community site was running all day. It runs tests - integration tests, Playwright tests. This was severely loading the laptop. The laptop was going crazy at times. There were many agents running - Claude Code with 5-6 sessions in parallel, plus the session working on the site that keeps 2-3 subagents running at all times. Everything was incredibly slow. I had to restart the computer 2 or 3 times in one day. The computer is old, lots of things running on it, need to clean the system somehow - there are many problems. This is a problem - I need to focus on video, but I can't because of technical issues, which is very frustrating. I decided to finally move everything to the cloud[^4].
+On top of the bot, the agent that builds the community site was running all day. It runs tests - integration tests, Playwright tests. This was severely loading the laptop. The laptop was going crazy at times. There were many agents running - Claude Code with 5-6 sessions in parallel, plus the session working on the site that keeps 2-3 subagents running at all times. Everything was incredibly slow. I had to restart the computer 2 or 3 times in one day. The computer is old, lots of things running on it, need to clean the system somehow - there are many problems. This is a problem - I need to focus on video, but I can't because of technical issues, which is frustrating. I decided to finally move everything to the cloud[^4].
 
 ## The Original Plan
 
-We set up an n8n server some time ago but never really used it. Now instead of n8n, I want to repurpose that server to run the Telegram bot. I also want to run other things on it, including OpenCode[^1].
+We set up an n8n server some time ago but never used it. Now instead of n8n, I want to repurpose that server to run the Telegram bot. I also want to run other things on it, including OpenCode[^1].
 
 ## Choosing Hetzner Dedicated Servers
 
 I already had experience running Claude in the cloud - I wrote about it before. I have many Telegram bots. I had an Amazon machine - ARM architecture with 2 cores. I was paying something like 5-10 EUR per month for it. I wanted something more powerful but not too expensive. All more powerful machines cost decent money - 50-60 or even 200-300 EUR per month. I was not ready to pay that much, but I wanted more memory, and more memory means paying more[^4].
 
-I found Hetzner dedicated servers - not a virtual instance, but an actual physical server in a rack that you rent. You get full access to the actual hardware. This is cheaper than cloud VMs - more hassle with configuration (AWS is very easy to set up, here you need to configure things), but the price is much better. For a server with 64GB RAM, 6 cores / 12 threads - a good configuration - only 40 EUR per month. A similar configuration on AWS would cost 300-350 EUR per month[^4].
+I found Hetzner dedicated servers - not a virtual instance, but an actual physical server in a rack that you rent. You get full access to the actual hardware. This is cheaper than cloud VMs - more hassle with configuration (AWS is easy to set up, here you need to configure things), but the price is much better. For a server with 64GB RAM, 6 cores / 12 threads - a good configuration - only 40 EUR per month. A similar configuration on AWS would cost 300-350 EUR per month[^4].
 
 ## Configuring with Claude Code
 
@@ -58,7 +58,7 @@ There is risk of infected packages on the local laptop too, but it seems smaller
 
 ## SSH Access
 
-Even if someone sees the IP and tries to get in through port 22, they will not succeed. I set a very complex root password, and my user access is through SSH key. From outside, breaking in should be extremely difficult or impossible. But I am still trying to be more careful with credentials[^6].
+Even if someone sees the IP and tries to get in through port 22, they will not succeed. I set a complex root password, and my user access is through SSH key. From outside, breaking in should be extremely difficult or impossible. But I am still trying to be more careful with credentials[^6].
 
 ## Documentation
 

@@ -8,7 +8,7 @@ status: draft
 
 # AI Engineering Field Guide
 
-Project: https://github.com/alexeygrigorev/ai-engineering-field-guide[^2]
+[Project](https://github.com/alexeygrigorev/ai-engineering-field-guide)[^2]
 
 The AI Engineering Field Guide collects and curates job listings for AI Engineer roles across multiple locations. The pipeline scrapes jobs, deduplicates them, downloads HTML pages, extracts structured data into YAML, and enriches entries using LLMs.
 

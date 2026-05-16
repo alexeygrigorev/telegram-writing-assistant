@@ -12,13 +12,13 @@ Research into spec-driven development systems and task management patterns for A
 
 ## What I Want to Understand
 
-How context engineering and spec-driven development really work for agents and Claude. The goal is to build a bot I can control via Telegram with tighter integration to code, allowing me to give commands and correct behavior during active sessions[^1].
+How context engineering and spec-driven development work for agents and Claude. The goal is to build a bot I can control via Telegram with tighter integration to code, allowing me to give commands and correct behavior during active sessions[^1].
 
 ## Resources
 
 ## Get Shit Done (GSD)
 
-Source: https://github.com/gsd-build/get-shit-done
+[Source](https://github.com/gsd-build/get-shit-done)
 
 Overview: GSD is a lightweight meta-prompting and context engineering system for Claude Code, OpenCode, and Gemini CLI that specifically solves context rot, which is the quality degradation that happens as Claude fills its context window. The tool provides a complete spec-driven development workflow through simple slash commands while hiding complex orchestration behind the scenes.
 
@@ -59,7 +59,7 @@ Quotes:
 
 ## tmc-marketplace iterative-engineering
 
-Source: https://github.com/tmchow/tmc-marketplace/tree/main/plugins/iterative-engineering
+[Source](https://github.com/tmchow/tmc-marketplace/tree/main/plugins/iterative-engineering)
 
 Overview: A comprehensive plugin for Claude Code and Codex that implements a full iterative development workflow with brainstorming, technical planning, multi-agent reviews, TDD implementation, and PR management. It provides opinionated defaults while keeping user choice at the center of every decision point.
 
@@ -72,7 +72,7 @@ Key Ideas:
 - Agent teams with cross-validation - specialized reviewers can push back on each other (e.g., YAGNI reviewer challenging completeness suggestions)
 
 Key Insights:
-- Stage boundaries are explicit: brainstorming produces PRDs with high-level technical direction but NOT implementation details; tech planning describes what and where but NOT how (no pre-written method bodies); implementing produces code and PRs
+- Stage boundaries are explicit: brainstorming produces PRDs with high-level technical direction but NOT implementation details. Tech planning describes what and where but NOT how (no pre-written method bodies). Implementing produces code and PRs
 - Requirements are prioritized (Core / Must-Have / Nice-to-Have / Out) rather than flat, driving implementation scope decisions
 - Open questions from PRDs are classified by resolution method: research questions get parallel investigation, experiential questions get spiked via throwaway prototypes
 - Large plan sections (6+ subtasks) get automatic incremental reviews between batches to catch issues before later code builds on flawed foundations
@@ -100,7 +100,7 @@ Quotes:
 
 ## Spec-Driven Development Explained (Video)
 
-Source: https://www.youtube.com/watch?v=mViFYTwWvcM
+[Source](https://www.youtube.com/watch?v=mViFYTwWvcM)
 
 Overview: A walkthrough comparing vibe coding, traditional development, test-driven development, and spec-driven development. The video explains why spec-driven development reduces ambiguity for AI coding agents by creating specifications before any code is written.
 
@@ -129,7 +129,7 @@ Quotes:
 
 ## FullStack-Agent Research
 
-Source: https://x.com/omarsar0/status/2020891961511809456
+[Source](https://x.com/omarsar0/status/2020891961511809456)
 
 Overview: FullStack-Agent is a multi-agent system designed for end-to-end full-stack web development, addressing the gap between generating simple frontends and shipping complete working applications with functional backends, databases, and APIs. The paper introduces two key innovations: Development-Oriented Testing and Repository Back-Translation.
 
@@ -164,13 +164,13 @@ Technical Details:
 Quotes:
 - "The gap between generating a landing page and shipping a working app with a functional backend, database, and API layer remains wide."
 - "Development-Oriented Testing validates code during generation, not after."
-- "The bottleneck in AI-assisted web development isn't frontend generation. It's building functional backends and databases that actually work together."
+- "The bottleneck in AI-assisted web development isn't frontend generation. It's building functional backends and databases that work together."
 
-Paper: https://arxiv.org/abs/2602.03798[^6]
+[Paper](https://arxiv.org/abs/2602.03798)[^6]
 
 ## Compound Engineering
 
-Source: https://every.to/guides/compound-engineering
+[Source](https://every.to/guides/compound-engineering)
 
 Overview: Compound Engineering is an AI-native engineering philosophy from Every where each unit of work makes subsequent units easier. Instead of codebases accumulating complexity over time, features teach the system new capabilities, bug fixes eliminate entire categories of future bugs, and codified patterns become tools for future work.
 
@@ -210,7 +210,7 @@ Quotes:
 
 ## Taskmaster
 
-Source: https://github.com/blader/taskmaster
+[Source](https://github.com/blader/taskmaster)
 
 Overview: Taskmaster is a stop hook for Claude Code that prevents the agent from stopping prematurely. It intercepts stop attempts and forces the agent to verify that all work is truly complete before allowing termination[^11].
 
@@ -225,7 +225,7 @@ Key Insights:
 - The core innovation is using the transcript itself as the source of truth for completion state
 - The hook uses a two-stage decision process: counter hard cap AND transcript signal analysis
 - The stop_hook_active flag is critical - if the hook already fired once AND no incomplete signals exist, it allows stop (agent reviewed and chose to stop again)
-- Loop protection is essential - default of 10 continuations prevents runaway behavior
+- Loop protection is needed - default of 10 continuations prevents runaway behavior
 - The system assumes task lists with structured status fields that can be grep-detected
 
 Actionable Patterns:
@@ -255,7 +255,7 @@ Quotes:
 
 ## Superpowers
 
-Source: https://github.com/obra/superpowers
+[Source](https://github.com/obra/superpowers)
 
 Overview: Superpowers is an agentic skills framework and software development methodology created by Jesse Vincent (obra) that provides a complete, structured workflow for AI coding agents. Rather than letting AI agents jump directly into writing code, Superpowers enforces a disciplined pipeline: first brainstorm and produce a design spec through Socratic dialogue with the human, then generate a detailed implementation plan with bite-sized tasks, then execute those tasks through fresh subagents with two-stage code review after each one. The system is built as a set of composable "skills" that trigger automatically when relevant conditions are detected, turning suggestions into mandatory workflows[^13].
 
@@ -297,7 +297,7 @@ Technical Details:
 
 ## GitHub Spec Kit
 
-Source: https://github.com/github/spec-kit
+[Source](https://github.com/github/spec-kit)
 
 Overview: Spec Kit is an open-source toolkit from GitHub (approximately 79,600 stars) for implementing Spec-Driven Development (SDD). It provides a CLI tool called `specify` and a set of slash commands that AI agents execute to follow a structured development workflow. The core idea is "The Power Inversion" - for decades, specifications were subordinate to code. SDD flips this so specifications become the primary artifact and source of truth, while code becomes a generated output that serves the specification[^16][^17].
 
@@ -337,7 +337,7 @@ Quotes:
 
 ## Spec Kit Walkthrough (Video)
 
-Source: https://www.youtube.com/watch?v=a9eR1xsfvHg
+[Source](https://www.youtube.com/watch?v=a9eR1xsfvHg)
 
 Overview: A hands-on walkthrough by Dan Delamarski, one of the Spec Kit maintainers, demonstrating the full workflow from bootstrapping a project to a running website. The video shows the specify CLI in action, building a podcast website from scratch using the six-step SDD process[^16].
 
@@ -394,7 +394,7 @@ Taskmaster solves the premature stopping problem that plagued the Ralph project.
 
 The tmc-marketplace iterative-engineering plugin demonstrates the value of explicit stage boundaries. The brainstorming stage produces PRDs with high-level direction but deliberately avoids implementation details. Tech planning describes what and where but not how - no pre-written method bodies. This separation keeps each stage focused and prevents premature optimization. For a Telegram bot, this suggests structuring commands around stages: a `/brainstorm` command for requirements gathering, a `/plan` command for technical breakdown, and an `/implement` command that executes the plan. The severity-based fix acceptance pattern is also relevant - instead of forcing the user to address all feedback, the bot could present findings grouped by severity and let the user choose what to fix.
 
-Compound Engineering from Every introduces a crucial insight: the compound step is what separates traditional AI-assisted development from a truly compounding system. After shipping a feature, you must capture what worked, make it findable with metadata, update CLAUDE.md, and verify the learning would be caught automatically next time. This maps directly to the Telegram bot goal: after the bot completes a task, it should extract patterns and add them to its knowledge base so future sessions benefit. The 50/50 rule (50% features, 50% system improvement) suggests the bot should invest time in learning from each interaction, not just executing commands.
+Compound Engineering from Every introduces a important insight: the compound step is what separates traditional AI-assisted development from a truly compounding system. After shipping a feature, you must capture what worked, make it findable with metadata, update CLAUDE.md, and verify the learning would be caught automatically next time. This maps directly to the Telegram bot goal: after the bot completes a task, it should extract patterns and add them to its knowledge base so future sessions benefit. The 50/50 rule (50% features, 50% system improvement) suggests the bot should invest time in learning from each interaction, not just executing commands.
 
 ## Sources
 

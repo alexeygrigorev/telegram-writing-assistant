@@ -41,7 +41,7 @@ The proven workflows that founders use to build products with AI assistance. The
 
 ## Effective Bug Fixing
 
-- Leverage error messages: Simply copy-pasting error messages is often enough for the AI
+- Use error messages: Simply copy-pasting error messages is often enough for the AI
 - Analyze before coding: Ask the AI to consider multiple possible causes
 - Reset after failures: Start with a clean slate after each unsuccessful fix attempt
 - Implement logging: Add strategic logging to better understand what's happening

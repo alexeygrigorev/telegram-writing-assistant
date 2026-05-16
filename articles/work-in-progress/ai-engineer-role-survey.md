@@ -8,7 +8,7 @@ status: draft
 
 # AI Engineer Role Survey
 
-A document collecting answers from real practitioners about their experience working as AI Engineers. The goal is to build a picture of what the role actually looks like in practice, based on first-hand accounts rather than job descriptions[^1][^3].
+A document collecting answers from real practitioners about their experience working as AI Engineers. The goal is to build a picture of what the role looks like in practice, based on first-hand accounts rather than job descriptions[^1][^3].
 
 So far only one person has responded, but the plan is to gradually fill this article with more responses over time[^3].
 
@@ -82,13 +82,13 @@ Ask right away about what is asked in interviews - understand the general landsc
 
 In startups, enterprise, and big tech, agentic development evolves completely differently and there are completely different tasks for implementing agentic solutions[^4].
 
-Be in the top 10% of the industry. This is almost impossible right now - follow trends, while somehow filtering the digital stream, and try to optimize yourself. Working with a single context is already becoming a critically lacking skill. If you're not working in three, four, five contexts in parallel, it will be very difficult to enter the industry, and even more so to maintain yourself in this industry at top companies[^4].
+Be in the top 10% of the industry. This is almost impossible right now - follow trends, while somehow filtering the digital stream, and try to optimize yourself. Working with a single context is already becoming a critically lacking skill. If you're not working in three, four, five contexts in parallel, it will be difficult to enter the industry, and even more so to maintain yourself in this industry at top companies[^4].
 
 ## Interview Process Opinions
 
 First: no coding at all. None whatsoever. If you want to understand how a person thinks, it's either debugging or working with a project for an hour to an hour and a half. Ideally in a setup where the person can show their own environment - come with prepared skills and show how they work. In companies where there are no restrictions, ideally the person should demonstrate their own setup[^4].
 
-Test assignments: an interesting approach, but only if the company is ready to give feedback and actually look at the test assignment[^4].
+Test assignments: an interesting approach, but only if the company is ready to give feedback and look at the test assignment[^4].
 
 Third, what's becoming critical: system design with AI elements. For example, if we're building AI capabilities in a company, we absolutely need to understand how a person will think about building any service or any component with interfaces for AI, with tooling for AI. Understanding the limitations on security, access rights, and everything related to AI integration. And understanding that AI will need to scale to a thousand-plus nodes, potentially 5-10x compared to the current load[^4].
 

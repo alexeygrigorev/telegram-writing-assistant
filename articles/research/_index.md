@@ -29,7 +29,7 @@ See [All Articles](../_index.md) for the main articles index.
 | [YouTube Shorts Automation](youtube-shorts-automation.md) | draft | 2026-02-28 | Research on automating YouTube Shorts posting, MoneyPrinterV2 as reference implementation |
 | [YC Guide to Vibe Coding](yc-vibe-coding.md) | draft | 2026-02-28 | Research on YC's guide to vibe coding and AI workflow optimization |
 | [Rowboat: Open-Source AI Coworker with Memory](rowboat.md) | draft | 2026-02-22 | Research on Rowboat, an open-source local-first AI coworker that builds a knowledge graph from email and meetings |
-| [Graph RAG](graph-rag.md) | draft | 2026-02-18 | Research on using knowledge graphs to enhance RAG for AI agents, with a production engineer incident response use case |
+| [Graph RAG](graph-rag.md) | draft | 2026-02-18 | Research on using knowledge graphs to improve RAG for AI agents, with a production engineer incident response use case |
 | [Instructional Design for Online Courses](instructional-design.md) | draft | 2026-02-18 | Research on instructional design principles for improving course completion rates and student engagement |
 | [Advanced Claude Code Patterns](claude-hidden-protocol.md) | draft | 2026-02-16 | Research on advanced Claude Code patterns, prompts, and protocols |
 | [Planner-Executor Pattern for AI Agents](planner-executor-pattern.md) | draft | 2026-02-16 | Research on the planner-executor pattern where a planner creates a plan and each step executes with fresh agent context |

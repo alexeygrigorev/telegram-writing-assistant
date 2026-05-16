@@ -8,11 +8,11 @@ status: draft
 
 # Browser Harness: Self-Healing Browser Automation via Agent-Editable Code
 
-Repository: https://github.com/browser-use/browser-harness
+[Repository](https://github.com/browser-use/browser-harness)
 
 Browser Harness is an intentionally minimal browser automation harness from the Browser Use team, built on Chrome DevTools Protocol (CDP). At roughly 592 lines of Python total, its defining idea is that the agent (Claude Code, Codex, or similar) edits the harness source itself mid-task when a primitive is missing. There is no retry framework, no selector healing library, no planning module - the "self-healing" is the for-loop of an LLM rewriting `helpers.py` while the browser stays open.
 
-This article looks at how that actually works in the repo, what counts as "self-healing" here, and how the design differs from classic self-healing automation (Playwright-style auto-waiting, Selenium healing selectors, etc.).
+This article looks at how that works in the repo, what counts as "self-healing" here, and how the design differs from classic self-healing automation (Playwright-style auto-waiting, Selenium healing selectors, etc.).
 
 ## What It Is
 
@@ -26,7 +26,7 @@ The pitch in the README captures the model[^1]:
   file uploaded
 ```
 
-The agent runs normal Python with a handful of pre-imported helpers. When a helper is missing or a site does something weird, the agent edits `helpers.py` directly, then continues. The code is the tool definition, so changes take effect on the very next invocation - `uv tool install -e .` makes the CLI point at the editable checkout, so every `browser-harness` shell call sees the latest code[^2].
+The agent runs normal Python with a handful of pre-imported helpers. When a helper is missing or a site does something weird, the agent edits `helpers.py` directly, then continues. The code is the tool definition, so changes take effect on the next invocation - `uv tool install -e .` makes the CLI point at the editable checkout, so every `browser-harness` shell call sees the latest code[^2].
 
 File layout (the whole repo):
 
@@ -165,7 +165,7 @@ def ensure_real_tab():
     return tabs[0]
 ```
 
-The agent is taught via `SKILL.md` when to call this: "Wrong/stale tab: `ensure_real_tab()`. Use it when the current tab is stale or internal; the daemon also auto-recovers from stale sessions on the next call"[^3].
+The agent is taught via `SKILL.md` when to call this: "Wrong/stale tab: `ensure_real_tab()`. Use it when the current tab is stale or internal. The daemon also auto-recovers from stale sessions on the next call"[^3].
 
 Similarly, `restart_daemon()` in `admin.py` is a last-resort reset the agent can invoke when the WebSocket is hung ("no close frame received or sent"). It sends `{"meta":"shutdown"}`, then SIGTERMs the PID, then unlinks socket and pid files[^7]. A follow-up `browser-harness` call auto-spawns a fresh daemon via `ensure_daemon()`. The function's misnomer is intentional, per the docstring: "restart_daemon is misnamed - it only stops the daemon ... The 'run-it-again-to-restart' workflow is why it was named that way".
 
@@ -248,7 +248,7 @@ The green circle (🟢) title-marking is yet another recovery aid: every time th
 
 ## What the Agent Actually Sees
 
-The agent's loop is shaped by SKILL.md. The file is 200+ lines of field-tested advice, essentially a prompt file loaded into the agent's context before any tool call. It includes design constraints, gotchas, and a "what actually works" section. A few representative rules[^3]:
+The agent's loop is shaped by SKILL.md. The file is 200+ lines of field-tested advice, essentially a prompt file loaded into the agent's context before any tool call. It includes design constraints, gotchas, and a "what works" section. A few representative rules[^3]:
 
  - "Screenshots first: use `screenshot()` to understand the current page quickly, find visible targets, and decide whether you need a click, a selector, or more navigation."
  - "Clicking: `screenshot()` -> look -> `click(x, y)` -> `screenshot()` again to verify the result. Coordinate clicks pass through iframes/shadow/cross-origin at the compositor level."
@@ -293,17 +293,17 @@ For a system experimenting with self-healing (like litehive), three specific des
 
 1. The editable primitive layer. The agent should have a shallow wrapper over a universal action surface (here: CDP), and should be allowed to extend that wrapper. Self-healing-by-code-edit is much cheaper than self-healing-by-metaheuristic.
 
-2. The skills knowledge base as institutional memory. Recovery state belongs in a human-readable, PR-reviewed markdown corpus, not in a vector database or RL policy. Other agents read it before starting. Bad skills get downvoted or edited; good ones compound. A PII gate keeps shared skills safe[^9].
+2. The skills knowledge base as institutional memory. Recovery state belongs in a human-readable, PR-reviewed markdown corpus, not in a vector database or RL policy. Other agents read it before starting. Bad skills get downvoted or edited. Good ones compound. A PII gate keeps shared skills safe[^9].
 
 3. Minimal proactive recovery, aimed at the specific failures the substrate creates. The daemon only handles one error class automatically (stale CDP sessions) because that is the one class the substrate generates unavoidably. Everything else is left to the model, because the model is better at reading arbitrary failure context than any rule-based retry can be.
 
-The anti-patterns the Browser Harness README and SKILL.md explicitly reject are also instructive: no retry framework, no session manager, no daemon supervisor, no config system, no logging framework. Each of these is a place where a naive self-healing layer would accumulate complexity without actually healing anything.
+The anti-patterns the Browser Harness README and SKILL.md explicitly reject are also instructive: no retry framework, no session manager, no daemon supervisor, no config system, no logging framework. Each of these is a place where a naive self-healing layer would accumulate complexity without healing anything.
 
 ## What Makes This Interesting
 
 A few non-obvious observations:
 
-The daemon process is the only state. Every `browser-harness` invocation is a fresh Python process that loads `helpers.py` from disk. This means an agent can edit `helpers.py`, and the edit is picked up on the very next call with zero reload logic. The daemon only holds the CDP session, not the helpers themselves.
+The daemon process is the only state. Every `browser-harness` invocation is a fresh Python process that loads `helpers.py` from disk. This means an agent can edit `helpers.py`, and the edit is picked up on the next call with zero reload logic. The daemon only holds the CDP session, not the helpers themselves.
 
 The Unix socket is the API boundary, not the helper file. An agent could in principle write a helper file in any language that talks to `/tmp/bu-default.sock` with JSON lines. The helpers file is a convention, not a contract.
 

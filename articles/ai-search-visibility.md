@@ -22,7 +22,7 @@ AI responses closely mirror LinkedIn source content, with semantic similarity sc
 
 ## What gets cited
 
-Long-form articles dominate citations, accounting for 50-66% of cited content. Feed posts make up 15-28%. The sweet spot for articles is 500-2,000 words. For posts, it is 50-299 words. 95% of cited posts are original content; reshares account for only 5%[^1].
+Long-form articles dominate citations, accounting for 50-66% of cited content. Feed posts make up 15-28%. The sweet spot for articles is 500-2,000 words. For posts, it is 50-299 words. 95% of cited posts are original content. Reshares account for only 5%[^1].
 
 Educational and advice-driven content wins - 54-64% of cited posts focus on sharing knowledge or practical advice. Promotional content has the second-largest share but is cited significantly less[^1].
 
@@ -36,7 +36,7 @@ Virality is irrelevant. The median cited post has 15-25 reactions and no more th
 
 Publish original, educational content consistently on LinkedIn (both articles and posts). Structure articles clearly: direct answer early, logical flow, 500-2,000 words. State the core message and key terms explicitly in the first few lines - AI tends to echo the exact framing[^1].
 
-Use precise, consistent terminology for the brand and category. Maintain both a Company Page content program and individual thought leadership. Focus on answering specific, high-intent questions the audience actually searches for. Do not chase virality; focus on relevance and depth instead[^1].
+Use precise, consistent terminology for the brand and category. Maintain both a Company Page content program and individual thought leadership. Focus on answering specific, high-intent questions the audience searches for. Do not chase virality. Focus on relevance and depth instead[^1].
 
 ## AI Overview Tracker
 

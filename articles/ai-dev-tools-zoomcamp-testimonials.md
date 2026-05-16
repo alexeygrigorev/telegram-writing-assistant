@@ -14,7 +14,7 @@ Testimonials from AI Dev Tools Zoomcamp participants, collected in one place.
 
 Hi everyone! Just wanted to share a small thank-you to this course/community.
 
-I found AI Dev Tools Zoomcamp near the end of last year while I was laid off and job hunting, and it really opened the door for me to vibe coding / agentic engineering.
+I found AI Dev Tools Zoomcamp near the end of last year while I was laid off and job hunting, and it opened the door for me to vibe coding / agentic engineering.
 
 Since then, I kept learning and experimenting, and I recently shipped my first iOS app: Prana: Breathwork Meditation - a guided breathwork app inspired by my yoga teacher training.
 

@@ -25,7 +25,7 @@ Instead, a Telegram bot can create issues automatically. Here is how it would wo
 1. Setup: define a specific set of repositories (or all repositories) that the agent should be interested in
 2. Interaction: send a voice note to a Telegram bot
 3. Processing: the bot transcribes the voice note, and based on the command, the agent performs an action like creating or editing an issue
-4. Categorization: if the agent cannot categorize an issue, it records it in a "not categorized" list for review later. You can then correct the agent by telling it which repository the issue actually belongs to
+4. Categorization: if the agent cannot categorize an issue, it records it in a "not categorized" list for review later. You can then correct the agent by telling it which repository the issue belongs to
 
 This is just a suggestion to run with or use as inspiration[^2].
 
@@ -33,7 +33,7 @@ This is just a suggestion to run with or use as inspiration[^2].
 
 An agent that helps people identify projects they can do[^4]. Similar to the "kid-parent" Claude slash commands described in a previous Substack article[^4].
 
-This could be a conversational agent - not really an agent, more like a chatbot - that helps people come up with original project ideas[^4].
+This could be a conversational agent - not an agent, more like a chatbot - that helps people come up with original project ideas[^4].
 
 This is a nice project idea in itself, but it is also a useful project for the community. People can try playing with it. It could be a good lead magnet for the community - they would have to sign up to interact with the agent, and then the agent can suggest different ideas[^4].
 
@@ -53,7 +53,7 @@ You can also personalize it. If you have your own profile, it can quickly highli
 
 It can cluster different jobs into different clusters, help you select a domain, help you select project ideas for these jobs[^7].
 
-Based on existing data, you can continue collecting this data. Another angle: given all this dataset, what can you do with it to help upskill yourself. Include a link to the recent AI engineering field guide where the data is, so people can actually build a RAG on top of that to help them. If they also specify their profile, this becomes a really cool project[^7].
+Based on existing data, you can continue collecting this data. Another angle: given all this dataset, what can you do with it to help upskill yourself. Include a link to the recent AI engineering field guide where the data is, so people can build a RAG on top of that to help them. If they also specify their profile, this becomes a cool project[^7].
 
 This is a pretty interesting project and something that could also be implemented for AI Buildcamp[^7].
 
@@ -61,7 +61,7 @@ This is a pretty interesting project and something that could also be implemente
 
 Something like the Telegram Writing Assistant, but simpler. You send a voice message or share an article, and instead of Claude, you have an agent that determines the right place to put it[^8].
 
-This is very similar to the FAQ Assistant in the DataTalks.Club. You make a request and the agent determines whether this is something new that needs a new entry, or something that should be added to an existing one, plus it creates the right category[^8].
+This is similar to the FAQ Assistant in the DataTalks.Club. You make a request and the agent determines whether this is something new that needs a new entry, or something that should be added to an existing one, plus it creates the right category[^8].
 
 There can be two types of interactions: adding information and asking questions. You can share a link, and the agent describes what is in that link and adds it to the knowledge base. If you share a YouTube video, it makes a summary and puts it somewhere. It is a knowledge management or idea management system[^8].
 
@@ -77,7 +77,7 @@ Then you can look at your entries. You can also color-code each day. A cron job 
 
 All of this gets saved in whatever format you want. A full journaling experience with all the standard attributes[^10].
 
-Every day you record your results. Then when it is time for a performance review, you can show your manager: look at all these achievements, give me a raise. This is a very useful and convenient thing, and why not use AI for it[^10].
+Every day you record your results. Then when it is time for a performance review, you can show your manager: look at all these achievements, give me a raise. This is a useful and convenient thing, and why not use AI for it[^10].
 
 This is something that can be done manually too. When working at a company, having a weekly one-on-one with a manager and preparing a document for it is a common practice. That document then becomes useful for preparing for the performance review. There is a well-known article about this concept called the [brag document](https://jvns.ca/blog/brag-documents/)[^10].
 

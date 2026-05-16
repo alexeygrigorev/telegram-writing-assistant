@@ -220,7 +220,7 @@ flowchart TD
     U --> V["yield tool result"]
 ```
 
-The `partitionToolCalls()` function groups consecutive concurrency-safe tools into a single batch, breaking whenever an unsafe tool appears. Read-only tools (Glob, Grep, FileRead) return `true` from `isConcurrencySafe`; mutating tools (FileEdit, FileWrite, most BashTool calls) return `false`. Consecutive safe tools run in parallel up to `CLAUDE_CODE_MAX_TOOL_USE_CONCURRENCY` (default 10), with serial tools forming singleton batches.
+The `partitionToolCalls()` function groups consecutive concurrency-safe tools into a single batch, breaking whenever an unsafe tool appears. Read-only tools (Glob, Grep, FileRead) return `true` from `isConcurrencySafe`. Mutating tools (FileEdit, FileWrite, most BashTool calls) return `false`. Consecutive safe tools run in parallel up to `CLAUDE_CODE_MAX_TOOL_USE_CONCURRENCY` (default 10), with serial tools forming singleton batches.
 
 The streaming optimization is in `StreamingToolExecutor`. When the API sends a `tool_use` block mid-stream, the executor calls `addTool()` and can begin running the tool immediately, before the full API response completes. Each tracked tool has a status (`queued`, `executing`, `completed`, `yielded`), and results are emitted in the order tools were received, not the order they finished. A child `AbortController` is set up so that when a Bash tool errors, siblings can be aborted without ending the parent turn.
 
@@ -230,7 +230,7 @@ Keeping the conversation within the model's context window is handled by five co
 
  - Snip compaction (`snipCompact.ts`) - drops messages beyond a boundary, keeping recent ones
  - Tool result budget (`toolResultStorage.ts`) - replaces large tool results with truncated versions
- - Microcompact (`microCompact.ts`, 530 lines) - compresses individual messages; the `apiMicrocompact.ts` variant uses API-level cache editing to avoid resending unchanged bytes
+ - Microcompact (`microCompact.ts`, 530 lines) - compresses individual messages. The `apiMicrocompact.ts` variant uses API-level cache editing to avoid resending unchanged bytes
  - Context collapse (`contextCollapse/`) - replaces groups of messages with summaries in a reversible way, committed from a staging queue
  - Autocompact (`autoCompact.ts`, 351 lines) - full conversation summarization via a forked Claude call
 
@@ -244,7 +244,7 @@ The permission system is one of the most complex components. Modes include:
 
  - `default` - ask before dangerous operations
  - `auto` - automatically approve (with classifier safety checks)
- - `plan` - read-only mode; ask before any write
+ - `plan` - read-only mode. Ask before any write
  - `bypassPermissions` - approve everything (dangerous mode)
 
 Permission rules come from seven sources with strict precedence: CLI args, policy settings (MDM), enterprise settings, project settings, user settings, session grants, and remote managed settings. The `services/remoteManagedSettings/` directory handles the last category.
@@ -344,7 +344,7 @@ this.siblingAbortController = createChildAbortController(
 )
 ```
 
-When a Bash tool errors, aborting `siblingAbortController` kills peer subprocesses without canceling the parent query. When streaming fallback occurs (model failure mid-stream), `discard()` sets a flag; queued tools never start, and in-progress tools get synthetic error results. Progress messages are stored separately from results so they can be yielded immediately without waiting for tool completion.
+When a Bash tool errors, aborting `siblingAbortController` kills peer subprocesses without canceling the parent query. When streaming fallback occurs (model failure mid-stream), `discard()` sets a flag. Queued tools never start, and in-progress tools get synthetic error results. Progress messages are stored separately from results so they can be yielded immediately without waiting for tool completion.
 
 ## System Prompt Architecture
 
@@ -359,7 +359,7 @@ Model errors during streaming trigger `FallbackTriggeredError`, which switches t
 The memory system has three layers:
 
  - `CLAUDE.md` files - project-scoped instructions loaded hierarchically (similar to `.gitignore` walk)
- - `MEMORY.md` / memdir - auto-managed memory directory with frontmatter-typed entries; capped at 200 lines / 25KB and used as an index to topic files
+ - `MEMORY.md` / memdir - auto-managed memory directory with frontmatter-typed entries. Capped at 200 lines / 25KB and used as an index to topic files
  - Session memory - within-session knowledge persistence managed by `SessionMemory/`
 
 The autoDream service consolidates across sessions. The memdir system includes `findRelevantMemories.ts` (relevance scoring), `memoryAge.ts` (aging), and `memoryScan.ts` (scanning for merges).

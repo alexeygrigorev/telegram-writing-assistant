@@ -70,7 +70,7 @@ Today I had a talk to give and needed to prepare slides. I had three existing ar
 
 Claude Code created a markdown document, converted it to HTML, and opened a browser. It said "here, your browser has all the slides now." And it did - all the slides were there. I just needed to share my screen and present. The slides were maximally simple, which is what I wanted[^5].
 
-I wanted to give a very simple talk without slides, but slides help people follow along and have something to anchor to. So this was perfect. I don't know what technologies Claude used to do this. I just said "take these articles, make slides from them" and it did. Very convenient[^5].
+I wanted to give a simple talk without slides, but slides help people follow along and have something to anchor to. So this was perfect. I don't know what technologies Claude used to do this. I just said "take these articles, make slides from them" and it did. Very convenient[^5].
 
 After the webinar, I can say the preparation process was great. I sat down, opened my computer, opened the materials I wanted to use for the talk, and just used them as reference while speaking. The writing assistant is getting better and better. Plus the new Opus 4.6 works well. Soon articles could be published almost without editing. And the main thing - these are my thoughts, not something I asked an LLM to write. My thoughts, just structured[^6].
 
@@ -84,7 +84,7 @@ This touches on AI autonomy and emergent behavior in coding assistants. When giv
 
 ## Agents View in Claude Code
 
-Noticed a new feature in Claude Code: it now shows which agents are running and what they are doing. Before, this was not visible, or maybe I just did not notice it - but I had not seen it before. Earlier it would just say something like "7 agents running"; now I can see exactly which agents are running, what they are doing, and how long they have been running. Very convenient[^10].
+Noticed a new feature in Claude Code: it now shows which agents are running and what they are doing. Before, this was not visible, or maybe I just did not notice it - but I had not seen it before. Earlier it would just say something like "7 agents running". Now I can see exactly which agents are running, what they are doing, and how long they have been running. Very convenient[^10].
 
 <figure>
   <img src="../../assets/images/claude-code-experiments/agents-view-running.jpg" alt="Claude Code terminal showing running agents with names, task descriptions, durations, and token counts">

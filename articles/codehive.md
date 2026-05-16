@@ -79,7 +79,7 @@ With the Jekyll project I wanted pixel-perfect matching. I asked the agents to c
 
 Same problem with Mermaid diagrams - the output is visual, and agents struggle to evaluate images. We fixed one thing and broke two others. Tests didn't catch it because it's visual, hard to test automatically. I had to write a visual guideline checklist for the agents to follow[^6].
 
-I haven't found a way to fully automate this. It seems very project-dependent. My goal right now is to do as many projects as possible with this methodology. Each project sharpens it. I think after about 10 more projects I'll have a solid system[^6].
+I haven't found a way to fully automate this. It seems project-dependent. My goal right now is to do as many projects as possible with this methodology. Each project sharpens it. I think after about 10 more projects I'll have a solid system[^6].
 
 Phil Winder [wrote about migrating a Python codebase to Go using Claude Code](https://www.linkedin.com/posts/drphilwinder_i-just-migrated-a-production-python-codebase-activity-7430343296205459456-eXUm) and concluded: "Claude is a powerful but literal executor. The gaps in your design become the bugs in your system." This matches what I see[^8].
 

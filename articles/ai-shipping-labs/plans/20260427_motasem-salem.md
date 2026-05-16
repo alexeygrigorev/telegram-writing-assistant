@@ -14,9 +14,9 @@ Internal working document. Share only the `Summary` and `Plan` sections with the
 
 - Current situation: ML engineer with a software engineering background. Already deploys models to production and works with databases. Wants to use AI assistants to build end-to-end products as a full-stack developer.
 - Goal for the next 6 weeks: pick one project, get a first working version of a full-stack site in place, then continue building it through an agent team using spec-driven development.
-- Main gap to close: experience working with a coding agent and structuring a project so that spec-driven development with a team of agents actually works (clean tests on frontend, backend, end-to-end).
+- Main gap to close: experience working with a coding agent and structuring a project so that spec-driven development with a team of agents works (clean tests on frontend, backend, end-to-end).
 - Weekly time commitment: 10-15 hours per week, which is enough to ship a first working version inside the 6-week sprint.
-- Why this plan is the right next step: he already knows what he wants to build and has the engineering skills, so the highest-leverage move is to give him structure - pick a coding agent, pick one project, learn the agent-team / spec-driven workflow, and execute.
+- Why this plan is the right next step: he already knows what he wants to build and has the engineering skills, so the highest-use move is to give him structure - pick a coding agent, pick one project, learn the agent-team / spec-driven workflow, and execute.
 
 ## Plan
 
@@ -47,7 +47,7 @@ Week 3:
   - Tests on the frontend.
   - Tests on the backend.
   - At least a couple of end-to-end tests.
-- These tests are the substrate that lets a team of agents work safely; without them, spec-driven development does not hold up.
+- These tests are the substrate that lets a team of agents work safely. Without them, spec-driven development does not hold up.
 
 Week 4:
 
@@ -57,7 +57,7 @@ Week 4:
 Week 5:
 
 - Continue building features through the agent team. Tighten the test coverage and the spec format as he learns what works.
-- If the chosen agent plan is running out of room, upgrade rather than waiting; do not switch to a free plan.
+- If the chosen agent plan is running out of room, upgrade rather than waiting. Do not switch to a free plan.
 
 Week 6:
 
@@ -113,19 +113,19 @@ Alexey's recommendation after reviewing Motasem's input[^4]:
 
 1. He already knows what he wants to do. The job is to give him structure so 10-15 hours per week become productive.
 
-2. Step one is picking a coding agent and committing to it. Claude Code, Codex, or anything similar - the choice does not matter much, the workflow does. Cursor's pricing is unclear; Claude Code and Codex have a $100/mo plan that fits ~15 hrs/week. Starting on the cheapest Codex plan and upgrading is also fine. Free plans should be avoided.
+2. Step one is picking a coding agent and committing to it. Claude Code, Codex, or anything similar - the choice does not matter much, the workflow does. Cursor's pricing is unclear. Claude Code and Codex have a $100/mo plan that fits ~15 hrs/week. Starting on the cheapest Codex plan and upgrading is also fine. Free plans should be avoided.
 
 3. He has several full-stack project ideas (frontend + backend with an OpenAPI layer in between). Module 2 of the AI Dev Tools Zoomcamp shows exactly that pattern, including CI/CD, so it is a strong reference.
 
 4. The article on managing agent teams (spec-driven development) is the second piece. He should try to implement this himself: first get the core of the site working, then keep building through a team of agents driven by specs.
 
-5. For spec-driven development to work, the project needs proper test scaffolding: frontend tests, backend tests, end-to-end tests. The agent-team framework lays cleanly on top of that structure; without the tests it falls apart.
+5. For spec-driven development to work, the project needs proper test scaffolding: frontend tests, backend tests, end-to-end tests. The agent-team framework lays cleanly on top of that structure. Without the tests it falls apart.
 
-6. He should pick one project, not two. Six weeks should be enough to get a first working version; the rest of the project can stretch beyond that.
+6. He should pick one project, not two. Six weeks should be enough to get a first working version. The rest of the project can stretch beyond that.
 
-7. Framework choice is secondary. React rather than Next.js is fine - Alexey himself does not know Next.js well and is not a JavaScript expert, so he would default to React. The general approach is to ask the agent to list the criteria it would use to choose a stack, justify why those criteria matter for this project, then pick. ChatGPT is enough for that conversation; no need to spend coding-agent budget on it. For his own projects Alexey defaults to Django because he already knows it - the same logic applies here, but the criteria-first conversation can override the default.
+7. Framework choice is secondary. React rather than Next.js is fine - Alexey himself does not know Next.js well and is not a JavaScript expert, so he would default to React. The general approach is to ask the agent to list the criteria it would use to choose a stack, justify why those criteria matter for this project, then pick. ChatGPT is enough for that conversation. No need to spend coding-agent budget on it. For his own projects Alexey defaults to Django because he already knows it - the same logic applies here, but the criteria-first conversation can override the default.
 
-8. He can read along and ask the coding agents to explain how things work if he wants to actually understand the system, not just ship it.
+8. He can read along and ask the coding agents to explain how things work if he wants to understand the system, not just ship it.
 
 ## Internal Action Items
 

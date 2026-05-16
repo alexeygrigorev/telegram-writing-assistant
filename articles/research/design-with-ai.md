@@ -18,7 +18,7 @@ How to get AI-generated UI that does not look like slop. What principles and pro
 
 ## Reddit: "I Condensed Years of Design Experience into a Single Skill"
 
-Source: https://www.reddit.com/r/vibecoding/comments/1r1vhee/
+[Source](https://www.reddit.com/r/vibecoding/comments/1r1vhee/)
 
 A post by user dammyjay93 on r/vibecoding (232 upvotes) presenting an "interface-design" skill that encodes years of professional design knowledge into a reusable AI skill file. The author claims it produces significantly higher baseline design output that you can iterate from, rather than starting from a generic template every time.
 
@@ -35,8 +35,8 @@ Community feedback highlights:
 
 ## The Interface-Design Skill (Full Analysis)
 
-Source: https://skills.sh/dammyjay93/interface-design/interface-design
-GitHub: https://github.com/dammyjay93/interface-design
+[Source](https://skills.sh/dammyjay93/interface-design/interface-design)
+[GitHub](https://github.com/dammyjay93/interface-design)
 
 This is the complete skill file that gets loaded into AI coding assistants. It is essentially a long design brief that changes how the AI approaches UI generation. The skill targets dashboards, admin panels, SaaS apps, tools, settings pages, and data interfaces. It explicitly excludes landing pages and marketing sites.
 
@@ -120,9 +120,9 @@ The skill saves design decisions to `.interface-design/system.md` which loads au
 
 ## Comparison Dashboard
 
-Source: https://interface-design.dev/examples.html
+[Source](https://interface-design.dev/examples.html)
 
-The project includes 16 showcase examples demonstrating the skill applied to different product domains:
+The project includes 16 show examples demonstrating the skill applied to different product domains:
 
 - Support Desk with AI-drafted responses
 - Film production crew management
@@ -151,7 +151,7 @@ Each example demonstrates how the same underlying principles produce visually di
 
 3. The gap between prose and code is where defaults win. You can describe a design perfectly in words, but code generation pulls from patterns. Bridging this gap requires explicit checkpoints before every component.
 
-4. CSS variable naming is a design decision. `--ink` and `--parchment` create a world. `--gray-700` and `--surface-2` create a template. This is a surprisingly effective lever.
+4. CSS variable naming is a design decision. `--ink` and `--parchment` create a world. `--gray-700` and `--surface-2` create a template. This is a effective lever.
 
 5. Concrete visual references beat abstract descriptions. Instead of "make it modern and clean," screenshot 2-3 real products you like and say "match this density, this color temperature, this type scale."
 

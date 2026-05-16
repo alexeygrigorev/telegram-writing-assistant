@@ -12,8 +12,8 @@ Internal working document. Share only the `Summary` and `Plan` sections with the
 
 ## Summary
 
-- Current situation: Madrid-based data science lead, met Alexey through the Maven AI Engineering Buildcamp. Already shipped [amr_ai](https://github.com/juanpprim/amr_ai), an AMR (Antibiotic Resistance) learning agent: Streamlit chat that produces overviews, quizzes, and flashcards from a hybrid-retrieval RAG over WHO/CDC/FAO/PubMed sources, built with PydanticAI + Claude + ChromaDB + BioBERT[^2]. The build itself is solid; the project has not been deployed yet[^1].
-- Goal for the next 6 weeks: take the existing `amr_ai` Streamlit app from "runs locally" to "deployed and reachable on a secure independent website", with monitoring and evaluation added on top so other people can actually use it for feedback.
+- Current situation: Madrid-based data science lead, met Alexey through the Maven AI Engineering Buildcamp. Already shipped [amr_ai](https://github.com/juanpprim/amr_ai), an AMR (Antibiotic Resistance) learning agent: Streamlit chat that produces overviews, quizzes, and flashcards from a hybrid-retrieval RAG over WHO/CDC/FAO/PubMed sources, built with PydanticAI + Claude + ChromaDB + BioBERT[^2]. The build itself is solid. The project has not been deployed yet[^1].
+- Goal for the next 6 weeks: take the existing `amr_ai` Streamlit app from "runs locally" to "deployed and reachable on a secure independent website", with monitoring and evaluation added on top so other people can use it for feedback.
 - Main gap to close: deployment + monitoring + evaluation. The build skill is already there - what is missing is the production wrapping (Dockerization, scalability, secure hosting, GitHub Actions pipeline) plus the production-side evaluation Juan has not done before.
 - Weekly time commitment: 5 to 10 hours per week, around a full-time data science lead role and family responsibilities[^1].
 - Why this plan is the right next step: Juan already has the project the Buildcamp arc would normally have him build. The natural next step in the Buildcamp arc - concept → tools → tests → monitoring → evolution - is the part he has not done yet. Doing exactly that for `amr_ai` doubles as a portfolio piece and a base for the long-term goal of generalising the platform to other topics.
@@ -33,14 +33,14 @@ This is the shareable part of the document.
 Week 1:
 
 - Stand up a Docker setup that runs the existing Streamlit app + Chroma collection together. The acceptance bar is "another machine can `docker compose up` and get the same chat experience".
-- Decide the host (Hugging Face Space - private to start - vs. a small VM vs. a managed Streamlit deploy). Private HF Space is the lightest path for the "share with five colleagues" goal Juan named in intake[^1]; a small VM is the right call if the eventual platform direction needs it.
+- Decide the host (Hugging Face Space - private to start - vs. a small VM vs. a managed Streamlit deploy). Private HF Space is the lightest path for the "share with five colleagues" goal Juan named in intake[^1]. A small VM is the right call if the eventual platform direction needs it.
 - Lock down secrets (API keys, DB paths) in env vars / a secret store, not in the repo.
 
 Week 2:
 
 - Deploy the first version. Get a URL you can send to one colleague and ask them to break.
 - Add HTTPS / a custom domain if the host does not give one for free. Add basic auth or signed links so the URL is not openly indexable.
-- Replay one or two of the colleague's sessions from the logs to confirm what they actually saw.
+- Replay one or two of the colleague's sessions from the logs to confirm what they saw.
 
 Week 3:
 
@@ -54,7 +54,7 @@ Week 4:
 
 Week 5:
 
-- Iterate on retrieval/reranker variants using the eval set as the scoreboard. The hybrid (BioBERT + BM25 + RRF) stack you already have is a solid baseline; one or two principled experiments (e.g., a different embedding model, a reranker tweak, a chunking change) is enough.
+- Iterate on retrieval/reranker variants using the eval set as the scoreboard. The hybrid (BioBERT + BM25 + RRF) stack you already have is a solid baseline. One or two principled experiments (e.g., a different embedding model, a reranker tweak, a chunking change) is enough.
 - Polish the README, the architecture diagram, and the "how this was built" page so the public-facing version of the site has a writeup behind it.
 
 Week 6:
@@ -65,18 +65,18 @@ Week 6:
 ## Project approach
 
 - The build is not the bottleneck. `amr_ai` already has a richer stack than most sprint projects start with - PydanticAI agent, hybrid retrieval, BioBERT, Reciprocal Rank Fusion, Docling for PDFs[^3]. The sprint is about adding the production layer around what you have built, not rebuilding it.
-- Streamlit is fine for week-1 deployment. It got you to a working chat. Replacing it with a custom React frontend is a different project; if it ever happens, do it after the sprint, not during it.
+- Streamlit is fine for week-1 deployment. It got you to a working chat. Replacing it with a custom React frontend is a different project. If it ever happens, do it after the sprint, not during it.
 - Replicate the Buildcamp pattern, do not reinvent it. The workshop on monitoring + evaluation is the reference for what to add and in what order. Build the same shape on `amr_ai`, then improve from there.
-- Pair where it accelerates. Manjunath Yelipeta is sprinting on a v0.0.1 deployment platform that takes an AI project as input and produces a live URL ([his plan](20260506_manjunath-yelipeta.md)). His project and your project are on opposite sides of the same problem - there is real value in talking weekly about what each side learns. Pairing is optional but encouraged; treat it as an open conversation, not a dependency.
-- Keep secondary feature work parked. Adding diagrams, images, videos, gamified flashcards, generalising the platform - all good, all out of scope for this sprint. Note them in a follow-up doc so they are not lost; do not let them displace deployment.
+- Pair where it accelerates. Manjunath Yelipeta is sprinting on a v0.0.1 deployment platform that takes an AI project as input and produces a live URL ([his plan](20260506_manjunath-yelipeta.md)). His project and your project are on opposite sides of the same problem - there is real value in talking weekly about what each side learns. Pairing is optional but encouraged. Treat it as an open conversation, not a dependency.
+- Keep secondary feature work parked. Adding diagrams, images, videos, gamified flashcards, generalising the platform - all good, all out of scope for this sprint. Note them in a follow-up doc so they are not lost. Do not let them displace deployment.
 
 ## Resources
 
 - Buildcamp workshop on monitoring + evaluation - the reference pattern for week 3-4. Use the same structure on `amr_ai` rather than designing from scratch.
-- AI Shipping Labs first workshop on Telepot agents and deployment to Render (week of 2026-04-20) - useful as a deployment-walkthrough reference if you want to see one path end to end. Available to community members; ask Valeriia for the link.
+- AI Shipping Labs first workshop on Telepot agents and deployment to Render (week of 2026-04-20) - useful as a deployment-walkthrough reference if you want to see one path end to end. Available to community members. Ask Valeriia for the link.
 - Streamlit + Docker deployment docs for whichever host you pick.
 - Logfire (or your monitoring tool of choice) for the production-side traces.
-- The `amr_ai` repo: https://github.com/juanpprim/amr_ai .
+- [The `amr_ai` repo](https://github).com/juanpprim/amr_ai .
 
 ## Deliverables
 
@@ -91,7 +91,7 @@ Week 6:
 
 - Weekly async update on what shipped, what is blocked, and the goal for next week - the "structured deadlines and motivation through feedback" Juan asked for in intake[^1].
 - Pair check-in with Manjunath (optional but encouraged) once a week or once a fortnight - 20 minutes is enough.
-- Post the live URL in `#plan-sprints` once it exists; the community is the first set of users.
+- Post the live URL in `#plan-sprints` once it exists. The community is the first set of users.
 
 ## Next Steps
 
@@ -126,13 +126,13 @@ Cross-reference the matching interview at [../interviews/juan-perez-prim.md](../
 
 ## Initial Input
 
-The Google Doc is a Gemini-generated transcript and summary from Juan and Valeriia's intake call on 2026-05-07[^1]. There was no separate free-form written input; Juan opened the call by giving context on how he joined and what he wants from the community:
+The Google Doc is a Gemini-generated transcript and summary from Juan and Valeriia's intake call on 2026-05-07[^1]. There was no separate free-form written input. Juan opened the call by giving context on how he joined and what he wants from the community:
 
-> So, I joined - I mean, I know Alexey, I met him through one of the platforms, Maven. So one of the courses, it was the AI Engineering Buildcamp. My background is in data science. So I'm not a computer science by study. So I'm more on the engineering side that moved forward to the data side... And then my situation is - I use a little bit of the tools of AI, but I want to know - since I have not done much, it's easier to do it with someone or a community, you can push yourself a little bit higher than if you're more alone. So one of the things in the community that I think is interesting is sharing tips, getting some profiles, maybe even collaborate on projects with other people or for Alexey... I have a project I did for the bootcamp, the Maven one - I wanted to evolve it, keep it evolving a little bit. So that's basically going to be my goal. And what I want to do is, one is learning purposes, and second is - I'm open to looking for jobs. I have a full-time job but maybe would like to transition to another role.
+> So, I joined - I mean, I know Alexey, I met him through one of the platforms, Maven. So one of the courses, it was the AI Engineering Buildcamp. My background is in data science. So I'm not a computer science by study. So I'm more on the engineering side that moved forward to the data side... And then my situation is - I use a little bit of the tools of AI, but I want to know - since I have not done much, it's easier to do it with someone or a community, you can push yourself a little bit higher than if you're more alone. So one of the things in the community that I think is interesting is sharing tips, getting some profiles, maybe even collaborate on projects with other people or for Alexey... I have a project I did for the bootcamp, the Maven one - I wanted to evolve it, keep it evolving a little bit. So that's going to be my goal. And what I want to do is, one is learning purposes, and second is - I'm open to looking for jobs. I have a full-time job but maybe would like to transition to another role.
 
 ## Questions and Answers
 
-Questions are paraphrased from Valeriia's prompts during the call; answers are condensed from Juan's responses[^1]. Timestamps reference the transcript.
+Questions are paraphrased from Valeriia's prompts during the call. Answers are condensed from Juan's responses[^1]. Timestamps reference the transcript.
 
 1. What are your goals for joining the community? - "Learning, including collaborating on projects, sharing tips, and potentially contributing to Alexey's work. I have a full-time job but I'm open to looking for roles, and I would like to evolve a project I completed during the boot camp."
 
@@ -164,7 +164,7 @@ No intake call yet between Alexey and Juan - the input above was collected on 20
 
 Alexey's recommendations after reviewing the intake doc[^4]:
 
-1. He already has the project. `amr_ai` is the AMR learning agent he built during the Maven Buildcamp - PydanticAI agent, hybrid retrieval (BioBERT + BM25 + RRF), Streamlit chat over WHO/CDC/FAO/PubMed sources[^3]. He scored 26 on the Buildcamp submission. The build is solid; deployment is the missing piece.
+1. He already has the project. `amr_ai` is the AMR learning agent he built during the Maven Buildcamp - PydanticAI agent, hybrid retrieval (BioBERT + BM25 + RRF), Streamlit chat over WHO/CDC/FAO/PubMed sources[^3]. He scored 26 on the Buildcamp submission. The build is solid. Deployment is the missing piece.
 
 2. The sprint goal is straightforward: deploy what exists. Streamlit is fine as the first deployed shape - he should not rebuild the frontend during this sprint. After the deploy works, the Buildcamp arc continues with monitoring and evaluation, in that order.
 

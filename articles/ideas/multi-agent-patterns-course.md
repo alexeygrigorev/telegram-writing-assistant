@@ -10,7 +10,7 @@ status: draft
 
 ## Running Examples
 
-We illustrate all patterns using three running examples. The first two are described conceptually to explain how each pattern works. The third one (Codebase Onboarding Guide) is what we actually implement with code.
+We illustrate all patterns using three running examples. The first two are described conceptually to explain how each pattern works. The third one (Codebase Onboarding Guide) is what we implement with code.
 
 ## Example A: Conference Organization (conceptual)
 
@@ -61,7 +61,7 @@ This example generalizes to other content processing tasks:
 
 ## Example C: Codebase Onboarding Guide (implemented)
 
-This is the example we actually build with code. The use case: you just joined a team or you want to contribute to an open source project, and you need to understand a large codebase quickly. You give the system a GitHub repository URL and it produces an onboarding guide.
+This is the example we build with code. The use case: you just joined a team or you want to contribute to an open source project, and you need to understand a large codebase quickly. You give the system a GitHub repository URL and it produces an onboarding guide.
 
 We use scikit-learn as the example project. It has ~2,500 files, ~3,000 open issues, hundreds of contributors, and a complex internal architecture. A newcomer asking "how do I get started contributing to scikit-learn?" faces a significant ramp-up.
 
@@ -437,7 +437,7 @@ The agent processes the video and generates a blog post. Before publishing to th
 
 ## Codebase onboarding example (implemented)
 
-The agent generates the onboarding guide for scikit-learn automatically. Before sharing it with the new contributor, it pauses for a senior maintainer to review: "Is the architecture description accurate? Are these really the best first issues to recommend? Is the contribution workflow up to date?" The maintainer corrects one outdated section about the CI setup (they migrated from Travis to GitHub Actions), approves the rest, and the guide is shared.
+The agent generates the onboarding guide for scikit-learn automatically. Before sharing it with the new contributor, it pauses for a senior maintainer to review: "Is the architecture description accurate? Are these the best first issues to recommend? Is the contribution workflow up to date?" The maintainer corrects one outdated section about the CI setup (they migrated from Travis to GitHub Actions), approves the rest, and the guide is shared.
 
 ## 3b. Fixed Evaluator-Optimizer `*` `workflow`
 
@@ -463,7 +463,7 @@ If conflicts are found, the generator revises. The loop continues until the sche
 
 ## YouTube example
 
-A timestamp generator creates chapter timestamps for the video. A verifier agent checks whether each timestamp actually corresponds to a topic change in the transcript - it reads the transcript around each timestamp and verifies. If timestamps are off, it feeds back corrections. The loop continues until all timestamps are accurate[^3].
+A timestamp generator creates chapter timestamps for the video. A verifier agent checks whether each timestamp corresponds to a topic change in the transcript - it reads the transcript around each timestamp and verifies. If timestamps are off, it feeds back corrections. The loop continues until all timestamps are accurate[^3].
 
 ## Other examples
 
@@ -473,7 +473,7 @@ A timestamp generator creates chapter timestamps for the video. A verifier agent
 
 ## Codebase onboarding example (implemented)
 
-The guide generator writes a section about scikit-learn's module structure. The evaluator checks it against the actual repo: does the file path `sklearn/ensemble/` actually exist? Is the API description correct - does `RandomForestClassifier` really inherit from `BaseEnsemble`? It calls `gh api` to verify file paths and reads actual source files to check class hierarchies. If the guide says something wrong, the evaluator feeds back corrections and the generator rewrites. The loop is hardcoded: generate section → verify facts → loop until all facts check out.
+The guide generator writes a section about scikit-learn's module structure. The evaluator checks it against the actual repo: does the file path `sklearn/ensemble/` exist? Is the API description correct - does `RandomForestClassifier` inherit from `BaseEnsemble`? It calls `gh api` to verify file paths and reads actual source files to check class hierarchies. If the guide says something wrong, the evaluator feeds back corrections and the generator rewrites. The loop is hardcoded: generate section → verify facts → loop until all facts check out.
 
 ## 3c. Dynamic Evaluator-Optimizer `*` `orchestrated`
 
@@ -613,7 +613,7 @@ The orchestrator decides which workers to invoke based on the content it sees.
 The user asks: "Help me understand scikit-learn well enough to contribute." The orchestrator examines the repo and dynamically decides what to investigate:
 
 - Sees a `CONTRIBUTING.md` → dispatches a worker to extract the contribution workflow
-- Reads the top-level `__init__.py` and discovers the estimator API is central → dispatches a worker to document the `BaseEstimator` pattern
+- Reads the top-level `init.py` and discovers the estimator API is central → dispatches a worker to document the `BaseEstimator` pattern
 - Checks recent PRs and notices most contributions are to `sklearn/ensemble/` → dispatches a worker to analyze that module specifically
 - Finds that the project uses `pytest` with custom fixtures → dispatches a worker to document the test setup
 
@@ -710,7 +710,7 @@ The process went through several stages[^5]:
 2. Asked the Telegram writing assistant to process the brain dump into structured text.
 3. Research phase. Looked at what the industry says about these patterns. I had given my own names to the patterns, but then thought that the industry might call them differently. Searched for existing pattern names and frameworks.
 4. Some patterns I split into two variants - rigid (Anthropic calls them "workflows," where you control through code) and flexible (where the agent makes decisions). This gave us 4 groups, 12 patterns total.
-5. Code collection. I already had some code, but I asked Claude to go through my entire course repository and collect all the code for these patterns into one place. Many patterns were already implemented there using the OpenAI Agents SDK. The result is a very good resource.
+5. Code collection. I already had some code, but I asked Claude to go through my entire course repository and collect all the code for these patterns into one place. Many patterns were already implemented there using the OpenAI Agents SDK. The result is a good resource.
 
 ## Monetization Ideas
 

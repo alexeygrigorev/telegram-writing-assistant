@@ -8,13 +8,13 @@ status: draft
 
 # Deterministic Coding with Agent Teams
 
-Code: https://github.com/alexeygrigorev/litehive
+[Code](https://github.com/alexeygrigorev/litehive)
 
 ## From Codehive to litehive
 
 In previous articles, I talked about Codehive - a project for orchestrating agent teams. Codehive ended up too complex. I had too many ideas for what I wanted, and the project became too large. It didn't do what I needed and required too much work. So I put it on pause[^1].
 
-I thought about what I actually need from this project. What I want is deterministic execution of tasks. As I described in the article about building projects with agent teams, I want the process to always be followed. I don't want the agent to decide what order to run things in. I want a state machine that decides what to do[^1].
+I thought about what I need from this project. What I want is deterministic execution of tasks. As I described in the article about building projects with agent teams, I want the process to always be followed. I don't want the agent to decide what order to run things in. I want a state machine that decides what to do[^1].
 
 ## What litehive Does
 
@@ -30,7 +30,7 @@ The main catalyst for this project was my dependency on Claude Code. The week ju
 
 <iframe src="https://x.com/Al_Grigor/status/2038548505321488509" width="550" height="300"></iframe>
 
-Many users complain about the same thing. My experience showed that depending on one specific tool can be a problem - limits run out on Monday, and if you need to keep working, it gets very expensive. I wanted a system where this dependency does not exist. This was the main reason for building litehive[^18].
+Many users complain about the same thing. My experience showed that depending on one specific tool can be a problem - limits run out on Monday, and if you need to keep working, it gets expensive. I wanted a system where this dependency does not exist. This was the main reason for building litehive[^18].
 
 <figure>
   <img src="../assets/images/litehive/codex-usage-limits.jpg" alt="Codex usage limits showing 17% weekly remaining">
@@ -68,11 +68,11 @@ It helped, but not completely. Sometimes the recovery agent wouldn't launch, som
 
 ## tmuxctl: Tmux Wrapper
 
-Code: https://github.com/alexeygrigorev/tmuxctl
+[Code](https://github.com/alexeygrigorev/tmuxctl)
 
 I had to check in manually every time, go into SSH, see what's happening, tell it to check the status, fix things, kill processes, restart. Eventually I got tired of doing this manually. I opened another Codex session and said I want to write a tool that sends messages to tmux[^5].
 
-Tmux is what I use to run all these agents on my remote server. It turned out to be very convenient that in tmux I can send any prompt - "do a status report", "check if anything is stuck", "if something is stuck, fix it". This was my second Codex session. Codex did it in one shot - exactly what I needed. I had to tweak it a bit afterwards, but the basic functionality was done in one approach[^5].
+Tmux is what I use to run all these agents on my remote server. It turned out to be convenient that in tmux I can send any prompt - "do a status report", "check if anything is stuck", "if something is stuck, fix it". This was my second Codex session. Codex did it in one shot - exactly what I needed. I had to tweak it a bit afterwards, but the basic functionality was done in one approach[^5].
 
 Beyond sending commands, tmuxctl makes attaching to sessions much faster. `t 1` attaches to the most recently created session. `t 2` attaches to the second most recent. `t session-name` attaches to a named session. Instead of writing `tmux attach -t session-name` or `tmux new-session -s name`, I just write `t` followed by whatever I need. I also use Typer, a Python library for CLI applications, which gives me tab completion - I can press tab and see all available sessions[^6][^7].
 
@@ -86,7 +86,7 @@ Using tmuxctl, every 30 minutes a cron job sends a message: "report your progres
   <!-- Shows the automated status check that runs every 30 minutes via cron -->
 </figure>
 
-I was busy all day - hiking in the Alps. I didn't have the ability or desire to check my phone. When riding a bus or train somewhere, I had a chance to play with the phone and launch some agent sessions. But on the hike itself, that wasn't possible. Thanks to this tool that pokes the agent every 30 minutes and says "don't forget, you should be working", it turned out very useful[^8].
+I was busy all day - hiking in the Alps. I didn't have the ability or desire to check my phone. When riding a bus or train somewhere, I had a chance to play with the phone and launch some agent sessions. But on the hike itself, that wasn't possible. Thanks to this tool that pokes the agent every 30 minutes and says "don't forget, you should be working", it turned out useful[^8].
 
 The combination of two things made a big difference: the recovery agent that fixes issues, and the periodic poking via tmuxctl to keep Codex working[^8].
 
@@ -106,11 +106,11 @@ For all of this, I used Codex because my Claude Code weekly limit ran out quickl
 
 Codex was used as the executor. The main orchestrator where I developed litehive was Codex. Then when my Claude Code limit reset on Friday, I switched to Claude Code and added support for other engines: Claude Code itself, OpenCode, and Gemini. Adding Claude Code support went better through Claude Code itself - it knows itself better[^9].
 
-GLM-5 turned out to be very slow. Apparently many people use it, so one message can take 7-10 minutes to process. So in parallel I started working on a separate wrapper - instead of using OpenCode, I decided to write my own agent specifically for ZAI[^9].
+GLM-5 turned out to be slow. Apparently many people use it, so one message can take 7-10 minutes to process. So in parallel I started working on a separate wrapper - instead of using OpenCode, I decided to write my own agent specifically for ZAI[^9].
 
 ## GoZ: Minimal ZAI Engine
 
-Code: https://github.com/alexeygrigorev/goz
+[Code](https://github.com/alexeygrigorev/goz)
 
 OpenCode has too many bells and whistles. I wanted a minimal CLI executor that can only run bash commands, edit files, and read files. Nothing else. As simple and compact as possible, with nothing unnecessary taking up context, so it would be faster[^10][^11].
 
@@ -120,7 +120,7 @@ GoZ is not as powerful as Claude Code or other wrappers like OpenCode, but the g
 
 ## Self-Improving Tools
 
-There was a problem with GoZ in litehive - the glm-5.1 model was very slow, and token-level streaming made transcripts hard to read. Word boundaries were broken in the output ("park ed", "observ ability", "RES UM ABLE"). The issue was in GoZ's adapter - it was not joining tokens properly[^21][^22].
+There was a problem with GoZ in litehive - the glm-5.1 model was slow, and token-level streaming made transcripts hard to read. Word boundaries were broken in the output ("park ed", "observ ability", "RES UM ABLE"). The issue was in GoZ's adapter - it was not joining tokens properly[^21][^22].
 
 The fix was straightforward: tell the agent to create a task in GoZ to fix it. The agent created task T-0017 in GoZ to fix transcript rendering - joining streaming tokens into complete words and sentences. Since the agent uses itself to build itself, this is an interesting concept: tools that improve themselves[^21][^22].
 

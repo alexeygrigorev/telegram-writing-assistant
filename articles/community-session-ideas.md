@@ -27,7 +27,7 @@ Retrieval strategy questions:
 - Or do you dynamically retrieve and inject relevant memory chunks based on the new query?
 - How are you deciding what is worth remembering long term?
 
-The goal is practical approaches that actually worked in production[^7]. A research article on production memory implementations (ChatGPT, Claude Code, and 5 other open source systems) is in [memory-layer-implementations](../research/memory-layer-implementations.md). The earlier broader research lives in [agentic-memory](../research/agentic-memory.md).
+The goal is practical approaches that worked in production[^7]. A research article on production memory implementations (ChatGPT, Claude Code, and 5 other open source systems) is in [memory-layer-implementations](../research/memory-layer-implementations.md). The earlier broader research lives in [agentic-memory](../research/agentic-memory.md).
 
 ## Documenting and Refactoring Agent Output (Carlos Pumar)
 

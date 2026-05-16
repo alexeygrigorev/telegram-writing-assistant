@@ -22,7 +22,7 @@ status: draft
 
 These are three ideas that came up at once. Which tier they belong to still needs to be figured out. We can ask people what interests them and what resonates, and then build from there[^72].
 
-These activities also help cut through the noise. There is a lot of noise on social media right now. People open social media and see others talking about many things, which creates FOMO. The community can help people focus on what is actually important instead of chasing everything[^72].
+These activities also help cut through the noise. There is a lot of noise on social media right now. People open social media and see others talking about many things, which creates FOMO. The community can help people focus on what is important instead of chasing everything[^72].
 
 Key principle: the value should come from the community, not just from the founder. Activities should work even without direct involvement. The community should feel valuable even without direct founder involvement. This means designing activities that run themselves or are led by community members[^52].
 
@@ -90,7 +90,7 @@ This starts as one-on-one but can be automated over time. Initially it takes a l
 
 I will write to everyone who has recently asked me for mentoring and ask how interested they would be in this. A woman recently reached out wanting help with AI skills - she seems like an ideal candidate for this. Once we formulate this better and launch the community, I will reach out, offer a call, and tell her about this idea[^70].
 
-My hypothesis is that people who ask for mentoring actually need an accountability partner or accountability structure - someone to report progress to. This is a hypothesis that can be tested[^68].
+My hypothesis is that people who ask for mentoring need an accountability partner or accountability structure - someone to report progress to. This is a hypothesis that can be tested[^68].
 
 Another confirmation of this hypothesis: a community member wrote asking for a mentorship program. They built their career from a data analyst to a senior role at their company but want to transition to Data Engineering. They admit they keep "slacking" and need the push. This person is more interested in Data Engineering, but there are likely people in the same situation who are interested specifically in AI Engineering[^74].
 

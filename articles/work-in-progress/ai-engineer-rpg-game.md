@@ -10,11 +10,11 @@ status: draft
 
 An RPG game for practicing AI engineering interview skills, built with OpenCode and GLM-5 in Rust. The long-term vision is to add LLM-powered NPC agents.
 
-Code: https://github.com/alexeygrigorev/game-ai-engineer/[^4]
+[Code](https://github.com/alexeygrigorev/game-ai-engineer/)[^4]
 
 ## How the idea came about
 
-One of my friends and fellow speakers, who I know personally, is very into vibe coding - he has been doing it for a long time and is a real pro at it. I constantly discuss ideas with him. He is going to give a talk at our DataTalks Club soon[^1].
+One of my friends and fellow speakers, who I know personally, is into vibe coding - he has been doing it for a long time and is a real pro at it. I constantly discuss ideas with him. He is going to give a talk at our DataTalks Club soon[^1].
 
 When the new Sonnet came out, he tried making an RPG game with it. He sent screenshots and videos saying "look how well this works." I got interested. He said he wrote it in Rust. I have never done game development - I made text games in the terminal and simple HTML browser games when I was about 12 years old, and that was it[^1].
 
@@ -40,7 +40,7 @@ I was excited seeing the detailed plan. But 20 minutes later it said "done, chec
 
 I tried running it and nothing worked. The graphics were off - the image was flipped, mirrored, and running off screen. One limitation is that I cannot tell the agent to launch the game, look at it, and fix things by itself. I do not know how to set up this feedback loop. With browser-based apps I can imagine launching through a browser and somehow controlling it, but with desktop applications I have no idea how to do this[^2].
 
-I sent a screenshot showing what was wrong. After two more iterations, it got significantly better. By the third iteration, it actually looked like what I wanted. The graphics are very simple - basic shapes - but for a start it is fine[^2].
+I sent a screenshot showing what was wrong. After two more iterations, it got significantly better. By the third iteration, it looked like what I wanted. The graphics are simple - basic shapes - but for a start it is fine[^2].
 
 <figure>
   <p>Video: First version of the AI engineering game (0m 31s, 1080p) - <a href="https://t.me/c/3688590333/1627">View on Telegram</a></p>

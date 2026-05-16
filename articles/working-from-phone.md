@@ -14,14 +14,14 @@ On top of the conferences, I've been travelling with my child a lot. We went awa
 
 My day-to-day schedule is uneven on its own. I take my child to school in the morning, I go to the gym, I have lunch meetings, I pick the child up at 4 PM. Between all those slots I have lots of commute time, plus the rest periods between sets in the gym - every set leaves me with a free minute or two.[^17][^29]
 
-I want to use all of that in-between time, because I have too many projects on the go - the AI Shipping Labs site alone takes a lot of work - and I want them to actually progress.[^17]
+I want to use all of that in-between time, because I have too many projects on the go - the AI Shipping Labs site alone takes a lot of work - and I want them to progress.[^17]
 
 This article is about how I work from the phone during all of this spare time: trams, school runs, gym rest periods, planes.[^1][^17]
 
 <figure>
   <img src="../assets/images/working-from-phone/claude-code-session-on-phone.jpg" alt="Claude Code session on phone showing task list and prompt input">
   <figcaption>A Claude Code session on the phone, mid-task</figcaption>
-  <!-- Sets the visual baseline for the rest of the article: this is what "working from the phone" actually looks like -->
+  <!-- Sets the visual baseline for the rest of the article: this is what "working from the phone" looks like -->
 </figure>
 
 ## A dedicated remote server
@@ -107,7 +107,7 @@ When the built-in recogniser isn't good enough, I switch to Google Recorder. On 
 
 I have a skill that knows what to do with a recorder link. It downloads the audio file from there and transcribes it. The skill recognises when a link is from Google Recorder and runs the transcription path.[^14]
 
-A big advantage of Recorder is that it keeps recording when it's in the background. Right now I'm recording this very article while the app is minimised - I'm brain-dumping my ideas for it. Later I'll hand the recording to my Telegram writing assistant, which turns the notes into a readable text I can edit.[^15][^30]
+A big advantage of Recorder is that it keeps recording when it's in the background. Right now I'm recording this article while the app is minimised - I'm brain-dumping my ideas for it. Later I'll hand the recording to my Telegram writing assistant, which turns the notes into a readable text I can edit.[^15][^30]
 
 ## From a recording to GitHub issues
 
@@ -121,7 +121,7 @@ The same approach works on a plane. On a plane I obviously can't SSH anywhere. S
 
 The last awkward thing about phone work is port forwarding. The Android apps for SSH port forwarding aren't great. I already had a tool I love on the computer side: [ssh-auto-forward](https://github.com/alexeygrigorev/ssh-auto-forward) [^19], a Python program I described in [5 Useful Utilities I Built with AI Coding Assistants](https://alexeyondata.substack.com/p/5-useful-utilities-i-built-with-ai). It watches the ports that open on the remote machine and automatically forwards them to localhost. It runs on the computer, in Python.[^19][^29]
 
-I needed the same thing on the phone, so I gave the task to one of the agents (probably OpenCode) and asked it to port the thing to Android. The result is [ssh-auto-forward-android](https://github.com/alexeygrigorev/ssh-auto-forward-android), written in Kotlin. I haven't actually looked inside it, just like I never really looked inside the Python version - I don't even know what's in there. But it works the way I need it to.[^19][^20]
+I needed the same thing on the phone, so I gave the task to one of the agents (probably OpenCode) and asked it to port the thing to Android. The result is [ssh-auto-forward-android](https://github.com/alexeygrigorev/ssh-auto-forward-android), written in Kotlin. I haven't looked inside it, just like I never looked inside the Python version - I don't even know what's in there. But it works the way I need it to.[^19][^20]
 
 The flow is simple. I open the app, hit Connect, it connects, and I see the list of remote ports being auto-forwarded.[^21]
 
@@ -141,7 +141,7 @@ When I tap a port row, the browser opens and goes straight to that port on local
 
 ## Looking at things the phone can't show
 
-Another phone limitation is that I can't really browse the file system. I can use SFTP, but it's awkward, and sometimes I need to see something visually - a picture, a screenshot the agent produced.[^24]
+Another phone limitation is that I can't browse the file system. I can use SFTP, but it's awkward, and sometimes I need to see something visually - a picture, a screenshot the agent produced.[^24]
 
 For screenshots I ask the agent to upload them to GitHub, into an issue. I can view the issue on my phone and decide if it's right. Here is an example of [an issue where I have the agent post screenshots](https://github.com/AI-Shipping-Labs/website/issues/655#issuecomment-4460971855).[^24][^25]
 
@@ -179,7 +179,7 @@ All of the above plus my Telegram writing assistant means I can be in the metro,
 
 ## Behind the scenes: how this article was made
 
-I use Telegram a lot. Right now, as I'm dictating this, I'm in the metro. Here's a small behind-the-scenes look at how this very article came together:[^31]
+I use Telegram a lot. Right now, as I'm dictating this, I'm in the metro. Here's a small behind-the-scenes look at how this article came together:[^31]
 
 1. I dictated my thoughts into the Telegram writing assistant, along with screenshots from the phone.[^31]
 2. The agent took the brain dump and restructured it into a draft article.[^31]

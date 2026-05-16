@@ -8,7 +8,7 @@ status: draft
 
 # Memory Layer Implementations in Production AI Systems
 
-This article is a tour of how memory is actually built inside production AI systems. The trigger is a concrete task: a startup asked me to design the memory layer for an AI agent, and I wanted to see how teams that already shipped this in production solved it[^1][^2].
+This article is a tour of how memory is built inside production AI systems. The trigger is a concrete task: a startup asked me to design the memory layer for an AI agent, and I wanted to see how teams that already shipped this in production solved it[^1][^2].
 
 For broader background on memory patterns (Mem0 ReAct loops, MemPalace, GitHub Copilot citations, the SQL vs vector vs graph debate, the "stop building memory frameworks" Reddit thread), see the existing research article on [Agentic Memory Systems](agentic-memory.md). This piece is narrower: real systems, their schemas, their retrieval strategies, what they got right, what got painful at scale.
 
@@ -480,7 +480,7 @@ This connects to the Fixed Entity Architecture argument from the existing resear
 
 ## Decision: What Is Worth Remembering
 
-Graphiti is opinionated: everything ingested becomes an episode. The LLM-driven extractor decides what entities and relationships to create. Contradictions are not discarded; they are timestamped and invalidated.
+Graphiti is opinionated: everything ingested becomes an episode. The LLM-driven extractor decides what entities and relationships to create. Contradictions are not discarded. They are timestamped and invalidated.
 
 This is the opposite trade-off from ChatGPT (explicit-fact storage only). Graphiti stores everything and figures out what is current via temporal queries.
 
@@ -497,7 +497,7 @@ Pain:
 - Requires a graph database. Neo4j or FalkorDB infrastructure to run, monitor, back up
 - Ingestion is LLM-heavy. Every new episode triggers entity extraction, relationship extraction, deduplication, validity checks
 - The structured-output requirement means it works well with OpenAI and Gemini, less well with smaller models that miss schemas
-- The graph can grow very large for high-traffic agents. Pruning policies become a real concern
+- The graph can grow large for high-traffic agents. Pruning policies become a real concern
 
 ## LangMem: Hot-Path and Background Memory for LangGraph
 
@@ -605,7 +605,7 @@ Two layers:
 - Session memory - short-term working memory, fast cache, syncs to graph in background
 - Permanent memory - long-term knowledge artifacts (user data, interaction traces, external documents, derived relationships)
 
-Both backed by graph plus vector store. Backends are pluggable: Memgraph, Neo4j, Kuzu for graph; Qdrant, LanceDB, pgvector for vectors.
+Both backed by graph plus vector store. Backends are pluggable: Memgraph, Neo4j, Kuzu for graph. Qdrant, LanceDB, pgvector for vectors.
 
 ## Four Operations
 
@@ -727,7 +727,7 @@ A few patterns show up across every system:
 
 Prompt injection vs query-time retrieval. ChatGPT and Claude Code's CLAUDE.md inject the memory into the prompt every turn. Letta core blocks do the same. Everyone else retrieves on demand. The injection approach removes a failure mode (the memory is always present) at the cost of token budget.
 
-Extract-and-store vs raw-and-search. Mem0, LangMem, Cognee extract structured facts. Claude Code stores markdown chunks. Letta has both (core blocks are structured, recall is raw). The structured side wins on retrieval precision; the raw side wins on no extraction errors.
+Extract-and-store vs raw-and-search. Mem0, LangMem, Cognee extract structured facts. Claude Code stores markdown chunks. Letta has both (core blocks are structured, recall is raw). The structured side wins on retrieval precision. The raw side wins on no extraction errors.
 
 Agent-managed vs background. Letta, LangMem hot path, and Claude Code rely on the agent to invoke memory tools mid-conversation. Mem0, LangMem background, Cognee, and Graphiti do extraction separately. The agent-managed pattern reliably fails when the agent forgets to call the tool.
 
@@ -774,12 +774,12 @@ Retrieval:
 Maintenance:
 
 - Periodic compaction job (Claude Code Auto Dream pattern) that runs nightly: resolve contradictions, prune stale, convert relative dates to absolute
-- Append-only at the application layer; compaction happens out of band
+- Append-only at the application layer. Compaction happens out of band
 
 Multi-tenancy:
 
 - Namespace by user_id (LangMem pattern)
-- Filter all queries by user_id; never trust ranking alone for isolation
+- Filter all queries by user_id. Never trust ranking alone for isolation
 
 The closing insight: none of these systems solved memory by adding more infrastructure. They solved it by being precise about what they were storing, who decided what was worth storing, and when retrieval happened. The interesting engineering is in those decisions, not in the choice of vector database.
 

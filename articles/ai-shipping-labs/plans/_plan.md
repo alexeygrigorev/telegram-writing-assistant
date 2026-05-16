@@ -14,7 +14,7 @@ When preparing a plan, copy this file to `YYYYMMDD_{person-name}.md` (using toda
 
 Guiding principle: the plan must be transparent about three things - where the person is now, where they are going, and the concrete steps that connect the two[^template1]. Keep the first two sections short, self-contained, and ready to share without extra cleanup.
 
-All shareable plans should use a 6-week sprint format unless there is a very strong reason to do something else.
+All shareable plans should use a 6-week sprint format unless there is a strong reason to do something else.
 
 ## Summary
 

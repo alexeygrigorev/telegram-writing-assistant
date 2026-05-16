@@ -15,14 +15,14 @@ Internal working document. Share only the `Summary` and `Plan` sections with the
 - Current situation: Economist at the German Savings Banks with a fairly concrete project idea already in mind: a personal agent for small and medium enterprises (SMEs) that turns manual financial notes into structured data and answers business questions from that data.
 - Goal for the next 6 weeks: turn the idea into a scoped build plan and a first working prototype rather than another loose concept.
 - Main gap to close: structure. The idea is promising, but it needs a clearer engineering sequence and a tighter project outline.
-- Weekly time commitment: not explicitly stated; this should be treated as a tight 6-week sprint.
-- Why this plan is the right next step: Carlos already has a strong domain-specific idea, so the highest-leverage move is to scope the first version tightly and build from that.
+- Weekly time commitment: not explicitly stated. This should be treated as a tight 6-week sprint.
+- Why this plan is the right next step: Carlos already has a strong domain-specific idea, so the highest-use move is to scope the first version tightly and build from that.
 
 ## Plan
 
 ## Focus
 
-- Main focus: define the SME agent clearly enough that the first version can actually be built.
+- Main focus: define the SME agent clearly enough that the first version can be built.
 - Supporting focus: break the project into two concrete parts: data ingestion from manual notes and business-question answering over the stored data.
 - Supporting focus: separately reproduce and analyze the stability/security concern from the previous project.
 
@@ -56,7 +56,7 @@ Week 5:
 Week 6:
 
 - Review the prototype against the original outline and decide the next iteration.
-- Revisit the previous project's stability/security issue, try to reproduce it, and write down what is actually known vs. still unknown.
+- Revisit the previous project's stability/security issue, try to reproduce it, and write down what is known vs. still unknown.
 
 ## Resources
 
@@ -96,7 +96,7 @@ Carlos works as an economist for the German Savings Banks. He already has a conc
 
 ## Previous Project: User Satisfaction Analyst Agent
 
-Carlos's earlier project was the **User Satisfaction Analyst Agent**. The goal was to analyze client satisfaction using Stack Exchange data, with a focus on user-interface discussions to identify frustration patterns.
+Carlos's earlier project was the User Satisfaction Analyst Agent. The goal was to analyze client satisfaction using Stack Exchange data, with a focus on user-interface discussions to identify frustration patterns.
 
 Architecture notes:
 
@@ -118,7 +118,7 @@ I'm an Economist and work for the German Savings Banks.
 
 The next project will include a personalized agent, which is supposed to read financial data of a small entrepreneur (based on pictures taken from manual notes, tool 1) and write the data into a DB. The second tool will be to query the DB based on the questions the user makes (all related to understanding better the business: which months were good, which less good, how has the cost of purchased goods changed over time, what profits were made in which month, etc.). So this time it's a bit less about orchestration, but more on having a performing "personal agent" for SME (small and medium enterprises).
 
-Another thing I would like to work on is understanding better security risks of my prior project as well as to test the "long run performance" of the project you refer to above. I received feedback on LinkedIn on it related to it being "unstable" after running it for "n" iterations (unfortunately, I can't find the message anymore) and never really understood what the feedback was about. I still would be very interested in understanding it better (maybe Alexey can help me 1. finding that comment again and 2. thinking about the stability of the project).
+Another thing I would like to work on is understanding better security risks of my prior project as well as to test the "long run performance" of the project you refer to above. I received feedback on LinkedIn on it related to it being "unstable" after running it for "n" iterations (unfortunately, I can't find the message anymore) and never understood what the feedback was about. I still would be interested in understanding it better (maybe Alexey can help me 1. finding that comment again and 2. thinking about the stability of the project).
 
 ## Questions and Answers
 

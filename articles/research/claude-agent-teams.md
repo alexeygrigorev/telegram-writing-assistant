@@ -18,7 +18,7 @@ How to effectively use agent teams to parallelize complex AI workflows, coordina
 
 ## Claude Code Docs: Orchestrate Teams of Claude Code Sessions
 
-Source: https://code.claude.com/docs/en/agent-teams
+[Source](https://code.claude.com/docs/en/agent-teams)
 
 Overview: Claude Code's agent teams feature allows coordinating multiple Claude Code instances working together as a team, with one orchestrator (team lead) managing multiple specialized agents (teammates) that work independently in their own context windows and communicate directly with each other.
 
@@ -52,7 +52,7 @@ Technical Details:
 - Team config stored at: `~/.claude/teams/{team-name}/config.json`
 - Task list stored at: `~/.claude/tasks/{team-name}/`
 - In-process mode navigation: Shift+Up/Down to select teammates, Enter to view session, Escape to interrupt, Ctrl+T to toggle task list
-- Task states: pending, in progress, completed; tasks can depend on other tasks and won't become claimable until dependencies complete
+- Task states: pending, in progress, completed. Tasks can depend on other tasks and won't become claimable until dependencies complete
 - File locking prevents race conditions when multiple teammates try to claim the same task simultaneously
 - Teammate messaging types: `message` (send to specific teammate) and `broadcast` (send to all, use sparingly as costs scale with team size)
 
@@ -96,7 +96,7 @@ Best practices:
 Comparison with subagents:
 | Aspect | Subagents | Agent Teams |
 |--------|-----------|-------------|
-| Context | Own context window; results return to caller | Own context window; fully independent |
+| Context | Own context window. Results return to caller | Own context window. Fully independent |
 | Communication | Report results back to main agent only | Teammates message each other directly |
 | Coordination | Main agent manages all work | Shared task list with self-coordination |
 | Best for | Focused tasks where only result matters | Complex work requiring discussion and collaboration |

@@ -132,7 +132,7 @@ The workflow:
 After recording, Claude helps update the documentation:
 1. Takes the final notebook used during recording
 2. Takes the video transcript
-3. Updates the documentation to match what was actually done in the video
+3. Updates the documentation to match what was done in the video
 4. Ensures lesson notes align with the video content[^8]
 
 This eliminates hours of manual work that was previously required to sync documentation with recorded videos.
@@ -169,7 +169,7 @@ The template generator tool allows working with Jupyter notebooks to create cour
 - Extracts cell code and output
 - Generates markdown documents with the executed code
 
-This approach ensures code actually works before being included in materials, since the notebook runs end-to-end and only working cells are inserted into templates.
+This approach ensures code works before being included in materials, since the notebook runs end-to-end and only working cells are inserted into templates.
 
 ## Current Limitation
 
@@ -200,7 +200,7 @@ The goal is to reduce the time between "write code" and "see output" when workin
 
 ## Monitoring Module
 
-This week is easier for the course - covering monitoring. Since I use Langfuse and Pydantic AI in this cohort, and they have a great integration, integrating Langfuse is very easy. I expanded what was in the previous cohort. I added how to add more data to Langfuse and how to retrieve data from it to build evaluation on top of that[^11].
+This week is easier for the course - covering monitoring. Since I use Langfuse and Pydantic AI in this cohort, and they have a great integration, integrating Langfuse is easy. I expanded what was in the previous cohort. I added how to add more data to Langfuse and how to retrieve data from it to build evaluation on top of that[^11].
 
 I also plan to do the DIY self-monitoring part, like in the previous cohort, where we build the entire log collection infrastructure ourselves and show the logs in Grafana. That was a cool thing too. But I need to re-record it because I want to do it a bit differently this time[^11].
 

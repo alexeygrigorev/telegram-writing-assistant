@@ -65,7 +65,7 @@ Week 6:
 
 - Manual first, automation second. The data structure and the workflow live in the design step. The agent is a wrapper that automates a manual process you already understand. Trying to design the agent before you understand the manual workflow is the most common way these projects stall.
 - One project at a time. The capstone is the one project. The internal AI tool at her company is a 3-month goal and is parked until she has more exposure to her team's problems.
-- Address FOMO by committing. The "too many possible directions" blocker does not get solved by reading more - it gets solved by picking one and shipping. The plan won't fully eliminate it; consistent weekly progress on one project is what dampens it.
+- Address FOMO by committing. The "too many possible directions" blocker does not get solved by reading more - it gets solved by picking one and shipping. The plan won't fully eliminate it. Consistent weekly progress on one project is what dampens it.
 - Use the active community. The DE Zoomcamp experience Dianne wants to recreate ("someone is always there to answer questions") is what AI Shipping Labs Slack is for. Asking questions there - and answering them once she is past a step - is the structural equivalent.
 - Keep the longer arc visible. Capstone in 6 weeks, internal AI tool in 3 months, AI-heavy engineering role in 12 months. The capstone is the foundation that makes the next two possible.
 
@@ -89,7 +89,7 @@ Week 6:
 
 - Weekly check-in: what shipped, what is blocked, what is the goal for the next week. Dianne named "weekly progress and deliverables" as the format that works for her.
 - 10-15 hours per week. The plan is sized for the lower end so a busy week can drop a stretch goal rather than the milestone.
-- One project until it ships. The Learning Companion Agent is the only project; the internal AI tool at her company waits until after the capstone.
+- One project until it ships. The Learning Companion Agent is the only project. The internal AI tool at her company waits until after the capstone.
 - Active in the AI Shipping Labs Slack - both asking questions and answering others' questions. This is the part that recreates the DE Zoomcamp experience.
 
 ## Longer arc
@@ -110,7 +110,7 @@ Week 6:
 
 ## Persona
 
-Alex - The Engineer Transitioning to AI (preliminary, to confirm). Dianne is an iOS engineer with a platform-engineering background trying to move into a data-heavier / AI-focused role; she has gotten interviews but is gated by project evidence, interview readiness, and confidence. That maps to Alex.
+Alex - The Engineer Transitioning to AI (preliminary, to confirm). Dianne is an iOS engineer with a platform-engineering background trying to move into a data-heavier / AI-focused role. She has gotten interviews but is gated by project evidence, interview readiness, and confidence. That maps to Alex.
 
 See [personas.md](../personas.md) for full persona definitions.
 
@@ -170,7 +170,7 @@ Weekly progress and deliverables[^2].
 
 9. What would make the process feel fun for you?
 
-When she said accountability, structure, and fun, she was describing her experience with the Data Engineering Zoomcamp - one of the best free courses she has taken. The format is project-based with a code-along teaching style, which is how things actually stick for her. What made it especially great was the active community: someone was always there to answer questions when she was stuck, and once she finished an assignment, she could turn around and help others who were just starting[^2].
+When she said accountability, structure, and fun, she was describing her experience with the Data Engineering Zoomcamp - one of the best free courses she has taken. The format is project-based with a code-along teaching style, which is how things stick for her. What made it especially great was the active community: someone was always there to answer questions when she was stuck, and once she finished an assignment, she could turn around and help others who were just starting[^2].
 
 10. What is blocking you most right now from moving forward?
 
@@ -178,7 +178,7 @@ Probably FOMO with AI - too much noise. It is not that she is not moving forward
 
 11. What would make you feel that, at the end of the next 6 to 8 weeks, the plan was worthwhile?
 
-For the 6-8 weeks, she will focus on her capstone project. She wants to build a Learning Companion Agent - something that would help her retain her knowledge, start adding interview questions, review her code with, etc. She is still brainstorming the features but the main goal is to make sure she retains all the knowledge she is learning while building. AI tool within her company is a 3-month goal; AI-heavy engineering position is a 12-month goal[^2].
+For the 6-8 weeks, she will focus on her capstone project. She wants to build a Learning Companion Agent - something that would help her retain her knowledge, start adding interview questions, review her code with, etc. She is still brainstorming the features but the main goal is to make sure she retains all the knowledge she is learning while building. AI tool within her company is a 3-month goal. AI-heavy engineering position is a 12-month goal[^2].
 
 ## Meeting Notes
 
@@ -192,7 +192,7 @@ Alexey's recommendations after reviewing Dianne's intake[^4]:
 
 2. The Learning Companion Agent is a strong capstone pick. It is conceptually similar to the Telegram writing assistant (a personal tool that captures inputs, structures them, and surfaces them later) - same shape, different content domain.
 
-3. The build pattern: design the data structure first, do the workflow manually, then automate. This is the part to emphasize. Dianne's instinct will be to think about the agent first; she should think about the data and the manual workflow first. Once she understands how she would do it manually, the agent's job becomes mechanical.
+3. The build pattern: design the data structure first, do the workflow manually, then automate. This is the part to highlight. Dianne's instinct will be to think about the agent first. She should think about the data and the manual workflow first. Once she understands how she would do it manually, the agent's job becomes mechanical.
 
 4. Obsidian is a useful reference for what a personal knowledge tool can look like. Worth a few hours of looking at it - the question is not "use Obsidian" but "what does this data model look like, and what would an agent on top of it add?"
 

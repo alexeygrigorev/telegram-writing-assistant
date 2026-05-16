@@ -62,7 +62,7 @@ Week 6:
 
 - DataTalks.Club hackathon issue list - gives Vancesca ready-made problems instead of a blank ideation step.
 - [AI Engineering Field Guide](../../ai-engineering-field-guide.md) - useful for checking which kinds of portfolio projects map well to target roles.
-- Project-idea brainstorming prompt: https://gist.github.com/alexeygrigorev/c1c8dc3ece5cba91e1e381eeba2706c1
+- [Project-idea brainstorming prompt](https://gist.github.com/alexeygrigorev/c1c8dc3ece5cba91e1e381eeba2706c1)
 
 ## Deliverables
 
@@ -97,7 +97,7 @@ Vancesca is looking for an AI role, already has one project from the AI Buildcam
 
 ## Initial Input
 
-Thanks so much for reaching out. My son is home for Easter, so my focus has been a bit scattered these past few weeks. I really appreciate your persistence and kindness in letting me know about this program.
+Thanks so much for reaching out. My son is home for Easter, so my focus has been a bit scattered these past few weeks. I appreciate your persistence and kindness in letting me know about this program.
 
 This is definitely something I'm interested in being a part of.
 
@@ -105,36 +105,36 @@ As for what I'm working on or hoping to get out of this:
 
 - I'm currently searching for an AI role, and for me, building a strong portfolio. I completed one project as part of the AI Buildcamp. I'd like to add another. I've been feeling stuck about coming up with an idea has been tough lately.
 - One thing I want to mention is that I'd like to contribute to the DataTalks community, especially on projects involving LLM/agents. I'd love to hear about potential projects I can work on to support the DTC community.
-- I'd really like to deploy applications on AWS.
+- I'd like to deploy applications on AWS.
 - I'm especially interested in evaluating agents.
 - To maintain motivation, I'd like to have a coffee chat with the community where anyone can join and we talk about AI, our projects, things we're working on, etc. - kind of a peer learning thing. I wouldn't mind hosting it if it's something we can build.
 
 ## Questions and Answers
 
-**If you build one more project now, what do you want it to prove to employers about you?**
+If you build one more project now, what do you want it to prove to employers about you?
 
 I want to show that I can set up API endpoints and host on AWS.
 
-**Would you want the next project to be mainly for your portfolio, or mainly to support DataTalks.Club, or ideally both?**
+Would you want the next project to be mainly for your portfolio, or mainly to support DataTalks.Club, or ideally both?
 
 Ideally both. I want to be exposed to problems and figure out how to solve them. Defining the problem is my bottleneck - once I build the moment by having a clear idea of what the problem is then getting started and doing the work comes easy.
 
-**What do you hope to achieve with this plan in the next 6 to 8 weeks?**
+What do you hope to achieve with this plan in the next 6 to 8 weeks?
 
 - Add another end-to-end project to my portfolio
 - Experiment with adding a cron job or some sort of scheduling feature
 
-**How much time can you realistically commit each week over the next 6 to 8 weeks?**
+How much time can you realistically commit each week over the next 6 to 8 weeks?
 
 About 20 hours.
 
-**From your experience with building previous projects, what have you learned about the most effective ways you work when tackling technical tasks?**
+From your experience with building previous projects, what have you learned about the most effective ways you work when tackling technical tasks?
 
 - Defining the end result. The how reveals itself once I figure out what result is expected. This also means breaking the larger idea into smaller tasks.
 - Building schemas and being organized
 - Pushing to GitHub regularly
 
-**Where do you typically encounter challenges when working on projects? For instance: scoping, getting started, maintaining momentum, technical obstacles, or finishing tasks.**
+Where do you typically encounter challenges when working on projects? For instance: scoping, getting started, maintaining momentum, technical obstacles, or finishing tasks.
 
 The start and the end, so coming up with ideas and maintaining the project once it's "finished".
 
@@ -168,7 +168,7 @@ Alexey also wants Vancesca involved in the planning itself, with room to react t
 
 ## Internal Action Items
 
-- [ ] [Vancesca] Pick a project from the DTC issue list and confirm that she actually likes it.
+- [ ] [Vancesca] Pick a project from the DTC issue list and confirm that she likes it.
 - [ ] [Alexey] Help sketch the implementation once the project is chosen.
 - [ ] [Vancesca] Decide whether the cron/scheduling feature belongs in the first version or as a later enhancement.
 

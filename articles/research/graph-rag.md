@@ -8,13 +8,13 @@ status: draft
 
 # Graph RAG
 
-Research on Graph RAG - using knowledge graphs to enhance retrieval-augmented generation for AI agents, particularly for production engineering and incident response.
+Research on Graph RAG - using knowledge graphs to improve retrieval-augmented generation for AI agents, particularly for production engineering and incident response.
 
 ## Resources
 
 ## Designing a Production Engineer Agent with GraphRAG
 
-Source: https://www.decodingai.com/p/designing-production-engineer-agent-graphrag
+[Source](https://www.decodingai.com/p/designing-production-engineer-agent-graphrag)
 
 Author: Anca Muscalagiu (Decoding AI newsletter). Published: 2026-01-20.
 

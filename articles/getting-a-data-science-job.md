@@ -79,7 +79,7 @@ For data science positions, SQL and Python are important. Some companies treat d
 
 For basic coding: they check if you know Python basics - lists, sets, dictionaries, loops, if statements.
 
-For algorithmic questions (binary trees, linked lists, etc.): check with the recruiter first if this is actually part of the process, because very few companies do this. If they do, LeetCode is a great source for practice.
+For algorithmic questions (binary trees, linked lists, etc.): check with the recruiter first if this is part of the process, because few companies do this. If they do, LeetCode is a great source for practice.
 
 When solving exercises, take notes so you can come back and review them later.
 
@@ -90,13 +90,13 @@ A task to do at home: they give you a dataset and ask you to build something - t
 Warning signs to watch for:
 - You get an automatic email with an assignment immediately after applying (the company may not even be actively hiring)
 - Instructions are deliberately unclear and they say "we want to see how you deal with ambiguity"
-- The task "can be solved in two hours" but actually requires weeks
+- The task "can be solved in two hours" but requires weeks
 
 Positive side: home assignments are a great opportunity to add projects to your portfolio and learn new skills/libraries.
 
 If you don't want to invest time but still like the company, you can tell them: "I already have similar projects, check my GitHub, I'm happy to continue talking without the assignment." Many will say no, but some will agree.
 
-After the assignment, some companies have a defense session where you present your solution and discuss it. Having this step is actually a good sign.
+After the assignment, some companies have a defense session where you present your solution and discuss it. Having this step is a good sign.
 
 ## Case Study Interviews
 
@@ -149,7 +149,7 @@ If rejected: don't take it personally. Treat it as a learning experience. Do a r
 
 If you get an offer: don't rush into agreeing immediately. If you have interviews with other companies, finish them first. Once you get the first offer, tell other companies about it to speed up their process. Having multiple offers is the ideal situation for negotiating salary and benefits. With just one offer, negotiation is difficult.
 
-If you already named a salary number in the initial interview and they offer that exact number, it's very hard to negotiate upward.
+If you already named a salary number in the initial interview and they offer that exact number, it's hard to negotiate upward.
 
 ## Sources
 

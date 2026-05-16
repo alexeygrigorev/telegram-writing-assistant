@@ -136,7 +136,7 @@ This approach can be integrated with GitHub Actions for continuous integration. 
 
 ## Generating Tests from Usage Sessions
 
-A workflow for generating tests that I really like. The idea: you use your agent for 10-15 minutes on video, commenting as you go - "this I don't like," "this I don't like," "here we could do this," "here everything works well." Then you take the transcript of that session, feed it to ChatGPT, and say: "generate test scenarios based on this." Then you write test code based on those scenarios[^3].
+A workflow for generating tests that I like. The idea: you use your agent for 10-15 minutes on video, commenting as you go - "this I don't like," "this I don't like," "here we could do this," "here everything works well." Then you take the transcript of that session, feed it to ChatGPT, and say: "generate test scenarios based on this." Then you write test code based on those scenarios[^3].
 
 This approach saves a lot of time. You just record yourself using the agent, Whisper transcribes the recording, and the tests get generated. You fix them one test at a time, and each time something breaks, you know about it. It took some time to prepare everything nicely, but the approach is great[^3].
 

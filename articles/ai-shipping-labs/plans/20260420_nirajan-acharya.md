@@ -16,7 +16,7 @@ Internal working document. Share only the `Summary` and `Plan` sections with the
 - Goal for the next 6 weeks: turn one existing deployed project into a more production-grade system with clearer metrics, reliability, and real user signals.
 - Main gap to close: focus and specificity. The bottleneck is no longer "learning AI" in general, but choosing one concrete target state and executing against it.
 - Weekly time commitment: 30 to 40 hours.
-- Why this plan is the right next step: Nirajan is advanced enough that another abstract roadmap will not help much; the leverage is in defining the project state clearly and shipping against that definition.
+- Why this plan is the right next step: Nirajan is advanced enough that another abstract roadmap will not help much. The use is in defining the project state clearly and shipping against that definition.
 
 ## Plan
 
@@ -91,7 +91,7 @@ Priya - The Improver. Already capable and already shipping, but now needs sharpe
 
 ## Background
 
-Nirajan reached out after topping the leaderboard of AI Engineering Buildcamp Cohort 2. He already has a deployed AI project and wants to become more job-ready for real-world AI roles. The challenge is not lack of effort or time; it is defining the next concrete step instead of speaking at the level of abstractions.
+Nirajan reached out after topping the leaderboard of AI Engineering Buildcamp Cohort 2. He already has a deployed AI project and wants to become more job-ready for real-world AI roles. The challenge is not lack of effort or time. It is defining the next concrete step instead of speaking at the level of abstractions.
 
 ## Intake
 
@@ -108,53 +108,53 @@ I'd especially like to focus on:
 - Understanding industry workflows (from development to shipping)
 - Strengthening problem-solving for competitive AI roles
 
-A personalized plan from Alexey would be really valuable for aligning my progress with these goals. I'm ready to put in the work and would love to grow within this ecosystem.
+A personalized plan from Alexey would be valuable for aligning my progress with these goals. I'm ready to put in the work and would love to grow within this ecosystem.
 
 Looking forward to your guidance!
 
 ## Questions and Answers
 
-**What would be most useful for you to achieve in the next 2 to 3 months?**
+What would be most useful for you to achieve in the next 2 to 3 months?
 
 In the next 2-3 months, the most useful outcome would be to refine and extend my existing deployed AI project into a more production-grade system, focusing on scalability, robustness, monitoring, and continuous improvement.
 
-**If you want to become "job-ready," what do you feel is still missing today?**
+If you want to become "job-ready," what do you feel is still missing today?
 
 I have already built and deployed a complete AI project during the capstone. What I feel is still missing is deeper exposure to production-level standards such as system optimization, handling edge cases, advanced evaluation, and working within team-based development environments.
 
-**If you were applying for AI roles in the next 2 to 3 months, what would you want to be able to show that you cannot show today?**
+If you were applying for AI roles in the next 2 to 3 months, what would you want to be able to show that you cannot show today?
 
 I would want to demonstrate multiple production-level projects or an advanced version of my current system with strong evaluation metrics, real user interaction, and clear evidence of scalability and reliability in real-world scenarios.
 
-**Which part of the workflow do you most want hands-on practice with next?**
+Which part of the workflow do you most want hands-on practice with next?
 
 I want to focus on post-deployment workflows monitoring, evaluation, iterative improvement, and scaling AI systems based on real usage.
 
-**What do you mean by "understanding industry workflows"?**
+What do you mean by "understanding industry workflows"?
 
 I refer to the end-to-end lifecycle followed in real companies especially collaboration, version control, deployment pipelines, performance tracking, user feedback integration, and iterative development in production environments.
 
-**What do you hope to achieve with this plan in the next 6 to 8 weeks? If you had to choose one concrete outcome for the next 6 weeks, what should it be?**
+What do you hope to achieve with this plan in the next 6 to 8 weeks? If you had to choose one concrete outcome for the next 6 weeks, what should it be?
 
 (No answer provided)
 
-**How much time can you realistically commit each week over the next 6 to 8 weeks?**
+How much time can you realistically commit each week over the next 6 to 8 weeks?
 
 I can commit around 30-40 hours per week with full focus and consistency.
 
-**What strengths from your background should the plan build on?**
+What strengths from your background should the plan build on?
 
 (No answer provided)
 
-**What is blocking you most right now from moving forward?**
+What is blocking you most right now from moving forward?
 
 (No answer provided)
 
-**What type of accountability would be most effective for you?**
+What type of accountability would be most effective for you?
 
 (No answer provided)
 
-**What would make you feel that, at the end of the next 6 to 8 weeks, the plan was worthwhile?**
+What would make you feel that, at the end of the next 6 to 8 weeks, the plan was worthwhile?
 
 If I can confidently position myself for AI roles with a strong, production-level portfolio and a clear understanding of real-world workflows, I would consider the plan highly successful.
 
@@ -178,7 +178,7 @@ Other important internal notes:
 
 - Alexey would recommend focusing on one project rather than several.
 - Strong evaluation metrics should come from business goals and real users, not from AI metrics in isolation.
-- Much of the desired "industry workflow" experience will emerge naturally once the project is actually deployed and iterated on.
+- Much of the desired "industry workflow" experience will emerge naturally once the project is deployed and iterated on.
 - If Nirajan wants help, the most useful thing is not more general advice but clearer specificity about the project and the desired outcome.
 
 ## Internal Action Items

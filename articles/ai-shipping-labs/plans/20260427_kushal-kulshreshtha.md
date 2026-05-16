@@ -15,8 +15,8 @@ Internal working document. Share only the `Summary` and `Plan` sections with the
 - Current situation: an engineer who wants to move into AI engineering and is targeting roles that fit his location preferences (likely Europe-based or relocation/remote-friendly companies).
 - Goal for the next 6 weeks: ship one end-to-end AI project aligned with the kind of company and domain he wants to work in next, with monitoring included.
 - Main gap to close: a portfolio project that points at concrete employer-relevant problems instead of generic exercises.
-- Weekly time commitment: not explicitly stated yet; the plan is sized as a tight 6-week sprint.
-- Why this plan is the right next step: as an engineer he already has the core skills; the highest-leverage move is to anchor his project work to specific target companies and domains rather than building in the abstract.
+- Weekly time commitment: not explicitly stated yet. The plan is sized as a tight 6-week sprint.
+- Why this plan is the right next step: as an engineer he already has the core skills. The highest-use move is to anchor his project work to specific target companies and domains rather than building in the abstract.
 
 ## Plan
 
@@ -51,7 +51,7 @@ Week 3:
 Week 4:
 
 - Add monitoring with Logfire to the project.
-- Use AI Hero only for the concept that monitoring is needed; keep the actual implementation simple with Logfire.
+- Use AI Hero only for the concept that monitoring is needed. Keep the actual implementation simple with Logfire.
 - Finish the remaining AI Hero material if not already done.
 
 Week 5:
@@ -62,15 +62,15 @@ Week 5:
 Week 6:
 
 - Polish the project, write a short README, and prepare a demo.
-- If time clearly allows, start scoping a second project; otherwise stay focused on finishing one strong project rather than two half-finished ones.
+- If time clearly allows, start scoping a second project. Otherwise stay focused on finishing one strong project rather than two half-finished ones.
 
 ## Resources
 
-- AI Hero course: https://aishippinglabs.com/courses/aihero[^3] - fast overview of how to build agents; use it for the concepts, not for heavy monitoring.
+- [AI Hero course](https://aishippinglabs).com/courses/aihero[^3] - fast overview of how to build agents. Use it for the concepts, not for heavy monitoring.
 - Logfire - simpler monitoring tool to attach to the project after the first agent works.
 - Tech blogs of target companies and similar companies in the chosen domain - source for the list of typical problems.
-- Project-idea brainstorming prompt: https://gist.github.com/alexeygrigorev/c1c8dc3ece5cba91e1e381eeba2706c1
-- Community accountability channel (`#plan-sprints`): https://app.slack.com/client/T0AFSRP234M/C0AUQBSP4ER
+- [Project-idea brainstorming prompt](https://gist.github.com/alexeygrigorev/c1c8dc3ece5cba91e1e381eeba2706c1)
+- [Community accountability channel (`#plan-sprints`)](https://app).slack.com/client/T0AFSRP234M/C0AUQBSP4ER
 
 ## Deliverables
 
@@ -81,9 +81,9 @@ Week 6:
 
 ## Accountability
 
-- Cap weekly effort at a realistic number of hours so the 6-week plan is actually finishable.
+- Cap weekly effort at a realistic number of hours so the 6-week plan is finishable.
 - Weekly async update on what moved from research to artifact.
-- Aim for one project shipped by the end of the 6 weeks; treat a second project as a stretch goal, not a baseline.
+- Aim for one project shipped by the end of the 6 weeks. Treat a second project as a stretch goal, not a baseline.
 
 ## Next Steps
 
@@ -96,7 +96,7 @@ Week 6:
 
 ## Persona
 
-Alex - The Engineer Transitioning to AI. Already has engineering skills; the gap is AI-specific project experience and a portfolio that maps to the kind of role he is looking for.
+Alex - The Engineer Transitioning to AI. Already has engineering skills. The gap is AI-specific project experience and a portfolio that maps to the kind of role he is looking for.
 
 ## Background
 
@@ -131,12 +131,12 @@ Alexey's recommendation after reviewing Kushal's input[^2]:
 
 5. As an engineer, Kushal already has the core skills, and Valeriia has already shared a learning path, so the focus is on execution: pick a few portfolio-relevant projects and work on them.
 
-6. Be realistic about scope. Over the next 6-week sprint, one finished project is a solid outcome; two projects is a stretch goal but should not push him into doing both half-way.
+6. Be realistic about scope. Over the next 6-week sprint, one finished project is a solid outcome. Two projects is a stretch goal but should not push him into doing both half-way.
 
 ## Internal Action Items
 
 - [ ] [Alexey] Send Kushal the written plan and the project-idea brainstorming prompt.
-- [ ] [Alexey] Confirm whether Kushal is enrolled in the course; if yes, point him at AI Hero PID specifically.
+- [ ] [Alexey] Confirm whether Kushal is enrolled in the course. If yes, point him at AI Hero PID specifically.
 - [ ] [Kushal] Share the company shortlist and chosen domain so the project scope can be reviewed before he starts building.
 
 ## Sources

@@ -18,7 +18,7 @@ How other people use AI coding agents for knowledge management, what tools and w
 
 ## XDA: "I Put Claude Code Inside Obsidian, and It Was Eye-Opening"
 
-Source: https://www.xda-developers.com/claude-code-inside-obsidian-and-it-was-eye-opening/[^1]
+[Source](https://www.xda-developers.com/claude-code-inside-obsidian-and-it-was-eye-opening/)[^1]
 
 The article by Joe Rice-Jones describes embedding Claude Code directly inside Obsidian using the Terminal plugin. The author, a self-described late convert to Obsidian who is "terrible at taking notes," discovered that running an AI agent inside a note-taking environment lets you outsource both research and note organization to the AI. The core insight is that Obsidian vaults are just folders of markdown files on the filesystem, which makes them a natural workspace for Claude Code to read, create, and organize content.
 
@@ -72,11 +72,11 @@ There is no single official integration between OpenCode and Logseq. This is a c
 
 ## Logseq vs Obsidian for AI Integration
 
-- Obsidian is proprietary (free for personal use); Logseq is fully open source
+- Obsidian is proprietary (free for personal use). Logseq is fully open source
 - Obsidian has a much larger plugin ecosystem for Claude Code integration
-- Obsidian uses standard document-based Markdown; Logseq uses block-based outliner Markdown with unique IDs per block
+- Obsidian uses standard document-based Markdown. Logseq uses block-based outliner Markdown with unique IDs per block
 - Logseq's block-based structure means an AI agent can link to specific ideas within a page, not just entire pages
-- Logseq has built-in task management and daily journals; Obsidian requires plugins for these
+- Logseq has built-in task management and daily journals. Obsidian requires plugins for these
 - Logseq's daily journal workflow aligns well with AI-assisted capture - capture first, organize later
 
 ## Comparison to Telegram Writing Assistant

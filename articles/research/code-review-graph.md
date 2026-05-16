@@ -10,7 +10,7 @@ status: draft
 
 A tool that builds a persistent knowledge graph of your codebase so AI coding assistants read only the files that matter. Instead of scanning your entire repository on every task, it traces the "blast radius" of each change and provides just the relevant context.
 
-Source: https://github.com/tirth8205/code-review-graph
+[Source](https://github.com/tirth8205/code-review-graph)
 
 ## The Problem
 
@@ -21,7 +21,7 @@ AI coding tools (Claude Code, Cursor, Windsurf, etc.) re-read large portions of 
 The pipeline has four stages:
 
 1. Parse the codebase into an AST using Tree-sitter
-2. Store the structure as a graph in SQLite (nodes = functions, classes, imports; edges = calls, inheritance, test coverage)
+2. Store the structure as a graph in SQLite (nodes = functions, classes, imports. Edges = calls, inheritance, test coverage)
 3. On each change, trace all callers, dependents, and tests that could be affected (the "blast radius")
 4. Serve this minimal context to the AI assistant via MCP (Model Context Protocol)
 
@@ -49,7 +49,7 @@ The `changes.py` module maps git diffs to affected functions. It parses `git dif
 
 ## Execution Flow Detection
 
-The `flows.py` module detects entry points (functions with no incoming CALLS edges, framework-decorated handlers, conventional patterns like `main`, `test_*`, `handle_*`). It traces execution paths via forward BFS through CALLS edges and scores each flow for criticality.
+The `flows.py` module detects entry points (functions with no incoming CALLS edges, framework-decorated handlers, conventional patterns like `main`, `test_`, `handle_`). It traces execution paths via forward BFS through CALLS edges and scores each flow for criticality.
 
 Framework detection covers: Express/Flask/FastAPI route decorators, Click commands, Celery tasks, Spring annotations, and more.
 
@@ -139,7 +139,7 @@ Instead of feeding raw source files to the AI, the graph provides structural sum
 
 - Small single-file changes: graph metadata overhead can exceed the raw file size
 - Search quality (MRR 0.35): keyword search needs ranking improvements
-- Flow detection (33% recall): only reliable for Python frameworks; JavaScript and Go need work
+- Flow detection (33% recall): only reliable for Python frameworks. JavaScript and Go need work
 - Precision trade-off: deliberately conservative, so some false positives in large dependency graphs
 
 ## Notes
@@ -154,7 +154,7 @@ The approach is related to static analysis tools like CodeQL and Semgrep but foc
 
 ## GitHub Repository
 
-Source: https://github.com/tirth8205/code-review-graph
+[Source](https://github.com/tirth8205/code-review-graph)
 
 The main repository. MIT licensed. Version 2.2.2 at time of writing. Active development with CI pipeline (lint, type-check, security scan, test matrix).
 

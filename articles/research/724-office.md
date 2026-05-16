@@ -8,13 +8,13 @@ status: draft
 
 # 724 Office: Self-Evolving AI Agent System
 
-GitHub: https://github.com/wangziqi06/724-office
+[GitHub](https://github.com/wangziqi06/724-office)
 
 A production-running AI agent built in around 3,500 lines of pure Python with zero framework dependency. No LangChain, no LlamaIndex, no CrewAI - just the standard library plus 3 small packages (croniter, lancedb, websocket-client). 26 tools, 8 files, runs 24/7. Built solo with AI co-development tools in under 3 months[^1][^2].
 
 ## Key Features
 
-Three-layer memory system that actually works:
+Three-layer memory system that works:
 - Layer 1 (session): last 40 messages per session in JSON. Overflow triggers compression
 - Layer 2 (compressed long-term): LLM extracts structured facts from evicted messages, deduplicates at 0.92 cosine similarity, stores as vectors in LanceDB
 - Layer 3 (retrieval): user message gets embedded, vector search finds relevant memories, injects them into system prompt before the model sees the input

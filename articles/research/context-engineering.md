@@ -18,7 +18,7 @@ How context engineering principles and the 12-factor agent framework can improve
 
 ## 12 Factors of AI Agents (Talk)
 
-Source: https://youtu.be/8kMaTybvDUw
+[Source](https://youtu.be/8kMaTybvDUw)
 
 Overview: A talk by the creator of Human Layer who interviewed 100+ founders, builders, and engineers building production agents. The key finding: most production agents are not that agentic at all - they are mostly deterministic software with small LLM-powered loops. The talk presents the 12 Factors of AI Agents, a framework inspired by the original 12-Factor App methodology from Heroku. The associated GitHub repo reached 4,000 stars in a month with 14 active contributors.
 
@@ -34,14 +34,14 @@ Factor 1 - Structured Output:
 
 Factor 4 - Tool Use Considered Harmful:
 - "Tool use" as a concept is harmful - not giving agents access to the world (that is obviously useful), but the idea that tool use is some magical thing where an ethereal alien entity interacts with its environment
-- What actually happens: the LLM outputs JSON, deterministic code does something with it, and maybe the result gets fed back
+- What happens: the LLM outputs JSON, deterministic code does something with it, and maybe the result gets fed back
 - Tools are just JSON and code. If you can get the LLM to output structured data, you can pass it into a loop or a switch statement. There is nothing special about tools
 
 Factor 8 - Own Your Control Flow:
 - Code is a graph. If you have written an if statement, you have written a directed graph
 - The agent promise was: you do not have to write the DAG, just tell the LLM the goal and it will find its way there. This is modeled as a simple loop where the LLM determines the next step
 - In practice, the naive loop does not work for longer workflows. Long context windows degrade quality. Even with 2 million tokens in Gemini, tighter and smaller context windows produce better results
-- An agent is really just: a prompt (instructions for selecting the next step), a switch statement (routes model output), a context window (accumulates state), and a loop (determines exit conditions)
+- An agent is just: a prompt (instructions for selecting the next step), a switch statement (routes model output), a context window (accumulates state), and a loop (determines exit conditions)
 - Owning the control flow enables: break, switch, summarize, LLM-as-judge, and other patterns
 
 Factor 2 - Own Your Prompts:
@@ -57,7 +57,7 @@ Context Engineering:
 - Do not just blindly put things on the context window. If you have errors followed by a valid tool call, clear the pending errors out. Summarize. Figure out what to tell the model to get better results
 
 Small Focused Agents (Micro Agents):
-- What works in practice: a mostly deterministic DAG with very small agent loops of 3-10 steps
+- What works in practice: a mostly deterministic DAG with small agent loops of 3-10 steps
 - Human Layer example: their deploy pipeline is mostly deterministic CI/CD code. When a GitHub PR is merged and tests pass, it sends to a model that says "get this thing deployed." A human can redirect ("do backend first"). The agent deploys, then goes back to deterministic end-to-end tests
 - 100 tools and 20 steps are manageable with this approach because context stays clean and responsibilities are clear
 - The evolution: start with a mostly deterministic workflow, sprinkle LLMs into your code. Over time, LLMs handle bigger tasks until the whole pipeline is run by an agent
@@ -83,7 +83,7 @@ Quotes:
 
 ## State of Context Engineering in 2026 (Workshop)
 
-Source: https://x.com/Aurimas_Gr/status/2034035800548192258
+[Source](https://x.com/Aurimas_Gr/status/2034035800548192258)
 
 Aurimas Griciuinas posted about context engineering becoming a must-have skill for AI Engineers in 2026. He hosted a free live workshop on March 20th covering the core patterns defining context engineering, key trade-offs between context management strategies, and how to apply these patterns to build more effective agentic systems[^3].
 
@@ -111,7 +111,7 @@ I want to prepare material about context engineering, probably as a couple of we
 
 ## Notes
 
-The 12 Factors framework connects directly to spec-driven development research. Both emphasize owning the process rather than delegating everything to the LLM. The spec-driven approach controls what goes into the model (specifications, requirements, design docs), while the 12 Factors framework controls how the agent operates (control flow, context window, state management).
+The 12 Factors framework connects directly to spec-driven development research. Both highlight owning the process rather than delegating everything to the LLM. The spec-driven approach controls what goes into the model (specifications, requirements, design docs), while the 12 Factors framework controls how the agent operates (control flow, context window, state management).
 
 The micro agents pattern (3-10 steps in a mostly deterministic pipeline) aligns with how the Telegram writing assistant works: mostly deterministic processing steps with small LLM-powered loops for categorization and content extraction.
 

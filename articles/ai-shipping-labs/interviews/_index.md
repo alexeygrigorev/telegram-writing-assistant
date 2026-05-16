@@ -1,6 +1,6 @@
 # AI Shipping Labs User Interviews
 
-Interview notes from conversations with AI Shipping Labs community members. One file per participant. Each file includes a persona assignment based on [personas.md](../personas.md); if there is not enough information yet, the persona is marked Undetermined.
+Interview notes from conversations with AI Shipping Labs community members. One file per participant. Each file includes a persona assignment based on [personas.md](../personas.md). If there is not enough information yet, the persona is marked Undetermined.
 
 When new interview content comes in (a call transcript, written answers, or survey response), add it to the existing file for that person or create a new file here.
 
@@ -8,7 +8,7 @@ When new interview content comes in (a call transcript, written answers, or surv
 
 | Person | Persona | Last Updated | Description |
 |--------|---------|--------------|-------------|
-| [Daniel Ibáñez](daniel-ibanez.md) | Undetermined | 2026-05-09 | Wants a roadmap for AI Engineering and sharing best practices across scenarios; shared a side project he wants to start after the current sprint - turning a custom ChatGPT-based knowledge assistant for the audiovisual / video production market into a paid SaaS with its own accounts, subscriptions, and AI cost controls |
+| [Daniel Ibáñez](daniel-ibanez.md) | Undetermined | 2026-05-09 | Wants a roadmap for AI Engineering and sharing best practices across scenarios. Shared a side project he wants to start after the current sprint - turning a custom ChatGPT-based knowledge assistant for the audiovisual / video production market into a paid SaaS with its own accounts, subscriptions, and AI cost controls |
 | [Daiyaan Ahmed](daiyaan-ahmed.md) | Alex | 2026-05-04 | Data lead at a fintech startup, DE Zoomcamp graduate, learning AI through articles/videos but struggling to find time to build, missed AI Engineering Buildcamp deadline, looking for accountability and community |
 | [Aashiesh Siwach](aashiesh-siwach.md) | Alex | 2026-05-03 | ML engineer transitioning to production-ready AI Engineer role, has shipped hybrid search/reranking pipeline and deployed retrieval API, wants to build agentic AI system end to end with community accountability |
 | [Koray Can Canut](koray-can-canut.md) | Sam | 2026-04-29 | Data analyst / analytics engineer with an existing image-analysis project, wants to make it agentic / add RAG, considering a career change to junior data engineer or junior AI engineer, needs flexible monthly membership during a 5-month freelance project |

@@ -18,7 +18,7 @@ How Claude Pilot enforces quality guardrails on Claude Code sessions, and what a
 
 ## GitHub: maxritter/claude-pilot
 
-Source: https://github.com/maxritter/claude-pilot[^1][^2]
+[Source](https://github.com/maxritter/claude-pilot)[^1][^2]
 
 Claude Pilot is a quality automation layer built on top of Claude Code (Anthropic's CLI coding agent). Created by Max Ritter, a senior IT freelancer from Germany, it addresses a specific problem: Claude Code writes code fast but without structure, it skips tests, loses context, and produces inconsistent results. Pilot wraps Claude Code with enforced quality guardrails - linting, formatting, type checking, TDD enforcement, context monitoring, and verification sub-agents - so that you can start a task, walk away, and return to production-grade code.
 

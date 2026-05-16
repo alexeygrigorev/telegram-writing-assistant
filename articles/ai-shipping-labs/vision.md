@@ -172,9 +172,9 @@ The aim is to attract everyone interested in these topics to one place, rather t
 
 - Fred - created the FAQ assistant
 - A student from the Hackathon who contributed to "Professor"
-- Eteri Valti - completed ML Bootcamp, AI DevTools, AI Hero course; actively asks how to help with community; recently found a job
+- Eteri Valti - completed ML Bootcamp, AI DevTools, AI Hero course. Actively asks how to help with community. Recently found a job
 - Rakis (from Greece) - built multiple projects for DataTalks Club: a Streamlit app showcasing all Zoomcamp projects, a project evaluator agent
-- A student from a recent workshop who was one of the first in Data Engineering; after finding a job, donated part of her learning budget back
+- A student from a recent workshop who was one of the first in Data Engineering. After finding a job, donated part of her learning budget back
 
 These are the kinds of active contributors the community should attract more of.
 
@@ -277,7 +277,7 @@ This is the main value proposition at $50 per month. Members get full community 
 
 These are three ideas that came up at once. Which tier they belong to still needs to be figured out. We can ask people what interests them and what resonates, and then build from there[^72].
 
-These activities also help cut through the noise. There is a lot of noise on social media right now. People open social media and see others talking about many things, which creates FOMO. The community can help people focus on what is actually important instead of chasing everything[^72].
+These activities also help cut through the noise. There is a lot of noise on social media right now. People open social media and see others talking about many things, which creates FOMO. The community can help people focus on what is important instead of chasing everything[^72].
 
 Course requests and influence: since the current course catalog is limited, community members can request and influence which courses get developed. The courses offered can be shaped based on what people in the community want to learn[^33].
 
@@ -350,7 +350,7 @@ Key insight: start with direct interaction to understand problems, then producti
 
 ## Phase 3: Iterate based on reality
 
-- The theoretical ideal audience may not match who actually joins
+- The theoretical ideal audience may not match who joins
 - Plans should evolve based on real members
 - Don't over-plan before seeing who is interested
 
@@ -361,7 +361,7 @@ Key insight: start with direct interaction to understand problems, then producti
 3. Use these conversations to identify common problems
 4. Design tier 2 to provide maximum value for these problems
 5. Design tier 3 primarily to make tier 2 look attractive
-6. Iterate based on who actually joins
+6. Iterate based on who joins
 
 The key is to learn from real members rather than assuming what they want.
 

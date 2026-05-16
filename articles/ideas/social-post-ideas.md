@@ -74,7 +74,7 @@ Paul promotes two courses that teach these fundamentals: Beginner Python Primer 
 
 ## AI Evals Resources
 
-Post by Paul Iusztin: "Every day, 100+ people ask me, 'How can I learn AI evals?'" - a curated list of 10 essential resources[^6].
+Post by Paul Iusztin: "Every day, 100+ people ask me, 'How can I learn AI evals?'" - a curated list of 10 needed resources[^6].
 
 The recommended resources cover:
 1. Using LLM-as-a-judge (hamel.dev)
@@ -94,9 +94,9 @@ Post idea: scrape current job postings for data engineering and AI engineering p
 
 ## How to Select a Portfolio Project
 
-Post idea: guide on how to choose projects for your portfolio. I've talked about this many times but never made a dedicated article. This would cover how to pick projects that showcase relevant skills, stand out to employers, and align with career goals in AI engineering[^8].
+Post idea: guide on how to choose projects for your portfolio. I've talked about this many times but never made a dedicated article. This would cover how to pick projects that show relevant skills, stand out to employers, and align with career goals in AI engineering[^8].
 
-People very often ask at office hours how to prepare a portfolio project. This needs to become a post because I always have to repeat the same things[^10].
+People often ask at office hours how to prepare a portfolio project. This needs to become a post because I always have to repeat the same things[^10].
 
 ## Office Hours FAQ Analysis
 

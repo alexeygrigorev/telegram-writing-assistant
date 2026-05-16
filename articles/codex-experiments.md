@@ -58,7 +58,7 @@ The main thing missing in Codex is a convenient task widget like Claude Code has
   <!-- Screenshot showing the user explicitly asking for active agent status, Codex checking and reporting that Heisenberg and James workers have completed -->
 </figure>
 
-In Claude Code, the todo widget lets me run very long sessions. I add a task to the todo list that says "take the next task" and make sure there is always a task to take the next task. This way the orchestrator keeps going through the queue automatically[^1].
+In Claude Code, the todo widget lets me run long sessions. I add a task to the todo list that says "take the next task" and make sure there is always a task to take the next task. This way the orchestrator keeps going through the queue automatically[^1].
 
 To be honest, in Claude Code the todo widget has not been working well lately either. Since they rolled out the 1 million token context window, something broke. The todo widget stopped working as well as it used to[^1].
 
@@ -76,7 +76,7 @@ All of this should be fixable with a custom orchestrator that launches different
 
 This experience reinforces my idea of building a program that allows seamless switching between LLM providers. The concept is an orchestrator that has access to several providers and picks any available model for each task. If one provider hits limits, it switches to another[^1].
 
-I want a stricter todo list system, and I want to be less dependent on any specific LLM. The limits are getting tighter, and a tool that lets me seamlessly switch from one provider to another could be very valuable. I plan to discuss this in the Friday newsletter[^1].
+I want a stricter todo list system, and I want to be less dependent on any specific LLM. The limits are getting tighter, and a tool that lets me seamlessly switch from one provider to another could be valuable. I plan to discuss this in the Friday newsletter[^1].
 
 Another thought: I could also look into using multiple accounts in Claude Code to jump from one to another when limits hit. But that is more of a stream-of-consciousness idea[^1].
 

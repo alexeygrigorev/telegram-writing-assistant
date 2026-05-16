@@ -36,7 +36,7 @@ Action needed: Verify correct URL or locate an archived version of this content[
 
 ## TowardsDataScience: Custom LLM Memory Layers
 
-Source: https://towardsdatascience.com/how-to-build-your-own-custom-llm-memory-layer-from-scratch/
+[Source](https://towardsdatascience.com/how-to-build-your-own-custom-llm-memory-layer-from-scratch/)
 
 This comprehensive guide builds a memory system from scratch, inspired by the Mem0 architecture. It treats memory as a context engineering problem.
 
@@ -94,7 +94,7 @@ Note: The original URL (building-custom-llm-memory-layers-5f12a877881d) returns 
 
 ## GitHub Blog: Building an Agentic Memory System for GitHub Copilot
 
-Source: https://github.blog/ai-and-ml/github-copilot/building-an-agentic-memory-system-for-github-copilot/
+[Source](https://github.blog/ai-and-ml/github-copilot/building-an-agentic-memory-system-for-github-copilot/)
 
 Overview: GitHub's production approach to cross-agent memory that enables Copilot agents (coding agent, CLI, code review) to share learnings across the entire development workflow without explicit user instructions.
 
@@ -116,7 +116,7 @@ Actionable Patterns:
 - Store memories with citations: references to specific code locations that support each fact
 - Implement memory creation as a tool call that agents invoke when discovering actionable patterns
 - At retrieval time, verify citations by checking the cited code locations still exist and support the memory
-- If code contradicts memory, store a corrected version; if citations check out, refresh the memory timestamp
+- If code contradicts memory, store a corrected version. If citations check out, refresh the memory timestamp
 - Use the most recent memories for a repository as context inclusion in prompts
 
 Technical Details:
@@ -141,7 +141,7 @@ Quotes:
 
 ## LinkedIn: Why I Stopped Letting LLMs Build My Knowledge Graphs
 
-Source: https://www.linkedin.com/pulse/why-i-stopped-letting-llms-build-my-knowledge-graphs-what-malaraju-ycxbc
+[Source](https://www.linkedin.com/pulse/why-i-stopped-letting-llms-build-my-knowledge-graphs-what-malaraju-ycxbc)
 
 Overview: A case study of building an enterprise code migration platform using Fixed Entity Architecture (FEA), a three-layer approach to knowledge graphs that avoids LLMs during graph construction in favor of deterministic, math-based methods.
 
@@ -150,7 +150,7 @@ Key Ideas:
 - Fixed Entity Architecture defines a curated ontology layer built by domain experts, not LLMs
 - Three layers: Fixed Entity Ontology (domain concepts), Document Layer (code chunks with embeddings), NLP-Extracted Entities (named entities via spaCy/regex)
 - Microsoft GraphRAG requires thousands of LLM calls while FEA uses only math + lightweight NLP
-- Adding new data to LLM-built graphs requires reprocessing; FEA connects new data instantly via cosine similarity
+- Adding new data to LLM-built graphs requires reprocessing. FEA connects new data instantly via cosine similarity
 
 Key Insights:
 - If you already understand your domain, paying an LLM to rediscover it is both wasteful and less accurate
@@ -222,7 +222,7 @@ Quotes:
 
 ## Reddit: Everyone's Trying Vectors and Graphs for AI Memory. We Went Back to SQL.
 
-Source: https://www.reddit.com/r/AI_Agents/comments/1nkx0bz/everyones_trying_vectors_and_graphs_for_ai_memory/
+[Source](https://www.reddit.com/r/AI_Agents/comments/1nkx0bz/everyones_trying_vectors_and_graphs_for_ai_memory/)
 Referenced in: [20260211_152925_AlexeyDTC_msg1451.md](../../inbox/used/20260211_152925_AlexeyDTC_msg1451.md)
 
 Overview: A Reddit discussion from the AI_Agents community debating different approaches to agentic memory. The OP (Arindam_200 from Gibson) promotes Memori, a SQL-native memory engine, arguing that relational databases are more practical than vector or graph databases for many AI memory use cases. The community response provides nuanced perspectives on when each approach shines.
@@ -235,7 +235,7 @@ Key Ideas:
 
 Key Insights:
 - The top-voted comment (caiopizzol, 121 points) argues this solves only part of the problem - different memory types need different storage
-- "Semantic recall is noisy" for vector DBs is actually a feature, not a bug - it surfaces connections like "terrified of dogs" to "what pet should I get?" without anticipating every relationship
+- "Semantic recall is noisy" for vector DBs is a feature, not a bug - it surfaces connections like "terrified of dogs" to "what pet should I get?" without anticipating every relationship
 - Hard facts and rules work great in SQL, but fuzzy semantic matching ("this reminds me of that") requires vectors, and relationship queries ("how does everything connect") require graphs
 - Hybrid systems may seem complex but memory itself is complex - the solution should match the problem space
 - Some community members noted the marketing angle - Memori was being "spammed across Reddit" which is an interesting growth tactic for open-source projects
@@ -249,7 +249,7 @@ Actionable Patterns:
 - The "right tool for the job" depends on memory type, not a single winner-takes-all approach
 
 Technical Details:
-- Memori project: https://github.com/MemoriLabs/Memori (12k+ stars)
+- [Memori project](https://github).com/MemoriLabs/Memori (12k+ stars)
 - Stores memories as structured SQL records with joins and indexes for retrieval
 - Supports multiple SQL backends including PostgreSQL, CockroachDB, MySQL, and OceanBase
 - Can run in hosted mode with API access or self-hosted with your own database
@@ -257,13 +257,13 @@ Technical Details:
 
 Quotes:
 - "The real story here isn't 'SQL wins.' It's that different types of memory need different storage"
-- "Semantic recall is noisy for vector DBs, but that's actually the feature, not the bug"
+- "Semantic recall is noisy for vector DBs, but that's the feature, not the bug"
 - "With Postgres, you can layer on extensions like pgvector for semantic search, or graph extensions. Instead of wiring up three different systems, agents could just connect to one database"
 - "99% of software solutions can be a relational database with some batch jobs and a web server"
 
 ## Reddit: Please Stop Creating "Memory for Your Agent" Frameworks
 
-Source: https://www.reddit.com/r/ClaudeCode/comments/1r4asf6/please_stop_creating_memory_for_your_agent/[^12][^13]
+[Source](https://www.reddit.com/r/ClaudeCode/comments/1r4asf6/please_stop_creating_memory_for_your_agent/)[^12][^13]
 
 Overview: A provocative post in r/ClaudeCode by u/thurn2 (61 upvotes, 86% upvote ratio) arguing that the proliferation of third-party "agent memory" frameworks and MCP plugins is unnecessary because Claude Code already ships with comprehensive memory capabilities. The post sparked a nuanced community debate about where built-in memory ends and where custom solutions become necessary, revealing a spectrum of opinions from "documentation is all you need" to "memory is the biggest unsolved problem in the agentic world."
 
@@ -277,7 +277,7 @@ Overview: A provocative post in r/ClaudeCode by u/thurn2 (61 upvotes, 86% upvote
 
 ## Key Insights
 
-- File-based memory (markdown docs in the repo) is a surprisingly effective memory system for coding agents because it is version-controlled, human-readable, scoped to directories, and requires zero infrastructure
+- File-based memory (markdown docs in the repo) is a effective memory system for coding agents because it is version-controlled, human-readable, scoped to directories, and requires zero infrastructure
 - The real failure mode of agent memory is not storage or retrieval but context window management - every memory system that injects context must justify its token cost against the degradation in reasoning quality
 - Auto-memory features that rely on the agent spontaneously deciding to save or retrieve information are unreliable - they need explicit periodic reminders inserted into the conversation to trigger consistently
 - There is a significant gap between small/medium projects (where file-based memory works fine) and large codebases or multi-repo setups (where semantic search, vector embeddings, or structured databases become necessary)
@@ -305,7 +305,7 @@ Quotes:
 
 Full article: [MemPalace](mempalace.md)
 
-Source: https://github.com/milla-jovovich/mempalace/tree/main
+[Source](https://github.com/milla-jovovich/mempalace/tree/main)
 
 A fully local, offline memory system by Milla Jovovich that organizes AI memory using the ancient "memory palace" mnemonic technique. Hierarchical structure (wings/rooms/halls/drawers) with ChromaDB for vector search, SQLite knowledge graph with temporal validity, a custom 30x compression dialect (AAAK), and 24 MCP tools. No LLM API calls for any core operation - all classification and extraction uses regex heuristics. 96.6% recall@5 on LongMemEval, with the organizational structure alone providing a 34% retrieval improvement over flat vector search[^14].
 
@@ -325,11 +325,11 @@ The LinkedIn article on Fixed Entity Architecture adds an important dimension: w
 
 For a Telegram-controlled bot, the key challenge is maintaining context across command sessions while keeping the retrieval fast and relevant. The GitHub approach suggests that storing references to source material (citations) and verifying them at use-time could be more robust than trying to keep memory perfectly synchronized. The FEA approach suggests defining a small, curated ontology of conversation domains rather than letting the LLM extract entities dynamically.
 
-MemPalace demonstrates that a heuristic-first approach with zero LLM calls can achieve surprisingly high retrieval quality (96.6% recall@5). Its palace hierarchy - wings, rooms, halls, drawers - provides a navigable organizational structure that outperforms flat vector search by 34%. The key takeaways: structured organization matters more than better embeddings, temporal validity on facts solves the staleness problem, and a 4-level progressive loading system (600-900 tokens for wake-up) keeps token costs negligible. The AAAK compression dialect is a novel approach that leverages LLMs' natural language understanding as a free decompressor, achieving 30x compression without special encoding/decoding infrastructure.
+MemPalace demonstrates that a heuristic-first approach with zero LLM calls can achieve high retrieval quality (96.6% recall@5). Its palace hierarchy - wings, rooms, halls, drawers - provides a navigable organizational structure that outperforms flat vector search by 34%. The key takeaways: structured organization matters more than better embeddings, temporal validity on facts solves the staleness problem, and a 4-level progressive loading system (600-900 tokens for wake-up) keeps token costs negligible. The AAAK compression dialect is a novel approach that leverages LLMs' natural language understanding as a free decompressor, achieving 30x compression without special encoding/decoding infrastructure.
 
 The Reddit discussion on SQL vs vectors vs graphs reinforces that there is no single best storage approach - different memory types require different storage engines. The community consensus favors using the right tool for each memory type: SQL for structured facts (user preferences, explicit rules), vector databases for semantic similarity, and graphs for relationship queries. A practical compromise mentioned multiple times is Postgres with pgvector extension - a single database that handles structured queries and semantic search without multi-system complexity. For a Telegram bot, this suggests starting with SQL for explicit user data and adding pgvector if fuzzy semantic retrieval becomes necessary.
 
-The r/ClaudeCode discussion on "stop creating memory frameworks" adds an important practical dimension: for coding agents specifically, file-based memory (markdown documents in the repo) is a viable and often sufficient memory system. It is version-controlled, human-readable, directory-scoped, and requires zero infrastructure. The key limitation is scale - this approach breaks down for large codebases (500k+ lines, multi-repo) where semantic search becomes necessary. The discussion also highlights a crucial implementation detail: auto-memory features that rely on the agent deciding to save/retrieve on its own are unreliable without explicit periodic reminders. This echoes the broader pattern that even well-designed agent capabilities need prompting infrastructure (hooks, system reminders) to trigger reliably. For context window management, the community consensus is that memory injection must justify its token cost - beyond 150k tokens, reasoning quality degrades regardless of memory quality.
+The r/ClaudeCode discussion on "stop creating memory frameworks" adds an important practical dimension: for coding agents specifically, file-based memory (markdown documents in the repo) is a viable and often sufficient memory system. It is version-controlled, human-readable, directory-scoped, and requires zero infrastructure. The key limitation is scale - this approach breaks down for large codebases (500k+ lines, multi-repo) where semantic search becomes necessary. The discussion also highlights a important implementation detail: auto-memory features that rely on the agent deciding to save/retrieve on its own are unreliable without explicit periodic reminders. This echoes the broader pattern that even well-designed agent capabilities need prompting infrastructure (hooks, system reminders) to trigger reliably. For context window management, the community consensus is that memory injection must justify its token cost - beyond 150k tokens, reasoning quality degrades regardless of memory quality.
 
 ## Sources
 

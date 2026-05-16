@@ -29,7 +29,7 @@ They all share:
 - Frustration with information overload and lack of clear direction
 - Need for external structure and accountability to ship
 
-Note: they don't need to know Python specifically. Any programming background works. But they need to be at least somewhat comfortable writing code - someone with zero programming experience would find it very difficult to keep up and we would not be able to serve them well.
+Note: they don't need to know Python specifically. Any programming background works. But they need to be at least somewhat comfortable writing code - someone with zero programming experience would find it difficult to keep up and we would not be able to serve them well.
 
 ## Four Personas
 
@@ -47,7 +47,7 @@ Problems:
 
 What they say:
 - "From Software Developer to AI Engineer - the exact roadmap I followed" (Reddit)
-- "You don't need a CS degree to become an AI engineer. You need 6 months of building and one roadmap that actually tells you what to build" (X, 803 likes)
+- "You don't need a CS degree to become an AI engineer. You need 6 months of building and one roadmap that tells you what to build" (X, 803 likes)
 - "I want to start learning AI development but I'm totally lost... overwhelmed by all the paths" (Reddit)
 
 What they need from us: a clear phased path (LLM fundamentals, RAG, agents, evals) with weekly check-ins and co-building sessions. They already know engineering - they need AI-specific guidance and permission to ignore everything else and focus on one thing.
@@ -69,7 +69,7 @@ What they say:
 - "Nobody knows how to build with AI yet... people who stuck at it and figured it out" (HN, 526-point thread)
 - "Shipping an AI feature is not the same as shipping a CRUD app. This phase is what separates real engineers from tutorial completers" (X)
 
-What they need from us: structured project sprints to build something real end-to-end, peer feedback, seminars where members research and present topics, a low-noise environment to go deep on what actually matters.
+What they need from us: structured project sprints to build something real end-to-end, peer feedback, seminars where members research and present topics, a low-noise environment to go deep on what matters.
 
 ## Sam - The Technical Professional Moving to AI
 
@@ -84,7 +84,7 @@ Problems:
 - No one to turn to for guidance, no community of peers at the same level
 
 What they say:
-- "I'm feeling really overwhelmed by the rapid rise of AI and don't know where to start. There are so many different directions to take" (Reddit)
+- "I'm feeling overwhelmed by the rapid rise of AI and don't know where to start. There are so many different directions to take" (Reddit)
 - "When you're new to AI it already feels like the ground is moving under you. There's a new tool every week" (Reddit)
 - "A lot of you asked me because everything feels overwhelming at the beginning. I went through a messy phase of YouTube videos, paid courses... Most of it just confused me" (X, 1.3k likes)
 
@@ -121,7 +121,7 @@ All four personas share the same core needs:
 4. Practical building - real projects, not just theory or tutorials
 5. Community - peers to learn with, get feedback from, and stay motivated
 
-They also share the same frustration: too much noise, too many options, not enough follow-through. None of them need another roadmap or tool recommendation. They need a place that helps them actually build and ship.
+They also share the same frustration: too much noise, too many options, not enough follow-through. None of them need another roadmap or tool recommendation. They need a place that helps them build and ship.
 
 ## The "next weekend" problem
 

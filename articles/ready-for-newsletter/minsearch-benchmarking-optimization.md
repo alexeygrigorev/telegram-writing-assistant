@@ -37,7 +37,7 @@ I asked Claude to improve the appendable index performance with a specific workf
 3. After each improvement, verify results still match the original
 4. Compare performance[^2]
 
-This approach ensured correctness wasn't sacrificed for speed. Claude implemented optimizations and the final appendable index actually became faster than the original simple index for search operations.
+This approach ensured correctness wasn't sacrificed for speed. Claude implemented optimizations and the final appendable index became faster than the original simple index for search operations.
 
 ## Final Results
 

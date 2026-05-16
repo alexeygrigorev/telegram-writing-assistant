@@ -25,7 +25,7 @@ This is probably a fairly complex task, and if it does not bring in money it is 
 
 Right now the focus stays on AI Shipping Labs - no need to lose focus[^2].
 
-By the time AI Shipping Labs is done, there will be more knowledge about how to actually implement this kind of thing. The idea is worth coming back to roughly three months later, once AI Shipping Labs is debugged, the process is running, and people are busy with it[^2].
+By the time AI Shipping Labs is done, there will be more knowledge about how to implement this kind of thing. The idea is worth coming back to roughly three months later, once AI Shipping Labs is debugged, the process is running, and people are busy with it[^2].
 
 For example, ML Zoomcamp will be in September, so it would be good to have something like this ready by then[^2].
 

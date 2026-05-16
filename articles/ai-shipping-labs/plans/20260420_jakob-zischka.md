@@ -16,7 +16,7 @@ Internal working document. Share only the `Summary` and `Plan` sections with the
 - Goal for the next 6 weeks: move from "engaged AI observer" to "AI builder" by shipping one small working AI application.
 - Main gap to close: Python and engineering foundations, plus the lack of a clear routine with fast, visible wins.
 - Weekly time commitment: about 10 to 20 hours.
-- Why this plan is the right next step: Jakob does not need more content discovery; he needs a simpler path, quick wins, and strong accountability while building something real.
+- Why this plan is the right next step: Jakob does not need more content discovery. He needs a simpler path, quick wins, and strong accountability while building something real.
 
 ## Plan
 
@@ -65,10 +65,10 @@ Week 6:
 
 ## Resources
 
-- Python course: https://aishippinglabs.com/courses/python-course/
-- AI Hero course: https://aishippinglabs.com/courses/aihero
-- Project-idea brainstorming prompt: https://gist.github.com/alexeygrigorev/c1c8dc3ece5cba91e1e381eeba2706c1
-- Community accountability channel (`#plan-sprints`): https://app.slack.com/client/T0AFSRP234M/C0AUQBSP4ER
+- [Python course](https://aishippinglabs.com/courses/python-course/)
+- [AI Hero course](https://aishippinglabs.com/courses/aihero)
+- [Project-idea brainstorming prompt](https://gist.github.com/alexeygrigorev/c1c8dc3ece5cba91e1e381eeba2706c1)
+- [Community accountability channel (`#plan-sprints`)](https://app).slack.com/client/T0AFSRP234M/C0AUQBSP4ER
 
 ## Deliverables
 
@@ -102,13 +102,13 @@ Jakob is in a career transition and currently studying Applied AI at IU Universi
 
 ## Questions and Answers
 
-**What would you most like to achieve in the next 1 to 3 months?**
+What would you most like to achieve in the next 1 to 3 months?
 
 - Build a routine
 - Have clearly defined short-term goals to work towards
 - Gain experience in more practical and technical work than the theory at my remote university
 
-**Which topics do you understand relatively well, and which ones still feel unclear or difficult?**
+Which topics do you understand relatively well, and which ones still feel unclear or difficult?
 
 What feels relatively solid:
 
@@ -119,39 +119,39 @@ What feels relatively solid:
 What still feels unclear or difficult:
 
 - Necessary technical skills
-- Programming beyond very basic Python
+- Programming beyond basic Python
 
-**What usually makes it hard for you to stay consistent with studying or building?**
+What usually makes it hard for you to stay consistent with studying or building?
 
 - Lack of a clear path of what will be achieved when
 
-**What have you already tried to stay more consistent, and what did or didn't work?**
+What have you already tried to stay more consistent, and what did or didn't work?
 
 - Reducing work from 5 days to 3 days per week helped
 
-**What kind of accountability would help you most?**
+What kind of accountability would help you most?
 
-- Open to trying basically everything
+- Open to trying everything
 
-**Would you rather focus first on foundations or learn by building?**
+Would you rather focus first on foundations or learn by building?
 
 - Learn by building, but the level cannot become too advanced too quickly
 
-**Do you already have a project idea?**
+Do you already have a project idea?
 
 - No concrete idea yet
 
-**What support from Alexey or the community would be most useful?**
+What support from Alexey or the community would be most useful?
 
 - A clear study plan that is hands-on and technical
 - Sharing progress with the community
 - Guidance when stuck
 
-**What can you realistically commit each week?**
+What can you realistically commit each week?
 
 - 10 to 20 hours per week
 
-**What would a successful first month in the community look like?**
+What would a successful first month in the community look like?
 
 - Understand where others are
 - Connect with people in a similar position

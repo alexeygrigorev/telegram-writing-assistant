@@ -51,7 +51,7 @@ The course would also cover removing slop: examining examples of slop, dealing w
 
 AI-generated code has specific problems: it contains too much boilerplate, too much defensive coding, it is hard to read, and it is often overly complex. LLMs also tend to reuse things that could easily be replaced with a library, which results in a lot of unmaintainable code[^3][^4].
 
-The idea is to transform unmaintainable code into maintainable code - following clean code recommendations, checking that tests are meaningful (not written just for test count), and actually useful[^4].
+The idea is to transform unmaintainable code into maintainable code - following clean code recommendations, checking that tests are meaningful (not written just for test count), and useful[^4].
 
 This is related to the idea of the Spec-Driven Development course but with a different focus. Spec-Driven Development is about communicating with agents effectively. Refactoring AI Slop is about what to do with the code afterwards - how to bring it to a normal state[^3].
 
@@ -75,11 +75,11 @@ Students are already asking about paid courses. This is a positive signal for th
 
 ## AI Data Engineering course
 
-Want to create a course on data engineering for AI - how all these AI tools can be used to build pipelines. This area is underserved - little content exists on how data actually gets into agents in reality. Everyone talks about having a clean dataset and building an agent, but not how the data gets there. Several modules on the new Maven course should be dedicated to this topic[^6].
+Want to create a course on data engineering for AI - how all these AI tools can be used to build pipelines. This area is underserved - little content exists on how data gets into agents in reality. Everyone talks about having a clean dataset and building an agent, but not how the data gets there. Several modules on the new Maven course should be dedicated to this topic[^6].
 
 ## Market demand
 
-There seems to be less demand and less content about data engineering for AI compared to generic AI engineering. This might actually be an advantage - an underserved niche where we can create something and see how it works. The community should cover these topics to attract people interested in both areas[^7].
+There seems to be less demand and less content about data engineering for AI compared to generic AI engineering. This might be an advantage - an underserved niche where we can create something and see how it works. The community should cover these topics to attract people interested in both areas[^7].
 
 ## Maven course continuation
 
@@ -90,7 +90,7 @@ Want to continue the AI Engineering course on Maven with focus on creating AI pr
 Want to create a course about CloudCode and AI Assistant Development as a supplement to the existing AI DevTools content. This would focus on:
 - How to configure and customize these tools
 - Specific tricks and workflows discovered from using these tools for two years
-- Less structured but very practical content
+- Less structured but practical content
 - Sharing experience and knowledge with community members[^10]
 
 ## Build Docker from scratch workshop

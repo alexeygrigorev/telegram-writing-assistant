@@ -22,7 +22,7 @@ A few reasons this format is interesting for LLM Zoomcamp and other DataTalks.Cl
 
 - A text version of the lesson gives a destination we own. People come to the page, can stay there, leave likes and comments, and generally interact with the content - rather than only watching on YouTube[^1].
 
-- Sponsors get visible structure. Paul may not have a huge number of people actually completing his course, but he still has five sponsors. Part of that is probably because the course is visually well-structured, with sponsor names inside the schemas, and that looks more serious than a YouTube playlist[^2][^3].
+- Sponsors get visible structure. Paul may not have a huge number of people completing his course, but he still has five sponsors. Part of that is probably because the course is visually well-structured, with sponsor names inside the schemas, and that looks more serious than a YouTube playlist[^2][^3].
 
 - It is a way to grow the newsletter. Paul uses Substack to subscribe people. We do roughly the same when people register for the course - they end up on our mailing list - so the mechanism is not new, but the page-level visibility is.
 

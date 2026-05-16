@@ -12,13 +12,13 @@ status: draft
 
 ## Persona
 
-Alex - the engineer transitioning to AI. The person already has engineering/software skills (went through AI Engineering Buildcamp) and the main problem is not content but accountability to actually finish projects. This matches Alex's profile: strong engineering base, needs AI-specific structure and accountability.
+Alex - the engineer transitioning to AI. The person already has engineering/software skills (went through AI Engineering Buildcamp) and the main problem is not content but accountability to finish projects. This matches Alex's profile: strong engineering base, needs AI-specific structure and accountability.
 
 See [personas.md](../personas.md) for full persona definitions.
 
 ## Background
 
-One of the participants of AI Shipping Labs who came from the AI Engineering Buildcamp course. Alexey reached out to all new members with a personal message asking what they'd find interesting. This person was the only one who offered to jump on a call. Calls turned out to be a very useful format for quickly discussing everything[^1].
+One of the participants of AI Shipping Labs who came from the AI Engineering Buildcamp course. Alexey reached out to all new members with a personal message asking what they'd find interesting. This person was the only one who offered to jump on a call. Calls turned out to be a useful format for quickly discussing everything[^1].
 
 ## What They Want: Accountability, Not Content
 
@@ -36,11 +36,11 @@ What surprised Alexey: when he mentioned the idea of doing hands-on workshops an
 
 They also said that content would naturally emerge from the projects people build inside the community. For example, if 5 projects are running, each with its own stack, someone could write an article about each part of the stack or about the whole project[^3].
 
-Thanks to the accountability created in the community, members could also share progress on LinkedIn, create GitHub repositories. They said there's tons of information available, but actually getting around to applying it - that's what they lack. They work full-time and can't always organize themselves to implement projects[^3].
+Thanks to the accountability created in the community, members could also share progress on LinkedIn, create GitHub repositories. They said there's tons of information available, but getting around to applying it - that's what they lack. They work full-time and can't always organize themselves to implement projects[^3].
 
 ## Takeaways
 
-The general idea is clear - they want accountability, not more content. This is actually great because it doesn't require as much time investment from us. Running office hours and answering questions is much simpler than maintaining a content plan and producing content that ultimately nobody watches[^4].
+The general idea is clear - they want accountability, not more content. This is great because it doesn't require as much time investment from us. Running office hours and answering questions is much simpler than maintaining a content plan and producing content that ultimately nobody watches[^4].
 
 This applies especially to those who are participants of the AI Engineering Buildcamp (first or second cohort). When people who haven't bought the course start joining the community, they'll probably have slightly different needs. But for now there aren't many of those, so we can talk to each one individually and create a plan for them. And if Alexey knows what their plan is, he can make announcements in the community or organize events where they present their projects - without requiring Alexey's time[^5].
 

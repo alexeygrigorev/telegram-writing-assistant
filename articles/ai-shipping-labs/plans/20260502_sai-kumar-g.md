@@ -14,9 +14,9 @@ Internal working document. Share only the `Summary` and `Plan` sections with the
 
 - Current situation: Sai has a thorough conceptual design for the News Event Reminder Telegram bot - three flows (flagging, freshness check, day-of reminder), a four-table schema, a folder layout - but no code yet. Repo: [github.com/saig217/future-event-remainder](https://github.com/saig217/future-event-remainder).
 - Goal for the next 6 weeks: a working version of the bot demoable on week 6, built in sync with the AI Engineering Buildcamp progression.
-- Main gap to close: moving from conceptual plan to implementation. The conceptual step is essentially done; what is missing is a step-by-step build plan and the agent-building skills to execute it.
+- Main gap to close: moving from conceptual plan to implementation. The conceptual step is essentially done. What is missing is a step-by-step build plan and the agent-building skills to execute it.
 - Weekly time commitment: 15 hours per week, more on weekends - a strong fit for a 6-week build.
-- Why this plan is the right next step: Sai is already a cloud data engineer with a thorough plan. He does not need more design; he needs to start shipping, ideally writing the agent and its tools himself rather than handing it to a coding agent, because the goal is to learn how agents work.
+- Why this plan is the right next step: Sai is already a cloud data engineer with a thorough plan. He does not need more design. He needs to start shipping, ideally writing the agent and its tools himself rather than handing it to a coding agent, because the goal is to learn how agents work.
 
 ## Plan
 
@@ -32,7 +32,7 @@ Week 1:
 
 - The conceptual work is already done - keep the three flows and four tables as the working design. Treat the architecture as a starting point, not a contract: small projects are easy to refactor as you go, so do not over-invest in getting the architecture perfect now.
 - Pick one coding assistant for the supporting work (Claude Code, Codex, or similar). Avoid free tiers - hitting limits mid-session breaks momentum.
-- Decide what gets built by hand and what gets delegated to the assistant. Default: write the agent loop, tool definitions, and prompt logic by hand; let the assistant help with boilerplate (database models, Dockerfile, CI, fetcher cleanup).
+- Decide what gets built by hand and what gets delegated to the assistant. Default: write the agent loop, tool definitions, and prompt logic by hand. Let the assistant help with boilerplate (database models, Dockerfile, CI, fetcher cleanup).
 - Start the Telegram bot skeleton: bot connects, accepts a forwarded message, replies with a placeholder. This is the smallest possible end-to-end loop.
 
 Week 2:
@@ -47,14 +47,14 @@ Week 3:
 
 Week 4:
 
-- Now introduce the agent. Wrap the freshness-check logic into a single agent with two tools (`web_search`, `fetch_page`). Define the tools as plain Python functions with clear input/output schemas; let the agent decide when to call them.
+- Now introduce the agent. Wrap the freshness-check logic into a single agent with two tools (`web_search`, `fetch_page`). Define the tools as plain Python functions with clear input/output schemas. Let the agent decide when to call them.
 - Connect the freshness-check agent to Flow B (sanity check at flagging, weekly cron for events 7-60 days out, daily cron at 06:00 for events 1-2 days out). Log every tool call to the `agent_runs` table.
 - This is the Buildcamp "tools" milestone for this project.
 
 Week 5:
 
 - Add tests. Pick the most important scenarios (article with one clear event, article with no future-dated events, article whose event gets postponed, article that becomes uncertain) and write end-to-end tests for them. The point is to lock down behaviour before adding more features.
-- Add monitoring. The `agent_runs` table is already the foundation; add a small dashboard or daily summary that surfaces failures, retries, and cost.
+- Add monitoring. The `agent_runs` table is already the foundation. Add a small dashboard or daily summary that surfaces failures, retries, and cost.
 - This is the Buildcamp "tests" and "monitoring" milestones.
 
 Week 6:
@@ -75,7 +75,7 @@ Additional principles for taking a clean conceptual plan to a shipped first vers
 
 ## Resources
 
-- AI Engineering Buildcamp - already enrolled. The course modules are the primary reference; no extra courses needed.
+- AI Engineering Buildcamp - already enrolled. The course modules are the primary reference. No extra courses needed.
 - AI Hero - free, useful for filling in agent fundamentals if any module feels too dense. Cover whichever pieces (tool calling, agent loops, evaluation) feel weakest.
 - [github.com/alexeygrigorev/telegram-writing-assistant](https://github.com/alexeygrigorev/telegram-writing-assistant) - reference repo for the shape of a Telegram-bot-plus-agent system. Skim for patterns (how messages are received, how the bot triggers downstream processing, how external tools are called) rather than copying code.
 - Coding assistant of choice (Claude Code, Codex, or similar). Pick one and commit to a paid plan that fits 15 hours per week.
@@ -90,8 +90,8 @@ Additional principles for taking a clean conceptual plan to a shipped first vers
 
 ## Accountability
 
-- Weekly check-in: what shipped, what is blocked, what is the goal for the next week. Sai named "weekly check-ins and fixed deliverables" as the format that works for him; the weekly goals above match that.
-- 15 hours per week, more on weekends. The plan is sized to that budget; if a week slips, drop a stretch goal rather than extending the week.
+- Weekly check-in: what shipped, what is blocked, what is the goal for the next week. Sai named "weekly check-ins and fixed deliverables" as the format that works for him. The weekly goals above match that.
+- 15 hours per week, more on weekends. The plan is sized to that budget. If a week slips, drop a stretch goal rather than extending the week.
 - One project until it ships. The News Event Reminder bot is the only project until the demo.
 - Share progress in the AI Shipping Labs Slack so other members can ask questions and learn from the agent-building decisions.
 
@@ -189,11 +189,11 @@ He has a planned architecture and would like input on whether it is correct[^2].
 
 The three flows:
 
-- Flow A - Flagging (synchronous, user-triggered, ~5-15 seconds end-to-end). User forwards article, bot validates, fetcher cleans the article, dedup check by canonical_url, extraction LLM call returns ExtractionResult, events with confidence high or medium are saved with status=scheduled, low-confidence events are saved with status=pending_review and shown to the user for confirmation, bot replies with the list of events it will track. Failure paths: invalid URL means a friendly error reply; fetch fails means asking the user to paste text; LLM call fails means retry once with exponential backoff and then surface the error; no events found means tell the user honestly without fabrication.
-- Flow B - Freshness check (async, scheduled, runs at three cadences). Triggers: at flagging time for any event more than 7 days out (sanity check); weekly cron for events 7-60 days out (catch early postponements); daily cron at user 06:00 for events 1-2 days out (final verification before reminder). The agent uses two tools (web_search and fetch_page) and returns one of: unchanged, date_changed, cancelled, completed_early, uncertain. Each tool call is logged to agent_runs with cost and latency. Decision policy: unchanged means no action; date_changed means update plus alert; cancelled or completed_early means archive plus alert; uncertain means schedule a re-run if the event is more than 2 days out, otherwise escalate to the user with explicit keep/cancel/recheck choice.
+- Flow A - Flagging (synchronous, user-triggered, ~5-15 seconds end-to-end). User forwards article, bot validates, fetcher cleans the article, dedup check by canonical_url, extraction LLM call returns ExtractionResult, events with confidence high or medium are saved with status=scheduled, low-confidence events are saved with status=pending_review and shown to the user for confirmation, bot replies with the list of events it will track. Failure paths: invalid URL means a friendly error reply. Fetch fails means asking the user to paste text. LLM call fails means retry once with exponential backoff and then surface the error. No events found means tell the user honestly without fabrication.
+- Flow B - Freshness check (async, scheduled, runs at three cadences). Triggers: at flagging time for any event more than 7 days out (sanity check). Weekly cron for events 7-60 days out (catch early postponements). Daily cron at user 06:00 for events 1-2 days out (final verification before reminder). The agent uses two tools (web_search and fetch_page) and returns one of: unchanged, date_changed, cancelled, completed_early, uncertain. Each tool call is logged to agent_runs with cost and latency. Decision policy: unchanged means no action. Date_changed means update plus alert. Cancelled or completed_early means archive plus alert. Uncertain means schedule a re-run if the event is more than 2 days out, otherwise escalate to the user with explicit keep/cancel/recheck choice.
 - Flow C - Day-of reminder (async, scheduled, runs daily at user 08:00). For events firing today: compose reminder, send Telegram message with summary plus source link plus inline buttons (Mark done / Snooze 1 day), update events.status=fired. Failures retry 3 times with backoff, then alert admin.
 
-Schema (four tables): watched_stories is one row per flagged article; events is one row per future-dated event extracted from a story (an article can have multiple); event_history logs every change detected (postponement, cancellation, completion); agent_runs is the observability table - every LLM call writes one row with decision, tool calls, cost, and latency. The agent_runs table is intended to make monitoring straightforward.
+Schema (four tables): watched_stories is one row per flagged article. Events is one row per future-dated event extracted from a story (an article can have multiple). Event_history logs every change detected (postponement, cancellation, completion). Agent_runs is the observability table - every LLM call writes one row with decision, tool calls, cost, and latency. The agent_runs table is intended to make monitoring straightforward.
 
 File / folder layout:
 
@@ -231,7 +231,7 @@ No intake call yet - input collected via the Google Doc[^2].
 
 Alexey's recommendations after reviewing Sai's intake[^3]:
 
-1. The Telegram bot idea is great. The conceptual work is already strong - Sai has thought through the three flows, four tables, and even the folder layout. The first step (concept) is essentially done; it is time to implement.
+1. The Telegram bot idea is great. The conceptual work is already strong - Sai has thought through the three flows, four tables, and even the folder layout. The first step (concept) is essentially done. It is time to implement.
 
 2. Don't overthink the architecture. It looks reasonable at first pass. The project is small enough that the architecture can change as you go - if a flow turns out unnecessary or a table needs to split, fix it then. The principle: if it works, the architecture is right.
 

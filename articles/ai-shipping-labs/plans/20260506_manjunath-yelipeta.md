@@ -31,7 +31,7 @@ Internal working document. Share only the `Summary` and `Plan` sections with the
 Week 1:
 
 - Role research. Pull 10 recent job descriptions for AI Engineer and Applied AI Engineer roles (job boards + the field guide). Ask ChatGPT/Claude to summarise responsibilities and stack. Watch the role webinars in the [AI Engineering Field Guide](https://github.com/alexeygrigorev/ai-engineering-field-guide). Output: a one-paragraph note on which patterns (RAG, agents, evals, cost/latency) show up most in current AI Engineer listings.
-- Pick the first project (the RAG). Keep it small: a documentation site, a paper collection, internal notes - something with five real questions you would actually want to ask. Sketch the architecture on paper before any code.
+- Pick the first project (the RAG). Keep it small: a documentation site, a paper collection, internal notes - something with five real questions you would want to ask. Sketch the architecture on paper before any code.
 - Pick one coding assistant and one paid plan. Avoid free tiers.
 - Start AI Hero core course in the background. Cover the agent-loop and tool-calling modules - they are the foundation for the second project in week 3.
 
@@ -63,20 +63,20 @@ Week 6:
 
 ## Project approach
 
-- One project, deepened week by week. The single project covers all four areas Manjunath named (RAG, agents, evals, cost/latency) by growing in capability rather than spreading thin across multiple builds. Each week's redeploy proves the previous week's work actually shipped.
+- One project, deepened week by week. The single project covers all four areas Manjunath named (RAG, agents, evals, cost/latency) by growing in capability rather than spreading thin across multiple builds. Each week's redeploy proves the previous week's work shipped.
 - Strip ruthlessly in week 2. No monitoring, no evaluation, no auth in the first build. Evaluation is the week-4 workstream by design - keep the initial build simple enough that there is time to evaluate it properly later.
-- Functions before frameworks. Write retrieval, prompt assembly, and answer steps as plain functions you can call from a REPL. Wrap in FastAPI later. Wrap in an agent only after the underlying functions work; the agent's nondeterminism stays contained because the deterministic parts are real tested functions.
-- One coding assistant, paid plan. Conceptually work through the design first, then have the assistant implement. Review every diff. Outsourcing the eval design or the cost analysis is the failure mode; outsourcing typing is the goal.
+- Functions before frameworks. Write retrieval, prompt assembly, and answer steps as plain functions you can call from a REPL. Wrap in FastAPI later. Wrap in an agent only after the underlying functions work. The agent's nondeterminism stays contained because the deterministic parts are real tested functions.
+- One coding assistant, paid plan. Conceptually work through the design first, then have the assistant implement. Review every diff. Outsourcing the eval design or the cost analysis is the failure mode. Outsourcing typing is the goal.
 - Tech choices do not matter much. FastAPI is fine. Pick whatever the coding assistant suggests when in doubt. Optimise for shipping, not for the right framework.
 - Plan extends past 6 weeks. The 6-week shape gets one deployed project with eval and cost stories. The platform direction (monitoring, log aggregation, automatic instrumentation, durable execution, auth) is the next sprint. The AI Engineering work is the foundation the platform sits on, not a detour from the platform goal.
 - Docker/K8s/DevOps self-study runs in parallel, outside the sprint budget, to keep the platform skills warm for the post-sprint pivot.
 
 ## Resources
 
-- AI Hero core course: https://aishippinglabs.com/courses/aihero - the foundation course, completed in weeks 1-2. Its day-by-day shape (chunking, search, agent, eval, deployment, README) is also the template you apply to your own project in weeks 3-6.
+- [AI Hero core course](https://aishippinglabs).com/courses/aihero - the foundation course, completed in weeks 1-2. Its day-by-day shape (chunking, search, agent, eval, deployment, README) is also the template you apply to your own project in weeks 3-6.
 - [AI Engineering Field Guide](https://github.com/alexeygrigorev/ai-engineering-field-guide) - browse recent AI Engineer / Applied AI Engineer job listings, watch the role webinars.
 - A coding assistant of choice (Claude Code, Codex, or similar). Pick one, commit, paid plan only.
-- Deployment target: Render, Fly.io, or a small VM. The choice does not matter; using one consistently does.
+- Deployment target: Render, Fly.io, or a small VM. The choice does not matter. Using one consistently does.
 
 ## Deliverables
 
@@ -89,15 +89,15 @@ Week 6:
 
 ## Accountability
 
-- Checklist-based milestones with brief weekly reflections (Manjunath's stated preference). Each week's deliverable is a checkbox; the reflection is two or three lines on what was learned and what was harder than expected.
+- Checklist-based milestones with brief weekly reflections (Manjunath's stated preference). Each week's deliverable is a checkbox. The reflection is two or three lines on what was learned and what was harder than expected.
 - 8-10 hours per week on the sprint. The plan is sized for the lower end so a heavier job-search week can drop a stretch goal rather than the milestone.
-- Active in the AI Shipping Labs Slack - both asking and answering questions. Stakeholder communication is one of the gaps Manjunath named; using the community as a low-stakes practice ground for explaining technical work is the cheapest path to closing it.
+- Active in the AI Shipping Labs Slack - both asking and answering questions. Stakeholder communication is one of the gaps Manjunath named. Using the community as a low-stakes practice ground for explaining technical work is the cheapest path to closing it.
 
 ## Next Steps
 
 - [ ] [Manjunath] Pull 10 AI Engineer / Applied AI Engineer job descriptions and write the role-research note by end of week 1.
 - [ ] [Manjunath] Pick the first project (RAG dataset + five real questions) and the deployment target.
-- [ ] [Manjunath] Pick a coding assistant + paid plan; start AI Hero core course in parallel.
+- [ ] [Manjunath] Pick a coding assistant + paid plan. Start AI Hero core course in parallel.
 - [ ] [Manjunath] Run Docker/Kubernetes/DevOps self-study in parallel as a longer-term track.
 - [ ] [Manjunath] Share weekly progress and reflections in the AI Shipping Labs Slack.
 - [ ] [Alexey] Send the updated written plan and confirm AI Hero core is the right entry point for agent fundamentals.
@@ -185,9 +185,9 @@ Alexey's recommendations after reviewing Manjunath's intake[^2]:
 
 1. He is moving from traditional ML to AI/LLM. The AI Engineering Field Guide already has a learning path for ML Engineers crossing into AI - point him there as the starting reference.
 
-2. AI Platform Engineer is a confusing title to chase before he has built one LLM application. Recommend a small piece of role research in week 1 (10 job descriptions, ChatGPT analysis, the AI Engineering Field Guide webinars) to make sure he understands what the role actually involves. The decision should fall out of building a project, not out of reading more.
+2. AI Platform Engineer is a confusing title to chase before he has built one LLM application. Recommend a small piece of role research in week 1 (10 job descriptions, ChatGPT analysis, the AI Engineering Field Guide webinars) to make sure he understands what the role involves. The decision should fall out of building a project, not out of reading more.
 
-3. There is no ready plan for AI Platform Engineer specifically (LLM platforms are a different beast than the data platforms Alexey has built). For AI Engineer there is a known plan; for AI Platform Engineer the plan has to be co-built. The sprint deliberately gives him a shape that touches both - a deployed RAG with observability is recognisable to both kinds of hiring committee.
+3. There is no ready plan for AI Platform Engineer specifically (LLM platforms are a different beast than the data platforms Alexey has built). For AI Engineer there is a known plan. For AI Platform Engineer the plan has to be co-built. The sprint deliberately gives him a shape that touches both - a deployed RAG with observability is recognisable to both kinds of hiring committee.
 
 4. The platform-shaped end state - "drop in an agent and the platform automatically wires monitoring, instrumentation, log collection" - would be a genuinely interesting community project to build over time. For this sprint, frame it as the natural next step after a single deployed RAG, not the v1.
 
@@ -195,11 +195,11 @@ Alexey's recommendations after reviewing Manjunath's intake[^2]:
 
 6. Authentication, deployment, observability, durable execution - all genuinely important for the platform direction. Treat them as a layered build: deploy the simplest thing first, add monitoring next, then evaluation, then everything else. Do not try to design the full platform before the first thing is live.
 
-7. Tech choices do not matter much - FastAPI is fine. The decision that does matter is "pick a coding assistant and use it for implementation, but think conceptually first". Outsourcing the design of the platform is the failure mode; outsourcing typing is the goal.
+7. Tech choices do not matter much - FastAPI is fine. The decision that does matter is "pick a coding assistant and use it for implementation, but think conceptually first". Outsourcing the design of the platform is the failure mode. Outsourcing typing is the goal.
 
-8. The plan can extend past 6 weeks. The 6-week shape gets v1 deployed; the platform-direction stuff is a 12-week arc. Make this explicit so the sprint feels like a foundation, not the whole picture.
+8. The plan can extend past 6 weeks. The 6-week shape gets v1 deployed. The platform-direction stuff is a 12-week arc. Make this explicit so the sprint feels like a foundation, not the whole picture.
 
-9. Stakeholder communication is a flagged gap. The Slack channel and weekly reflections cover this naturally; no separate workstream needed.
+9. Stakeholder communication is a flagged gap. The Slack channel and weekly reflections cover this naturally. No separate workstream needed.
 
 10. Direction adjustment (2026-05-12): Manjunath did the role research without prompting and concluded that AI Engineer roles are the immediate market match. The plan now follows the standard one-project AI Engineering shape used for Daiyaan ([20260509_daiyaan-shaik.md](20260509_daiyaan-shaik.md)), anchored explicitly in AI Hero modules - weeks 1-2 finish AI Hero (the foundation course Manjunath has access to), weeks 3-6 apply the same day-by-day shape (build, eval, deploy, polish) to his own corpus, with week 5 carved out for the cost/latency focus area Manjunath named (AI Hero does not directly cover this). The platform direction is preserved as the next-sprint target. The v1 two-project + platform plan is kept below for reference.
 
@@ -216,29 +216,29 @@ The original plan version, before Manjunath's 2026-05-12 feedback shifted the fi
 ## v1 Summary
 
 - Current situation: traditional ML engineer (CV/recommendation/classical ML) without LLM or agentic experience. Jobless for two months and is the sole bread-earner for his family, so the sprint has to lead to a shippable project that helps him land a job. He had a difficult prior role with unrealistic timelines and weak evaluation culture, so he is leaning away from AI-first roles toward AI Platform Engineer / MLOps Engineer / Applied AI Engineer titles, but admits the titles feel confusing.
-- Goal for the next 6 weeks: build two small deployed LLM projects (a RAG, then a small agent), then start a v0.0.1 deployment platform that makes shipping the next agent trivial. The two projects are the raw material for the platform - by building them you see what is common, and that commonality becomes the platform's first cut. The platform deliberately ships with no monitoring and no evaluation in v0.0.1; those layers are added gradually after week 6.
-- Main gap to close: the entire LLM and agentic application stack - RAG, prompt and tool design, backend engineering beyond FastAPI/Docker, deployment. Observability and evaluation are deferred on purpose so the v0.0.1 platform stays simple enough to actually ship.
+- Goal for the next 6 weeks: build two small deployed LLM projects (a RAG, then a small agent), then start a v0.0.1 deployment platform that makes shipping the next agent trivial. The two projects are the raw material for the platform - by building them you see what is common, and that commonality becomes the platform's first cut. The platform deliberately ships with no monitoring and no evaluation in v0.0.1. Those layers are added gradually after week 6.
+- Main gap to close: the entire LLM and agentic application stack - RAG, prompt and tool design, backend engineering beyond FastAPI/Docker, deployment. Observability and evaluation are deferred on purpose so the v0.0.1 platform stays simple enough to ship.
 - Weekly time commitment: 8-10 hours per week, extendable as the job search and family situation allow. The 6-week shape is explicitly a foundation, not the whole picture - the platform direction is a 12-week-plus arc.
-- Why this plan is the right next step: he is leaning toward AI Platform Engineer but has not yet built one LLM application. The fastest way to test whether the platform direction actually fits is to build two simple things, notice what is shared, and start abstracting. That also produces the deployed live URLs hiring committees want to see, even if the platform itself is a v0.0.1.
+- Why this plan is the right next step: he is leaning toward AI Platform Engineer but has not yet built one LLM application. The fastest way to test whether the platform direction fits is to build two simple things, notice what is shared, and start abstracting. That also produces the deployed live URLs hiring committees want to see, even if the platform itself is a v0.0.1.
 
 ## v1 Focus
 
-- Main focus: build a small RAG, then a small agent, then a v0.0.1 deployment platform that makes shipping the next agent trivial. The platform is the 6-week deliverable; the two projects are scaffolding that lets you see what the platform should actually do.
-- Supporting focus: in week 1, do role research - pull 10 AI Platform Engineer / MLOps / AI Engineer job descriptions, ask ChatGPT/Claude to summarise responsibilities, watch the relevant webinars in the [AI Engineering Field Guide](https://github.com/alexeygrigorev/ai-engineering-field-guide). "AI Platform Engineer" is a confusing title to chase before understanding what the role really involves.
+- Main focus: build a small RAG, then a small agent, then a v0.0.1 deployment platform that makes shipping the next agent trivial. The platform is the 6-week deliverable. The two projects are scaffolding that lets you see what the platform should do.
+- Supporting focus: in week 1, do role research - pull 10 AI Platform Engineer / MLOps / AI Engineer job descriptions, ask ChatGPT/Claude to summarise responsibilities, watch the relevant webinars in the [AI Engineering Field Guide](https://github.com/alexeygrigorev/ai-engineering-field-guide). "AI Platform Engineer" is a confusing title to chase before understanding what the role involves.
 - Supporting focus: AI Hero core course as the entry point for agent fundamentals (agent loops, tool calling). Several of its homework projects can also serve as the seed projects you deploy in weeks 2-3.
 
 ## v1 Timeline
 
 Week 1:
 
-- Role research. Pull 10 recent job descriptions for AI Platform Engineer, MLOps Engineer, and AI Engineer (job boards + the field guide). Ask ChatGPT/Claude to summarise responsibilities and stack. Watch the role webinars in the [AI Engineering Field Guide](https://github.com/alexeygrigorev/ai-engineering-field-guide). Output: a one-paragraph note on what "AI Platform Engineer" actually means in current listings - is it what you thought it was?
-- Pick the first project (the RAG). Keep it small: a documentation site, a paper collection, internal notes - something with five real questions you would actually want to ask. Sketch the architecture on paper before any code.
+- Role research. Pull 10 recent job descriptions for AI Platform Engineer, MLOps Engineer, and AI Engineer (job boards + the field guide). Ask ChatGPT/Claude to summarise responsibilities and stack. Watch the role webinars in the [AI Engineering Field Guide](https://github.com/alexeygrigorev/ai-engineering-field-guide). Output: a one-paragraph note on what "AI Platform Engineer" means in current listings - is it what you thought it was?
+- Pick the first project (the RAG). Keep it small: a documentation site, a paper collection, internal notes - something with five real questions you would want to ask. Sketch the architecture on paper before any code.
 - Pick one coding assistant and one paid plan. Avoid free tiers.
 - Start AI Hero core course in the background. Cover the agent-loop and tool-calling modules - they are the foundation for the second project in week 3.
 
 Week 2:
 
-- Build and deploy the first project (the RAG). Plain Python end to end - ingestion → indexing → retrieval → answer with citations. FastAPI for the API, Docker for the container. No agent framework yet. Push to a low-friction target (Render, Fly.io, a small VM) so the live URL is up by end of week 2. The shape that matters here is "deployed thing", not "polished thing" - skip evaluation harnesses and observability for now; they come later.
+- Build and deploy the first project (the RAG). Plain Python end to end - ingestion → indexing → retrieval → answer with citations. FastAPI for the API, Docker for the container. No agent framework yet. Push to a low-friction target (Render, Fly.io, a small VM) so the live URL is up by end of week 2. The shape that matters here is "deployed thing", not "polished thing" - skip evaluation harnesses and observability for now. They come later.
 
 Week 3:
 
@@ -263,10 +263,10 @@ Week 6:
 
 ## v1 Project approach
 
-- Two small things, then a platform - in that order. The two projects exist to surface what the platform should actually do. Skipping straight to "design the platform" is design without input; this is the failure mode to avoid.
-- Strip ruthlessly for v0.0.1. No monitoring, no evaluation, no auth in v0.0.1. Adding them later is straightforward; trying to add them now will mean nothing ships. This is deliberate sequencing, not laziness - the layered build is the whole point.
+- Two small things, then a platform - in that order. The two projects exist to surface what the platform should do. Skipping straight to "design the platform" is design without input. This is the failure mode to avoid.
+- Strip ruthlessly for v0.0.1. No monitoring, no evaluation, no auth in v0.0.1. Adding them later is straightforward. Trying to add them now will mean nothing ships. This is deliberate sequencing, not laziness - the layered build is the whole point.
 - Functions before frameworks. Write retrieval, prompt assembly, and answer steps as plain functions you can call from a REPL. Wrap in FastAPI later. Skip agent frameworks until you have a reason for one.
-- One coding assistant, paid plan. Conceptually work through the design first, then have the assistant implement. Review every diff. The point is to understand each line and have a high-level mental model of how components interact - not to outsource the project. Outsourcing the platform design is the failure mode; outsourcing typing is the goal.
+- One coding assistant, paid plan. Conceptually work through the design first, then have the assistant implement. Review every diff. The point is to understand each line and have a high-level mental model of how components interact - not to outsource the project. Outsourcing the platform design is the failure mode. Outsourcing typing is the goal.
 - Tech choices do not matter much. FastAPI is fine. Pick whatever the coding assistant suggests when in doubt. Optimise for shipping, not for the right framework.
 - Plan extends past 6 weeks. The 6-week shape gets v0.0.1 deployed and the two seed projects shipped. Monitoring, observability, evaluation, durable execution, auth - these are a 12-week-plus arc. Make this explicit so the sprint feels like a foundation, not the whole picture.
 

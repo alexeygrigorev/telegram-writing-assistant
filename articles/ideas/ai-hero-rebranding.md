@@ -14,7 +14,7 @@ See also: [AI Shipping Labs Community Vision](../ai-shipping-labs/vision.md) for
 
 ## Transferring AI Hero to AI Shipping Labs
 
-We need another mailing list, but we already have so many. The plan is to transfer AI Hero to AI Shipping Labs. AI Hero course becomes AI Shipping Labs - a rebranding so that people on the existing AI Hero mailing list don't wonder why they suddenly start receiving strange emails[^1].
+We need another mailing list, but we already have so many. The plan is to transfer AI Hero to AI Shipping Labs. AI Hero course becomes AI Shipping Labs - a rebranding so that people on the existing AI Hero mailing list don't wonder why they start receiving strange emails[^1].
 
 ## Hosting and Payment
 

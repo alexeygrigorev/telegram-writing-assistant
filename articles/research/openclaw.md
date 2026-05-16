@@ -8,7 +8,7 @@ status: draft
 
 # OpenClaw: Local-First Personal AI Assistant Architecture
 
-Repository: https://github.com/openclaw/openclaw
+[Repository](https://github.com/openclaw/openclaw)
 
 OpenClaw is an open-source personal AI assistant you run on your own devices. It connects to the messaging channels you already use (WhatsApp, Telegram, Slack, Discord, iMessage, Signal, Matrix, and 20+ more) and routes everything through a single local Gateway that manages sessions, tools, and LLM providers. As of April 2026 it has 360,000+ GitHub stars, 73,500+ forks, and is the most-starred AI assistant project on GitHub[^1].
 
@@ -26,13 +26,13 @@ OpenClaw has many moving parts, so here is the map before we walk through them:
 - Companion Apps, Canvas, Skills Marketplace, and Build System - the surfaces that exist beyond the Gateway, plus how the project itself is built.
 - What Makes OpenClaw Interesting - the design decisions worth copying, in one place at the end.
 
-Here is how the parts relate. At the center sits one long-running Gateway daemon. Around it sit four groups of pluggable parts that connect only through that Gateway: messaging channels (how users reach the assistant), LLM providers (which model does the thinking), capabilities (what the agent can actually do), and companion clients (your CLI, menu bar app, and phone). If you only want to decide whether OpenClaw fits your own project, jump straight to "What Makes OpenClaw Interesting" at the end.
+Here is how the parts relate. At the center sits one long-running Gateway daemon. Around it sit four groups of pluggable parts that connect only through that Gateway: messaging channels (how users reach the assistant), LLM providers (which model does the thinking), capabilities (what the agent can do), and companion clients (your CLI, menu bar app, and phone). If you only want to decide whether OpenClaw fits your own project, jump straight to "What Makes OpenClaw Interesting" at the end.
 
 ## What OpenClaw Is
 
 OpenClaw is a single-user, privacy-first assistant. You run the Gateway on your own hardware (macOS, Linux, Windows via WSL2) and the assistant answers you on whatever channels you wire up. The Gateway is a local daemon - a Node.js process bound by default to `127.0.0.1:18789` - that keeps persistent connections to messaging providers and routes traffic into an agent loop.
 
-The project originated as Warelay, evolved through Clawdbot and Moltbot, and now ships as OpenClaw. The VISION doc frames it plainly: "OpenClaw is the AI that actually does things. It runs on your devices, in your channels, with your rules"[^2]. Its tagline is "EXFOLIATE! EXFOLIATE!" and the mascot is a lobster.
+The project originated as Warelay, evolved through Clawdbot and Moltbot, and now ships as OpenClaw. The VISION doc frames it plainly: "OpenClaw is the AI that does things. It runs on your devices, in your channels, with your rules"[^2]. Its tagline is "EXFOLIATE! EXFOLIATE!" and the mascot is a lobster.
 
 Core stats from the repo:
  - Created November 24, 2025
@@ -119,7 +119,7 @@ Everything is typed. The WebSocket protocol uses TypeBox - a TypeScript library 
 
 The Gateway owns the single point of contact with messaging providers. Most of these APIs (WhatsApp via Baileys, Telegram via grammY, iMessage bridges) do not tolerate multiple concurrent connections from the same account. Centralizing them in one daemon avoids duplicate sessions, keeps auth state coherent, and gives the agent a single place to do routing decisions. For you that means you don't have to worry about "did I leave another instance running on my old laptop" - the daemon owns the connection, and only one daemon can.
 
-The Canvas (an agent-editable live visual workspace, also called A2UI - Agent-to-UI - because the agent generates and updates the page itself) is served from the same HTTP server under `/__openclaw__/canvas/` and `/__openclaw__/a2ui/` on the same port. You will see the practical use of this in the Canvas section later.
+The Canvas (an agent-editable live visual workspace, also called A2UI - Agent-to-UI - because the agent generates and updates the page itself) is served from the same HTTP server under `/openclaw/canvas/` and `/openclaw/a2ui/` on the same port. You will see the practical use of this in the Canvas section later.
 
 That covers what the daemon is. The next thing to look at is what happens during one turn of conversation, end to end.
 
@@ -206,7 +206,7 @@ The flow shows what happens after a message is admitted. Most of what makes that
 
 ## Plugin System: Manifest-First Architecture
 
-The plugin system is the most elaborate part of OpenClaw. Channels, LLM providers, speech providers, media generation, web search, memory backends - all of these are plugins, and core code has strict rules against naming them directly. Manifest-first means each plugin ships a small JSON file (`openclaw.plugin.json`) that declares what the plugin provides; core code reads those manifests at startup, before loading any plugin code at all. For you, that gives two things: setup hints that work even for plugins you have not yet downloaded, and the ability to disable a plugin without it ever running.
+The plugin system is the most elaborate part of OpenClaw. Channels, LLM providers, speech providers, media generation, web search, memory backends - all of these are plugins, and core code has strict rules against naming them directly. Manifest-first means each plugin ships a small JSON file (`openclaw.plugin.json`) that declares what the plugin provides. Core code reads those manifests at startup, before loading any plugin code at all. For you, that gives two things: setup hints that work even for plugins you have not yet downloaded, and the ability to disable a plugin without it ever running.
 
 The plugin architecture has four layers[^5]:
 
@@ -249,7 +249,7 @@ A capability is the contract a plugin offers to core: "I can do X, here is how t
  - Web search: `api.registerWebSearchProvider(...)` - google
  - Channel / messaging: `api.registerChannel(...)` - msteams, matrix
 
-Plugins are classified by shape based on what they actually register: `plain-capability` (one type), `hybrid-capability` (multiple - the OpenAI plugin registers text, speech, media understanding, and image generation all in one), `hook-only` (only hooks, legacy), or `non-capability` (tools, commands, services, routes but no capability). The reason the project bothers tagging shapes at all is that `openclaw plugins inspect <id>` then tells you exactly what each plugin contributes - useful when you are debugging why something isn't showing up in the assistant.
+Plugins are classified by shape based on what they register: `plain-capability` (one type), `hybrid-capability` (multiple - the OpenAI plugin registers text, speech, media understanding, and image generation all in one), `hook-only` (only hooks, legacy), or `non-capability` (tools, commands, services, routes but no capability). The reason the project bothers tagging shapes at all is that `openclaw plugins inspect <id>` then tells you exactly what each plugin contributes - useful when you are debugging why something isn't showing up in the assistant.
 
 ## Manifest Example
 
@@ -283,11 +283,11 @@ The AGENTS.md file makes this rule explicit and enforces it in CI[^6]:
 
 A separate CI lane (`check-additional`) runs architecture boundary tests that enforce these invariants. There is a guardrail test (`plugin-activation-boundary.test.ts`) that specifically checks this. The practical payoff is that a third-party plugin lives or dies on its own - removing or breaking one cannot accidentally take down the rest of the assistant.
 
-The plugin system is the input side: it determines what is plugged in. The agent loop is the part that actually uses those plugins, turn by turn, and the hook system is how plugins reach into that loop.
+The plugin system is the input side: it determines what is plugged in. The agent loop is the part that uses those plugins, turn by turn, and the hook system is how plugins reach into that loop.
 
 ## Agent Loop and Hooks
 
-The agent loop - the "real run" of an agent - turns a message into actions and a final reply. OpenClaw has two hook systems that extensions use to intercept it. Hooks are functions a plugin registers against named events; when the event fires (a tool is about to run, the system prompt is about to be built, a message is about to be sent), every registered hook gets a chance to inspect or change what is happening. For you, hooks are the seam that lets you inject custom behavior - safety policies, audit logging, prompt overrides - without forking the core code.
+The agent loop - the "real run" of an agent - turns a message into actions and a final reply. OpenClaw has two hook systems that extensions use to intercept it. Hooks are functions a plugin registers against named events. When the event fires (a tool is about to run, the system prompt is about to be built, a message is about to be sent), every registered hook gets a chance to inspect or change what is happening. For you, hooks are the seam that lets you inject custom behavior - safety policies, audit logging, prompt overrides - without forking the core code.
 
 Internal hooks (Gateway hooks) are event-driven scripts:
  - `agent:bootstrap` - runs while building bootstrap files before the system prompt is finalized
@@ -352,9 +352,9 @@ Three session operations matter:
  - Reset - start fresh, discarding history
  - Spawn - create a sub-session for a delegated task
 
-Session archive and transcript management lives in `src/gateway/session-archive.*` and `src/gateway/session-transcript-*`. Runs are serialized per session key (session lane) and optionally through a global lane. A lane here is just a queue: if two messages arrive in the same chat at once, they run one after the other instead of in parallel, which prevents interleaved tool calls and corrupted history. For you that means you can fire off two follow-ups quickly without the agent answering them in a tangled order.
+Session archive and transcript management lives in `src/gateway/session-archive.` and `src/gateway/session-transcript-`. Runs are serialized per session key (session lane) and optionally through a global lane. A lane here is just a queue: if two messages arrive in the same chat at once, they run one after the other instead of in parallel, which prevents interleaved tool calls and corrupted history. For you that means you can fire off two follow-ups quickly without the agent answering them in a tangled order.
 
-Sessions are about what the agent remembers; the security model is about what the agent is allowed to do.
+Sessions are about what the agent remembers. The security model is about what the agent is allowed to do.
 
 ## Security Model
 
@@ -372,12 +372,12 @@ Layer 2 - Identity and pairing:
  - All WS clients (operators and nodes) include a device identity on connect
  - New device IDs require pairing approval
  - Gateway issues a device token for subsequent connects
- - Signature payload v3 binds platform + device family; metadata changes require repair pairing
+ - Signature payload v3 binds platform + device family. Metadata changes require repair pairing
 
 Layer 3 - Tool execution:
  - Default: tools run on the host for the `main` session (full access for the single user)
  - Group or channel safety: set `agents.defaults.sandbox.mode: "non-main"` to run non-main sessions inside per-session Docker sandboxes
- - Sandbox defaults: allow `bash`, `process`, `read`, `write`, `edit`, `sessions_list`, `sessions_history`, `sessions_send`, `sessions_spawn`; deny `browser`, `canvas`, `nodes`, `cron`, `discord`, `gateway`
+ - Sandbox defaults: allow `bash`, `process`, `read`, `write`, `edit`, `sessions_list`, `sessions_history`, `sessions_send`, `sessions_spawn`. Deny `browser`, `canvas`, `nodes`, `cron`, `discord`, `gateway`
 
 ```mermaid
 stateDiagram-v2
@@ -412,7 +412,7 @@ OpenClaw supports 40+ LLM providers, visible in the `extensions/` directory:
  - Regional: Qwen, Qianfan, Moonshot, MiniMax, Kimi Coding, Volcengine, BytePlus, Xiaomi, StepFun
  - Code-specific: GitHub Copilot, Codex (OpenAI), KiloCode, OpenCode
 
-Each provider is its own plugin under `extensions/<name>/` and registers through `api.registerProvider(...)`. Core owns the generic inference loop; provider plugins own provider-specific behavior through typed hooks. For you that means trying a new model is a config change, not a code change.
+Each provider is its own plugin under `extensions/<name>/` and registers through `api.registerProvider(...)`. Core owns the generic inference loop. Provider plugins own provider-specific behavior through typed hooks. For you that means trying a new model is a config change, not a code change.
 
 ## Auth Profile Rotation
 
@@ -447,7 +447,7 @@ Memory is a special plugin slot - only one memory plugin can be active at a time
 
 The system has a "dreaming" capability - a background process that consolidates and organizes memories - and a QMD (Query-Match-Decide) engine that handles semantic memory retrieval. In practice, that means the assistant can clean up its own notes overnight and recall things by meaning, not just by keyword, when you ask it something later.
 
-The Gateway, plugins, and memory cover the server side. The next group of pieces is the client side - the apps you actually look at.
+The Gateway, plugins, and memory cover the server side. The next group of pieces is the client side - the apps you look at.
 
 ## Companion Apps as Nodes
 
@@ -469,13 +469,13 @@ iOS node:
 Android node:
  - Continuous voice support
 
-Node commands include `canvas.*`, `camera.*`, `screen.record`, `location.get`. Treating your phone as a remote tool provider for your local agent means the Gateway never needs direct phone APIs - it sends a typed command over the WebSocket, and the phone runs it locally. For you, that is what makes "take a photo" or "get my current location" possible from any chat surface, without a separate mobile integration per channel.
+Node commands include `canvas.`, `camera.`, `screen.record`, `location.get`. Treating your phone as a remote tool provider for your local agent means the Gateway never needs direct phone APIs - it sends a typed command over the WebSocket, and the phone runs it locally. For you, that is what makes "take a photo" or "get my current location" possible from any chat surface, without a separate mobile integration per channel.
 
 ## Canvas and A2UI
 
 The Canvas is an agent-editable live visual workspace served from the same Gateway HTTP server. Two mount points exist:
- - `/__openclaw__/canvas/` - agent-editable HTML/CSS/JS
- - `/__openclaw__/a2ui/` - A2UI host (Agent-to-UI protocol)
+ - `/openclaw/canvas/` - agent-editable HTML/CSS/JS
+ - `/openclaw/a2ui/` - A2UI host (Agent-to-UI protocol)
 
 This lets the agent render a dynamic UI you can interact with, without needing a separate app. You ask the agent to "show me a calendar for next week" and it generates a Canvas page on the fly. The page lives at a local URL the assistant tells you about, so you open it in any browser on the same network.
 
@@ -508,7 +508,7 @@ Several design decisions stand out when compared to other assistant frameworks.
 
 ## Manifest-First Control Plane
 
-Most plugin systems load plugins to ask them what they can do. OpenClaw reads the manifest first and only loads the plugin when it actually needs to execute something. Discovery, validation, enablement, setup hints, and activation planning are all metadata-driven. The rule "host loads plugins; plugins do not load host internals" keeps the dependency direction clean.
+Most plugin systems load plugins to ask them what they can do. OpenClaw reads the manifest first and only loads the plugin when it needs to execute something. Discovery, validation, enablement, setup hints, and activation planning are all metadata-driven. The rule "host loads plugins. Plugins do not load host internals" keeps the dependency direction clean.
 
 ## Gateway as the Only Singleton
 
@@ -532,7 +532,7 @@ Using `mcporter` as a bridge instead of building MCP into core is a deliberate b
 
 ## Capability-Typed Plugins
 
-Classifying plugins by what they actually register (plain-capability, hybrid-capability, hook-only, non-capability) lets the project give different compatibility guarantees and surface advisory warnings for older patterns. It also makes `openclaw plugins inspect <id>` useful for debugging.
+Classifying plugins by what they register (plain-capability, hybrid-capability, hook-only, non-capability) lets the project give different compatibility guarantees and surface advisory warnings for older patterns. It also makes `openclaw plugins inspect <id>` useful for debugging.
 
 ## Multi-Agent Isolation
 
@@ -540,7 +540,7 @@ Routing different channels to different agents with different workspaces is a cl
 
 ## Node Protocol for Mobile
 
-Treating mobile apps as "nodes" that expose commands (camera, screen record, location) to the agent is an elegant inversion. The Gateway never calls phone APIs directly; instead it sends a typed WebSocket command and the phone executes it on-device. For you that means new mobile capabilities arrive as app updates, not as Gateway changes.
+Treating mobile apps as "nodes" that expose commands (camera, screen record, location) to the agent is an elegant inversion. The Gateway never calls phone APIs directly. Instead it sends a typed WebSocket command and the phone executes it on-device. For you that means new mobile capabilities arrive as app updates, not as Gateway changes.
 
 ## Technologies
 
@@ -562,8 +562,8 @@ Treating mobile apps as "nodes" that expose commands (camera, screen record, loc
 
  - `nanoclaw` (github.com/qwibitai/nanoclaw) - 27,500+ stars - container-based lightweight alternative built on Anthropic's Agents SDK
  - Chinese guide (github.com/KimYx0207/Claude-Code-x-OpenClaw-Guide-Zh) - 3,400+ stars
- - DeepWiki analysis: https://deepwiki.com/openclaw/openclaw
- - ClawHub skills marketplace: https://clawhub.com
+ - [DeepWiki analysis](https://deepwiki.com/openclaw/openclaw)
+ - [ClawHub skills marketplace](https://clawhub.com)
 
 ## Sources
 

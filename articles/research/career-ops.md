@@ -192,11 +192,11 @@ The batch runner pattern (conductor + `claude -p` workers) is reusable for any t
 
 ## GitHub Repository
 
-Source: https://github.com/santifer/career-ops
+[Source](https://github.com/santifer/career-ops)
 
 ## Author's Case Study
 
-Source: https://santifer.io/career-ops-system
+[Source](https://santifer.io/career-ops-system)
 
 ## Notes
 

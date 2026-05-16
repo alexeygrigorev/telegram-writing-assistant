@@ -55,7 +55,7 @@ The user provides a path to a Firefox profile that is already logged into their 
 
 ## Scheduling
 
-Uses the Python `schedule` library (not system cron). Options: once daily, or twice daily (10:00 and 16:00). A "thrice daily" option appears in the menu but is not actually implemented for YouTube (only works for Twitter). Each scheduled execution spawns a new Python subprocess, launches a new Firefox browser instance, generates a video from scratch, and uploads it. The main process must keep running for scheduled jobs to fire - it is not a true cron job.
+Uses the Python `schedule` library (not system cron). Options: once daily, or twice daily (10:00 and 16:00). A "thrice daily" option appears in the menu but is not implemented for YouTube (only works for Twitter). Each scheduled execution spawns a new Python subprocess, launches a new Firefox browser instance, generates a video from scratch, and uploads it. The main process must keep running for scheduled jobs to fire - it is not a true cron job.
 
 ## Key Observations
 

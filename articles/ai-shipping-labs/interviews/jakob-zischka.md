@@ -26,7 +26,7 @@ Jacob switched to a new job recently and now has more free time. He found Alexey
 
 ## The problem: accountability, not content
 
-Jacob said he does not have a problem finding content. His problem is accountability - maintaining a steady study routine and staying consistent. This is the same pattern as the earlier Buildcamp-participant interview. He joined Tier 1 because he likes how Alexey teaches and his approach to courses, but said Tier 1 was not very useful for him because it was more theoretical[^7].
+Jacob said he does not have a problem finding content. His problem is accountability - maintaining a steady study routine and staying consistent. This is the same pattern as the earlier Buildcamp-participant interview. He joined Tier 1 because he likes how Alexey teaches and his approach to courses, but said Tier 1 was not useful for him because it was more theoretical[^7].
 
 ## Moving to Tier 2
 
@@ -36,7 +36,7 @@ Jacob said he was convinced. He will try subscribing for one month at 50 euros. 
 
 ## Python course interest
 
-Valeriia told Jacob that he inspired the creation of a Python course. He said he was very happy to hear that and that such a course would be very useful for him. He already took a Python course elsewhere but would be happy to take one from Alexey to reinforce his knowledge, because he likes how Alexey teaches[^9].
+Valeriia told Jacob that he inspired the creation of a Python course. He said he was happy to hear that and that such a course would be useful for him. He already took a Python course elsewhere but would be happy to take one from Alexey to reinforce his knowledge, because he likes how Alexey teaches[^9].
 
 Valeriia said she would ask Alexey which tier will have access to this course. She remembers that early access could be given to those who just joined[^9].
 

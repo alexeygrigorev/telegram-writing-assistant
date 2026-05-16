@@ -18,7 +18,7 @@ The project launched on GitHub on March 11, 2026, and quickly gained traction (7
 
 ## The eight skills
 
-`/plan-ceo-review` is the founder mode. Instead of taking a request literally, it asks what the product is actually for and finds the "10-star version" hiding inside the request. Tan describes this as "Brian Chesky mode" - rethinking the problem from the user's perspective to find something inevitable and delightful.
+`/plan-ceo-review` is the founder mode. Instead of taking a request literally, it asks what the product is for and finds the "10-star version" hiding inside the request. Tan describes this as "Brian Chesky mode" - rethinking the problem from the user's perspective to find something inevitable and delightful.
 
 `/plan-eng-review` is the engineering manager mode. Once product direction is locked, this mode produces architecture diagrams, data flow models, state machines, failure modes, edge cases, trust boundaries, and test coverage plans. The key insight here is that forcing the LLM to draw diagrams (sequence, state, component, data-flow) makes hand-wavy planning much harder and surfaces hidden assumptions.
 
@@ -69,7 +69,7 @@ gstack is designed to work with Conductor (`conductor.build`), a tool that runs 
 
 ## Skill documentation system
 
-The SKILL.md files that tell Claude how to use the browse commands are generated from `.tmpl` templates using metadata extracted from source code. This prevents documentation drift - if a command exists in code, it appears in docs; if it does not exist, it cannot appear.
+The SKILL.md files that tell Claude how to use the browse commands are generated from `.tmpl` templates using metadata extracted from source code. This prevents documentation drift - if a command exists in code, it appears in docs. If it does not exist, it cannot appear.
 
 The project has three tiers of testing:
 

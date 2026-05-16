@@ -16,7 +16,7 @@ Internal working document. Share only the `Summary` and `Plan` sections with the
 - Goal for the next 6 weeks: have a deployed AI project that clearly demonstrates engineering depth to hiring managers.
 - Main gap to close: deployment, CI/CD, monitoring, and the evaluation/improvement loop.
 - Weekly time commitment: 8 to 10 hours.
-- Why this plan is the right next step: Edu already understands the AI side reasonably well; the highest-leverage move is to ship and operationalize a project end to end.
+- Why this plan is the right next step: Edu already understands the AI side reasonably well. The highest-use move is to ship and operationalize a project end to end.
 
 ## Plan
 
@@ -103,43 +103,43 @@ A bit of background from me. I am a senior data scientist working for a health e
 
 ## Questions and Answers
 
-**What do you feel is currently missing between your profile today and the type of role you want next?**
+What do you feel is currently missing between your profile today and the type of role you want next?
 
-I feel I lack experience on more engineering side of AI. I have managed to build a RAG/Agent systems that deliver very decent results. However, I have missed the last step - deploy it as a solution that can be accessible to people and that is scalable.
+I feel I lack experience on more engineering side of AI. I have managed to build a RAG/Agent systems that deliver decent results. However, I have missed the last step - deploy it as a solution that can be accessible to people and that is scalable.
 
-**If you were applying in 2 to 3 months, what would you want to be able to point to?**
+If you were applying in 2 to 3 months, what would you want to be able to point to?
 
 I am able to explain a system inside out. What I mean by this is that I am able to propose a reasonable solution that solves a business problem through AI. I have a clear idea of what the identify potential problems and trade-offs associated with that solution such as choosing certain strategies for chunking, validating the results, evaluating the system and deploying well the solution - i.e. without blowing up resources once the solution has escalated.
 
-**What do you feel you need to demonstrate more clearly to be a stronger candidate for AI-engineering-type roles?**
+What do you feel you need to demonstrate more clearly to be a stronger candidate for AI-engineering-type roles?
 
 I think I should demonstrate better the skills that define me as an Engineer. Moving from "this is a guy that has some understanding of how agents work to this is a guy that understands how an agent works because this agent that built shows reliable results and it is deployed".
 
-**What is blocking you most right now from building that proof?**
+What is blocking you most right now from building that proof?
 
-I feel I need more practice. I understand high level how it should work but I don't have the chance to put on more time to actually look at this in detail. I also would like to keep an eye at the costs. I know I need to invest but since I am doing this as a personal project that funding out my pocket I want to contain the costs.
+I feel I need more practice. I understand high level how it should work but I don't have the chance to put on more time to look at this in detail. I also would like to keep an eye at the costs. I know I need to invest but since I am doing this as a personal project that funding out my pocket I want to contain the costs.
 
-**What have you already tried, and where did it usually stop?**
+What have you already tried, and where did it usually stop?
 
 As part of the AI Buildcamp I did the capstone project and I am currently in the process of deployment. At the moment dockerizing the app and hopefully deploying it in cloud. Normally my projects do not go beyond my laptop and remain local.
 
-**Do you already have a project idea that feels relevant for this transition?**
+Do you already have a project idea that feels relevant for this transition?
 
 Literally any solution I can think about that can be deployed somewhere. Yet, perhaps we can discuss ideas that are more business oriented. I tend to think about questions that have some sort of social impact but that I may be less profitable.
 
-**Which part of the AI pipeline do you most want to get hands-on experience with?**
+Which part of the AI pipeline do you most want to get hands-on experience with?
 
 Possibly the end of the pipeline. In addition to deploying the results of the app, learn how to integrate the improvement loop by which I can improve the app by including results of the evaluation so the system "learns" about past errors and gets better.
 
-**What strengths from your background should the plan build on?**
+What strengths from your background should the plan build on?
 
-Agentic systems that improve the decision making in health economics / pharma / biotech; strengthen the MLOps and cloud practices around the current system I built and/or others I may build in the forthcoming weeks; and position myself as the guy who integrates AI into traditional questions in those industries.
+Agentic systems that improve the decision making in health economics / pharma / biotech. Strengthen the MLOps and cloud practices around the current system I built and/or others I may build in the forthcoming weeks. And position myself as the guy who integrates AI into traditional questions in those industries.
 
-**How much time can you realistically commit each week over the next 6 to 8 weeks?**
+How much time can you realistically commit each week over the next 6 to 8 weeks?
 
 Around 8 - 10 h.
 
-**If you had to choose one concrete outcome for the next 6 weeks, what should it be?**
+If you had to choose one concrete outcome for the next 6 weeks, what should it be?
 
 Have a proper product/project that can I can be attractive to hiring managers and that proves I am decently competent at AI.
 

@@ -56,7 +56,7 @@ Based on the recent webinar, Learning Paths could work as lead magnets. For exam
 
 The course price is quite high, so the level of trust people need to have is also high. Not everyone is ready to spend $1700 on someone they don't know well. A possible solution: let them first buy something small, see that they get a lot of value from it, and then buy something more expensive like the course[^6].
 
-Right now there are a lot of people on the course waitlist, but only tenths of a percent actually convert. If we set up the funnel so that there is a community step in between, it helps in two ways. First, we already start generating revenue. Second, people get to know what happens in the community, their trust in us grows, and they end up buying the course[^6].
+Right now there are a lot of people on the course waitlist, but only tenths of a percent convert. If we set up the funnel so that there is a community step in between, it helps in two ways. First, we already start generating revenue. Second, people get to know what happens in the community, their trust in us grows, and they end up buying the course[^6].
 
 The community works as the intermediate step in the funnel that helps convert more people. Instead of going directly from awareness to a high-priced course, people enter through the community, experience value firsthand, and then upgrade[^6].
 
@@ -159,7 +159,7 @@ One thing Valeriia likes is how the course ad slots naturally into his article. 
 
 This same approach could work for Alexey's free Friday newsletters. The newsletter is already about sharing useful things, so pre-advertising the course can slot in the same way Paul does it without feeling like an awkward insert[^96].
 
-The technical side of how Paul generates the branded diagrams and runs his pipeline is covered separately in [articles/research/decode-ai-content-generation.md](../research/decode-ai-content-generation.md). That side is mostly interesting for improving the telegram-writing-assistant agent; the marketing lesson is the one captured here.
+The technical side of how Paul generates the branded diagrams and runs his pipeline is covered separately in [articles/research/decode-ai-content-generation.md](../research/decode-ai-content-generation.md). That side is mostly interesting for improving the telegram-writing-assistant agent. The marketing lesson is the one captured here.
 
 ## Content Reuse and Planning
 

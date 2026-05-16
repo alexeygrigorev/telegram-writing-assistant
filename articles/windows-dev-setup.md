@@ -8,7 +8,7 @@ status: draft
 
 # Setting Up a Windows Computer for Development
 
-Video: https://www.youtube.com/watch?v=2H8aC-1nqiE
+[Video](https://www.youtube.com/watch?v=2H8aC-1nqiE)
 
 I got a new Windows computer and recorded a video of myself installing everything from scratch. I want to start with a clean slate. The goal: by the end, have a dev setup with terminal, bash, Python, NodeJS, Docker, VS Code, and other tools. I will also create text instructions from this, which might be more useful than the video itself.[^1][^2]
 
@@ -144,7 +144,7 @@ run:
 	uv run python main.py
 ```
 
-Then just run `make run` - very convenient.
+Then just run `make run` - convenient.
 
 ## Docker
 

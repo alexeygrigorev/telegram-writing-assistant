@@ -10,7 +10,7 @@ status: draft
 
 This is a recurring conversation[^12]. People regularly ask me how to pick a project to build, and I keep giving the same answer. It comes up in the workshops and webinars I run. It comes up with AI Shipping Labs members trying to choose what to work on or how to make progress. And it comes up with course students - both in the free zoomcamps and inside AI Shipping Labs - where not everyone has a clear idea of what to build[^12].
 
-A big part of what I care about across all my courses is that people actually finish a project, because the courses focus on practice and practice is projects[^12]. In AI Engineering Buildcamp in particular, where I have closer contact with students, I want a higher percentage of each cohort to ship something real[^7][^12]. This article is part of a framework I'm building for that, and since I think it's useful outside the course too, I'm sharing it here[^12].
+A big part of what I care about across all my courses is that people finish a project, because the courses focus on practice and practice is projects[^12]. In AI Engineering Buildcamp in particular, where I have closer contact with students, I want a higher percentage of each cohort to ship something real[^7][^12]. This article is part of a framework I'm building for that, and since I think it's useful outside the course too, I'm sharing it here[^12].
 
 ## A catalog of 150 ideas
 
@@ -110,11 +110,11 @@ One thing that helps is keeping a running note of small annoyances. Most of them
 
 ## Narrowing down from an idea
 
-Even once you know which kind of project you're doing, an idea isn't a project yet. You still need to narrow it down to something you can actually start this week. The trap most people fall into is technology-first thinking - "I want to build an agent" or "I want to use RAG" - which makes it hard to tell when you're done, and easy to over-engineer the thing before you've even written a useful version[^4].
+Even once you know which kind of project you're doing, an idea isn't a project yet. You still need to narrow it down to something you can start this week. The trap most people fall into is technology-first thinking - "I want to build an agent" or "I want to use RAG" - which makes it hard to tell when you're done, and easy to over-engineer the thing before you've even written a useful version[^4].
 
 The way I get past that is to force myself to answer five questions in a few sentences each. Who is the user. What is the input. What is the output. What is the smallest useful version. And how will I know it works. If I can't answer those cleanly, the project is still too vague and I keep going.
 
-Once I can answer them, I check the idea against the type of project I'm building. For a portfolio project, I ask whether it shows the kind of work I want to be hired for. For a course project, I ask whether I can test it, monitor it, and evaluate it over several weeks. For a project I'm doing for myself, I ask whether I'll actually use it in my own life soon.
+Once I can answer them, I check the idea against the type of project I'm building. For a portfolio project, I ask whether it shows the kind of work I want to be hired for. For a course project, I ask whether I can test it, monitor it, and evaluate it over several weeks. For a project I'm doing for myself, I ask whether I'll use it in my own life soon.
 
 After that, I start. The first rough repo and README teach me more than another hour of browsing idea lists.
 
@@ -122,11 +122,11 @@ The Buildcamp "From Idea to Submission" material splits this into three situatio
 
 ## The capstone bar
 
-For Buildcamp capstones, the standard is fairly simple[^4]. Solve a real problem that someone actually cares about. Use data or inputs you can get without heroic effort. Leave a clear path to testing, monitoring, and evaluation from the start. RAG and agents can help, and some projects genuinely need them, but they aren't the point of the project. Don't bolt them on just to make the project sound more advanced[^4].
+For Buildcamp capstones, the standard is fairly simple[^4]. Solve a real problem that someone cares about. Use data or inputs you can get without heroic effort. Leave a clear path to testing, monitoring, and evaluation from the start. RAG and agents can help, and some projects genuinely need them, but they aren't the point of the project. Don't bolt them on just to make the project sound more advanced[^4].
 
 The same bar works outside the course too. A project that solves a real problem with honest data and can be tested, monitored, and evaluated is far more valuable than a showier project that can't be.
 
-And if you're planning to talk about this project in interviews later, the field guide makes one thing very clear: hiring managers can tell the difference between a course you followed step by step and something you built yourself[^8]. A project you genuinely owned - where you chose the problem, scoped it, hit real issues, and fixed them - gives you something to talk about for the whole interview, because you lived through it.
+And if you're planning to talk about this project in interviews later, the field guide makes one thing clear: hiring managers can tell the difference between a course you followed step by step and something you built yourself[^8]. A project you genuinely owned - where you chose the problem, scoped it, hit real issues, and fixed them - gives you something to talk about for the whole interview, because you lived through it.
 
 ## If you're still stuck
 

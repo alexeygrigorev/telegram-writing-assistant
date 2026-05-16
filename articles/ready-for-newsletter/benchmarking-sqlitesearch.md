@@ -20,7 +20,7 @@ I decided to take the same dataset and test SQLiteSearch. Claude found some issu
 
 For vector search, I looked around and found that Milvus (Zilliz) had benchmarks - two benchmarks, one on 1 million vectors and another on 10 million vectors, plus ground truth labels for what should be returned. They prepared this benchmark and tested it on their vector database and on other databases. Naturally their database showed the best results - otherwise why publish the article[^1].
 
-I took their ready-made benchmark and tested it on SQLiteSearch. On 1 million vectors it worked very slowly and recall was mediocre. On 100,000 it was decent. I gave Claude the task to tune it - I do not know what it will or will not do, but at least in terms of performance it behaves fine. On smaller volumes like up to 100,000 it shows itself quite well[^1].
+I took their ready-made benchmark and tested it on SQLiteSearch. On 1 million vectors it worked slowly and recall was mediocre. On 100,000 it was decent. I gave Claude the task to tune it - I do not know what it will or will not do, but at least in terms of performance it behaves fine. On smaller volumes like up to 100,000 it shows itself quite well[^1].
 
 ## Publishing the Results
 
@@ -34,7 +34,7 @@ When I run benchmarks, I tell Claude: "We are benchmarking now, please remember 
 
 I continued benchmarking SQLiteSearch. I first decided to benchmark it, then noticed that on benchmarks it was slow and performed poorly. For text search it works fine, but for vector search the results were bad[^3].
 
-I asked Claude what to do. It said it tested on a dataset of 1 million records. On 100,000 records it works fine, but on 1 million it breaks. The LSH approach in its current form just does not work at that scale. Claude said everyone uses other methods like HNSW. I said go ahead and implement them, and let us see what happens. I do not really understand how they work and have not looked into it, but that is something to explore later[^3].
+I asked Claude what to do. It said it tested on a dataset of 1 million records. On 100,000 records it works fine, but on 1 million it breaks. The LSH approach in its current form just does not work at that scale. Claude said everyone uses other methods like HNSW. I said go ahead and implement them, and let us see what happens. I do not understand how they work and have not looked into it, but that is something to explore later[^3].
 
 I implemented the new approach and indexed 1 million records. One of the approaches took over an hour to index - too much. It should take around 10 minutes[^3].
 
@@ -48,7 +48,7 @@ The benchmark results are published on GitHub: [sqlitesearch/benchmark](https://
 
 Last week someone asked to do benchmarks. The results were not great at first. The original choice was LSH because it was easy to understand and implement. But LSH turned out to be completely unsuitable for large volumes[^5].
 
-Claude did most of the work. Two additional implementations appeared. The current best implementation is HNSW. It builds the index in about 10 minutes. Its recall is slightly worse than IVF, but it is much faster - 6 milliseconds query speed compared to 219 milliseconds for the next fastest (IVF). On one million vectors it is extremely fast. The benchmarks turned out really good[^5].
+Claude did most of the work. Two additional implementations appeared. The current best implementation is HNSW. It builds the index in about 10 minutes. Its recall is slightly worse than IVF, but it is much faster - 6 milliseconds query speed compared to 219 milliseconds for the next fastest (IVF). On one million vectors it is extremely fast. The benchmarks turned out good[^5].
 
 <figure>
   <img src="../../assets/images/benchmarking-sqlitesearch/vdbbench-comparison-table.jpg" alt="Benchmark comparison table showing sqlitesearch performance against cloud vector databases">

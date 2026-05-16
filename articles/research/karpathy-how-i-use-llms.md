@@ -18,7 +18,7 @@ How to use LLMs not just for code generation but for knowledge management - buil
 
 ## Karpathy Tweet: LLM Knowledge Bases
 
-Source: https://x.com/karpathy/status/2039805659525644595
+[Source](https://x.com/karpathy/status/2039805659525644595)
 
 Overview: Karpathy shares that a large fraction of his recent LLM token usage goes into manipulating knowledge (stored as markdown and images) rather than code. He describes a workflow where source documents are indexed into a raw/ directory, then an LLM incrementally compiles a wiki of .md files with summaries, backlinks, categories, and concept articles.
 
@@ -34,7 +34,7 @@ Key Ideas:
 
 ## Karpathy Gist: LLM Wiki Pattern
 
-Source: https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f
+[Source](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)
 
 Overview: A detailed idea document describing the LLM Wiki pattern. Designed to be copy-pasted to your own LLM agent (Claude Code, Codex, OpenCode, etc.) so the agent can instantiate the pattern for your specific domain. The document is intentionally abstract - it describes the pattern, not a specific implementation.
 
@@ -44,7 +44,7 @@ Key Ideas:
 - Three-layer architecture: raw sources (immutable, never modified by LLM), the wiki (LLM-generated and LLM-maintained markdown), and the schema (a config document like CLAUDE.md or AGENTS.md that defines conventions and workflows)
 - The schema is the key configuration file - it makes the LLM a disciplined wiki maintainer rather than a generic chatbot. You and the LLM co-evolve it over time
 - Two special navigation files: index.md (content-oriented catalog of everything) and log.md (chronological append-only record of ingests, queries, lint passes)
-- The index-based approach works surprisingly well at moderate scale (~100 sources, ~hundreds of pages) and avoids the need for embedding-based RAG infrastructure
+- The index-based approach works well at moderate scale (~100 sources, ~hundreds of pages) and avoids the need for embedding-based RAG infrastructure
 
 Key Insights:
 - The core problem with traditional wikis is not reading or thinking - it is the bookkeeping. Updating cross-references, keeping summaries current, noting contradictions. Humans abandon wikis because maintenance burden grows faster than value. LLMs do not get bored and can touch 15 files in one pass
@@ -86,14 +86,14 @@ LLM image handling workaround:
 - Have the LLM read the text first, then view referenced images separately for additional context
 
 Quotes:
-- "raw data from a given number of sources is collected, then compiled by an LLM into a .md wiki, then operated on by various CLIs by the LLM to do Q&A and to incrementally enhance the wiki, and all of it viewable in Obsidian"
+- "raw data from a given number of sources is collected, then compiled by an LLM into a .md wiki, then operated on by various CLIs by the LLM to do Q&A and to incrementally improve the wiki, and all of it viewable in Obsidian"
 - "The wiki is a persistent, compounding artifact. The cross-references are already there. The contradictions have already been flagged. The synthesis already reflects everything you have read."
 - "Humans abandon wikis because the maintenance burden grows faster than the value. LLMs do not get bored, do not forget to update a cross-reference, and can touch 15 files in one pass."
 - "I think there is room here for an incredible new product instead of a hacky collection of scripts."
 
 ## Notes
 
-- This pattern is highly relevant to how this very telegram-writing-assistant project works - raw inbox items are processed and compiled into articles. The key difference Karpathy highlights is making the LLM responsible for maintaining cross-references and consistency across all articles, not just processing individual items
+- This pattern is highly relevant to how this telegram-writing-assistant project works - raw inbox items are processed and compiled into articles. The key difference Karpathy highlights is making the LLM responsible for maintaining cross-references and consistency across all articles, not just processing individual items
 - The three-layer architecture (raw sources, wiki, schema) maps well to the inbox/articles/CLAUDE.md structure already in this project
 - The "lint" operation is an interesting idea - periodically asking an LLM to health-check all articles for consistency, contradictions, and gaps
 - Related to context engineering research - the schema file (CLAUDE.md / AGENTS.md) is essentially context engineering for the wiki maintenance agent
