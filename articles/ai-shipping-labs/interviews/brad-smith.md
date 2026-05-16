@@ -20,7 +20,7 @@ See [personas.md](../personas.md) for full persona definitions.
 
 Brad replied to Valeriia's outreach. His main interest with AI Shipping Labs is to develop portfolio projects that are interesting to potential employers, while also learning about AI Engineering and applying the findings to his current role. He acknowledged that this is overly broad[^31].
 
-He has taken (not completed) Alexey's bootcamp on Maven and enjoys his approach. The hardest part for him is understanding how to develop solutions and build apps with a consistent tech stack. Deployment specifically is an issue, and getting data into useable forms consistently is his second most pressing issue. He offered to discuss further[^31].
+He has taken (not completed) my bootcamp on Maven and enjoys the approach. The biggest challenge for him is understanding how to develop solutions and build apps with a consistent tech stack. Deployment specifically is an issue, and getting data into useable forms consistently is his second most pressing issue. He offered to discuss further[^31].
 
 ## Sources
 

@@ -1,6 +1,8 @@
-### Resource and Article Tracking
+# Resource and Article Tracking
 
-I had an idea to improve resource and draft tracking. Currently, resources are shared in the newsletter, but there's no easy way to see what has been shared and what hasn't. A potential solution:
+I had an idea to improve resource and draft tracking. Currently, resources are shared in the newsletter, but there's no easy way to see what has been shared and what hasn't.
+
+A potential solution:
 
 1. Create a table (CSV or similar format) on GitHub to track resources
 2. When sharing a resource link, ask the bot to categorize and add it to the table

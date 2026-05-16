@@ -18,7 +18,7 @@ See [personas.md](../personas.md) for full persona definitions.
 
 ## Response
 
-One AI Shipping Labs participant shared what they would like to see next. They thanked Alexey and Valeriia for the opportunity to learn and said they would love to see more courses with a practice-first approach. Specific topics they mentioned: harness engineering for coding agents, and testing and evaluation. They are currently trying to build their own CLI coding agent based on Spec-Driven Development and RAG[^32].
+One AI Shipping Labs participant shared what they would like to see next. They thanked us for the opportunity to learn and said they would love to see more courses with a practice-first approach. Specific topics they mentioned: harness engineering for coding agents, and testing and evaluation. They are currently trying to build their own CLI coding agent based on Spec-Driven Development and RAG[^32].
 
 ## Sources
 

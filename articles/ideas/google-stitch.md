@@ -12,7 +12,7 @@ Google's Stitch is a new tool from Google Labs that may be better suited for des
 
 ## Potential Use Case
 
-The idea is to take screenshots of a website (like DataTalks Club), describe detailed technical requirements based on what's visible, generate mockups, and then insert those technical requirements into Stitch to build the design[^1].
+Take screenshots of a website (like DataTalks Club), describe detailed technical requirements based on what's visible, generate mockups, and then insert those technical requirements into Stitch to build the design[^1].
 
 ## Future Experiment
 
@@ -20,9 +20,11 @@ This could be a "tools I tried" section where I test new tools and describe the 
 
 ## Source
 
-https://blog.google/technology/google-labs/stitch-gemini-3/
+[Stitch announcement on the Google blog](https://blog.google/technology/google-labs/stitch-gemini-3/).
 
 ## Sources
+
+Voice notes that fed this draft:
 
 - [20260123_121239_valeriia_kuka_msg438.md](../inbox/used/20260123_121239_valeriia_kuka_msg438.md)
 - [20260123_121239_valeriia_kuka_msg439.md](../inbox/used/20260123_121239_valeriia_kuka_msg439.md)

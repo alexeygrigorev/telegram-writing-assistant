@@ -12,7 +12,7 @@ status: draft
 
 ## Persona
 
-Priya - the Improver. Chandra has already gotten good at Kiro and is picking up speed with Claude Code, meaning he has a solid build-with-AI practice. His gap is production-facing: inference optimization, cost control, and evals. This matches Priya's profile: already shipping, needs depth in production patterns.
+Priya - the Improver. Chandra has already gotten good at Kiro and is picking up speed with Claude Code, meaning he has a solid build-with-AI practice. His gap is in production patterns like inference optimization, cost control, and evals. This matches Priya's profile of someone already shipping who needs depth in production patterns.
 
 See [personas.md](../personas.md) for full persona definitions.
 
