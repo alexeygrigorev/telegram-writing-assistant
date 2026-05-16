@@ -40,7 +40,7 @@ The plan below is dense for a 5-8 hr/week budget. Treat the week boundaries as t
 
 Week 1:
 
-- [Start AI Hero](https://aishippinglabs).com/courses/aihero . Aim for the first half of the modules in week 1. Treat each module as the "theory block" before the build block on the same concept.
+- [Start AI Hero](https://aishippinglabs.com/courses/aihero) . Aim for the first half of the modules in week 1. Treat each module as the "theory block" before the build block on the same concept.
 - Use the project-idea brainstorming gist to surface 5-10 fintech-adjacent project candidates. Keep the bias toward problems you already feel: things you would use at work (data-science agent team for EDA, internal analytics assistant, model monitoring, data-quality agent, knowledge base over company docs / meeting transcripts) or for yourself.
 - Run the fit-check prompt on the top 1-2 candidates and pick one. The picking has to happen this week - if it slides, the analysis paralysis you flagged in the intake is what's pulling it.
 
@@ -83,8 +83,8 @@ Week 6:
 
 ## Resources
 
-- [AI Hero](https://aishippinglabs).com/courses/aihero - the agent-building foundation, weeks 1-2.
-- [Project-idea brainstorming gist](https://gist).github.com/alexeygrigorev/c1c8dc3ece5cba91e1e381eeba2706c1 - interview prompt for candidate generation, fit-check prompt for validation.
+- [AI Hero](https://aishippinglabs.com/courses/aihero) - the agent-building foundation, weeks 1-2.
+- [Project-idea brainstorming gist](https://gist.github.com/alexeygrigorev/c1c8dc3ece5cba91e1e381eeba2706c1) - interview prompt for candidate generation, fit-check prompt for validation.
 - LLM Zoomcamp re-recording starts in June (workshop on 2026-05-11 is the kickoff). Useful as a parallel track once the sprint project is live.
 - Logfire for monitoring once the simple version works.
 - Community accountability channel (`#plan-sprints`).

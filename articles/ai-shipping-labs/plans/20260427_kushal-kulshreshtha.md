@@ -66,11 +66,11 @@ Week 6:
 
 ## Resources
 
-- [AI Hero course](https://aishippinglabs).com/courses/aihero[^3] - fast overview of how to build agents. Use it for the concepts, not for heavy monitoring.
+- [AI Hero course](https://aishippinglabs.com/courses/aihero[^3]) - fast overview of how to build agents. Use it for the concepts, not for heavy monitoring.
 - Logfire - simpler monitoring tool to attach to the project after the first agent works.
 - Tech blogs of target companies and similar companies in the chosen domain - source for the list of typical problems.
 - [Project-idea brainstorming prompt](https://gist.github.com/alexeygrigorev/c1c8dc3ece5cba91e1e381eeba2706c1)
-- [Community accountability channel (`#plan-sprints`)](https://app).slack.com/client/T0AFSRP234M/C0AUQBSP4ER
+- [Community accountability channel (#plan-sprints)](https://app.slack.com/client/T0AFSRP234M/C0AUQBSP4ER)
 
 ## Deliverables
 

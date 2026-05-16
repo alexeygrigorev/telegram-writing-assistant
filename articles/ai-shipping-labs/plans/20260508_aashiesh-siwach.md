@@ -30,7 +30,7 @@ Internal working document. Share only the `Summary` and `Plan` sections with the
 
 Week 1:
 
-- [Start AI Hero from day 1](https://aishippinglabs).com/courses/aihero. Treat it as the agent-building foundation, not a side track.
+- [Start AI Hero from day 1](https://aishippinglabs.com/courses/aihero.) Treat it as the agent-building foundation, not a side track.
 - Use the project-idea brainstorming prompt below to come up with 5-10 candidate ideas based on his own friction, hobbies, work, and the ML/AI engineering work he has already done.
 - Look at his existing projects (hybrid search + reranking, deployed retrieval API, internship work) and decide whether one of them is worth turning into the sprint project, or whether a fresh project is better.
 
@@ -71,7 +71,7 @@ Two prompts help with the picking.
 
 They are intended for ChatGPT or Claude (voice mode works much better than typing):
 
-- [Project-idea brainstorming prompt](https://gist).github.com/alexeygrigorev/c1c8dc3ece5cba91e1e381eeba2706c1 - the gist contains both prompts. Use the interview prompt if there is no concrete idea yet, and the fit-check prompt to validate one before committing weeks to it.
+- [Project-idea brainstorming prompt](https://gist.github.com/alexeygrigorev/c1c8dc3ece5cba91e1e381eeba2706c1) - the gist contains both prompts. Use the interview prompt if there is no concrete idea yet, and the fit-check prompt to validate one before committing weeks to it.
 
 When picking, score candidates against four criteria and pick the highest total: genuine interest (will he stay engaged for several weeks), usefulness (does it solve a real problem), data availability (does he already have or can he easily get the data), and feasibility (can a usable version ship in 4-6 weeks).
 

@@ -76,7 +76,7 @@ Week 6:
 - AI Shipping Labs first workshop on Telepot agents and deployment to Render (week of 2026-04-20) - useful as a deployment-walkthrough reference if you want to see one path end to end. Available to community members. Ask Valeriia for the link.
 - Streamlit + Docker deployment docs for whichever host you pick.
 - Logfire (or your monitoring tool of choice) for the production-side traces.
-- [The `amr_ai` repo](https://github).com/juanpprim/amr_ai .
+- [The amr_ai repo](https://github.com/juanpprim/amr_ai) .
 
 ## Deliverables
 

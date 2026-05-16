@@ -73,7 +73,7 @@ Week 6:
 
 ## Resources
 
-- [AI Hero core course](https://aishippinglabs).com/courses/aihero - the foundation course, completed in weeks 1-2. Its day-by-day shape (chunking, search, agent, eval, deployment, README) is also the template you apply to your own project in weeks 3-6.
+- [AI Hero core course](https://aishippinglabs.com/courses/aihero) - the foundation course, completed in weeks 1-2. Its day-by-day shape (chunking, search, agent, eval, deployment, README) is also the template you apply to your own project in weeks 3-6.
 - [AI Engineering Field Guide](https://github.com/alexeygrigorev/ai-engineering-field-guide) - browse recent AI Engineer / Applied AI Engineer job listings, watch the role webinars.
 - A coding assistant of choice (Claude Code, Codex, or similar). Pick one, commit, paid plan only.
 - Deployment target: Render, Fly.io, or a small VM. The choice does not matter. Using one consistently does.

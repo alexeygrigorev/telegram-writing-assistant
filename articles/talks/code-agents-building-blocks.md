@@ -117,7 +117,7 @@ It is a personal knowledge management system. I send voice messages, photos, lin
 
 This system uses both building blocks:
 
-- Skills/commands: the [`/process` command](https://github.com/alexeygrigorev/telegram-writing-assistant/blob/main/.claude/commands/process.md) defines the full workflow for processing inbox materials
+- Skills/commands: the [/process command](https://github.com/alexeygrigorev/telegram-writing-assistant/blob/main/.claude/commands/process.md) defines the full workflow for processing inbox materials
 - Subagents: three specialized subagents handle URL research, resource descriptions, and content verification
 
 <figure>
@@ -167,7 +167,7 @@ This is what makes skills powerful - the implementation is simple, yet it is now
 
 All my skills and commands are in a public GitHub repo: [github.com/alexeygrigorev/.claude](https://github.com/alexeygrigorev/.claude). Here are the ones I use most:
 
-[`/release`](https://github.com/alexeygrigorev/.claude/blob/main/commands/release.md) - automates the full Python library release process:
+[/release](https://github.com/alexeygrigorev/.claude/blob/main/commands/release.md) - automates the full Python library release process:
 
 - Run all tests to make sure nothing is broken
 - Bump the version number using semantic versioning
@@ -181,7 +181,7 @@ All my skills and commands are in a public GitHub repo: [github.com/alexeygrigor
 
 Previously, I did this manually with some automation. Now the agent follows the playbook and handles everything.
 
-[`/init-library`](https://github.com/alexeygrigorev/.claude/blob/main/commands/init-library.md) - creates new Python libraries with a consistent structure:
+[/init-library](https://github.com/alexeygrigorev/.claude/blob/main/commands/init-library.md) - creates new Python libraries with a consistent structure:
 
 - Ask for library name, description, dependencies, and CLI preference
 - Create the full file structure: `src/`, `tests/`, `pyproject.toml`, `Makefile`
@@ -192,16 +192,16 @@ Previously, I did this manually with some automation. Now the agent follows the 
 
 It was created by analyzing all my existing libraries ([minsearch](https://github.com/alexeygrigorev/minsearch), [toyaikit](https://github.com/alexeygrigorev/toyaikit)) to find common patterns. Libraries initialized this way follow the expected format for automated releases with `/release`.
 
-[`/create-github-repo`](https://github.com/alexeygrigorev/.claude/blob/main/commands/create-github-repo.md) - handles creating GitHub repositories via the [GitHub CLI](https://cli.github.com/). Previously required going to the website, creating the repo, googling git commands. Now it asks for the name and handles everything.
+[/create-github-repo](https://github.com/alexeygrigorev/.claude/blob/main/commands/create-github-repo.md) - handles creating GitHub repositories via the [GitHub CLI](https://cli.github.com/). Previously required going to the website, creating the repo, googling git commands. Now it asks for the name and handles everything.
 
-[`fetch-youtube`](https://github.com/alexeygrigorev/.claude/tree/main/skills/fetch-youtube) - a skill (not a command) that fetches YouTube video transcripts. The agent discovers it when a user asks to process a YouTube link. Uses [youtube-transcript-api](https://pypi.org/project/youtube-transcript-api/) to download timestamped subtitles.
+[fetch-youtube](https://github.com/alexeygrigorev/.claude/tree/main/skills/fetch-youtube) - a skill (not a command) that fetches YouTube video transcripts. The agent discovers it when a user asks to process a YouTube link. Uses [youtube-transcript-api](https://pypi.org/project/youtube-transcript-api/) to download timestamped subtitles.
 
 <figure>
   <img src="../../assets/images/code-agents-building-blocks/command-process.png" alt="The /process command markdown file showing description and instructions for processing Telegram inbox">
   <figcaption>The /process command: a markdown file with step-by-step instructions for the agent</figcaption>
 </figure>
 
-[`/process`](https://github.com/alexeygrigorev/telegram-writing-assistant/blob/main/.claude/commands/process.md) - the Telegram writing assistant's main command.
+[/process](https://github.com/alexeygrigorev/telegram-writing-assistant/blob/main/.claude/commands/process.md) - the Telegram writing assistant's main command.
 
 This is the most complex skill I have:
 
@@ -252,14 +252,14 @@ Why this works:
 
 ## Subagents in the Telegram Writing Assistant
 
-The Telegram writing assistant uses three subagents, each defined as a markdown file in [`.claude/agents/`](https://github.com/alexeygrigorev/telegram-writing-assistant/tree/main/.claude/agents):
+The Telegram writing assistant uses three subagents, each defined as a markdown file in [.claude/agents/](https://github.com/alexeygrigorev/telegram-writing-assistant/tree/main/.claude/agents):
 
 <figure>
   <img src="../../assets/images/code-agents-building-blocks/subagent-article-summarizer.png" alt="The article-summarizer agent markdown file showing YAML frontmatter with name, description, tools, model fields and detailed instructions">
   <figcaption>The article-summarizer subagent: a markdown file with YAML frontmatter defining the agent's role, tools, and instructions</figcaption>
 </figure>
 
-[`article-summarizer`](https://github.com/alexeygrigorev/telegram-writing-assistant/blob/main/.claude/agents/article-summarizer.md) - deep analysis of URLs:
+[article-summarizer](https://github.com/alexeygrigorev/telegram-writing-assistant/blob/main/.claude/agents/article-summarizer.md) - deep analysis of URLs:
 
 - Fetches content via [Jina Reader](https://jina.ai/reader/)
 - Extracts key ideas, actionable patterns, code snippets, quotes
@@ -267,14 +267,14 @@ The Telegram writing assistant uses three subagents, each defined as a markdown 
 - Adds summaries to the correct research article
 - Can run in parallel for multiple URLs
 
-[`resource-describer`](https://github.com/alexeygrigorev/telegram-writing-assistant/blob/main/.claude/agents/resource-describer.md) - short descriptions for the [interesting resources](https://github.com/alexeygrigorev/telegram-writing-assistant/blob/main/articles/interesting-resources.md) collection:
+[resource-describer](https://github.com/alexeygrigorev/telegram-writing-assistant/blob/main/.claude/agents/resource-describer.md) - short descriptions for the [interesting resources](https://github.com/alexeygrigorev/telegram-writing-assistant/blob/main/articles/interesting-resources.md) collection:
 
 - Fetches content via Jina Reader
 - Writes 2-4 sentence descriptions
 - Inserts alphabetically into the resources article
 - Can run in parallel for multiple resources
 
-[`verify-content`](https://github.com/alexeygrigorev/telegram-writing-assistant/blob/main/.claude/agents/verify-content.md) - ensures nothing was lost during processing:
+[verify-content](https://github.com/alexeygrigorev/telegram-writing-assistant/blob/main/.claude/agents/verify-content.md) - ensures nothing was lost during processing:
 
 - Checks changed files via git diff
 - Verifies all key ideas from text/transcript sources are present

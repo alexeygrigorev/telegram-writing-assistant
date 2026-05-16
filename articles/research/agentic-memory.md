@@ -249,7 +249,7 @@ Actionable Patterns:
 - The "right tool for the job" depends on memory type, not a single winner-takes-all approach
 
 Technical Details:
-- [Memori project](https://github).com/MemoriLabs/Memori (12k+ stars)
+- [Memori project](https://github.com/MemoriLabs/Memori) (12k+ stars)
 - Stores memories as structured SQL records with joins and indexes for retrieval
 - Supports multiple SQL backends including PostgreSQL, CockroachDB, MySQL, and OceanBase
 - Can run in hosted mode with API access or self-hosted with your own database
