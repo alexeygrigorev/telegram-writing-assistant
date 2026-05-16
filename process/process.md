@@ -91,6 +91,24 @@ Feedback messages typically contain:
 
 IMPORTANT: When the user mentions corrections to make (e.g., fixing a transcription error, removing something that does not make sense), apply the correction but do NOT add notes about the correction itself to the article. Correction instructions are for the bot only - the article should read as if the error never existed.
 
+## Direct instructions vs improvement ideas
+
+Some messages look like ideas for improving the bot but are actually direct instructions to execute right now. The two look similar at first glance but require very different handling:
+
+- Direct instruction: "Here's URL X. Let's make a markdown document that indexes Y." - This is a TASK to do this session: fetch the URL, build the document, save it.
+- Improvement idea: "The bot should be smarter about routing." - This is a future-work note for `writing-assistant-improvement-ideas.md`.
+
+Telltale phrases for direct instructions (Russian and English):
+- "Давай сделаем..." / "Let's make/build..."
+- "Сделай..." / "Make/Do..."
+- "Иди и сделай..." / "Go and do..."
+- "Прямо сейчас" / "Right now"
+- A specific URL or input provided in the same message
+
+When the user provides specific inputs (a URL, a file path, a name) along with a "let's build X" framing, default to treating it as a direct instruction. Execute it during this processing session. If you guess wrong and treat an instruction as an idea, the user will have to correct you.
+
+Do NOT add direct-instruction tasks to `writing-assistant-improvement-ideas.md`. That file is for future-work ideas about how the bot should behave, not for things the user is asking you to do now.
+
 ## Processing Feedback
 
 When you encounter feedback:

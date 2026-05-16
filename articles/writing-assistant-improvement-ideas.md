@@ -113,18 +113,6 @@ This would replace the current approach where the bot tries to infer the intent 
 
 While recording voice messages, the bot occasionally returns a transcription failure - an httpx connection error in the network layer, most likely a missed call to Grok. When this happens, the bot should just retry instead of surfacing the error. A single retry would probably be enough to cover the transient case.[^18]
 
-## Index of Already-Published Substack Articles
-
-Alexey's published articles live on his Substack at [alexeyondata.substack.com/archive](https://alexeyondata.substack.com/archive). When he mentions something he has already shared, the bot should look there. The plan is to build a markdown document that indexes the published articles with:[^19]
-
-- Title
-- Short description of what each article is about
-- URL link
-
-This way, when Alexey talks about something he has already covered, the bot can find the matching Substack post quickly and insert a direct link into the document it is writing.[^19]
-
-This is not just an idea - it has been recorded as a GitHub issue in the writing-assistant project so it can be picked up and fixed later.[^20]
-
 ## Sources
 
 [^1]: [20260217_083630_AlexeyDTC_msg1867_transcript.txt](../inbox/used/20260217_083630_AlexeyDTC_msg1867_transcript.txt)
@@ -145,5 +133,3 @@ This is not just an idea - it has been recorded as a GitHub issue in the writing
 [^16]: [20260220_073330_AlexeyDTC_msg2132.md](../inbox/used/20260220_073330_AlexeyDTC_msg2132.md)
 [^17]: [20260220_073330_AlexeyDTC_msg2133.md](../inbox/used/20260220_073330_AlexeyDTC_msg2133.md)
 [^18]: [20260516_180317_AlexeyDTC_msg4070_transcript.txt](../inbox/used/feedback/20260516_180317_AlexeyDTC_msg4070_transcript.txt)
-[^19]: [20260516_182543_AlexeyDTC_msg4112.md](../inbox/used/20260516_182543_AlexeyDTC_msg4112.md)
-[^20]: [20260516_185049_AlexeyDTC_msg4116_transcript.txt](../inbox/used/20260516_185049_AlexeyDTC_msg4116_transcript.txt)
