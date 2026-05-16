@@ -1,0 +1,9 @@
+---
+source: telegram_voice
+date: 2026-05-16T18:50:59+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260516_185059_AlexeyDTC_msg4118.ogg
+---
+
+Вот мое прошлое сообщение, оно к статье про working from my phone.

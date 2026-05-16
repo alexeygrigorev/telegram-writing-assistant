@@ -159,6 +159,14 @@ All of the above plus my Telegram writing assistant means I can be in the metro,
 
 That is what makes the whole thing work for me. My schedule is uneven - I take the child to school in the morning, I come back, I can start something, then I go to the gym, check progress between sets, come home and do real focused work, then a lunch meeting, transport time, child pickup at three - and between all those slots I have moments where I am just sitting in a tram or somewhere. Combined with the constant travel, this mobile setup lets me use that time. I do not have a lot of free time, and this is how I make more of it.[^17]
 
+## How much time this article actually took
+
+The last session with my Telegram assistant - the one that produced this article - took about 40 minutes in total. I got on the tram, talked into Telegram while riding, took screenshots along the way, then switched to the metro. The session itself was around 40 minutes.[^28]
+
+After that, several more hours go into editing - maybe 3-4 hours - to bring the article into a proper format. The flow is: brain dump first, then I look at the brain dump with my own eyes, correct it, picture what needs to be there, and prepare it for the final editing pass. Then Valeria and I go through it together. And out comes the article.[^28]
+
+Earlier, an article like this would have taken me much longer - several days, probably, to sit down, write it, and plan the story. In total it now takes much less time than before. That is what lets me share interesting material here and keep trying new things constantly.[^28]
+
 ## Sources
 
 [^1]: [20260516_175010_AlexeyDTC_msg4040_transcript.txt](../inbox/used/20260516_175010_AlexeyDTC_msg4040_transcript.txt)
@@ -188,3 +196,4 @@ That is what makes the whole thing work for me. My schedule is uneven - I take t
 [^25]: [20260516_181737_AlexeyDTC_msg4100.md](../inbox/used/20260516_181737_AlexeyDTC_msg4100.md) / [20260516_181827_AlexeyDTC_msg4102_transcript.txt](../inbox/used/20260516_181827_AlexeyDTC_msg4102_transcript.txt)
 [^26]: [20260516_181848_AlexeyDTC_msg4104_transcript.txt](../inbox/used/20260516_181848_AlexeyDTC_msg4104_transcript.txt)
 [^27]: [20260515_155640_AlexeyDTC_msg4038_transcript.txt](../inbox/used/20260515_155640_AlexeyDTC_msg4038_transcript.txt)
+[^28]: [20260516_182349_AlexeyDTC_msg4111_transcript.txt](../inbox/used/20260516_182349_AlexeyDTC_msg4111_transcript.txt)
