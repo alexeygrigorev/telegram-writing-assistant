@@ -10,7 +10,7 @@ status: draft
 
 Lately I've been at three conferences in a row: first Darmstadt, then Amsterdam, then Porto. The work doesn't slow down for any of that, so I have to keep things moving.[^1][^2][^3][^29]
 
-On top of the conferences, I've been travelling with my child a lot. We went away during the Easter holidays. May 1st was a long weekend in Germany. I'm dictating this just after we got back from another long weekend around 14-15 May. We went to Stuttgart and into the Schwarzwald (Black Forest).[^29]
+On top of the conferences, I've been travelling with my child a lot. We went away during the Easter holidays. May 1st was a long weekend in Germany. I'm dictating this just after we got back from another long weekend around 14-16 May. We went to Stuttgart and into the Schwarzwald (Black Forest).[^29]
 
 My day-to-day schedule is uneven on its own:
 
@@ -33,11 +33,13 @@ This article is about how I work from the phone during all of that spare time. T
 
 ## A dedicated remote server
 
-Working from a phone is not new for me. I already wrote about this flow in [Shipping Features from my Smartphone with GitHub Copilot](https://alexeyondata.substack.com/p/shipping-features-from-a-tram-stop). I used GitHub Copilot to write code from a tram. Under the hood that was GitHub Actions doing the work for me. It was a kind of "remote environment", but not one I owned - I borrowed GitHub's runtime for each task.
+Working from a phone is not new for me.
 
 I've been practicing phone work for a long time. My whole DataTalks.Club routine was built around it so I could keep things moving from anywhere.
 
-That's changed in the last few months. I now have a full dedicated Linux server on rent, running 24/7. I use it for everything described here. I connect over SSH and install whatever I need: Claude Code, Codex, OpenCode. They all live there.[^4][^29][^31]
+When GitHub Copilot appeared, I could do even more. I already wrote about this flow in [Shipping Features from my Smartphone with GitHub Copilot](https://alexeyondata.substack.com/p/shipping-features-from-a-tram-stop). I used GitHub Copilot to write code from a tram. Under the hood that was GitHub Actions doing the work for me. It was a kind of "remote environment", but not one I owned - I borrowed GitHub's runtime for each task.
+
+Bur it has changed in the last few months. I now have a full dedicated Linux server on rent, running 24/7. I use it for everything described here. I connect over SSH and install whatever I need: Claude Code, Codex, OpenCode. They all live there.[^4][^29][^31]
 
 On Android I use a client called Termius. I just SSH into the server through it and run whatever I want.[^5]
 
