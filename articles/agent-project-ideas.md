@@ -10,15 +10,17 @@ status: draft
 
 A student from AI Buildcamp asked for a project idea suggestion. They wanted to work on something with a specific customer or business requirement rather than something they define themselves[^1].
 
-The best customer for these kinds of projects is yourself. If you have a problem and want to solve it, you will be the user and the most interested person in making it work. You will be your own customer - that is the ideal scenario[^1].
+The best customer for these kinds of projects is yourself. If you have a problem and want to solve it, you will be the user. You will also be the most interested person in making it work - which is the ideal scenario[^1].
 
-Not everyone has ideas readily available though. This article collects project ideas that people can use for implementing agents or upskilling in core AI engineering skills. Some of these projects will be implemented during AI Buildcamp - this is also a promotion for the course because students are going to implement many of them[^3].
+Not everyone has ideas readily available though. This article collects project ideas that people can use for implementing agents or upskilling in core AI engineering skills. Some of these projects will be implemented during AI Buildcamp. This article is also a promotion for the course because students are going to implement many of them[^3].
 
 This could also become a category on the website where people can see what others implemented and find project ideas[^5].
 
 ## GitHub Issue Creator Bot
 
-A project for someone who has many different GitHub projects and sometimes gets ideas while on the go, away from the computer. Today this is tedious - you open GitHub on the phone, pick the right project, choose an issue template, and describe everything by hand[^2].
+A project for someone with many GitHub projects who sometimes gets ideas on the go, away from the computer.
+
+Today this is tedious. You open GitHub on the phone, pick the right project, choose an issue template, and describe everything by hand[^2].
 
 Instead, a Telegram bot can create issues automatically.
 
@@ -35,15 +37,15 @@ This is just a suggestion to run with or use as inspiration[^2].
 
 An agent that helps people identify projects they can do[^4]. Similar to the "kid-parent" Claude slash commands described in a previous Substack article[^4].
 
-This could be a conversational agent (not an agent, more like a chatbot) that helps people come up with original project ideas[^4].
+This could be a conversational agent (more chatbot than true agent) that helps people come up with original project ideas[^4].
 
-This is a nice project idea on its own, but it is also a useful project for the community. People can try playing with it. It could be a good lead magnet for the community - they would have to sign up to interact with the agent, and then the agent can suggest different ideas[^4].
+This is a nice project idea on its own, but it is also useful for the community. People can try playing with it. It could be a good lead magnet - sign-ups unlock interaction with the agent, and the agent suggests ideas[^4].
 
 ## Problem Discovery Framework
 
 A framework for helping people discover problems that need solving. It helps them think about what kinds of things require automation in what they do right now[^6].
 
-This means coming up with a list of questions you can ask to identify problems that can be solved with AI, automation, and agents. These could be opportunities for automation, opportunities for being more effective, or simply nice portfolio projects[^6].
+This means coming up with a list of questions you can ask to identify problems. The targets are problems that can be solved with AI, automation, and agents. These could be opportunities for automation, opportunities for being more effective, or simply nice portfolio projects[^6].
 
 The best customer is yourself. If you have a problem and want to solve it, you will be your own customer. That is the ideal scenario[^6].
 
@@ -51,23 +53,23 @@ The best customer is yourself. If you have a problem and want to solve it, you w
 
 An agent that scrapes new jobs from different locations. You set it up and it sends you different trends about these jobs - new positions, different trends. You can talk about the trends in the data with your agent[^7].
 
-You can also personalize it. If you have your own profile, it can quickly highlight jobs that you are a good match for. It can also highlight areas for improvement - you say what you already know, and it tells you what else you need to know. It can help you select things based on data, do some sort of research[^7].
+You can also personalize it. If you have your own profile, the agent can quickly highlight jobs you match. It can also surface areas for improvement. You say what you already know, and it tells you what else to learn. The agent helps you pick projects based on the data[^7].
 
-It can cluster different jobs into different clusters, help you select a domain, help you select project ideas for these jobs[^7].
+It can cluster different jobs, help you select a domain, and suggest project ideas for those jobs[^7].
 
-Based on existing data, you can continue collecting this data. Another angle: given all this dataset, what can you do with it to help upskill yourself. Include a link to the recent AI engineering field guide where the data is, so people can build a RAG on top of that to help them. If they also specify their profile, this becomes a cool project[^7].
+Based on the existing dataset, you can keep collecting more data. Another angle: given this dataset, what can you do with it to help upskill yourself? Include a link to the recent AI engineering field guide. People can then build a RAG on top of that to help them. If they also specify their profile, this becomes a cool project[^7].
 
 This is a pretty interesting project and something that could also be implemented for AI Buildcamp[^7].
 
 ## Knowledge Management Bot
 
-Something like the Telegram Writing Assistant, but simpler. You send a voice message or share an article, and instead of Claude, you have an agent that determines the right place to put it[^8].
+Something like the Telegram Writing Assistant, but simpler. You send a voice message or share an article. Instead of Claude, an agent decides the right place to put it[^8].
 
-This is similar to the FAQ Assistant in the DataTalks.Club. You make a request and the agent determines whether this is something new that needs a new entry, or something that should be added to an existing one, plus it creates the right category[^8].
+This is similar to the FAQ Assistant in DataTalks.Club. You make a request. The agent decides whether the content is a new entry or an addition to an existing one. It also creates the right category[^8].
 
-There can be two types of interactions: adding information and asking questions. You can share a link, and the agent describes what is in that link and adds it to the knowledge base. If you share a YouTube video, it makes a summary and puts it somewhere. It is a knowledge management or idea management system[^8].
+There are two types of interactions: adding information and asking questions. You can share a link and the agent describes its contents and adds it to the knowledge base. If you share a YouTube video, it makes a summary and puts it somewhere. It is a knowledge management or idea management system[^8].
 
-Similar to the Telegram Writing Assistant but simpler - you have a bot with a small agent, and you do not need to figure out how to hook up the code yourself[^8].
+Similar to the Telegram Writing Assistant but simpler. You get a bot with a small agent, without figuring out how to hook up the code yourself[^8].
 
 For storage, the simplest approach is just files. Then you can commit everything to Git. Something like a real Obsidian - not the custom system, but actual Obsidian.
 
@@ -81,11 +83,17 @@ Then you can look at your entries. You can also color-code each day. A cron job 
 
 All of this gets saved in whatever format you want. A full journaling experience with all the standard attributes[^10].
 
-Every day you record your results. Then when it is time for a performance review, you can show your manager: look at all these achievements, give me a raise. This is a useful and convenient thing, and why not use AI for it[^10].
+Every day you record your results. When the performance review comes up, you can show your manager: "look at all these achievements - give me a raise". A useful and convenient thing. Why not use AI for it[^10]?
 
-This is something that can be done manually too. When working at a company, having a weekly one-on-one with a manager and preparing a document for it is a common practice. That document then becomes useful for preparing for the performance review. There is a well-known article about this concept called the [brag document](https://jvns.ca/blog/brag-documents/)[^10].
+This can be done manually too. At a company, having a weekly one-on-one with a manager and preparing a document for it is common practice. That document then becomes useful when preparing the performance review. There is a well-known article about this concept called the [brag document](https://jvns.ca/blog/brag-documents/)[^10].
 
-As for the agent tools: you can ask questions about past entries, add new entries, correct entries if something is wrong. The format can be anything[^11].
+The agent tools cover a few interactions[^11]:
+
+- Ask questions about past entries
+- Add new entries
+- Correct entries if something is wrong
+
+The format can be anything.
 
 ## Sources
 
