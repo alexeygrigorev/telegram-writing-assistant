@@ -54,7 +54,7 @@ So I built [tmuxctl](https://github.com/alexeygrigorev/tmuxctl) to make this fas
 - `t -` creates (or attaches to) a session named after the current folder
 - `t -web` creates a separate session with that suffix. In the same folder I can run a code session and a `-web` session running `make dev`
 
-I also lean on Makefiles heavily. From a phone I can't type long commands. I keep everything behind a `make dev` style target. I used Makefiles before, but the phone makes them non-negotiable.[^8]
+I also lean on Makefiles heavily. From a phone I can't type long commands, so I keep everything behind a `make dev` style target. I used Makefiles before, but the phone makes them mandatory.[^8]
 
 <figure>
   <img src="../assets/images/working-from-phone/tmuxctl-session-list.jpg" alt="Terminal output of the t command listing tmux sessions by index and name">
@@ -66,11 +66,13 @@ I know things can be more touchscreen-friendly than this. I have ideas for impro
 
 ## Three agents, three aliases
 
-Inside the session I run agents. I use three of them, in order:
+Inside the session I run agents. Mostly Claude Code, plus increasingly Codex, with OpenCode as the third fallback.
 
-1. Claude Code more and more
-2. Codex when Claude limits run out
-3. OpenCode after that
+My order goes:
+
+- Claude Code is my main one
+- Codex when Claude limits run out
+- OpenCode after that
 
 None of them are new to me - I've been using all three for a while.[^9]
 
@@ -92,9 +94,11 @@ If an agent does something destructive, the radius is limited to this one machin
 
 ## Portable setup via dotfiles
 
-The aliases and configs don't live on a single machine. They come from my dotfiles project at [github.com/alexeygrigorev/.claude](https://github.com/alexeygrigorev/.claude). I install that project on a machine and it sets up all my aliases automatically. The same dotfiles run on my laptop, my tablet, and my remote server. The configuration is identical everywhere and all managed through Git.
+The aliases and configs don't live on a single machine. They come from my dotfiles project at [github.com/alexeygrigorev/.claude](https://github.com/alexeygrigorev/.claude). I install that project on a machine and it sets up all my aliases automatically.
 
-If I ever move to a different machine, one command brings back all my settings for Claude Code, Codex, and OpenCode. That same setup is also what I rely on when restoring the remote server from scratch.[^11][^29]
+The same dotfiles run on my laptop, my tablet, and my remote server. The configuration is identical everywhere, managed through Git.
+
+If I ever move to a different machine, one command brings back my settings for all three agents. Restoring the server takes more work, but the configs come back easily.[^11][^29]
 
 The dotfiles repo also has skills.[^12]
 
@@ -102,7 +106,9 @@ The dotfiles repo also has skills.[^12]
 
 Even with short aliases and tmuxctl, typing on a phone is painful. It gets worse when I want to give an agent a real task. I solve this in two ways.[^12][^13]
 
-First, I use a special Android keyboard called Typeless. I enter the Claude Code session, switch the keyboard into dictation mode, and talk into the phone. Typeless turns my stream of thought into properly structured text - not just a transcript, but something that reads like a written message. The result lands directly in the agent.[^12][^13]
+First, I use a special Android keyboard called Typeless. I enter the Claude Code session, switch the keyboard into dictation mode, and talk into the phone.
+
+Typeless turns my stream of thought into properly structured text. Not just a transcript, but something that reads like a written message. The result lands directly in the agent.[^12][^13]
 
 <figure>
   <img src="../assets/images/working-from-phone/typeless-dictated-input.jpg" alt="Claude Code session on phone with a long, well-formed English sentence in the input area">
@@ -132,7 +138,7 @@ Once a recording is transcribed, I can hand it to my orchestrator agent. The orc
 
 This is especially useful when I want to give feedback in the background. I open the AI Shipping Labs site on my phone and start using it. As I find issues I record them as I go. I end up with a 20-30 minute file. I send that file to the agent on the phone. The agent transcribes it, decomposes it into issues, and starts work.[^16]
 
-The same approach works on a plane. On a plane I obviously can't SSH anywhere. I run a local version on my own laptop, then record feedback into Google Recorder from the phone. Recorder works offline. When I leave the plane and turn off airplane mode, I push the recordings to the agent and it does the work from there.[^18]
+The same approach works on a plane. On a plane I obviously can't SSH anywhere. I run a local version on my own laptop, then record feedback into Google Recorder from the phone. Recorder works offline. When I land and turn off airplane mode, I push the recordings to the agent and it does the work.[^18]
 
 ## ssh-auto-forward-android: port forwarding from the phone
 
@@ -148,7 +154,9 @@ The flow is simple. I open the app, hit Connect, it connects, and I see the list
   <!-- Shows what "Connected" looks like in practice - the list of live forwarded ports the user can tap on -->
 </figure>
 
-When I tap a port row, the browser opens and goes straight to that port on localhost.[^22] In the screenshot above, port 8030 is `llama.cpp` running on the server. Tapping that row drops me into the chat UI.[^23]
+When I tap a port row, the browser opens and goes straight to that port on localhost.[^22]
+
+In the screenshot above, port 8030 is `llama.cpp` running on the server. Tapping that row drops me into the chat UI.[^23]
 
 <figure>
   <img src="../assets/images/working-from-phone/qwen-coder-via-forwarded-port.jpg" alt="A browser chat UI showing a Qwen2.5-Coder 14B exchange via the forwarded port">
@@ -166,9 +174,11 @@ I used this approach a bit at first and use it less now. With CI/CD set up, ever
 
 That CI/CD setup is specific to the AI Shipping Labs site, which I'm working on actively. For smaller side projects I don't have a dev environment. The GitHub-screenshots trick is more relevant there.[^26]
 
-For other visual problems I sometimes ask an agent for a small throw-away tool. Recently I needed to pick banners for the website. I couldn't look at them comfortably from the phone. I told Codex to make me a small HTML page that serves on a specific port and lets me like, reject, and comment on banner variants. It's nothing general-purpose, just a one-shot throwaway app. I open it from the phone, mark what I want, done.[^24][^27]
+For other visual problems I sometimes ask an agent for a small throw-away tool. Recently I needed to pick banners for the website. I couldn't look at them comfortably from the phone.
 
-I had been waiting for days for a chance to do this banner review from a computer, and it never came. Eventually I asked Codex for the picker tool so I could like banners and leave comments from the phone. That's how I ended up choosing the banners for the site.[^27]
+I asked Codex for a small HTML page on a specific port. The page lets me like, reject, and comment on banner variants. Nothing general-purpose - just a one-shot throwaway app. I open it from the phone, mark what I want, done.[^24][^27]
+
+I had been waiting for days for a chance to do this banner review from a computer. It never came. Eventually I asked Codex for the picker tool so I could like banners and leave comments from the phone. That's how I ended up choosing the banners for the site.[^27]
 
 <figure>
   <img src="../assets/images/working-from-phone/banner-picker-community-launch.jpg" alt="Banner review tool showing the AI Shipping Labs Community Launch banner variants with like/neutral/reject controls">
@@ -177,7 +187,7 @@ I had been waiting for days for a chance to do this banner review from a compute
 </figure>
 
 <figure>
-  <img src="../assets/images/working-from-phone/banner-picker-workshop-liked.jpg" alt="Banner review tool with a liked workshop banner and a comment about removing project-based and adding date and time">
+  <img src="../assets/images/working-from-phone/banner-picker-workshop-liked.jpg" alt="Banner review tool: liked workshop banner with a comment requesting removal of 'project-based' and addition of weekday and time">
   <figcaption>Same picker on a workshop banner - I can mark a banner liked and leave a note ("not sure why we need 'project-based' there, add date with weekday and time")</figcaption>
   <!-- Shows the comment flow on a specific variant, which is the whole point of using the picker instead of a static gallery -->
 </figure>
@@ -190,9 +200,9 @@ I had been waiting for days for a chance to do this banner review from a compute
 
 ## The Telegram writing assistant
 
-So far I've talked about how I communicate with agents from the phone, but a large part of my work is also writing - I write a lot. As I mentioned in an [earlier post about the Telegram writing assistant](https://alexeyondata.substack.com/p/telegram-assistant), it's an inseparable part of how I work from the phone too.[^17][^29]
+So far I've talked about how I communicate with agents from the phone. But a large part of my work is also writing - I write a lot. The Telegram writing assistant from [my earlier post](https://alexeyondata.substack.com/p/telegram-assistant) is an inseparable part of how I work from the phone too.[^17][^29]
 
-All of the above plus my Telegram writing assistant means I can be in the metro, like right now, and still get my thoughts out of my head. I dump them into the Telegram assistant. I can also check on my agents, correct them, or hand them a new task if I need to. I don't have a lot of free time, and this is how I make more of it.[^17][^29]
+With this plus my Telegram writing assistant, I can sit in the metro and dump thoughts straight in. I check on my agents, correct them, or hand them a new task. I don't have a lot of free time, so this is how I make more of it.[^17][^29]
 
 ## Behind the scenes: how this article was made
 
@@ -203,19 +213,23 @@ I use Telegram a lot. Right now, as I'm dictating this, I'm in the metro. Here's
 3. I read the result, didn't like parts of it, and recorded another voice note with corrections. The agent did another polishing pass on top - I ran agents several times this way.[^31]
 4. Once the structure was close enough, a human came in for final editing.[^31]
 
-The same flow works for plans and stories: I open the phone, get a stream of thoughts out, then look at it and do the restructuring. Most of the restructuring is done by the agent. What I don't like, I rearrange. And then a human polishes the result.[^31]
+The same flow works for plans and stories. I open the phone, get a stream of thoughts out, then look at it and do the restructuring. Most of the restructuring is done by the agent. What I don't like, I rearrange. And then a human polishes the result.[^31]
 
 ## Time accounting for this article
 
-The 40 minutes I usually quote for an article like this is the first draft (the brain dump) not the total. That part happens in the in-between time.
+The 40 minutes I usually quote for an article like this is the first draft - the brain dump. It is not the total. The draft happens in the in-between time.
 
-Right now I'm at the gym. I've done my warm-up, I've got a few working sets ahead of me, and between sets I have about two minutes of rest each time. I press pause on Google Recorder, do a working set, come back, and pick up where I left off. I got on the tram earlier, talked into Telegram while riding, took screenshots along the way, then switched to the metro. The brain dump was around 40 minutes.[^28][^29]
+Right now I'm at the gym. I've done my warm-up, with a few working sets ahead of me. Between sets I have about two minutes of rest each time. I press pause on Google Recorder, do a working set, come back, and pick up where I left off.
 
-After that comes the polishing pass, because the agent doesn't get everything right on the first try. The polishing flow goes like this. I open Google Recorder, open the article in parallel, and read through it while recording voice feedback on what needs to change. When I'm done I send that recording to the Telegram writing assistant, and it folds all that feedback into the article. After that there's another style-polish pass by the agent, and finally the human editing pass.[^29]
+I got on the tram earlier and talked into Telegram while riding. I took screenshots along the way, then switched to the metro. The brain dump was around 40 minutes.[^28][^29]
 
-In total, several more hours go into editing, maybe 3-4 hours, to bring the article into a proper format. Then Valeria and I go through it together. And out comes the article.[^28]
+After that comes the polishing pass. The agent doesn't get everything right on the first try. The polishing flow goes like this. I open Google Recorder and open the article in parallel. I read through the article while recording voice feedback on what needs to change.
 
-Earlier, an article like this would have taken me much longer - several days, probably, to sit down, write it, and plan the story. It now takes much less time than before. That's what lets me share interesting material here and keep trying new things constantly.[^28]
+When I'm done I send that recording to the Telegram writing assistant. It folds all that feedback into the article. After that there's another style-polish pass by the agent, and finally the human editing pass.[^29]
+
+In total, several more hours go into editing (maybe 3-4 hours) to bring the article into a proper format. Then Valeria and I go through it together. And out comes the article.[^28]
+
+Earlier, an article like this took several days of sitting down, writing it, and planning the story. It now takes much less time. That's what lets me share interesting material here and keep trying new things constantly.[^28]
 
 ## Sources
 
