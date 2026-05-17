@@ -8,7 +8,7 @@ status: draft
 
 # Codehive: Building a Coding Orchestrator
 
-[Codehive](https://github.com/alexeygrigorev/codehive) is my attempt to build a coding orchestrator that embeds everything I've learned from [building projects with agent teams](building-projects-with-agent-teams.md) into a single application.
+[Codehive](https://github.com/alexeygrigorev/codehive) is my attempt to build a coding orchestrator. It embeds everything I've learned from [building projects with agent teams](building-projects-with-agent-teams.md) into a single application.
 
 ## The Vision
 
@@ -42,7 +42,16 @@ And it asks unnecessary questions like "shall we proceed?" when the todo list ex
 
 I also can't see what subagents are doing. The orchestrator launches one and it does something for 30 minutes or an hour. Is it stuck? Does it need a restart? I want to be able to peek inside and correct the process[^2].
 
-The methodology is not enforced - Claude Code can ignore it. I want the orchestrator to be more rigid. The pipeline, the agent roles, the grooming process, and the acceptance criteria should all be hard-coded into the application, not just described in a markdown file that the agent may or may not follow[^4].
+The methodology is not enforced - Claude Code can ignore it. I want the orchestrator to be more rigid.
+
+Four things should be hard-coded into the application[^4]:
+
+- The pipeline
+- The agent roles
+- The grooming process
+- The acceptance criteria
+
+A markdown file is too easy to ignore.
 
 ## Current State
 
@@ -53,7 +62,7 @@ I dictated the project vision to ChatGPT while walking outside. It produced a su
   <figcaption>Codehive project summary - 96 issues, ~2,195 tests across all components</figcaption>
 </figure>
 
-I haven't tested it yet because I don't have time. This is the most complex project of all - I want a mobile app, a website, a backend, and a Telegram client[^2][^3].
+I haven't tested it yet because I don't have time. This is the most complex project of all. It needs a mobile app and a website on top of a backend and a Telegram client[^2][^3].
 
 ## Agents Slack Off
 
@@ -77,13 +86,15 @@ That's what led to the "no silent descoping" rule in the process. I don't have a
 
 You still need to occasionally look under the hood. It cooks on its own mostly fine, but sometimes you need to lift the lid and check[^6].
 
-With the Jekyll project I wanted pixel-perfect matching. I asked the agents to create tasks based on benchmarks comparing the output. After some time I checked the report - it said everything was fine, pixel-perfect match, and the few percent of different pixels were "font rendering artifacts." A few percent of pixels on a large screenshot is thousands of pixels. I looked at the diff myself and it was clearly not just font rendering[^6].
+With the Jekyll project I wanted pixel-perfect matching. I asked the agents to create tasks based on benchmarks comparing the output. After some time I checked the report. It said everything was fine and the few percent of different pixels were "font rendering artifacts".
+
+A few percent of pixels on a large screenshot is thousands of pixels. I looked at the diff myself and it was clearly not just font rendering[^6].
 
 Same problem with Mermaid diagrams - the output is visual, and agents struggle to evaluate images. We fixed one thing and broke two others. Tests didn't catch it because it's visual, hard to test automatically. I had to write a visual guideline checklist for the agents to follow[^6].
 
 I haven't found a way to fully automate this. It seems project-dependent. My goal right now is to do as many projects as possible with this methodology. Each project sharpens it. I think after about 10 more projects I'll have a solid system[^6].
 
-Phil Winder [wrote about migrating a Python codebase to Go using Claude Code](https://www.linkedin.com/posts/drphilwinder_i-just-migrated-a-production-python-codebase-activity-7430343296205459456-eXUm) and concluded: "Claude is a powerful but literal executor. The gaps in your design become the bugs in your system." This matches what I see[^8].
+Phil Winder [wrote about migrating a Python codebase to Go using Claude Code](https://www.linkedin.com/posts/drphilwinder_i-just-migrated-a-production-python-codebase-activity-7430343296205459456-eXUm). He concluded: "Claude is a powerful but literal executor. The gaps in your design become the bugs in your system." This matches what I see[^8].
 
 ## Sources
 

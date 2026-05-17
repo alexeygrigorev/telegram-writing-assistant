@@ -8,15 +8,21 @@ status: draft
 
 # Ranking for AI Search: LinkedIn Visibility and AI Overview Tracking
 
-Two resources on a new SEO challenge: how to get your content cited by AI search engines, and how to track whether your brand appears in Google's AI Overviews.
+Two resources on a new SEO challenge. The first is about getting your content cited by AI search engines. The second tracks whether your brand appears in Google's AI Overviews.
 
 ## LinkedIn AI Visibility Study (Semrush)
 
-Semrush analyzed 325,000 unique prompts across ChatGPT Search, Google AI Mode, and Perplexity in January-February 2026, identifying 89,000 unique LinkedIn URLs cited in AI-generated responses[^1].
+Semrush analyzed 325,000 unique prompts across ChatGPT Search, Google AI Mode, and Perplexity in January-February 2026. They identified 89,000 unique LinkedIn URLs cited in AI-generated responses[^1].
 
 ## Key findings
 
-LinkedIn is the second most cited domain across AI models, appearing in 11% of AI responses on average - ahead of Wikipedia, YouTube, and all major news publishers. Breakdown by model: ChatGPT Search 14.3%, Google AI Mode 13.5%, Perplexity 5.3%[^1].
+LinkedIn is the second most cited domain across AI models. It appears in 11% of AI responses on average - ahead of Wikipedia, YouTube, and all major news publishers.
+
+Breakdown by model:
+
+- ChatGPT Search: 14.3%
+- Google AI Mode: 13.5%
+- Perplexity: 5.3%[^1]
 
 AI responses closely mirror LinkedIn source content, with semantic similarity scores of 0.57-0.60. This is higher than Reddit (0.53-0.54) and Quora (0.435), meaning LinkedIn content is more likely to be represented accurately[^1].
 
@@ -28,7 +34,7 @@ Educational and advice-driven content wins - 54-64% of cited posts focus on shar
 
 ## Consistency over fame
 
-About 75% of cited post authors are frequent posters (5+ posts in four weeks). Nearly half of cited authors have 2,000+ followers, but creators with fewer than 500 followers are also regularly cited if their content is authoritative[^1].
+About 75% of cited post authors are frequent posters (5+ posts in four weeks). Nearly half of cited authors have 2,000+ followers. Creators with fewer than 500 followers are also regularly cited if their content is authoritative[^1].
 
 Virality is irrelevant. The median cited post has 15-25 reactions and no more than 1 comment. AI retrieval rewards relevance, not popularity[^1].
 
@@ -40,11 +46,13 @@ Use precise, consistent terminology for the brand and category. Maintain both a 
 
 ## AI Overview Tracker
 
-A web app concept for tracking whether a brand appears in Google's AI Overviews (the AI-generated answer boxes at the top of Google search results). It is written up as a Lovable prompt - a specification designed to be fed into Lovable to generate a working web application[^2].
+A web app concept for tracking whether a brand appears in Google's AI Overviews. Overviews are the AI-generated answer boxes at the top of search results. The concept is written up as a Lovable prompt - a spec fed into Lovable to generate a working web app[^2].
 
 ## Mechanics
 
-The app takes two inputs: a brand name or domain and a CSV file with search queries. For each query, it calls the SearchAPI (searchapi.io) to retrieve Google search results, detects whether an AI Overview is present, extracts the cited domains, and checks whether the user's brand appears[^2].
+The app takes two inputs: a brand name or domain, and a CSV file with search queries.
+
+For each query, it calls the SearchAPI (searchapi.io) to retrieve Google search results. It then detects whether an AI Overview is present, extracts the cited domains, and checks whether the user's brand appears[^2].
 
 ## Output
 
@@ -54,7 +62,7 @@ The results are displayed in a dashboard with three sections[^2]:
 - Competitor insights: domains most frequently cited across all AI Overviews, highlighting competitors mentioned more often than the user's brand
 - Query-level table: row-by-row breakdown showing each query, AI Overview presence, brand mention status, and cited domains
 
-This addresses the emerging concern of "AI search visibility" - as Google increasingly shows AI Overviews, brands need to track whether they are cited in those AI-generated answers, not just in traditional organic results[^2].
+This addresses the emerging concern of "AI search visibility". As Google increasingly shows AI Overviews, brands need to track citations in those AI-generated answers. Traditional organic results are no longer enough[^2].
 
 ## Sources
 

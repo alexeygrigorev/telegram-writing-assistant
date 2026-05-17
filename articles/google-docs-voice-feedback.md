@@ -22,7 +22,7 @@ The rough architecture has three main components[^1]:
 2. LLM Parser (match text) - understands what to change
 3. Google Docs API - applies the changes
 
-Voice input goes to the LLM parser which identifies what needs to change (e.g. "Para 3 -> X"), then the Google Docs API applies the change in suggestion mode.
+Voice input goes to the LLM parser. The parser identifies what needs to change (e.g. "Para 3 -> X"). The Google Docs API then applies the change in suggestion mode.
 
 <figure>
   <img src="../assets/images/google-docs-voice-feedback/architecture-diagram.jpg" alt="Architecture diagram showing Web Speech to LLM Parser to Google Docs API flow">
@@ -40,7 +40,14 @@ I described the idea to ChatGPT first using voice dictation (Win+H) to get an in
   <!-- The voice-dictated prompt explaining the concept to ChatGPT for initial assessment -->
 </figure>
 
-Then Claude Code started building the project - "Google Docs Suggestion Editor: Voice-powered Google Docs editor with AI understanding." Features include voice input for editing feedback, AI-powered understanding of edit requests, direct integration with Google Docs, and fast transcription via Groq Whisper[^3].
+Then Claude Code started building the project - "Google Docs Suggestion Editor: Voice-powered Google Docs editor with AI understanding."
+
+The features cover[^3]:
+
+- Voice input for editing feedback
+- AI-powered understanding of edit requests
+- Direct integration with Google Docs
+- Fast transcription via Groq Whisper
 
 <figure>
   <img src="../assets/images/google-docs-voice-feedback/claude-code-project-setup.jpg" alt="Claude Code creating the project README and structure">
@@ -85,7 +92,9 @@ uv run python -m src.cli "DOC_URL" --text
 
 ## Google Docs API has no suggestion mode
 
-The tool runs end-to-end against the Google Docs API and several tests pass. The problem is that it overwrites text instead of making suggestions[^6]. The Google Docs API does not support suggestion mode. There is a [question on Stack Overflow](https://stackoverflow.com/questions/60775916/google-docs-api-edit-text-as-suggestion) about this that is already 5 years old, and the suggestion capability never appeared in the API[^6][^7].
+The tool runs end-to-end against the Google Docs API and several tests pass. The problem is that it overwrites text instead of making suggestions[^6].
+
+The Google Docs API does not support suggestion mode. There is a [question on Stack Overflow](https://stackoverflow.com/questions/60775916/google-docs-api-edit-text-as-suggestion) about this that is already 5 years old. The suggestion capability never appeared in the API[^6][^7].
 
 The current workaround is to have the agent apply changes as comments instead of suggestions. It remains to be seen which approach is more convenient - comments or just overwriting directly[^6].
 

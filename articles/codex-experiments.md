@@ -10,7 +10,7 @@ status: draft
 
 ## Claude Code Usage Limits Getting Worse
 
-Last week I hit the Claude Code weekly limit for the first time ever. I was doing a lot of things, and there was some kind of promotion where they doubled the usage amount, but I still ran out. I started looking at alternatives[^1].
+Last week I hit the Claude Code weekly limit for the first time ever. I was doing a lot of things. There was some kind of promotion where they doubled the usage amount, but I still ran out. I started looking at alternatives[^1].
 
 Then something new happened. Today I was preparing the AI Hero course to upload it to the AI Shipping Labs platform. I took markdown documents, threw them in, and asked the agent to split one large file into several smaller files. My session usage jumped from 80% straight to 100%. That has never happened before on such a simple task[^1].
 
@@ -36,7 +36,7 @@ I have been using Codex for several days now. Overall I like it. It has a nice m
 
 I am testing Codex on RustKill, which is my Jekyll replacement project. It handles the work well enough. The code quality is fine - the direction of what it does is correct[^5].
 
-The best part is that I do not feel the limits on Codex at all, even though my plan is $20, not $10[^5].
+The best part is that I do not feel the limits on Codex at all. My plan is $20, not $10[^5].
 
 ## Agent Workflow in Codex
 
@@ -58,7 +58,7 @@ The main thing missing in Codex is a convenient task widget like Claude Code has
   <!-- Screenshot showing the user explicitly asking for active agent status, Codex checking and reporting that Heisenberg and James workers have completed -->
 </figure>
 
-In Claude Code, the todo widget lets me run long sessions. I add a task to the todo list that says "take the next task" and make sure there is always a task to take the next task. This way the orchestrator keeps going through the queue automatically[^1].
+In Claude Code, the todo widget lets me run long sessions. I add a "take the next task" entry and make sure there is always one queued. The orchestrator keeps going through the queue automatically[^1].
 
 To be honest, in Claude Code the todo widget has not been working well lately either. Since they rolled out the 1 million token context window, something broke. The todo widget stopped working as well as it used to[^1].
 
@@ -66,7 +66,7 @@ In Codex I have not found this pattern yet. I need more babysitting - I have to 
 
 ## Auto-Continue Behavior
 
-In Claude Code, when an agent finishes its work, the orchestrator automatically wakes up. If the orchestrator was idle and waiting for a response, it gets a ping that the subagent completed and immediately picks up the next task[^5].
+In Claude Code, when an agent finishes its work, the orchestrator automatically wakes up. If the orchestrator was idle and waiting for a response, it gets a ping when the subagent completes. It then immediately picks up the next task[^5].
 
 In Codex I have not noticed this behavior. The orchestrator does not auto-continue when agents finish. This is less convenient because I have to manually check and prompt it[^5].
 
@@ -76,7 +76,7 @@ All of this should be fixable with a custom orchestrator that launches different
 
 This experience reinforces my idea of building a program that allows seamless switching between LLM providers. The concept is an orchestrator that has access to several providers and picks any available model for each task. If one provider hits limits, it switches to another[^1].
 
-I want a stricter todo list system, and I want to be less dependent on any specific LLM. The limits are getting tighter, and a tool that lets me seamlessly switch from one provider to another could be valuable. I plan to discuss this in the Friday newsletter[^1].
+I want a stricter todo list system, and I want to be less dependent on any specific LLM. The limits are getting tighter. A tool that lets me seamlessly switch from one provider to another could be valuable. I plan to discuss this in the Friday newsletter[^1].
 
 I could also look into using multiple accounts in Claude Code to jump from one to another when limits hit. That is more of a stream-of-consciousness idea[^1].
 
