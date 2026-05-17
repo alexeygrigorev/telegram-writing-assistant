@@ -22,7 +22,15 @@ litehive is a local, file-based task manager. Everything is in YAML files. You a
 
 The files are stored in git, so there's no risk of accidentally deleting a database with all tasks. Everything is reliably stored as YAML files[^1].
 
-The core idea is this cycle: first, the PM grooms the task, then the software engineer implements it, then the tester tests it, then the PM accepts it, then everything gets committed to git. This is the main idea - the process is enforced. Before, the agent had the ability to cut corners and skip steps. Now it can't. It has to follow the process[^1].
+The core cycle goes through the same steps every time:
+
+1. The PM grooms the task
+2. The software engineer implements it
+3. The tester tests it
+4. The PM accepts it
+5. Everything gets committed to git
+
+The process is enforced. Before, the agent had the ability to cut corners and skip steps. Now it can't. It has to follow the process[^1].
 
 ## Key Design Goals
 
@@ -30,7 +38,7 @@ The main catalyst for this project was my dependency on Claude Code. The week ju
 
 <iframe src="https://x.com/Al_Grigor/status/2038548505321488509" width="550" height="300"></iframe>
 
-Many users complain about the same thing. My experience showed that depending on one specific tool can be a problem - limits run out on Monday, and if you need to keep working, it gets expensive. I wanted a system where this dependency does not exist. This was the main reason for building litehive[^18].
+Many users complain about the same thing. My experience showed that depending on one specific tool can be a problem. Limits run out on Monday, and if you need to keep working, it gets expensive. I wanted a system where this dependency does not exist. This was the main reason for building litehive[^18].
 
 <figure>
   <img src="../assets/images/litehive/codex-usage-limits.jpg" alt="Codex usage limits showing 17% weekly remaining">
@@ -46,9 +54,9 @@ Many users complain about the same thing. My experience showed that depending on
 
 The first goal is deterministic execution - the state machine decides what happens, not the agent[^2].
 
-The second idea is seamless swap between execution engines. I want to easily switch from one engine to another. For example, if I'm using Claude Code and I hit the limit, I want to be able to plug in other CLI interfaces and use them.
+The second idea is seamless swap between execution engines. I want to easily switch from one engine to another. If I hit the Claude Code limit, I want to plug in other CLI interfaces and use them.
 
-If one of them starts failing during execution, there's a retry mechanism that restarts it. In Claude Code, if something stops because their backend is down, execution doesn't automatically continue - you have to go into the session and continue manually. In litehive, everything is automatic[^2].
+If one of them starts failing during execution, there's a retry mechanism that restarts it. In Claude Code, if something stops because their backend is down, execution does not auto-continue. You have to go into the session and continue manually. In litehive, everything is automatic[^2].
 
 ## Building a Self-Writing System
 
@@ -56,7 +64,7 @@ I used Codex to build litehive because I had run out of Claude Code limits. I in
 
 My first prompt described the goal. Here's Codehive, I want a stripped version of it as a CLI. To continue working, we need to use litehive to build litehive - a system that writes its own next version[^3].
 
-I told it to plan the tasks, add them to the backlog, and run the process. Write a bash script that does a while loop - if there are tasks in the queue, take one and run it.
+I told it to plan the tasks, add them to the backlog, and run the process. Write a bash script with a while loop: if the queue has tasks, take one and run it.
 
 Bash was the right choice here. The script was modifying its own source, so the next iteration of the loop would pick up the new version. The result was a self-writing system. I would drop in, add ideas, and it worked. A couple of things happened during the process that I had to fix[^3].
 
@@ -74,9 +82,17 @@ It helped, but not completely. Sometimes the recovery agent wouldn't launch, som
 
 [Code](https://github.com/alexeygrigorev/tmuxctl)
 
-I had to check in manually every time, go into SSH, see what's happening, tell it to check the status, fix things, kill processes, restart. Eventually I got tired of doing this manually. I opened another Codex session and said I want to write a tool that sends messages to tmux[^5].
+I had to check in manually every time. Go into SSH and see what was happening. Tell it to check the status, fix things, kill processes, restart. Eventually I got tired of doing this manually. I opened another Codex session and said I wanted a tool that sends messages to tmux[^5].
 
-Tmux is what I use to run all these agents on my remote server. It turned out to be convenient that in tmux I can send any prompt - "do a status report", "check if anything is stuck", "if something is stuck, fix it". This was my second Codex session, and Codex did it in one shot. I had to tweak it a bit afterwards, but the basic functionality was done in one pass[^5].
+Tmux is what I use to run all these agents on my remote server.
+
+The convenient thing is that I can send any prompt through tmux:
+
+- "do a status report"
+- "check if anything is stuck"
+- "fix it if stuck"
+
+This was my second Codex session. Codex did it in one shot. I had to tweak it a bit afterwards, but the basic functionality was done in one pass[^5].
 
 Beyond sending commands, tmuxctl makes attaching to sessions much faster:
 
@@ -84,11 +100,11 @@ Beyond sending commands, tmuxctl makes attaching to sessions much faster:
 - `t 2` attaches to the second most recent
 - `t session-name` attaches to a named session
 
-Instead of writing `tmux attach -t session-name` or `tmux new-session -s name`, I just write `t` followed by whatever I need. I also use Typer, a Python library for CLI applications, which gives me tab completion - I can press tab and see all available sessions[^6][^7].
+Instead of writing `tmux attach -t session-name` or `tmux new-session -s name`, I just write `t` followed by whatever I need. I also use Typer, a Python library for CLI applications. It gives me tab completion - I can press tab and see all available sessions[^6][^7].
 
 ## Automated Poking
 
-Using tmuxctl, every 30 minutes a cron job sends a message: "report your progress, and if something is stuck, fix it". And it fixes things. The need for me to check in became much smaller. I knew everything was working. If I don't check, nothing bad happens[^8].
+Using tmuxctl, every 30 minutes a cron job sends a message: "report your progress and fix anything that is stuck". And it fixes things. The need for me to check in became much smaller. I knew everything was working. If I don't check, nothing bad happens[^8].
 
 <figure>
   <img src="../assets/images/litehive/tmuxctl-status-check.jpg" alt="tmuxctl sending a status check to a litehive session">
@@ -96,9 +112,9 @@ Using tmuxctl, every 30 minutes a cron job sends a message: "report your progres
   <!-- Shows the automated status check that runs every 30 minutes via cron -->
 </figure>
 
-I was busy all day - hiking in the Alps. I didn't have the ability or desire to check my phone. When riding a bus or train somewhere, I had a chance to play with the phone and launch some agent sessions. But on the hike, that wasn't possible. Thanks to this tool that pokes the agent every 30 minutes and says "don't forget, you should be working", it turned out useful[^8].
+I was busy all day - hiking in the Alps. I didn't have the ability or desire to check my phone. When riding a bus or train, I had a chance to play with the phone and launch some agent sessions. But on the hike, that wasn't possible. The tool poked the agent every 30 minutes with "don't forget, you should be working"[^8].
 
-The combination of two things made a big difference: the recovery agent that fixes issues, and the periodic poking via tmuxctl to keep Codex working[^8].
+Two things made a big difference together. The recovery agent fixed issues, and the periodic poking via tmuxctl kept Codex working[^8].
 
 ## Killing Stale Agents
 
@@ -124,15 +140,23 @@ When my Claude Code limit reset on Friday, I switched to Claude Code and added s
 
 Adding Claude Code support went better through Claude Code - it knows its own quirks best[^9].
 
-GLM-5 turned out to be slow. Apparently many people use it, so one message can take 7-10 minutes to process. So in parallel I started working on a separate wrapper - instead of using OpenCode, I decided to write my own agent specifically for ZAI[^9].
+GLM-5 turned out to be slow. Apparently many people use it, so one message can take 7-10 minutes to process. In parallel I started working on a separate wrapper. Instead of OpenCode, I decided to write my own agent specifically for ZAI[^9].
 
 ## GoZ: Minimal ZAI Engine
 
 [Code](https://github.com/alexeygrigorev/goz)
 
-OpenCode has too many bells and whistles. I wanted a minimal CLI executor that can only run bash commands, edit files, and read files. Nothing else. As simple and compact as possible, with nothing unnecessary taking up context, so it would be faster[^10][^11].
+OpenCode has too many bells and whistles.
 
-The purpose is to use it as a fallback engine when all other agents run out of limits, so work can continue. I used litehive to build GoZ - this was a test of litehive on a new project[^9].
+I wanted a minimal CLI executor that can do three things and nothing else:
+
+- Run bash commands
+- Edit files
+- Read files
+
+As simple and compact as possible, with nothing unnecessary taking up context. That way it stays fast[^10][^11].
+
+The purpose is to use it as a fallback engine when all other agents run out of limits. Work then continues. I used litehive to build GoZ - this was a test of litehive on a new project[^9].
 
 GoZ is not as powerful as Claude Code or other wrappers like OpenCode. It just needs to run agent sessions and continue if they break. As one of the engines in litehive, it serves that purpose[^11].
 
@@ -140,7 +164,7 @@ GoZ is not as powerful as Claude Code or other wrappers like OpenCode. It just n
 
 There was a problem with GoZ in litehive. The glm-5.1 model was slow, and token-level streaming made transcripts hard to read. Word boundaries were broken in the output ("park ed", "observ ability", "RES UM ABLE"). The issue was in GoZ's adapter, which was not joining tokens properly[^21][^22].
 
-The fix was straightforward: tell the agent to create a task in GoZ to fix it. The agent created task T-0017 in GoZ to fix transcript rendering - joining streaming tokens into complete words and sentences. Since the agent uses its own code to build the next version, this is an interesting concept: tools that improve themselves[^21][^22].
+The fix was straightforward: tell the agent to create a task in GoZ to fix it. The agent created task T-0017 in GoZ to fix transcript rendering. The task joins streaming tokens into complete words and sentences. The agent uses its own code to build the next version. An interesting concept: tools that improve themselves[^21][^22].
 
 <figure>
   <img src="../assets/images/litehive/goz-self-improvement-task.jpg" alt="Terminal showing GoZ creating a task to fix its own transcript rendering">
@@ -178,7 +202,7 @@ Codex was celebrating the number of people who joined, so they reset the quotas.
 
 ## Codex CLI
 
-The Codex CLI is not as advanced as Claude Code, but you can still do a lot with it. The main thing for me is that I can run a litehive session in it, and it doesn't matter which engine I use - Codex, Claude Code, OpenCode, or GoZ.
+The Codex CLI is not as advanced as Claude Code, but you can still do a lot with it. The main thing for me is that I can run a litehive session in it. It doesn't matter which engine I use - Codex, Claude Code, OpenCode, or GoZ.
 
 I can launch a litehive session and periodically say "add this task, add that task, watch the execution". It runs in daemon mode, solving tasks, and if something goes wrong, automatic recovery handles it. At least, that's the vision. I hope to get there soon[^13].
 
