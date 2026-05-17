@@ -8,11 +8,11 @@ status: draft
 
 # OpenClaw Experiments
 
-Notes from experimenting with OpenClaw locally. The trigger was an AI Shipping Labs member who wanted to run a group session about OpenClaw and asked me to test the bootstrap instructions first[^1].
+Notes from experimenting with OpenClaw locally. An AI Shipping Labs member wanted to run a group session about OpenClaw. He asked me to test the bootstrap instructions first[^1].
 
 ## Bootstrap Conversation
 
-The initial bootstrap flow worked well. When OpenClaw starts up with no identity file, it greets you as a blank slate and asks who you are and what to call it.
+The initial bootstrap flow worked well. When OpenClaw starts up with no identity file, it greets you as a blank slate. It then asks who you are and what to call it.
 
 <figure>
   <img src="../assets/images/openclaw-experiments/bootstrap-blank-slate.jpg" alt="OpenClaw bootstrap message describing the agent as a fresh workspace with no memories or identity">
@@ -20,7 +20,7 @@ The initial bootstrap flow worked well. When OpenClaw starts up with no identity
   <!-- Shows that the bootstrap instructions produce the expected blank-slate intro on first run -->
 </figure>
 
-It also offers a placeholder name (in this case "Clo") and asks you to either keep it, pick something else, and define what kind of assistant you want it to be.
+It also offers a placeholder name ("Clo" in this case). You can keep it or pick something else, then define what kind of assistant you want it to be.
 
 <figure>
   <img src="../assets/images/openclaw-experiments/bootstrap-telegram.jpg" alt="Bootstrap conversation in Telegram with Clo placeholder asking about role and vibe">

@@ -8,11 +8,11 @@ status: draft
 
 # Community Session Ideas
 
-Session ideas proposed by AI Shipping Labs community members, recorded so they do not get lost. These are not promises - the filter is whether an idea is useful to others and whether we can run it without too much time investment[^4].
+Session ideas proposed by AI Shipping Labs community members, recorded so they do not get lost. These are not promises. The filter is whether an idea is useful to others. We also check whether we can run it without too much time investment[^4].
 
 ## Memory Layer for AI Agents in Production
 
-A topic I want to bring to the community: I got a task from a startup to design the memory layer for an AI agent, and want to learn from people who have already built this in production[^7].
+A topic I want to bring to the community. I got a task from a startup to design the memory layer for an AI agent. I want to learn from people who have already built this in production[^7].
 
 For those who avoided heavy frameworks and built custom memory systems:
 
@@ -27,18 +27,25 @@ Retrieval strategy questions:
 - Or do you dynamically retrieve and inject relevant memory chunks based on the new query?
 - How are you deciding what is worth remembering long term?
 
-I want to focus on practical approaches that worked in production[^7]. A research article on production memory implementations (ChatGPT, Claude Code, and 5 other open source systems) is in [memory-layer-implementations](../research/memory-layer-implementations.md). The earlier broader research lives in [agentic-memory](../research/agentic-memory.md).
+I want to focus on practical approaches that worked in production[^7].
+
+The research on this lives in two places:
+
+- [memory-layer-implementations](../research/memory-layer-implementations.md) covers ChatGPT, Claude Code, and 5 other open source systems.
+- [agentic-memory](../research/agentic-memory.md) has the earlier broader research.
 
 ## Documenting and Refactoring Agent Output (Carlos Pumar)
 
 Carlos Pumar shared two ideas for the next freestyle workshop after the Telepot session[^6]:
 
-- Documenting "learnings" from agent-built projects so they can be reused. When working on a new project with agents, a lot of valuable insights are produced as the agent works. It is hard to decide what to keep and study in greater detail so that next time you understand what the agent has done in the prior project and will probably do in a new one. A workshop showing how I document these learnings from one project to reuse them later would be useful[^6].
-- Refactoring agent-generated code with named software principles. Look at code an agent has produced, walk through it using known software principles, and have the agent refactor it until the code reads as maintainable. The session would pick whatever code the agent has just produced and iterate on it live[^6].
+- Documenting "learnings" from agent-built projects so they can be reused. When working on a new project with agents, a lot of valuable insights are produced as the agent works. It is hard to decide what to keep and study in detail. A workshop showing how I document these learnings from one project to reuse them later would be useful[^6].
+- Refactoring agent-generated code with named software principles. Look at code an agent has produced, walk through it using known software principles, and have the agent refactor it. The session would pick whatever code the agent has just produced and iterate on it live[^6].
 
 ## AI Engineer Job-Hunt Topics (Sai Kumar G)
 
-Sai Kumar G (a member of my AI Engineering cohort on Maven) replied to Valeriia's outreach with the topics he would like to see covered in the community[^5]:
+Sai Kumar G is a member of my AI Engineering cohort on Maven.
+
+He replied to Valeriia's outreach with the topics he would like to see covered[^5]:
 
 - Recent AI Engineering interview questions
 - Mock interviews and strategy for getting interview calls
@@ -48,13 +55,13 @@ He framed his own goal as needing a plan to build an AI project and get the AI E
 
 ## Pitching ideas to different audiences
 
-A community member proposed a session on how to pitch your idea and how to convey thoughts to different audiences, in a Toastmasters style[^1].
+A community member proposed a Toastmasters-style session on how to pitch your idea and convey thoughts to different audiences[^1].
 
 ## Using the group learning format
 
-Valeriia's suggestion is to run this through the existing group learning format. The person who requested the topic ("how to pitch his ideas") picks a source himself (a book, a blog post), reads it, finds the information, and then makes a presentation about it. Other members give him feedback and share their own experience[^2].
+Valeriia's suggestion is to run this through the existing group learning format. The person who requested the topic picks a source himself - a book or a blog post. He reads it and makes a presentation about it. Other members give him feedback and share their own experience[^2].
 
-This pushes the format beyond hard and soft skills. A mastermind has one person's request at the centre. Other participants first ask clarifying questions to enter the context of what has already been done, and only then share their ideas - not just to share personal experience, but to help solve the specific problem in front of them[^2].
+This pushes the format beyond hard and soft skills. A mastermind has one person's request at the centre. Other participants first ask clarifying questions to enter the context. Then they share their ideas - not just personal experience, but help solving the specific problem in front of them[^2].
 
 ## Mastermind moderation
 
@@ -62,9 +69,9 @@ Masterminds have defined rules for how the session should go. Valeriia has parti
 
 ## Cross-cultural note on feedback
 
-A related point from the same conversation is that when conveying ideas to different audiences, the feedback styles differ sharply by culture. With Israelis and Germans the feedback is direct. They will simply say they did not like something and will not continue.
+A related point from the same conversation. When conveying ideas to different audiences, feedback styles differ sharply by culture. With Israelis and Germans the feedback is direct. They will simply say they did not like something and will not continue.
 
-Americans often do not say this directly. They stay silent. You do not always know in advance what they thought - they might just need time, or they might have disliked something and will not tell you[^3].
+Americans often do not say this directly. They stay silent. You do not always know in advance what they thought. They might just need time, or they might have disliked something and not tell you[^3].
 
 In practice, do what you can, wait, and ping them once more. If they do not want to, or are not ready, just wait. They may come back to us after some time[^3].
 
@@ -72,9 +79,11 @@ This is worth noting as real-world context for a session on pitching to differen
 
 ## Filter for new ideas
 
-We do not have to say yes to every idea and commit to running it. The right move is to record the idea and come back to it, because it might still be useful to the person who proposed it. If it turns out to be useful for others too, we can think about how to do it in a way that does not require much of our time but is still valuable for the community. Mastermind-style group sessions are the main example of the kind of format that fits that constraint[^4].
+We do not have to say yes to every idea and commit to running it. The right move is to record it and come back later. The recording is still useful to the person who proposed it.
 
-As a side note, the two people the original conversation was about are both from Sakhalin, which came up as an interesting coincidence while discussing the idea[^2].
+If the topic is useful for others too, we can think about how to run it in a low-cost way. Mastermind-style group sessions are the main example of a format that fits that constraint[^4].
+
+As a side note, the two people the original conversation was about are both from Sakhalin. An interesting coincidence that came up while discussing the idea[^2].
 
 ## Sources
 

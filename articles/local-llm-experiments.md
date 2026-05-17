@@ -8,7 +8,9 @@ status: draft
 
 # Running Local LLMs for Coding on a Hetzner Server
 
-After several months of using Claude Code, I hit the weekly token limit for the first time. I do not know if this is because Anthropic has been gradually reducing limits or because I was especially active this week. In the past, when I was preparing interview questions, I was processing a lot of content and tokens were flying. This week did not feel particularly heavy, but the weekly limit ran out fast[^1].
+After several months of using Claude Code, I hit the weekly token limit for the first time. The cause is unclear. Anthropic may have been gradually reducing limits, or I was especially active this week.
+
+In the past, when preparing interview questions, I was processing a lot of content and tokens were flying. This week did not feel particularly heavy, but the weekly limit ran out fast[^1].
 
 <figure>
   <img src="../assets/images/local-llm-experiments/claude-code-weekly-limit.jpg" alt="Claude Code usage dashboard showing 98% weekly limit used with session at 5%">
@@ -20,9 +22,17 @@ After several months of using Claude Code, I hit the weekly token limit for the 
 
 Since the weekly limit was running out, I decided to experiment with running a local LLM. I have a Hetzner dedicated server with 64 GB of RAM. I thought this would be a good time to finally try quantized models. I have heard they work reasonably well now[^1].
 
-I wanted to compare multiple approaches: local quantized models via llama.cpp, plus CLI tools for Gemini and GitHub Copilot. The main question was how independent I can be from paid services and how much worse the quality is[^1].
+I wanted to compare multiple approaches:
 
-Objectively measuring quality is hard - by benchmarks, quantized models lose significantly to closed models. But I wanted to evaluate subjectively. For example, I did not notice the difference between Opus 4.5 and 4.6, even though people say the difference is fantastic. If I do not notice the difference between those, maybe I also will not notice the difference between an open-source model and a closed model. If that is the case, for simple tasks I might be able to get by with a self-hosted model[^1].
+- Local quantized models via llama.cpp
+- CLI tools for Gemini
+- CLI tools for GitHub Copilot
+
+The main question was how independent I can be from paid services and how much worse the quality is[^1].
+
+Objectively measuring quality is hard. By benchmarks, quantized models lose significantly to closed models. But I wanted to evaluate subjectively.
+
+For example, I did not notice the difference between Opus 4.5 and 4.6. People say the difference is fantastic. If I cannot notice the gap between those, maybe I will not notice the gap between an open-source model and a closed one. For simple tasks I might be able to get by with a self-hosted model[^1].
 
 ## Benchmarking Quantized Models
 

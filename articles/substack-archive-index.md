@@ -15,7 +15,7 @@ Index of articles already published on [alexeyondata.substack.com](https://alexe
 
 ## Usage
 
-When processing a message where I say "I already wrote about this" / "I talked about this" / "as I mentioned before", scan this table by title or description, find the matching post, and insert the URL directly into the article instead of a generic reference.
+When processing a message where I say "I already wrote about this" / "I talked about this" / "as I mentioned before", scan this table by title or description. Find the matching post and insert the URL directly into the article instead of a generic reference.
 
 ## Published articles
 

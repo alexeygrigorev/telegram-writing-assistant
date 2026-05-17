@@ -8,7 +8,7 @@ status: draft
 
 # Starting Projects with GitHub Copilot
 
-GitHub Copilot has a "Jumpstart your project" feature that lets you describe a project and it writes the first version for you. In my experience, it does not work amazingly well, and there is a limitation on the prompt size[^1].
+GitHub Copilot has a "Jumpstart your project" feature. You describe a project, and it writes the first version for you. In my experience, it does not work amazingly well, and there is a limit on prompt size[^1].
 
 Still, the approach is interesting. I started several projects this way - SQLiteSearch and possibly dirdotenv. You can start something right in the browser without needing a computer. That is the main appeal[^1].
 
@@ -26,7 +26,7 @@ The downside is that I cannot manage what it does in real time. I give a prompt,
 
 ## Best workflow: ChatGPT first, then Copilot
 
-The approach that works even better is to first talk to ChatGPT and have it write a summary of what you want. Then take that summary and use it as the prompt for Copilot. The results are much better this way[^2].
+The approach that works even better is to first talk to ChatGPT and have it write a summary of what you want. Take that summary and use it as the prompt for Copilot. The results are much better this way[^2].
 
 ## Sources
 

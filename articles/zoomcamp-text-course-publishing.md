@@ -12,7 +12,7 @@ An idea for DataTalks.Club courses, starting with LLM Zoomcamp: publish each les
 
 ## Reference: Paul Iusztin's Course
 
-Paul has a free course on GitHub. It is fairly popular, with around 2.7K stars on GitHub and roughly 7.6K subscribers on Substack. That is fewer GitHub stars than LLM Zoomcamp (around 5K), but he has five sponsors on it - MongoDB, Comet, Opik, Unsloth and ZenML[^1].
+Paul has a free course on GitHub. It is fairly popular, with around 2.7K stars on GitHub and roughly 7.6K subscribers on Substack. That is fewer GitHub stars than LLM Zoomcamp (around 5K). Even so, he has five sponsors on it: MongoDB, Comet, Opik, Unsloth, and ZenML[^1].
 
 His diagrams are clean and easy to follow, and the sponsor names appear inside the diagrams themselves. Each lesson is published as a long conspectus on his Substack, with the diagrams and code inline[^1].
 
@@ -46,7 +46,7 @@ For a first version, even publishing on GitHub would already be valuable. The ad
 
 ## Producing the content
 
-Claude Code did well on my existing workshops, so it should be able to handle course lessons in a similar way. Code is not strictly required for this part - Valeriia can help, since she already figured out how to download YouTube transcripts and has Cursor set up[^2].
+Claude Code did well on my existing workshops, so it should handle course lessons in a similar way. Code is not strictly required for this part. Valeriia can help, since she already figured out how to download YouTube transcripts and has Cursor set up[^2].
 
 ## Sources
 

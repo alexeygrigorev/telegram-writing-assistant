@@ -8,7 +8,7 @@ status: draft
 
 # Exasol Workshop Infrastructure Setup
 
-Preparing for a Tuesday workshop with Exasol. The main challenge is that everyone needs the same infrastructure, and some participants will come without their own AWS account. They need to create their own Exasol Personal instance, which requires AWS access.
+Preparing for a Tuesday workshop with Exasol. The main challenge: everyone needs the same infrastructure, and some participants will come without their own AWS account. They need to create their own Exasol Personal instance, which requires AWS access.
 
 The project is open source: [aws-credentials-vending-machine](https://github.com/alexeygrigorev/aws-credentials-vending-machine)[^5].
 
@@ -45,9 +45,9 @@ To get AWS access from the Codespace, two things are needed: a URL and a token.
 
 ## Token Security
 
-The token should not be published openly on the internet - someone could find the repository, use the token, and get access to start mining bitcoin.
+The token should not be published openly on the internet. Someone could find the repository and use the token to start mining bitcoin.
 
-Encrypt the token and store it in the repository in encrypted form. The decryption key (passphrase) is given to participants during the workshop session. At the start of the workshop, participants are told to clone the repository, go to settings, and create a secret with the passphrase.
+Encrypt the token and store it in the repository in encrypted form. The decryption key (passphrase) is given to participants during the workshop session. At the start, participants clone the repository and create a secret with the passphrase in their Codespaces settings.
 
 This minimizes the damage window. During the workshop, people could potentially misuse the access, but the window is only 1.5 hours. The probability of malicious hackers attending a workshop to mine bitcoin instead of learning is quite low.
 
@@ -64,7 +64,15 @@ The participant experience is straightforward:
 
 The `.bashrc` hook runs on every shell open, not just at container creation. This means credentials work even if the Codespace is stopped and restarted.
 
-For token rotation, there is a single script that handles the full lifecycle - generate a new random token, update the AWS stack, encrypt the token with the passphrase, update `devcontainer.json`, commit, and push. This makes it practical to rotate before every workshop[^5].
+For token rotation, there is a single script that handles the full lifecycle:
+
+- Generate a new random token
+- Update the AWS stack
+- Encrypt the token with the passphrase
+- Update `devcontainer.json`
+- Commit and push
+
+This makes it practical to rotate before every workshop[^5].
 
 ## Credential Flow
 

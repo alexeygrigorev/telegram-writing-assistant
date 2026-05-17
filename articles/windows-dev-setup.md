@@ -37,7 +37,7 @@ During installation:
 
 Git for Windows comes with MinGW, which gives you bash on Windows. It also installs Vim and other tools.
 
-After installation, restart Windows Terminal. Git Bash should appear as a new profile. If it did not get added automatically, go to Settings → Profiles and add a new profile pointing at Git Bash.
+After installation, restart Windows Terminal. Git Bash should appear as a new profile. If it did not get added automatically, open Settings → Profiles and add a new Git Bash profile.
 
 ## Setting Git Bash as default
 

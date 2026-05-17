@@ -12,7 +12,7 @@ status: draft
 
 The AI Engineering Field Guide collects and curates job listings for AI Engineer roles across multiple locations. The pipeline scrapes jobs and deduplicates them. It then downloads HTML pages, extracts structured data into YAML, and enriches entries using LLMs.
 
-A new batch processed in late March 2026 scraped 2,341 jobs from 6 locations, resulting in 680 new unique jobs after deduplication[^1][^2].
+A new batch processed in late March 2026 scraped 2,341 jobs from 6 locations. That resulted in 680 new unique jobs after deduplication[^1][^2].
 
 <figure>
   <img src="../assets/images/ai-engineering-field-guide/pipeline-progress.jpg" alt="Pipeline progress showing 2,341 jobs scraped, 680 deduplicated, downloaded, and extracted">

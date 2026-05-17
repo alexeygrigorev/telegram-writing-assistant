@@ -37,7 +37,17 @@ Add project ideas here.
 
 ## Automated GTM Pipeline
 
-[Matthew Berman's GTM automation system](https://x.com/TheMattBerman/status/2024678503598235963) describes replacing a $200K/year Go-To-Market hire with an automated outbound sales pipeline costing roughly $130/month in APIs. The pipeline uses OpenClaw for orchestration, RapidAPI for LinkedIn scraping, Hunter/Apollo for lead enrichment, Claude for personalized outreach, and Perplexity-style deep research for pre-call briefings - all stitched together into a 6-step workflow from mining LinkedIn engagement to booking meetings. Interesting for future automation[^28].
+[Matthew Berman's GTM automation system](https://x.com/TheMattBerman/status/2024678503598235963) replaces a $200K/year Go-To-Market hire. The replacement is an automated outbound sales pipeline costing roughly $130/month in APIs.
+
+The pipeline stitches together a 6-step workflow from mining LinkedIn engagement to booking meetings:
+
+- OpenClaw for orchestration
+- RapidAPI for LinkedIn scraping
+- Hunter/Apollo for lead enrichment
+- Claude for personalized outreach
+- Perplexity-style deep research for pre-call briefings
+
+Interesting for future automation[^28].
 
 
 ## Sources
