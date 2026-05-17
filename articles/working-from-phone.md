@@ -33,7 +33,7 @@ This article is about how I work from the phone during all of that spare time. T
 
 ## A dedicated remote server
 
-Working from a phone is not new for me. I already wrote about this flow in [Shipping Features from my Smartphone with GitHub Copilot](https://alexeyondata.substack.com/p/shipping-features-from-a-tram-stop). I leaned on GitHub Copilot to write code from a tram. Under the hood that was GitHub Actions doing the work for me. It was a kind of "remote environment", but not one I owned - I borrowed GitHub's runtime for each task.
+Working from a phone is not new for me. I already wrote about this flow in [Shipping Features from my Smartphone with GitHub Copilot](https://alexeyondata.substack.com/p/shipping-features-from-a-tram-stop). I used GitHub Copilot to write code from a tram. Under the hood that was GitHub Actions doing the work for me. It was a kind of "remote environment", but not one I owned - I borrowed GitHub's runtime for each task.
 
 I've been practicing phone work for a long time. My whole DataTalks.Club routine was built around it so I could keep things moving from anywhere.
 
@@ -54,7 +54,7 @@ So I built [tmuxctl](https://github.com/alexeygrigorev/tmuxctl) to make this fas
 - `t -` creates (or attaches to) a session named after the current folder
 - `t -web` creates a separate session with that suffix. In the same folder I can run a code session and a `-web` session running `make dev`
 
-I also lean on Makefiles heavily. From a phone I can't type long commands, so I keep everything behind a `make dev` style target. I used Makefiles before, but the phone makes them mandatory.[^8]
+I also use Makefiles heavily. From a phone I can't type long commands, so I keep everything behind a `make dev` style target. I used Makefiles before, but the phone makes them mandatory.[^8]
 
 <figure>
   <img src="../assets/images/working-from-phone/tmuxctl-session-list.jpg" alt="Terminal output of the t command listing tmux sessions by index and name">
