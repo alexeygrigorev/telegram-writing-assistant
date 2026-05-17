@@ -8,11 +8,11 @@ status: draft
 
 # Publishing Zoomcamp Lessons in Text Form
 
-An idea for DataTalks.Club courses, starting with LLM Zoomcamp: publish each lesson as a long written conspectus, not just the YouTube video. The reference is Paul Iusztin's free GitHub course - he posts every lesson as a long Substack note with diagrams and code, and that structure seems to be part of why he attracts sponsors[^1][^2][^3].
+An idea for DataTalks.Club courses, starting with LLM Zoomcamp. Publish each lesson as a long written conspectus, not just the YouTube video. The reference is Paul Iusztin's free GitHub course. He posts every lesson as a long Substack note with diagrams and code. That structure seems to be part of why he attracts sponsors[^1][^2][^3].
 
 ## Reference: Paul Iusztin's Course
 
-Paul has a free course on GitHub. It is fairly popular, with around 2.7K stars on GitHub and roughly 7.6K subscribers on Substack. That is fewer GitHub stars than LLM Zoomcamp (around 5K). Even so, he has five sponsors on it: MongoDB, Comet, Opik, Unsloth, and ZenML[^1].
+Paul has a free course on GitHub. It is fairly popular. It has around 2.7K stars on GitHub and roughly 7.6K subscribers on Substack. That is fewer GitHub stars than LLM Zoomcamp (around 5K). Even so, he has five sponsors on it: MongoDB and Comet, plus Opik and Unsloth and ZenML[^1].
 
 His diagrams are clean and easy to follow, and the sponsor names appear inside the diagrams themselves. Each lesson is published as a long conspectus on his Substack, with the diagrams and code inline[^1].
 

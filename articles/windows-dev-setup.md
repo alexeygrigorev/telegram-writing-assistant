@@ -45,7 +45,7 @@ Go to Settings, Startup, and change the default profile to Git Bash.
 
 ## Customizing the terminal
 
-Change the font to Consolas (or your preferred font) and increase the font size for readability - especially useful when recording videos. Adjust the terminal size in columns and rows (for example, 100 columns and 28 rows).
+Change the font to Consolas (or your preferred font) and increase the font size for readability. The larger font is especially useful when recording videos. Adjust the terminal size in columns and rows - for example, 100 columns and 28 rows.
 
 ## Configuring GitHub SSH
 
@@ -59,7 +59,7 @@ ssh-keygen
 
 Use your email when prompted. You can skip the passphrase.
 
-Then go to GitHub Settings, SSH and GPG keys, click "New SSH key", give it a name (like your computer name), and paste the contents of your public key (`~/.ssh/id_rsa.pub`).
+Go to GitHub Settings → SSH and GPG keys. Click "New SSH key", give it a name (like your computer name), and paste the contents of your public key (`~/.ssh/id_rsa.pub`).
 
 After adding the key, cloning private repos should work.
 
@@ -171,7 +171,7 @@ Verify with:
 docker run hello-world
 ```
 
-The installation was straightforward. On Windows 10 Home a few years ago it used to be a real struggle that took days to figure out. Now it just works.
+The installation was straightforward. On Windows 10 Home a few years ago it used to be a real struggle. It took days to figure out. Now it just works.
 
 ## GitHub CLI
 

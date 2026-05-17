@@ -26,7 +26,7 @@ The downside is that I cannot manage what it does in real time. I give a prompt,
 
 ## Best workflow: ChatGPT first, then Copilot
 
-The approach that works even better is to first talk to ChatGPT and have it write a summary of what you want. Take that summary and use it as the prompt for Copilot. The results are much better this way[^2].
+An even better approach is to first talk to ChatGPT and have it write a summary of what you want. Take that summary and use it as the prompt for Copilot. The results are much better this way[^2].
 
 ## Sources
 

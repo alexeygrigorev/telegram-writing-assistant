@@ -32,7 +32,7 @@ The main question was how independent I can be from paid services and how much w
 
 Objectively measuring quality is hard. By benchmarks, quantized models lose significantly to closed models. But I wanted to evaluate subjectively.
 
-For example, I did not notice the difference between Opus 4.5 and 4.6. People say the difference is fantastic. If I cannot notice the gap between those, maybe I will not notice the gap between an open-source model and a closed one. For simple tasks I might be able to get by with a self-hosted model[^1].
+For example, I did not notice the difference between Opus 4.5 and 4.6. People say the difference is fantastic. If those feel the same to me, the gap to an open-source model may also feel small. For simple tasks I might be able to get by with a self-hosted model[^1].
 
 ## Benchmarking Quantized Models
 
