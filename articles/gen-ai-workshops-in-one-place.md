@@ -8,15 +8,15 @@ status: draft
 
 # All my Gen.AI Workshops are Now in One Place
 
-The AI Shipping Labs site has enough content now that we can start actively promoting it. Everything there seems to more or less work. I think Friday's newsletter (the one we send through AppStack) is a good moment to dedicate to the site and the update[^1].
+The AI Shipping Labs site has enough content now that we can start actively promoting it. Everything there seems to more or less work. Friday's AppStack newsletter is a good moment to dedicate to the site and the update[^1].
 
-The hook is simple: all the workshops I have done on Gen.AI (the ones on Maven, the ones on DataTalks.Club, the ones I gave at conferences) are now in one place. The full list lives at [aishippinglabs.com/workshops](https://aishippinglabs.com/workshops) [^3].
+The hook is simple: all the workshops I have done on Gen.AI are now in one place. That includes the ones on Maven, the ones on DataTalks.Club, and the ones I gave at conferences. The full list lives at [aishippinglabs.com/workshops](https://aishippinglabs.com/workshops) [^3].
 
 ## My approach
 
 Over the last few months I have been working on the AI Shipping Labs site. It is mostly ready, I am still polishing it[^2].
 
-What I did is collect all the workshops we had and move them to one place, so they are as easy to search as possible. Workshops I had given at conferences and never put anywhere in open access are now also there, openly available[^2].
+I collected all the workshops we had and moved them to one place. They are now as easy to search as possible. Workshops I had given at conferences and never put in open access are also there, openly available[^2].
 
 ## Workshops on the site
 
@@ -35,19 +35,23 @@ The list at [aishippinglabs.com/workshops](https://aishippinglabs.com/workshops)
 
 Workshops I did earlier are open[^1]. The two most recent ones (on agent deployment) are members-only, available to AI Shipping Labs members[^1][^3].
 
-I also want to hide the open workshops behind registration. People will see the first part of the workshop, and to read further they will need to register. This is useful for two reasons. First, it is genuinely valuable to have all these workshops in one place - go and watch them. Second, we collect registrations[^1].
+I also want to hide the open workshops behind registration. People will see the first part of the workshop and need to register to read further.
+
+This is useful for two reasons. First, it is genuinely valuable to have all these workshops in one place - go and watch them. Second, we collect registrations[^1].
 
 Between now and Friday I have enough time to debug everything so that people can sign up properly[^1].
 
 ## Newsletter and social media
 
-For the Friday AppStack newsletter, the plan is to describe what the workshops are about, give the update that the site is launched, and add a few more things. In parallel, this content can be promoted on social media[^1].
+For the Friday AppStack newsletter, the plan is to describe what the workshops are about. Then announce the site launch and a few more things. The content can also be promoted on social media[^1].
 
 ## AI Hero is also on the site now
 
-We can also write in the newsletter that AI Hero is now on the site as well. I have not yet sent a message to the AI Hero audience telling them it has moved, but I plan to do that this week[^1].
+We can also write in the newsletter that AI Hero is now on the site. I have not yet sent a message to the AI Hero audience telling them it has moved. I plan to do that this week[^1].
 
-The email sending kind of works already, but I have not tested it on a large number of people. During the week I want to finish it so that registration definitely works properly and emails can go out. Then I will send an email to everyone who came in from AI Hero, telling them that AI Hero is now here and they can take the course in a more convenient format, broken into pieces[^4].
+The email sending kind of works already, but I have not tested it on a large number of people. During the week I want to finish it so registration works properly and emails can go out.
+
+Then I will email everyone who came in from AI Hero. The message will say that AI Hero is now here. They can take the course in a more convenient format, broken into pieces[^4].
 
 ## Sources
 
