@@ -61,12 +61,14 @@ In GitHub Actions, though, the end-to-end workflow only got about 1.5-2x faster 
 Last week, ran a team of Codex agents to update the DataTalks.Club course management platform to use Tailwind and refresh the design. Iterated on the UI together with the agents and the result is satisfying. There was also some work on the internal admin part - course admin is now even easier[^37].
 
 <figure>
-  <img src="../assets/images/weekly-log/dtc-course-platform-redesign.jpg" alt="Redesigned DataTalks.Club course management platform homepage showing Active Courses with LLM Zoomcamp 2026">
+  <img src="../assets/images/dtc-course-platform-redesign/redesigned-homepage.jpg" alt="Redesigned DataTalks.Club course management platform homepage showing Active Courses with LLM Zoomcamp 2026">
   <figcaption>Redesigned DataTalks.Club site after the Codex + Tailwind pass, with LLM Zoomcamp 2026 highlighted under Active courses</figcaption>
   <!-- Screenshot of the public-facing course management site after the Codex-driven redesign described in this section -->
 </figure>
 
 Taking advantage of Codex's 2x limits while they last, so running things in parallel. Most of this work happened from a phone while travelling last week in the Harz mountains[^38].
+
+The mockup-first workflow that drove the design pass is written up separately in [Redesigning the DataTalks.Club Course Platform with ChatGPT Mockups](dtc-course-platform-redesign.md).
 
 ## Week of 2026-04-20
 

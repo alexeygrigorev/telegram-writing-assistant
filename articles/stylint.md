@@ -1,7 +1,7 @@
 ---
 title: "Stylint: Enforcing My Writing Style on AI Assistants"
 created: 2026-05-17
-updated: 2026-05-17
+updated: 2026-05-19
 tags: [tools, writing, llm, ai-assistants]
 status: draft
 ---
@@ -82,6 +82,18 @@ These are all the same shape. They puff up the surrounding sentence. They add an
   <figcaption>Teaching my agents to write in the style I like - abstract noun framing patterns the linter now catches</figcaption>
 </figure>
 
+## Adding a new banned phrase
+
+The rule list keeps growing. When I want to ban a new phrase I just ask an agent to add it.[^7][^8]
+
+This came up while I was preparing the [Working from a Phone](working-from-phone.md) article for the next newsletter.[^7] I noticed I had written "I leaned on GitHub Copilot..." and "I also lean on Makefiles heavily." I did not like the phrasing. So I asked the agent to ban it, run stylint on the article, and replace the matches.[^8]
+
+<figure>
+  <img src="../assets/images/stylint/banning-leaned-on-via-agent.jpg" alt="Terminal showing two 'I leaned on' / 'I also lean on' phrases rewritten in working-from-phone.md and stylint passing">
+  <figcaption>The agent added the rule, rewrote the two occurrences in working-from-phone.md, and re-ran stylint until it passed</figcaption>
+  <!-- Concrete example of the workflow described in this section: notice a phrase I want banned, hand it to the agent, get the rule and the fix in one pass -->
+</figure>
+
 ## Outcomes in Practice
 
 I applied Stylint to the corporate jargon section of my workshop. It is not a perfect solution. In most cases when a pattern fires - call it 90% - the text gets better. In some cases it does not change. Rarely does it get worse. The text wins on average.
@@ -118,3 +130,5 @@ The markdown side stays for the rules that need judgment. The code side handles 
 [^4]: [20260517_095902_AlexeyDTC_msg4158_transcript.txt](../inbox/used/20260517_095902_AlexeyDTC_msg4158_transcript.txt) - voice note on the two components and outcomes
 [^5]: [20260517_091955_AlexeyDTC_msg4150_photo.md](../inbox/used/20260517_091955_AlexeyDTC_msg4150_photo.md) - abstract noun framing notes
 [^6]: [20260517_095939_AlexeyDTC_msg4160_transcript.txt](../inbox/used/20260517_095939_AlexeyDTC_msg4160_transcript.txt) - voice note requesting this article be created
+[^7]: [20260517_124142_AlexeyDTC_msg4166.md](../inbox/used/20260517_124142_AlexeyDTC_msg4166.md) - link to working-from-phone.md and note that the article is being prepared for the next newsletter
+[^8]: [20260517_125939_AlexeyDTC_msg4168_photo.md](../inbox/used/20260517_125939_AlexeyDTC_msg4168_photo.md) / [20260517_125959_AlexeyDTC_msg4170.md](../inbox/used/20260517_125959_AlexeyDTC_msg4170.md) - screenshot of the stylint run replacing "leaned on" phrasing in working-from-phone.md and the note "when I want to ban a new phrase I just ask an agent"
