@@ -1,7 +1,7 @@
 ---
 title: "Interesting Resources"
 created: 2026-01-31
-updated: 2026-04-27
+updated: 2026-05-19
 tags: [resources, tools, ai, development]
 status: draft
 ---
@@ -28,8 +28,16 @@ Each resource entry follows this simple format:
 
 ## Tools
 
+### DESIGN.md
+
+[DESIGN.md](https://stitch.withgoogle.com/docs/design-md/overview) is a plain-text design system spec from Google Stitch that AI coding agents read to generate consistent UI. It's just a markdown file you drop into your project root — no Figma exports, no JSON schemas — covering colour palette, typography, components, layout, depth, and do's and don'ts in a format LLMs parse natively. Think of it as the design counterpart to AGENTS.md: where AGENTS.md tells agents how to build the project, DESIGN.md tells them how it should look and feel[^53].
+
 
 ## Resources
+
+### Awesome DESIGN.md
+
+[Awesome DESIGN.md](https://github.com/VoltAgent/awesome-design-md) is a curated collection of 73+ DESIGN.md files extracted from popular brand websites like Stripe, Linear, Vercel, Notion, and Tesla. DESIGN.md is a plain-text design system format introduced by Google Stitch that AI coding agents read to generate consistent UI — drop one into your project root and tell your agent to build a page that matches. Each file captures color palettes, typography rules, component stylings, layout principles, and do's and don'ts in a format LLMs parse natively, with no Figma exports or JSON schemas needed[^52].
 
 ## Project ideas
 
@@ -103,3 +111,5 @@ Interesting for future automation[^28].
 [^49]: [20260418_142745_AlexeyDTC_msg3431.md](../inbox/used/20260418_142745_AlexeyDTC_msg3431.md)
 [^50]: [https://codingchallenges.substack.com/](https://codingchallenges.substack.com/) via [20260425_113814_AlexeyDTC_msg3665.md](../inbox/used/20260425_113814_AlexeyDTC_msg3665.md)
 [^51]: [https://github.com/ksimback/tech-debt-skill](https://github.com/ksimback/tech-debt-skill) via [20260426_121424_AlexeyDTC_msg3667.md](../inbox/used/20260426_121424_AlexeyDTC_msg3667.md)
+[^52]: [https://github.com/VoltAgent/awesome-design-md](https://github.com/VoltAgent/awesome-design-md) via [20260519_141047_valeriia_kuka_msg4206.md](../inbox/used/20260519_141047_valeriia_kuka_msg4206.md)
+[^53]: [https://stitch.withgoogle.com/docs/design-md/overview](https://stitch.withgoogle.com/docs/design-md/overview) via [20260519_141047_valeriia_kuka_msg4206.md](../inbox/used/20260519_141047_valeriia_kuka_msg4206.md)
