@@ -12,11 +12,18 @@ Internal working document. Share only the `Summary` and `Plan` sections with the
 
 ## Summary
 
-- Current situation: already operating at a very high level - orchestrates Claude Code daily at production scale across a multi-app enterprise engagement and a personal stack of 5+ apps, has shipped a multi-tenant SaaS to Hetzner production, and already has a concrete Phase 01-05 launch plan for her own product.
-- Goal for the next 6 weeks: ship Tier 1 MVP of the Compound Practice Kit by Tuesday June 30, 2026 with 10-20 paying buyers and a working install loop in each buyer's vault.
-- Main gap to close: distribution + packaging mechanics for non-developer buyers - shipping Python as a self-installable product across Windows/macOS/Linux without engineering hand-holding.
+- Current situation: already operating at a very high level.
+  - Orchestrates Claude Code daily at production scale across a multi-app enterprise engagement and a personal stack of 5+ apps.
+  - Has shipped a multi-tenant SaaS to Hetzner production.
+  - Already has a concrete Phase 01-05 launch plan for her own product.
+- Goal for the next 6 weeks: ship Tier 1 MVP of the Compound Practice Kit by Tuesday June 30, 2026.
+  - 10-20 paying buyers.
+  - Working install loop in each buyer's vault.
+- Main gap to close: distribution + packaging mechanics for non-developer buyers.
+  - Shipping Python as a self-installable product across Windows/macOS/Linux without engineering hand-holding.
 - Weekly time commitment: 5 to 10 hours per week.
-- Why this plan is the right next step: Eva already has the build skill and the spec discipline. The sprint's value is structure, weekly accountability, and a community of testers to pressure-test the install flow before launch day.
+- Why this plan is the right next step: Eva already has the build skill and the spec discipline.
+  - The sprint's value is structure, weekly accountability, and a community of testers to pressure-test the install flow before launch day.
 
 ## Plan
 
@@ -76,8 +83,18 @@ Launch (June 28 to June 30):
 - [Stripe Payment Links](https://stripe.com/payments/payment-links) - lower-friction alternative to Gumroad if the buyer flow needs more control.
 - [Gumroad seller docs](https://help.gumroad.com/) - faster path to a working purchase + delivery + license email if Stripe feels heavy for v1.
 - [PyInstaller](https://pyinstaller.org/) - if pure Python distribution is the right call, this is the standard one-binary path.
-- Rust as a serious distribution alternative, not just a fallback: Alexey's experience shipping Python to non-technical users has always been painful regardless of the workaround - bundling the Python interpreter with the library and hoping it runs is the failure mode he keeps hitting. Rust compiles to native binaries for Windows, macOS, and Linux with no runtime dependency, which removes that whole class of failure. Alexey has shipped Rust projects without learning the language deeply - he started with .NET for the same non-technical-user problem, hit the Windows-only wall, and only switched once he realised he did not need to understand the language to produce working binaries. His framing: even with a hard deadline, if the project has not gone too far - and even if it has - Rust is worth a serious look. .NET is a no because it is Windows-only.
-- Hybrid Rust + Python option: keep the existing Python backend (FastAPI + Pydantic + SQLAlchemy) and rewrite only the user-facing surface in Rust - a thin wrapper / Rust app that the buyer actually runs, talking to Python logic underneath. Isolates the rewrite to the install/launch layer where Python distribution actually fails, rather than touching the working backend.
+- Rust as a serious distribution alternative, not just a fallback.
+  - Alexey's experience shipping Python to non-technical users has always been painful regardless of the workaround.
+  - Bundling the Python interpreter with the library and hoping it runs is the failure mode he keeps hitting.
+  - Rust compiles to native binaries for Windows, macOS, and Linux with no runtime dependency, which removes that whole class of failure.
+  - Alexey has shipped Rust projects without learning the language deeply.
+  - He started with .NET for the same non-technical-user problem, hit the Windows-only wall, and only switched once he realised he did not need to understand the language to produce working binaries.
+  - His framing: even with a hard deadline, if the project has not gone too far - and even if it has - Rust is worth a serious look.
+  - .NET is a no because it is Windows-only.
+- Hybrid Rust + Python option.
+  - Keep the existing Python backend (FastAPI + Pydantic + SQLAlchemy).
+  - Rewrite only the user-facing surface in Rust - a thin wrapper / Rust app that the buyer actually runs, talking to Python logic underneath.
+  - Isolates the rewrite to the install/launch layer where Python distribution actually fails, rather than touching the working backend.
 
 ## Deliverables
 
@@ -104,13 +121,23 @@ Launch (June 28 to June 30):
 
 ## Persona
 
-Undetermined. Eva sits outside the standard archetypes - she is closer to a senior operator-builder using the sprint as external accountability and cohort observation than to anyone in Alex / Priya / Sam / Taylor. The plan reflects that: the value Alexey expects to add is structure and community, not technical instruction.
+Undetermined. Eva sits outside the standard archetypes.
+
+She is closer to a senior operator-builder using the sprint as external accountability and cohort observation than to anyone in Alex / Priya / Sam / Taylor.
+
+The plan reflects that: the value Alexey expects to add is structure and community, not technical instruction.
 
 ## Background
 
-Eva Mareckova - Czech operator/builder running a multi-app enterprise engagement and her own AICENTURIA AI-driven business operating system (50+ agents across 5 functional teams). LinkedIn: [evamareckova](https://www.linkedin.com/in/evamareckova/).
+Eva Mareckova - Czech operator/builder running a multi-app enterprise engagement and her own AICENTURIA AI-driven business operating system (50+ agents across 5 functional teams).
 
-Stack: React + TypeScript + Vite + Tailwind + shadcn frontend, FastAPI + Pydantic backend, Docker + Caddy + Cloudflare Tunnel deployment, SQLite + PostgreSQL via SQLAlchemy, GSD spec-driven development discipline. Production deploy on Hetzner LIVE for one client app since April 30 (18+ days uptime). Daily user of Claude Code Terminal, Cowork, Claude in Chrome, Anthropic Skills + custom subagents.
+LinkedIn: [evamareckova](https://www.linkedin.com/in/evamareckova/).
+
+Stack: React + TypeScript + Vite + Tailwind + shadcn frontend, FastAPI + Pydantic backend, Docker + Caddy + Cloudflare Tunnel deployment, SQLite + PostgreSQL via SQLAlchemy, GSD spec-driven development discipline.
+
+Production deploy on Hetzner LIVE for one client app since April 30 (18+ days uptime).
+
+Daily user of Claude Code Terminal, Cowork, Claude in Chrome, Anthropic Skills + custom subagents.
 
 The sprint project (Compound Practice Kit) productizes her own BUG_LEDGER / LESSONS_LEDGER methodology - a structured capture-and-publish loop running in Obsidian, packaged as Python scripts + Markdown templates that operators install in their own vault.
 
@@ -142,15 +169,41 @@ No live intake call yet - working from the Google Doc + Alexey's voice-note feed
 
 ## Internal Recommendations
 
-Alexey's framing in the voice note[^3]: Eva is close in profile to Nirajan Acharya (Nepal-based, Buildcamp Cohort 2 leaderboard top, deployed project, concrete plan). Both already have a clear understanding of what to build and concrete deadlines. The challenge for both is that the usual "give them a roadmap" move does not add much - the value here is accountability and structure, not direction.
+Alexey's framing in the voice note[^3]: Eva is close in profile to Nirajan Acharya (Nepal-based, Buildcamp Cohort 2 leaderboard top, deployed project, concrete plan).
 
-Distribution: Alexey's experience with shipping Python to non-technical end users is rough across the board - it always ends in workarounds. The failure mode he keeps hitting is bundling the Python interpreter with the library and hoping it runs on someone else's Windows / macOS / Linux machine. His recommendation, even given the deadline, is to seriously evaluate Rust for the distribution layer, not just hold it as a fallback. Rust compiles to native binaries for all three platforms with no runtime dependency, which removes the whole interpreter-bundling problem. Alexey shipped his Rust projects without learning the language - he started with .NET for the same non-technical-user problem, hit the Windows-only wall, and only switched to Rust once he realised he did not need to understand the language to produce working binaries. A hybrid path is worth modelling alongside the full-rewrite path: keep the Python backend intact and use Rust only for the user-facing app / thin wrapper that the buyer actually runs - this isolates the rewrite to the install / launch surface where Python distribution actually breaks. .NET is a no - Windows only. The deadline is the open question Eva has to answer herself: assess the rework risk against the launch pressure. The Python-only path stays the default until the week 2 decision point.
+Both already have a clear understanding of what to build and concrete deadlines.
+
+The challenge for both is that the usual "give them a roadmap" move does not add much - the value here is accountability and structure, not direction.
+
+Distribution: Alexey's experience with shipping Python to non-technical end users is rough across the board - it always ends in workarounds.
+
+The failure mode he keeps hitting is bundling the Python interpreter with the library and hoping it runs on someone else's Windows / macOS / Linux machine.
+
+His recommendation, even given the deadline, is to seriously evaluate Rust for the distribution layer, not just hold it as a fallback.
+
+Rust compiles to native binaries for all three platforms with no runtime dependency, which removes the whole interpreter-bundling problem.
+
+Alexey shipped his Rust projects without learning the language - he started with .NET for the same non-technical-user problem, hit the Windows-only wall, and only switched to Rust once he realised he did not need to understand the language to produce working binaries.
+
+A hybrid path is worth modelling alongside the full-rewrite path: keep the Python backend intact and use Rust only for the user-facing app / thin wrapper that the buyer actually runs - this isolates the rewrite to the install / launch surface where Python distribution actually breaks.
+
+.NET is a no - Windows only.
+
+The deadline is the open question Eva has to answer herself: assess the rework risk against the launch pressure. The Python-only path stays the default until the week 2 decision point.
 
 Scoping discipline: feature creep is the real risk with a hard external deadline. The June 30 date is the best defense - the plan above hard-locks scope after the Phase 05 pre-launch demo on June 27.
 
-Community use: Eva can lean on the cohort for cross-platform install tests in weeks 4 to 5. AI Shipping Labs members are technical, so giving them a free copy in exchange for honest install feedback is high-leverage. She can also use the cohort as a learning surface for how a community-of-builders runs in practice, which she flagged as a secondary goal.
+Community use: Eva can lean on the cohort for cross-platform install tests in weeks 4 to 5.
 
-Accountability partner: pair Eva with Nirajan Acharya. Both are advanced builders running their own clear arc on a hard timeline. Profile match should produce a useful pairing without the usual "junior mentee" friction.
+AI Shipping Labs members are technical, so giving them a free copy in exchange for honest install feedback is high-leverage.
+
+She can also use the cohort as a learning surface for how a community-of-builders runs in practice, which she flagged as a secondary goal.
+
+Accountability partner: pair Eva with Nirajan Acharya.
+
+Both are advanced builders running their own clear arc on a hard timeline.
+
+Profile match should produce a useful pairing without the usual "junior mentee" friction.
 
 ## Internal Action Items
 
