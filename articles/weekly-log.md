@@ -1,7 +1,7 @@
 ---
 title: "Weekly Log"
 created: 2026-02-26
-updated: 2026-05-08
+updated: 2026-05-21
 tags: [weekly, log]
 status: draft
 ---
@@ -9,6 +9,20 @@ status: draft
 # Weekly Log
 
 A running log of what was done each week. When a topic has its own detailed article, this log contains a short summary with a link. When there is not much content for a topic, the details go here directly.
+
+## Week of 2026-05-18
+
+## AI Shipping Labs Website Features with Codex Agents
+
+A lot of changes landed on the AI Shipping Labs website this week: many new features, many small file issues, many bugs, and many small additions on top. The agents have been working non-stop[^40].
+
+One practical limit hit along the way: Codex does not let me run more than 5 agents at the same time[^41].
+
+<figure>
+  <img src="../assets/images/weekly-log/ai-shipping-labs-codex-agents.jpg" alt="Codex running-tasks panel with multiple SWE and product-manager agents working on AI Shipping Labs website features">
+  <figcaption>Codex running-tasks panel with multiple software-engineer and product-manager agents on the AI Shipping Labs website</figcaption>
+  <!-- The screenshot Alexey asked to add to the weekly log alongside the note that this week was heavy on agent-driven platform work -->
+</figure>
 
 ## Week of 2026-05-04
 
@@ -344,3 +358,5 @@ See [Course Management Production Incident Report](course-management-production-
 [^37]: [20260508_094022_AlexeyDTC_msg3958_photo.md](../inbox/used/20260508_094022_AlexeyDTC_msg3958_photo.md), [20260508_094214_AlexeyDTC_msg3962.md](../inbox/used/20260508_094214_AlexeyDTC_msg3962.md)
 [^38]: [20260508_094159_AlexeyDTC_msg3960.md](../inbox/used/20260508_094159_AlexeyDTC_msg3960.md), [20260508_094214_AlexeyDTC_msg3962.md](../inbox/used/20260508_094214_AlexeyDTC_msg3962.md)
 [^39]: [20260508_141000_AlexeyDTC_msg3972.md](../inbox/used/20260508_141000_AlexeyDTC_msg3972.md)
+[^40]: [20260521_074650_AlexeyDTC_msg4252_transcript.txt](../inbox/used/20260521_074650_AlexeyDTC_msg4252_transcript.txt)
+[^41]: [20260520_112644_AlexeyDTC_msg4222_photo.md](../inbox/used/20260520_112644_AlexeyDTC_msg4222_photo.md)

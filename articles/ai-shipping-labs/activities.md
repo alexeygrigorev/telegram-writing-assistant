@@ -1,7 +1,7 @@
 ---
 title: "AI Shipping Labs Community Activities"
 created: 2026-02-10
-updated: 2026-04-30
+updated: 2026-05-21
 tags: [community, activities, mentoring, accountability, ai-shipping-labs]
 status: draft
 ---
@@ -138,6 +138,64 @@ Not everyone will be able to join every call - day jobs, timezones, or just a bu
 
 The framing for these sprints is "accountability sprints" inside AI Shipping Labs[^98].
 
+## Scaling sprint moderation and member networking
+
+After collecting timezone availability for the May sprint, 9 people responded. The answers fell into three groups - a CET weekday-evening group, a CET weekday-afternoon group, and a weekend / IST / Americas group[^99].
+
+<figure>
+  <img src="../../assets/images/paid-ai-community-planning/may-sprint-timezone-groups.jpg" alt="Table of 9 people with their time zones and available time slots, splitting into three groups">
+  <figcaption>Three groups by availability after 9 people responded to the May sprint timezone survey</figcaption>
+  <!-- Visual source for the three-group split described in this section -->
+</figure>
+
+One of these groups lands on the weekend, which is not equally convenient for both of us[^100]. It is not easy to set up[^101].
+
+The bigger question is moderation: with many groups and only two of us (Alexey and Valeriia), how do we run all of these calls without our time becoming the bottleneck[^100]?
+
+The short-term answer is for Valeriia to join the groups and observe. The longer-term question is how to design this so that the number of groups can grow to five or more without us having to actively participate in everything. Both of us have limited time, so the format needs to scale[^100].
+
+### Pair and triple accountability partners
+
+One direction is to split people into groups of 2-3 - accountability partners who call each other and discuss progress between themselves. This is easier on us and on them: each person tracks their partner instead of trying to follow what everyone in a large group is doing. The plan is to propose this to people, see what they think, and try it in the next sprint[^105].
+
+For pairs of two, moderating does not make sense. They can discuss between themselves, and the only role left for us is verifying that they are on the call and creating the meeting link. For groups around five people, moderation does still make sense[^103].
+
+The risk in a pair of two is that one person can drop out of the sprint. The challenge is catching that early so the remaining person can be moved into another group instead of being left without a partner[^105].
+
+This pair / triple format also serves networking - more on that below.
+
+### People drop in and out
+
+Even without the pair-vs-group question, the same problem comes up: people come and go. Vancesca might be free now and overloaded at work next month. The format cannot depend on specific individuals staying active[^102].
+
+This is something that happens regularly at DataTalks.Club too. Someone gets very active for a while and then disappears. Usually something has come up - work, life, something else. Sometimes they come back, sometimes not. DataTalks.Club is a free community and ours is paid, but the same pattern shows up here as well: a portion of our members are there because they came through a course, and joining the community costs them nothing extra, so there is no built-in reason for them to stay active. The general truth is that people are more active in some periods than others - planning around constant activity is wrong[^106].
+
+A more concrete trigger for this thinking is that some previously active members have gone quiet recently and are not answering messages[^104].
+
+### Champions or group leaders
+
+One possible direction is that over time we notice which people are more active, and they become "champions" or group leaders - members who can act as moderators for their group. This is an idea worth keeping in mind, with the caveat from the previous point that depending on specific individuals is fragile[^101].
+
+### Member-to-member networking
+
+A separate motivation for pair / triple groups is networking. Right now the shape is one-to-many: we talk to everyone, so we know everyone, but members do not really know each other. Accountability partners help fix that - people get to know each other, help each other, and the community starts to feel like something where people do things together, not just something the two of us coordinate[^107].
+
+People should be able to come to the community for the networking too, not only for the accountability we can provide. Knowing other members and helping each other is part of the value people should be getting out of this[^110].
+
+### School-inspired guide pattern for new members
+
+In our kid's school, first and second grade are combined into one class. The idea is that the second grader mentors the first grader. The first grader shows up and does not know anything - what is here, where things are - and the second grader shows them around: here is the cafeteria, here is where we play games, here is the sandbox. The second grader gets a real responsibility - mentoring the first grader - and they all walk around feeling important and responsible[^108].
+
+The community version of this: as the community grows, new members get paired with an existing member - not a mentor in the formal sense, just someone who can help them get oriented. That way the onboarding conversations are not only the two of us talking to every new person. Other members talk to the new person, and they learn who in the community can be useful to whom[^108].
+
+### Random coffee pairings
+
+Another idea worth trying: random coffee, where a bot connects two people and tells them "you two, go talk." This worked very well at work during COVID. It might be worth running in the community too[^109].
+
+### Status
+
+This whole section is a brain dump after a discussion with Valeriia. The ideas are written down to think about, not finalised as a plan yet[^109][^110].
+
 ## Monthly themes with deadlines
 
 Another idea for accountability in Tier 1 (the newsletter tier): dedicate each month to a specific topic. For example, April is the month of RAG. Provide a plan for how to study it, set deadlines, and send short reminder messages - "today is the deadline for this part, did you do it or not?" This gives structure even without the community tier[^88].
@@ -266,3 +324,15 @@ In a private community, these kinds of discussions can happen more freely. The p
 [^96]: [20260427_091223_AlexeyDTC_msg3678_transcript.txt](../../inbox/used/20260427_091223_AlexeyDTC_msg3678_transcript.txt)
 [^97]: [20260430_082614_AlexeyDTC_msg3763_transcript.txt](../../inbox/used/20260430_082614_AlexeyDTC_msg3763_transcript.txt)
 [^98]: [20260430_082629_AlexeyDTC_msg3765_transcript.txt](../../inbox/used/20260430_082629_AlexeyDTC_msg3765_transcript.txt)
+[^99]: [20260521_074535_AlexeyDTC_msg4224_photo.md](../../inbox/used/20260521_074535_AlexeyDTC_msg4224_photo.md)
+[^100]: [20260521_074535_AlexeyDTC_msg4227_transcript.txt](../../inbox/used/20260521_074535_AlexeyDTC_msg4227_transcript.txt)
+[^101]: [20260521_074535_AlexeyDTC_msg4228_transcript.txt](../../inbox/used/20260521_074535_AlexeyDTC_msg4228_transcript.txt), [20260521_074535_AlexeyDTC_msg4225.md](../../inbox/used/20260521_074535_AlexeyDTC_msg4225.md)
+[^102]: [20260521_074535_AlexeyDTC_msg4229_transcript.txt](../../inbox/used/20260521_074535_AlexeyDTC_msg4229_transcript.txt)
+[^103]: [20260521_074535_AlexeyDTC_msg4230.md](../../inbox/used/20260521_074535_AlexeyDTC_msg4230.md), [20260521_074535_AlexeyDTC_msg4226.md](../../inbox/used/20260521_074535_AlexeyDTC_msg4226.md)
+[^104]: [20260521_074535_AlexeyDTC_msg4231.md](../../inbox/used/20260521_074535_AlexeyDTC_msg4231.md)
+[^105]: [20260521_074535_AlexeyDTC_msg4232_transcript.txt](../../inbox/used/20260521_074535_AlexeyDTC_msg4232_transcript.txt)
+[^106]: [20260521_074535_AlexeyDTC_msg4233_transcript.txt](../../inbox/used/20260521_074535_AlexeyDTC_msg4233_transcript.txt)
+[^107]: [20260521_074535_AlexeyDTC_msg4234_transcript.txt](../../inbox/used/20260521_074535_AlexeyDTC_msg4234_transcript.txt)
+[^108]: [20260521_074535_AlexeyDTC_msg4235_transcript.txt](../../inbox/used/20260521_074535_AlexeyDTC_msg4235_transcript.txt)
+[^109]: [20260521_074535_AlexeyDTC_msg4236_transcript.txt](../../inbox/used/20260521_074535_AlexeyDTC_msg4236_transcript.txt)
+[^110]: [20260521_074615_AlexeyDTC_msg4250_transcript.txt](../../inbox/used/20260521_074615_AlexeyDTC_msg4250_transcript.txt)
