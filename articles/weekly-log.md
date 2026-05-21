@@ -12,15 +12,15 @@ A running log of what was done each week. When a topic has its own detailed arti
 
 ## Week of 2026-05-18
 
-## AI Shipping Labs Website Features with Codex Agents
+## AI Shipping Labs Website Features with Claude Code Agents
 
 A lot of changes landed on the AI Shipping Labs website this week: many new features, many small file issues, many bugs, and many small additions on top. The agents have been working non-stop[^40].
 
-One practical limit hit along the way: Codex does not let me run more than 5 agents at the same time[^41].
+Codex does not let me run more than 5 agents at the same time, but in Claude Code this limitation seems to be temporarily lifted - the rate limits used to be much stricter[^41][^42].
 
 <figure>
-  <img src="../assets/images/weekly-log/ai-shipping-labs-codex-agents.jpg" alt="Codex running-tasks panel with multiple SWE and product-manager agents working on AI Shipping Labs website features">
-  <figcaption>Codex running-tasks panel with multiple software-engineer and product-manager agents on the AI Shipping Labs website</figcaption>
+  <img src="../assets/images/weekly-log/ai-shipping-labs-claude-code-agents.jpg" alt="Claude Code running-tasks panel with multiple SWE and product-manager agents working on AI Shipping Labs website features">
+  <figcaption>Claude Code running-tasks panel with multiple software-engineer and product-manager agents on the AI Shipping Labs website</figcaption>
   <!-- The screenshot Alexey asked to add to the weekly log alongside the note that this week was heavy on agent-driven platform work -->
 </figure>
 
@@ -360,3 +360,4 @@ See [Course Management Production Incident Report](course-management-production-
 [^39]: [20260508_141000_AlexeyDTC_msg3972.md](../inbox/used/20260508_141000_AlexeyDTC_msg3972.md)
 [^40]: [20260521_074650_AlexeyDTC_msg4252_transcript.txt](../inbox/used/20260521_074650_AlexeyDTC_msg4252_transcript.txt)
 [^41]: [20260520_112644_AlexeyDTC_msg4222_photo.md](../inbox/used/20260520_112644_AlexeyDTC_msg4222_photo.md)
+[^42]: [20260521_080117_AlexeyDTC_msg4258.md](../inbox/used/20260521_080117_AlexeyDTC_msg4258.md)

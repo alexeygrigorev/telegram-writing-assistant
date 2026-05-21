@@ -182,6 +182,8 @@ A separate motivation for pair / triple groups is networking. Right now the shap
 
 People should be able to come to the community for the networking too, not only for the accountability we can provide. Knowing other members and helping each other is part of the value people should be getting out of this[^110].
 
+The hypothesis is that these internal connections - formed through activity in the community - end up being useful to people, retain them inside the community, and lead them to invite friends and colleagues[^111][^112].
+
 ### School-inspired guide pattern for new members
 
 In our kid's school, first and second grade are combined into one class. The idea is that the second grader mentors the first grader. The first grader shows up and does not know anything - what is here, where things are - and the second grader shows them around: here is the cafeteria, here is where we play games, here is the sandbox. The second grader gets a real responsibility - mentoring the first grader - and they all walk around feeling important and responsible[^108].
@@ -336,3 +338,5 @@ In a private community, these kinds of discussions can happen more freely. The p
 [^108]: [20260521_074535_AlexeyDTC_msg4235_transcript.txt](../../inbox/used/20260521_074535_AlexeyDTC_msg4235_transcript.txt)
 [^109]: [20260521_074535_AlexeyDTC_msg4236_transcript.txt](../../inbox/used/20260521_074535_AlexeyDTC_msg4236_transcript.txt)
 [^110]: [20260521_074615_AlexeyDTC_msg4250_transcript.txt](../../inbox/used/20260521_074615_AlexeyDTC_msg4250_transcript.txt)
+[^111]: [20260521_080138_AlexeyDTC_msg4260.md](../../inbox/used/20260521_080138_AlexeyDTC_msg4260.md)
+[^112]: [20260521_080154_AlexeyDTC_msg4262.md](../../inbox/used/20260521_080154_AlexeyDTC_msg4262.md)
