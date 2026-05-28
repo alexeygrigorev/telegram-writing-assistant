@@ -33,7 +33,6 @@ Articles that are mostly ready for the newsletter. All necessary content is insi
 | [Benchmarking SQLiteSearch](ready-for-newsletter/benchmarking-sqlitesearch.md) | draft | 2026-02-26 | Benchmarking SQLiteSearch with Simple Wikipedia and vector search benchmarks from Milvus/Zilliz, HNSW and IVF implementations, v0.0.3 release |
 | [Testing AI Agents with the Judge Pattern](ready-for-newsletter/testing-agents-with-judge-pattern.md) | draft | 2026-02-25 | Using agents to evaluate other agents |
 | [Course Material Preparation](ready-for-newsletter/course-material-preparation.md) | draft | 2026-02-25 | Workflow for keeping code and documentation in sync |
-| [Minsearch Benchmarking and Optimization](ready-for-newsletter/minsearch-benchmarking-optimization.md) | draft | 2026-02-09 | Optimizing the appendable index through iterative benchmarking |
 | [Course Management Agent](ready-for-newsletter/course-management-agent.md) | draft | 2026-01-23 | Automating course administration tasks with Claude Skills |
 | [Streaming JSON Parsing with jaxn](ready-for-newsletter/jaxn-streaming-json.md) | draft | 2026-01-23 | Streaming parser for LLM structured output |
 
