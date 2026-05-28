@@ -97,7 +97,7 @@ So I looked into how to package and publish a library on PyPI. I already had som
 
 The appendable index came about a year later, when I started working on the second run of the course. We added agents, and I needed more than just search. I wanted to show that agents can also add data back to the index, not just read from it. So I built an index you can add to later[^evolution2].
 
-`AppendableIndex` has the same `search`, but you `append` documents one at a time instead of fitting once[^readme].
+`AppendableIndex` has the same `fit` and `search`, but it also lets you `append` documents one at a time[^readme].
 
 ```python
 from minsearch import AppendableIndex
