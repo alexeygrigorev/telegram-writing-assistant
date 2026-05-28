@@ -1,7 +1,7 @@
 ---
 title: "Interesting Resources"
 created: 2026-01-31
-updated: 2026-05-19
+updated: 2026-05-28
 tags: [resources, tools, ai, development]
 status: draft
 ---
@@ -31,6 +31,10 @@ Each resource entry follows this simple format:
 ### DESIGN.md
 
 [DESIGN.md](https://stitch.withgoogle.com/docs/design-md/overview) is a plain-text design system spec from Google Stitch that AI coding agents read to generate consistent UI. It's just a markdown file you drop into your project root — no Figma exports, no JSON schemas — covering colour palette, typography, components, layout, depth, and do's and don'ts in a format LLMs parse natively. Think of it as the design counterpart to AGENTS.md: where AGENTS.md tells agents how to build the project, DESIGN.md tells them how it should look and feel[^53].
+
+### Webwright
+
+[Webwright](https://github.com/microsoft/webwright) is a lightweight, terminal-based browser agent framework from Microsoft that gives an LLM a CLI to spawn browser sessions and complete web tasks. Instead of the step-by-step Playwright MCP loop, it has the model write a re-runnable Python Playwright script end-to-end, so the agent's browsing history becomes a single code file you can rerun, adapt, and debug. It's a CLI alternative to Playwright MCP for browser testing and automation, built on just httpx, pydantic, playwright, and typer, with OpenAI, Anthropic, and OpenRouter backends[^54].
 
 
 ## Resources
@@ -113,3 +117,4 @@ Interesting for future automation[^28].
 [^51]: [https://github.com/ksimback/tech-debt-skill](https://github.com/ksimback/tech-debt-skill) via [20260426_121424_AlexeyDTC_msg3667.md](../inbox/used/20260426_121424_AlexeyDTC_msg3667.md)
 [^52]: [https://github.com/VoltAgent/awesome-design-md](https://github.com/VoltAgent/awesome-design-md) via [20260519_141047_valeriia_kuka_msg4206.md](../inbox/used/20260519_141047_valeriia_kuka_msg4206.md)
 [^53]: [https://stitch.withgoogle.com/docs/design-md/overview](https://stitch.withgoogle.com/docs/design-md/overview) via [20260519_141047_valeriia_kuka_msg4206.md](../inbox/used/20260519_141047_valeriia_kuka_msg4206.md)
+[^54]: [https://github.com/microsoft/webwright](https://github.com/microsoft/webwright) via [20260526_205821_AlexeyDTC_msg4283.md](../inbox/used/20260526_205821_AlexeyDTC_msg4283.md)

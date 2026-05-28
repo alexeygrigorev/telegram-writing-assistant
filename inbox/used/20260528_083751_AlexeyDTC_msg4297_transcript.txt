@@ -1,0 +1,9 @@
+---
+source: telegram_voice
+date: 2026-05-28T08:37:51+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260528_083751_AlexeyDTC_msg4297.ogg
+---
+
+В общем, что я сделал? Я открыл open code и сказал такой промпт. Я сейчас промпт кину.
