@@ -10,7 +10,7 @@ status: draft
 
 Minsearch is a lightweight search library for small to medium datasets, for when you don't need the complexity of Elasticsearch. The source is at [github.com/alexeygrigorev/minsearch](https://github.com/alexeygrigorev/minsearch).
 
-## Where It Fits
+## The Right Fit
 
 Minsearch is designed for situations where:
 
@@ -19,49 +19,84 @@ Minsearch is designed for situations where:
 - Everything lives within a single process
 - You don't need heavy infrastructure like Elasticsearch[^usecases]
 
-The most convenient use is indexing small sites or datasets up to a few thousand documents, somewhere in the 5,000 to 10,000 range. A few thousand documents index extremely fast, and the search is fast too. This works best when you don't need vector search, because vector search is more involved: computing the embeddings takes time. When you have enough plain text to search over, minsearch is the most convenient option[^scale].
+The best fit is indexing small sites or datasets up to a few thousand documents. The sweet spot is the 5,000 to 10,000 range. Indexing a few thousand docs is fast. When you have enough plain text to search over, minsearch is the most convenient option[^scale].
 
-Beyond around 10,000 documents it stops being the right tool, and at that point it is better to use SQLiteSearch instead[^scale].
+## Real Uses
 
-## Where It's Used
+Many of my workshops use minsearch. You can find them all at [aishippinglabs.com/workshops](https://aishippinglabs.com/workshops)[^workshops].
 
-I use this library on practically all of my workshops. You can find the list of workshops at [aishippinglabs.com/workshops](https://aishippinglabs.com/workshops) - not every one of them uses minsearch, but many do[^workshops]. It is also used across all of my courses: LLM Zoomcamp, AI Hero, and AI Engineering Buildcamp[^workshops].
+It also runs across all of my courses[^workshops]:
 
-Beyond teaching, I use it in many applied projects. One example is the FAQ assistant for DataTalks.Club at [github.com/DataTalksClub/faq](https://github.com/DataTalksClub/faq) [^workshops]. Its automation module reads GitHub issues and creates FAQ entries, and minsearch is used there to check whether a question already exists before adding it. I wrote about that system on Substack: [From Google Docs to an Automated FAQ System for DataTalks.Club Courses](https://alexeyondata.substack.com/p/from-google-docs-to-an-automated) [^workshops].
+- [LLM Zoomcamp](https://github.com/DataTalksClub/llm-zoomcamp)
+- [AI Hero](https://aishippinglabs.com/courses/aihero)
+- [AI Engineering Buildcamp](https://maven.com/alexey-grigorev/from-rag-to-agents)
 
-I also use it for a lot of personal projects. It is very convenient precisely because you don't have to drag along anything heavy: for simple projects you can index the data very quickly, with no complex processing, as long as everything lives in a single process[^applied].
+Beyond teaching, I use it in personal and DataTalks.Club projects. One of them is the FAQ assistant for DataTalks.Club at [github.com/DataTalksClub/faq](https://github.com/DataTalksClub/faq)[^workshops]. Its automation module reads GitHub issues and creates FAQ entries. Minsearch checks whether a question already exists before adding a new one. I wrote about that system on Substack: [From Google Docs to an Automated FAQ System for DataTalks.Club Courses](https://alexeyondata.substack.com/p/from-google-docs-to-an-automated)[^workshops].
 
-## How It Started
+Minsearch is convenient here because you don't have to drag along anything heavy. You can index the data quickly, with no complex processing. Everything needs to live in a single process[^applied].
 
-The library came out before the first run of LLM Zoomcamp. When I was planning the course, I wanted it to focus mostly on RAG, and search - retrieval - is one of the most important parts of RAG. So I needed a simple search library I could use both for the course and for the workshops I was running alongside it to promote it[^origin1].
+## Origins
 
-I knew Elasticsearch well at the time, so I started with that. But in parallel with the course I was running workshops on Google Colab, and this was even before the first run of the course itself. The reason the workshops needed Colab is that one module was about open source LLMs, where the models had to be open source only. Running those requires a GPU, and for that you need Colab. On Colab you simply cannot run Elasticsearch: there is no way to run Docker there, and running Elasticsearch without Docker is very hard, especially on Colab[^origin2].
+The library came out before the first run of LLM Zoomcamp. When I was planning the course, I wanted it to focus mostly on RAG. Search, or retrieval, is one of the most important parts of RAG. So I needed a simple search library. I could use it both for the course and for the workshops I was running alongside it to promote it[^origin1].
 
-So I needed a maximally lightweight search that would run right in Python, with no Docker. I went looking for something existing with similar functionality, but found nothing. I have been doing text processing and search for a long time, so building a small in-process search library myself was not hard - even back then, when coding agents were not as good as they are now[^origin1].
+<figure>
+  <img src="../../assets/images/minsearch-library/llm-zoomcamp-minsearch.png" alt="The 1.3 Retrieval module in the first run of LLM Zoomcamp, built around minsearch">
+  <figcaption>The retrieval module from the first run of LLM Zoomcamp, built around minsearch.</figcaption>
+</figure>
+
+I knew Elasticsearch well, so I started with that. But I was also running workshops on Google Colab, where I needed open source LLMs running on a GPU. You can't run Docker on Colab. Without it, Elasticsearch is too hard to run[^origin2].
+
+So I needed a maximally lightweight search that would run right in Python, with no Docker. I went looking for something existing with similar functionality, but found nothing. I'd been doing text processing and search for a long time. Building a small in-process search library myself wasn't hard. Even back then, when coding agents weren't as good as they are now, I could do it[^origin1].
 
 ## Building the First Version
 
-I already had the picture in my head, and the implementation itself is simple. The idea is a bag of words with TF-IDF: you take a TF-IDF vectorizer and apply it to all the documents you have, then apply the same vectorizer to the query, multiply the matrices, sort the results, and that's it[^origin2].
+I already had the picture in my head, and the implementation is simple.
 
-I described what I wanted to a chat assistant, got code back, asked for a few fixes, and that became the first version of the library. At first it was just a single Python file[^origin2].
+It's a bag of words with TF-IDF[^origin2]:
 
-Since the implementation is simple and there were no libraries like it, I thought it would be interesting to turn into a workshop, both as preparation for the course and as content people would enjoy. That is how the first version of the workshop appeared: Build Your Own Search Engine [aishippinglabs.com/workshops/2026-05-14-build-your-own-search-engine](https://aishippinglabs.com/workshops/2026-05-14-build-your-own-search-engine) [^build]. The first version came out two years ago and was originally a talk at DataTalks.Club. I updated it with newer versions of the libraries, but it is essentially the same workshop as before, now split into units. If you want to understand how minsearch works in more detail, that is the place to look[^build].
+1. Fit a TF-IDF vectorizer on all your documents
+2. Apply the same vectorizer to the query
+3. Multiply the matrices
+4. Sort the results
+
+I described what I wanted to a chat assistant, got code back, and asked for a few fixes. That became the first version of the library. At first it was a single Python file[^origin2].
+
+Since the implementation is simple and there were no libraries like it, I thought it would make an interesting workshop. It worked both as preparation for the course and as content people would enjoy. That is how the first version of the workshop appeared: [Build Your Own Search Engine](https://aishippinglabs.com/workshops/2026-05-14-build-your-own-search-engine) [^build].
+
+The first version came out two years ago and was originally a talk at DataTalks.Club. I updated it with newer versions of the libraries, but it's essentially the same workshop as before. It's now split into units. If you want to understand how minsearch works in more detail, that is the place to look[^build].
 
 ## From a Single File to a PyPI Package
 
-At first people just downloaded the single file. Over time I realized I needed to ship changes to the library so that everyone taking the course could pick them up easily. Before this they had to wget the file, which was inconvenient, and pip install is much more convenient[^evolution1].
+At first people downloaded the single file. Over time I realized I needed to ship changes to the library. Then everyone taking the course could pick them up easily. Before this they had to wget the file, which was awkward. Now they can install it with pip[^evolution1].
 
-So I looked into how to package and publish a library on PyPI. I already had some experience releasing Python libraries, so I refreshed my memory, set it up, and published the first version, 0.0.1. That turned out to be very convenient, and I gradually started adding new functionality[^evolution1].
+So I looked into how to package and publish a library on PyPI. I already had some experience releasing Python libraries, so I refreshed my memory. I set it up and published the first version, 0.0.1. That worked well, and I gradually started adding new functionality[^evolution1].
 
 ## The Appendable Index
 
-The appendable index came about a year later, when I started working on the second run of the course, which brought in agents. We had started talking about agents on that second launch, and I wanted to show that agents can do more than just search - they can take other actions too. For that I needed a version of the index that you can add documents to after it has been created. That is how the appendable index appeared[^evolution2].
+The appendable index came about a year later, when I started working on the second run of the course. We added agents, and I needed more than just search. I wanted to show that agents can also add data back to the index, not just read from it. So I built an index you can add to later[^evolution2].
 
 ## Vector Search
 
-Vector search came even later. I had been showing vector search on one of the workshops, and I thought it would be nice to make it part of minsearch, since minsearch had come out of that workshop in the first place[^evolution2].
+Vector search came to minsearch even later. It was part of the original Build Your Own Search Engine workshop, but not of the library at first. Over time I needed it more and more in the workshops, so eventually I included it. That made sense, since minsearch had come out of that workshop[^evolution2].
 
-## How the Library Evolved
+## Benchmarking and Optimization
+
+I used the appendable index more and more. Over time I noticed it was considerably slower than the simple one. At first I was fine with that, but at times it was just too slow. So I decided to benchmark it.
+
+It recomputed tokens and scores during every search, while the simple index relied on scikit-learn's optimized batch operations. The first benchmark showed it was about 14 times slower to index and 27 times slower to search[^benchmark].
+
+This was one of the first times I used an AI assistant to benchmark and optimize something.
+
+I gave Claude a clear workflow[^benchmark]:
+
+1. Benchmark against Simple Wikipedia and save a baseline
+2. Make changes to the code
+3. Check that results still match the baseline
+4. Compare the speed
+
+I checked in about once an hour while I worked on course materials. After a few rounds, search ran 20 to 76 times faster than scikit-learn. The gap grew on larger datasets. Indexing stayed about 1.3 times slower, a fair price for being able to append documents[^benchmark]. The full benchmark writeup is at [github.com/alexeygrigorev/minsearch/blob/main/benchmark/BENCHMARK_WRITEUP.md](https://github.com/alexeygrigorev/minsearch/blob/main/benchmark/BENCHMARK_WRITEUP.md).
+
+## Release Timeline
 
 Here is roughly how minsearch developed over time, based on its commit history[^commits]:
 
@@ -71,14 +106,16 @@ Here is roughly how minsearch developed over time, based on its commit history[^
 - 2025-07 (0.0.4): Added vector search, plus CI and a move to uv.
 - 2025-09 (0.0.5): Made keyword fields optional across all index classes, because filtering by keyword was not always needed.
 - 2025-10 (0.0.6 / 0.0.7): Bug fixes.
-- 2025-11: Added append support to vector search for incremental vector indexing; fixed TF-IDF normalization in the appendable index to match scikit-learn.
+- 2025-11: Added append support to vector search for incremental vector indexing. Also fixed TF-IDF normalization in the appendable index to match scikit-learn.
 - 2026-02 (0.0.8): Added numeric and date range filters, and refactored filtering into its own module.
 - 2026-02 (0.0.9): Major appendable-index performance optimizations, a highlighter for search results, and a tokenizer module with stemming support.
 - 2026-02 (0.0.10): Added save and load methods to all index classes for persistence.
 - 2026-05 (0.0.11): Fixed appendable-index scoring.
 - 2026-05 (0.1.0): Switched to CI-based publishing on tag push. This is the current version.
 
-The performance work behind 0.0.9 has its own story in [Minsearch Benchmarking and Optimization](minsearch-benchmarking-optimization.md).
+## Alternatives
+
+Beyond around 10,000 documents, minsearch stops being the right tool. If you still want something lightweight for a larger local dataset, use SQLiteSearch. I built it for exactly that[^scale]. I wrote about the process on Substack: [How I Built SQLiteSearch](https://alexeyondata.substack.com/p/how-i-built-sqlitesearch-a-lightweight). The source is at [github.com/alexeygrigorev/sqlitesearch](https://github.com/alexeygrigorev/sqlitesearch).
 
 ## Sources
 
@@ -92,3 +129,4 @@ The performance work behind 0.0.9 has its own story in [Minsearch Benchmarking a
 [^scale]: [20260528_110735_AlexeyDTC_msg4313_transcript.txt](../../inbox/used/20260528_110735_AlexeyDTC_msg4313_transcript.txt)
 [^workshops]: [20260528_122004_AlexeyDTC_msg4321_transcript.txt](../../inbox/used/20260528_122004_AlexeyDTC_msg4321_transcript.txt)
 [^applied]: [20260528_122004_AlexeyDTC_msg4321_transcript.txt](../../inbox/used/20260528_122004_AlexeyDTC_msg4321_transcript.txt)
+[^benchmark]: [20260209_143545_AlexeyDTC_msg1234_transcript.txt](../../inbox/used/20260209_143545_AlexeyDTC_msg1234_transcript.txt), [github.com/alexeygrigorev/minsearch/blob/main/benchmark/BENCHMARK_WRITEUP.md](https://github.com/alexeygrigorev/minsearch/blob/main/benchmark/BENCHMARK_WRITEUP.md)
