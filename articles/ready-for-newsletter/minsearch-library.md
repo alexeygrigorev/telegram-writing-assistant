@@ -21,6 +21,28 @@ Minsearch is designed for situations where:
 
 The best fit is indexing small sites or datasets up to a few thousand documents. The sweet spot is the 5,000 to 10,000 range. Indexing a few thousand docs is fast. When you have enough plain text to search over, minsearch is the most convenient option[^scale].
 
+## Usage Examples
+
+Install minsearch with uv:
+
+```bash
+uv add minsearch
+```
+
+You define the text and keyword fields, then `fit` the index. Now you're ready to search[^readme].
+
+```python
+from minsearch import Index
+
+index = Index(
+    text_fields=["question", "answer"],
+    keyword_fields=["course"]
+)
+index.fit(docs)
+
+results = index.search("can I join the course?")
+```
+
 ## Real Uses
 
 Many of my workshops use minsearch. You can find them all at [aishippinglabs.com/workshops](https://aishippinglabs.com/workshops)[^workshops].
@@ -75,9 +97,39 @@ So I looked into how to package and publish a library on PyPI. I already had som
 
 The appendable index came about a year later, when I started working on the second run of the course. We added agents, and I needed more than just search. I wanted to show that agents can also add data back to the index, not just read from it. So I built an index you can add to later[^evolution2].
 
+`AppendableIndex` has the same `search`, but you `append` documents one at a time instead of fitting once[^readme].
+
+```python
+from minsearch import AppendableIndex
+
+index = AppendableIndex(
+    text_fields=["title", "description"],
+    keyword_fields=["course"]
+)
+
+index.append({
+    "title": "Python",
+    "description": "Learn Python",
+    "course": "CS101"
+})
+
+results = index.search("python")
+```
+
 ## Vector Search
 
 Vector search came to minsearch even later. It was part of the original Build Your Own Search Engine workshop, but not of the library at first. Over time I needed it more and more in the workshops, so eventually I included it. That made sense, since minsearch had come out of that workshop[^evolution2].
+
+`VectorSearch` keeps the same methods, but works on pre-computed embeddings ranked by cosine similarity[^readme].
+
+```python
+from minsearch import VectorSearch
+
+index = VectorSearch(keyword_fields=["category"])
+index.fit(vectors, docs)
+
+results = index.search(query_vector, num_results=5)
+```
 
 ## Benchmarking and Optimization
 
@@ -130,3 +182,4 @@ Beyond around 10,000 documents, minsearch stops being the right tool. If you sti
 [^workshops]: [20260528_122004_AlexeyDTC_msg4321_transcript.txt](../../inbox/used/20260528_122004_AlexeyDTC_msg4321_transcript.txt)
 [^applied]: [20260528_122004_AlexeyDTC_msg4321_transcript.txt](../../inbox/used/20260528_122004_AlexeyDTC_msg4321_transcript.txt)
 [^benchmark]: [20260209_143545_AlexeyDTC_msg1234_transcript.txt](../../inbox/used/20260209_143545_AlexeyDTC_msg1234_transcript.txt), [github.com/alexeygrigorev/minsearch/blob/main/benchmark/BENCHMARK_WRITEUP.md](https://github.com/alexeygrigorev/minsearch/blob/main/benchmark/BENCHMARK_WRITEUP.md)
+[^readme]: [github.com/alexeygrigorev/minsearch/blob/main/README.md](https://github.com/alexeygrigorev/minsearch/blob/main/README.md)
