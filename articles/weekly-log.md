@@ -1,7 +1,7 @@
 ---
 title: "Weekly Log"
 created: 2026-02-26
-updated: 2026-05-28
+updated: 2026-05-29
 tags: [weekly, log]
 status: draft
 ---
@@ -14,9 +14,33 @@ A running log of what was done each week. When a topic has its own detailed arti
 
 ## pocketshell and a Team of Agent Teams
 
-pocketshell, the Android app that packages my phone-based development workflow, reached a state where I can actually use it this week while continuing to build it[^47].
+pocketshell, the Android app that packages my phone-based development workflow, reached a state where I can actually use it this week while continuing to build it[^47]. It is the next step from the mobile workflow described in [Working from a Phone](working-from-phone.md): last week I mentioned that some parts of that process were still being set up, and pocketshell is about packaging everything into one box where I can do everything I need to do[^48].
 
 Ran an experiment on it: coordinating three coding agents - Codex, Claude Code, and OpenCode - as three team managers that find each other, divide up the work, and collaborate on the same repo. See [A Team of Agent Teams](agent-team-of-teams.md) for the full story[^47].
+
+## AI Engineering Field Guide Scrape
+
+Did another scrape of all job postings for the [AI Engineering Field Guide](ai-engineering-field-guide.md). The goal is to keep doing this throughout the year and then analyse the trends - to see what changes over this year and beyond[^48].
+
+This run scraped 2,751 listings and added 919 new unique jobs after deduplication, downloading the HTML and generating the raw and structured YAML for all of them. The fresh dump now holds around 4,000 unique vacancies[^48][^49].
+
+<figure>
+  <img src="../assets/images/weekly-log/field-guide-scrape-2026-05-29.jpg" alt="Job collection completion log for 2026-05-29: 2,751 scraped, 919 new deduped, 919 HTML downloaded, 919 raw and structured YAML, 0 missing structured IDs">
+  <figcaption>The 2026-05-29 Field Guide scrape run - 2,751 listings scraped down to 919 new deduplicated jobs, all the way through structured YAML generation</figcaption>
+  <!-- Screenshot of this week's job-collection run that Alexey sent with the weekly recap -->
+</figure>
+
+## AI Shipping Labs Onboarding
+
+Started building onboarding integrated into the platform. So far we have onboarded around 40, maybe even 50 people manually, going through these kinds of questions by hand. By now we have enough material to start - not to fully automate it, but to make it easier to do. For each archetype we build a more or less personalised onboarding, then keep collecting information and try to help every community member reach their plans[^48].
+
+## O'Reilly Guardrails Workshop
+
+Ran the guardrails workshop this week with O'Reilly: [Building an Agent with Guardrails](https://aishippinglabs.com/workshops/2026-05-26-agent-with-guardrails)[^48].
+
+## LLM Zoomcamp Workshops
+
+Also ran two LLM Zoomcamp workshops this week. The first was about agents and the second about evaluations[^48].
 
 ## Week of 2026-05-18
 
@@ -394,3 +418,5 @@ See [Course Management Production Incident Report](course-management-production-
 [^45]: [20260521_123809_AlexeyDTC_msg4274_transcript.txt](../inbox/used/20260521_123809_AlexeyDTC_msg4274_transcript.txt)
 [^46]: [20260521_123715_AlexeyDTC_msg4272.md](../inbox/used/20260521_123715_AlexeyDTC_msg4272.md)
 [^47]: [20260528_083546_AlexeyDTC_msg4289_transcript.txt](../inbox/used/20260528_083546_AlexeyDTC_msg4289_transcript.txt), [20260528_083646_AlexeyDTC_msg4291_transcript.txt](../inbox/used/20260528_083646_AlexeyDTC_msg4291_transcript.txt)
+[^48]: [20260529_082620_AlexeyDTC_msg4351_transcript.txt](../inbox/used/20260529_082620_AlexeyDTC_msg4351_transcript.txt)
+[^49]: [20260529_082326_AlexeyDTC_msg4349_photo.md](../inbox/used/20260529_082326_AlexeyDTC_msg4349_photo.md)

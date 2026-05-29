@@ -101,8 +101,9 @@ Files at the articles root that don't fit into the above categories.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Weekly Log](weekly-log.md) | draft | 2026-05-29 | Running log of what was done each week. Topics with their own dedicated article appear as short summaries with links; smaller items stay inline |
+| [AI Engineering Field Guide](ai-engineering-field-guide.md) | draft | 2026-05-29 | Job listing pipeline for AI Engineer roles - scraping, deduplication, LLM enrichment |
 | [A Team of Agent Teams: Coordinating Codex, Claude Code, and OpenCode](agent-team-of-teams.md) | draft | 2026-05-28 | Experiment coordinating three coding agents (Codex, Claude Code, OpenCode) as three team managers that find each other, divide the work, and collaborate on the same repo, run on the pocketshell mobile-dev project |
-| [Weekly Log](weekly-log.md) | draft | 2026-05-28 | Running log of what was done each week. Topics with their own dedicated article appear as short summaries with links; smaller items stay inline |
 | [OpenClaw Experiments](openclaw-experiments.md) | draft | 2026-05-28 | Testing the OpenClaw bootstrap flow (CLI and Telegram), including WhisperX install, plus an SSH brute-force rescue where OpenClaw diagnosed and fixed the sshd flood with fail2ban |
 | [Interesting Resources](interesting-resources.md) | draft | 2026-05-28 | Curated collection of tools, resources, and project ideas for the newsletter |
 | [Substack Archive Index](substack-archive-index.md) | draft | 2026-05-28 | Lookup table of all Alexey's published Substack posts with title, description, and URL. Used to insert direct links when he references something he has already shared |
@@ -117,7 +118,6 @@ Files at the articles root that don't fit into the above categories.
 | [Data Engineering Zoomcamp Testimonials](data-engineering-zoomcamp-testimonials.md) | draft | 2026-04-30 | Collected DE Zoomcamp testimonials in one place: anonymous "new neural pathways" thank-you, Freeman Onah on the clear course structure, Evgeniia on Spark/Flink/Kestra modules and the overall experience |
 | [Coming Up with Project Ideas](coming-up-with-project-ideas.md) | draft | 2026-04-23 | Reframed as recurring conversation across workshops/AI Shipping Labs/course students, three project types as a list with overlap, cap-the-time general rule with tech-learning combo, mermaid flowchart for portfolio workflow, Buildcamp cohort 1 demo day examples (cybersecurity, client satisfaction, habit builder, email agent), personal projects section with Alexey's Substack write-ups (dirdotenv, ssh-auto-forward, nobook, microboost, bot master, telegram assistant) |
 | [Deterministic Coding with Agent Teams](litehive.md) | draft | 2026-04-10 | litehive file-based task manager, tmuxctl, GoZ engine, self-writing system, recovery agent, multiple engines, usage quota tracking, stale agent killing, self-improving tools |
-| [AI Engineering Field Guide](ai-engineering-field-guide.md) | draft | 2026-03-27 | Job listing pipeline for AI Engineer roles - scraping, deduplication, LLM enrichment |
 | [Trying OpenAI Codex as a Claude Code Alternative](codex-experiments.md) | draft | 2026-03-25 | Trying Codex after hitting Claude Code session limits, agent workflow comparison, no task widget, auto-continue differences, orchestrator idea |
 | [Running Local LLMs for Coding on a Hetzner Server](local-llm-experiments.md) | draft | 2026-03-19 | Hitting Claude Code weekly limits, experimenting with quantized Qwen2.5 and DeepSeek on CPU |
 | [Starting Projects with GitHub Copilot](starting-projects-with-github-copilot.md) | draft | 2026-03-13 | Using GitHub Copilot to start projects from the browser, limitations and best workflow with ChatGPT |

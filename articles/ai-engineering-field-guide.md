@@ -1,7 +1,7 @@
 ---
 title: "AI Engineering Field Guide"
 created: 2026-03-27
-updated: 2026-03-27
+updated: 2026-05-29
 tags: [ai-engineering, field-guide, jobs]
 status: draft
 ---
@@ -14,6 +14,8 @@ The AI Engineering Field Guide collects and curates job listings for AI Engineer
 
 A new batch processed in late March 2026 scraped 2,341 jobs from 6 locations. That resulted in 680 new unique jobs after deduplication[^1][^2].
 
+The scrape runs on a recurring basis. The goal is to keep collecting job postings throughout the year and then analyse the trends - to see what changes over this year and beyond. A late-May 2026 run scraped 2,751 listings and added 919 new unique jobs after deduplication, with the fresh dump holding around 4,000 unique vacancies[^3][^4].
+
 <figure>
   <img src="../assets/images/ai-engineering-field-guide/pipeline-progress.jpg" alt="Pipeline progress showing 2,341 jobs scraped, 680 deduplicated, downloaded, and extracted">
   <figcaption>Field guide pipeline progress - scraping, deduplication, download, extraction, and LLM enrichment</figcaption>
@@ -24,3 +26,5 @@ A new batch processed in late March 2026 scraped 2,341 jobs from 6 locations. Th
 
 [^1]: [20260327_123130_AlexeyDTC_msg3110_photo.md](../inbox/used/20260327_123130_AlexeyDTC_msg3110_photo.md)
 [^2]: [20260327_145217_AlexeyDTC_msg3112.md](../inbox/used/20260327_145217_AlexeyDTC_msg3112.md)
+[^3]: [20260529_082620_AlexeyDTC_msg4351_transcript.txt](../inbox/used/20260529_082620_AlexeyDTC_msg4351_transcript.txt)
+[^4]: [20260529_082326_AlexeyDTC_msg4349_photo.md](../inbox/used/20260529_082326_AlexeyDTC_msg4349_photo.md)
