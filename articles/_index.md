@@ -42,8 +42,8 @@ Articles about the AI Shipping Labs paid community. Topics range from vision and
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Personalised Plans](ai-shipping-labs/plans/_index.md) | draft | 2026-05-29 | Personalized 6-week sprint plans for AI Shipping Labs members |
 | [Activities](ai-shipping-labs/activities.md) | draft | 2026-05-21 | Regular sessions, accountability circles, mentoring, career development, knowledge sharing, member onboarding, Office Hours tied to LLM Zoomcamp, group course study in autumn, sprint weekly call format, scaling sprint moderation via pair/triple accountability partners with member-to-member networking |
-| [Personalised Plans](ai-shipping-labs/plans/_index.md) | draft | 2026-05-19 | Personalized 6-week sprint plans for AI Shipping Labs members |
 | [Course Ideas](ai-shipping-labs/courses.md) | draft | 2026-05-15 | Spec-Driven Dev, Refactoring AI Slop, Python, Data Engineering, CloudCode, testing, DevOps, DDD module, Build Docker from scratch workshop |
 | [Individual Interviews](ai-shipping-labs/interviews/_index.md) | draft | 2026-05-09 | One file per participant with persona assignment: Koray Can Canut, Juan Perez Prim, Daniel Ibáñez, Jakob Zischka, Vancesca Dinh, Brad Smith, Leonor, and others |
 | [Marketing and Content Strategy](ai-shipping-labs/marketing-and-content.md) | draft | 2026-04-24 | Marketing channels, funnel, lead magnets, content strategy, Lenny's inspiration, Paul Iusztin's Decoding AI newsletter as a model for naturally slotting course ads into free-newsletter content, overview articles that funnel into the community by keeping specifics (GitHub template, prompts, workshops, workflows) inside AI Shipping Labs |
