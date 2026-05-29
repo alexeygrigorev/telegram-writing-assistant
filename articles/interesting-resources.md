@@ -28,20 +28,8 @@ Each resource entry follows this simple format:
 
 ## Tools
 
-### DESIGN.md
-
-[DESIGN.md](https://stitch.withgoogle.com/docs/design-md/overview) is a plain-text design system spec from Google Stitch that AI coding agents read to generate consistent UI. It's just a markdown file you drop into your project root — no Figma exports, no JSON schemas — covering colour palette, typography, components, layout, depth, and do's and don'ts in a format LLMs parse natively. Think of it as the design counterpart to AGENTS.md: where AGENTS.md tells agents how to build the project, DESIGN.md tells them how it should look and feel[^53].
-
-### Webwright
-
-[Webwright](https://github.com/microsoft/webwright) is a lightweight, terminal-based browser agent framework from Microsoft that gives an LLM a CLI to spawn browser sessions and complete web tasks. Instead of the step-by-step Playwright MCP loop, it has the model write a re-runnable Python Playwright script end-to-end, so the agent's browsing history becomes a single code file you can rerun, adapt, and debug. It's a CLI alternative to Playwright MCP for browser testing and automation, built on just httpx, pydantic, playwright, and typer, with OpenAI, Anthropic, and OpenRouter backends[^54].
-
 
 ## Resources
-
-### Awesome DESIGN.md
-
-[Awesome DESIGN.md](https://github.com/VoltAgent/awesome-design-md) is a curated collection of 73+ DESIGN.md files extracted from popular brand websites like Stripe, Linear, Vercel, Notion, and Tesla. DESIGN.md is a plain-text design system format introduced by Google Stitch that AI coding agents read to generate consistent UI — drop one into your project root and tell your agent to build a page that matches. Each file captures color palettes, typography rules, component stylings, layout principles, and do's and don'ts in a format LLMs parse natively, with no Figma exports or JSON schemas needed[^52].
 
 ## Project ideas
 
