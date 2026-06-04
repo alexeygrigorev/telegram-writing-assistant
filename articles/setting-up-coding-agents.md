@@ -22,6 +22,17 @@ There is a lot of material online, so it is worth pointing to the courses and do
 
 The official documentation and free courses below are the canonical starting points for getting set up.
 
+### Start here
+
+The full list further down is long. If you only open a few things, open these:
+
+- [Claude Code 101](https://anthropic.skilljar.com/claude-code-101) - the flagship free getting-started course, from installation through customization.
+- [Claude Code Overview](https://code.claude.com/docs/en/overview) - what Claude Code is and the install commands for every surface.
+- [Codex Quickstart](https://developers.openai.com/codex/quickstart) - the four ways to run Codex and how to sign in with ChatGPT or an API key.
+- [OpenCode docs intro](https://opencode.ai/docs/) - install, configure a provider, and the built-in agents.
+
+Despite how many courses and docs already exist, people still ask me whether I have my own content about this - and that is exactly why the rest of this article exists. The complete set of references follows[^33].
+
 ### Claude Code official documentation
 
 - [Overview](https://code.claude.com/docs/en/overview) - what Claude Code is and install commands for every surface (terminal, VS Code, JetBrains, desktop, web). The first stop for picking an environment and installing.
@@ -216,6 +227,49 @@ That is basically all the essentials. For me the main thing is to just start doi
 
 But overall, I think that if you go through this path - from just using an assistant, to adding skills, to starting to use subagents - then you can already do basically anything with it. That is exactly the from-zero-to-hero path, because once you understand that these things exist and what kinds of problems they solve, you can already get going. But you need to go through this path from the very beginning. I do not recommend starting right away with subagents and trying to understand how they work, because that will take some time. If you start with the complex things, you may not figure out the simple ones, and there is a risk that nothing will come out properly[^27].
 
+## Context files and the subcommands I actually use
+
+A couple of extra things worth mentioning at the end.
+
+### Project context files (CLAUDE.md and AGENTS.md)
+
+One thing I should have mentioned earlier: the context files. In your own projects you should always create these files - CLAUDE.md and AGENTS.md - so the agent has context. Every time the agent starts, it reads them, and that is where the description of the project lives, the things the agent specifically needs to know. Claude Code reads CLAUDE.md, while Codex and OpenCode read AGENTS.md[^28].
+
+This is useful to set up, and it is really the step between just using the agent and working with it more deliberately. When you first start, you realize it is a useful thing: instead of explaining to the agent every single time what this project is, or letting it crawl through the whole repository to figure things out, the agent reads the context file straight away and knows what it needs[^28].
+
+### Reset (or new) to keep the context clean
+
+The subcommand I use most often is the one that resets the session - it is called reset or new depending on the agent. The point is not to overload the context. Every time I start a new task, I want to clear the context so that only what is important lands in it[^28].
+
+This is exactly where a good CLAUDE.md or AGENTS.md matters: it makes starting from a clean slate painless, and when compaction happens, everything important is still at hand[^28].
+
+### Goal: keep the agent working until the goal is reached
+
+The other command I use very actively right now is goal. It works in both Codex and Claude Code. You give the agent a goal, and it does not stop until that goal is reached. It is something like the Ralph Loop we talked about. The common problem is that an agent waits for some input from you - "what do you think about this?" - even when the work is not actually done. The goal loop forces it to keep working and not wait for anything from you[^28][^29].
+
+It is now a built-in command in both tools. Codex shipped it first (Greg Brockman described it as a built-in Ralph Loop), and Claude Code added a near-identical version shortly after. You type the command followed by a completion condition in plain language, for example a goal that all tests pass and the lint step is clean. The agent then keeps starting new turns on its own until the condition is met. In Claude Code a separate small evaluator model checks after each turn whether the condition is satisfied and, if not, sends back guidance and starts another turn; the goal clears automatically on success. It also runs headless, and it pairs well with auto / skip-permissions mode so each turn runs without approval prompts. Official references: [Claude Code goal docs](https://code.claude.com/docs/en/goal) and [Codex follow-goals docs](https://developers.openai.com/codex/use-cases/follow-goals)[^29].
+
+The Ralph Loop it descends from is an autonomous-coding pattern: a loop that feeds the same prompt to a fresh agent over and over until the task is done, with progress accumulating in files and git history rather than in the model's context. The goal command is the productized, in-process version of the same idea[^29].
+
+The one real caveat is cost and runaway risk. Each turn now costs two model calls (the main turn plus the validator), so it is more expensive than a normal session, and there is no hard spending cap by default. It helps to phrase the end state as something binary and machine-checkable, name the verification command explicitly, and bake a limit into the condition itself (for example, stop after a set number of turns)[^29].
+
+Beyond these, I do not really use anything else. I used some other plugin with subcommands before, but now I do not see anything useful in it. For me it comes down to just two commands - reset or new, and goal - and I use goal very actively. Everything else, I do not use[^30].
+
+## My setup: the .claude dotfiles repo
+
+To make this concrete, my own setup lives in a public repository: [github.com/alexeygrigorev/.claude](https://github.com/alexeygrigorev/.claude) [^31][^32]. Despite the name, it is broader than Claude Code - it is a single source of truth for bootstrapping and configuring all three agents (Claude Code, Codex, and OpenCode) from one shared clone, so every machine and every assistant ends up with the same setup[^31].
+
+The structure:
+
+- An installer script clones the repo and runs a configure script that wires everything into the right home-directory locations. The configure step takes a target - claude, codex, opencode, or all.
+- A config/ folder holds per-assistant settings (a settings.json for Claude and OpenCode, a config.toml for Codex). For Claude it merges in a settings.json; for Codex it syncs into the Codex config and symlinks skills into the Codex skills folder; for OpenCode it symlinks skills into the OpenCode config.
+- A skills/ folder holds the shared skills (one folder per skill, each with a SKILL.md), symlinked into each assistant so all three share the same skills. Examples include create-github-repo, fetch-youtube, fetch-loom, fetch-google-recorder, init-library, jina-reader, openai-transcribe, regular-ping, release, setup-pypi-ci, and stylint.
+- A shared .bashrc is sourced from the repo, so a git pull propagates new aliases and functions automatically. It defines the short aliases I use daily - for example c for claude, cc for continue-session, csp for claude with skip-permissions, cy for codex in bypass mode, and an oc function for OpenCode.
+
+It also encodes the safety guardrails I described earlier. The Claude settings register a PreToolUse hook that runs a check-destructive script, which blocks dangerous commands (things like rm -rf /, force pushes, dropping a database, or terraform apply) unless confirmed. The oc function for OpenCode strips a long denylist of provider API-key environment variables before launching, so leaked credentials never reach the agent[^31].
+
+There are no custom slash commands or subagents committed in this particular repo - its extensibility is entirely through skills[^31].
+
 ## Sources
 
 [^1]: [20260604_145544_AlexeyDTC_msg4359_transcript.txt](../inbox/used/20260604_145544_AlexeyDTC_msg4359_transcript.txt)
@@ -245,4 +299,10 @@ But overall, I think that if you go through this path - from just using an assis
 [^25]: [20260604_163843_AlexeyDTC_msg4411_transcript.txt](../inbox/used/20260604_163843_AlexeyDTC_msg4411_transcript.txt)
 [^26]: [20260604_164159_AlexeyDTC_msg4413_transcript.txt](../inbox/used/20260604_164159_AlexeyDTC_msg4413_transcript.txt)
 [^27]: [20260604_164402_AlexeyDTC_msg4415_transcript.txt](../inbox/used/20260604_164402_AlexeyDTC_msg4415_transcript.txt)
+[^28]: [20260604_212206_AlexeyDTC_msg4421_transcript.txt](../inbox/used/20260604_212206_AlexeyDTC_msg4421_transcript.txt)
+[^29]: [20260604_212216_AlexeyDTC_msg4423_transcript.txt](../inbox/used/20260604_212216_AlexeyDTC_msg4423_transcript.txt)
+[^30]: [20260604_212249_AlexeyDTC_msg4425_transcript.txt](../inbox/used/20260604_212249_AlexeyDTC_msg4425_transcript.txt)
+[^31]: [20260604_212310_AlexeyDTC_msg4427_transcript.txt](../inbox/used/20260604_212310_AlexeyDTC_msg4427_transcript.txt)
+[^32]: [20260604_212340_AlexeyDTC_msg4429.md](../inbox/used/20260604_212340_AlexeyDTC_msg4429.md)
+[^33]: [20260604_212423_AlexeyDTC_msg4431_transcript.txt](../inbox/used/20260604_212423_AlexeyDTC_msg4431_transcript.txt)
 
