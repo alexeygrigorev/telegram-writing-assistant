@@ -101,7 +101,7 @@ Files at the articles root that don't fit into the above categories.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
-| [Setting Up Your Coding Agents](setting-up-coding-agents.md) | draft | 2026-06-04 | Work-in-progress guide to setting up Claude Code, Codex, and OpenCode: install, config files, skills, MCP, subagents, safety, token usage, plus official docs and free courses. Framing that setup is really about skills/MCP/folders/workflow, not just install. Alexey's personal getting-started recommendation still to be added |
+| [Setting Up Your Coding Agents](setting-up-coding-agents.md) | draft | 2026-06-04 | Guide to setting up Claude Code, Codex, and OpenCode: install, config files, skills, MCP, subagents, safety, token usage, plus official docs and free courses, and Alexey's personal zero-to-hero plan - choose an assistant, solve tasks directly, permissions and YOLO mode, automation, make skills, share skills across tools via symlinks, and use subagents |
 | [Weekly Log](weekly-log.md) | draft | 2026-05-29 | Running log of what was done each week. Topics with their own dedicated article appear as short summaries with links; smaller items stay inline |
 | [AI Engineering Field Guide](ai-engineering-field-guide.md) | draft | 2026-05-29 | Job listing pipeline for AI Engineer roles - scraping, deduplication, LLM enrichment |
 | [A Team of Agent Teams: Coordinating Codex, Claude Code, and OpenCode](agent-team-of-teams.md) | draft | 2026-05-28 | Experiment coordinating three coding agents (Codex, Claude Code, OpenCode) as three team managers that find each other, divide the work, and collaborate on the same repo, run on the pocketshell mobile-dev project |
