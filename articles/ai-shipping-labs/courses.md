@@ -129,6 +129,10 @@ The topics they want to focus on[^13]:
 
 This is direct community demand for content that overlaps with the DevOps and infrastructure topics above and the Build Docker from scratch workshop. Could be useful input when scoping future courses.
 
+## LangChain and Hugging Face workshop
+
+A community member who watched one of the courses and videos asked for a short workshop using LangChain and Hugging Face. People keep asking for this kind of content, so it is worth adding as a workshop idea[^14].
+
 ## Course format strategy
 
 The plan is to have at least one big course on Maven (if time permits), while the rest would be mini-courses available in the community at tier 3. Will actively ask people what they're interested in and monitor what content they engage with most[^10].
@@ -148,3 +152,4 @@ The plan is to have at least one big course on Maven (if time permits), while th
 [^11]: [20260415_105059_AlexeyDTC_msg3397.md](../../inbox/used/20260415_105059_AlexeyDTC_msg3397.md)
 [^12]: [20260425_113656_AlexeyDTC_msg3663.md](../../inbox/used/20260425_113656_AlexeyDTC_msg3663.md)
 [^13]: [20260512_163356_AlexeyDTC_msg4022.md](../../inbox/used/20260512_163356_AlexeyDTC_msg4022.md)
+[^14]: [20260604_085850_AlexeyDTC_msg4357.md](../../inbox/used/20260604_085850_AlexeyDTC_msg4357.md)

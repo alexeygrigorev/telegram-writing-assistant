@@ -42,9 +42,9 @@ Articles about the AI Shipping Labs paid community. Topics range from vision and
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Course Ideas](ai-shipping-labs/courses.md) | draft | 2026-06-04 | Spec-Driven Dev, Refactoring AI Slop, Python, Data Engineering, CloudCode, testing, DevOps, DDD module, Build Docker from scratch workshop, LangChain/Hugging Face workshop |
 | [Personalised Plans](ai-shipping-labs/plans/_index.md) | draft | 2026-05-29 | Personalized 6-week sprint plans for AI Shipping Labs members |
 | [Activities](ai-shipping-labs/activities.md) | draft | 2026-05-21 | Regular sessions, accountability circles, mentoring, career development, knowledge sharing, member onboarding, Office Hours tied to LLM Zoomcamp, group course study in autumn, sprint weekly call format, scaling sprint moderation via pair/triple accountability partners with member-to-member networking |
-| [Course Ideas](ai-shipping-labs/courses.md) | draft | 2026-05-15 | Spec-Driven Dev, Refactoring AI Slop, Python, Data Engineering, CloudCode, testing, DevOps, DDD module, Build Docker from scratch workshop |
 | [Individual Interviews](ai-shipping-labs/interviews/_index.md) | draft | 2026-05-09 | One file per participant with persona assignment: Koray Can Canut, Juan Perez Prim, Daniel Ibáñez, Jakob Zischka, Vancesca Dinh, Brad Smith, Leonor, and others |
 | [Marketing and Content Strategy](ai-shipping-labs/marketing-and-content.md) | draft | 2026-04-24 | Marketing channels, funnel, lead magnets, content strategy, Lenny's inspiration, Paul Iusztin's Decoding AI newsletter as a model for naturally slotting course ads into free-newsletter content, overview articles that funnel into the community by keeping specifics (GitHub template, prompts, workshops, workflows) inside AI Shipping Labs |
 | [Community Observations](ai-shipping-labs/community-observations.md) | draft | 2026-04-24 | Cross-member patterns: perfectionism / needing to understand everything, no clear picture of the role, idea for a Lightning Lesson on the depth of skills needed |
@@ -101,6 +101,7 @@ Files at the articles root that don't fit into the above categories.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Setting Up Your Coding Agents](setting-up-coding-agents.md) | draft | 2026-06-04 | Work-in-progress guide to setting up Claude Code, Codex, and OpenCode: install, config files, skills, MCP, subagents, safety, token usage, plus official docs and free courses. Framing that setup is really about skills/MCP/folders/workflow, not just install. Alexey's personal getting-started recommendation still to be added |
 | [Weekly Log](weekly-log.md) | draft | 2026-05-29 | Running log of what was done each week. Topics with their own dedicated article appear as short summaries with links; smaller items stay inline |
 | [AI Engineering Field Guide](ai-engineering-field-guide.md) | draft | 2026-05-29 | Job listing pipeline for AI Engineer roles - scraping, deduplication, LLM enrichment |
 | [A Team of Agent Teams: Coordinating Codex, Claude Code, and OpenCode](agent-team-of-teams.md) | draft | 2026-05-28 | Experiment coordinating three coding agents (Codex, Claude Code, OpenCode) as three team managers that find each other, divide the work, and collaborate on the same repo, run on the pocketshell mobile-dev project |
