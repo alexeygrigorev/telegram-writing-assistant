@@ -24,7 +24,7 @@ Of course, this creates FOMO and the desire to know everything before you even s
 
 ## Choosing where to start
 
-In this article I want to show a sipmple "from zero to hero" path. The main idea is that you don't need to know everything at once - or you risk getting even more confused.
+In this article I want to show a simple "from zero to hero" path. The main idea is that you don't need to know everything at once - or you risk getting even more confused.
 
 Instead, start simple, and use AI to solve the actual problems you have. Over time you will discover the workflow that fits you.
 
@@ -51,132 +51,111 @@ There are many AI coding assistants:
 - Antigravity
 - Cline
 
-The first step is picking one of these tools and start using it. 
+The first step is picking one of these tools and starting to use it.
 
-Previously I'd recommend GitHub Copilot as the first tool: for $10 you could get quite far, but that is no longer the case[^7]. With Antigravity's free plan you could also do a lot but not anymore.
+I used to recommend GitHub Copilot: for $10/month you could get quite far. That is no longer the case. With Antigravity's free plan you could also do a lot, but not anymore[^7].
 
 <figure>
   <img src="../assets/images/setting-up-coding-agents/copilot-cost.png" alt="Headlines about GitHub Copilot's switch from a flat-rate plan to token-based billing: 'What a joke: GitHub Copilot's new token-based billing spurs consternation among devs' (TechCrunch), 'GitHub Copilot Pricing Change Drives Backlash: Agentic Bills Jump 10x to 50x for Power Users' (Tech Times), and 'Microsoft's GitHub shifts to metered AI billing amid cost crisis' (The Register)">
   <figcaption>GitHub Copilot's shift from a flat ten-dollar plan to token-based billing - bills jumping 50x</figcaption>
 </figure>
 
+Right now the best value is the $20/month ChatGPT Plus subscription, which includes Codex. OpenCode is another decent place to start.
 
-Right now you can get the best value with the $20/month ChatGPT Plus subscription: Codex is included.
+With Anthropic, the $20 plan won't get you far - you hit the limits quickly. For Claude you'd need to start from the $100 one.
 
-OpenCode is another decent place to start.
-
-With Anthropic, the $20 plan won't get you far - you hit the limits quickly. For Claude, you'd need to start from the $100 one.
-
-The tools are different, and I cannot say that one is clearly better than another, so at first just pick the one that fits your budget[^7].
+The tools are different, and I cannot say one is clearly better than another. At first, just pick the one that fits your budget[^7].
 
 ## Step 2: Solve a task with the assistant
 
-After selecting a coding agent, start using it. 
-
-Start as simply as possible. Give the agent a task you can do end-to-end and then check:
+After picking a coding agent, start using it. Give it a task you can do end-to-end and then check:
 
 - write a Python or bash script
 - solve homework from a course
-- a mini-project like the snake game we did in [AI Dev Tools Zoomcamp](https://github.com/DataTalksClub/ai-dev-tools-zoomcamp)
-- any small problem you have
+- build a mini-project like the snake game we did in [AI Dev Tools Zoomcamp](https://github.com/DataTalksClub/ai-dev-tools-zoomcamp)
+- fix a small problem you have
 
-You don't need MCPs, skills, or subagents. Not yet.
-
-The goal at this stage is to see that the agent can actually solve many of your problems, and understand how exactly you can use it. 
+You don't need MCPs, skills, or subagents yet. The goal at this stage is to see that the agent can actually solve real problems for you, and to learn how you want to use it.
 
 
 ## Permissions
 
-When you start, the agent asks for permission on every action.
+When you start, the agent asks for permission on every action, and it gets annoying fast.
 
-It gets annoying fast. So you either start building a white list of allowed actions (when agent prompts you for approval, you say "Yes and don't ask me again for this action")
+You have two options:
 
-Or you run it in the skip-permissions/YOLO mode.
+- Build an allow-list of approved actions: every time the agent prompts you, say "yes and don't ask me again for this action".
+- Run the agent in skip-permissions mode (YOLO mode).
 
-You have to understand the risks: the agent can execute any command on your computer. But sometimes speed matters more than control: you want to hand the agent a task for the night and walk away without having to approve every single action[^10].
+In YOLO mode the agent can run any command executable from your terminal. You have to understand the risks, but sometimes speed matters more than control - you want to hand the agent a task for the night and walk away without approving every single step[^10].
 
-I run agents on most of my projects run in this mode. 
+I run most of my projects in YOLO mode. For serious tasks I use the allow-list approach instead - for example, when I'm setting up infrastructure for production. If I need to do something like Terraform, I never use YOLO[^11].
 
-Only for serios tasks I use the white list approach. For example, when I need to set up infra for the productio environment. If I need to do something like Terraform, I never use YOLO mode[^11].
-
-There is no universal rule. It depends on how much you want to be in control and how much the result matters to you. In YOLO mode the agent works faster, but if it decides to delete something, it will[^12].
+There is no universal rule. It depends on how much you want to be in control and how much the result matters to you. YOLO mode is faster, but if the agent decides to delete something, it will[^12].
 
 ## Use agents for automation, not only coding
 
-I had been using agents for coding for more than a year. And they have been very useful
+I had been using agents for coding for long time and they were incredibly useful. But I only understood how valuable they actually are when I started using them to automate tasks[^14].
 
-But only when I started using them for automating tasks, I undestood how valuable they are.[^14].
+For example, right now I'm preparing the videos for [LLM Zoomcamp](https://github.com/DataTalksClub/llm-zoomcamp).
 
-For example, right now I'm preparing the videos for LLM Zoomcamp.
+I need to download the videos from YouTube, cut them into separate chunks, and upload them back as individual videos. On top of that, I want each video to have timecodes, so I download the subtitles and turn them into chapters.
 
-I need download the videos from YouTube, cut them into separate chunks, and upload them back to YouTube separately. On top of that, I want these videos to have timecodes, so I download the subtitles and turn them into chapters. 
+I delegate most of this to Claude. I only need to:
 
-I can delegate most of it to Claude. I only need to check that the cuts are clean, bulk-upload the videos (it's problematic with YouTube API), and then hit save so it goes from draft to "published" (there's no API call for that too). 
+- check that the cuts are clean
+- bulk-upload the videos (the YouTube API is awkward for that)
+- hit Save so each video goes from draft to published (no API for that either)
 
-The rest is on Clade: it can see the videos I uploaded, then it pulls their IDs, updates the title and the description, adds timecodes, puts them into the playlist in the right order. [^14][^42]
+The rest is on Claude: it sees the uploaded videos, pulls their IDs, updates the title and description, adds the timecodes, and puts them into the playlist in the right order[^14][^42].
 
-This saves a lot of time.
+The setup was simple: I described what I needed. It found the video links, downloaded them, fetched the transcripts, cut the videos with ffmpeg, and walked me through setting up YouTube API access. After that I checked the cuts and uploaded the videos.
 
-Picture: screenshot of youtube playlist
+Over the last year I have automated many things in my workflow this way:
 
-The flow is very simple. I described to Claude what I exactly I needed and pointed to the location with the uncut videos. It fetched the tracripts and cut the videos using ffmpeg, and then described what I need to do to set the API access to YouTube. Then I checked the cuts and uploaded the videos. That was it. 
+- creating homework submission forms for [courses.datatalks.club](https://courses.datatalks.club/)
+- creating GitHub repositories
+- publishing new versions of the libraries I maintain
 
-Last year I started automating many things in my workflow.
-
-- Creating homework submission forms for https://courses.datatalks.club/
-- Creating github repositories 
-- Publishing new versions of libraries I maintain 
-- 
-
-If there's an API for a service or a command line tool, AI agents can figure out how to use them and automate your work using only the terminal. 
-
-[^16].
+If there's an API for a service or a command-line tool, an AI agent can figure out how to use it and automate the work from the terminal[^16].
 
 
 ## Step 3: Document your processes
 
-Once you figure out how to automate something, the next step is to document it. 
+Once you figure out how to automate something, the next step is to document it - especially when you know you'll need it again.
 
-Especially when you know that you're going to need this again. 
+Usually I work with the agent until the task is done, and then I ask it to document everything to a markdown file. The LLM Zoomcamp docs for cutting YouTube videos live [here](https://github.com/DataTalksClub/llm-zoomcamp/tree/8c1834d114754cc0e0d65544b8589ef7d94b81cf/docs).
 
-Usually I interact with the assistant until the task is done, and at the end I ask it to document everything to a markdown file. For LLM Zoomcamp the process is [here](https://github.com/DataTalksClub/llm-zoomcamp/tree/8c1834d114754cc0e0d65544b8589ef7d94b81cf/docs
-) 
-
-Then you can do it again and just point the agent to this documentation. 
-
-When I needed to add more videos to the LLM Zoomcamp playlist, that's exactly what I did.
+Next time I can just point the agent at the doc. When I needed to add more videos to the LLM Zoomcamp playlist, that's exactly what I did.
 
 <figure>
   <img src="../assets/images/setting-up-coding-agents/youtube-playlist-automation.jpg" alt="Terminal prompt asking the agent to pull module 3 videos from a playlist into the course playlist, pointing it at the docs for the YouTube API">
   <figcaption>Automating YouTube playlist management - the agent is told to pull the module videos and place them in the course playlist at the right spot, pointed at the docs for the API</figcaption>
 </figure>
 
+Without a doc, the agent has to start from scratch and burn time (and tokens) figuring out how to solve the problem again.
 
-If you don't document it, the agent will have to start from stract and spend time (and tokens) to figure out how to solve the problem again.
+For YouTube that may not matter much - there is plenty of information online and the agent already knows a lot. But for less common workflows it doesn't have the context.
 
-For YouTube videos it might not be a big problem because there's a lot of information online about it so the agent already knows many things.
+For example, I use agents to publish homework to [courses.datatalks.club](https://courses.datatalks.club/). To do that, the agent needs to know:
 
-But for other things it doesn't have all the right context. For example, I use agents to publish the homework to https://courses.datatalks.club/. 
+- the production URL
+- where the API key lives
+- what's available in the API
+- the exact payload shape
+- what to do when things go wrong
 
-In this case the agent needs to know:
-
-- What's the URL for the production website
-- Where's the API key
-- What's available in the API 
-- How exactly the payload shold look like 
-- What to do when things go wrong 
-
-If you don't document it, you'll have to explain the agent what to do every single time you ask it to help you. 
+Without a doc, you have to explain all of this every single time.
 
 ## Step 4: Turn repetitive tasks into skills
 
 Once you have a document, you can turn it into a skill.
 
-A skill is md document saved in a specific location with a specific name... TODO more 
+A skill is a markdown file saved in a specific folder with a specific name.
 
-todo add links that describe skills  
+For Claude Code that location is `.claude/skills/<skill-name>/SKILL.md`, for Codex it's `.codex/skills/<skill-name>/SKILL.md`.
 
-example: 
+The file needs YAML frontmatter with a `name` and a `description` - that's the only required part. Here's an example from my [course-management-agent](https://github.com/alexeygrigorev/course-management-agent) repo:
 
 ```markdown
 ---
@@ -190,27 +169,14 @@ description: Manage courses, homeworks, and projects via REST API
 
 This skill provides commands to manage courses, homeworks, and projects via the REST API. Supports list, create, update state/dates/description, and guarded delete.
 ```
-from here https://raw.githubusercontent.com/alexeygrigorev/course-management-agent/refs/heads/master/.claude/skills/course-content/SKILL.md
 
-This skill needs to be in `.claude/skills/<SKILL-NAME>/SKILL.md` (for codex it's `.codex`)
+Once the file is in the right place, the agent picks it up automatically. With a skill in place I can throw a request at Claude as is - "here is the homework, upload it" - and the agent recognizes which skill fits, loads it, and does the rest. Without one, I'd have to point at the docs every single time.
 
-The only required part is name and description. that's it. 
+You don't have to write skills by hand and figure out the folder layout yourself. Just ask the agent to document the process and turn it into a skill.
 
+Both Claude Code and Codex ship a built-in skill for making skills, so they put the file in the right place and in the right format[^18].
 
-
-Once you put the md doc in that location, the agent can pick them up automatically.
-
-With a skill in place I can throw the request at Claude as is - "here is the homework, upload it" - and the agent recognizes which skill fits, loads it, and does the rest. Otherwise I'd have to point to the docs every single time I ask the assitant to help with it.
-
-You don't actually need to write the skills by hand and figure out the locatins and the format. What you can do is
-
-- Ask the agent to document the process
-- Then ask it to save it as a skill
-
-
-Both Claude Code and Codex ship a built-in skill for making skills, so they can easity take your docs and put them in the correct place so it becomes the skill.[^18].
-
-If you're wondering if you should make something a skill or not, don't overthing it. I'd suggest to always document what you do at the end of each coding session, and if you need to come back to this documentation repeatedly, turn it into a skill. 
+If you're wondering whether something should become a skill, don't overthink it. Document what you do at the end of each coding session, and if you come back to that doc repeatedly, turn it into a skill.
 
 For a more structured take, Anthropic recently published [Lessons from building Claude Code: How we use skills](https://claude.com/blog/lessons-from-building-claude-code-how-we-use-skills).
 
@@ -219,37 +185,28 @@ For a more structured take, Anthropic recently published [Lessons from building 
 
 As you work with an agent, every question and answer accumulates in its context. Eventually the context fills up and quality drops[^21][^22].
 
-I first realized how useful subagets are when setting up the telegram writing assistnat (TODO substack link)
+I first realized how useful subagents are while setting up this Telegram writing assistant. It works like this:
 
-This is how it works:
+- I send it a lot of content - voice notes, text messages, links, videos
+- I run `/process` from Telegram when I want Claude to turn the pile into articles
 
-- I send it a lot of content like voice notes, text messages, links and videos
-- I execute /process from telegram when I want claude to turn this pile into articles
-
-The /process command is a [skill](https://github.com/alexeygrigorev/telegram-writing-assistant/blob/master/process/process.md) which describes how exactly to turn the input into articles.
-
-However with time I started asking it to do some context-heavy tasks:
-
-- fetch a youtube transcript and summarize it
-- explore a github repository and explain how it works
-- do research on a certain topic
-
+The `/process` command is a [skill](https://github.com/alexeygrigorev/telegram-writing-assistant/blob/master/process/process.md) that describes how to turn the input into articles. 
 
 Imagine I send this:
 
-- ten voice notes about my ideas that need to be arranged into 2-3 articles
-- a tweet I liked that I want to save
-- a three-hours long youtube video that I want to summarize 
+- ten voice notes that should turn into two or three articles
+- a tweet I liked and want to save
+- a three-hour YouTube video I want to summarize
 
-I execute /process and the agent needs to put all these things together in the same context.
-The three-hour transcript will pollute everything the model has been working on. The article it was drafting gets worse, the summary comes out poorly, and there is no clean way to continue afterward[^23][^24][^25].
+I run `/process` and the agent has to handle all of it in the same context.
 
+The three-hour transcript pollutes everything the model has been working on - the article it was drafting gets worse, the summary comes out poorly, and there's no clean way to continue afterward[^23][^24][^25].
 
-One way of solving it would be to first process the simple things and once they are done, we can launch a separate session for the youtube video. 
+One way out is to process the simple items first and launch a separate session for the YouTube video later.
 
-But instead, the main agent  can launch a separate subagent for the heavy task. It will have specific instructions "summarize this transcript", run in its own context, save the result, and report back when the work is done. The main agent only sees "started" and "finished", so its context stays clean[^25].
+The better way is for the main agent to spin up a subagent for the heavy task. The subagent gets one specific instruction to "summarize this transcript". Then runs in its own context, saves the result, and reports back. The main agent only sees "started" and "finished", so its context stays clean[^25].
 
-Another benefit of running subagents is parallelism. The main agent (the orchestrator) can launch several subagents at once - one writing the article, another summarizing the video - and stitch their results together when they finish[^26].
+TODO: finish
 
 ## The path from zero to hero
 
