@@ -14,7 +14,7 @@ A running log of what was done each week. When a topic has its own detailed arti
 
 ## pocketshell and a Team of Agent Teams
 
-pocketshell, the Android app that packages my phone-based development workflow, reached a state where I can actually use it this week while continuing to build it[^47]. It is the next step from the mobile workflow described in [Working from a Phone](working-from-phone.md): last week I mentioned that some parts of that process were still being set up, and pocketshell is about packaging everything into one box where I can do everything I need to do[^48].
+pocketshell, the Android app that packages my phone-based development workflow, reached a state where I can actually use it this week while continuing to build it[^47]. It is the next step from the mobile workflow described in [Working from a Phone](https://alexeyondata.substack.com/p/the-system-i-built-to-ship-code-from): last week I mentioned that some parts of that process were still being set up, and pocketshell is about packaging everything into one box where I can do everything I need to do[^48].
 
 Ran an experiment on it: coordinating three coding agents - Codex, Claude Code, and OpenCode - as three team managers that find each other, divide up the work, and collaborate on the same repo. See [A Team of Agent Teams](agent-team-of-teams.md) for the full story[^47].
 
@@ -321,7 +321,7 @@ Spent time converting a ChatGPT-generated PNG logo into SVG using Claude Code wi
 
 Tested features on the AI Shipping Labs site. Set up OAuth tokens for Gmail and GitHub. Got Zoom integration working with a one-click meeting creation button, and reviewed the admin panel and user dashboard.
 
-Created a logo with ChatGPT and attempted SVG recreation. All integrations now run end to end across Gmail and GitHub and Zoom and Slack and Stripe. See [Building a Community Platform with Claude Code's Multi-Agent System](ai-shipping-labs/platform-implementation.md) for details[^4][^5][^6].
+Created a logo with ChatGPT and attempted SVG recreation. All integrations now run end to end across Gmail and GitHub and Zoom and Slack and Stripe. See [How We Built AI Shipping Labs Website using AI Tools](https://alexeyondata.substack.com/p/how-we-built-ai-shipping-labs) for details[^4][^5][^6].
 
 ## AI Engineer Webinar Session 2
 

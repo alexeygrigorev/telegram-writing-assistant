@@ -1,4 +1,6 @@
 url,title,description
+https://alexeyondata.substack.com/p/how-to-set-up-your-coding-agent-a,How to Set Up Your Coding Agent: A Step-by-Step Guide,"Start with one real task then add skills subagents and extra tools when you need them"
+https://alexeyondata.substack.com/p/minsearch-the-small-search-library,Minsearch: The Small Search Library Behind My RAG Workshops and Courses,How a small in-process Python library replaced Elasticsearch in my RAG notebooks that I use for teaching
 https://alexeyondata.substack.com/p/50-theory-interview-questions-for,50 Theory Interview Questions for AI Engineer Roles,Plus downloadable cheatsheets with answers
 https://alexeyondata.substack.com/p/i-turned-my-telegram-bot-into-a-multi,I Turned My Telegram Bot into a Multi-Agent Writing System,The assistant now uses separate agents for research link descriptions and content verification plus skills for repeated tasks like slide creation
 https://alexeyondata.substack.com/p/karpathys-autoresearch-went-viral,Karpathy's Autoresearch Went Viral Here's How It Works and One Idea to Try,An agent that runs experiments edits training code and improves models in a loop

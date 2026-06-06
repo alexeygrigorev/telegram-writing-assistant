@@ -1,7 +1,7 @@
 ---
 title: "Substack Archive Index"
 created: 2026-05-16
-updated: 2026-05-28
+updated: 2026-06-06
 tags: [reference, index]
 status: draft
 ---
@@ -21,6 +21,8 @@ When processing a message where I refer back to something I already shared, scan
 
 | Date | Title | URL | Description |
 |------|-------|-----|-------------|
+| 2026-06-05 | How to Set Up Your Coding Agent: A Step-by-Step Guide | https://alexeyondata.substack.com/p/how-to-set-up-your-coding-agent-a | Step-by-step setup workflow for coding agents: choosing Claude Code, Codex, OpenCode, GitHub Copilot, Antigravity, or Cline; starting with one real task; then adding automation, reusable documents, skills, subagents, context files, slash commands, permissions, remote setups, phone workflows, and shared dotfiles. |
+| 2026-05-29 | Minsearch: The Small Search Library Behind My RAG Workshops and Courses | https://alexeyondata.substack.com/p/minsearch-the-small-search-library | How the small in-process Python search library minsearch replaced Elasticsearch in RAG notebooks used for teaching, including its role in LLM Zoomcamp, AI Engineering Buildcamp, FAQ search, retrieval examples, and lightweight local search workflows. |
 | 2026-05-22 | The System I Built to Ship Code From a Phone | https://alexeyondata.substack.com/p/the-system-i-built-to-ship-code-from | How Alexey ships code from a phone using a dedicated 24/7 remote server, the Termius SSH client on Android, tmux to survive disconnects, and voice/dictation as the main interface to coding agents (Claude Code, Codex, OpenCode), plus tricks for visual tasks without a laptop. |
 | 2026-05-15 | 11 Workshops to Build Production AI Agents (RAG, MCP, Guardrails & Deployment) in One Place | https://alexeyondata.substack.com/p/11-workshops-to-build-production | All Gen.AI workshops Alexey has ever taught consolidated into one place. What is inside and how to take them. |
 | 2026-05-08 | Building an AI Book Generator with a Plan-Then-Execute Pipeline | https://alexeyondata.substack.com/p/building-an-ai-book-generator-with | How a niche bedtime-book project became a system for generating chapters, audio, EPUB files, and Amazon KDP print artifacts. |

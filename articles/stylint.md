@@ -86,7 +86,7 @@ These are all the same shape. They puff up the surrounding sentence. They add an
 
 The rule list keeps growing. When I want to ban a new phrase I just ask an agent to add it.[^7][^8]
 
-This came up while I was preparing the [Working from a Phone](working-from-phone.md) article for the next newsletter.[^7] I noticed I had written "I leaned on GitHub Copilot..." and "I also lean on Makefiles heavily." I did not like the phrasing. So I asked the agent to ban it, run stylint on the article, and replace the matches.[^8]
+This came up while I was preparing the [Working from a Phone](https://alexeyondata.substack.com/p/the-system-i-built-to-ship-code-from) article for the next newsletter.[^7] I noticed I had written "I leaned on GitHub Copilot..." and "I also lean on Makefiles heavily." I did not like the phrasing. So I asked the agent to ban it, run stylint on the article, and replace the matches.[^8]
 
 <figure>
   <img src="../assets/images/stylint/banning-leaned-on-via-agent.jpg" alt="Terminal showing two 'I leaned on' / 'I also lean on' phrases rewritten in working-from-phone.md and stylint passing">

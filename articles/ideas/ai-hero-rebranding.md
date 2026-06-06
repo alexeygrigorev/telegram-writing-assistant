@@ -10,7 +10,7 @@ status: draft
 
 Rebranding the existing AI Hero course to fit under the new AI Shipping Labs community. This involves transferring the course, its mailing list, and creating the right infrastructure.
 
-See also: [AI Shipping Labs Community Vision](../ai-shipping-labs/vision.md) for the overall community strategy.
+See also: [Launching AI Shipping Labs: a Community for AI Builders](https://alexeyondata.substack.com/p/tired-of-learning-ai-alone-were-launching) for the overall community strategy.
 
 ## Transferring AI Hero to AI Shipping Labs
 
