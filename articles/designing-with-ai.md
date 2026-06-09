@@ -1,7 +1,7 @@
 ---
 title: "Approaching Design with AI as a Non-Designer"
 created: 2026-05-19
-updated: 2026-06-08
+updated: 2026-06-09
 tags: [design, chatgpt, codex, tailwind, course-platform, datatalks-club, pocketshell, ui]
 status: draft
 ---
@@ -11,6 +11,40 @@ status: draft
 We all understand by now what AI slop looks like when it comes to projects. You can often tell right away that a project was made with AI, because it has certain design elements that are characteristic of AI.[^9]
 
 I am not a designer, I do not claim to be one, and I never liked front-end or design work. But now I do end up making some of these things. This article is about how I approach design, so that the result does not look like slop, even though I am not a designer.[^9]
+
+## The design elements that give AI away
+
+When I say a project has design elements characteristic of AI, I mean specific habits I keep running into and correcting.
+
+One is button placement. AI likes to put action buttons on the right, the way they show up here. I have to correct it and move them underneath instead.[^22]
+
+<figure>
+  <img src="../assets/images/designing-with-ai/ai-buttons-on-right.jpg" alt="Event series page with action buttons lined up on the right side">
+  <figcaption>The buttons end up on the right by default - I move them underneath</figcaption>
+  <!-- Concrete example of the button-placement tic the user keeps correcting -->
+</figure>
+
+Another is column density. AI produces these columns that sometimes make the UI too dense.[^23][^24]
+
+<figure>
+  <img src="../assets/images/designing-with-ai/ai-dense-columns-event.jpg" alt="Edit event page with a right-hand column of state and meeting details">
+  <figcaption>Columns that make the layout too dense</figcaption>
+  <!-- First example of the dense-column tic -->
+</figure>
+
+<figure>
+  <img src="../assets/images/designing-with-ai/ai-dense-columns-student.jpg" alt="Student progress page with a row of metric cards and a two-column layout">
+  <figcaption>Another page where the columns crowd the layout</figcaption>
+  <!-- Second example of the same dense-column tic -->
+</figure>
+
+And then there is the layout I think of as typical AI design: the feature grid where every cell has an icon, a title, and a short blurb.[^25]
+
+<figure>
+  <img src="../assets/images/designing-with-ai/ai-feature-grid.jpg" alt="Marketing feature grid with four cells, each with an icon, a title, and a short description">
+  <figcaption>Typical AI design - the icon-title-blurb feature grid</figcaption>
+  <!-- The generic feature-grid pattern the user points at as the tell-tale AI look -->
+</figure>
 
 ## ChatGPT generates great designs
 
@@ -181,3 +215,7 @@ From there the code agent implemented the changes, and I polished from the pictu
 [^19]: [20260608_184726_AlexeyDTC_msg4503_transcript.txt](../inbox/used/20260608_184726_AlexeyDTC_msg4503_transcript.txt) - voice note that the Pocket Shell mockups are what he arrived at with ChatGPT, not the final result
 [^20]: [20260608_183151_AlexeyDTC_msg4481_transcript.txt](../inbox/used/20260608_183151_AlexeyDTC_msg4481_transcript.txt) - voice note on opening each page to move elements and how the direction was achieved (mockups, design reference, design system, then polishing)
 [^21]: [20260608_184455_AlexeyDTC_msg4497_transcript.txt](../inbox/used/20260608_184455_AlexeyDTC_msg4497_transcript.txt) - voice note: "these two pictures are how the app looked" (the Pocket Shell before screens), then he sent the ChatGPT-generated versions
+[^22]: [20260609_072934_AlexeyDTC_msg4513_photo.md](../inbox/used/20260609_072934_AlexeyDTC_msg4513_photo.md) - screenshot with caption: AI likes to put these buttons on the right, so he corrects it to move them under
+[^23]: [20260609_073226_AlexeyDTC_msg4515_photo.md](../inbox/used/20260609_073226_AlexeyDTC_msg4515_photo.md) - screenshot with caption: columns that sometimes make the UI too dense
+[^24]: [20260609_073226_AlexeyDTC_msg4516_photo.md](../inbox/used/20260609_073226_AlexeyDTC_msg4516_photo.md) - screenshot: another page with the dense-column layout
+[^25]: [20260609_074637_AlexeyDTC_msg4519_photo.md](../inbox/used/20260609_074637_AlexeyDTC_msg4519_photo.md) - screenshot with caption: typical AI design (the feature grid)
