@@ -8,23 +8,41 @@ status: draft
 
 # Approaching Design with AI as a Non-Designer
 
-We all understand by now what AI slop looks like when it comes to projects. You can often tell right away that a project was made with AI, because it has certain design elements that are characteristic of AI.[^9]
+You can usually tell when a website was created by AI. It tends to happen with "one-shot designs": you tell the coding assistant to create a website, and when you open it, you can see right away that it's AI-generated.[^9]
 
-I am not a designer, I do not claim to be one, and I never liked front-end or design work. But now I do end up making some of these things. This article is about how I approach design, so that the result does not look like slop, even though I am not a designer.[^9]
+A lot of the time that is completely fine. For a simple website, one-shot is more than enough, and it's way better than I could ever design myself.
+
+The problems start when you don't want something generic. There are thousands of websites now that all look the same. In writing we have markers like "delve" or excessive bold formatting that give away AI-generated prose. In design there are similar elements you notice immediately.[^9]
+
+One-shot designs also get hard to use. They tend to grow overly complex, with elements not always where I'd expect them. And it compounds: as you keep building on top, each new page brings elements that don't match the rest, until the whole thing becomes messy.[^9]
+
+I am not a designer. I do not claim to be one, and I never liked front-end or design work. But since I build many user-facing tools now, both web and mobile, I want to make sure they look nice and clean, with elements placed logically.
+
+This article is about how I approach designing with AI as a non-designer - how I use AI tools to get something that looks pleasant and not generic, instead of AI slop.[^9]
 
 ## The design elements that give AI away
 
 When I say a project has design elements characteristic of AI, I mean specific habits I keep running into and correcting.
 
-One is button placement. AI likes to put action buttons on the right, the way they show up here. I have to correct it and move them underneath instead.[^22]
+The most obvious one is the layout I think of as typical AI design: the feature grid where every cell has an icon, a title, a short blurb, and the border highlights on the left.[^25]
+
+<figure>
+  <img src="../assets/images/designing-with-ai/ai-feature-grid.jpg" alt="Marketing feature grid with four cells, each with an icon, a title, and a short description">
+  <figcaption>Typical AI design - the icon-title-blurb feature grid</figcaption>
+  <!-- The generic feature-grid pattern the user points at as the characteristic AI look -->
+</figure>
+
+
+
+Another is button placement. AI likes to cram the action buttons tightly on the right, the way they show up here, as if the page had no room for them. I have to correct it and give them space underneath instead.[^22]
 
 <figure>
   <img src="../assets/images/designing-with-ai/ai-buttons-on-right.jpg" alt="Event series page with action buttons lined up on the right side">
-  <figcaption>The buttons end up on the right by default - I move them underneath</figcaption>
+  <figcaption>The buttons get crammed on the right by default - I give them room underneath</figcaption>
   <!-- Concrete example of the button-placement tic the user keeps correcting -->
 </figure>
 
-Another is column density. AI produces these columns that sometimes make the UI too dense.[^23][^24]
+The same happens with layout. AI tends to reach for column layouts even where they are not necessary, which crowds everything together and makes the UI too dense.[^23][^24]
 
 <figure>
   <img src="../assets/images/designing-with-ai/ai-dense-columns-event.jpg" alt="Edit event page with a right-hand column of state and meeting details">
@@ -38,41 +56,53 @@ Another is column density. AI produces these columns that sometimes make the UI 
   <!-- Second example of the same dense-column tic -->
 </figure>
 
-And then there is the layout I think of as typical AI design: the feature grid where every cell has an icon, a title, and a short blurb.[^25]
+## My own designs are not much better
+
+I am not a designer, and you can see it in the things I have built myself. When I need to design something, it comes out functional but not sleek. Take the main DataTalks.Club website - I put it together in 2020, and it did the job, but it is plainly not the work of a designer.
 
 <figure>
-  <img src="../assets/images/designing-with-ai/ai-feature-grid.jpg" alt="Marketing feature grid with four cells, each with an icon, a title, and a short description">
-  <figcaption>Typical AI design - the icon-title-blurb feature grid</figcaption>
-  <!-- The generic feature-grid pattern the user points at as the tell-tale AI look -->
+  <img src="../assets/images/designing-with-ai/dtc-main-website-2020.png" alt="The original DataTalks.Club website from 2020 - a plain, functional layout">
+  <figcaption>The main DataTalks.Club website I built in 2020 - functional, but clearly not the work of a designer</figcaption>
+  <!-- The user's own pre-AI design work, establishing the non-designer baseline before the redesign story -->
 </figure>
 
-## ChatGPT generates great designs
+The course management platform was the same story. I built it to replace the mess I had before - Google Forms, spreadsheets, and a pile of custom Python scripts that had become very hard to manage. The platform just replicated the process I already had, but made it easier to run. I started it in 2023 and launched the first course on it in January 2024, building it the only way I knew how: with Django and Bootstrap, the tools I already had, and AI helping along the way. It worked and had all the functionality, but it looked like this.[^14]
 
-Not long ago GPT Image 2 came out, and for me it was a turning point. On Twitter people started posting images of screenshots with the caption "this is not a screenshot". The point is that this part of GPT became really good at generating designs. It can essentially reproduce any design. You can tell it to generate a WhatsApp window or a Telegram window, and it does it easily.[^10]
+<figure>
+  <img src="../assets/images/designing-with-ai/dtc-cmp-first-version.png" alt="The first version of the DataTalks.Club course management platform, a plain Bootstrap layout">
+  <figcaption>The first version of the course management platform (<a href="https://web.archive.org/web/20240420184858/http://courses.datatalks.club/">Wayback Machine</a>) - functional, the same plain look</figcaption>
+  <!-- The CMP before the redesign, the starting point for the story that follows -->
+</figure>
+
+For a long time that was fine. The platform did its job, and styling was never the priority.
+
+## The Tailwind migration issue
+
+That changed in November 2024, when one of the students filed an issue: migrate the site to Tailwind. I never had time to deal with it, so for a while I left it sitting.[^12]
+
+That issue is [github.com/DataTalksClub/course-management-platform/issues/76](https://github.com/DataTalksClub/course-management-platform/issues/76).[^13]
+
+I had heard Tailwind was a more modern system than Bootstrap, but I did not know it myself. There had been attempts to submit a redesign from other people, and I did not like them - they were overloaded. Still, it was probably time to try. I already had Codex Pro, or whatever it is called, and I probably still had tokens left, and I had been clearing the platform's issues for a long time, so I latched onto this one. As an experiment, I just threw it at Codex and said: get to work, migrate all of this to Tailwind, show me what comes out. It did the migration, but I did not really like the result. So I started thinking about how I could approach this better.[^14][^15]
+
+## The turning point: ChatGPT can generate designs
+
+Around that time, GPT Image 2 came out, and for me it was a turning point. On Twitter people started posting images of screenshots with the caption "this is not a screenshot". The point is that this part of GPT became really good at generating designs. It can essentially reproduce any design. You can tell it to generate a WhatsApp window or a Telegram window, and it does it easily.[^10]
 
 As an illustration of how well ChatGPT generates screenshots: I just sent it a screenshot of my own Telegram and said I wanted the same conversation, but with Elon Musk. It reproduced it. I do not think the screenshot itself will surprise anyone now, but the point is that GPT Image 2 is genuinely very good. It can generate great images, including screenshots and designs, and it can come up with a design that looks beautiful.[^11]
 
 <figure>
   <img src="../assets/images/designing-with-ai/generated-screenshot-elon-musk.jpg" alt="ChatGPT-generated screenshot of a WhatsApp conversation with Elon Musk">
-  <figcaption>A generated screenshot - I sent ChatGPT a screenshot of my Telegram and asked for the same conversation with Elon Musk. <a href="https://chatgpt.com/s/m_6a270ab6ce6c81918ea2240c74178a56">The generation</a>.</figcaption>
+  <figcaption>A generated screenshot - I sent ChatGPT a screenshot of my Telegram and asked for the same conversation with Elon Musk.</figcaption>
   <!-- Concrete proof of how well the image model reproduces a real app's look, which is the foundation of the whole mockup-first approach -->
 </figure>
 
-## How it started: the Tailwind migration issue
-
-I will step back to where it all started. On the course management platform for DataTalks.Club there was an issue that had been open for a couple of years: migrate the site to Tailwind. One of the students had filed it. I never had time to deal with it, so I never did.[^12]
-
-That issue is [github.com/DataTalksClub/course-management-platform/issues/76](https://github.com/DataTalksClub/course-management-platform/issues/76) [^13].
-
-The issue appeared in November 2024. I had created the platform earlier that year. I knew nothing besides Bootstrap, so I used Bootstrap. The interface was what it was - it had functionality and it did its job. Even back then I used AI to help me build the site, and I picked the tools I already knew, so I went with Django and Bootstrap. I made something, and it worked.[^14]
-
-One of the community members suggested migrating everything to Tailwind. I had heard Tailwind was a more modern system than Bootstrap, but I did not know it myself. There had been attempts to submit a redesign from other people, and I did not like them - they were overloaded. I latched onto this issue because it was probably time to try. I already had Codex Pro, or whatever it is called, and I probably still had tokens left. The course management platform has a lot of issues that I have been clearing for a long time, and I noticed this one and remembered that we still had it. So, as an experiment, I just threw it at Codex and said: get to work, migrate all of this to Tailwind, show me what comes out. It did the migration, but I did not really like the result. So I started thinking about how I could approach this better.[^14][^15]
+So the obvious next thought was: instead of describing the redesign to a coding agent in words, what if I showed it a picture?
 
 ## Mockup first, then code
 
 The approach I landed on was different from how I usually do front-end work. First, I asked ChatGPT to generate how the site should look. Then, based on those mockups - based on the image - I did the layout.[^4]
 
-I remembered that people had started actively sharing the screenshots ChatGPT generated, and that GPT-5 really does this well. So I thought: what if I ask it to generate a design? After several iterations I got something fairly cute, something I liked. Then I told the agent: okay, here is our design idea, here is the desktop version, here is the mobile version, I want everything in this same style. It produced something similar, and I liked it.[^15]
+After several iterations I got something fairly cute, something I liked. Then I told the agent: okay, here is our design idea, here is the desktop version, here is the mobile version, I want everything in this same style. It produced something similar, and I liked it.[^15]
 
 So the loop is:
 
@@ -196,6 +226,16 @@ From there the code agent implemented the changes, and I polished from the pictu
   <figcaption>The result now - still room for improvement (like removing the dots from everywhere), but this is the current state</figcaption>
   <!-- The implemented result on Android, closing the before/mockup/after arc -->
 </figure>
+
+## Why this beats one-shotting it
+
+Both problems from the start of this article come from the same move: handing the whole design to AI in one shot and accepting what comes back. This approach splits that move apart.
+
+Generating a mockup first deals with the visual half. I decide what the page should look like and hand the agent a picture to match, so it does not fall back on the feature grid, the buttons on the right, or the dense columns. I am the one setting the direction, not the model - which is also what keeps it from looking like every other one-shot site.
+
+The design system deals with the other half - the part where everything rots as you keep building on it. Once there is a guidelines document, every new page follows the same rules, so the site stays consistent instead of drifting into a mess one screen at a time.
+
+And none of this is specific to the DTC platform, or even to the web. The same loop took an Android app I had no idea how to design and made it into something I would actually want to use. I am still not a designer. But this is how I get a result that looks pleasant and not generic, instead of slop.
 
 ## Sources
 
