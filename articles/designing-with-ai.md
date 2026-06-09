@@ -8,23 +8,23 @@ status: draft
 
 # Approaching Design with AI as a Non-Designer
 
-You can usually tell when a website was created by AI. It tends to happen with "one-shot designs": you tell the coding assistant to create a website, and when you open it, you can see right away that it's AI-generated.[^9]
+You can usually tell when a website was created by AI. It tends to happen with "one-shot designs": you tell the coding assistant to create a website. When you open it, you can see right away that it's AI-generated.[^9]
 
 A lot of the time that is completely fine. For a simple website, one-shot is more than enough, and it's way better than I could ever design myself.
 
-The problems start when you don't want something generic. There are thousands of websites now that all look the same. In writing we have markers like "delve" or excessive bold formatting that give away AI-generated prose. In design there are similar elements you notice immediately.[^9]
+The problems start when you don't want something generic. There are thousands of websites now that all look the same. In writing we have markers like "delve" or excessive bold formatting that give away AI-generated text. In design there are similar elements you notice immediately.[^9]
 
-One-shot designs also get hard to use. They tend to grow overly complex, with elements not always where I'd expect them. And it compounds: as you keep building on top, each new page brings elements that don't match the rest, until the whole thing becomes messy.[^9]
+One-shot designs also get hard to use. They tend to grow overly complex, with elements not always where I'd expect them. And it compounds. Each new page you build on brings elements that don't match the rest. Eventually the whole thing becomes messy.[^9]
 
-I am not a designer. I do not claim to be one, and I never liked front-end or design work. But since I build many user-facing tools now, both web and mobile, I want to make sure they look nice and clean, with elements placed logically.
+I am not a designer. I do not claim to be one, and I never liked front-end or design work. But I build a lot of user-facing tools now, both web and mobile. I want them to look nice and clean, with elements placed logically.
 
-This article is about how I approach designing with AI as a non-designer - how I use AI tools to get something that looks pleasant and not generic, instead of AI slop.[^9]
+This article is about how I approach designing with AI as a non-designer. I use AI tools to get something that looks pleasant and not generic, instead of AI slop.[^9]
 
 ## The design elements that give AI away
 
-When I say a project has design elements characteristic of AI, I mean specific habits I keep running into and correcting.
+When I say AI design has characteristic elements, I mean specific habits. They are the ones I keep running into and correcting.
 
-The most obvious one is the layout I think of as typical AI design: the feature grid where every cell has an icon, a title, a short blurb, and the border highlights on the left.[^25]
+The most obvious one is the layout I think of as typical AI design: the feature grid. Every cell has an icon, a title, a short blurb, and a highlighted left border.[^25]
 
 <figure>
   <img src="../assets/images/designing-with-ai/ai-feature-grid.jpg" alt="Marketing feature grid with four cells, each with an icon, a title, and a short description">
@@ -34,15 +34,15 @@ The most obvious one is the layout I think of as typical AI design: the feature 
 
 
 
-Another is button placement. AI likes to cram the action buttons tightly on the right, the way they show up here, as if the page had no room for them. I have to correct it and give them space underneath instead.[^22]
+Another is button placement. AI likes to cram the action buttons tightly on the right, as if the page had no room for them. I have to move them down and give them space instead.[^22]
 
 <figure>
   <img src="../assets/images/designing-with-ai/ai-buttons-on-right.jpg" alt="Event series page with action buttons lined up on the right side">
-  <figcaption>The buttons get crammed on the right by default - I give them room underneath</figcaption>
+  <figcaption>The buttons get crammed on the right by default - I give them room below</figcaption>
   <!-- Concrete example of the button-placement tic the user keeps correcting -->
 </figure>
 
-The same happens with layout. AI tends to reach for column layouts even where they are not necessary, which crowds everything together and makes the UI too dense.[^23][^24]
+The same happens with layout. AI tends to reach for column layouts even where they are not necessary. That crowds everything together and makes the UI too dense.[^23][^24]
 
 <figure>
   <img src="../assets/images/designing-with-ai/ai-dense-columns-event.jpg" alt="Edit event page with a right-hand column of state and meeting details">
@@ -58,7 +58,7 @@ The same happens with layout. AI tends to reach for column layouts even where th
 
 ## My own designs are not much better
 
-I am not a designer, and you can see it in the things I have built myself. When I need to design something, it comes out functional but not sleek. Take the main DataTalks.Club website - I put it together in 2020, and it did the job, but it is plainly not the work of a designer.
+I am not a designer, and you can see it in the things I have built myself. When I need to design something, it comes out functional but not sleek. Take the main DataTalks.Club website. I put it together in 2020. It did the job, but it is plainly not the work of a designer.
 
 <figure>
   <img src="../assets/images/designing-with-ai/dtc-main-website-2020.png" alt="The original DataTalks.Club website from 2020 - a plain, functional layout">
@@ -66,7 +66,9 @@ I am not a designer, and you can see it in the things I have built myself. When 
   <!-- The user's own pre-AI design work, establishing the non-designer baseline before the redesign story -->
 </figure>
 
-The course management platform was the same story. I built it to replace the mess I had before - Google Forms, spreadsheets, and a pile of custom Python scripts that had become very hard to manage. The platform just replicated the process I already had, but made it easier to run. I started it in 2023 and launched the first course on it in January 2024, building it the only way I knew how: with Django and Bootstrap, the tools I already had, and AI helping along the way. It worked and had all the functionality, but it looked like this.[^14]
+The course management platform was the same story. Before it, I ran everything on Google Forms, spreadsheets, and a pile of custom Python scripts. That had become hard to manage, so I built the platform to replace it. It just replicated the process I already had, but made it easier to run.
+
+I started it in 2023 and launched the first course on it in January 2024. I built it with Django and Bootstrap, the tools I already knew. AI helped along the way. It worked and had all the functionality, but it looked like this.[^14]
 
 <figure>
   <img src="../assets/images/designing-with-ai/dtc-cmp-first-version.png" alt="The first version of the DataTalks.Club course management platform, a plain Bootstrap layout">
@@ -76,33 +78,37 @@ The course management platform was the same story. I built it to replace the mes
 
 For a long time that was fine. The platform did its job, and styling was never the priority.
 
-## The Tailwind migration issue
+## Throwing it at Codex
 
-That changed in November 2024, when one of the students filed an issue: migrate the site to Tailwind. I never had time to deal with it, so for a while I left it sitting.[^12]
+In November 2024, one of the students filed an issue: migrate the site to Tailwind. I had no time for it, so it just sat there untouched, like plenty of other issues.[^12]
 
 That issue is [github.com/DataTalksClub/course-management-platform/issues/76](https://github.com/DataTalksClub/course-management-platform/issues/76).[^13]
 
-I had heard Tailwind was a more modern system than Bootstrap, but I did not know it myself. There had been attempts to submit a redesign from other people, and I did not like them - they were overloaded. Still, it was probably time to try. I already had Codex Pro, or whatever it is called, and I probably still had tokens left, and I had been clearing the platform's issues for a long time, so I latched onto this one. As an experiment, I just threw it at Codex and said: get to work, migrate all of this to Tailwind, show me what comes out. It did the migration, but I did not really like the result. So I started thinking about how I could approach this better.[^14][^15]
+I only got to it in 2026. By then I had coding agents like Codex on plans where the tokens reset on a schedule. I wanted to use mine up before the reset day. I had been clearing the platform's issues for a long time, and this one was still sitting there. So I latched onto it.
 
-## The turning point: ChatGPT can generate designs
+I had heard Tailwind was a more modern system than Bootstrap, but I did not know it myself. There had been redesign attempts from other people before, and I did not like them. They were overloaded. Still, it was probably time to try.
 
-Around that time, GPT Image 2 came out, and for me it was a turning point. On Twitter people started posting images of screenshots with the caption "this is not a screenshot". The point is that this part of GPT became really good at generating designs. It can essentially reproduce any design. You can tell it to generate a WhatsApp window or a Telegram window, and it does it easily.[^10]
+As an experiment, I threw it at Codex and told it to migrate everything to Tailwind. It did the migration, but I did not like the result. So I started thinking about how I could approach this better.[^14][^15]
 
-As an illustration of how well ChatGPT generates screenshots: I just sent it a screenshot of my own Telegram and said I wanted the same conversation, but with Elon Musk. It reproduced it. I do not think the screenshot itself will surprise anyone now, but the point is that GPT Image 2 is genuinely very good. It can generate great images, including screenshots and designs, and it can come up with a design that looks beautiful.[^11]
+## ChatGPT can generate designs
+
+Around that time, GPT Image 2 came out, and it changed how I thought about all this. On Twitter people started posting screenshots with the caption "this is not a screenshot". This part of GPT had become good at generating designs. It can reproduce almost any design. You can ask it for a WhatsApp window or a Telegram window, and it does it easily.[^10]
+
+Here is how well it does it. I sent ChatGPT a screenshot of my own Telegram and asked for the same conversation, but with Elon Musk. It reproduced it. The screenshot will not surprise anyone now, but GPT Image 2 is genuinely good. It generates great images, including screenshots and designs. The results can look genuinely beautiful.[^11]
 
 <figure>
   <img src="../assets/images/designing-with-ai/generated-screenshot-elon-musk.jpg" alt="ChatGPT-generated screenshot of a WhatsApp conversation with Elon Musk">
   <figcaption>A generated screenshot - I sent ChatGPT a screenshot of my Telegram and asked for the same conversation with Elon Musk.</figcaption>
-  <!-- Concrete proof of how well the image model reproduces a real app's look, which is the foundation of the whole mockup-first approach -->
+  <!-- Concrete proof of how well the image model reproduces a real app's look, which the whole mockup-first approach relies on -->
 </figure>
 
-So the obvious next thought was: instead of describing the redesign to a coding agent in words, what if I showed it a picture?
+So the next thought was simple. Instead of describing the redesign to a coding agent in words, I could show it a picture.
 
 ## Mockup first, then code
 
-The approach I landed on was different from how I usually do front-end work. First, I asked ChatGPT to generate how the site should look. Then, based on those mockups - based on the image - I did the layout.[^4]
+The approach I landed on was different from how I usually do front-end work. First, I asked ChatGPT to generate how the site should look. Then I built the layout from those mockups.[^4]
 
-After several iterations I got something fairly cute, something I liked. Then I told the agent: okay, here is our design idea, here is the desktop version, here is the mobile version, I want everything in this same style. It produced something similar, and I liked it.[^15]
+After several iterations I got something fairly cute, something I liked. Then I gave the agent the design idea, both the desktop and mobile versions. I asked it to build everything in that same style. It produced something similar, and I liked it.[^15]
 
 So the loop is:
 
@@ -112,13 +118,13 @@ So the loop is:
 
 The mockup acts as the spec. Instead of describing the layout in words, the agent has the picture to match.
 
-One thing I noticed while iterating with GPT-5: when you generate images, after a while it forgets about the screenshots you gave it. The first screenshot will not necessarily produce something similar, and that is fine. The idea is that when you ask ChatGPT to generate a screenshot or a design, you are just setting the direction - roughly how you want it to look. It will not look like the final product. You are using it to point the way, not to ship the exact pixels.[^15]
+I noticed one thing while iterating with GPT-5. After a while, it forgets the screenshots you gave it. The first screenshot will not necessarily produce something similar, and that is fine. When you ask ChatGPT for a screenshot or a design, you are just setting the direction. It shows roughly how you want it to look, not the final product. You are using it to point the way, not to ship the exact pixels.[^15]
 
 ## Generating mockups per page
 
-I asked ChatGPT to generate every photo. First I gave it a description of what was on the site, and then for each page I asked it to generate a web version and a mobile version.[^7]
+I asked ChatGPT to generate every photo. First I gave it a description of what was on the site. Then, for each page, I asked it to generate a web version and a mobile version.[^7]
 
-I iterated on the pictures until I got something I liked. The course dashboard and the homework page each went through their own loop of "make it look like this, change that" until the mockup matched what I had in mind.
+I iterated on the pictures until I got something I liked. The course dashboard and the homework page each went through their own loop. I kept saying "make it look like this, change that" until the mockup matched what I had in mind.
 
 <figure>
   <img src="../assets/images/designing-with-ai/mockup-course-dashboard.jpg" alt="ChatGPT-generated mockup of the redesigned Data Engineering Zoomcamp 2026 dashboard with homework list and project submissions">
@@ -134,11 +140,11 @@ I iterated on the pictures until I got something I liked. The course dashboard a
 
 ## Choosing a design system
 
-After playing with the mockups, I noticed a different problem: there was no consistent system. I had heard from designers I used to work with that they have design systems - reusable components and rules about how things should be laid out on a page.[^16]
+After playing with the mockups, I noticed a different problem: there was no consistent system. I had heard from designers I used to work with that they have design systems. A design system is reusable components plus rules for how things should be laid out on a page.[^16]
 
-So I told Codex: what if we pick a design system now? We have these mockups and a rough sense of where we are going, but the pages are all different and there is no single style. Let's make a design style. Codex said yes, we can make a design style, but what if we choose one that already exists? I said that was a great idea and asked it to think about which design system would suit us best. It proposed several, and in the end we chose GitHub.[^16]
+So I told Codex we should pick a design system now. We had the mockups and a rough sense of direction. But the pages were all different, with no single style. Codex suggested we choose one that already exists instead of inventing our own. I thought that was a great idea and asked it to propose the best fit. It suggested several, and in the end we chose GitHub.[^16]
 
-I cannot say it turned out to be a copy of GitHub - if you look, it is not. But some things are traceable. The idea was that we took GitHub as a basis, took some of its design decisions (how buttons should look, how components should look), and prepared a design guidelines document. That document is how the agents should make decisions when they design a page.[^16]
+I cannot say it turned out to be a copy of GitHub - if you look, it is not. But some things are traceable. We took GitHub as a basis. We borrowed some of its design decisions, like how buttons and components should look. From that we wrote a design-guidelines document. That document is how the agents make decisions when they design a page.[^16]
 
 <figure>
   <img src="../assets/images/designing-with-ai/mockup-homework-dark.jpg" alt="ChatGPT-generated dark-theme desktop mockup of the redesigned Homework 1 page">
@@ -148,11 +154,11 @@ I cannot say it turned out to be a copy of GitHub - if you look, it is not. But 
 
 ## Polishing the details in code
 
-That was not the end of it - there was still a lot of work. But things were already better. From there I could open each page and say: I do not like this here, move this over there, too much padding here, too little there. Overall I liked the direction we were moving in, and what was left was only the details.[^20]
+That was not the end of it - there was still a lot of work. But things were already better. From there I could open each page and say what I wanted changed. Move this here, drop some padding there, that kind of thing. Overall I liked the direction we were moving in, and what was left was only the details.[^20]
 
-So how did I reach that direction? By generating the mockups first, then asking the agent to pick a design reference (GitHub in this case), then having it compose a design system specifically for our platform based on the best practices of existing companies, and only then opening each page to move elements around so it looked nice.[^20]
+You can't make those pointwise changes through the mockup generator. If you ask the screenshot tool to move a single element, it redoes the whole screenshot. Making targeted edits is hard that way.
 
-You can't make those pointwise changes through the mockup generator, because if you ask the screenshot tool to move a single element it redoes the whole screenshot. Targeted edits are very hard through a generator like that. The mockup sets the direction; the agent implements it; then you polish in code.[^8]
+The mockup sets the direction, the agent implements it, and you polish in code.[^8]
 
 So the workflow that emerged is:
 
@@ -167,19 +173,29 @@ So the workflow that emerged is:
   <!-- The end result of the workflow on the original project - clean and consistent -->
 </figure>
 
-I have not finished the redesign - there is actually still a lot to change and many places I do not like. But the point is that the direction is there, the general look is one I like, and the design guidelines exist. What remains is to sit down and finish all the pages. The public pages already look more or less fine. What I still have to work on are the non-public pages of the course management platform. Overall I really like how it looks now - clean and neat.[^17]
+I have not finished the redesign. There is still a lot to change and many places I do not like. But the direction is there, the general look is one I like, and the design guidelines exist. What remains is to sit down and finish all the pages.
+
+The public pages already look more or less fine. What I still have to work on are the non-public pages. Overall I like how it looks now. It is clean and neat.[^17]
 
 ## Applying the approach to other projects
 
-Because I liked this approach so much, I started using it for other things, so that the code does not come out looking awful and the design is not an eyesore.[^17]
+I liked this approach so much that I started using it for other things. That way the code does not come out looking awful, and the design is not an eyesore.[^17]
 
-For the web I will not go into detail. The key point is that you do not even need screenshots. You can just tell the agent in the project: let's make a design system, which design system would suit our project best? The agent will propose some options, you pick one, and then you say: now let's document this. That alone already helps a lot - the interfaces it creates will be better and will need fewer changes.[^17]
+For the web I will not go into detail. You do not even need screenshots. You can just tell the agent to set up a design system. Ask which one would fit the project best.
 
-With a screenshot it is even better, because you yourself will have an understanding of where the elements should go. The agent does not have to decide that, and you do not have to spend a long time moving everything around afterward. But screenshots generate slowly and moving individual elements through them is hard, so they are mostly there to set the direction. The agent implements it, and then you finish it off, saying what to change, where to put things, and what to fix.[^17]
+It proposes some options, you pick one, and then you have it document the choice. That alone helps a lot. The interfaces it creates are better and need fewer changes.[^17]
+
+With a screenshot it is even better, because you already know where the elements should go. The agent does not have to decide that. You also do not spend a long time moving everything around afterward.
+
+But screenshots generate slowly, and moving individual elements through them is hard. So they are mostly there to set the direction. The agent implements it. Then you finish it off in code, telling it what to change and where.[^17]
 
 ## Applying it to an Android app: Pocket Shell
 
-I started trying this approach on other apps too. Right now I am working on an app that lets me manage agents from my phone. I call it Pocket Shell. As soon as I reached the first level of functionality that more or less worked, the interface was so-so. I did the same thing: I said, look, here is our interface, I do not like it, I want to change it, let's pick a style. What helped was the same loop - I went to ChatGPT, said this is how I see it, let's implement this, and the implementation brought the interface closer to what I wanted.[^18]
+I started trying this approach on other apps too. Right now I am working on an app that lets me manage agents from my phone. I call it Pocket Shell. As soon as I reached the first level of functionality that more or less worked, the interface was so-so.
+
+I did the same thing as before. I told the agent I did not like the interface and wanted to change it. We picked a style together.
+
+The same loop helped. I went to ChatGPT, described how I saw it, and had it implement that. The result came closer to what I wanted.[^18]
 
 <figure>
   <img src="../assets/images/designing-with-ai/pocketshell-before-conversation.jpg" alt="Pocket Shell agent conversation screen before the redesign">
@@ -193,11 +209,13 @@ I started trying this approach on other apps too. Right now I am working on an a
   <!-- The other "before" screen the user explicitly paired with the conversation view -->
 </figure>
 
-This took many iterations. The problem specifically with Android is feedback speed. For the web you can change something, reload the page, and immediately see the result - or, with Vite, even without a reload you see the elements move on screen in real time as you tell the agent what to change. With Android there is none of that.[^18]
+This took many iterations. The problem with Android is feedback speed. On the web you change something, reload the page, and see the result immediately. With Vite you do not even need to reload. The elements move on screen as you tell the agent what to change. With Android you get none of that.[^18]
 
-What helped was a screenshot tool that lets you take a picture of any screen, so you do not have to go through the long fiddling with building an APK. It just produces a picture, and from that picture you can iterate much faster than before.[^18]
+What helped was a screenshot tool that takes a picture of any screen. That way I did not have to fiddle with building an APK each time. It just produces a picture, and from there I can iterate much faster than before.[^18]
 
-I had never written Android before, but now there was a need. The best part is that the things that work for web design also work for Android. My approach is the same: I generate some initial image myself to roughly figure out how it should look. Talking with ChatGPT helps me understand how I want the interface to look. It generates an image, I throw that image to the agents and say "implement this here", they implement it, and then I start moving the picture, the buttons, and so on, to get what I want.[^18]
+I had never written Android before, but now I needed to. What works for web design also works for Android. My approach is the same.
+
+I generate an initial image myself to figure out roughly how it should look. Talking with ChatGPT helps me work out how I want the interface to look. It generates an image, I hand it to the agents, and they implement it. Then I move the layout and buttons around until it looks the way I want.[^18]
 
 <figure>
   <img src="../assets/images/designing-with-ai/pocketshell-mockup-conversation.jpg" alt="ChatGPT-generated mockup of the Pocket Shell conversation screen with a compose prompt">
@@ -213,7 +231,7 @@ I had never written Android before, but now there was a need. The best part is t
 
 These mockups are not the final result - they are what I arrived at with ChatGPT to set the direction.[^19]
 
-From there the code agent implemented the changes, and I polished from the picture - for example, refactoring the tree structure in the projects list to reduce vertical space and improve readability, focusing on visual hierarchy, indentation, and a compact layout.[^18]
+From there the code agent implemented the changes, and I polished from the picture. For example, I refactored the tree structure in the projects list to reduce vertical space and improve readability. I focused on visual hierarchy, indentation, and a compact layout.[^18]
 
 <figure>
   <img src="../assets/images/designing-with-ai/pocketshell-implementation.jpg" alt="Coding agent debugging the Pocket Shell projects list implementation">
@@ -227,15 +245,15 @@ From there the code agent implemented the changes, and I polished from the pictu
   <!-- The implemented result on Android, closing the before/mockup/after arc -->
 </figure>
 
-## Why this beats one-shotting it
+## Better than one-shotting it
 
-Both problems from the start of this article come from the same move: handing the whole design to AI in one shot and accepting what comes back. This approach splits that move apart.
+Both problems from the start of this article come from the same move. You hand the whole design to AI in one shot and accept what comes back. This approach splits that move apart.
 
-Generating a mockup first deals with the visual half. I decide what the page should look like and hand the agent a picture to match, so it does not fall back on the feature grid, the buttons on the right, or the dense columns. I am the one setting the direction, not the model - which is also what keeps it from looking like every other one-shot site.
+Generating a mockup first deals with the visual half. I decide what the page should look like and hand the agent a picture to match. That way it does not fall back on the feature grid, the right-side buttons, or the dense columns. I set the direction, not the model. That is also what keeps it from looking like every other one-shot site.
 
-The design system deals with the other half - the part where everything rots as you keep building on it. Once there is a guidelines document, every new page follows the same rules, so the site stays consistent instead of drifting into a mess one screen at a time.
+The design system deals with the other half: the part where everything rots as you keep building on it. Once there is a guidelines document, every new page follows the same rules. The site stays consistent instead of drifting into a mess one screen at a time.
 
-And none of this is specific to the DTC platform, or even to the web. The same loop took an Android app I had no idea how to design and made it into something I would actually want to use. I am still not a designer. But this is how I get a result that looks pleasant and not generic, instead of slop.
+And none of this is specific to the DTC platform, or even to the web. The same loop took an Android app I had no idea how to design. It turned that into something I would actually want to use. I am still not a designer. But this is how I get a result that looks pleasant and not generic, instead of slop.
 
 ## Sources
 
