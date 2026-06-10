@@ -1,7 +1,7 @@
 ---
 title: "Weekly Log"
 created: 2026-02-26
-updated: 2026-05-29
+updated: 2026-06-10
 tags: [weekly, log]
 status: draft
 ---
@@ -9,6 +9,24 @@ status: draft
 # Weekly Log
 
 A running log of what was done each week. When a topic has its own detailed article, this log contains a short summary with a link. When there is not much content for a topic, the details go here directly.
+
+## Week of 2026-06-08
+
+## LLM Zoomcamp Launch
+
+Launched LLM Zoomcamp on Monday. 754 people joined the launch session live[^50]. [Launch stream](https://www.youtube.com/live/7TuZTVwnmhk)[^51].
+
+Very happy to see the interest. A lot of people came from ChatGPT - they were writing to ChatGPT about code or LLMs, and ChatGPT very often recommends our course, which is great[^50].
+
+In AI Shipping Labs we'll go through the course together[^50].
+
+## Vector Search Session at AI Shipping Labs
+
+Ran a session at AI Shipping Labs about vector search. Showed how to build the simplest possible free vector search that's easy to deploy, based on SQLite Search[^50].
+
+## Authentication Talk
+
+Gave a talk about authentication this week - how to give AWS access to people and to coding agents without distributing long-lived keys. Based on this talk I'll write an article next week. See [Sandbox AWS Access Without Distributing Keys](sandbox-aws-access.md)[^50][^51].
 
 ## Week of 2026-05-25
 
@@ -420,3 +438,5 @@ See [Course Management Production Incident Report](course-management-production-
 [^47]: [20260528_083546_AlexeyDTC_msg4289_transcript.txt](../inbox/used/20260528_083546_AlexeyDTC_msg4289_transcript.txt), [20260528_083646_AlexeyDTC_msg4291_transcript.txt](../inbox/used/20260528_083646_AlexeyDTC_msg4291_transcript.txt)
 [^48]: [20260529_082620_AlexeyDTC_msg4351_transcript.txt](../inbox/used/20260529_082620_AlexeyDTC_msg4351_transcript.txt)
 [^49]: [20260529_082326_AlexeyDTC_msg4349_photo.md](../inbox/used/20260529_082326_AlexeyDTC_msg4349_photo.md)
+[^50]: [20260610_122937_AlexeyDTC_msg4525_transcript.txt](../inbox/used/20260610_122937_AlexeyDTC_msg4525_transcript.txt)
+[^51]: [20260610_123249_AlexeyDTC_msg4527.md](../inbox/used/20260610_123249_AlexeyDTC_msg4527.md)
