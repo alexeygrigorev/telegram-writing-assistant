@@ -130,11 +130,29 @@ This is probably the project I use the most right now. I integrated it into the 
 
 Project: [github.com/alexeygrigorev/quse](https://github.com/alexeygrigorev/quse) [^10] - quota and usage checks for coding-agent CLIs, reporting normalized usage across Codex, Claude Code, Copilot, and Z.AI/goz.
 
+## Code Explainer
+
+Here's another project worth citing. Sometimes you build a project that seems useful, but then another, more suitable solution comes along that solves the problem better[^15].
+
+Code Explainer is an example of that. It was an agent I wrote so I could understand some project - what code is in it, what it does, how it works in general. Say it's never clear how, for example, a particular function works, what's inside it, what it does. The agent would do this kind of reconnaissance over the code and then tell me how things are structured in there[^15].
+
+In the end I built it, and then I started using Claude Code and realized I don't need this tool at all. I can easily just ask Claude Code or other agents to tell me how something works. They clone the necessary repositories themselves, look through them themselves. It turned out to be much simpler to use a general-purpose coding assistant than to try to build something like this[^15].
+
+Project: [github.com/alexeygrigorev/code-explainer](https://github.com/alexeygrigorev/code-explainer) [^14] - an AI agent that explores a GitHub codebase using file-reading, grep, and directory-listing tools to answer questions and explain how the code works, with a Streamlit chat interface, OpenAI-powered analysis, and API cost tracking.
+
 ## It's okay to have dead weight in your repos
 
 I just looked through my repositories and realized that there are actually a lot more projects like this - ones I started at some point and now don't use. There are many more than the ones here, and I don't think there's a point in covering all of them[^13].
 
 I just wanted to say that this is normal. It's fine to experiment, and when you start using coding agents, not everything you build has to be useful. Often these projects just sit there as dead weight in your repositories, and that's part of the process, and it's okay. When you make something, you learn something new - that's the most important thing, you gain experience. If a project ends up unused, that happens, and there's nothing wrong with it. And you can still take something away from each of these projects[^13].
+
+After preparing all of this, I decided to look at which projects I have and which ones are unnecessary, and I did some cleanup - I deleted a number of projects that I basically don't need anymore. So now there are slightly fewer repositories. There are of course still a lot of repositories left that I don't really need either and that will probably never come in handy, but I'll most likely delete those not now, but after some time[^17] [^16].
+
+<figure>
+  <img src="../assets/images/projects-that-didnt-make-it/github-profile-168-repos.jpg" alt="GitHub profile page for Alexey Grigorev showing 168 repositories">
+  <figcaption>After a cleanup pass - down to 168 repositories, with more dead weight still to clear out later.</figcaption>
+  <!-- illustrates the repo cleanup described just above, after deleting projects that are no longer needed -->
+</figure>
 
 ## Sources
 
@@ -151,3 +169,7 @@ I just wanted to say that this is normal. It's fine to experiment, and when you 
 [^11]: [20260611_074737_AlexeyDTC_msg4555_transcript.txt](../inbox/used/20260611_074737_AlexeyDTC_msg4555_transcript.txt)
 [^12]: [20260611_075009_AlexeyDTC_msg4557.md](../inbox/used/20260611_075009_AlexeyDTC_msg4557.md)
 [^13]: [20260611_075123_AlexeyDTC_msg4559_transcript.txt](../inbox/used/20260611_075123_AlexeyDTC_msg4559_transcript.txt)
+[^14]: [20260611_075157_AlexeyDTC_msg4564.md](../inbox/used/20260611_075157_AlexeyDTC_msg4564.md)
+[^15]: [20260611_075318_AlexeyDTC_msg4565_transcript.txt](../inbox/used/20260611_075318_AlexeyDTC_msg4565_transcript.txt)
+[^16]: [20260611_080901_AlexeyDTC_msg4569_photo.md](../inbox/used/20260611_080901_AlexeyDTC_msg4569_photo.md)
+[^17]: [20260611_081018_AlexeyDTC_msg4571_transcript.txt](../inbox/used/20260611_081018_AlexeyDTC_msg4571_transcript.txt)
