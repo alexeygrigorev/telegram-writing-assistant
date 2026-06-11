@@ -1,7 +1,7 @@
 ---
 title: "Interesting Resources"
 created: 2026-01-31
-updated: 2026-05-28
+updated: 2026-06-11
 tags: [resources, tools, ai, development]
 status: draft
 ---
@@ -48,6 +48,11 @@ The pipeline stitches together a 6-step workflow from mining LinkedIn engagement
 - Perplexity-style deep research for pre-call briefings
 
 Interesting for future automation[^28].
+
+
+## LiteParse
+
+[LiteParse](https://github.com/run-llama/liteparse) is a fast, open-source document parser from the LlamaIndex team that runs entirely on your machine with no cloud dependencies or proprietary LLM features. It does spatial text parsing with bounding boxes via PDFium, handles PDF, DOCX, XLSX, PPTX, and images, and offers selective OCR through bundled Tesseract or any HTTP OCR server. The Rust core ships with bindings for Python, Node.js/TypeScript, the browser (WASM), and a CLI, so you can plug it into a local document pipeline from whatever stack you use[^55].
 
 
 ## Sources
@@ -106,3 +111,4 @@ Interesting for future automation[^28].
 [^52]: [https://github.com/VoltAgent/awesome-design-md](https://github.com/VoltAgent/awesome-design-md) via [20260519_141047_valeriia_kuka_msg4206.md](../inbox/used/20260519_141047_valeriia_kuka_msg4206.md)
 [^53]: [https://stitch.withgoogle.com/docs/design-md/overview](https://stitch.withgoogle.com/docs/design-md/overview) via [20260519_141047_valeriia_kuka_msg4206.md](../inbox/used/20260519_141047_valeriia_kuka_msg4206.md)
 [^54]: [https://github.com/microsoft/webwright](https://github.com/microsoft/webwright) via [20260526_205821_AlexeyDTC_msg4283.md](../inbox/used/20260526_205821_AlexeyDTC_msg4283.md)
+[^55]: [https://github.com/run-llama/liteparse](https://github.com/run-llama/liteparse) via [20260611_091213_AlexeyDTC_msg4579.md](../inbox/used/20260611_091213_AlexeyDTC_msg4579.md)
