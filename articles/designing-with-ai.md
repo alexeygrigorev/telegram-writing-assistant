@@ -84,7 +84,7 @@ In November 2024, one of the students filed an issue: migrate the site to Tailwi
 
 That issue is [github.com/DataTalksClub/course-management-platform/issues/76](https://github.com/DataTalksClub/course-management-platform/issues/76).[^13]
 
-I only got to it in 2026. By then I had coding agents like Codex on plans where the tokens reset on a schedule. I wanted to use mine up before the reset day. I had been clearing the platform's issues for a long time, and this one was still sitting there. So I latched onto it.
+I only got to it in 2026. By then I had coding agents like Codex on plans where the tokens reset on a schedule. I wanted to use mine up before the reset day. I had been clearing the platform's issues for a long time, and this one was still sitting there. So I picked it up.
 
 I had heard Tailwind was a more modern system than Bootstrap, but I did not know it myself. There had been redesign attempts from other people before, and I did not like them. They were overloaded. Still, it was probably time to try.
 

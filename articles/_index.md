@@ -100,6 +100,7 @@ Files at the articles root that don't fit into the above categories.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Projects That Didn't Make It](projects-that-didnt-make-it.md) | draft | 2026-06-11 | Abandoned and experimental AI-agent projects (fitness tracker, CodeHive, Litehive, Mermaid tool, metabolism simulator) and the useful spin-offs (Heru, Quse), with the lesson that dead-weight repos are a normal part of experimenting |
 | [Sandbox AWS Access Without Distributing Keys](sandbox-aws-access.md) | draft | 2026-06-10 | Giving workshop attendees and coding agents AWS access without long-lived keys, using instance profiles, a Lambda credential vendor, and a sandbox account |
 | [Weekly Log](weekly-log.md) | draft | 2026-06-10 | Running log of what was done each week. Topics with their own dedicated article appear as short summaries with links; smaller items stay inline |
 | [Approaching Design with AI as a Non-Designer](designing-with-ai.md) | draft | 2026-06-09 | Mockup-first workflow for getting good-looking UIs out of AI: spot AI design tics, generate mockups to set direction, have a code agent implement them against a reference design system |
