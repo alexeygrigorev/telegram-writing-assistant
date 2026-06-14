@@ -1,7 +1,7 @@
 ---
 title: "Projects That Didn't Make It"
 created: 2026-06-11
-updated: 2026-06-11
+updated: 2026-06-14
 tags: [ai-agents, personal-projects, claude-code, reflection]
 status: draft
 ---
@@ -120,6 +120,8 @@ When Copilot was cheap, I actually used it a lot in this mode through Heru, and 
 
 The reason I named it Heru in the first place is that I wanted something like one ring to rule them all, so I wanted a name connected to Lord of the Rings. It's some Elvish word, or some other language, I don't remember exactly. So this project isn't completely abandoned right now - it branched off from Litehive, and it could potentially get used[^9].
 
+This is exactly why I created Heru a few months ago. Databricks recently introduced [Omnigent](https://www.databricks.com/blog/introducing-omnigent-meta-harness-combine-control-and-share-your-agents), which they call a meta-harness to combine, control, and share your agents. It sits above the coding agents you already use - Claude Code, Codex, the agent SDKs, your own YAML-defined agents - and wraps each one behind a single common interface so they become interoperable parts of one system. That is the same idea behind Heru: an engine-agnostic layer for launching any agent and getting its output. Seeing a company like Databricks build the same thing confirms the direction was right[^18].
+
 Project: [github.com/alexeygrigorev/heru](https://github.com/alexeygrigorev/heru) [^10] - an engine adapter layer for CLI-based coding agents (Codex, Claude, Copilot, Gemini, OpenCode, goz), extracted from Litehive.
 
 ### Quse
@@ -173,3 +175,4 @@ After preparing all of this, I decided to look at which projects I have and whic
 [^15]: [20260611_075318_AlexeyDTC_msg4565_transcript.txt](../inbox/used/20260611_075318_AlexeyDTC_msg4565_transcript.txt)
 [^16]: [20260611_080901_AlexeyDTC_msg4569_photo.md](../inbox/used/20260611_080901_AlexeyDTC_msg4569_photo.md)
 [^17]: [20260611_081018_AlexeyDTC_msg4571_transcript.txt](../inbox/used/20260611_081018_AlexeyDTC_msg4571_transcript.txt)
+[^18]: [20260614_085416_AlexeyDTC_msg4589.md](../inbox/used/20260614_085416_AlexeyDTC_msg4589.md)

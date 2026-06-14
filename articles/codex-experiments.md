@@ -1,7 +1,7 @@
 ---
 title: "Trying OpenAI Codex as a Claude Code Alternative"
 created: 2026-03-24
-updated: 2026-03-25
+updated: 2026-06-14
 tags: [codex, claude-code, ai-assistants, usage-limits]
 status: draft
 ---
@@ -72,6 +72,18 @@ In Codex I have not noticed this behavior. The orchestrator does not auto-contin
 
 All of this should be fixable with a custom orchestrator that launches different sessions - some with Codex, some with Claude Code, and so on[^3].
 
+## Goal Feature Comparison
+
+I like Claude, but its goal feature works much worse than the one in Codex[^6].
+
+I was running Claude Code with the goal feature active on the PocketShell Desktop project, a VS Code fork that connects to remote hosts over SSH. The goal was still active, but Claude stopped on its own anyway. I had to prompt it again with "why did you stop, the goal is active"[^6].
+
+<figure>
+  <img src="../assets/images/codex-experiments/goal-feature-stopped.jpg" alt="Claude Code terminal showing the PocketShell Desktop plan with /goal active for 22 minutes, stopped despite the goal still being set">
+  <figcaption>Claude Code stopping on its own while the goal is still active - had to prompt it to continue</figcaption>
+  <!-- Illustrates the complaint that Claude's goal feature works worse than Codex's: it stopped before the goal was finished -->
+</figure>
+
 ## The Bigger Picture: Provider-Independent Orchestrator
 
 This experience reinforces my idea of building a program that allows seamless switching between LLM providers. The concept is an orchestrator that has access to several providers and picks any available model for each task. If one provider hits limits, it switches to another[^1].
@@ -87,3 +99,4 @@ I could also look into using multiple accounts in Claude Code to jump from one t
 [^3]: [20260325_095005_AlexeyDTC_msg3076_transcript.txt](../inbox/used/20260325_095005_AlexeyDTC_msg3076_transcript.txt)
 [^4]: [20260325_095257_AlexeyDTC_msg3078_photo.md](../inbox/used/20260325_095257_AlexeyDTC_msg3078_photo.md)
 [^5]: [20260325_095434_AlexeyDTC_msg3080_transcript.txt](../inbox/used/20260325_095434_AlexeyDTC_msg3080_transcript.txt)
+[^6]: [20260612_062122_AlexeyDTC_msg4587_photo.md](../inbox/used/20260612_062122_AlexeyDTC_msg4587_photo.md)
