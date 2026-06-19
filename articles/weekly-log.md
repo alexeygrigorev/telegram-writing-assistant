@@ -10,6 +10,56 @@ status: draft
 
 A running log of what was done each week. When a topic has its own detailed article, this log contains a short summary with a link. When there is not much content for a topic, the details go here directly.
 
+## Week of 2026-06-15
+
+### AI Shipping Labs Sprint Prep with Codex
+
+Did a lot of work on AI Shipping Labs this week[^52]. Codex worked for over two days on features for the platform - I gave a lot of feedback, and overall there was a lot of work[^53].
+
+This was preparation for the next sprint at AI Shipping Labs. I want the next sprint to go more interestingly, so I worked through many items - mostly not new features but fixes. It is not new functionality, it is polishing what already exists to make it look nicer. Codex kept at it for several days and implemented all my requests[^53].
+
+<figure>
+  <img src="../assets/images/weekly-log/codex-aishippinglabs-sprint-prep.jpg" alt="Codex terminal summary: backlog goal complete, main synced with origin/main, CI/CD green, 0 open actionable issues, list of last shipped fixes, 9,508,820 tokens over about 59h 39m, goal achieved in 2d 11h 39m">
+  <figcaption>Codex (gpt-5.5) reporting the AI Shipping Labs backlog goal complete - the shipped fixes, around 9.5M tokens, and 2d 11h 39m elapsed</figcaption>
+  <!-- The screenshot Alexey attached with the note that Codex worked over two days on AI Shipping Labs sprint-prep fixes -->
+</figure>
+
+### Stock Research Agent Workshop with Ivan
+
+Had a workshop with Ivan about creating a Stock Research Agent. It went quite interestingly. I liked how Ivan presented it - he had prepared a lot for it[^52].
+
+### Cloudflare Workers Workshop
+
+On Wednesday we had a workshop in AI Shipping Labs about how to use Cloudflare Workers: [Cloudflare Workers Vectorize Agent](https://aishippinglabs.com/workshops/2026-06-17-cloudflare-workers-vectorize-agent) [^52][^54]. It was unexpectedly interesting for me. It is still quite cheap, and for small-scale pet projects it is just ideal[^52].
+
+### Lightweight FAQ Assistant and ZeroSearch
+
+After the Cloudflare workshop I tried to port the DataTalks.Club FAQ assistant to Cloudflare Workers and make it as compact as possible. The Python layer on Cloudflare Workers does not support extra libraries, so I rewrote MinSearch as a zero-dependency pure-Python library called ZeroSearch. See [ZeroSearch: A Zero-Dependency Search Library for a Lightweight FAQ Assistant](zerosearch.md) for the full story[^52][^55][^56][^57].
+
+### FAQ Repository Updates
+
+Added more courses to the [FAQ](https://github.com/DataTalksClub/faq) - for example Ivan's course - and did a dump from Slack into the FAQ[^58].
+
+### Shared Email Service (DataMailer)
+
+Wiring up emails so they can be sent through the course management platform, which was not possible before. I am using Amazon Simple Email Service to send emails tailored specifically for our project - right now that means the course management platform[^52].
+
+In AI Shipping Labs the emails already work normally - I finished that a few weeks ago - but I want to move this logic into a separate service so that all our platforms (course management platform, AI Shipping Labs) use this common service: [DataMailer](https://github.com/DataTalksClub/datamailer) [^52][^59].
+
+The current goal is to make all the emails for the course management platform work, then gradually move the AI Shipping Labs emails over so they go through this service. After that we will see - maybe even the weekly emails could move there. In the end, if I manage to replace MailChimp, which we currently use, that would be great; if not, that is fine and we will keep using MailChimp. But that is the direction[^52].
+
+### Course Management Platform Registration
+
+Wiring up registration for the course management platform so it works without Airtable. Right now registration runs on Airtable[^52].
+
+Everything currently goes through Airtable, and integrating with Airtable is a lot of pain - very hard to do. So I wanted something more tailored to our case. And since there are agents now, it is finally possible to take this on, so I did[^60].
+
+<figure>
+  <img src="../assets/images/weekly-log/course-platform-registration.jpg" alt="Course registration form titled 'Fake Course' labeled as a dev-only registration campaign for validating open registration flows, with Email, Name, Country, Role, and Comment fields and a newsletter opt-in checkbox">
+  <figcaption>The new course management platform registration form (a dev-only test campaign) that replaces the Airtable-based flow</figcaption>
+  <!-- The registration form screenshot Alexey sent while describing the move off Airtable -->
+</figure>
+
 ## Week of 2026-06-08
 
 ## LLM Zoomcamp Launch
@@ -440,3 +490,12 @@ See [Course Management Production Incident Report](course-management-production-
 [^49]: [20260529_082326_AlexeyDTC_msg4349_photo.md](../inbox/used/20260529_082326_AlexeyDTC_msg4349_photo.md)
 [^50]: [20260610_122937_AlexeyDTC_msg4525_transcript.txt](../inbox/used/20260610_122937_AlexeyDTC_msg4525_transcript.txt)
 [^51]: [20260610_123249_AlexeyDTC_msg4527.md](../inbox/used/20260610_123249_AlexeyDTC_msg4527.md)
+[^52]: [20260619_085045_AlexeyDTC_msg4605_transcript.txt](../inbox/used/20260619_085045_AlexeyDTC_msg4605_transcript.txt)
+[^53]: [20260619_085225_AlexeyDTC_msg4607_photo.md](../inbox/used/20260619_085225_AlexeyDTC_msg4607_photo.md)
+[^54]: [20260619_090525_AlexeyDTC_msg4621.md](../inbox/used/20260619_090525_AlexeyDTC_msg4621.md)
+[^55]: [20260619_085722_AlexeyDTC_msg4609.md](../inbox/used/20260619_085722_AlexeyDTC_msg4609.md)
+[^56]: [20260619_085722_AlexeyDTC_msg4610.md](../inbox/used/20260619_085722_AlexeyDTC_msg4610.md)
+[^57]: [20260619_090642_AlexeyDTC_msg4623_transcript.txt](../inbox/used/20260619_090642_AlexeyDTC_msg4623_transcript.txt)
+[^58]: [20260619_085722_AlexeyDTC_msg4611.md](../inbox/used/20260619_085722_AlexeyDTC_msg4611.md)
+[^59]: [20260619_085722_AlexeyDTC_msg4612.md](../inbox/used/20260619_085722_AlexeyDTC_msg4612.md)
+[^60]: [20260619_090339_AlexeyDTC_msg4619_transcript.txt](../inbox/used/20260619_090339_AlexeyDTC_msg4619_transcript.txt)

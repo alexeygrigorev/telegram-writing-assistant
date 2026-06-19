@@ -1,7 +1,7 @@
 ---
 title: "Interesting Resources"
 created: 2026-01-31
-updated: 2026-06-11
+updated: 2026-06-19
 tags: [resources, tools, ai, development]
 status: draft
 ---
@@ -27,6 +27,14 @@ Each resource entry follows this simple format:
 
 
 ## Tools
+
+### Omnigent
+
+[Omnigent](https://github.com/omnigent-ai/omnigent) is an open-source meta-harness from Databricks that sits above the coding agents you already use - Claude Code, Codex, Pi, the OpenAI Agents SDK, or your own YAML-defined agents - and makes them interoperable parts of one system. You compose multiple agents in a single session (for example, having one vendor's agent review another's code), enforce stateful policies like spend caps and approval gates at the harness layer instead of through prompts, and run tools inside an OS sandbox with an egress proxy that injects secrets the agent never sees. Sessions follow you across the terminal, web, mobile, and a macOS app, and you can share a live session by URL so teammates watch or co-drive in real time. Released under Apache 2.0[^57].
+
+### Ponytail
+
+[Ponytail](https://github.com/DietrichGebert/ponytail) is an AI agent skill that makes coding agents write the least code that actually does the job - "the laziest senior dev in the room" who replaces fifty lines with one. Before writing anything, the agent walks a ladder (does this need to exist, does the stdlib or a native platform feature already do it, can it be one line) and only builds the minimum that works, while never cutting validation, error handling, security, or accessibility. It installs as a plugin for Claude Code, Codex, and a dozen other agents, and on real agentic benchmarks it cut code by around 54% while staying cheaper and faster than the unassisted baseline[^56].
 
 
 ## Resources
@@ -112,3 +120,5 @@ Interesting for future automation[^28].
 [^53]: [https://stitch.withgoogle.com/docs/design-md/overview](https://stitch.withgoogle.com/docs/design-md/overview) via [20260519_141047_valeriia_kuka_msg4206.md](../inbox/used/20260519_141047_valeriia_kuka_msg4206.md)
 [^54]: [https://github.com/microsoft/webwright](https://github.com/microsoft/webwright) via [20260526_205821_AlexeyDTC_msg4283.md](../inbox/used/20260526_205821_AlexeyDTC_msg4283.md)
 [^55]: [https://github.com/run-llama/liteparse](https://github.com/run-llama/liteparse) via [20260611_091213_AlexeyDTC_msg4579.md](../inbox/used/20260611_091213_AlexeyDTC_msg4579.md)
+[^56]: [https://github.com/DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) via [20260614_135154_AlexeyDTC_msg4597.md](../inbox/used/20260614_135154_AlexeyDTC_msg4597.md)
+[^57]: [https://github.com/omnigent-ai/omnigent](https://github.com/omnigent-ai/omnigent) via [20260614_135242_AlexeyDTC_msg4599.md](../inbox/used/20260614_135242_AlexeyDTC_msg4599.md)

@@ -70,6 +70,7 @@ Recorded ideas without much detail. Just the short idea, useful for not forgetti
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Workshop Ideas: Agent Durability and Caching Internals](ideas/agent-durability-caching-workshops.md) | draft | 2026-06-17 | Two interview-driven workshop ideas: agent durability/idempotency/resumption (LangGraph, Pydantic AI) and caching internals (KV cache) |
 | [Declarative Diagram Generator](ideas/diagram-generator.md) | draft | 2026-05-08 | Tool that turns a declarative diagram description into a clean, icon-supporting SVG that opens cleanly in Inkscape or Figma, fixing the weaknesses of LLM images and Mermaid |
 | [DataTalks.Club Platform Idea](ideas/data-talks-club-platform.md) | draft | 2026-04-27 | Custom DataTalks.Club site with on-site events, registration, summary emails, and course management. Revisit ~September for ML Zoomcamp |
 | [Project Approach Reference Doc](ideas/project-approach-reference-doc.md) | draft | 2026-04-22 | Reusable doc for "take my project to production" requests from AI Shipping Labs members - pick one project, describe current + target state, ship end-to-end, metrics from business goals |
@@ -100,16 +101,18 @@ Files at the articles root that don't fit into the above categories.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Weekly Log](weekly-log.md) | draft | 2026-06-19 | Running log of what was done each week. Topics with their own dedicated article appear as short summaries with links; smaller items stay inline |
+| [ZeroSearch: A Zero-Dependency Search Library for a Lightweight FAQ Assistant](zerosearch.md) | draft | 2026-06-19 | Zero-dependency pure-Python rewrite of MinSearch built to port the DataTalks.Club FAQ assistant onto Cloudflare Workers, where the Python layer supports no extra libraries |
+| [AI Engineering Buildcamp Testimonials](ai-buildcamp-testimonials.md) | draft | 2026-06-19 | Collected testimonials from AI Engineering Buildcamp participants |
+| [Interesting Resources](interesting-resources.md) | draft | 2026-06-19 | Curated collection of tools, resources, and project ideas for the newsletter |
 | [Trying OpenAI Codex as a Claude Code Alternative](codex-experiments.md) | draft | 2026-06-14 | Trying Codex after hitting Claude Code session limits, agent workflow comparison, no task widget, auto-continue differences, goal feature comparison, orchestrator idea |
 | [Projects That Didn't Make It](projects-that-didnt-make-it.md) | draft | 2026-06-14 | Abandoned and experimental AI-agent projects (fitness tracker, CodeHive, Litehive, Mermaid tool, metabolism simulator) and the useful spin-offs (Heru, Quse), with the lesson that dead-weight repos are a normal part of experimenting |
 | [Sandbox AWS Access Without Distributing Keys](sandbox-aws-access.md) | draft | 2026-06-10 | Giving workshop attendees and coding agents AWS access without long-lived keys, using instance profiles, a Lambda credential vendor, and a sandbox account |
-| [Weekly Log](weekly-log.md) | draft | 2026-06-10 | Running log of what was done each week. Topics with their own dedicated article appear as short summaries with links; smaller items stay inline |
 | [Approaching Design with AI as a Non-Designer](designing-with-ai.md) | draft | 2026-06-09 | Mockup-first workflow for getting good-looking UIs out of AI: spot AI design tics, generate mockups to set direction, have a code agent implement them against a reference design system |
 | [Cloud Cost Reminders: Delete Storage, Not Just Compute](cloud-cost-reminders.md) | draft | 2026-06-08 | Reminder that deleting compute (RunPod pods) does not stop storage charges, with RunPod and Modal billing screenshots |
 | [AI Engineering Field Guide](ai-engineering-field-guide.md) | draft | 2026-05-29 | Job listing pipeline for AI Engineer roles - scraping, deduplication, LLM enrichment |
 | [A Team of Agent Teams: Coordinating Codex, Claude Code, and OpenCode](agent-team-of-teams.md) | draft | 2026-05-28 | Experiment coordinating three coding agents as team managers that divide work and collaborate on the same repo, run on the pocketshell project |
 | [OpenClaw Experiments](openclaw-experiments.md) | draft | 2026-05-28 | Testing the OpenClaw bootstrap flow (CLI and Telegram), including WhisperX install, plus an SSH brute-force rescue where OpenClaw diagnosed and fixed the sshd flood with fail2ban |
-| [Interesting Resources](interesting-resources.md) | draft | 2026-05-28 | Curated collection of tools, resources, and project ideas for the newsletter |
 | [Substack Archive Index](substack-archive-index.md) | draft | 2026-06-06 | Lookup table of all published Substack posts (title, description, URL), used to insert direct links to things Alexey has already shared |
 | [Stylint: Enforcing My Writing Style on AI Assistants](stylint.md) | draft | 2026-05-19 | Python linter (github.com/alexeygrigorev/stylint) that codifies writing-style rules as code instead of long markdown style guides, so agents stop skipping them |
 | [Writing Assistant Improvement Ideas](writing-assistant-improvement-ideas.md) | draft | 2026-05-16 | Feedback and improvement ideas for the Telegram writing assistant bot: index navigation, content routing, resource index, keyword categorization, retry on transcription errors |
