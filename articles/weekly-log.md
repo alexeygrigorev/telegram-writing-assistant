@@ -1,7 +1,7 @@
 ---
 title: "Weekly Log"
 created: 2026-02-26
-updated: 2026-06-10
+updated: 2026-07-01
 tags: [weekly, log]
 status: draft
 ---
@@ -9,6 +9,48 @@ status: draft
 # Weekly Log
 
 A running log of what was done each week. When a topic has its own detailed article, this log contains a short summary with a link. When there is not much content for a topic, the details go here directly.
+
+## Week of 2026-06-29
+
+### New Course Concept: Product Shipping Zoomcamp
+
+This week I was thinking about the concept of a new course. Wrote up a full concept for a Product Shipping Zoomcamp - an end-to-end product development course where students go from an idea to a deployed product that is improved, measured, launched publicly, and peer-reviewed. The key design decision is that community and build-in-public start in Module 1, not at the end. See [Product Shipping Zoomcamp](product-shipping-zoomcamp.md)[^61][^62].
+
+## Week of 2026-06-22
+
+### AI Engineering Field Guide Scrape and Trend Analysis
+
+Ran the full [AI Engineering Field Guide](ai-engineering-field-guide.md) pipeline end to end again, updating the job listings. Scraped 3,024 raw listings across LA (604), New York (1,011), India (896), London (293), Berlin (145), and Amsterdam (75), which gave 888 new unique jobs after deduplication against the 4,009-job global CSV. 887 of 888 HTML downloads succeeded on the first pass, and the one 403 was retried successfully. All 888 raw YAML extractions and all 888 LLM enrichments completed - the enrichments ran on 12 parallel Z.ai/GLM-5.1 workers, with the 2 that errored retried. Both READMEs now show 4,894 total jobs (was 2,445), covering January through June 2026, across 1,954 unique companies[^63].
+
+<figure>
+  <img src="../assets/images/weekly-log/field-guide-scrape-2026-06-25.jpg" alt="Scrape log for 2026-06-25: 3,024 raw listings across six cities, 888 new unique jobs after dedup against the 4,009-job global CSV, 887/888 HTML downloads on first pass, all 888 YAML extractions and LLM enrichments, READMEs updated to 4,894 total jobs and 1,954 unique companies">
+  <figcaption>The 2026-06-25 Field Guide scrape run - 3,024 raw listings down to 888 new deduplicated jobs, all the way through LLM enrichment, bringing the dump to 4,894 total jobs</figcaption>
+  <!-- The scrape log Alexey sent with the note that he updated the jobs again this week -->
+</figure>
+
+Also started analyzing the scraped job descriptions to see which trends are there. Asked Claude to run a clustering analysis, and six distinct role archetypes fell out (spherical k-means, k=6). SQL is the single fastest-rising skill, the "AI infra/inference engineer" role has not actually emerged yet (a useful null finding), and FDE (forward-deployed engineer) is a small but growing customer-facing archetype[^64].
+
+<figure>
+  <img src="../assets/images/weekly-log/job-trends-role-archetypes.jpg" alt="Terminal running deep_trends2.py: latent role archetypes via spherical k-means k=6, Claude noting six distinct role archetypes, SQL as the fastest-rising skill, AI infra/inference engineer as a null finding, and FDE as a small but growing customer-facing archetype">
+  <figcaption>Claude's clustering pass over the job descriptions - six role archetypes, SQL rising fastest, and the AI-infra role as a useful null finding</figcaption>
+  <!-- The trend-analysis screenshot Alexey sent when he asked Claude to find trends in the scraped job descriptions -->
+</figure>
+
+### GitHub Top 100 Milestone
+
+Turns out I'm in the top 100 of all GitHub users by commit count. My profile shows 15,234 public commits (plus 998 private contributions) since joining in June 2011, with June 2026 as the busiest month at 2,843 contributions. That puts me at rank 57 on the all-time commit leaderboard[^65][^66].
+
+<figure>
+  <img src="../assets/images/weekly-log/github-top-100-profile.jpg" alt="GitHub profile page for Alexey Grigorev: joined June 2011, 15,234 public commits, 998 private contributions, busiest month June 2026 with 2,843 contributions, 5,812 followers">
+  <figcaption>The profile showing 15,234 public commits since 2011 and June 2026 as the busiest month</figcaption>
+  <!-- Alexey shared this when noting he is in the top 100 GitHub users by commit count -->
+</figure>
+
+<figure>
+  <img src="../assets/images/weekly-log/github-top-100-ranking.jpg" alt="All-time commit leaderboard listing alexeygrigorev at rank 57 with 15,234 commits, between patriciogonzalezvivo (15,261) and roblourens (15,199)">
+  <figcaption>The leaderboard placing alexeygrigorev at rank 57 by all-time commits</figcaption>
+  <!-- The ranking list that confirms the top-100 placement -->
+</figure>
 
 ## Week of 2026-06-15
 
@@ -499,3 +541,9 @@ See [Course Management Production Incident Report](course-management-production-
 [^58]: [20260619_085722_AlexeyDTC_msg4611.md](../inbox/used/20260619_085722_AlexeyDTC_msg4611.md)
 [^59]: [20260619_085722_AlexeyDTC_msg4612.md](../inbox/used/20260619_085722_AlexeyDTC_msg4612.md)
 [^60]: [20260619_090339_AlexeyDTC_msg4619_transcript.txt](../inbox/used/20260619_090339_AlexeyDTC_msg4619_transcript.txt)
+[^61]: [20260701_130457_AlexeyDTC_msg4649.md](../inbox/used/20260701_130457_AlexeyDTC_msg4649.md)
+[^62]: [20260701_130457_AlexeyDTC_msg4650.md](../inbox/used/20260701_130457_AlexeyDTC_msg4650.md)
+[^63]: [20260625_193805_AlexeyDTC_msg4639_photo.md](../inbox/used/20260625_193805_AlexeyDTC_msg4639_photo.md)
+[^64]: [20260626_201403_AlexeyDTC_msg4641_photo.md](../inbox/used/20260626_201403_AlexeyDTC_msg4641_photo.md)
+[^65]: [20260628_181447_AlexeyDTC_msg4643_photo.md](../inbox/used/20260628_181447_AlexeyDTC_msg4643_photo.md)
+[^66]: [20260628_181447_AlexeyDTC_msg4644_photo.md](../inbox/used/20260628_181447_AlexeyDTC_msg4644_photo.md)

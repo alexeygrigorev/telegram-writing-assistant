@@ -133,6 +133,18 @@ This is direct community demand for content that overlaps with the DevOps and in
 
 A community member who watched one of the courses and videos asked for a short workshop using LangChain and Hugging Face. People keep asking for this kind of content, so it is worth adding as a workshop idea[^14].
 
+## Systems Engineering and System Design course (member request)
+
+A DataTalks.Club community member asked whether there could be a course focused entirely on Systems Engineering and System Design. These pieces are touched on across different Zoomcamps, but there is no dedicated deep dive into the engineering thought process[^15].
+
+The topics they want covered[^15]:
+
+- Designing scalable, reliable distributed systems
+- Memory management, debugging, and understanding why systems fail
+- End-to-end testing and robust deployment
+
+Their reasoning: with AI and modern tools, many people can spin up a prototype in a week. The real bottleneck now is not building - it is scaling without it constantly breaking. Shifting the focus from how to use a tool to how to engineer a system would be valuable for the community, even as a small 3-4 week autumn course[^15].
+
 ## Course format strategy
 
 The plan is to have at least one big course on Maven (if time permits), while the rest would be mini-courses available in the community at tier 3. Will actively ask people what they're interested in and monitor what content they engage with most[^10].
@@ -153,3 +165,4 @@ The plan is to have at least one big course on Maven (if time permits), while th
 [^12]: [20260425_113656_AlexeyDTC_msg3663.md](../../inbox/used/20260425_113656_AlexeyDTC_msg3663.md)
 [^13]: [20260512_163356_AlexeyDTC_msg4022.md](../../inbox/used/20260512_163356_AlexeyDTC_msg4022.md)
 [^14]: [20260604_085850_AlexeyDTC_msg4357.md](../../inbox/used/20260604_085850_AlexeyDTC_msg4357.md)
+[^15]: [20260701_182540_AlexeyDTC_msg4653.md](../../inbox/used/20260701_182540_AlexeyDTC_msg4653.md)
