@@ -1,7 +1,7 @@
 ---
 title: "Community Session Ideas"
 created: 2026-04-24
-updated: 2026-05-15
+updated: 2026-07-03
 tags: [ai-shipping-labs, community, ideas, activities, mastermind]
 status: draft
 ---
@@ -53,6 +53,46 @@ He replied to Valeriia's outreach with the topics he would like to see covered[^
 
 He framed his own goal as needing a plan to build an AI project and get the AI Engineer role[^5].
 
+## Mock interview and resume review sessions
+
+Members in the community keep asking us to build mock interviews for them. Here is how I would run these[^8].
+
+Resume review session: people come and share their resumes, I look at them and give feedback. We can fix resumes and work through them together. If you cannot attend live, you can send your resume in advance. I know a lot of people are interviewing right now, so we can go through their resumes[^8].
+
+Mock interview session: find volunteers and run a two-hour session. Each person gets a 45-minute interview followed by a 15-minute debrief, then the next person gets another 45-minute interview and a 15-minute debrief. So I need to find two people and run it for them, or run several such sessions. I could run this kind of mock interview myself[^8].
+
+## Interview prep topics requested by a member
+
+A member suggested sessions for interview prep, mock sessions, and project walkthroughs. Alexey already has strong interview prep resources on the website that could be used, or members could bring their own[^9].
+
+The skillsets and requirements for AI engineers and data scientists keep evolving constantly (most recently Forward Deployed Engineers), so such sessions could range across[^9]:
+
+- Python coding - most companies still filter based on Leetcode DSA-style problems
+- Technical deep dive - attention mechanisms, autoregressive models, deep learning algorithms in general
+- Case studies - Gen AI systems, system design, scaling
+
+The member noted this is based on what they observed for roles in the U.S. The suggestion is to discuss with Alexey and Valeriia to see if this is possible and figure out logistics[^9].
+
+## Book-reading sprints
+
+Another member proposed book-reading sprints alongside the technical sessions. There are several books and long-form resources many members want to read but struggle to finish consistently, for example[^10]:
+
+- LLM Handbook
+- AI Engineering by Chip Huyen
+- Hamel Husain's work on evaluations (Evals)
+- Other high-quality papers, blogs, and engineering handbooks
+
+A sprint could work similarly to the coding sprints[^10]:
+
+- Read a fixed number of chapters or pages each week
+- Hold a weekly discussion or Q&A
+- Share key takeaways, notes, and implementation ideas
+- End with a small project or presentation applying what was learned
+
+The goal is to help members build deeper understanding, stay accountable, and learn from one another rather than reading everything alone. It could become a great complement to the hands-on engineering curriculum[^10].
+
+These interview and learning ideas were also discussed on a recent community call[^11].
+
 ## Pitching ideas to different audiences
 
 A community member proposed a Toastmasters-style session on how to pitch your idea and convey thoughts to different audiences[^1].
@@ -94,3 +134,7 @@ As a side note, the two people the original conversation was about are both from
 [^5]: [20260429_104254_valeriia_kuka_msg3723.md](../inbox/used/20260429_104254_valeriia_kuka_msg3723.md)
 [^6]: [20260506_090635_AlexeyDTC_msg3866.md](../inbox/used/20260506_090635_AlexeyDTC_msg3866.md)
 [^7]: [20260515_063504_AlexeyDTC_msg4024.md](../inbox/used/20260515_063504_AlexeyDTC_msg4024.md)
+[^8]: [20260703_132055_AlexeyDTC_msg4674_transcript.txt](../inbox/used/20260703_132055_AlexeyDTC_msg4674_transcript.txt)
+[^9]: [20260703_132056_AlexeyDTC_msg4675.md](../inbox/used/20260703_132056_AlexeyDTC_msg4675.md)
+[^10]: [20260703_132117_AlexeyDTC_msg4678.md](../inbox/used/20260703_132117_AlexeyDTC_msg4678.md)
+[^11]: [20260703_132200_AlexeyDTC_msg4680.md](../inbox/used/20260703_132200_AlexeyDTC_msg4680.md)

@@ -70,6 +70,7 @@ Recorded ideas without much detail. Just the short idea, useful for not forgetti
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Course Idea: Safely Running Agents Around Production](ideas/agent-production-safety-course.md) | draft | 2026-07-03 | Small course on setting up production alongside agents safely - sandbox account and isolated machine, temporary sandbox-only access, moving work to prod via CI/CD with OIDC, and how to do the projects |
 | [Workshop Ideas: Agent Durability and Caching Internals](ideas/agent-durability-caching-workshops.md) | draft | 2026-06-17 | Two interview-driven workshop ideas: agent durability/idempotency/resumption (LangGraph, Pydantic AI) and caching internals (KV cache) |
 | [Declarative Diagram Generator](ideas/diagram-generator.md) | draft | 2026-05-08 | Tool that turns a declarative diagram description into a clean, icon-supporting SVG that opens cleanly in Inkscape or Figma, fixing the weaknesses of LLM images and Mermaid |
 | [DataTalks.Club Platform Idea](ideas/data-talks-club-platform.md) | draft | 2026-04-27 | Custom DataTalks.Club site with on-site events, registration, summary emails, and course management. Revisit ~September for ML Zoomcamp |
@@ -101,6 +102,7 @@ Files at the articles root that don't fit into the above categories.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Community Session Ideas](community-session-ideas.md) | draft | 2026-07-03 | Session ideas from community members: memory layer for AI agents, documenting agent learnings, refactoring AI slop, mock interviews and resume reviews, interview-prep topics, book-reading sprints, pitch practice, mastermind format |
 | [Weekly Log](weekly-log.md) | draft | 2026-07-03 | Running log of what was done each week. Topics with their own dedicated article appear as short summaries with links; smaller items stay inline |
 | [Product Shipping Zoomcamp](product-shipping-zoomcamp.md) | draft | 2026-07-01 | Concept for an end-to-end product development Zoomcamp - six modules plus midterm and capstone, taking students from idea to a deployed, measured, publicly launched, peer-reviewed product, with build-in-public starting from Module 1 |
 | [Workshop and Course Ideas from Member Plans](workshop-and-course-ideas-from-member-plans.md) | draft | 2026-06-25 | Member-data-grounded synthesis of AI Shipping Labs blockers, 10 workshop ideas, and 3 five-day mini-course ideas mapped to personas |
@@ -115,10 +117,9 @@ Files at the articles root that don't fit into the above categories.
 | [Cloud Cost Reminders: Delete Storage, Not Just Compute](cloud-cost-reminders.md) | draft | 2026-06-08 | Reminder that deleting compute (RunPod pods) does not stop storage charges, with RunPod and Modal billing screenshots |
 | [A Team of Agent Teams: Coordinating Codex, Claude Code, and OpenCode](agent-team-of-teams.md) | draft | 2026-05-28 | Experiment coordinating three coding agents as team managers that divide work and collaborate on the same repo, run on the pocketshell project |
 | [OpenClaw Experiments](openclaw-experiments.md) | draft | 2026-05-28 | Testing the OpenClaw bootstrap flow (CLI and Telegram), including WhisperX install, plus an SSH brute-force rescue where OpenClaw diagnosed and fixed the sshd flood with fail2ban |
-| [Substack Archive Index](substack-archive-index.md) | draft | 2026-06-06 | Lookup table of all published Substack posts (title, description, URL), used to insert direct links to things Alexey has already shared |
+| [Substack Archive Index](substack-archive-index.md) | draft | 2026-07-03 | Lookup table of all published Substack posts (title, description, URL), used to insert direct links to things Alexey has already shared |
 | [Stylint: Enforcing My Writing Style on AI Assistants](stylint.md) | draft | 2026-05-19 | Python linter (github.com/alexeygrigorev/stylint) that codifies writing-style rules as code instead of long markdown style guides, so agents stop skipping them |
 | [Writing Assistant Improvement Ideas](writing-assistant-improvement-ideas.md) | draft | 2026-05-16 | Feedback and improvement ideas for the Telegram writing assistant bot: index navigation, content routing, resource index, keyword categorization, retry on transcription errors |
-| [Community Session Ideas](community-session-ideas.md) | draft | 2026-05-15 | Session ideas from community members: memory layer for AI agents, documenting agent learnings, refactoring AI slop, mock interviews, pitch practice, mastermind format |
 | [All my Gen.AI Workshops are Now in One Place](gen-ai-workshops-in-one-place.md) | draft | 2026-05-11 | Newsletter announcement that all Gen.AI workshops now live at aishippinglabs.com/workshops, with a launch plan to gate them behind registration and promote across channels |
 | [AI Dev Tools Zoomcamp Testimonials](ai-dev-tools-zoomcamp-testimonials.md) | draft | 2026-05-02 | Testimonials from AI Dev Tools Zoomcamp participants: Carina Ye on finding the course while job-hunting and going on to ship her first iOS app (Prana: Breathwork Meditation) |
 | [Publishing Zoomcamp Lessons in Text Form](zoomcamp-text-course-publishing.md) | draft | 2026-04-30 | Idea to publish each LLM Zoomcamp / DataTalks.Club lesson as a long written conspectus with diagrams (Paul Iusztin's Substack format), to own destination traffic, show page-level stats, and attract more sponsors |

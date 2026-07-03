@@ -1,7 +1,7 @@
 ---
 title: "Substack Archive Index"
 created: 2026-05-16
-updated: 2026-06-06
+updated: 2026-07-03
 tags: [reference, index]
 status: draft
 ---
@@ -21,6 +21,9 @@ When processing a message where I refer back to something I already shared, scan
 
 | Date | Title | URL | Description |
 |------|-------|-----|-------------|
+| 2026-06-26 | Six Projects That Didn't Make It | https://alexeyondata.substack.com/p/six-projects-that-didnt-make-it | Abandoned and experimental AI-agent projects (fitness tracker, CodeHive, Litehive, Mermaid diagram tool, metabolism simulator) and the useful spin-offs (Heru, Quse), with the lesson that dead-weight repos are a normal part of experimenting. |
+| 2026-06-19 | The System I Built for AWS Access Without Keys | https://alexeyondata.substack.com/p/the-system-i-built-for-aws-access | Giving offline workshop attendees and coding agents AWS access without distributing long-lived keys, using EC2 instance profiles, a Lambda credential vendor, and a dedicated sandbox account. |
+| 2026-06-12 | AI Design for Non-Designers | https://alexeyondata.substack.com/p/ai-design-for-non-designers | Mockup-first workflow for AI-generated interfaces: spotting AI design tics, generating mockups to set direction, and using design guidelines so a code agent implements against a reference design system to avoid AI slop. |
 | 2026-06-05 | How to Set Up Your Coding Agent: A Step-by-Step Guide | https://alexeyondata.substack.com/p/how-to-set-up-your-coding-agent-a | Step-by-step setup workflow for coding agents: choosing Claude Code, Codex, OpenCode, GitHub Copilot, Antigravity, or Cline; starting with one real task; then adding automation, reusable documents, skills, subagents, context files, slash commands, permissions, remote setups, phone workflows, and shared dotfiles. |
 | 2026-05-29 | Minsearch: The Small Search Library Behind My RAG Workshops and Courses | https://alexeyondata.substack.com/p/minsearch-the-small-search-library | How the small in-process Python search library minsearch replaced Elasticsearch in RAG notebooks used for teaching, including its role in LLM Zoomcamp, AI Engineering Buildcamp, FAQ search, retrieval examples, and lightweight local search workflows. |
 | 2026-05-22 | The System I Built to Ship Code From a Phone | https://alexeyondata.substack.com/p/the-system-i-built-to-ship-code-from | How Alexey ships code from a phone using a dedicated 24/7 remote server, the Termius SSH client on Android, tmux to survive disconnects, and voice/dictation as the main interface to coding agents (Claude Code, Codex, OpenCode), plus tricks for visual tasks without a laptop. |
