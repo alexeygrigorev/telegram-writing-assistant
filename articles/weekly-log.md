@@ -1,7 +1,7 @@
 ---
 title: "Weekly Log"
 created: 2026-02-26
-updated: 2026-07-01
+updated: 2026-07-03
 tags: [weekly, log]
 status: draft
 ---
@@ -11,6 +11,32 @@ status: draft
 A running log of what was done each week. When a topic has its own detailed article, this log contains a short summary with a link. When there is not much content for a topic, the details go here directly.
 
 ## Week of 2026-06-29
+
+### Podwiki: A Wiki from Five Years of Podcasts
+
+Made a podwiki - that is what I call it - a wiki based on all the podcasts from the last five years. I have been doing podcasts for about five years now, and this turns them into a Wikipedia-style resource[^67].
+
+I gave the task to Codex and used the goal feature. It worked on this for about two days. I had to reset the limits several times along the way - it burned through the limits very quickly. Luckily I have four limit resets. I used one of them, and one more reset came from OpenAI for everyone[^67].
+
+The result is turning out well. It processed a lot of information, and it looks interesting[^67].
+
+### AI Shipping Labs: New Sprint and Small Features
+
+In parallel, a lot of new features landed in AI Shipping Labs. They are all small polishing improvements. We launched a new sprint, and to prepare for it I implemented some features[^67].
+
+### Workshops: Project Selection and Saving on Batch Requests
+
+There were several workshops. One was about choosing a project - the article on that topic is based on this workshop. The other was about how to save money with batch requests. I have not published that one yet; I will publish it next week[^67].
+
+### Trying Fable for Codebase Audits
+
+I am trying out Fable while the opportunity is there[^67]. I used it for auditing a codebase - it can find things other models miss[^68].
+
+<figure>
+  <img src="../assets/images/weekly-log/fable-codebase-audit.jpg" alt="Terminal log of a Fable codebase audit: the agents/voice/usage auditor finished with 8 findings including an all-or-nothing usage-panel parser and an unbounded cold-open transcript read that can OOM, the app-lifecycle/storage auditor finished with 7 findings headlined by a corrupt app_settings.xml crash-looping the app at launch, with three more auditors still running">
+  <figcaption>Fable auditing a codebase with parallel audit agents - two auditors done with 15 findings between them, three still running</figcaption>
+  <!-- The screenshot Alexey sent with the note that he is trying Fable for codebase audits and it finds things other models miss -->
+</figure>
 
 ### New Course Concept: Product Shipping Zoomcamp
 
@@ -547,3 +573,5 @@ See [Course Management Production Incident Report](course-management-production-
 [^64]: [20260626_201403_AlexeyDTC_msg4641_photo.md](../inbox/used/20260626_201403_AlexeyDTC_msg4641_photo.md)
 [^65]: [20260628_181447_AlexeyDTC_msg4643_photo.md](../inbox/used/20260628_181447_AlexeyDTC_msg4643_photo.md)
 [^66]: [20260628_181447_AlexeyDTC_msg4644_photo.md](../inbox/used/20260628_181447_AlexeyDTC_msg4644_photo.md)
+[^67]: [20260703_115749_AlexeyDTC_msg4668_transcript.txt](../inbox/used/20260703_115749_AlexeyDTC_msg4668_transcript.txt)
+[^68]: [20260703_115527_AlexeyDTC_msg4666_photo.md](../inbox/used/20260703_115527_AlexeyDTC_msg4666_photo.md)

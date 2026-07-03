@@ -101,8 +101,8 @@ Files at the articles root that don't fit into the above categories.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Weekly Log](weekly-log.md) | draft | 2026-07-03 | Running log of what was done each week. Topics with their own dedicated article appear as short summaries with links; smaller items stay inline |
 | [Product Shipping Zoomcamp](product-shipping-zoomcamp.md) | draft | 2026-07-01 | Concept for an end-to-end product development Zoomcamp - six modules plus midterm and capstone, taking students from idea to a deployed, measured, publicly launched, peer-reviewed product, with build-in-public starting from Module 1 |
-| [Weekly Log](weekly-log.md) | draft | 2026-07-01 | Running log of what was done each week. Topics with their own dedicated article appear as short summaries with links; smaller items stay inline |
 | [Workshop and Course Ideas from Member Plans](workshop-and-course-ideas-from-member-plans.md) | draft | 2026-06-25 | Member-data-grounded synthesis of AI Shipping Labs blockers, 10 workshop ideas, and 3 five-day mini-course ideas mapped to personas |
 | [AI Engineering Field Guide](ai-engineering-field-guide.md) | draft | 2026-06-26 | Job listing pipeline for AI Engineer roles - scraping, deduplication, LLM enrichment |
 | [ZeroSearch: A Zero-Dependency Search Library for a Lightweight FAQ Assistant](zerosearch.md) | draft | 2026-06-19 | Zero-dependency pure-Python rewrite of MinSearch built to port the DataTalks.Club FAQ assistant onto Cloudflare Workers, where the Python layer supports no extra libraries |
