@@ -93,6 +93,12 @@ The goal is to help members build deeper understanding, stay accountable, and le
 
 These interview and learning ideas were also discussed on a recent community call[^11].
 
+## System design sessions with an AI interviewer
+
+An idea for AI Shipping Labs: get together every so often and do system design together. It is all geared toward interview preparation. We take some project and do the system design for it - either a plain system or an AI system[^12].
+
+The twist is that I want the AI to be my grader. The plan is to build an AI system that can give feedback and act as my interviewer. It would grill me hard and ask questions exactly like a real interviewer would[^12].
+
 ## Pitching ideas to different audiences
 
 A community member proposed a Toastmasters-style session on how to pitch your idea and convey thoughts to different audiences[^1].
@@ -138,3 +144,4 @@ As a side note, the two people the original conversation was about are both from
 [^9]: [20260703_132056_AlexeyDTC_msg4675.md](../inbox/used/20260703_132056_AlexeyDTC_msg4675.md)
 [^10]: [20260703_132117_AlexeyDTC_msg4678.md](../inbox/used/20260703_132117_AlexeyDTC_msg4678.md)
 [^11]: [20260703_132200_AlexeyDTC_msg4680.md](../inbox/used/20260703_132200_AlexeyDTC_msg4680.md)
+[^12]: [20260703_160455_AlexeyDTC_msg4688_transcript.txt](../inbox/used/20260703_160455_AlexeyDTC_msg4688_transcript.txt)
