@@ -42,28 +42,7 @@ The order matters though: pick the problem first, then pick the technology that 
 
 ## Portfolio projects
 
-A portfolio project has one job: make it easy for a hiring manager or client to say yes to a conversation. To do that, the project has to solve a recognizable problem, show real engineering quality rather than just prompting, and make the tradeoffs easy to explain. You want something you can point to in a README and talk through in an interview.
-
-Hiring managers don't spend a lot of time looking. Recruiters often move on after a minute or two, and hiring managers usually have five or ten minutes before an interview to scan your GitHub. They want to see immediately what the project does, why it exists, and whether it's close to production - tests, evaluation, CI/CD, a deployment link[^8].
-
-That changes how I'd pick a portfolio project. I wouldn't start with random brainstorming.
-
-The process looks more like an algorithm[^14]:
-
-```mermaid
-flowchart TD
-    A[Look at job postings you would realistically take] --> B[Group them into domains<br/>e-commerce, healthcare, finance, dev tools]
-    B --> C[Pick one domain and stay with it]
-    C --> D[Read real companies in that domain]
-    D --> E[Find where they already use AI<br/>or where AI could help but does not exist yet]
-    E --> F[Shortlist use cases and pick one]
-    F --> G[Find, scrape, or generate a realistic dataset]
-    G --> H[Build, ship, and write up how it works]
-```
-
-Too many options cause choice paralysis, and targeting one domain means you can also talk fluently about it in interviews. The dataset doesn't have to be the company's real data, but it does have to feel believable for that domain.
-
-This approach also makes the project much easier to talk about. You can say which domain you chose, which companies you looked at, which workflow you focused on, and why your dataset is realistic - instead of "I built a RAG thing with LangChain".
+I wrote a separate, detailed guide on selecting portfolio projects, covering the domain-based selection framework with step-by-step AI-assisted research prompts, project types, and how to make the project interview-ready: [Choosing a Portfolio Project. The Definite Guide](https://alexeyondata.substack.com/p/choosing-a-portfolio-project-the)[^8].
 
 ## Course projects
 
