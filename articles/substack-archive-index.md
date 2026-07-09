@@ -1,7 +1,7 @@
 ---
 title: "Substack Archive Index"
 created: 2026-05-16
-updated: 2026-07-03
+updated: 2026-07-09
 tags: [reference, index]
 status: draft
 ---
@@ -21,6 +21,7 @@ When processing a message where I refer back to something I already shared, scan
 
 | Date | Title | URL | Description |
 |------|-------|-----|-------------|
+| 2026-07-03 | Choosing a Portfolio Project. The Definite Guide | https://alexeyondata.substack.com/p/choosing-a-portfolio-project-the | A repeatable six-step framework for selecting role-targeted portfolio projects: pick a domain, find companies, analyze job descriptions and engineering blogs, extract problems, find shared themes, then design a project matching the target companies' tech stack. Includes the four project types (role-targeted, personal, take-home assignments, hackathon/open-source), the spray-and-pray vs domain-based strategy distinction, and AI-assisted research prompts for each step. |
 | 2026-06-26 | Six Projects That Didn't Make It | https://alexeyondata.substack.com/p/six-projects-that-didnt-make-it | Abandoned and experimental AI-agent projects (fitness tracker, CodeHive, Litehive, Mermaid diagram tool, metabolism simulator) and the useful spin-offs (Heru, Quse), with the lesson that dead-weight repos are a normal part of experimenting. |
 | 2026-06-19 | The System I Built for AWS Access Without Keys | https://alexeyondata.substack.com/p/the-system-i-built-for-aws-access | Giving offline workshop attendees and coding agents AWS access without distributing long-lived keys, using EC2 instance profiles, a Lambda credential vendor, and a dedicated sandbox account. |
 | 2026-06-12 | AI Design for Non-Designers | https://alexeyondata.substack.com/p/ai-design-for-non-designers | Mockup-first workflow for AI-generated interfaces: spotting AI design tics, generating mockups to set direction, and using design guidelines so a code agent implements against a reference design system to avoid AI slop. |
