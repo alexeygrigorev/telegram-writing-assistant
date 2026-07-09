@@ -152,7 +152,7 @@ Ran a session at AI Shipping Labs about vector search. Showed how to build the s
 
 ## Authentication Talk
 
-Gave a talk about authentication this week - how to give AWS access to people and to coding agents without distributing long-lived keys. Based on this talk I'll write an article next week. See [Sandbox AWS Access Without Distributing Keys](sandbox-aws-access.md)[^50][^51].
+Gave a talk about authentication this week - how to give AWS access to people and to coding agents without distributing long-lived keys. Based on this talk I'll write an article next week. See [The System I Built for AWS Access Without Keys](https://alexeyondata.substack.com/p/the-system-i-built-for-aws-access)[^50][^51].
 
 ## Week of 2026-05-25
 
@@ -160,7 +160,7 @@ Gave a talk about authentication this week - how to give AWS access to people an
 
 pocketshell, the Android app that packages my phone-based development workflow, reached a state where I can actually use it this week while continuing to build it[^47]. It is the next step from the mobile workflow described in [Working from a Phone](https://alexeyondata.substack.com/p/the-system-i-built-to-ship-code-from): last week I mentioned that some parts of that process were still being set up, and pocketshell is about packaging everything into one box where I can do everything I need to do[^48].
 
-Ran an experiment on it: coordinating three coding agents - Codex, Claude Code, and OpenCode - as three team managers that find each other, divide up the work, and collaborate on the same repo. See [A Team of Agent Teams](agent-team-of-teams.md) for the full story[^47].
+Ran an experiment on it: coordinating three coding agents - Codex, Claude Code, and OpenCode - as three team managers that find each other, divide up the work, and collaborate on the same repo. See [A Team of Agent Teams](https://alexeyondata.substack.com/p/minsearch-the-small-search-library) for the full story[^47].
 
 ## AI Engineering Field Guide Scrape
 
@@ -271,7 +271,7 @@ In GitHub Actions, though, the end-to-end workflow only got about 1.5-2x faster 
 Last week, ran a team of Codex agents to update the DataTalks.Club course management platform to use Tailwind and refresh the design. Iterated on the UI together with the agents and the result is satisfying. There was also some work on the internal admin part - course admin is now even easier[^37].
 
 <figure>
-  <img src="../assets/images/dtc-course-platform-redesign/redesigned-homepage.jpg" alt="Redesigned DataTalks.Club course management platform homepage showing Active Courses with LLM Zoomcamp 2026">
+  <img src="../assets/images/designing-with-ai/redesigned-homepage.jpg" alt="Redesigned DataTalks.Club course management platform homepage showing Active Courses with LLM Zoomcamp 2026">
   <figcaption>Redesigned DataTalks.Club site after the Codex + Tailwind pass, with LLM Zoomcamp 2026 highlighted under Active courses</figcaption>
   <!-- Screenshot of the public-facing course management site after the Codex-driven redesign described in this section -->
 </figure>
@@ -334,7 +334,7 @@ Merged the "build your own coding agent" workshop and the workshop about how ski
 
 Hit Claude Code session limits on a simple file-splitting task - usage jumped from 80% to 100% instantly. Many people reporting the same issue. Started using OpenAI Codex as an alternative.
 
-The agent workflow works but requires more babysitting - no task widget, no auto-continue when subagents finish. Limits on Codex feel much more generous. See [Trying OpenAI Codex as a Claude Code Alternative](codex-experiments.md) for details[^22][^23][^24].
+The agent workflow works but requires more babysitting - no task widget, no auto-continue when subagents finish. Limits on Codex feel much more generous. See [Trying OpenAI Codex as a Claude Code Alternative](https://alexeyondata.substack.com/p/5-useful-utilities-i-built-with-ai) for details[^22][^23][^24].
 
 ## Snowflake Workshop on Agent Evaluations
 
@@ -459,7 +459,7 @@ Added YouTube transcript processing and external audio file support. The bot can
 
 ## PNG to SVG Conversion
 
-Spent time converting a ChatGPT-generated PNG logo into SVG using Claude Code with OpenCV. Went through multiple approaches before finding one that works. See [Recreating a PNG Logo as SVG with Claude Code](svg-logo-recreation.md) for the full story[^3].
+Spent time converting a ChatGPT-generated PNG logo into SVG using Claude Code with OpenCV. Went through multiple approaches before finding one that works. See [Recreating a PNG Logo as SVG with Claude Code](https://alexeyondata.substack.com/p/how-we-built-ai-shipping-labs) for the full story[^3].
 
 ## Community Platform
 
