@@ -1,7 +1,7 @@
 ---
 title: "Weekly Log"
 created: 2026-02-26
-updated: 2026-07-03
+updated: 2026-07-09
 tags: [weekly, log]
 status: draft
 ---
@@ -19,6 +19,14 @@ Made a podwiki - that is what I call it - a wiki based on all the podcasts from 
 I gave the task to Codex and used the goal feature. It worked on this for about two days. I had to reset the limits several times along the way - it burned through the limits very quickly. Luckily I have four limit resets. I used one of them, and one more reset came from OpenAI for everyone[^67].
 
 The result is turning out well. It processed a lot of information, and it looks interesting[^67].
+
+In the end, Codex finished the podwiki goal after more than four days of work - 4 days, 18 hours and 9 minutes[^69].
+
+<figure>
+  <img src="../assets/images/weekly-log/podwiki-codex-goal-achieved.jpg" alt="Codex terminal output for the final podwiki commit 684d92b 'Clarify graph maintenance audit threshold': make graph-audit as the enforced gate with GRAPH_MIN_INBOUND=6, an optional non-failing graph-maintenance-audit report, policy documented in CONTENT_GUIDE.md and CONTENT_TODO.md, all verifications passing including GitHub Pages and Search Lambda deploys, with the status line showing gpt-5.5 high and Goal achieved (4d 18h 9m)">
+  <figcaption>Codex finishing the podwiki goal - the final commit pushed and verified, with the goal achieved after 4 days 18 hours</figcaption>
+  <!-- The screenshot Alexey sent the morning after with the caption that podwiki finished in 4d+ days; it closes out the podwiki story above -->
+</figure>
 
 ### AI Shipping Labs: New Sprint and Small Features
 
@@ -575,3 +583,4 @@ See [Course Management Production Incident Report](course-management-production-
 [^66]: [20260628_181447_AlexeyDTC_msg4644_photo.md](../inbox/used/20260628_181447_AlexeyDTC_msg4644_photo.md)
 [^67]: [20260703_115749_AlexeyDTC_msg4668_transcript.txt](../inbox/used/20260703_115749_AlexeyDTC_msg4668_transcript.txt)
 [^68]: [20260703_115527_AlexeyDTC_msg4666_photo.md](../inbox/used/20260703_115527_AlexeyDTC_msg4666_photo.md)
+[^69]: [20260709_064743_AlexeyDTC_msg4720_photo.md](../inbox/used/20260709_064743_AlexeyDTC_msg4720_photo.md)

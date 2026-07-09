@@ -102,9 +102,9 @@ Files at the articles root that don't fit into the above categories.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Weekly Log](weekly-log.md) | draft | 2026-07-09 | Running log of what was done each week. Topics with their own dedicated article appear as short summaries with links; smaller items stay inline |
 | [DataTalks.Club Unified Platform](datatalks-club-unified-platform.md) | draft | 2026-07-07 | Planning document for consolidating DataTalks.Club's fragmented surfaces (course repos, docs, FAQ, course management platform) into one unified portal - problem statement, vision, and a map of the current org |
 | [Community Session Ideas](community-session-ideas.md) | draft | 2026-07-07 | Session ideas from community members: memory layer for AI agents, documenting agent learnings, refactoring AI slop, mock interviews and resume reviews, interview-prep topics, book-reading sprints, system design with an AI interviewer, pitch practice, mastermind format |
-| [Weekly Log](weekly-log.md) | draft | 2026-07-03 | Running log of what was done each week. Topics with their own dedicated article appear as short summaries with links; smaller items stay inline |
 | [Product Shipping Zoomcamp](product-shipping-zoomcamp.md) | draft | 2026-07-01 | Concept for an end-to-end product development Zoomcamp - six modules plus midterm and capstone, taking students from idea to a deployed, measured, publicly launched, peer-reviewed product, with build-in-public starting from Module 1 |
 | [Workshop and Course Ideas from Member Plans](workshop-and-course-ideas-from-member-plans.md) | draft | 2026-06-25 | Member-data-grounded synthesis of AI Shipping Labs blockers, 10 workshop ideas, and 3 five-day mini-course ideas mapped to personas |
 | [AI Engineering Field Guide](ai-engineering-field-guide.md) | draft | 2026-06-26 | Job listing pipeline for AI Engineer roles - scraping, deduplication, LLM enrichment |
