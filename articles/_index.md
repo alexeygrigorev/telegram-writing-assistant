@@ -102,7 +102,7 @@ Files at the articles root that don't fit into the above categories.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
-| [How I Publish Python Libraries to PyPI](publishing-python-libraries-to-pypi.md) | draft | 2026-07-09 | End-to-end process for publishing Python libraries to PyPI: idea and name selection, first 0.0.1 release, manual hatch/uv publishing, tokens in ~/.pypirc, tag-triggered CI publishing, and automating it all with the init-library, setup-pypi-ci, and release skills |
+| [How I Publish Python Libraries to PyPI](publishing-python-libraries-to-pypi.md) | draft | 2026-07-10 | End-to-end process for publishing Python libraries to PyPI: idea and name selection, first 0.0.1 release, manual hatch/uv publishing, tokens in ~/.pypirc, tag-triggered CI publishing, and automating it all with the init-library, setup-pypi-ci, and release skills |
 | [Weekly Log](weekly-log.md) | draft | 2026-07-09 | Running log of what was done each week. Topics with their own dedicated article appear as short summaries with links; smaller items stay inline |
 | [DataTalks.Club Unified Platform](datatalks-club-unified-platform.md) | draft | 2026-07-07 | Planning document for consolidating DataTalks.Club's fragmented surfaces (course repos, docs, FAQ, course management platform) into one unified portal - problem statement, vision, and a map of the current org |
 | [Community Session Ideas](community-session-ideas.md) | draft | 2026-07-07 | Session ideas from community members: memory layer for AI agents, documenting agent learnings, refactoring AI slop, mock interviews and resume reviews, interview-prep topics, book-reading sprints, system design with an AI interviewer, pitch practice, mastermind format |
