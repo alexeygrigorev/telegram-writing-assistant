@@ -175,8 +175,7 @@ For the Fitness Assistant, the evaluation section shows both retrieval metrics (
 
 ## Monitoring
 
-TODO: Describe what to describe in this section, not what to log 
-
+Describe what you log, where the logs are stored, and how to access them. If you have a dashboard, include a screenshot. The point is to show that you treat the project as a running system, not a one-off script.
 
 For the Fitness Assistant, conversations are logged to PostgreSQL and displayed in a Grafana dashboard. The README includes a dashboard screenshot and lists what each panel tracks, including last 5 conversations, user feedback, OpenAI cost, token usage, model used, and response time.
 
@@ -202,24 +201,24 @@ Nice-to-have sections:
 
 Other potentially relevant sections:
 
-- Self-evaluation - if your project is peer-reviewed, go through the rubric yourself and state the score you think you earned for each criterion. This helps reviewers calibrate and shows you engaged with the criteria.
+- Self-evaluation - if your project is peer-reviewed, go through the rubric yourself and state the score you think you earned for each criterion. This helps reviewers calibrate and shows you engaged with the criteria. Use AI for that too.
 - Decisions and trade-offs - explain why you chose this model, this retrieval approach, or this framework, and what you rejected. The reasoning matters more than the tool name. A good format: "I chose X over Y because of constraint Z. The downside was A. I accepted it because B."
 - Limitations - what doesn't work yet, what's out of scope, and what you'd do differently. Being honest about limitations doesn't make the project look weak. It shows you understand the boundaries of what you built.
 - Future work - what you'd build next if you had more time. Keep it realistic - this is about showing direction, not making promises.
 
 ## Things to avoid
 
-TODO: merge with weak readmes
+I see the same problems in almost every cohort:
 
-Common problems:
-
-- Missing setup instructions. If I can't run it from a clean clone, the project lose the reproducibility points (all my courses have this criteria).
+- Missing setup instructions. If I can't run it from a clean clone, the project loses reproducibility points.
 - No evaluation. An AI project without eval is a demo.
 - No demo. If I have to run your code to see what it does, most people won't.
 - Giant notebooks with no link from the README.
 - Stale READMEs where the deployed version doesn't match what's written.
-- A wall of text with no demo, no screenshots, no eval numbers, and no clear explanation of what the project does. The reviewer opens the repo, sees a long description, scrolls for setup, can't find it, and moves on.
+- A wall of text with no demo, no screenshots, no eval numbers, and no clear explanation of what the project does.
 - A README that describes what the project will do (future tense) rather than what it does. If it says "this project will implement monitoring," the reviewer assumes monitoring isn't done.
+- Marketing copy instead of evidence. Bold claims with no methodology. The reviewer can't verify them and doesn't learn how the numbers were produced.
+- READMEs that are clearly an afterthought. They start with metadata, list the tech stack, show quickstart commands, and stop. There's no problem section, evaluation, monitoring, architecture, or demo.
 
 
 ## Using AI to write your README
@@ -265,12 +264,4 @@ The judge calibration journey is documented across four versions, showing what c
 Other projects to check: [Chess Coach Agent](https://github.com/leo-cabibihan/chess-coach-agent), [Meal Map](https://github.com/elgrassa/CapstoneMealMapSimplified), [Datawarehouse Agent](https://github.com/larsvasseldonk/datawarehouse_agent), and [AA Bot](https://github.com/marcelonieva7/AA_Bot). You can find more projects on the [Buildcamp Cohort 3](https://courses.datatalks.club/ai-buildcamp-3/projects) and [LLM Zoomcamp 2025](https://courses.datatalks.club/llm-zoomcamp-2025/projects) project pages.
 
 
-## Common patterns in weak READMEs
 
-Three things show up repeatedly in weak READMEs.
-
-First, some projects use marketing copy instead of evidence - bold claims with no methodology. The reviewer can't verify them and doesn't learn how the numbers were produced.
-
-Second, some READMEs are clearly an afterthought. They start with metadata, list the tech stack, show quickstart commands, and stop. There's no problem section, evaluation, monitoring, architecture, or demo. The project may be solid, but the README gives a reviewer almost nothing.
-
-Third, some projects have no demo or screenshots at all. The reviewer has to clone, install dependencies, configure API keys, and run the app just to see what it does. Most reviewers won't, and that's the most common reason projects lose points they could have kept.
