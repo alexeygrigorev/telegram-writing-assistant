@@ -50,7 +50,7 @@ If your project isn't going to be peer reviewed, it still helps to pretend that 
 
 ## The structure
 
-A good README follows a structure. It doesn't have to follow the exact order I suggest, but the more boxes your project checks, the better. TODO: let's redo the intro with the focus on these checkboxes rather than the order
+A good README covers a set of sections. You don't need all of them, and the order is flexible. Think of it as a checklist: the more boxes your project checks, the stronger your README.
 
 Must-have sections:
 
@@ -106,13 +106,15 @@ In these two sentences it tells you about:
 - the solution (conversational AI for exercise selection)
 
 
-TODO: I'm confused - the structure says that problem says who the user is, but now we say that the description should do it. let's have a concrete formula for each section. 
 
 ## Problem
 
-The description at the top introduces the problem. Next, we want to add more details about it. 
+The description at the top gives a hint of the problem. The problem section goes deeper. Use this formula:
 
-Start with a concrete scenario: what's the user trying to do, what gets in their way, and why existing tools don't help. Then name who your project is for, specifically. TODO too abstract. give a formula here and in the previous section so we can copy it.
+- One sentence: what's the user trying to do?
+- One or two sentences: what gets in their way?
+- One sentence: why don't existing tools solve this?
+- One sentence: who is this project for, specifically?
 
 <!-- illustration: screenshot of the Problem section from the Fitness Assistant README -->
 
@@ -135,7 +137,7 @@ Most people who read your README won't run it, especially the hiring managers. F
 
 If your project is deployed, put the link at the top of the README too. A live URL is a great addition to the video, so people can try it directly.
 
-To record a video, use Loom, OBS, or .... Start with showing your application in action. Limit this part to a few minutes, but you don't need to shop there. You can also include the other parts we talk about in this article: the evaluation results, the monitoring dashboard, the architecture.
+To record a video, use Loom, OBS, or QuickTime. Start with showing your application in action. Limit this part to a few minutes, but you don't need to stop there. You can also include the other parts we talk about in this article: the evaluation results, the monitoring dashboard, the architecture.
 
 If a video feels like too much effort, a screenshot of the app or sample input and output is enough.
 
@@ -146,23 +148,15 @@ For the Fitness Assistant, [I recorded a video](https://www.youtube.com/watch?v=
 
 Include these things:
 
-- prerequisites (Python version, Docker)
+- prerequisites (Python version, uv, Docker)
 - the git clone command
 - dependency installation
 - environment setup
 - the run command
 
-Use actual commands in code blocks. If your setup is complicated, or there are different options to do it, firs show the one-command version first, then the detailed steps.
+Use actual commands in code blocks. If your setup is complicated, or there are different options to do it, firs show the short version, then the detailed steps.
 
 <!-- illustration: screenshot of the Quickstart section from the Fitness Assistant README -->
-
-TODO: why it's not in the same order as in the structure? let's reorder it
-
-## Architecture
-
-A simple diagram (Mermaid, image, or text) showing where data enters and what comes out.
-
-For the Fitness Assistant, the architecture is a Mermaid flowchart. It shows the Flask API, the RAG module retrieving from minsearch and calling OpenAI, the answer going back to the user, and the conversation logged to PostgreSQL for Grafana.
 
 
 ## Testing
@@ -207,6 +201,13 @@ If your project is deployed, put the URL at the very top of the README, right af
 The deployment section itself covers the details: where it's hosted, how to deploy it yourself, and what services it depends on. Common options for AI projects include Streamlit Community Cloud, Render, Railway, or a Docker container on any cloud provider. Document the one you chose and the steps to reproduce it.
 
 For the Fitness Assistant: there's no deployed version, but the README documents how to run it with Docker Compose and how to run it locally.
+
+
+## Architecture
+
+A simple diagram (Mermaid, image, or text) showing where data enters and what comes out.
+
+For the Fitness Assistant, the architecture is a Mermaid flowchart. It shows the Flask API, the RAG module retrieving from minsearch and calling OpenAI, the answer going back to the user, and the conversation logged to PostgreSQL for Grafana.
 
 
 ## Self-evaluation
