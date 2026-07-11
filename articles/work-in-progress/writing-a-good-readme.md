@@ -175,20 +175,8 @@ For the Fitness Assistant, the evaluation section shows both retrieval metrics (
 
 ## Monitoring
 
-Monitoring can start as a local log, but the README should say what you log and how to access it.
+TODO: Describe what to describe in this section, not what to log 
 
-At minimum, log:
-
-- request ID
-- model name
-- prompt version
-- retrieved sources
-- tool calls
-- validation errors
-- latency
-- token use
-- cost
-- feedback
 
 For the Fitness Assistant, conversations are logged to PostgreSQL and displayed in a Grafana dashboard. The README includes a dashboard screenshot and lists what each panel tracks, including last 5 conversations, user feedback, OpenAI cost, token usage, model used, and response time.
 
@@ -203,27 +191,25 @@ The deployment section itself covers the details: where it's hosted, how to depl
 For the Fitness Assistant: there's no deployed version, but the README documents how to run it with Docker Compose and how to run it locally.
 
 
-## Architecture
-
-A simple diagram (Mermaid, image, or text) showing where data enters and what comes out.
-
-For the Fitness Assistant, the architecture is a Mermaid flowchart. It shows the Flask API, the RAG module retrieving from minsearch and calling OpenAI, the answer going back to the user, and the conversation logged to PostgreSQL for Grafana.
-
-
-## Self-evaluation
-
-If your project is peer-reviewed, include a self-evaluation at the end of the README. Go through the rubric yourself and state the score you think you earned for each criterion. This helps reviewers understand how you see your own work, and it shows you engaged seriously with the evaluation criteria.
-
-If your project is a deployed product with login, payment, or gated features, provide a free testing path for reviewers. Test account credentials, demo mode, or a bypass flag. If reviewers can't test without paying, the submission loses points.
-
-Fitness Assistant includes a self-evaluation because it's a course project. It's not deployed, so it doesn't need a test account. But if it were a deployed web app behind a login, the README would need credentials or a demo mode so reviewers could try it without signing up.
-
 ## Other sections
 
-There are more sections you might want to include: deployment instructions, dataset description, project structure, CI/CD setup, future work, contributing guidelines. It's not possible to cover every section in detail. The sections above should give you an idea of what a good section looks like. Each one states what it is, why it matters, and shows it with a concrete example.
+Nice-to-have sections:
 
+- Architecture - a diagram (Mermaid, image, or text) showing where data enters, what the system does with it, and what comes out. A reviewer who reads only this section should understand the whole system at a glance. For the Fitness Assistant, this is a Mermaid flowchart with the Flask API, minsearch, OpenAI, PostgreSQL, and Grafana.
+- Dataset description - what data you used, where it came from, how big it is, and any licensing restrictions. This matters if reviewers want to reproduce your results or check whether your eval set is meaningful. For the Fitness Assistant, the dataset is 207 exercises generated with ChatGPT, stored as a CSV.
+- Project structure - a file tree with one-line descriptions for each file or folder. This saves a reviewer from hunting through your repo to find the evaluation code or the prompts. If your code is in notebooks, explain which notebook contains what.
+- CI/CD setup - what runs automatically on push or pull request. At minimum, a GitHub Actions workflow that runs your tests. If you also run evals in CI, say so. This shows you treat the project as a system with automated checks, not a one-off script.
+
+Other potentially relevant sections:
+
+- Self-evaluation - if your project is peer-reviewed, go through the rubric yourself and state the score you think you earned for each criterion. This helps reviewers calibrate and shows you engaged with the criteria.
+- Decisions and trade-offs - explain why you chose this model, this retrieval approach, or this framework, and what you rejected. The reasoning matters more than the tool name. A good format: "I chose X over Y because of constraint Z. The downside was A. I accepted it because B."
+- Limitations - what doesn't work yet, what's out of scope, and what you'd do differently. Being honest about limitations doesn't make the project look weak. It shows you understand the boundaries of what you built.
+- Future work - what you'd build next if you had more time. Keep it realistic - this is about showing direction, not making promises.
 
 ## Things to avoid
+
+TODO: merge with weak readmes
 
 Common problems:
 
@@ -238,53 +224,50 @@ Common problems:
 
 ## Using AI to write your README
 
-You don't have to write the README from scratch. A coding agent like Claude Code or Codex is well suited for this. It can read your entire codebase and understand what the project actually does.
+I mentioned earlier that a coding agent can help draft individual sections. The same approach works for the whole README. But a few things to keep in mind.
 
-Give the agent the section structure from this article and ask it to generate a first draft. It can read your code, your eval scripts, your monitoring setup, and your tests - so it has real context. Just make sure your project actually has the things the README describes: tests that pass, an eval that runs, a working monitoring setup.
+You don't have to tick all the boxes. If there's nothing to say about CI/CD or limitations or future work, don't force it. The README should feel natural, not like a form filled in by checking every field. Don't just give the agent this article and ask it to cover everything. Pick the sections that make sense for your project.
 
-What you get is a first draft, not a finished product. Remove sections that don't apply, add what's missing, and edit the tone. The agent won't know your evaluation numbers or your trade-offs unless you point it at them. Walk it through the decisions you made and the results you got, then let it write.
+You can also reorder things. Maybe architecture should be at the top for your project, or maybe the evaluation results deserve more space. Ask your AI assistant which order makes sense for your particular project. At the end, the structure is a suggestion, and taste matters.
 
-## Exceptional examples from student projects
-
-I analyzed every submitted project from the zoomcamp and Buildcamp project showcases. I scored them against the rubric from this article. Here are four that stood out, each illustrating a different strength. These are real projects from real students. Use them as reference.
-
+## Examples from student projects
 
 ## AI Diet Coach
 
-Repo: github.com/thetsuwin66/ai-diet-coach-agent (Buildcamp Cohort 3)
+Repo: [github.com/thetsuwin66/ai-diet-coach-agent](https://github.com/thetsuwin66/ai-diet-coach-agent) ([course page](https://courses.datatalks.club/ai-buildcamp-3/projects))
 
 A clear first screen - a reviewer can understand the project in 30 seconds without running anything. There's a live deployed demo link right after the problem statement, with screenshots of the chat interface, meal plan, progress tracking, and monitoring dashboard.
 
-The problem section names a specific demographic: "users in Southeast Asia who follow Asian diets, a demographic underserved by Western-centric diet tools." It includes a Mermaid architecture diagram showing every component. The monitoring section has screenshots of both a custom dashboard and Logfire tracing.
+The problem section names a specific demographic: "users in Southeast Asia who follow Asian diets, a demographic underserved by Western-centric diet tools." The README includes a Mermaid architecture diagram showing every component. The monitoring section has screenshots of both a custom dashboard and Logfire tracing.
 
 
 ## Research Radar
 
-Repo: github.com/55382/Research_Radar_agent_phd_assistant (Buildcamp Cohort 3)
+Repo: [github.com/55382/Research_Radar_agent_phd_assistant](https://github.com/55382/Research_Radar_agent_phd_assistant) ([course page](https://courses.datatalks.club/ai-buildcamp-3/projects))
 
-The best opening line in the pool. The one-liner tells you the input (ArXiv papers), the output (a personalized digest email), and the user (researchers in fast-moving fields). It even captures the feedback loop, all in one sentence. It interprets every metric in plain language and shows a parameter tuning table that demonstrates evaluation was used to make decisions. It covers deployment, CI, and 67 tests. The most complete README of the group.
+The one-liner tells you the input (ArXiv papers), the output (a personalized digest email), and the user (researchers in fast-moving fields). It even captures the feedback loop, all in one sentence. It interprets every metric in plain language and shows a parameter tuning table that demonstrates evaluation was used to make decisions. It covers deployment, CI, and 67 tests.
 
 
 ## CineRAG
 
-Repo: github.com/bielacki/cinerag (LLM Zoomcamp 2025)
+Repo: [github.com/bielacki/cinerag](https://github.com/bielacki/cinerag) ([course page](https://courses.datatalks.club/llm-zoomcamp-2025/projects))
 
-The deepest evaluation section of any project. Two separate eval sections. One for retrieval (five approaches compared with hit rate and MRR numbers). One for LLM answer quality (LLM-as-a-judge with relevance and faithfulness metrics). Each section explains the eval dataset, the metrics chosen, and how to run the eval, with results in tables. A reviewer can see exactly how the project was evaluated without digging into notebooks.
+Two separate eval sections. One for retrieval (five approaches compared with hit rate and MRR numbers). One for LLM answer quality (LLM-as-a-judge with relevance and faithfulness metrics). Each section explains the eval dataset, the metrics chosen, and how to run the eval, with results in tables. A reviewer can see exactly how the project was evaluated without digging into notebooks.
 
 
 ## Applied ML Teaching Copilot
 
-Repo: github.com/marcoteran/applied-ml-teaching-copilot (Buildcamp Cohort 3)
+Repo: [github.com/marcoteran/applied-ml-teaching-copilot](https://github.com/marcoteran/applied-ml-teaching-copilot) ([course page](https://courses.datatalks.club/ai-buildcamp-3/projects))
 
-A grounded AI assistant for course materials that takes evaluation seriously. The judge calibration journey is documented across four versions, showing what changed and why at each step. 60 eval scenarios cover multiple categories. Testing is split into unit tests (no API key needed) and judge tests (skip without key, CI stays green). Includes a self-evaluation section where the author scores their own project against the rubric.
+The judge calibration journey is documented across four versions, showing what changed and why at each step. 60 eval scenarios cover multiple categories. Testing is split into unit tests (no API key needed) and judge tests (skip without key, CI stays green). Includes a self-evaluation section where the author scores their own project against the rubric.
 
 
-Other projects to check: Chess Coach Agent (github.com/leo-cabibihan/chess-coach-agent), Meal Map (github.com/elgrassa/CapstoneMealMapSimplified), Datawarehouse Agent (github.com/larsvasseldonk/datawarehouse_agent), and AA Bot (github.com/marcelonieva7/AA_Bot). All scored 18-21 on the rubric and each has at least one section that stands out.
+Other projects to check: [Chess Coach Agent](https://github.com/leo-cabibihan/chess-coach-agent), [Meal Map](https://github.com/elgrassa/CapstoneMealMapSimplified), [Datawarehouse Agent](https://github.com/larsvasseldonk/datawarehouse_agent), and [AA Bot](https://github.com/marcelonieva7/AA_Bot). You can find more projects on the [Buildcamp Cohort 3](https://courses.datatalks.club/ai-buildcamp-3/projects) and [LLM Zoomcamp 2025](https://courses.datatalks.club/llm-zoomcamp-2025/projects) project pages.
 
 
 ## Common patterns in weak READMEs
 
-Three things showed up repeatedly in the lower-scoring projects.
+Three things show up repeatedly in weak READMEs.
 
 First, some projects use marketing copy instead of evidence - bold claims with no methodology. The reviewer can't verify them and doesn't learn how the numbers were produced.
 
