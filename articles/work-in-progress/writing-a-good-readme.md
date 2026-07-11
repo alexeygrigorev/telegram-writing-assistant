@@ -50,78 +50,96 @@ If your project isn't going to be peer reviewed, it still helps to pretend that 
 
 ## The structure
 
-A good README follows a structure. It doesn't have to follow this exact order, and include all these elements, but the more boxes your project checks, the better. 
+A good README follows a structure. It doesn't have to follow the exact order I suggest, but the more boxes your project checks, the better. TODO: let's redo the intro with the focus on these checkboxes rather than the order
 
 Must-have sections:
 
-- Title and one-line description - what the project is, in one sentence
-- Problem - what problem this solves and who the user is
+- Title and one-line description - what the project is
+- Problem - what's the problem it solves and who the user is
 - Demo - screenshot, GIF, video, or sample output showing the project working
-- Quickstart - clone, install, configure, run it locally, with actual commands
+- Quickstart - exact commands to run the projects locally
 
 Important for AI engineering projects:
 
-- Deployment - where it's deployed and how to go about deploying it
-- Testing - how to run tests, with one command if possible, what kind of tests are there
-- Evaluation - what's in the eval set, what metric you chose
+- Deployment - where it's hosted, how to deploy it, what services it depends on
+- Testing - how to run tests, what kind of tests are there
+- Evaluation - what's in the eval set, the metrics, the results
 - Monitoring - what you log and how to access it
 
 Nice to have:
 
 - Architecture - a diagram showing the data flow through your system
-- Dataset description - what data you used, where it came from, licensing
+- Dataset description - what data you used, where it came from
 - Project structure - key files and folders with one-line descriptions
-- Limitations - what doesn't work yet, what's out of scope, what you'd do differently
+- CI/CD setup - what runs on push, how tests and evals are automated
 
 Other potentially relevant sections:
 
-- Self-evaluation - score yourself against the rubric, so reviewers can compare
+- Self-evaluation - for course projects: the score you'd give your project yourself
 - Decisions and trade-offs - why you chose this approach over another
-- Tech stack - the libraries and services you used
-- CI/CD setup - what runs on push, how tests and evals are automated
+- Limitations - what doesn't work yet, what's out of scope, what you'd do differently
 - Future work - what you'd build next if you had more time
-- Contributing guidelines - for open source projects
 
 Let's walk through the most important ones.
 
 
-## Title and one-line description
+## Title and description
 
-What the project is, in one sentence. If someone reads only this line, they should know what your project does.
+The first thing in your README is the title and a short description. You want to describe the user, the problem, and the solution right at the top.
 
-Keep it under 25 words. Name the user, the problem, and the solution in one go. If you can't do that in one sentence, your project scope might be too broad.
+Coming up with the right description can be hard. I usualy use AI to help me.
 
-For the Fitness Assistant: 
+Give your coding agent the link to this article, and ask it to analyze the code to draft a description. Or you can copy your existing README into ChatGPT and ask it to come up with the description. If you don't have any README yet, you can also dictate the idea into ChatGPT and ask it to describe it clearly. 
 
-A conversational AI that helps users choose exercises and find alternatives. It makes fitness more approachable for beginners who find gyms intimidating or can't always access a personal trainer.
+Ask for multiple options, combine the parts you like, and iterate until you like the reuslts. 
 
-In one sentence it tells you:
+You can use the same approach for other sections too. A coding agent can read your code and draft each section for your README.
+
+For Fitness Assistant I use this opener: 
+
+> A conversational AI that helps users choose exercises and find alternatives. It makes fitness more approachable for beginners who find gyms intimidating or can't always access a personal trainer.
+
+In these two sentences it tells you about:
 
 - the problem (fitness is hard for beginners)
 - the user (beginners without a trainer)
 - the solution (conversational AI for exercise selection)
 
 
+TODO: I'm confused - the structure says that problem says who the user is, but now we say that the description should do it. let's have a concrete formula for each section. 
+
 ## Problem
 
-Your one-line description tells readers what the project does. The problem section tells them why it matters. Don't write a formula - tell the story. Start with a concrete scenario: what's the user trying to do, what gets in their way, and why existing tools don't help. Then name who your project is for, specifically.
+The description at the top introduces the problem. Next, we want to add more details about it. 
 
-Be specific about who the user is. "A fitness app for everyone" isn't a problem statement. "Beginners who want guidance on exercise selection and form but don't have access to a personal trainer" is. The best problem sections I've seen start with a relatable moment - "people trying to lose weight struggle to turn a vague goal into a daily plan" - and then narrow to a specific user.
+Start with a concrete scenario: what's the user trying to do, what gets in their way, and why existing tools don't help. Then name who your project is for, specifically. TODO too abstract. give a formula here and in the previous section so we can copy it.
 
 <!-- illustration: screenshot of the Problem section from the Fitness Assistant README -->
 
-For the Fitness Assistant, the problem section opens with the scenario: staying consistent with fitness is hard for beginners, gyms are intimidating, and personal trainers aren't always affordable. Then it narrows to the user: beginners who want guidance but don't have access to a trainer. That's what makes the project feel real rather than a technical exercise.
+For the Fitness Assistant, the problem section opens with the scenario:
 
+- staying consistent with fitness is hard for beginners
+- gyms are intimidating
+- personal trainers aren't always affordable
+
+Then it narrows to the user: beginners who want guidance but don't have access to a trainer.
 
 
 ## Demo
 
-Screenshot, GIF, short video, or sample output. Put it near the top. A reviewer who won't run your code can still see the project working. For a hiring manager skimming your GitHub, a demo is proof the project runs and does something real. Without it, the README is just claims.
+We described the problem, now we want to show that our project is the solution. The best way to do it is to have a demo. 
 
-For a video, use Loom, QuickTime screen recording, or OBS. Keep it under 2 minutes. Show a user interacting with the app, not your IDE, and if a video feels like too much effort, a screenshot of the app or sample input and output is enough.
+Recording a video is the best option for a demo, but it could be a screenshot, a GIF, or sample output.
 
-For the Fitness Assistant: a [YouTube video walkthrough](https://www.youtube.com/watch?v=RiQcSHzR8_E) so a reviewer sees the app running without cloning anything.
+Most people who read your README won't run it, especially the hiring managers. For them, a demo is proof the project runs and does something real. 
 
+If your project is deployed, put the link at the top of the README too. A live URL is a great addition to the video, so people can try it directly.
+
+To record a video, use Loom, OBS, or .... Start with showing your application in action. Limit this part to a few minutes, but you don't need to shop there. You can also include the other parts we talk about in this article: the evaluation results, the monitoring dashboard, the architecture.
+
+If a video feels like too much effort, a screenshot of the app or sample input and output is enough.
+
+For the Fitness Assistant, [I recorded a video](https://www.youtube.com/watch?v=RiQcSHzR8_E).
 
 
 ## Quickstart
@@ -129,17 +147,16 @@ For the Fitness Assistant: a [YouTube video walkthrough](https://www.youtube.com
 Include these things:
 
 - prerequisites (Python version, Docker)
-- the clone command
+- the git clone command
 - dependency installation
 - environment setup
 - the run command
 
-Use actual commands in code blocks, not descriptions of commands. Show the one-command version first, then the detailed steps.
-
-For the Fitness Assistant: `uv sync` to install dependencies, then `uv run python server.py` to start the app. Fitness Assistant shows the one-command Docker path (`docker-compose up`) at the top, with the full local development setup further down.
+Use actual commands in code blocks. If your setup is complicated, or there are different options to do it, firs show the one-command version first, then the detailed steps.
 
 <!-- illustration: screenshot of the Quickstart section from the Fitness Assistant README -->
 
+TODO: why it's not in the same order as in the structure? let's reorder it
 
 ## Architecture
 
@@ -182,6 +199,15 @@ At minimum, log:
 For the Fitness Assistant, conversations are logged to PostgreSQL and displayed in a Grafana dashboard. The README includes a dashboard screenshot and lists what each panel tracks, including last 5 conversations, user feedback, OpenAI cost, token usage, model used, and response time.
 
 <!-- illustration: Grafana dashboard screenshot from the Fitness Assistant README -->
+
+## Deployment
+
+If your project is deployed, put the URL at the very top of the README, right after the title. A reviewer or hiring manager should see it before anything else. Don't bury it three sections down.
+
+The deployment section itself covers the details: where it's hosted, how to deploy it yourself, and what services it depends on. Common options for AI projects include Streamlit Community Cloud, Render, Railway, or a Docker container on any cloud provider. Document the one you chose and the steps to reproduce it.
+
+For the Fitness Assistant: there's no deployed version, but the README documents how to run it with Docker Compose and how to run it locally.
+
 
 ## Self-evaluation
 
