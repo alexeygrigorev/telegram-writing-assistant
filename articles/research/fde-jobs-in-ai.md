@@ -1,7 +1,7 @@
 ---
 title: "FDE Jobs in AI: The Rise of the Forward Deployed Engineer"
 created: 2026-07-09
-updated: 2026-07-09
+updated: 2026-07-13
 tags: [research, careers, ai-engineering, job-market, fde]
 status: draft
 ---
@@ -10,11 +10,11 @@ status: draft
 
 The Forward Deployed Engineer (FDE) is a software engineer who embeds inside a customer's company and builds an AI system end to end, from scoping to production. The title started at Palantir, but in 2025 and 2026 it spread across AI startups and frontier labs, and it now shows up as one of the fastest-growing job categories in AI. This article looks at what the role is, where it came from, why AI companies are hiring for it right now, and what it pays.
 
-Here is the tour. First I show the FDE trend in our own scraped job data, which is what started this research. Then I explain what an FDE is and where the role came from at Palantir. After that I cover why AI companies are pouring money into the role in 2026, what an FDE actually does day to day, and how the role differs from a solutions engineer, an applied AI engineer, and a consultant. The last two sections cover the skills companies ask for and the compensation numbers.
+Here is the tour. First I show the FDE trend in our own scraped job data, which is what started this research, and then go deeper into those postings: who is hiring, what the jobs ask for, and how FDE postings differ from the rest of the AI market. This dataset is our own, so the analysis on top of it is something other resources don't have. After that I explain what an FDE is and where the role came from at Palantir, why AI companies are pouring money into the role in 2026, what an FDE actually does day to day, and how the role differs from a solutions engineer, an applied AI engineer, and a consultant. The last sections cover the skills companies ask for and a short note on pay.
 
 ## What our own scrape data shows
 
-This research started from a pattern in the AI Engineering Field Guide, a job-scraping pipeline that collects AI Engineer listings.[^2] Counting listings with "fde" or "forward deploy" in the title, the number of live postings roughly 4x-ed over five months.[^1]
+This research started from a pattern in the [AI Engineering Field Guide](https://github.com/alexeygrigorev/ai-engineering-field-guide), our job-scraping pipeline that collects AI Engineer listings.[^2] Counting listings with "fde" or "forward deploy" in the title, the number of live postings roughly 4x-ed over five months.[^1]
 
 | Scrape date | FDE listings |
 |-------------|--------------|
@@ -24,6 +24,15 @@ This research started from a pattern in the AI Engineering Field Guide, a job-sc
 | 2026-04-22 | 65 |
 | 2026-05-29 | 80 |
 | 2026-06-25 | 108 |
+
+The same numbers as a bar chart:
+
+<figure>
+  <img src="../../assets/images/fde-jobs-in-ai/fde-listings-per-scrape.png" alt="Bar chart of live FDE listings per scrape date, growing from 28 on 2026-02-04 to 108 on 2026-06-25">
+  <figcaption>Live FDE listings per scrape - roughly 4x growth in five months</figcaption>
+</figure>
+
+The role is also growing faster than the market it sits in. The full scrape went from 1,416 live AI engineering listings in February to 3,024 in June, so the whole dataset grew about 2.1x while FDE listings grew 3.9x. As a share of everything we collect, FDE went from 2.0% to 3.6%.[^3]
 
 These are raw per-scrape counts, so the same job can appear in more than one scrape. The consolidated, deduplicated file holds 113 unique FDE positions, matched on "fde" or "forward deploy" in the title. That 113 is the union of unique job IDs across all six scrapes. The gap between 113 and the latest 108 reflects postings that showed up in an earlier scrape but had closed by 2026-06-25.[^1]
 
@@ -47,6 +56,64 @@ Some employers posted FDE roles again and again across the scrapes:[^1]
 </figure>
 
 A single pipeline is a narrow window, so the next step was to check the trend against public data and reporting. It holds up. An analysis of 1,000 FDE postings found the number of jobs with the title "forward deployed engineer" grew 1,165% year over year from January through October 2025 versus the same months in 2024, and October 2025 set a record for FDE postings. Source: https://bloomberry.com/blog/i-analyzed-1000-forward-deployed-engineer-jobs-what-i-learned/
+
+## Inside our 113 FDE postings
+
+The trend chart says the role is growing. The postings themselves say what the role is. The Field Guide parses every listing into structured data: company info, responsibilities, use cases, and skills. I went through all 113 unique FDE positions in that structured data for this section.[^3] One scope note: the pipeline collects AI engineering listings, so everything here is about AI FDE roles specifically.
+
+### Who is hiring
+
+The 113 postings come from 78 different companies, and no single employer dominates. Mistral AI, Databricks, and Thomson Reuters lead with 4 unique postings each, followed by Anthropic, Invisible Technologies, Stord, and NewRocket with 3. Another 18 companies posted 2 roles, and 53 companies posted exactly one.
+
+About a third of the postings (36 of 113) come from public companies. The rest spread across startups from seed stage to late stage, with the thickest band at Series B.
+
+The industry spread is the part that surprised me. FDE hiring is not limited to frontier labs and developer tooling:
+
+- Frontier labs and model companies: Anthropic, Mistral AI, Scale AI, ReflectionAI
+- Data and AI platforms: Databricks, Baseten, Elastic, H2O.ai, Arize AI
+- Healthcare and life sciences: Aledade, Omada Health, Medable, Charta Health, Komodo Health, Natera, GE Healthcare
+- Voice AI and customer communications: PolyAI, Five9, RingCentral, Regal, NICE
+- Supply chain and logistics: Blue Yonder, Resilinc, Stord, Pallet
+- Enterprise software: ServiceNow, IFS, JetBrains, OneStream Software, Atlassian
+- Fintech and financial services: Ramp, Sardine, Juniper Square, DataSite
+- Consulting and delivery firms: Tiger Analytics, NewRocket, phData, Invisible Technologies, Turing
+- Defense: Defense Unicorns
+
+Even McCain Foods, a food company, posted an FDE role. When a frozen-fries producer hires forward deployed engineers, the role has left the AI bubble.
+
+### What the postings ask FDEs to do
+
+Across the 783 responsibility bullets in the 113 postings, the recurring themes look like this:
+
+- 90% of postings mention working directly with customers or clients
+- 87% mention building or deploying production systems
+- 62% mention integrating systems, APIs, or data
+- 51% mention scoping, requirements, or discovery work
+- 41% mention evaluation, testing, or monitoring
+- 39% mention feeding field learnings back into the product or roadmap
+- 25% mention prototypes, proofs of concept, or demos
+- 10% mention travel or onsite work
+
+The ordering matches the 1,000-posting analysis quoted later in this article: customer work first, production systems second, integration third.
+
+Customer-facing work is what separates FDE postings from the rest of our dataset. 92% of FDE postings are customer-facing, against 21% for other ai-first roles - a 4x difference. Only 13 of the 113 postings are management positions; this is an individual-contributor role. Source: https://github.com/alexeygrigorev/ai-engineering-field-guide/blob/main/job-market/trends.md
+
+### The skill profile in our data
+
+The skills sections of the 113 postings draw a consistent picture:
+
+- Python appears in 89% of postings (101 of 113). TypeScript is second at 29%, SQL third at 23%.
+- Prompt engineering (56%) and RAG (50%) top the GenAI skills, followed by LangChain (32%), AI agents (30%), and agentic workflows (19%). MCP already shows up in 8 postings.
+- The three big clouds appear at nearly equal rates: AWS 40%, GCP 36%, Azure 32%. An FDE deploys into whatever cloud the customer already runs.
+- Delivery tooling is standard: Docker 35%, Kubernetes 31%, CI/CD 27%.
+- Vector databases appear in 23% of postings, with PostgreSQL the most named specific database.
+- React shows up in 14% - customer-facing systems need frontends too.
+
+PyTorch appears in only 15% of FDE postings, against roughly 25% across the rest of the dataset. Combined with the RAG-and-agents profile above, the message is clear: this is a delivery role built on top of existing models, not a research or model-training role. Source: https://github.com/alexeygrigorev/ai-engineering-field-guide/blob/main/job-market/trends.md
+
+### Seniority
+
+Most titles carry no seniority marker: 81 of 113 are plain "Forward Deployed Engineer" variants. Of the rest, 14 are senior, 7 principal, 5 staff, 5 lead, and 1 founding. Junior FDE postings do not exist in our data, which matches the wider pattern in the dataset - entry-level AI engineering postings hover around 1% of the market. Source: https://github.com/alexeygrigorev/ai-engineering-field-guide/blob/main/job-market/trends.md
 
 ## What a Forward Deployed Engineer is
 
@@ -161,22 +228,15 @@ The role also needs soft skills that pure engineering jobs do not. You work dire
 
 ## Compensation
 
-Salary depends heavily on which company and which type of FDE. Across all 1,000 postings, the median disclosed salary is $173,816, and 70% of jobs include equity. Source: https://bloomberry.com/blog/i-analyzed-1000-forward-deployed-engineer-jobs-what-i-learned/
+I'm not going deep on compensation because it depends heavily on geography, and most postings don't disclose it anyway - in our dataset, only 10 of the 113 FDE postings list a salary range.[^3]
 
-At the frontier labs, total compensation runs much higher, driven by large equity grants. Reported bands for OpenAI and Anthropic FDE roles look like this: Source: https://getperspective.ai/blog/2026-forward-deployed-engineering-compensation-report-1200-fdes
+The short version: FDEs are paid well, and they are paid like engineers. The pay is comparable to software engineering pay or above it. Across the 1,000-posting analysis, the median disclosed salary is $173,816 and 70% of jobs include equity. Source: https://bloomberry.com/blog/i-analyzed-1000-forward-deployed-engineer-jobs-what-i-learned/
 
-| Level | Total compensation |
-|-------|--------------------|
-| Mid-level | $350K - $450K |
-| Senior | $450K - $550K |
-| Staff / principal | $600K+ |
-| Principal at frontier labs | up to $1.2M |
-
-Equity now makes up 55-70% of total compensation at the top of the market, up from 35-45% in 2024, so the headline numbers depend on how you value the stock. Palantir's own FDE median sits lower, around $215K. Source: https://getperspective.ai/blog/2026-forward-deployed-engineering-compensation-report-1200-fdes
+At the frontier labs, total compensation runs much higher, driven by large equity grants - reported bands go from $350K at mid-level up to $1.2M for principal roles at OpenAI and Anthropic. Source: https://getperspective.ai/blog/2026-forward-deployed-engineering-compensation-report-1200-fdes
 
 ## What this means
 
-The FDE trend in our scrape data is real and it matches the broader market. The count of live FDE postings roughly 4x-ed in five months, public data shows a 10x-plus year-over-year jump, and the largest AI companies have each put a billion dollars or more behind the role in 2026. The reason is consistent across every source: models are good enough, but getting them into production inside a real company is the bottleneck, and an embedded engineer who writes production code is the way through.
+The FDE trend in our scrape data is real and it matches the broader market. The count of live FDE postings roughly 4x-ed in five months, public data shows a 10x-plus year-over-year jump, and the largest AI companies have each put a billion dollars or more behind the role in 2026. The 113 postings in our data also show the role spreading well beyond AI companies - healthcare platforms, logistics companies, enterprise software vendors, and even a food producer are hiring FDEs. The reason is consistent across every source: models are good enough, but getting them into production inside a real company is the bottleneck, and an embedded engineer who writes production code is the way through.
 
 For anyone writing content or planning courses around AI careers, this is a concrete, fast-growing role with a clear skill profile: solid software engineering, hands-on LLM and agent work, API and systems integration, and the ability to work directly with customers in messy environments. It is a different career path from both the pure research track and the traditional solutions-engineering track, and it pays like engineering, not sales.
 
@@ -184,9 +244,11 @@ For anyone writing content or planning courses around AI careers, this is a conc
 
 [^1]: [20260708_211112_AlexeyDTC_msg4716_photo.md](../../inbox/used/20260708_211112_AlexeyDTC_msg4716_photo.md) - scrape counts, the 113 dedup count, notable repeat employers, and the request to research FDE jobs in AI.
 [^2]: [20260708_211144_AlexeyDTC_msg4718.md](../../inbox/used/20260708_211144_AlexeyDTC_msg4718.md) - the data comes from the AI Engineering Field Guide scrapes.
+[^3]: [20260713_162411_AlexeyDTC_msg4765_transcript.txt](../../inbox/used/20260713_162411_AlexeyDTC_msg4765_transcript.txt) - the request to analyze the Field Guide FDE vacancies in depth, add a bar chart, and shorten the compensation section. The 113-posting analysis was done on the structured data in the Field Guide repository.
 
 Web sources:
 
+- AI Engineering Field Guide, the job-scraping pipeline and trends analysis behind our data. https://github.com/alexeygrigorev/ai-engineering-field-guide/blob/main/job-market/trends.md
 - Pragmatic Engineer, What are Forward Deployed Engineers, and why are they so in demand? https://newsletter.pragmaticengineer.com/p/forward-deployed-engineers
 - Bloomberry, What I learned analyzing 1K forward deployed engineer jobs. https://bloomberry.com/blog/i-analyzed-1000-forward-deployed-engineer-jobs-what-i-learned/
 - Palantir blog, Dev versus Delta: Demystifying Engineering Roles at Palantir. https://blog.palantir.com/dev-versus-delta-demystifying-engineering-roles-at-palantir-ad44c2a6e87
