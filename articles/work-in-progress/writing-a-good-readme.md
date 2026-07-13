@@ -217,7 +217,6 @@ I see the same problems in almost every cohort:
 - Stale READMEs where the deployed version doesn't match what's written.
 - A wall of text with no demo, no screenshots, no eval numbers, and no clear explanation of what the project does.
 - A README that describes what the project will do (future tense) rather than what it does. If it says "this project will implement monitoring," the reviewer assumes monitoring isn't done.
-- Marketing copy instead of evidence. Bold claims with no methodology. The reviewer can't verify them and doesn't learn how the numbers were produced.
 - READMEs that are clearly an afterthought. They start with metadata, list the tech stack, show quickstart commands, and stop. There's no problem section, evaluation, monitoring, architecture, or demo.
 
 
