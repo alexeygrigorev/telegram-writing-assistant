@@ -102,6 +102,8 @@ Files at the articles root that don't fit into the above categories.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [AI Shipping Labs Website Feedback (2026-07-13)](ai-shipping-labs-feedback-2026-07-13.md) | draft | 2026-07-13 | Team member feedback on the AI Shipping Labs website: main page vs Community Overview split, sprint landing pages, free-sample section, Activities page navigation, and the Workshops section |
+| [Interesting Resources](interesting-resources.md) | draft | 2026-07-13 | Curated collection of tools, resources, and project ideas for the newsletter |
 | [How I Publish Python Libraries to PyPI](publishing-python-libraries-to-pypi.md) | draft | 2026-07-10 | End-to-end process for publishing Python libraries to PyPI: idea and name selection, first 0.0.1 release, manual hatch/uv publishing, tokens in ~/.pypirc, tag-triggered CI publishing, and automating it all with the init-library, setup-pypi-ci, and release skills |
 | [Weekly Log](weekly-log.md) | draft | 2026-07-09 | Running log of what was done each week. Topics with their own dedicated article appear as short summaries with links; smaller items stay inline |
 | [DataTalks.Club Unified Platform](datatalks-club-unified-platform.md) | draft | 2026-07-07 | Planning document for consolidating DataTalks.Club's fragmented surfaces (course repos, docs, FAQ, course management platform) into one unified portal - problem statement, vision, and a map of the current org |
@@ -111,7 +113,6 @@ Files at the articles root that don't fit into the above categories.
 | [AI Engineering Field Guide](ai-engineering-field-guide.md) | draft | 2026-06-26 | Job listing pipeline for AI Engineer roles - scraping, deduplication, LLM enrichment |
 | [ZeroSearch: A Zero-Dependency Search Library for a Lightweight FAQ Assistant](zerosearch.md) | draft | 2026-06-19 | Zero-dependency pure-Python rewrite of MinSearch built to port the DataTalks.Club FAQ assistant onto Cloudflare Workers, where the Python layer supports no extra libraries |
 | [AI Engineering Buildcamp Testimonials](ai-buildcamp-testimonials.md) | draft | 2026-06-19 | Collected testimonials from AI Engineering Buildcamp participants |
-| [Interesting Resources](interesting-resources.md) | draft | 2026-06-19 | Curated collection of tools, resources, and project ideas for the newsletter |
 | [Substack Archive Index](substack-archive-index.md) | draft | 2026-07-09 | Lookup table of all published Substack posts (title, description, URL), used to insert direct links to things Alexey has already shared |
 | [Stylint: Enforcing My Writing Style on AI Assistants](stylint.md) | draft | 2026-05-19 | Python linter (github.com/alexeygrigorev/stylint) that codifies writing-style rules as code instead of long markdown style guides, so agents stop skipping them |
 | [Writing Assistant Improvement Ideas](writing-assistant-improvement-ideas.md) | draft | 2026-05-16 | Feedback and improvement ideas for the Telegram writing assistant bot: index navigation, content routing, resource index, keyword categorization, retry on transcription errors |

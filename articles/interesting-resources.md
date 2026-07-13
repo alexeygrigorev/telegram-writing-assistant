@@ -1,7 +1,7 @@
 ---
 title: "Interesting Resources"
 created: 2026-01-31
-updated: 2026-06-19
+updated: 2026-07-13
 tags: [resources, tools, ai, development]
 status: draft
 ---
@@ -27,6 +27,14 @@ Each resource entry follows this simple format:
 
 
 ## Tools
+
+### Floci
+
+[Floci](https://github.com/floci-io/floci) is a free, open-source local AWS emulator for development, testing, and CI, positioned as a LocalStack alternative with no account, auth token, or paid feature gates. You run it with a single `docker compose up` or its CLI, then point your AWS SDK, CLI, Terraform, CDK, OpenTofu, or test suite at `http://localhost:4566` and keep your existing workflows. It also supports Testcontainers and offers a migration path from LocalStack, so you can spin up AWS-shaped services on your machine without touching a cloud account[^59].
+
+### colibrì
+
+[colibrì](https://github.com/JustVugg/colibri) is a tiny inference engine, written in pure C with zero dependencies, that runs the 744B-parameter GLM-5.2 Mixture-of-Experts model on a consumer machine with only about 25 GB of RAM. It keeps the dense part of the model resident in RAM at int4 (~9.9 GB) and streams the routed experts from disk on demand, using a per-layer LRU cache and the OS page cache to stay within a tight memory budget. It also implements native multi-token speculative decoding, grammar-forced drafts, compressed KV-cache persistence across restarts, and an offline FP8-to-int4 converter that never needs the full checkpoint on disk at once. It is not fast, but it lets a frontier-class model answer correctly on hardware that costs far less than a single GPU[^58].
 
 ## Resources
 
@@ -113,3 +121,5 @@ Interesting for future automation[^28].
 [^55]: [https://github.com/run-llama/liteparse](https://github.com/run-llama/liteparse) via [20260611_091213_AlexeyDTC_msg4579.md](../inbox/used/20260611_091213_AlexeyDTC_msg4579.md)
 [^56]: [https://github.com/DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) via [20260614_135154_AlexeyDTC_msg4597.md](../inbox/used/20260614_135154_AlexeyDTC_msg4597.md)
 [^57]: [https://github.com/omnigent-ai/omnigent](https://github.com/omnigent-ai/omnigent) via [20260614_135242_AlexeyDTC_msg4599.md](../inbox/used/20260614_135242_AlexeyDTC_msg4599.md)
+[^58]: [https://github.com/JustVugg/colibri](https://github.com/JustVugg/colibri) via [20260711_145906_AlexeyDTC_msg4749.md](../inbox/used/20260711_145906_AlexeyDTC_msg4749.md)
+[^59]: [https://github.com/floci-io/floci](https://github.com/floci-io/floci) via [20260711_100445_AlexeyDTC_msg4747.md](../inbox/used/20260711_100445_AlexeyDTC_msg4747.md)
