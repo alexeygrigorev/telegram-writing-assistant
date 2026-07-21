@@ -226,6 +226,14 @@ On top of that, the AI versions of the role expect hands-on LLM experience: buil
 
 The role also needs soft skills that pure engineering jobs do not. You work directly with a customer's domain experts, often in an undefined or shifting problem space, so comfort with ambiguity and customer-facing communication matter. Palantir compares FDE responsibilities to those of a startup CTO: small teams, end-to-end ownership of high-stakes projects. Source: https://newsletter.pragmaticengineer.com/p/forward-deployed-engineers
 
+That combination is the hard part in hiring. Muratcan Koylan wrote on X that he had treated the FDE meme as a joke until he tried hiring one himself, and found that the overlap between "great engineer" and "someone you would confidently put in front of a customer" is extremely small[^4].
+
+<figure>
+  <img src="../../assets/images/fde-jobs-in-ai/hiring-an-fde-tweet.jpg" alt="Screenshot of a post by Muratcan Koylan saying the overlap between great engineer and someone you would confidently put in front of a customer is extremely small, quoting an earlier post by shafu0x">
+  <figcaption>Muratcan Koylan on trying to hire an FDE, quoting an earlier post by shafu0x</figcaption>
+  <!-- Illustrates the hiring-side reality of the soft-skill requirement described above: the engineering bar and the customer-facing bar rarely land in the same person -->
+</figure>
+
 ## Compensation
 
 I'm not going deep on compensation because it depends heavily on geography, and most postings don't disclose it anyway - in our dataset, only 10 of the 113 FDE postings list a salary range.[^3]
@@ -245,6 +253,7 @@ For anyone writing content or planning courses around AI careers, this is a conc
 [^1]: [20260708_211112_AlexeyDTC_msg4716_photo.md](../../inbox/used/20260708_211112_AlexeyDTC_msg4716_photo.md) - scrape counts, the 113 dedup count, notable repeat employers, and the request to research FDE jobs in AI.
 [^2]: [20260708_211144_AlexeyDTC_msg4718.md](../../inbox/used/20260708_211144_AlexeyDTC_msg4718.md) - the data comes from the AI Engineering Field Guide scrapes.
 [^3]: [20260713_162411_AlexeyDTC_msg4765_transcript.txt](../../inbox/used/20260713_162411_AlexeyDTC_msg4765_transcript.txt) - the request to analyze the Field Guide FDE vacancies in depth, add a bar chart, and shorten the compensation section. The 113-posting analysis was done on the structured data in the Field Guide repository.
+[^4]: [20260717_081516_AlexeyDTC_msg4775_photo.md](../../inbox/used/20260717_081516_AlexeyDTC_msg4775_photo.md) - screenshot of the Muratcan Koylan post about hiring an FDE.
 
 Web sources:
 

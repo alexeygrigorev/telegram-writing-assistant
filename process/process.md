@@ -210,6 +210,59 @@ You MUST:
 5. NOT write "open the v2 capstone files" anywhere in the user-facing plan
 6. NOT copy the per-week prompts from the source files verbatim - those are internal course material and embed assumptions the recipient does not share
 
+# DELEGATE RESEARCH AND ANALYSIS TO SUBAGENTS
+
+The main agent orchestrates. It does not do the digging itself.
+
+Whenever a piece of work needs more than a handful of exploratory commands - analysing a dataset, exploring another repository under `/home/alexey/git/`, reading through many files to answer one question, figuring out how an API works, fetching and reading external content - launch a subagent for it and use the result. Do not run long chains of `grep`, `ls`, `cat`, `python -c`, and `curl` in the main agent. A processing log full of exploratory commands means the delegation was skipped.
+
+This covers, but is not limited to:
+
+- URL fetching and summarising (see Step 1b - already mandatory)
+- Agent commands inside voice messages that point at local folders ("go to the git folder and look at X")
+- Data analysis over a repository's data files, notebooks, or exports
+- Working out how to call an internal API or CLI
+
+Brief the subagent precisely the first time: what to look at, what to try, and exactly what to return. Ask it to return the findings as its final message and not to edit article files, unless the task is specifically to write into an article. Launch independent subagents in parallel and continue with text processing while they run.
+
+The main agent still does the categorisation, the writing, the source citations, and the verification - only the lookups move out.
+
+# AI SHIPPING LABS DATA - USE THE API
+
+When a message links to an AI Shipping Labs Studio page (for example `https://aishippinglabs.com/studio/crm/36/`) or refers to a member's onboarding survey, get the data through the API. Do not scrape the Studio HTML - those pages sit behind a login.
+
+Base URL: `https://aishippinglabs.com` (override with `ASL_BASE_URL`).
+
+Auth: header `Authorization: Token <staff-token>`. The token is resolved from the `ASL_API_TOKEN` environment variable, and otherwise from the `API_SHIPPING_LABS_API_TOKEN` key in `/home/alexey/git/ai-shipping-labs/.env`. The token must belong to a staff account - non-staff tokens get a 401. Never print the token value into the processing log or into an article.
+
+Paths have no trailing slash - the site middleware redirects if you add one. The routes are declared in `/home/alexey/git/ai-shipping-labs/api/urls.py`.
+
+Useful read endpoints:
+
+- `GET /api/users?q={name-or-email}` - find a member and get their email, tier, tags, and ids
+- `GET /api/users/{email}` - single user state
+- `GET /api/crm/export?email={email}` - the full per-member aggregate: `crm_record`, `notes`, `plans`, `sprint_enrollments`, `course_enrollments`, and `onboarding_responses` with all questions and answers. Also supports `q`, `scope=crm|all`, `limit`, `offset`, `since`
+- `GET /api/onboarding/responses/{email}` - just the onboarding survey questions and answers
+- `GET /api/onboarding/responses`, `/api/onboarding/questionnaires`, `/api/onboarding/personas`
+
+A Studio URL of the form `/studio/crm/{id}/` is a `CRMRecord` primary key. There is no `GET /api/crm/{id}` route, so resolve the member by name or email through `/api/users?q=` first, then confirm the `crm_record.id` in the `/api/crm/export` payload matches the id from the URL.
+
+Example:
+
+```bash
+export ASL_API_TOKEN=$(grep -m1 '^API_SHIPPING_LABS_API_TOKEN=' /home/alexey/git/ai-shipping-labs/.env | cut -d= -f2- | tr -d '"')
+curl -s -H "Authorization: Token $ASL_API_TOKEN" \
+  "https://aishippinglabs.com/api/crm/export?email=someone@example.com" | jq .
+```
+
+There is also a CLI in `/home/alexey/git/ai-shipping-labs/asl_cli/`, which reads the same configuration:
+
+```bash
+uv run asl raw GET /api/crm/export -p email=someone@example.com
+```
+
+Fetching this data is a lookup, so delegate it to a subagent and ask it to return the record verbatim - never summarised, since onboarding answers go into the member's plan.
+
 # REFERENCES TO PRIOR WRITING
 
 When Alexey says he has already written about something, he means the public Substack archive, not the local repo. Local files like `articles/litehive.md` or other drafts under `articles/` are not "already written about" - they are work in progress and should not be linked as if they were prior publications.
