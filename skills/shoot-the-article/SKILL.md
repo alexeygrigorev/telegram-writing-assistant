@@ -146,6 +146,35 @@ If Alexey only wants social posts for an already-written article, skip Steps 0-4
 - Don't break the voice rules.
 - Don't hand-wave technical details. If you reference a technique, explain it accurately or link to a source that does.
 
+## Draft location conventions
+
+Drafts live in the **telegram-writing-assistant** repo:
+
+```
+~/git/telegram-writing-assistant/
+├── skills/shoot-the-article/     ← this skill
+└── articles/
+    ├── _index.md                 ← master index, all articles
+    └── claw-drafts/
+        ├── _index.md             ← table of Clo-generated drafts
+        └── {slug}.md             ← individual draft articles
+```
+
+### When creating a draft
+
+1. **File name:** `{slug}.md` in `articles/claw-drafts/` (e.g. `context-engineering.md`). Use kebab-case, no `-draft` suffix.
+2. **Update `claw-drafts/_index.md`:** add a row to the table with title, status (`draft`), date, and one-sentence description.
+3. **Update `articles/_index.md`:** add a row to the "Claw Drafts" section table.
+4. **Commit and push** when done.
+
+### Draft file format
+
+Follow `references/structure.md` final draft file structure:
+- Full publish-ready markdown
+- Platform deltas (Substack + Medium) at the bottom
+- SEO keywords
+- Title & subtitle shortlist
+
 ## Reference files
 
 Read these as needed:
