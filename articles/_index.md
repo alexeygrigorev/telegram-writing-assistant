@@ -133,6 +133,14 @@ Files at the articles root that don't fit into the above categories.
 | [Getting a Data Science Job](getting-a-data-science-job.md) | draft | 2026-02-28 | Summary of a presentation on the full data science job search process: networking, applying, interviewing, and negotiating offers |
 | [AI Agent Project Ideas](agent-project-ideas.md) | draft | 2026-02-26 | Collection of AI agent project ideas for AI Buildcamp students: GitHub issue bot, idea generator, job analytics, knowledge management, journaling |
 
+## Claw Drafts
+
+Articles drafted by Clo (AI assistant) using the shoot-the-article skill. Generated from trending topic research and following Alexey's voice templates.
+
+| Title | Status | Last Updated | Description |
+|-------|--------|--------------|-------------|
+| [Prompt Engineering Is Dead. Long Live Context Engineering.](claw-drafts/context-engineering.md) | draft | 2026-07-24 | Strategic Essay + Framework (~2,000 words). Prompt engineering evolved into context engineering with 1M-token windows. Four-layer framework: Selection, Ordering, Compression, Eviction |
+
 ## Research
 
 See [Research Articles](research/_index.md) for research and investigation topics.
