@@ -43,8 +43,8 @@ Articles about the AI Shipping Labs paid community. Topics range from vision and
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Course Ideas](ai-shipping-labs/courses.md) | draft | 2026-07-30 | Running list of course and workshop ideas for the community, with the member requests behind them |
 | [Personalised Plans](ai-shipping-labs/plans/_index.md) | draft | 2026-07-21 | Personalized 6-week sprint plans for AI Shipping Labs members |
-| [Course Ideas](ai-shipping-labs/courses.md) | draft | 2026-07-01 | Spec-Driven Dev, Refactoring AI Slop, Python, Data Engineering, CloudCode, testing, DevOps, DDD module, Build Docker from scratch workshop, LangChain/Hugging Face workshop, Systems Engineering course request |
 | [Activities](ai-shipping-labs/activities.md) | draft | 2026-05-21 | Regular sessions, accountability circles, mentoring, Office Hours, group course study, and the sprint weekly-call format |
 | [Individual Interviews](ai-shipping-labs/interviews/_index.md) | draft | 2026-05-09 | One file per participant with persona assignment (Koray, Juan, Daniel, Jakob, Vancesca, and others) |
 | [Marketing and Content Strategy](ai-shipping-labs/marketing-and-content.md) | draft | 2026-04-24 | Marketing channels, funnel, lead magnets, and a content strategy that uses overview articles to funnel readers into the community |
@@ -102,8 +102,8 @@ Files at the articles root that don't fit into the above categories.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Taking Over the FAQ Assistant: How the Whole Process Works Now](faq-assistant-on-automator.md) | draft | 2026-07-30 | Follow-up article on the DataTalks.Club FAQ assistant after taking it over from Alex Litvinov - the question-ingestion automation with its evaluation set, and the rebuilt serverless retrieval side |
 | [Playbooks and Agents for DataTalks.Club Events and Content](datatalks-club-playbooks-and-agents.md) | draft | 2026-07-20 | Ideas for extending the course promotion playbooks to events and other recurring activities, handing post creation to agents, and replacing the podcast guest back-and-forth with a form |
-| [Moving the FAQ Assistant onto Automator](faq-assistant-on-automator.md) | draft | 2026-07-15 | Article idea: how the DataTalks.Club FAQ assistant was migrated onto Automator so it no longer needs manual maintenance |
 | [AI Shipping Labs Website Feedback (2026-07-13)](ai-shipping-labs-feedback-2026-07-13.md) | draft | 2026-07-13 | Team member feedback on the AI Shipping Labs website: main page vs Community Overview split, sprint landing pages, free-sample section, Activities page navigation, and the Workshops section |
 | [Interesting Resources](interesting-resources.md) | draft | 2026-07-13 | Curated collection of tools, resources, and project ideas for the newsletter |
 | [How I Publish Python Libraries to PyPI](publishing-python-libraries-to-pypi.md) | draft | 2026-07-10 | End-to-end process for publishing Python libraries to PyPI: idea and name selection, first 0.0.1 release, manual hatch/uv publishing, tokens in ~/.pypirc, tag-triggered CI publishing, and automating it all with the init-library, setup-pypi-ci, and release skills |

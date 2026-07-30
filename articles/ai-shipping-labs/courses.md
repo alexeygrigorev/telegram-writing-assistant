@@ -1,7 +1,7 @@
 ---
 title: "AI Shipping Labs Course Ideas"
 created: 2026-02-12
-updated: 2026-05-15
+updated: 2026-07-30
 tags: [courses, community, ai-shipping-labs, ideas]
 status: draft
 ---
@@ -145,6 +145,20 @@ The topics they want covered[^15]:
 
 Their reasoning: with AI and modern tools, many people can spin up a prototype in a week. The real bottleneck now is not building - it is scaling without it constantly breaking. Shifting the focus from how to use a tool to how to engineer a system would be valuable for the community, even as a small 3-4 week autumn course[^15].
 
+## Inference Engineering mini-course (member request)
+
+Gokulakannan Sakthivel, who builds RNA language models at UMD, wrote on LinkedIn saying he has been following my content and asking whether there was going to be any zoomcamp about Inference Engineering. I did not know the term and asked what it was. He explained it as how to load LLMs on the GPU effectively and serve them to a larger audience, and shared [A Guide to AI Inference Engineering](https://blog.bytebytego.com/p/a-guide-to-ai-inference-engineering) from ByteByteGo. I replied that it was a nice topic, that I did not know about this term, and that we would maybe do something about it - but more likely as a part of AI Shipping Labs[^16].
+
+<figure>
+  <img src="../../assets/images/inference-engineering-course/linkedin-inference-engineering-request.jpg" alt="LinkedIn message thread where Gokulakannan Sakthivel asks about a zoomcamp on Inference Engineering and shares a ByteByteGo guide">
+  <figcaption>The LinkedIn message that introduced the term Inference Engineering</figcaption>
+  <!-- The origin of this course idea: a direct member request, which is the same signal pattern as the other course requests on this page -->
+</figure>
+
+It looks like people want materials about this. I did not know it is called inference engineering. I think we can make a course about this for AI Shipping Labs. The plan is to do some research and create a mini-course with three or four modules - let's go with four. Then I want to see how those four modules can be run as workshops. We already had a workshop about vLLM, so there may be some other things to cover[^17].
+
+Research on what the discipline covers and a proposed four-module breakdown is collected in the [Inference Engineering research article](../research/inference-engineering.md).
+
 ## Course format strategy
 
 The plan is to have at least one big course on Maven (if time permits), while the rest would be mini-courses available in the community at tier 3. Will actively ask people what they're interested in and monitor what content they engage with most[^10].
@@ -166,3 +180,5 @@ The plan is to have at least one big course on Maven (if time permits), while th
 [^13]: [20260512_163356_AlexeyDTC_msg4022.md](../../inbox/used/20260512_163356_AlexeyDTC_msg4022.md)
 [^14]: [20260604_085850_AlexeyDTC_msg4357.md](../../inbox/used/20260604_085850_AlexeyDTC_msg4357.md)
 [^15]: [20260701_182540_AlexeyDTC_msg4653.md](../../inbox/used/20260701_182540_AlexeyDTC_msg4653.md)
+[^16]: [20260730_111602_AlexeyDTC_msg4801_photo.md](../../inbox/used/20260730_111602_AlexeyDTC_msg4801_photo.md)
+[^17]: [20260730_130806_AlexeyDTC_msg4803_transcript.txt](../../inbox/used/20260730_130806_AlexeyDTC_msg4803_transcript.txt)

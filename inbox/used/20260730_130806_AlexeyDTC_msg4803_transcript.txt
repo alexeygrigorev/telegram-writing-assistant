@@ -1,0 +1,13 @@
+---
+source: telegram_voice
+date: 2026-07-30T13:08:06+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260730_130806_AlexeyDTC_msg4803.ogg
+---
+
+Looks like people want to do some materials to have some materials about this. I didn't know it's
+called inference engineering. I think we can make a course about this for AI shipping labs. Let's do
+some research and let's create a mini course with three modules or four. Let's go with four. And I
+want to then see how we can run these four modules as workshops. We already had a workshop about
+VLLM. Maybe there are some other things. So please do some research for this topic.
