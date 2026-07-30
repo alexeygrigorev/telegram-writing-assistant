@@ -77,6 +77,8 @@ uv add python-telegram-bot groq python-dotenv httpx
 TELEGRAM_BOT_API_KEY=your_bot_token
 TELEGRAM_CHAT_ID=your_chat_id
 GROQ_API_KEY=your_groq_key
+# Optional; defaults to Groq's Qwen 3.6 vision model
+VISION_MODEL=qwen/qwen3.6-27b
 ```
 
    - `TELEGRAM_BOT_API_KEY`: Token from BotFather (starts with `123456789:ABC...`)
@@ -84,6 +86,7 @@ GROQ_API_KEY=your_groq_key
      - Get this by forwarding a message from the chat to [@GetMyIdBot](https://t.me/GetMyIdBot)
      - Or use the Telegram API: `https://api.telegram.org/bot<token>/getUpdates`
    - `GROQ_API_KEY`: Get from [console.groq.com](https://console.groq.com)
+   - `VISION_MODEL`: Groq vision-capable model ID (defaults to `qwen/qwen3.6-27b`)
 
 6. Run the bot:
 

@@ -35,6 +35,7 @@ load_dotenv()
 TELEGRAM_BOT_API_KEY = os.getenv("TELEGRAM_BOT_API_KEY")
 TELEGRAM_CHAT_ID = int(os.getenv("TELEGRAM_CHAT_ID"))
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+VISION_MODEL = os.getenv("VISION_MODEL", "qwen/qwen3.6-27b")
 REPO_PATH = Path.cwd()
 INBOX_RAW = REPO_PATH / "inbox" / "raw"
 INBOX_USED = REPO_PATH / "inbox" / "used"
@@ -143,9 +144,9 @@ def describe_image(image_path: Path) -> str:
         Format clearly with sections. Put any OCR text in triple-backtick code blocks.
     """)
 
-    response = groq_client.chat.completions.create(
-        model="meta-llama/llama-4-scout-17b-16e-instruct",
-        messages=[
+    completion_options = {
+        "model": VISION_MODEL,
+        "messages": [
             {
                 "role": "user",
                 "content": [
@@ -154,7 +155,11 @@ def describe_image(image_path: Path) -> str:
                 ],
             }
         ],
-    )
+    }
+    if VISION_MODEL == "qwen/qwen3.6-27b":
+        completion_options["reasoning_effort"] = "none"
+
+    response = groq_client.chat.completions.create(**completion_options)
     content = response.choices[0].message.content
     # Strip leading/trailing whitespace and clean up multiple blank lines
     lines = [line.rstrip() for line in content.strip().split('\n')]

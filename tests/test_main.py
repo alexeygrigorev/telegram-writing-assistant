@@ -160,7 +160,8 @@ class TestDescribeImage:
             # Verify Groq was called correctly
             mock_groq.chat.completions.create.assert_called_once()
             call_args = mock_groq.chat.completions.create.call_args
-            assert call_args[1]["model"] == "meta-llama/llama-4-scout-17b-16e-instruct"
+            assert call_args[1]["model"] == "qwen/qwen3.6-27b"
+            assert call_args[1]["reasoning_effort"] == "none"
         finally:
             # Cleanup
             if test_image.exists():
