@@ -1,6 +1,7 @@
 """Claude Code runner with real-time event streaming."""
 
 import json
+import os
 import subprocess
 import time
 import io
@@ -11,6 +12,11 @@ from typing import Callable, Optional
 
 # Default timeout: kill process if no output for this many seconds
 DEFAULT_ACTIVITY_TIMEOUT = 300  # 5 minutes
+
+# Model used for every Claude run. Pinned to a specific version rather than a
+# family alias so the writing voice does not shift when a new model ships.
+# Override with CLAUDE_MODEL in .env.
+DEFAULT_CLAUDE_MODEL = os.getenv("CLAUDE_MODEL", "claude-opus-4-6")
 
 
 def _safe_print(msg: str):
@@ -147,9 +153,11 @@ class ClaudeRunner:
     # Session tracking (stored in .tmp to avoid accidental commits)
     SESSION_FILE = ".tmp/claude_session_id.txt"
 
-    def __init__(self, repo_path: Path, logs_dir: Path, session_id: Optional[str] = None, continuation_prompt: Optional[str] = None, activity_timeout: int = DEFAULT_ACTIVITY_TIMEOUT):
+    def __init__(self, repo_path: Path, logs_dir: Path, session_id: Optional[str] = None, continuation_prompt: Optional[str] = None, activity_timeout: int = DEFAULT_ACTIVITY_TIMEOUT, model: str = DEFAULT_CLAUDE_MODEL):
         self.repo_path = repo_path
         self.logs_dir = logs_dir
+        # Claude model version used for every run
+        self.model: str = model
         self.formatter = ClaudeProgressFormatter()
         # Allow overriding the command for testing
         self.cmd: Optional[str] = None
@@ -193,11 +201,12 @@ class ClaudeRunner:
             # Use continuation prompt if provided, otherwise use default prompt
             effective_prompt = self.continuation_prompt if self.continuation_prompt else prompt
             _safe_print(f"[ClaudeRunner] Resuming session: {resume_session_id[:8]}...")
-            cmd = f'claude -p "{effective_prompt}" --allowedTools "{allowed_tools}" --output-format stream-json --verbose --resume {resume_session_id}'
+            cmd = f'claude -p "{effective_prompt}" --model {self.model} --allowedTools "{allowed_tools}" --output-format stream-json --verbose --resume {resume_session_id}'
         else:
             # New session
-            cmd = f'claude -p "{prompt}" --allowedTools "{allowed_tools}" --output-format stream-json --verbose'
+            cmd = f'claude -p "{prompt}" --model {self.model} --allowedTools "{allowed_tools}" --output-format stream-json --verbose'
 
+        _safe_print(f"[ClaudeRunner] Model: {self.model}")
         _safe_print(f"[ClaudeRunner] Running: {prompt[:60]}...")
         _safe_print(f"[ClaudeRunner] Log: {log_file}")
         _safe_print(f"[ClaudeRunner] Activity timeout: {self.activity_timeout}s")

@@ -79,6 +79,8 @@ TELEGRAM_CHAT_ID=your_chat_id
 GROQ_API_KEY=your_groq_key
 # Optional; defaults to Groq's Qwen 3.6 vision model
 VISION_MODEL=qwen/qwen3.6-27b
+# Optional; Claude model used by the process command
+CLAUDE_MODEL=claude-opus-4-6
 ```
 
    - `TELEGRAM_BOT_API_KEY`: Token from BotFather (starts with `123456789:ABC...`)
@@ -87,6 +89,7 @@ VISION_MODEL=qwen/qwen3.6-27b
      - Or use the Telegram API: `https://api.telegram.org/bot<token>/getUpdates`
    - `GROQ_API_KEY`: Get from [console.groq.com](https://console.groq.com)
    - `VISION_MODEL`: Groq vision-capable model ID (defaults to `qwen/qwen3.6-27b`)
+   - `CLAUDE_MODEL`: Claude model the process command runs (defaults to `claude-opus-4-6`). Pinned to a version rather than a family alias so the writing voice stays stable when new models ship.
 
 6. Run the bot:
 

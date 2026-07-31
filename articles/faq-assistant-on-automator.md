@@ -8,6 +8,10 @@ status: draft
 
 # Taking Over the FAQ Assistant: How the Whole Process Works Now
 
+Recently I ran a workshop on [tailoring your CV for AI engineering roles](https://aishippinglabs.com/workshops/tailor-cv-ai-engineering), using my own CV as the example. Part of that workshop was the projects section, and one of the projects I listed there was this FAQ assistant.
+
+So this article is the follow-up to that one line. If I use the CV to apply for AI engineering roles, a hiring team can open this and see what the project actually involved. You can do the same with your own projects. A line on a CV earns you a click, and this is the kind of page the click should lead to.
+
 I wrote about this system before, in [From Google Docs to an Automated FAQ System for DataTalks.Club Courses](https://alexeyondata.substack.com/p/from-google-docs-to-an-automated). Things have changed since that article, so here I want to tell you what I did and how everything works for me at the moment[^2].
 
 It's also a continuation of [Building and Maintaining a Slack Moderation Bot for an 88k-Member Community](https://alexeyondata.substack.com/p/building-and-maintaining-a-slack). Automator, the Slack bot from that article, already existed, so I didn't build a new bot for the FAQ. I used the existing infrastructure and added a new thing on top of it[^9].

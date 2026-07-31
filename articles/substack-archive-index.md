@@ -1,7 +1,7 @@
 ---
 title: "Substack Archive Index"
 created: 2026-05-16
-updated: 2026-07-09
+updated: 2026-07-31
 tags: [reference, index]
 status: draft
 ---
@@ -21,6 +21,10 @@ When processing a message where I refer back to something I already shared, scan
 
 | Date | Title | URL | Description |
 |------|-------|-----|-------------|
+| 2026-07-25 | What AI Forward-Deployed Engineers Do | https://alexeyondata.substack.com/p/what-ai-forward-deployed-engineers | Analysis of 113 forward-deployed engineer job postings drawn from the 4,894-description AI Engineering Field Guide dataset, where FDE listings grew from 28 in January to 108 in July 2026. Covers Palantir's original 2006 FDE model, the deployment gap, the five main responsibilities with their frequency in postings, the skills companies ask for, how FDE differs from applied AI engineering, solutions engineering and consulting, and a self-assessment checklist. |
+| 2026-07-22 | AI-Native Development: Specifications, Loop and Graph Engineering | https://alexeyondata.substack.com/p/ai-native-development-specifications | First article in the AI Dev Tools Zoomcamp series, on turning a vague idea into a specification a coding agent can build from. Covers spec-driven development, context engineering with AGENTS.md, loop engineering and graph engineering, using ChatGPT dictation for scoping and product manager, software engineer and QA engineer agents against a backlog, with the retroloop repository as the running example. |
+| 2026-07-16 | How to Write a Good README | https://alexeyondata.substack.com/p/how-to-write-a-good-readme | The 16 sections a project README should have, organised as what is this project, does it work well, can I run and reproduce it, and how was it built, plus limitations, future work and self-evaluation. Written for three audiences at once (peer reviewers, hiring teams, your future self), with the Fitness Assistant RAG project as a running example, common mistakes, and how to use AI to draft and review a README. |
+| 2026-07-11 | My PyPI Release Pipeline for Python Libraries | https://alexeyondata.substack.com/p/my-pypi-release-pipeline-for-python | End-to-end workflow for publishing Python libraries across 24 PyPI packages: validating the idea with ChatGPT, checking name availability through the PyPI JSON endpoint, the standard Hatch and uv project skeleton with pyproject.toml and Makefile, publishing the first version, releasing through GitHub Actions CI on tag push, and automating the whole release with agent skills. Includes how Heru and Quse got their names. |
 | 2026-07-03 | Choosing a Portfolio Project. The Definite Guide | https://alexeyondata.substack.com/p/choosing-a-portfolio-project-the | A repeatable six-step framework for selecting role-targeted portfolio projects: pick a domain, find companies, analyze job descriptions and engineering blogs, extract problems, find shared themes, then design a project matching the target companies' tech stack. Includes the four project types (role-targeted, personal, take-home assignments, hackathon/open-source), the spray-and-pray vs domain-based strategy distinction, and AI-assisted research prompts for each step. |
 | 2026-06-26 | Six Projects That Didn't Make It | https://alexeyondata.substack.com/p/six-projects-that-didnt-make-it | Abandoned and experimental AI-agent projects (fitness tracker, CodeHive, Litehive, Mermaid diagram tool, metabolism simulator) and the useful spin-offs (Heru, Quse), with the lesson that dead-weight repos are a normal part of experimenting. |
 | 2026-06-19 | The System I Built for AWS Access Without Keys | https://alexeyondata.substack.com/p/the-system-i-built-for-aws-access | Giving offline workshop attendees and coding agents AWS access without distributing long-lived keys, using EC2 instance profiles, a Lambda credential vendor, and a dedicated sandbox account. |
