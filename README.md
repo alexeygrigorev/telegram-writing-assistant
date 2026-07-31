@@ -94,6 +94,29 @@ VISION_MODEL=qwen/qwen3.6-27b
 uv run python main.py
 ```
 
+### Restarting the production bot
+
+The production process is managed by Bot Master. To restart only this bot after
+deploying a code or configuration change:
+
+```bash
+/home/alexey/bots/bot-master/.venv/bin/bot-master
+```
+
+Select `writing-assistant` with the arrow keys (or `j`/`k`), press `r`, and wait
+for its status indicator to return to running. Press `q` to close the TUI; the
+daemon and bots continue running.
+
+Verify the restarted process and recent startup logs with:
+
+```bash
+systemctl status bot-master --no-pager
+tail -n 50 /home/alexey/bots/bot-master/logs/writing-assistant.log
+```
+
+Do not run `uv run python main.py` alongside Bot Master in production, because
+that would start a second Telegram poller using the same bot token.
+
 ## Bot Commands
 
 - `/start` - Start the bot

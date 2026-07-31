@@ -110,7 +110,7 @@ On Wednesday we had a workshop in AI Shipping Labs about how to use Cloudflare W
 
 ### Lightweight FAQ Assistant and ZeroSearch
 
-After the Cloudflare workshop I tried to port the DataTalks.Club FAQ assistant to Cloudflare Workers and make it as compact as possible. The Python layer on Cloudflare Workers does not support extra libraries, so I rewrote MinSearch as a zero-dependency pure-Python library called ZeroSearch. See [ZeroSearch: A Zero-Dependency Search Library for a Lightweight FAQ Assistant](zerosearch.md) for the full story[^52][^55][^56][^57].
+After the Cloudflare workshop I tried to port the DataTalks.Club FAQ assistant to Cloudflare Workers and make it as compact as possible. The Python layer on Cloudflare Workers does not support extra libraries, so I rewrote MinSearch as a zero-dependency pure-Python library called ZeroSearch. See [Taking Over the FAQ Assistant: How the Whole Process Works Now](faq-assistant-on-automator.md) for the full story[^52][^55][^56][^57].
 
 ### FAQ Repository Updates
 
