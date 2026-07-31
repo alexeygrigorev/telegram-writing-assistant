@@ -14,7 +14,7 @@ So this article is the follow-up to that one line. If I use the CV to apply for 
 
 I wrote about this system before, in [From Google Docs to an Automated FAQ System for DataTalks.Club Courses](https://alexeyondata.substack.com/p/from-google-docs-to-an-automated). Things have changed since that article, so here I want to tell you what I did and how everything works for me at the moment[^2].
 
-It's also a continuation of [Building and Maintaining a Slack Moderation Bot for an 88k-Member Community](https://alexeyondata.substack.com/p/building-and-maintaining-a-slack). Automator, the Slack bot from that article, already existed, so I didn't build a new bot for the FAQ. I used the existing infrastructure and added a new thing on top of it[^9].
+It's also a continuation of [Building and Maintaining a Slack Moderation Bot for an 88k-Member Community](https://alexeyondata.substack.com/p/building-and-maintaining-a-slack). [Au-Tomator](https://github.com/DataTalksClub/au-tomator-lambda), the Slack bot from that article, already existed, so I didn't build a new bot for the FAQ. I used the existing infrastructure and added a new thing on top of it[^9].
 
 Alex Litvinov maintained the previous FAQ assistant, and I wrote about him in that article. Periodically things happened and I had to pull Alex in and ask him to fix them, which was inconvenient for both of us. In the end Alex and I agreed that I'd take the project on myself and move it onto DataTalks.Club infrastructure. That way I can solve whatever problems come up without involving Alex[^2].
 

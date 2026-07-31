@@ -70,6 +70,8 @@ Recorded ideas without much detail. Just the short idea, useful for not forgetti
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Opik Customer Story: Evaluating and Improving the DataTalks.Club FAQ Assistant](ideas/faq-assistant-opik-customer-story.md) | draft | 2026-07-31 | Proposal and future Substack placeholder for adding Opik traces, test suites and prompt optimization to the production FAQ assistant |
+| [Mini-Course Proposal: LLM Wikis as Agent Memory](ideas/llm-wikis-agent-memory-mini-course.md) | draft | 2026-07-31 | Vendor-neutral 90-minute mini-course with theory, a reusable wiki skill, two demos, fit boundaries and a two-part publishing plan |
 | [Course Idea: Safely Running Agents Around Production](ideas/agent-production-safety-course.md) | draft | 2026-07-03 | Small course on setting up production alongside agents safely - sandbox account and isolated machine, temporary sandbox-only access, moving work to prod via CI/CD with OIDC, and how to do the projects |
 | [Workshop Ideas: Agent Durability and Caching Internals](ideas/agent-durability-caching-workshops.md) | draft | 2026-06-17 | Two interview-driven workshop ideas: agent durability/idempotency/resumption (LangGraph, Pydantic AI) and caching internals (KV cache) |
 | [Declarative Diagram Generator](ideas/diagram-generator.md) | draft | 2026-05-08 | Tool that turns a declarative diagram description into a clean, icon-supporting SVG that opens cleanly in Inkscape or Figma, fixing the weaknesses of LLM images and Mermaid |
@@ -115,7 +117,7 @@ Files at the articles root that don't fit into the above categories.
 | [AI Engineering Field Guide](ai-engineering-field-guide.md) | draft | 2026-06-26 | Job listing pipeline for AI Engineer roles - scraping, deduplication, LLM enrichment |
 | [AI Engineering Buildcamp Testimonials](ai-buildcamp-testimonials.md) | draft | 2026-06-19 | Collected testimonials from AI Engineering Buildcamp participants |
 | [Substack Archive Index](substack-archive-index.md) | draft | 2026-07-31 | Lookup table of all published Substack posts (title, description, URL), used to insert direct links to things Alexey has already shared |
-| [Substack Writing Style](substack-writing-style.md) | draft | 2026-07-31 | Voice, structure and sentence mechanics of alexeyondata.substack.com, distilled from the 20 most recent posts with verbatim examples, plus a pre-publish checklist |
+| [Substack Writing Style](substack-writing-style.md) | draft | 2026-07-31 | How the Substack posts are written, distilled from the last 20 of them |
 | [Stylint: Enforcing My Writing Style on AI Assistants](stylint.md) | draft | 2026-05-19 | Python linter (github.com/alexeygrigorev/stylint) that codifies writing-style rules as code instead of long markdown style guides, so agents stop skipping them |
 | [Writing Assistant Improvement Ideas](writing-assistant-improvement-ideas.md) | draft | 2026-05-16 | Feedback and improvement ideas for the Telegram writing assistant bot: index navigation, content routing, resource index, keyword categorization, retry on transcription errors |
 | [All my Gen.AI Workshops are Now in One Place](gen-ai-workshops-in-one-place.md) | draft | 2026-05-11 | Newsletter announcement that all Gen.AI workshops now live at aishippinglabs.com/workshops, with a launch plan to gate them behind registration and promote across channels |
