@@ -407,16 +407,11 @@ class TestClaudeRunner:
 class TestHandleVideoMessage:
     """Tests for handle_video_message function."""
 
-    @patch("main.INBOX_RAW")
     @patch("main.TELEGRAM_CHAT_ID", -1001234567890)
     @pytest.mark.asyncio
-    async def test_handle_video_basic(self, mock_inbox_raw):
+    async def test_handle_video_basic(self, tmp_path):
         """Test basic video message handling creates markdown file with metadata."""
         from main import handle_video_message
-
-        # Mock the inbox directory
-        mock_inbox_path = MagicMock()
-        mock_inbox_raw.__truediv__ = MagicMock(return_value=mock_inbox_path)
 
         # Create update with video
         update = Mock(spec=Update)
@@ -437,19 +432,33 @@ class TestHandleVideoMessage:
         update.message.caption = "Screen recording of feature"
         update.message.text = None
 
-        # Mock file writing
-        mock_file = MagicMock()
-        mock_inbox_path.__truediv__.return_value = mock_file
-        mock_file.__aenter__ = AsyncMock(return_value=mock_file)
-        mock_file.__aexit__ = AsyncMock()
-
         # Mock reply
         update.message.reply_text = AsyncMock(return_value=MagicMock())
 
-        await handle_video_message(update, MagicMock())
+        # Write into a real directory. Patching INBOX_RAW with a MagicMock would
+        # make the handler's open() receive a mock, and open() treats any object
+        # with __index__ as a file descriptor - MagicMock.__index__ returns 1,
+        # so the handler would silently close stdout.
+        with patch("main.INBOX_RAW", tmp_path):
+            await handle_video_message(update, MagicMock())
 
         # Verify reply was sent
         update.message.reply_text.assert_called_once()
+
+        # Verify the markdown file was written with the video metadata
+        written = list(tmp_path.glob("*_video.md"))
+        assert len(written) == 1
+        content = written[0].read_text(encoding="utf-8")
+        assert "source: telegram_video" in content
+        assert "file_name: demo.mp4" in content
+        assert "duration_seconds: 90" in content
+        assert "width: 1920" in content
+        assert "height: 1080" in content
+        assert "file_size_bytes: 5242880" in content
+        assert "Duration: 1m 30s" in content
+        assert "Resolution: 1920x1080" in content
+        assert "Size: 5.0 MB" in content
+        assert "Caption: Screen recording of feature" in content
 
     @patch("main.INBOX_RAW")
     @patch("main.TELEGRAM_CHAT_ID", -1003688590333)
