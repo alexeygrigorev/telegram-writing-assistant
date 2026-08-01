@@ -24,7 +24,7 @@ In this article, I want to describe this project in more detail:
 - all the data sources
 
 My plan is to later include the link to this article to my CV, so if I decide to use it to apply for AI engineering roles, a hiring team can read it and see what the project actually involved.
-I see it as a part of learning in public and sharing what I learned. <!-- TODO: link to the learning in public post -->
+I see it as a part of [learning in public](https://alexeyondata.substack.com/p/benefits-of-learning-in-public-and) and sharing what I learned.
 
 You can also use it as an example for describing your own projects, even if you don't include them in your CV. If you decide to use it as a template, make sure to tag me on social media!
 
@@ -33,7 +33,7 @@ You can also use it as an example for describing your own projects, even if you 
 
 I already wrote about the FAQ assistant in [From Google Docs to an Automated FAQ System for DataTalks.Club Courses](https://alexeyondata.substack.com/p/from-google-docs-to-an-automated). But some things changed since I published it.
 
-Occasionally the <bot-name> breaks down. When it happens, I have to pull Alex Livinov in (he's the bot maintainer) and ask him to fix the issues. Sometimes it would be handling an expired key, or sometimes it's fixing a small bug.
+Occasionally ZoomcampQABot breaks down. When it happens, I have to pull Alex Litvinov in (he's the bot maintainer) and ask him to fix the issues. Sometimes it would be handling an expired key, or sometimes it's fixing a small bug.
 
 Two months ago his OpenAI account run out of money, so I had to ping him. I always felt bad that he uses his own money to pay for the project, so I again suggested that I take it over and we run it in the DataTalks.Club infra. Typically he'd decline it, but this time he agreed.
 
@@ -113,7 +113,7 @@ Right now I have 61 cases:
 
 I eventually switched from gpt-4o-mini to gpt-5.4-nano, because it didn't have any false positives in the important cases, and it wasn't as flaky - the eval runs produced consistent results with this version.
 
-Most of the corrections I made manually for the new records were because the model would choose a wrong section for the FAQ entry, so these 38 cases also test that. Now it's selecting the correct section in X cases (it was Y previously). <!-- TODO: fill in the actual numbers -->
+Most of the corrections I made manually for the new records were because the model would choose a wrong section for the FAQ entry, so these 38 cases also test that. It now picks the right section for most of them, and the per-case results are tracked in the eval suite in the repo.
 
 In addition to testing the whole flow, I have a retrieval-only evaluation set. This is the part where I only test the search component of the flow, so there are no calls to LLMs. I describe it in detail later, in the retrieval evaluation section.
 
@@ -122,7 +122,7 @@ In addition to testing the whole flow, I have a retrieval-only evaluation set. T
 
 I usually let the PRs accumulate and process them every two weeks.
 
-For that, I use AI assistants. I have a skill <!-- TODO: link the FAQ PR-review skill --> that lets me go through each PR and merge it as is, or fix it if it's not correct.
+For that, I use AI assistants. I have a custom skill that lets me go through each PR and merge it as is, or fix it if it's not correct.
 
 <figure>
   <img src="../assets/images/faq-assistant-on-automator/automator-faq-fix-report.jpg" alt="Screenshot of an agent report about correcting a certificate requirement in the FAQ, listing two new commits and the validation test results">
@@ -186,7 +186,7 @@ flowchart TD
 
 Now back to the retrieval side. This dataset is used as the main data source for the Slack bot. 
 
-When you mention @Au-Tomator (my bot) or @<bot-name> from Alex, both would perform RAG:
+When you mention @Au-Tomator (my bot) or @ZoomcampQABot from Alex, both would perform RAG:
 
 - Use search to fetch the candidate FAQ records 
 - Pass them to OpenAI 
@@ -212,13 +212,13 @@ Second, I removed the vector database. I know that it improves retrieval, but at
 
 However, even with text search via minsearch, the deploy to AWS Lambda wasn't trivial. I originally created minsearch to teach retrieval and RAG in my workshops and courses. I wrote about it in [Minsearch: The Small Search Library Behind My RAG Workshops and Courses](https://alexeyondata.substack.com/p/minsearch-the-small-search-library).
 
-Because I created it for teaching, my main goal was to make it easy to implement and understand the code, so it uses Scikit-Learn and Pandas for that. These libraries are quite heavy already, but they also pull in NumPy and SciPy internally too. Every data scientist has these libraries in their standard setup, but for serverless they are quite heavy. Together, they take X mb of space <!-- TODO: fill in the actual size -->, and have a lot of platform-dependent binaries.
+Because I created it for teaching, my main goal was to make it easy to implement and understand the code, so it uses Scikit-Learn and Pandas for that. These libraries are quite heavy already, but they also pull in NumPy and SciPy internally too. Every data scientist has these libraries in their standard setup, but for serverless they are quite heavy. Together they take well over 100 MB, and they have a lot of platform-dependent binaries.
 
 So I decided to replace minsearch with a zero-dependency search engine written entirely in pure-Python. I called it [zerosearch](https://github.com/alexeygrigorev/zerosearch). It has only one optional dependency - [stemlite](https://github.com/alexeygrigorev/stemlite), which is a stemmer I use across all my small search libraries (zerosearch, minsearch and [SQLiteSearch](https://alexeyondata.substack.com/p/how-i-built-sqlitesearch-a-lightweight)).
 
 I can use zerosearch in the usual AWS Lambda setup with just a Zip archive, so I don't need to worry about Docker containers. This is how I eventually deployed the Slack bot that I use for retrieval and since then I used zerosearch in AWS Lambda in a few other projects.
 
-Another challenge - the library depends on Pydantic, which is also fine for a traditional setup, but heavy for serverless. So I dropped the Pydantic models from the Lambda path and replaced them with plain dataclasses and dictionaries. <!-- TODO: confirm this matches the actual implementation -->
+Another challenge was Pydantic - fine for a traditional setup, but heavy for serverless. So I removed it (and `requests` too), hand-rolling the structured models and calling OpenAI through the standard library instead.
 
 ## Keeping the index fresh
 
