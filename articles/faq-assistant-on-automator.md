@@ -332,53 +332,35 @@ Now it actually checks the FAQ and generates the answer.
   <!-- Shows both new capabilities in one screenshot: the reply was triggered on a message that never mentioned the bot, and because the channel sits outside the course channels the answer comes from the documentation only, which is why the single cited source is [docs] Activities -->
 </figure>
 
-### Part 2 as a diagram
+## Other Retrieval Sources
 
+I don't only search the FAQ dataset. I also index the [DataTalks.Club documentation](https://datatalks.club/docs/) and the Markdown files from each course repository.
 
-```mermaid
-flowchart LR
-    subgraph BUILD [Index build, on push and daily at 08:00]
-        S1[Published FAQ site JSON] --> C[Corpus of 3,337 chunks]
-        S2[General docs site] --> C
-        S3[Per-course docs pages] --> C
-        S4[Six course repos via gitsource] --> C
-        C --> IX[ZeroSearch packed index]
-        IX --> DEPLOY[sam build and sam deploy]
-    end
+I combine all three sources into one search index and package it with the FAQ assistant Lambda. In Slack, either a mention or a `:faq:` reaction triggers Au-Tomator. It sends the question to the assistant and posts the answer back to the thread.
 
-    subgraph ANSWER [Answering a question]
-        MSG[Slack message, by mention or faq reaction] --> ROUTER[Router Lambda acks Slack]
-        ROUTER --> AUTO[Automator Lambda resolves channel to course]
-        AUTO --> ASK[POST /ask on the FAQ assistant Lambda]
-        ASK --> RW[Query rewrite with gpt-4o-mini]
-        RW --> SEARCH[ZeroSearch with a course or docs filter]
-        SEARCH --> GEN[Answer with gpt-5.4-mini]
-        GEN --> THREAD[Reply posted in the Slack thread with sources]
-    end
-
-    DEPLOY --> ASK
-```
+<figure>
+  <img src="../assets/images/faq-assistant-on-automator/faq-assistant-sources-and-serving.svg" alt="The FAQ dataset, DataTalks.Club documentation, and Markdown files from course repositories feed one search index in the FAQ assistant Lambda, while a Slack mention or FAQ reaction triggers Au-Tomator to exchange the question and answer with the assistant">
+  <figcaption>Three content sources build the index served through Au-Tomator in Slack</figcaption>
+  <!-- The upper path builds and deploys the index inside the FAQ assistant Lambda. The lower path shows Slack events and responses passing through Au-Tomator -->
+</figure>
 
 ## The full picture
 
-Here are both parts in one diagram, from where a question comes in to where the answer goes back out.
+I connect FAQ curation to the Slack bot. When the bot misses something, I can turn the correction into a FAQ update and include it in the next index.
 
-```mermaid
-flowchart LR
-    SRC[GitHub issues, Slack threads, YouTube sessions] --> FAQ[Curated entries in _questions/]
-    FAQ --> IDX[ZeroSearch index, rebuilt and shipped in the Lambda zip]
-    IDX --> BOT[Automator answers in the Slack thread]
-    BOT --> GAP[Wrong and missing answers found in Slack]
-    GAP --> FAQ
-```
+<figure>
+  <img src="../assets/images/faq-assistant-on-automator/faq-assistant-full-system.svg" alt="Full FAQ assistant system: GitHub proposals, Slack discussions, and YouTube sessions become curated FAQ records. The FAQ joins the docs website and course repository Markdown in a ZeroSearch index deployed with the FAQ assistant Lambda. Slack threads use Au-Tomator to exchange questions and answers with the assistant">
+  <figcaption>The complete path from community knowledge to a Slack answer</figcaption>
+  <!-- The upper half captures and indexes knowledge, while the lower half serves questions and answers through Slack -->
+</figure>
 
 Following the diagram end to end:
 
-- A question shows up somewhere - a GitHub issue, a Slack thread, or a live session - and becomes a curated FAQ entry, either through an agent's pull request that I review, or a direct commit.
-- A build job turns the FAQ into a ZeroSearch index, together with the docs site and the course repos - about 3,300 chunks in total - and ships that index inside the Lambda zip, on every push and once a day.
-- When someone asks something in Slack, Automator works out the course scope, asks the assistant, and posts the answer back in the thread with its sources.
-- Anything the bot got wrong or couldn't answer gets pulled back out of Slack as a new FAQ entry, and is searchable again by the next morning.
+- I turn GitHub issues, useful Slack discussions, and live-session transcripts into reviewed FAQ records.
+- I combine the FAQ, docs website, and course-repository Markdown into a ZeroSearch index with about 3,300 chunks. I rebuild and package the index with the Lambda after every push and once a day.
+- A mention or `:faq:` reaction triggers Au-Tomator. It determines the course scope, asks the assistant, and posts the sourced answer back to the thread.
+- I use wrong and missing answers as evaluation cases and FAQ updates, so the next index contains the correction.
 
-Two evaluations sit across all of this: one on the agent that decides what goes into the FAQ, one on the retrieval that gets it back out. Neither runs in CI - both run on real cases that came from real mistakes.
+I evaluate what enters the FAQ separately from what retrieval and generation return. I run both evaluation suites on real failures, not in CI.
 
-The whole runtime is three Lambdas, one zero-dependency search library, and no database.
+I keep the runtime small: three Lambdas, one zero-dependency search library and no database.
