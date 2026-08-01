@@ -381,10 +381,10 @@ When the assistant gives a bad answer, it's not because of the tech stack, but b
 
 In the FAQ case, I collect the feedback from real users, use it to improve the underlying dataset and thus improve the system itself:
 
-1. Students contirbute issues to the FAQ dataset.
-2. Useful discussions in Slack become curated FAQ records.
-3. The updated dataset is indexed and deployed with the Lambda.
-4. Au-Tomator uses it to answer future questions.
-5. Incorrect or incomplete answers become evaluation cases and reveal what to improve next.
+<figure>
+  <img src="../assets/images/faq-assistant-on-automator/faq-curation-improvement-loop.svg" alt="Continuous FAQ improvement loop: student contributions and useful Slack discussions become curated FAQ records, the dataset is indexed and deployed, Au-Tomator answers questions, and failures reveal the next improvements">
+  <figcaption>Real questions and failures continuously improve the FAQ dataset</figcaption>
+  <!-- Contributions and Slack discussions improve the dataset; the fresh index powers answers, and incorrect or incomplete answers become evaluation cases that feed the next curation cycle -->
+</figure>
 
 Because of this loop, I'm comfortable with a simpler architecture that I described in this article.
