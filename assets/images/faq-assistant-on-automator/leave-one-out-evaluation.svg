@@ -1,7 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1250" height="430" viewBox="0 0 1250 430" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="1140" height="405" viewBox="0 0 1140 405" role="img" aria-labelledby="title desc">
   <title id="title">Leave-one-out evaluation</title>
   <desc id="desc">Remove record D from the current 200-record FAQ dataset. Run the held-out issue D through the FAQ workflow using the remaining 199 records to recover the expected NEW decision.</desc>
   <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
     <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
       <path d="M0 0 10 5 0 10Z" fill="#64748b"/>
     </marker>
@@ -27,55 +30,67 @@
       .small { font-size: 15px; font-weight: 600; }
       .tiny { font-size: 13px; font-weight: 600; }
       .muted { font-size: 14px; font-weight: 500; fill: #64748b; }
+      .icon-copy { text-anchor: start; }
       .line { fill: none; stroke: #64748b; stroke-width: 2.5; marker-end: url(#arrow); }
       .dashed { fill: none; stroke: #94a3b8; stroke-width: 2.5; stroke-dasharray: 7 7; }
-      .box { fill: #eff6ff; stroke: #60a5fa; stroke-width: 2; }
-      .test { fill: #f5f3ff; stroke: #a78bfa; stroke-width: 2; }
-      .workflow { fill: #fff7ed; stroke: #fb923c; stroke-width: 2; }
-      .result { fill: #ecfdf5; stroke: #34d399; stroke-width: 2; }
-      .record { fill: #ffffff; stroke: #94a3b8; stroke-width: 1.5; }
-      .removed { fill: #fff1f2; stroke: #fb7185; stroke-width: 2; }
+      .box { fill: #eff6ff; stroke: #2563eb; stroke-width: 2; }
+      .test { fill: #f5f3ff; stroke: #7c3aed; stroke-width: 2; }
+      .workflow { fill: #fff7ed; stroke: #c2410c; stroke-width: 2; }
+      .result { fill: #ecfdf5; stroke: #15803d; stroke-width: 2; }
+      .record { fill: #ffffff; stroke: #94a3b8; stroke-width: 2; }
+      .removed { fill: #fef2f2; stroke: #dc2626; stroke-width: 2; }
     </style>
   </defs>
 
-  <path class="line" d="M460 105H620"/>
-  <text class="muted" x="540" y="85">Remove D</text>
-  <path class="line" d="M500 325H650"/>
-  <path class="line" d="M870 325H1010"/>
-  <path class="dashed" d="M760 275V175"/>
-  <text class="muted" x="795" y="230">uses</text>
+  <path class="line" d="M530 102.5H610"/>
+  <text class="muted" x="570" y="86">Remove D</text>
+  <path class="line" d="M400 325H460"/>
+  <path class="line" d="M680 325H740"/>
+  <path class="dashed" d="M860 175V225H570V275"/>
+  <text class="muted" x="715" y="215">uses</text>
 
-  <rect class="box" x="60" y="35" width="400" height="140" rx="16"/>
-  <use href="#icon-database" x="87" y="57" width="30" height="30" color="#172033"/>
-  <text class="label" x="277" y="78">Current FAQ dataset</text>
-  <text class="muted" x="260" y="158">200 records</text>
-  <rect class="record" x="90" y="98" width="42" height="36" rx="8"/><text class="small" x="111" y="122">A</text>
-  <rect class="record" x="142" y="98" width="42" height="36" rx="8"/><text class="small" x="163" y="122">B</text>
-  <rect class="record" x="194" y="98" width="42" height="36" rx="8"/><text class="small" x="215" y="122">C</text>
-  <rect class="removed" x="246" y="98" width="42" height="36" rx="8"/><text class="small" x="267" y="122">D</text>
-  <rect class="record" x="298" y="98" width="70" height="36" rx="8"/><text class="small" x="333" y="122">…</text>
+  <g class="node node-dataset node-with-icon" transform="translate(30 30)" filter="url(#shadow)">
+    <rect class="box" width="500" height="145" rx="18"/>
+    <use href="#icon-database" x="16" y="22" width="28" height="28" color="#2563eb"/>
+    <text class="label icon-copy" x="56" y="43">Current FAQ dataset</text>
+    <rect class="record" x="111" y="65" width="42" height="36" rx="8"/><text class="small" x="132" y="89">A</text>
+    <rect class="record" x="163" y="65" width="42" height="36" rx="8"/><text class="small" x="184" y="89">B</text>
+    <rect class="record" x="215" y="65" width="42" height="36" rx="8"/><text class="small" x="236" y="89">C</text>
+    <rect class="removed" x="267" y="65" width="42" height="36" rx="8"/><text class="small" x="288" y="89">D</text>
+    <rect class="record" x="319" y="65" width="70" height="36" rx="8"/><text class="small" x="354" y="89">…</text>
+    <text class="muted" x="250" y="130">200 records</text>
+  </g>
 
-  <rect class="box" x="620" y="35" width="400" height="140" rx="16"/>
-  <use href="#icon-database" x="647" y="57" width="30" height="30" color="#172033"/>
-  <text class="label" x="837" y="78">Dataset without D</text>
-  <text class="muted" x="820" y="158">199 records</text>
-  <rect class="record" x="668" y="98" width="42" height="36" rx="8"/><text class="small" x="689" y="122">A</text>
-  <rect class="record" x="720" y="98" width="42" height="36" rx="8"/><text class="small" x="741" y="122">B</text>
-  <rect class="record" x="772" y="98" width="42" height="36" rx="8"/><text class="small" x="793" y="122">C</text>
-  <rect class="record" x="824" y="98" width="70" height="36" rx="8"/><text class="small" x="859" y="122">…</text>
+  <g class="node node-dataset node-with-icon" transform="translate(610 30)" filter="url(#shadow)">
+    <rect class="box" width="500" height="145" rx="18"/>
+    <use href="#icon-database" x="16" y="22" width="28" height="28" color="#2563eb"/>
+    <text class="label icon-copy" x="56" y="43">Dataset without D</text>
+    <rect class="record" x="137" y="65" width="42" height="36" rx="8"/><text class="small" x="158" y="89">A</text>
+    <rect class="record" x="189" y="65" width="42" height="36" rx="8"/><text class="small" x="210" y="89">B</text>
+    <rect class="record" x="241" y="65" width="42" height="36" rx="8"/><text class="small" x="262" y="89">C</text>
+    <rect class="record" x="293" y="65" width="70" height="36" rx="8"/><text class="small" x="328" y="89">…</text>
+    <text class="muted" x="250" y="130">199 records</text>
+  </g>
 
-  <rect class="test" x="310" y="275" width="190" height="100" rx="16"/>
-  <use href="#icon-document" x="329" y="293" width="24" height="24" color="#172033"/>
-  <text class="small" x="423" y="310">Held-out issue</text>
-  <rect class="removed" x="384" y="325" width="42" height="36" rx="8"/>
-  <text class="small" x="405" y="349">D</text>
+  <g class="node node-action node-with-icon" transform="translate(180 275)" filter="url(#shadow)">
+    <rect class="test" width="220" height="100" rx="18"/>
+    <use href="#icon-document" x="16" y="16" width="28" height="28" color="#7c3aed"/>
+    <text class="small icon-copy" x="56" y="37">Held-out issue</text>
+    <rect class="removed" x="89" y="55" width="42" height="36" rx="8"/>
+    <text class="small" x="110" y="79">D</text>
+  </g>
 
-  <rect class="workflow" x="650" y="275" width="220" height="100" rx="16"/>
-  <use href="#icon-settings" x="673" y="308" width="32" height="32" color="#9a3412"/>
-  <text class="label" x="793" y="318">FAQ workflow</text>
-  <text class="muted" x="785" y="347">Run the evaluation</text>
+  <g class="node node-action node-with-icon" transform="translate(460 275)" filter="url(#shadow)">
+    <rect class="workflow" width="220" height="100" rx="18"/>
+    <use href="#icon-settings" x="16" y="36" width="28" height="28" color="#c2410c"/>
+    <text class="label icon-copy" x="56" y="56">FAQ workflow</text>
+    <text class="muted" x="110" y="81">Run the evaluation</text>
+  </g>
 
-  <rect class="result" x="1010" y="275" width="190" height="100" rx="16"/>
-  <use href="#icon-check" x="1035" y="308" width="34" height="34" color="#15803d"/>
-  <text class="label" x="1130" y="335">NEW</text>
+  <g class="node node-action node-with-icon" transform="translate(740 275)" filter="url(#shadow)">
+    <rect class="result" width="220" height="100" rx="18"/>
+    <use href="#icon-check" x="16" y="36" width="28" height="28" color="#15803d"/>
+    <text class="label icon-copy" x="56" y="56">NEW</text>
+    <text class="muted" x="110" y="81">Expected decision</text>
+  </g>
 </svg>

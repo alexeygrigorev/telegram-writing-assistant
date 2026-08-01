@@ -50,11 +50,11 @@
       .connector { fill: none; stroke: #64748b; stroke-width: 2.5; }
       .line { fill: none; stroke: #64748b; stroke-width: 2.5; marker-end: url(#arrow); }
       .exchange { fill: none; stroke: #64748b; stroke-width: 2.5; marker-start: url(#arrow); marker-end: url(#arrow); }
-      .source { fill: #eff6ff; stroke: #60a5fa; stroke-width: 2; }
-      .conversation { fill: #f5f3ff; stroke: #a78bfa; stroke-width: 2; }
-      .process { fill: #fff7ed; stroke: #fb923c; stroke-width: 2; }
-      .dataset { fill: #ecfdf5; stroke: #34d399; stroke-width: 2; }
-      .lambda { fill: #ecfdf5; stroke: #34d399; stroke-width: 2.5; }
+      .source { fill: #eff6ff; stroke: #2563eb; stroke-width: 2; }
+      .conversation { fill: #f5f3ff; stroke: #7c3aed; stroke-width: 2; }
+      .process { fill: #fff7ed; stroke: #c2410c; stroke-width: 2; }
+      .dataset { fill: #ecfdf5; stroke: #15803d; stroke-width: 2; }
+      .lambda { fill: #ecfdf5; stroke: #15803d; stroke-width: 2; }
     </style>
   </defs>
 
@@ -132,14 +132,14 @@
     <rect class="conversation" width="220" height="100" rx="18"/>
     <text class="mention-icon" x="30" y="59">@</text>
     <text class="label icon-copy" x="56" y="56">Slack thread</text>
-    <text class="small" x="110" y="82">mention · :faq: · reply</text>
+    <text class="small" x="110" y="81">mention · :faq: · reply</text>
   </g>
 
   <g class="node node-action node-with-icon" transform="translate(590 300)" filter="url(#shadow)">
     <rect class="conversation" width="220" height="100" rx="18"/>
     <use href="#icon-sparkles" x="16" y="36" width="28" height="28" color="#7c3aed"/>
     <text class="label icon-copy" x="56" y="56">Au-Tomator</text>
-    <text class="small" x="110" y="82">Route event + post reply</text>
+    <text class="small" x="110" y="81">Route event + post reply</text>
   </g>
 
   <g class="node node-endpoint node-with-icon" transform="translate(870 290)" filter="url(#shadow)">

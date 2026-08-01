@@ -6,6 +6,7 @@
     .heading { font-size: 18px; font-weight: 700; }
     .label { font-size: 17px; font-weight: 700; }
     .sub { font-size: 14px; font-weight: 500; fill: #64748b; }
+    .threshold { font-size: 14px; font-weight: 500; fill: #c2410c; }
     .value { font-size: 16px; font-weight: 700; }
     .value-light { font-size: 16px; font-weight: 700; fill: #ffffff; }
     .tick { font-size: 13px; font-weight: 500; fill: #64748b; text-anchor: middle; }
@@ -14,19 +15,19 @@
 
   <text class="heading" x="30" y="38">Compressed deployment size</text>
 
-  <line x1="860" y1="65" x2="860" y2="275" stroke="#d97706" stroke-width="2" stroke-dasharray="7 7"/>
-  <text class="sub" x="872" y="78" fill="#b45309">50 MB direct-upload limit</text>
+  <line x1="860" y1="65" x2="860" y2="275" stroke="#c2410c" stroke-width="2" stroke-dasharray="7 7"/>
+  <text class="threshold" x="872" y="78">50 MB direct-upload limit</text>
 
   <text class="label" x="30" y="120">scikit-learn + pandas</text>
   <text class="sub" x="30" y="143">Includes NumPy and SciPy</text>
   <rect class="track" x="360" y="100" width="800" height="52" rx="12"/>
-  <rect x="360" y="100" width="751" height="52" rx="12" fill="#f43f5e"/>
+  <rect x="360" y="100" width="750" height="52" rx="12" fill="#dc2626"/>
   <text class="value-light" x="1042" y="133">75 MB</text>
 
   <text class="label" x="30" y="220">Zerosearch bot</text>
   <text class="sub" x="30" y="243">Complete deployed package</text>
   <rect class="track" x="360" y="200" width="800" height="52" rx="12"/>
-  <rect x="360" y="200" width="80" height="52" rx="12" fill="#22c55e"/>
+  <rect x="360" y="200" width="80" height="52" rx="12" fill="#15803d"/>
   <text class="value" x="454" y="233">8 MB</text>
 
   <line x1="360" y1="282" x2="1160" y2="282" stroke="#94a3b8" stroke-width="1.5"/>

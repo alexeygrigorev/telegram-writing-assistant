@@ -365,3 +365,26 @@ This is how the entire system looks like:
 - I combine the FAQ, docs website, and course-repository Markdown into a zerosearch index. The index is rebuilt every time we push to the FAQ repo.
 - A mention or `:faq:` reaction triggers Au-Tomator that sends the question to the FAQ assistant and publishes the answer in Slack.
 - I use wrong and missing answers as evaluation cases and FAQ updates, so the next index contains the correction.
+
+
+## Curation over Complexity
+
+This year, I re-recorded the entire LLM Zoomcamp from scratch. There, we use [the FAQ dataset](https://github.com/DataTalksClub/llm-zoomcamp/blob/main/01-agentic-rag/lessons/04-dataset.md) as the main running example.
+
+When I introduce the FAQ dataset, and we do the first RAG example, I mention that the example looks very simple. But the reason it looks so simple is because the complex work has already happend: the dataset was already cleaned and prepared for AI. In reality, in your AI projects, most of the time will go into data cleaning and data curation.
+
+In this article, I tried to explain how exactly I did it.
+
+We can always have a better model, use a vector database, or a faster machine, but none of that will help if your data is missing, outdated or unclear.
+
+When the assistant gives a bad answer, it's not because of the tech stack, but because of the data. So the most useful fix to make it better is to improve this dataset.
+
+In the FAQ case, I collect the feedback from real users, use it to improve the underlying dataset and thus improve the system itself:
+
+1. Students contirbute issues to the FAQ dataset.
+2. Useful discussions in Slack become curated FAQ records.
+3. The updated dataset is indexed and deployed with the Lambda.
+4. Au-Tomator uses it to answer future questions.
+5. Incorrect or incomplete answers become evaluation cases and reveal what to improve next.
+
+Because of this loop, I'm comfortable with a simpler architecture that I described in this article.
