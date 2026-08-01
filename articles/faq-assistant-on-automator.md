@@ -1,85 +1,85 @@
 ---
 title: "FAQ Assistant: The End-To-End Process"
 created: 2026-07-15
-updated: 2026-07-31
+updated: 2026-08-01
 tags: [faq, automator, agents, datatalks-club, search, serverless, article-idea]
 status: draft
 ---
 
 Recently I ran a workshop on [tailoring your CV for AI engineering roles](https://aishippinglabs.com/workshops/tailor-cv-ai-engineering), using my own CV as the example. There, I added a "projects" section in my CV, and included the FAQ Assistant as one of the projects.
 
-FAQ assistnat is the system that we use in DataTalks.Club to help thousands of our students find the answers to their questions faster.
+FAQ assistant is the system that we use in DataTalks.Club to help thousands of our students find the answers to their questions faster.
 
 There are two components of this system:
 
-- FAQ curation: adding data to the FAQ dataset. Students can contibute questions, but I also can get them from Slack and from youtube videos. This is the dataset with the FAQ data that I also often use in courses. It lives in [DataTalksClub/faq](https://github.com/DataTalksClub/faq)
-- FAQ retrieval: using the assistant in Slack to answer questions from the students. It lives in  [DataTalksClub/faq-assistant](https://github.com/DataTalksClub/faq-assistant) that runs on Lambda.
+- FAQ curation: adding data to the FAQ dataset. Students can contribute questions, but I also can get them from Slack and from YouTube videos. This is the dataset with the FAQ data that I also often use in courses. It lives in [DataTalksClub/faq](https://github.com/DataTalksClub/faq)
+- FAQ retrieval: using the assistant in Slack to answer questions from the students. It lives in [DataTalksClub/faq-assistant](https://github.com/DataTalksClub/faq-assistant) that runs on Lambda.
 
 
 In this article, I want to describe this project in more detail:
 
 - include all the decisions I made and explain why I made them.
-- describe the articture of this application,
-- how the data flows trhough the systme
-- all the data sources  
+- describe the architecture of this application,
+- how the data flows through the system
+- all the data sources
 
 My plan is to later include the link to this article to my CV, so if I decide to use it to apply for AI engineering roles, a hiring team can read it and see what the project actually involved.
-I see it as a part of learning in public and sharing what I learned. (include the link to the learnign in public post).
+I see it as a part of learning in public and sharing what I learned. <!-- TODO: link to the learning in public post -->
 
 You can also use it as an example for describing your own projects, even if you don't include them in your CV. If you decide to use it as a template, make sure to tag me on social media!
 
 
-## FAQ Assistant 
+## FAQ Assistant
 
-I already wrote about the FAQ assistant in [From Google Docs to an Automated FAQ System for DataTalks.Club Courses](https://alexeyondata.substack.com/p/from-google-docs-to-an-automated). But some thigns changed since I published it.
+I already wrote about the FAQ assistant in [From Google Docs to an Automated FAQ System for DataTalks.Club Courses](https://alexeyondata.substack.com/p/from-google-docs-to-an-automated). But some things changed since I published it.
 
-Occasionally the <bot-name> breaks down. When it happens, I have to pull Alex Livinov in (he's the bot maintainer) and ask him to fix the issues. Sometimes it would be handing an expired key, or sometimes it's fixing a small bug.
+Occasionally the <bot-name> breaks down. When it happens, I have to pull Alex Livinov in (he's the bot maintainer) and ask him to fix the issues. Sometimes it would be handling an expired key, or sometimes it's fixing a small bug.
 
-Two months ago his OpenAI account run out of money, so I had to ping him. I always felt bad that he uses his own money to pay for the project, so I again suggested that I take it over and we run it in the DataTalks.Club infra. Typically he'd decline it, but his time he agreed.
+Two months ago his OpenAI account run out of money, so I had to ping him. I always felt bad that he uses his own money to pay for the project, so I again suggested that I take it over and we run it in the DataTalks.Club infra. Typically he'd decline it, but this time he agreed.
 
 This is the setup Alex used:
 
 - OpenAI for the bot (RAG)
 - Fly.io for hosting
 - Vector search via Milvus, running on Zilliz Cloud in production across two different Zilliz accounts. There are four separate collections and four separate query engines, one per course channel.
-- Data is ingested from three sources: the FAQ dataset from GitHub, Slack history, and YouTube transcripts. Each course had its own ingest entrypoint, each running on its own cron job in github actions.
-- Youtube videos for courses are ingested manually.
+- Data is ingested from three sources: the FAQ dataset from GitHub, Slack history, and YouTube transcripts. Each course had its own ingest entrypoint, each running on its own cron job in GitHub Actions.
+- YouTube videos for courses are ingested manually.
 - Cohere for reranking and HuggingFace embeddings
 - Upstash Redis as an embeddings cache
 - LangSmith for feedback logging
 
-This setup makes a lot of sense, but I couldn't just port it easily to the DataTalks.Club infra. I wanted to use in combination with the [Au-Tomator Slack Bot](https://github.com/DataTalksClub/au-tomator-lambda) that I described in [Building and Maintaining a Slack Moderation Bot for an 88k-Member Community](https://alexeyondata.substack.com/p/building-and-maintaining-a-slack). 
+This setup makes a lot of sense, but I couldn't just port it easily to the DataTalks.Club infra. I wanted to use it in combination with the [Au-Tomator Slack Bot](https://github.com/DataTalksClub/au-tomator-lambda) that I described in [Building and Maintaining a Slack Moderation Bot for an 88k-Member Community](https://alexeyondata.substack.com/p/building-and-maintaining-a-slack).
 
-The Au-Tomator bot runs on Serverless - on AWS Lambda. It's been running for years now and I never had to pay for it. It was always under the free tier for AWS lambda usage. And when I have to pay for it, it would be minimal
+The Au-Tomator bot runs on Serverless - on AWS Lambda. It's been running for years now and I never had to pay for it. It was always under the free tier for AWS Lambda usage. And when I have to pay for it, it would be minimal.
 
-So I wanted to run the FAQ bot on Serverless too. I'll describe the architecture I came up with later in the article, but for now I want to talk about the dataset for that bot: the FAQ datset. The decisions I made about architecture were influenced by the dataset and its content, so we should talk about it first. 
+So I wanted to run the FAQ bot on Serverless too. I'll describe the architecture I came up with later in the article, but for now I want to talk about the dataset for that bot: the FAQ dataset. The decisions I made about architecture were influenced by the dataset and its content, so we should talk about it first.
 
 
 ## Part 1: The FAQ Dataset
 
 I maintain the FAQ dataset in https://datatalks.club/faq. We host the website via GitHub pages and the data is in git in the [DataTalksClub/faq](https://github.com/DataTalksClub/faq) repository.
 
-Previously it lived in a bunch of Google Docs. It was frequently vandalized, so I had to manually roll it back. Plus I was spending a lot of time on curating it, so I wanted to automate some parts of it with coding agents. Usign coding agents in google docs is quite problematic. It's much better when it's a bunch of markdown files in your file system. I described the migration process in [From Google Docs to an Automated FAQ System for DataTalks.Club Courses](https://alexeyondata.substack.com/p/from-google-docs-to-an-automated).
+Previously it lived in a bunch of Google Docs. It was frequently vandalized, so I had to manually roll it back. Plus I was spending a lot of time on curating it, so I wanted to automate some parts of it with coding agents. Using coding agents in Google Docs is quite problematic. It's much better when it's a bunch of markdown files in your file system. I described the migration process in [From Google Docs to an Automated FAQ System for DataTalks.Club Courses](https://alexeyondata.substack.com/p/from-google-docs-to-an-automated).
 
 Now with AI assistants I spend less time maintaining this dataset, can keep it clear and up-to-date.
 
 There are multiple sources of questions:
 
-- The questions that people contributed via Githib 
-- Dicussions in Slack
+- The questions that people contributed via GitHub
+- Discussions in Slack
 - Q&A videos on YouTube
 
 
 ## User-Contributed FAQ Records
 
-Anyone who's taking our course can contribute to the FAQ dataset. Previously it was via a Google doucment, and now by submitting a GitHub issue.
+Anyone who's taking our course can contribute to the FAQ dataset. Previously it was via a Google document, and now by submitting a GitHub issue.
 
 This is how it works now:
 
-- You submit an issue, specifyong the question, the course and your answer
-- A script runs via GitHub actions: it indexes the entire dataset using minsearch
-- Then we search twice: with the questions alone, and with both question and answer combined. Then we combine the two results with reciprocal rank fusion 
-- Next, we do a RAG variation: we send the retrieved results to OpenAI, and get back strucured output with one of the decisions: new, update, duplicate or wrong course.
+- You submit an issue, specifying the question, the course and your answer
+- A script runs via GitHub Actions: it indexes the entire dataset using minsearch
+- Then we search twice: with the questions alone, and with both question and answer combined. Then we combine the two results with reciprocal rank fusion
+- Next, we do a RAG variation: we send the retrieved results to OpenAI, and get back structured output with one of the decisions: new, update, duplicate or wrong course.
 - If it's new and update, we create a branch, commit the file, and open a pull request.
 - If it's a duplicate or wrong course, we close the issue.
 
@@ -90,13 +90,7 @@ When the first version of the script was created, we didn't have any evaluation 
 
 But as more people started using it, it started making more incorrect decisions. So I finally had to take care of the evals. Otherwise I'd risk breaking the whole thing with any next change I make. 
 
-For creating the evaluation dataset I used historical data: I analyzed the issues where I needed to correct the submissions after the script worked, and selected cases that are quite different from each other. I wanted to have a representative set of cases that would test the system from different angles. 
-
-That includes:
-
-- item 1
-- item 2
-- ...
+For creating the evaluation dataset I used historical data: I analyzed the issues where I needed to correct the submissions after the script worked, and selected cases that are quite different from each other. I wanted to have a representative set of cases that would test the system from different angles.
 
 Not all decisions made by the script are equal. If the agent makes a mistake in a NEW or UPDATE decision, it's easy to correct, and I use AI assistants to help me with that.
 
@@ -107,9 +101,9 @@ There's also a problem with collecting the evals data from historical decisions.
 
 When the script decides that something is NEW and we later use it in the evals, it's no longer NEW: the item was already merged into the dataset. So if we run it with the new issue using the updated version of the dataset, it will say DUPLICATE instead of NEW.
 
-In order to properly test it the NEW cases, we therefore need to remove the record from our dataset. So if we have 200 records, and the record D is the one we added, we remove the D and test this case agaist the remainint 199 records.
+In order to properly test the NEW cases, we therefore need to remove the record from our dataset. So if we have 200 records, and the record D is the one we added, we remove the D and test this case against the remaining 199 records.
 
-Right now I have 61 case:
+Right now I have 61 cases:
 
 - 38 expecting a new entry
 - 10 duplicates
@@ -119,20 +113,16 @@ Right now I have 61 case:
 
 I eventually switched from gpt-4o-mini to gpt-5.4-nano, because it didn't have any false positives in the important cases, and it wasn't as flaky - the eval runs produced consistent results with this version.
 
-Most of the corrections I made manually for the new records was because the model would choose a wrong section for the FAQ entry, so these 38 cases also test that. Now it's selecting the correct section in X cases (it was Y previously). 
+Most of the corrections I made manually for the new records were because the model would choose a wrong section for the FAQ entry, so these 38 cases also test that. Now it's selecting the correct section in X cases (it was Y previously). <!-- TODO: fill in the actual numbers -->
 
-In addition to testing the whole flow, I have a retrieval-only evaluation set. This is the part where I only test the search component of the flow, so there are no calls to LLMs
-
-TODO: desribe it better. and remove the skipped ones
-
-I also don't really undestand why we need the separate search flow
+In addition to testing the whole flow, I have a retrieval-only evaluation set. This is the part where I only test the search component of the flow, so there are no calls to LLMs. I describe it in detail later, in the retrieval evaluation section.
 
 
 ## Bulk Reviewing
 
 I usually let the PRs accumulate and process them every two weeks.
 
-For that, I use AI assistants. I have a skill (link it) that lets me go through each PR and merge it as is, or fix it if it's not correct. 
+For that, I use AI assistants. I have a skill <!-- TODO: link the FAQ PR-review skill --> that lets me go through each PR and merge it as is, or fix it if it's not correct.
 
 <figure>
   <img src="../assets/images/faq-assistant-on-automator/automator-faq-fix-report.jpg" alt="Screenshot of an agent report about correcting a certificate requirement in the FAQ, listing two new commits and the validation test results">
@@ -140,7 +130,7 @@ For that, I use AI assistants. I have a skill (link it) that lets me go through 
   <!-- Concrete example of the correction workflow described above: a correction goes in, the agent commits it across the faq and faq-assistant repos and reports the test results -->
 </figure>
 
-If I come across an interesting error, I ask the assistatnt to add it to our evals set. I don't try to fix it immediately. I wait till we have a few more cases, then I ask the assistant to see what we can do to fix these issues, and make sure that our model not only does ebtter on them, but also we introduce no regression on the previous cases. 
+If I come across an interesting error, I ask the assistant to add it to our evals set. I don't try to fix it immediately. I wait till we have a few more cases, then I ask the assistant to see what we can do to fix these issues, and make sure that our model not only does better on them, but also we introduce no regression on the previous cases.
 
 If some cases can't be fixed easily, I don't sweat over it. I want to keep the  system for adding new questions simple. I don't want to have a huge prompt that covers all possible corner cases. This means that sometimes a case I add stays there as a case that fails. 
 
@@ -153,17 +143,17 @@ I process these issues in my biweekly sessions. The agent uses a process similar
 
 ## Other Sources: Slack and YouTube
 
-When we're running our courses, our Slack is very active. Course participants are asking questions and helping each other. In many cases, these discussions are worth saving in the FAQ datset. 
+When we're running our courses, our Slack is very active. Course participants are asking questions and helping each other. In many cases, these discussions are worth saving in the FAQ dataset.
 
-For that I regularly go though all the Slack threads. I ask my AI assistant to go though each thread following the similar process. If something is new, it adds this information as new records.
+For that I regularly go through all the Slack threads. I ask my AI assistant to go through each thread following a similar process. If something is new, it adds this information as new records.
 
 Also, for each course I run a few live YouTube sessions, for example:
 
 - pre-course Q&A session
 - course launch streams
-- occasional office hours 
+- occasional office hours
 
-I get the tracript and use AI assistnat to extract potential Q&A candidtates. If there's something new, I add it to the FAQ dataset directly. 
+I get the transcript and use AI assistant to extract potential Q&A candidates. If there's something new, I add it to the FAQ dataset directly.
 
 
 
@@ -210,10 +200,9 @@ The original FAQ bot has a lot of moving parts though. Most of them are not stra
 
 So I decided to simplify it.
 
-Previously, the system would index all Slack threads, and chunk all the YouTube videos and index them too. Now I extract the important information from these sourcs and put it directly to the FAQ dataset, so I can drop both Slack and YouTube, and focus only on the FAQ dataset. 
+Previously, the system would index all Slack threads, and chunk all the YouTube videos and index them too. Now I extract the important information from these sources and put it directly to the FAQ dataset, so I can drop both Slack and YouTube, and focus only on the FAQ dataset.
 
-TODO: I also didn't mention a new datasource: https://datatalks.club/docs/
-I don't know where. But every year I do the same intro in the launch streams when I start a course. Insetead of repeating the same information over and over again, I'd rather have a Q&A session and have course participants ask me questions. So what I did was taking all the youtube videos we had, all the slack messages, and having AI assistants analyze all that and come up with a documentation website. Then I used this as a source too
+There's one more source I added: the [docs site](https://datatalks.club/docs/). Every year I do the same intro in the launch streams when I start a course. Instead of repeating the same information over and over again, I'd rather have a Q&A session and have course participants ask me questions. So what I did was take all the YouTube videos we had, all the Slack messages, and have AI assistants analyze all that and come up with a documentation website. Then I used this as a source too.
 
 
 Second, I removed the vector database. I know that it improves retrieval, but at the cost of having to maintain more infra. I want to keep the setup very lean, and if the bot is sometimes not right, I can simply correct it.
@@ -223,13 +212,13 @@ Second, I removed the vector database. I know that it improves retrieval, but at
 
 However, even with text search via minsearch, the deploy to AWS Lambda wasn't trivial. I originally created minsearch to teach retrieval and RAG in my workshops and courses. I wrote about it in [Minsearch: The Small Search Library Behind My RAG Workshops and Courses](https://alexeyondata.substack.com/p/minsearch-the-small-search-library).
 
-Because I created it for teaching, my main goal to make it easy to implement and undestand the code, so it uses Scikit-Learn and Pandas for that. These libraries are quite heavy already, bti they also pull in NumPy and SciPy internally too. Every data scientist has these libraries in their standard setup, but for serverless they are quite heavy. Together, they take X mb of space, and have a lot of platform-dependent binaries. 
+Because I created it for teaching, my main goal was to make it easy to implement and understand the code, so it uses Scikit-Learn and Pandas for that. These libraries are quite heavy already, but they also pull in NumPy and SciPy internally too. Every data scientist has these libraries in their standard setup, but for serverless they are quite heavy. Together, they take X mb of space <!-- TODO: fill in the actual size -->, and have a lot of platform-dependent binaries.
 
-So I decided to replace minsearch with a zero-dependency search engine written entirely in pure-Python. I called it [zerosearch](https://github.com/alexeygrigorev/zerosearch). It has only one optional dependency - [stemlite](https://github.com/alexeygrigorev/stemlite), which is a stemmer I use across all my small serach libraries (zerosearch, minsearch and [SQLiteSearch](https://alexeyondata.substack.com/p/how-i-built-sqlitesearch-a-lightweight)). 
+So I decided to replace minsearch with a zero-dependency search engine written entirely in pure-Python. I called it [zerosearch](https://github.com/alexeygrigorev/zerosearch). It has only one optional dependency - [stemlite](https://github.com/alexeygrigorev/stemlite), which is a stemmer I use across all my small search libraries (zerosearch, minsearch and [SQLiteSearch](https://alexeyondata.substack.com/p/how-i-built-sqlitesearch-a-lightweight)).
 
-I can use zerosearch in the usual AWS Lambda setup with just a Zip archive, so I don't need to worry about Docker containers. This is how I eventually deployed the Slack bot that I use for retrieval and since then I used zerosearch in AWS Lambda in a few other projects. 
+I can use zerosearch in the usual AWS Lambda setup with just a Zip archive, so I don't need to worry about Docker containers. This is how I eventually deployed the Slack bot that I use for retrieval and since then I used zerosearch in AWS Lambda in a few other projects.
 
-Another challenge - the library depends on Pydantic, which is also fine for a traditional setup, but heavy for serverless. So I ... (todo: finish it).
+Another challenge - the library depends on Pydantic, which is also fine for a traditional setup, but heavy for serverless. So I dropped the Pydantic models from the Lambda path and replaced them with plain dataclasses and dictionaries. <!-- TODO: confirm this matches the actual implementation -->
 
 ## Keeping the index fresh
 
@@ -237,9 +226,9 @@ Then I started thinking about what to do with updating the index. If a record in
 
 Alex solved that by pulling in data using a daily cron job. But I wanted to do this as soon as the data in FAQ changes.
 
-Almost all my projects have a CI/CD workflow: when I push to main, the code change is propogated to a live environment. I usually use it for code changes, but for this project I did the same for data changes too.
+Almost all my projects have a CI/CD workflow: when I push to main, the code change is propagated to a live environment. I usually use it for code changes, but for this project I did the same for data changes too.
 
-When a push happens, I re-build the whole index, and push it together with the source code in Lambda. It's quite small: it's 8 mb total.
+When a push happens, I re-build the whole index, and push it together with the source code in Lambda. It's quite small: it's 8 MB total.
 
 Once it's deployed, the lambda loads the local updated index, and can serve the fresh data.
 
@@ -248,11 +237,11 @@ Once it's deployed, the lambda loads the local updated index, and can serve the 
 
 I replaced vector search with text search, but I wanted to make sure I can squeeze the absolute best from text search. So I needed to have a proper evaluation set to make it possible. 
 
-I build the ground truth dataset for this part from real Slack threads:
+I built the ground truth dataset for this part from real Slack threads:
 
-- Get a slack dump with all the course data
-- Take all 9,900 slack threads 
-- Filder them down to keep actual questions
+- Get a Slack dump with all the course data
+- Take all 9,900 Slack threads
+- Filter them down to keep actual questions
 
 At the end, I had a sample of 130 records:
 
@@ -264,7 +253,7 @@ For each of the questions, I found and marked the correct documents in the index
 
 Then I evaluate hit-rate and MRR at k=1,3,5.
 
-Once I had this dataset, I could start experimenting with search optimizing.
+Once I had this dataset, I could start experimenting with search optimization.
 
 I tried multiple options:
 
@@ -272,7 +261,7 @@ I tried multiple options:
 - Keyword expansion
 - Different variants of query rewriting
 
-The winning option distill a chatty Slack message down to keywords while preserving exact error messages, tool names, commands and filenames.
+The winning option distills a chatty Slack message down to keywords while preserving exact error messages, tool names, commands and filenames.
 
 Over-compressing, or adding synonyms, makes things worse, because it drops the exact tokens keyword search depends on.
 
@@ -282,7 +271,7 @@ For query rewriting I use `gpt-4o-mini` because it's fastest and cheapest, but f
 
 In the previous part I explained how I evaluate search. I also evaluate generation separately. 
 
-I built the evaluation usign implicit feedback that I collect from Slack. When a bot answers a question, and I or somebody else later in the thread corrects it or add something extra, it means that the bot couldn't answer the question properly. 
+I built the evaluation using implicit feedback that I collect from Slack. When a bot answers a question, and I or somebody else later in the thread corrects it or add something extra, it means that the bot couldn't answer the question properly.
 
 These are the examples I collect and include in the evaluation set.
 
@@ -299,24 +288,24 @@ Then I'd fix the record, re-run evaluation to make sure these cases are handled 
 
 ## Deploying with Au-Tomator
 
-I already use Au-Tomator to help me with Slack management. I wanted use the existing setup, not create a new Slack bot.
+I already use Au-Tomator to help me with Slack management. I wanted to use the existing setup, not create a new Slack bot.
 
-I already have two Lambdas for Au-Tomator. I described them in ...:
+I already have two Lambdas for Au-Tomator. I described them in [Building and Maintaining a Slack Moderation Bot for an 88k-Member Community](https://alexeyondata.substack.com/p/building-and-maintaining-a-slack):
 
-- The router: routes and filters slack events. It also makes sure we acknowledge the reqest from slack quickly withing 3 second (requirement from slack)
-- The automator: ...
+- The router: routes and filters Slack events. It also makes sure we acknowledge the request from Slack quickly within 3 seconds (a requirement from Slack)
+- The automator: the moderation bot itself, which handles all the other Slack events
 
 And I added the third one:
 
-- The FAQ assistant: ... 
+- The FAQ assistant: rewrites the question, searches the index, generates the answer, and returns it to the automator
 
-Now when you mention the bot, it first goes to the automator, and automator sends it to the FAQ assistant. The assistant only gives the answer, and then au-tomator handles posting the response to Slack. 
+Now when you mention the bot, it first goes to the automator, and the automator sends it to the FAQ assistant. The assistant only gives the answer, and then the automator handles posting the response to Slack.
 
-As a bonus, now with this setup, I can trigger the FAQ assistant with `:faq:` reaction. Previously this reaction would only post a message to the SLack thread saying "Go cehck the FAQ"
+As a bonus, now with this setup, I can trigger the FAQ assistant with `:faq:` reaction. Previously this reaction would only post a message to the Slack thread saying "Go check the FAQ"
 
 Now it actually checks the FAQ and generates the answer.
 
-And also, now it could answer questions outside of the course slack channels too.
+And also, now it could answer questions outside of the course Slack channels too.
 
 <figure>
   <img src="../assets/images/faq-assistant-on-automator/automator-docs-only-answer.jpg" alt="Slack screenshot: a member asks when the next courses start, and Au-Tomator replies with the courses section, the events page, Luma and the Google calendar, citing a docs source">
@@ -364,16 +353,13 @@ flowchart LR
     GAP --> FAQ
 ```
 
-TODO simplify that, use a list or something 
+Following the diagram end to end:
 
-Read that end to end. A question shows up somewhere, in a GitHub issue, a Slack thread or a live session, and gets turned into a curated FAQ entry. Either an agent opens a pull request I review, or curation commits it directly. The FAQ website republishes as JSON.
+- A question shows up somewhere - a GitHub issue, a Slack thread, or a live session - and becomes a curated FAQ entry, either through an agent's pull request that I review, or a direct commit.
+- A build job turns the FAQ into a ZeroSearch index, together with the docs site and the course repos - about 3,300 chunks in total - and ships that index inside the Lambda zip, on every push and once a day.
+- When someone asks something in Slack, Automator works out the course scope, asks the assistant, and posts the answer back in the thread with its sources.
+- Anything the bot got wrong or couldn't answer gets pulled back out of Slack as a new FAQ entry, and is searchable again by the next morning.
 
-A build job pulls that JSON together with the docs site, the per-course docs and six course repositories into a corpus of about 3,300 chunks. It packs that into a ZeroSearch index and ships the index inside the Lambda zip, on every relevant push and once a day regardless.
+Two evaluations sit across all of this: one on the agent that decides what goes into the FAQ, one on the retrieval that gets it back out. Neither runs in CI - both run on real cases that came from real mistakes.
 
-On the other side, a member asks something in Slack. Either they tag the bot, or I put the `:faq:` emoji on their message. Automator works out which course channel they're in, or that they aren't in one, and asks the assistant Lambda with the matching scope. The assistant rewrites the query, searches the packed index with a course or docs filter and generates an answer from the retrieved chunks. Automator posts it back in the thread with its sources.
-
-Then the loop closes on both sides. Answers I had to correct, and questions the bot couldn't answer at all, get scanned out of Slack and become new FAQ entries. They flow back through the same build and are retrievable the next morning at the latest. Pull requests I had to fix become new cases in the agent evaluation.
-
-Two evaluations sit across it: one on the agent that decides what goes into the FAQ, one on the retrieval that gets it back out. Neither runs in CI, both run on real cases that came from real mistakes.
-
-The whole runtime is three Lambdas, one search library with no dependencies, and no database of any kind.
+The whole runtime is three Lambdas, one zero-dependency search library, and no database.
