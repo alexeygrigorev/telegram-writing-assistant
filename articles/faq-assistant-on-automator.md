@@ -85,7 +85,7 @@ Anyone can contribute to the FAQ dataset:
 - For `DUPLICATE` or `WRONG_COURSE`, it closes the issue.
 
 <figure>
-  <img src="../assets/images/faq-assistant-on-automator/faq-contribution-workflow.svg" alt="FAQ contribution workflow: an issue triggers dataset indexing, question-only and full-record searches, reciprocal rank fusion, an LLM decision, and either a pull request or issue closure">
+  <img src="../assets/images/faq-assistant-on-automator/faq-contribution-workflow.png" alt="FAQ contribution workflow: an issue triggers dataset indexing, question-only and full-record searches, reciprocal rank fusion, an LLM decision, and either a pull request or issue closure">
   <figcaption>How a user-contributed FAQ issue is classified and handled</figcaption>
   <!-- The workflow searches the FAQ in two ways, combines the rankings, and asks the LLM to classify the contribution before opening a pull request or closing the issue -->
 </figure>
@@ -107,7 +107,7 @@ When the script decides that something is `NEW` and we later use it in the evals
 In order to properly test the `NEW` cases, we therefore need to remove the record from our dataset. So if we have 200 records, and the record `D` is the one we added, we remove the `D` and test this case against the remaining 199 records.
 
 <figure>
-  <img src="../assets/images/faq-assistant-on-automator/leave-one-out-evaluation.svg" alt="Leave-one-out evaluation: remove record D from the current 200-record FAQ dataset, then run the held-out issue D through the FAQ workflow using the remaining 199 records to recover the expected NEW decision">
+  <img src="../assets/images/faq-assistant-on-automator/leave-one-out-evaluation.png" alt="Leave-one-out evaluation: remove record D from the current 200-record FAQ dataset, then run the held-out issue D through the FAQ workflow using the remaining 199 records to recover the expected NEW decision">
   <figcaption>Leave-one-out evaluation for a historical NEW decision</figcaption>
   <!-- Record D must be removed from the current dataset before replaying its original issue; otherwise the evaluator sees the already-merged record and returns DUPLICATE -->
 </figure>
@@ -177,7 +177,7 @@ The main focus of the first part is the dataset curation.
 I review all the PRs that our FAQ automation creates in batches, and use AI to turn Slack discussions and YouTube videos into focused FAQ records.
 
 <figure>
-  <img src="../assets/images/faq-assistant-on-automator/faq-dataset-sources-overview.svg" alt="Three sources feed the curated FAQ dataset: GitHub issues pass through automated screening and batch review, while Slack threads and YouTube sessions pass through AI-assisted extraction">
+  <img src="../assets/images/faq-assistant-on-automator/faq-dataset-sources-overview.png" alt="Three sources feed the curated FAQ dataset: GitHub issues pass through automated screening and batch review, while Slack threads and YouTube sessions pass through AI-assisted extraction">
   <figcaption>Three sources, two curation paths, and one FAQ dataset</figcaption>
   <!-- Part 1 at a glance: structured GitHub contributions and extracted knowledge from Slack and YouTube converge in the same curated Markdown dataset -->
 </figure>
@@ -210,7 +210,7 @@ So I decided to replace minsearch with a zero-dependency search engine written e
 
 
 <figure>
-  <img src="../assets/images/faq-assistant-on-automator/lambda-package-size-comparison.svg" alt="Two-bar chart showing approximately 75 MB for the compressed scikit-learn and pandas dependency stack and 8 MB for the deployed Zerosearch bot, with a dashed reference line at the 50 MB AWS Lambda direct-upload ZIP limit">
+  <img src="../assets/images/faq-assistant-on-automator/lambda-package-size-comparison.png" alt="Two-bar chart showing approximately 75 MB for the compressed scikit-learn and pandas dependency stack and 8 MB for the deployed Zerosearch bot, with a dashed reference line at the 50 MB AWS Lambda direct-upload ZIP limit">
   <figcaption>The scientific Python stack exceeds Lambda's direct-upload limit; the Zerosearch deployment fits comfortably</figcaption>
   <!-- The scientific stack measurement uses compressed CPython 3.12 manylinux x86-64 wheels and includes transitive dependencies. Pydantic is intentionally excluded because its serverless problem is the compiled Rust core and cold-start overhead, not crossing the 50 MB limit by itself -->
 </figure>
@@ -230,7 +230,7 @@ When a push happens, I re-build the whole index, and push it together with the s
 Once it's deployed, the lambda loads the local updated index, and can serve the fresh data.
 
 <figure>
-  <img src="../assets/images/faq-assistant-on-automator/keeping-index-fresh.svg" alt="A FAQ and documentation change triggers an index rebuild, and the new index is sent to AWS Lambda while a Slack user exchanges questions and replies with it">
+  <img src="../assets/images/faq-assistant-on-automator/keeping-index-fresh.png" alt="A FAQ and documentation change triggers an index rebuild, and the new index is sent to AWS Lambda while a Slack user exchanges questions and replies with it">
   <figcaption>Every push rebuilds and deploys the index used by subsequent Slack requests</figcaption>
   <!-- The upper path refreshes the deployed index; the lower path shows the user exchanging questions and replies with the same Lambda -->
 </figure>
@@ -311,7 +311,7 @@ And I added the third one:
 Now when you mention the bot, it first goes to Au-Tomator, and then Au-Tomator sends it to the FAQ assistant. The assistant gets in the question, and send the answers. Posting the response to Slack is handled by Au-Tomator.
 
 <figure>
-  <img src="../assets/images/faq-assistant-on-automator/au-tomator-faq-routing.svg" alt="Slack event flow through the existing Au-Tomator router and automator Lambdas to the new FAQ assistant Lambda, followed by the answer returning through the automator and being posted to Slack">
+  <img src="../assets/images/faq-assistant-on-automator/au-tomator-faq-routing.png" alt="Slack event flow through the existing Au-Tomator router and automator Lambdas to the new FAQ assistant Lambda, followed by the answer returning through the automator and being posted to Slack">
   <figcaption>Au-Tomator routes Slack events to the FAQ assistant and posts the generated answer back to Slack</figcaption>
   <!-- Gray arrows carry the request through the three Lambdas; green arrows carry the answer back through the automator to Slack -->
 </figure>
@@ -339,28 +339,29 @@ I don't only search the FAQ dataset. I also index the [DataTalks.Club documentat
 I combine all three sources into one search index and package it with the FAQ assistant Lambda. In Slack, either a mention or a `:faq:` reaction triggers Au-Tomator. It sends the question to the assistant and posts the answer back to the thread.
 
 <figure>
-  <img src="../assets/images/faq-assistant-on-automator/faq-assistant-sources-and-serving.svg" alt="The FAQ dataset, DataTalks.Club documentation, and Markdown files from course repositories feed one search index in the FAQ assistant Lambda, while a Slack mention or FAQ reaction triggers Au-Tomator to exchange the question and answer with the assistant">
+  <img src="../assets/images/faq-assistant-on-automator/faq-assistant-sources-and-serving.png" alt="The FAQ dataset, DataTalks.Club documentation, and Markdown files from course repositories feed one search index in the FAQ assistant Lambda, while a Slack mention or FAQ reaction triggers Au-Tomator to exchange the question and answer with the assistant">
   <figcaption>Three content sources build the index served through Au-Tomator in Slack</figcaption>
   <!-- The upper path builds and deploys the index inside the FAQ assistant Lambda. The lower path shows Slack events and responses passing through Au-Tomator -->
 </figure>
 
 ## The full picture
 
-I connect FAQ curation to the Slack bot. When the bot misses something, I can turn the correction into a FAQ update and include it in the next index.
+In this article, we discussed the two parts of the FAQ system:
+
+- The FAQ dataset, where we primarily talked about the dataset curation
+- The FAQ assistant, which is a Slack bot deployed via AWS Lambda
+
+The FAQ assistant reads data from the FAQ dataset and helps students find answers to their questions faster.
+
+This is how the entire system looks like:
 
 <figure>
-  <img src="../assets/images/faq-assistant-on-automator/faq-assistant-full-system.svg" alt="Full FAQ assistant system: GitHub proposals, Slack discussions, and YouTube sessions become curated FAQ records. The FAQ joins the docs website and course repository Markdown in a ZeroSearch index deployed with the FAQ assistant Lambda. Slack threads use Au-Tomator to exchange questions and answers with the assistant">
+  <img src="../assets/images/faq-assistant-on-automator/faq-assistant-full-system.png" alt="Full FAQ assistant system: GitHub proposals, Slack discussions, and YouTube sessions become curated FAQ records. The FAQ joins the docs website and course repository Markdown in a ZeroSearch index deployed with the FAQ assistant Lambda. Slack threads use Au-Tomator to exchange questions and answers with the assistant">
   <figcaption>The complete path from community knowledge to a Slack answer</figcaption>
   <!-- The upper half captures and indexes knowledge, while the lower half serves questions and answers through Slack -->
 </figure>
 
-Following the diagram end to end:
-
 - I turn GitHub issues, useful Slack discussions, and live-session transcripts into reviewed FAQ records.
-- I combine the FAQ, docs website, and course-repository Markdown into a ZeroSearch index with about 3,300 chunks. I rebuild and package the index with the Lambda after every push and once a day.
-- A mention or `:faq:` reaction triggers Au-Tomator. It determines the course scope, asks the assistant, and posts the sourced answer back to the thread.
+- I combine the FAQ, docs website, and course-repository Markdown into a zerosearch index. The index is rebuilt every time we push to the FAQ repo.
+- A mention or `:faq:` reaction triggers Au-Tomator that sends the question to the FAQ assistant and publishes the answer in Slack.
 - I use wrong and missing answers as evaluation cases and FAQ updates, so the next index contains the correction.
-
-I evaluate what enters the FAQ separately from what retrieval and generation return. I run both evaluation suites on real failures, not in CI.
-
-I keep the runtime small: three Lambdas, one zero-dependency search library and no database.
