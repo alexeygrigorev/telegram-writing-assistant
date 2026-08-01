@@ -12,58 +12,64 @@ FAQ assistant is the system that we use in DataTalks.Club to help thousands of o
 
 There are two components of this system:
 
-- FAQ curation: adding data to the FAQ dataset. Students can contribute questions, but I also can get them from Slack and from YouTube videos. This is the dataset with the FAQ data that I also often use in courses. It lives in [DataTalksClub/faq](https://github.com/DataTalksClub/faq)
-- FAQ retrieval: using the assistant in Slack to answer questions from the students. It lives in [DataTalksClub/faq-assistant](https://github.com/DataTalksClub/faq-assistant) that runs on Lambda.
+- FAQ curation: building the FAQ dataset from student contributions, Slack discussions, and YouTube transcripts. It lives in [DataTalksClub/faq](https://github.com/DataTalksClub/faq).
+- FAQ retrieval: the Slack bot that answers students' questions using this dataset. It lives in [DataTalksClub/faq-assistant](https://github.com/DataTalksClub/faq-assistant) and runs on AWS Lambda.
 
 
-In this article, I want to describe this project in more detail:
+In this article, I want to describe these components and the entire project in more detail:
 
-- include all the decisions I made and explain why I made them.
-- describe the architecture of this application,
-- how the data flows through the system
-- all the data sources
+- the data sources and how they become the FAQ dataset
+- the architecture and how data flows through it
+- the decisions I made and why I made them
+- how I evaluate each part of the system
 
-My plan is to later include the link to this article to my CV, so if I decide to use it to apply for AI engineering roles, a hiring team can read it and see what the project actually involved.
-I see it as a part of [learning in public](https://alexeyondata.substack.com/p/benefits-of-learning-in-public-and) and sharing what I learned.
+## ZoomcampQABot
 
-You can also use it as an example for describing your own projects, even if you don't include them in your CV. If you decide to use it as a template, make sure to tag me on social media!
+Yes, I already wrote about the FAQ assistant in [From Google Docs to an Automated FAQ System for DataTalks.Club Courses](https://alexeyondata.substack.com/p/from-google-docs-to-an-automated).
 
+In that article, I described the bot `ZoomcampQABot` developed by Alex Litvinov. When it ocassionally breaks down, I have to pull in Alex and ask him to fix the issue. Sometimes it would be handling an expired key, or sometimes it's fixing a small bug.
 
-## FAQ Assistant
+Two months ago his OpenAI account ran out of money, so the bot stopped working, and I pinged him again. I always felt bad that he uses his own money to pay for the project, so I offered to take it over and run it in the DataTalks.Club infra. Typically he'd decline it, but this time he agreed.
 
-I already wrote about the FAQ assistant in [From Google Docs to an Automated FAQ System for DataTalks.Club Courses](https://alexeyondata.substack.com/p/from-google-docs-to-an-automated). But some things changed since I published it.
+This is the setup Alex uses:
 
-Occasionally ZoomcampQABot breaks down. When it happens, I have to pull Alex Litvinov in (he's the bot maintainer) and ask him to fix the issues. Sometimes it would be handling an expired key, or sometimes it's fixing a small bug.
-
-Two months ago his OpenAI account run out of money, so I had to ping him. I always felt bad that he uses his own money to pay for the project, so I again suggested that I take it over and we run it in the DataTalks.Club infra. Typically he'd decline it, but this time he agreed.
-
-This is the setup Alex used:
-
-- OpenAI for the bot (RAG)
+- OpenAI for generating the answers
 - Fly.io for hosting
-- Vector search via Milvus, running on Zilliz Cloud in production across two different Zilliz accounts. There are four separate collections and four separate query engines, one per course channel.
-- Data is ingested from three sources: the FAQ dataset from GitHub, Slack history, and YouTube transcripts. Each course had its own ingest entrypoint, each running on its own cron job in GitHub Actions.
-- YouTube videos for courses are ingested manually.
-- Cohere for reranking and HuggingFace embeddings
+- HuggingFace for embeddings
+- Milvus for vector search, running on Zilliz Cloud in production, with four collections and query engines
+- Cohere for reranking
 - Upstash Redis as an embeddings cache
 - LangSmith for feedback logging
 
+The data comes from three sources:
+
+- the FAQ dataset from GitHub
+- Slack history
+- YouTube transcripts
+
+Each course has a separate ingest entrypoint on its own cron job in GitHub Actions. YouTube videos are pulled in manually.
+
 This setup makes a lot of sense, but I couldn't just port it easily to the DataTalks.Club infra. I wanted to use it in combination with the [Au-Tomator Slack Bot](https://github.com/DataTalksClub/au-tomator-lambda) that I described in [Building and Maintaining a Slack Moderation Bot for an 88k-Member Community](https://alexeyondata.substack.com/p/building-and-maintaining-a-slack).
 
-The Au-Tomator bot runs on Serverless - on AWS Lambda. It's been running for years now and I never had to pay for it. It was always under the free tier for AWS Lambda usage. And when I have to pay for it, it would be minimal.
+The Au-Tomator bot runs on Serverless - on AWS Lambda. It's been running for years now and I never had to pay for it. It was always under the free tier for AWS Lambda usage. And when I have to pay for it, it would be minimal. So I wanted to run the FAQ bot on Serverless too.
 
-So I wanted to run the FAQ bot on Serverless too. I'll describe the architecture I came up with later in the article, but for now I want to talk about the dataset for that bot: the FAQ dataset. The decisions I made about architecture were influenced by the dataset and its content, so we should talk about it first.
+I'll describe the architecture I came up with later in the article. For now I want to talk about the dataset for that bot: the FAQ dataset. The decisions I made about architecture were influenced by the dataset and its content, so we should talk about it first.
 
 
 ## Part 1: The FAQ Dataset
 
 I maintain the FAQ dataset in https://datatalks.club/faq. We host the website via GitHub pages and the data is in git in the [DataTalksClub/faq](https://github.com/DataTalksClub/faq) repository.
 
-Previously it lived in a bunch of Google Docs. It was frequently vandalized, so I had to manually roll it back. Plus I was spending a lot of time on curating it, so I wanted to automate some parts of it with coding agents. Using coding agents in Google Docs is quite problematic. It's much better when it's a bunch of markdown files in your file system. I described the migration process in [From Google Docs to an Automated FAQ System for DataTalks.Club Courses](https://alexeyondata.substack.com/p/from-google-docs-to-an-automated).
+Previously it lived in a bunch of Google Docs. Google Docs is convenient, but this approach had a few problems:
 
-Now with AI assistants I spend less time maintaining this dataset, can keep it clear and up-to-date.
+- It was frequently vandalized, so I had to manually roll it back.
+- I wanted to automate some parts of dataset curation with AI, but using AI asssitants in Google Docs is not trivial.
 
-There are multiple sources of questions:
+Eventually I moved away from Google Docs to a bunch of markdown files. I described the migration process in [From Google Docs to an Automated FAQ System for DataTalks.Club Courses](https://alexeyondata.substack.com/p/from-google-docs-to-an-automated).
+
+Now with AI assistants I spend less time maintaining this dataset, and I can keep it clean and up-to-date.
+
+There are multiple sources of questions for the FAQ dataset:
 
 - The questions that people contributed via GitHub
 - Discussions in Slack
@@ -72,44 +78,40 @@ There are multiple sources of questions:
 
 ## User-Contributed FAQ Records
 
-Anyone who's taking our course can contribute to the FAQ dataset. Previously it was via a Google document, and now by submitting a GitHub issue.
-
-This is how it works now:
+Anyone can contribute to the FAQ dataset:
 
 - You submit an issue, specifying the question, the course and your answer
 - A script runs via GitHub Actions: it indexes the entire dataset using minsearch
 - Then we search twice: with the questions alone, and with both question and answer combined. Then we combine the two results with reciprocal rank fusion
-- Next, we do a RAG variation: we send the retrieved results to OpenAI, and get back structured output with one of the decisions: new, update, duplicate or wrong course.
-- If it's new and update, we create a branch, commit the file, and open a pull request.
-- If it's a duplicate or wrong course, we close the issue.
+- Next, we do a RAG variation: we send the retrieved results to OpenAI, and get back structured output with one of the decisions: `NEW`, `UPDATE`, `DUPLICATE` or `WRONG_COURSE`.
+- If it's `NEW` or `UPDATE`, we create a branch, commit the file, and open a pull request.
+- If it's `DUPLICATE` or `WRONG_COURSE`, we close the issue.
 
 
-## FAQ Record Evaluation
-
-When the first version of the script was created, we didn't have any evaluation set. It was doing fine and I mostly relied on my gut feeling to make sure it worked okay.
+When the first version of the script was created, we didn't have any evaluation set. I mostly relied on my gut feeling to make sure it worked okay.
 
 But as more people started using it, it started making more incorrect decisions. So I finally had to take care of the evals. Otherwise I'd risk breaking the whole thing with any next change I make. 
 
 For creating the evaluation dataset I used historical data: I analyzed the issues where I needed to correct the submissions after the script worked, and selected cases that are quite different from each other. I wanted to have a representative set of cases that would test the system from different angles.
 
-Not all decisions made by the script are equal. If the agent makes a mistake in a NEW or UPDATE decision, it's easy to correct, and I use AI assistants to help me with that.
+Not all decisions made by the script are equal. If the agent makes a mistake in a `NEW` or `UPDATE` decision, it's easy to correct, and I use AI assistants to help me with that.
 
-But if the decision is DUPLICATE or WRONG_COURSE, the PR will never be created, and the issue will be closed. In this case, I will not even have a chance to review them. Thus, a mistake in this case is more expensive, so I had to make sure that these cases don't happen very often.
+But if the decision is `DUPLICATE` or `WRONG_COURSE`, the PR will never be created, and the issue will be closed. In this case, I will not even have a chance to review them. Thus, a mistake in this case is more expensive, so I had to make sure that these cases don't happen very often.
 
 
 There's also a problem with collecting the evals data from historical decisions. The FAQ data is constantly changing, so we have to use a "leave-one-out" setup.
 
-When the script decides that something is NEW and we later use it in the evals, it's no longer NEW: the item was already merged into the dataset. So if we run it with the new issue using the updated version of the dataset, it will say DUPLICATE instead of NEW.
+When the script decides that something is `NEW` and we later use it in the evals, it's no longer `NEW`: the item was already merged into the dataset. So if we run it with the new issue using the updated version of the dataset, it will say `DUPLICATE` instead of `NEW`.
 
-In order to properly test the NEW cases, we therefore need to remove the record from our dataset. So if we have 200 records, and the record D is the one we added, we remove the D and test this case against the remaining 199 records.
+In order to properly test the `NEW` cases, we therefore need to remove the record from our dataset. So if we have 200 records, and the record D is the one we added, we remove the D and test this case against the remaining 199 records.
 
 Right now I have 61 cases:
 
-- 38 expecting a new entry
-- 10 duplicates
-- 7 wrong-course
-- 4 not-wrong-course
-- 2 updates
+- 38 expecting `NEW`
+- 10 expecting `DUPLICATE`
+- 7 expecting `WRONG_COURSE`
+- 4 not expecting `WRONG_COURSE`
+- 2 expecting `UPDATE`
 
 I eventually switched from gpt-4o-mini to gpt-5.4-nano, because it didn't have any false positives in the important cases, and it wasn't as flaky - the eval runs produced consistent results with this version.
 
@@ -168,9 +170,9 @@ flowchart TD
     YT[YouTube session transcripts] --> EXTRACT[Question extraction from transcripts]
 
     WF --> AGENT[FAQ agent: two searches, reciprocal rank fusion, one structured call]
-    AGENT --> NEW[new or update: branch and pull request]
-    AGENT --> DUP[duplicate: close the issue as completed]
-    AGENT --> WRONG[wrong course: close the issue as not planned]
+    AGENT --> NEW[NEW or UPDATE: branch and pull request]
+    AGENT --> DUP[DUPLICATE: close the issue as completed]
+    AGENT --> WRONG[WRONG_COURSE: close the issue as not planned]
 
     NEW --> BATCH[Weekly batch review with Claude Code or Codex]
     FETCH --> CURATE[Human plus agent curation into granular questions]
