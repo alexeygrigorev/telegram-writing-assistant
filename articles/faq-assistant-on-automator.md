@@ -6,11 +6,9 @@ tags: [faq, automator, agents, datatalks-club, search, serverless, article-idea]
 status: draft
 ---
 
-Recently I ran a workshop on [tailoring your CV for AI engineering roles](https://aishippinglabs.com/workshops/tailor-cv-ai-engineering), using my own CV as the example. There, I added a "projects" section in my CV, and included the FAQ Assistant as one of the projects.
-
 FAQ assistant is the system that we use in DataTalks.Club to help thousands of our students find the answers to their questions faster.
 
-There are two components of this system:
+There are two components:
 
 - FAQ curation: building the FAQ dataset from student contributions, Slack discussions, and YouTube transcripts. It lives in [DataTalksClub/faq](https://github.com/DataTalksClub/faq).
 - FAQ retrieval: the Slack bot that answers students' questions using this dataset. It lives in [DataTalksClub/faq-assistant](https://github.com/DataTalksClub/faq-assistant) and runs on AWS Lambda.
@@ -27,11 +25,11 @@ In this article, I want to describe these components and the entire project in m
 
 Yes, I already wrote about the FAQ assistant in [From Google Docs to an Automated FAQ System for DataTalks.Club Courses](https://alexeyondata.substack.com/p/from-google-docs-to-an-automated).
 
-In that article, I described the bot `ZoomcampQABot` developed by Alex Litvinov. When it ocassionally breaks down, I have to pull in Alex and ask him to fix the issue. Sometimes it would be handling an expired key, or sometimes it's fixing a small bug.
+In that article, I described the `ZoomcampQABot` bot developed by Alex Litvinov. When it ocassionally breaks down, I have to pull in Alex and ask him to fix the issue. Sometimes it would be handling an expired key, or sometimes it's fixing a small bug.
 
-Two months ago his OpenAI account ran out of money, so the bot stopped working, and I pinged him again. I always felt bad that he uses his own money to pay for the project, so I offered to take it over and run it in the DataTalks.Club infra. Typically he'd decline it, but this time he agreed.
+Two months ago his OpenAI account ran out of money, so the bot stopped working. I had to ping Alex again. I always felt bad that he uses his own money to pay for the project, so I offered to take it over and run it in the DataTalks.Club infra. Typically he'd decline it, but this time he agreed.
 
-This is the setup Alex uses:
+This is the setup `ZoomcampQABot` uses:
 
 - OpenAI for generating the answers
 - Fly.io for hosting
@@ -51,23 +49,22 @@ Each course has a separate ingest entrypoint on its own cron job in GitHub Actio
 
 This setup makes a lot of sense, but I couldn't just port it easily to the DataTalks.Club infra. I wanted to use it in combination with the [Au-Tomator Slack Bot](https://github.com/DataTalksClub/au-tomator-lambda) that I described in [Building and Maintaining a Slack Moderation Bot for an 88k-Member Community](https://alexeyondata.substack.com/p/building-and-maintaining-a-slack).
 
-The Au-Tomator bot runs on Serverless - on AWS Lambda. It's been running for years now and I never had to pay for it. It was always under the free tier for AWS Lambda usage. And when I have to pay for it, it would be minimal. So I wanted to run the FAQ bot on Serverless too.
+The Au-Tomator bot runs on Serverless - on AWS Lambda. It's been running for years now and I never had to pay for it: it was always under the free tier for AWS Lambda usage. And when I have to pay for it, I expect it to be minimal. So I wanted to run the FAQ bot on Serverless too.
 
-I'll describe the architecture I came up with later in the article. For now I want to talk about the dataset for that bot: the FAQ dataset. The decisions I made about architecture were influenced by the dataset and its content, so we should talk about it first.
-
+So I had to redesign the Slack bot. I'll describe the result later in the article, but now I'll cover the main data source: the FAQ dataset. This dataset influenced many architectural decisions in the assistant, so I want to talk about it first.
 
 ## Part 1: The FAQ Dataset
 
-I maintain the FAQ dataset in https://datatalks.club/faq. We host the website via GitHub pages and the data is in git in the [DataTalksClub/faq](https://github.com/DataTalksClub/faq) repository.
+The FAQ dataset is [open for everyone](https://datatalks.club/faq). We host the website via GitHub pages and the data is in the [DataTalksClub/faq](https://github.com/DataTalksClub/faq) repository.
 
-Previously it lived in a bunch of Google Docs. Google Docs is convenient, but this approach had a few problems:
+Previously it lived in a bunch of Google Docs. It was convenient, but this approach had a few problems:
 
-- It was frequently vandalized, so I had to manually roll it back.
-- I wanted to automate some parts of dataset curation with AI, but using AI asssitants in Google Docs is not trivial.
+- It was frequently vandalized, so I had to manually roll the documents back.
+- I wanted to automate the curation with AI, but using AI in Google Docs is not trivial.
 
-Eventually I moved away from Google Docs to a bunch of markdown files. I described the migration process in [From Google Docs to an Automated FAQ System for DataTalks.Club Courses](https://alexeyondata.substack.com/p/from-google-docs-to-an-automated).
+Eventually I moved the data to a bunch of markdown files. I described the migration process in [From Google Docs to an Automated FAQ System for DataTalks.Club Courses](https://alexeyondata.substack.com/p/from-google-docs-to-an-automated).
 
-Now with AI assistants I spend less time maintaining this dataset, and I can keep it clean and up-to-date.
+Now with AI assistants I spend a lot less time maintaining this dataset, and I can keep it clean and up-to-date.
 
 There are multiple sources of questions for the FAQ dataset:
 
@@ -82,30 +79,40 @@ Anyone can contribute to the FAQ dataset:
 
 - You [submit an issue](https://github.com/DataTalksClub/faq/blob/main/CONTRIBUTING.md), specifying the question, the course and your answer.
 - A GitHub Actions workflow indexes the entire dataset with minsearch.
-- It searches twice - on the question alone, and on the question and answer together - and combines the two results with reciprocal rank fusion.
+- It then searches twice - on the question alone, and on the question and answer together - and combines the two results with reciprocal rank fusion.
 - It sends the results to OpenAI, which returns a structured decision: `NEW`, `UPDATE`, `DUPLICATE` or `WRONG_COURSE`.
-- For `NEW` or `UPDATE`, it commits the file and opens a pull request.
+- For `NEW` or `UPDATE`, it opens a pull request.
 - For `DUPLICATE` or `WRONG_COURSE`, it closes the issue.
 
-<img src="../assets/images/faq-assistant-on-automator/faq-contribution-workflow.svg" alt="FAQ contribution workflow: an issue triggers dataset indexing, question-only and full-record searches, reciprocal rank fusion, an LLM decision, and either a pull request or issue closure">
+<figure>
+  <img src="../assets/images/faq-assistant-on-automator/faq-contribution-workflow.svg" alt="FAQ contribution workflow: an issue triggers dataset indexing, question-only and full-record searches, reciprocal rank fusion, an LLM decision, and either a pull request or issue closure">
+  <figcaption>How a user-contributed FAQ issue is classified and handled</figcaption>
+  <!-- The workflow searches the FAQ in two ways, combines the rankings, and asks the LLM to classify the contribution before opening a pull request or closing the issue -->
+</figure>
 
 ## FAQ Automation Evaluations
 
-When the first version of the script was created, we didn't have any evaluation set. I mostly relied on my gut feeling as it was okay for some time. But as more people started using it, the number of incorrect decisions incresed. So I needed to improve it. Naturally, I didn't want to fix it blindly and just hope for the best: I needed a proper evaluation framework.
+When the first version of the script was created, we didn't have any evaluation set. I mostly relied on my gut feeling. But as more people started using it, the number of incorrect decisions incresed. I needed to improve it. Naturally, I didn't want to fix it blindly and just hope for the best: I needed a proper evaluation framework.
 
-For creating it, I used those incorrect decisions. I analyzed the issues where I needed to manually adjust the result, and focused on the cases that were different from each other.
+For creating it, I used those incorrect decisions. I analyzed the issues where I needed to manually adjust the result, and focused on the cases that were sufficiently different from each other.
 
 Not all decisions made by the script are equal. If the agent makes a mistake in a `NEW` or `UPDATE` decision, it's easy to correct. I use AI assistants to help me with that.
 
-But if the decision is `DUPLICATE` or `WRONG_COURSE`, the PR will never be created, and the issue will be closed. In this case, I will not even have a chance to review them. Thus, a mistake in this case is way more expensive, so I had to make sure that these cases don't happen very often.
+But if the decision is `DUPLICATE` or `WRONG_COURSE`, the PR will never be created, and the issue will be closed. In this case, I will not even have a chance to review them. Thus, a mistake in this case is way more expensive. Which means, I had to give these cases more importance in the eval set to make sure that these cases don't happen often.
 
 There's also a problem with collecting the evals data from historical decisions. The FAQ data is constantly changing, so we have to use a "leave-one-out" setup.
 
-When the script decides that something is `NEW` and we later use it in the evals, it's no longer `NEW`: the item was already merged into the dataset. So if we run it with the new issue using the updated version of the dataset, it will say `DUPLICATE` instead of `NEW`.
+When the script decides that something is `NEW` and we later use it in the evals, it's no longer `NEW`: the item was already merged into the dataset. So if we run it with the same issue again, it will say `DUPLICATE` instead of `NEW`.
 
-In order to properly test the `NEW` cases, we therefore need to remove the record from our dataset. So if we have 200 records, and the record D is the one we added, we remove the D and test this case against the remaining 199 records.
+In order to properly test the `NEW` cases, we therefore need to remove the record from our dataset. So if we have 200 records, and the record `D` is the one we added, we remove the `D` and test this case against the remaining 199 records.
 
-<img src="../assets/images/faq-assistant-on-automator/leave-one-out-evaluation.svg" alt="Leave-one-out evaluation: remove record D from the current 200-record FAQ dataset, then run the held-out issue D through the FAQ workflow using the remaining 199 records to recover the expected NEW decision">
+<figure>
+  <img src="../assets/images/faq-assistant-on-automator/leave-one-out-evaluation.svg" alt="Leave-one-out evaluation: remove record D from the current 200-record FAQ dataset, then run the held-out issue D through the FAQ workflow using the remaining 199 records to recover the expected NEW decision">
+  <figcaption>Leave-one-out evaluation for a historical NEW decision</figcaption>
+  <!-- Record D must be removed from the current dataset before replaying its original issue; otherwise the evaluator sees the already-merged record and returns DUPLICATE -->
+</figure>
+
+When I analyzed all my past corrections, the most common error turned out to be incorrect section placement. For example, instead of placing a record about projects in the "Project" section, it would place it in "General". My eval set also tests for that.
 
 Right now I have 61 cases:
 
@@ -115,44 +122,44 @@ Right now I have 61 cases:
 - 4 not expecting `WRONG_COURSE`
 - 2 expecting `UPDATE`
 
-I eventually switched from gpt-4o-mini to gpt-5.4-nano, because it didn't have any false positives in the important cases, and it wasn't as flaky - the eval runs produced consistent results with this version.
-
-Most of the corrections I made manually for the new records were because the model would choose a wrong section for the FAQ entry, so these 38 cases also test that. It now picks the right section for most of them, and the per-case results are tracked in the eval suite in the repo.
-
 In addition to testing the whole flow, I have a retrieval-only evaluation set.
 I use this part to test that duplicate detection works correctly. This part is less interesting, so I'll skip it. You can read more about it in the [project's README](https://github.com/DataTalksClub/faq/#retrieval).
 
-<img src="../assets/images/faq-assistant-on-automator/eval-suites.png" alt="Comparison of the two FAQ evaluation suites: a 25-case retrieval suite running in about two seconds with recall at five of 0.840, and a 61-case generation suite running in about two minutes with 42 passing cases on gpt-5.4-nano">
+<figure>
+  <img src="../assets/images/faq-assistant-on-automator/eval-suites.png" alt="Comparison of the two FAQ evaluation suites: a 25-case retrieval suite running in about two seconds with recall at five of 0.840, and a 61-case generation suite running in about two minutes with 42 passing cases on gpt-5.4-nano">
+  <figcaption>The retrieval and generation evaluation suites</figcaption>
+  <!-- The two suites test different layers of the automation: fast search quality and slower end-to-end classification with an LLM -->
+</figure>
 
 
 ## Bulk Reviewing
 
 I usually let the PRs accumulate and process them every two weeks.
 
-For that, I use AI assistants. I have a [custom skill](https://github.com/DataTalksClub/faq/tree/main/.claude/skills/clear-backlog) that lets me go through each PR and merge it as is, or fix it if it's not correct.
+For that, I use AI assistants. I have a [custom skill](https://github.com/DataTalksClub/faq/blob/main/.claude/skills/clear-backlog/SKILL.md) that lets me go through each PR and merge it as is, or fix it if it's not correct.
 
 <figure>
-  <img src="../assets/images/faq-assistant-on-automator/automator-faq-fix-report.jpg" alt="Screenshot of an agent report about correcting a certificate requirement in the FAQ, listing two new commits and the validation test results">
-  <figcaption>An Automator run correcting the certificate requirement in the FAQ</figcaption>
-  <!-- Concrete example of the correction workflow described above: a correction goes in, the agent commits it across the faq and faq-assistant repos and reports the test results -->
+  <img src="../assets/images/faq-assistant-on-automator/backlog-skill.png" alt="Claude Code loading the clear-backlog skill, reading the repository conventions, and listing the open pull request backlog">
+  <figcaption>Starting a bulk FAQ review with the clear-backlog skill</figcaption>
+  <!-- The skill prepares the review session by loading the repository conventions and fetching the open pull requests that need decisions -->
 </figure>
 
-If I come across an interesting error, I ask the assistant to add it to our evals set. I don't try to fix it immediately. I wait till we have a few more cases, then I ask the assistant to see what we can do to fix these issues, and make sure that our model not only does better on them, but also we introduce no regression on the previous cases.
+If I come across an interesting error, I ask the assistant to add it to our evals set. I don't try to fix it immediately. I wait till we have a few more cases, then I ask the assistant to see if there are simple ways to fix them.
 
-If some cases can't be fixed easily, I don't sweat over it. I want to keep the  system for adding new questions simple. I don't want to have a huge prompt that covers all possible corner cases. This means that sometimes a case I add stays there as a case that fails. 
-
-
-Some course participants skip the contribution guide and create an issue with a plain description. There's no tag and they don't follow the format, so the automation doesn't work. 
-
-I process these issues in my biweekly sessions. The agent uses a process similar to what I described above (with indexing the dataset). Most of these issues are closed as a duplicates though. 
-
+If some cases can't be fixed easily, I don't sweat over it. I just let it sit in the evals with a FAIL status. I don't want the system prompt to grow too large and handle all the corner cases. But I do want to know that these corner cases exist.
 
 
 ## Other Sources: Slack and YouTube
 
-When we're running our courses, our Slack is very active. Course participants are asking questions and helping each other. In many cases, these discussions are worth saving in the FAQ dataset.
+Our Slack is very active. Course participants are asking questions and helping each other. In many cases, these discussions are worth saving in the FAQ dataset.
 
-For that I regularly go through all the Slack threads. I ask my AI assistant to go through each thread following a similar process. If something is new, it adds this information as new records.
+<figure>
+  <img src="../assets/images/faq-assistant-on-automator/slack-llm-zoomcamp.png" alt="LLM Zoomcamp Slack channel with several course participants asking about project deadlines, submissions, and the number of required projects">
+  <figcaption>Recurring deadline and submission questions in the LLM Zoomcamp Slack</figcaption>
+  <!-- Repeated course questions in active Slack channels are useful candidates for durable FAQ records -->
+</figure>
+
+For that I regularly go through all the Slack threads. I ask my AI assistant to go through each thread, and if something is useful, it's saved as a new record.
 
 Also, for each course I run a few live YouTube sessions, for example:
 
@@ -160,87 +167,61 @@ Also, for each course I run a few live YouTube sessions, for example:
 - course launch streams
 - occasional office hours
 
-I get the transcript and use AI assistant to extract potential Q&A candidates. If there's something new, I add it to the FAQ dataset directly.
-
+I get the transcript and use AI assistant to extract potential Q&A candidates. If there's something new, it also goes to the dataset.
 
 
 ## Part 1 Overview
 
-```mermaid
-flowchart TD
-    ISSUE[Open a FAQ Proposal issue] --> INDEX[Index the FAQ dataset]
-    INDEX --> QUESTION[Search with the question]
-    INDEX --> FULL[Search with the question and answer]
-    QUESTION --> RRF[Reciprocal rank fusion]
-    FULL --> RRF
-    RRF --> LLM[Send results to the LLM]
-    LLM --> NEW[NEW]
-    LLM --> UPDATE[UPDATE]
-    LLM --> DUP[DUPLICATE]
-    LLM --> WRONG[WRONG_COURSE]
-    NEW --> PR[Commit the file and open a pull request]
-    UPDATE --> PR
-    DUP --> CLOSE[Close the issue]
-    WRONG --> CLOSE
+The main focus of the first part is the dataset curation.
 
-    P2[Participant opens a plain unlabelled issue] --> BATCH
-    SL[Slack course channels] --> FETCH[Fetch and scan scripts]
-    YT[YouTube session transcripts] --> EXTRACT[Question extraction from transcripts]
+I review all the PRs that our FAQ automation creates in batches, and use AI to turn Slack discussions and YouTube videos into focused FAQ records.
 
-    PR --> BATCH[Weekly batch review with Claude Code or Codex]
-    FETCH --> CURATE[Human plus agent curation into granular questions]
-    EXTRACT --> CURATE
-
-    BATCH --> MERGE[Merge into _questions/]
-    CURATE --> MERGE
-    MERGE --> SITE[FAQ website rebuilt and republished as JSON]
-```
-
-## Part 2: Retrieval and the Slack Bot
-
-Now back to the retrieval side. This dataset is used as the main data source for the Slack bot. 
-
-When you mention @Au-Tomator (my bot) or @ZoomcampQABot from Alex, both would perform RAG:
-
-- Use search to fetch the candidate FAQ records 
-- Pass them to OpenAI 
-- Return the answer from the LLM and post it in the thread as a reply 
-
-The original FAQ bot has a lot of moving parts though. Most of them are not straightforward to deploy to the serverless environment:
-
-- ingestion from Slack
-- ingestion from YouTube
-- vector search
-
-So I decided to simplify it.
-
-Previously, the system would index all Slack threads, and chunk all the YouTube videos and index them too. Now I extract the important information from these sources and put it directly to the FAQ dataset, so I can drop both Slack and YouTube, and focus only on the FAQ dataset.
-
-There's one more source I added: the [docs site](https://datatalks.club/docs/). Every year I do the same intro in the launch streams when I start a course. Instead of repeating the same information over and over again, I'd rather have a Q&A session and have course participants ask me questions. So what I did was take all the YouTube videos we had, all the Slack messages, and have AI assistants analyze all that and come up with a documentation website. Then I used this as a source too.
+<figure>
+  <img src="../assets/images/faq-assistant-on-automator/faq-dataset-sources-overview.svg" alt="Three sources feed the curated FAQ dataset: GitHub issues pass through automated screening and batch review, while Slack threads and YouTube sessions pass through AI-assisted extraction">
+  <figcaption>Three sources, two curation paths, and one FAQ dataset</figcaption>
+  <!-- Part 1 at a glance: structured GitHub contributions and extracted knowledge from Slack and YouTube converge in the same curated Markdown dataset -->
+</figure>
 
 
-Second, I removed the vector database. I know that it improves retrieval, but at the cost of having to maintain more infra. I want to keep the setup very lean, and if the bot is sometimes not right, I can simply correct it.
+Now let's go back to the retrieval side. This FAQ dataset is used as the main data source for the Slack bot.
+
+## Part 2: Slack Bot
+
+When you mention `@Au-Tomator` (my bot) or `@ZoomcampQABot` from Alex, both would perform RAG:
+
+- Use search to fetch the candidate FAQ records
+- Pass them to OpenAI
+- Return the answer from the LLM and post it in the thread as a reply
+
+`ZoomcampQABot` has a lot of moving parts though. Most of them are not straightforward to deploy to the serverless environment. So I decided to simplify it.
+
+The first thing I dropped was indexing Slack threads and YouTube videos. I already extract this information and put it directly to the FAQ dataset, so this part is not needed anymore.
+
+Second, I removed the vector database. I know that it improves retrieval, but at the cost of having to maintain more infra. I want to keep the setup very lean. If the bot is sometimes not right, it's not a huge problem: I and other community members can simply correct it in Slack.
 
 
-## Zerosearch
+## Zero-Dependency Serverless Deployment
 
-However, even with text search via minsearch, the deploy to AWS Lambda wasn't trivial. I originally created minsearch to teach retrieval and RAG in my workshops and courses. I wrote about it in [Minsearch: The Small Search Library Behind My RAG Workshops and Courses](https://alexeyondata.substack.com/p/minsearch-the-small-search-library).
+My to-go search library for text search is minsearch. I wrote about it in [Minsearch: The Small Search Library Behind My RAG Workshops and Courses](https://alexeyondata.substack.com/p/minsearch-the-small-search-library).
 
-Because I created it for teaching, my main goal was to make it easy to implement and understand the code, so it uses Scikit-Learn and Pandas for that. These libraries are quite heavy already, but they also pull in NumPy and SciPy internally too. Every data scientist has these libraries in their standard setup, but for serverless they are quite heavy. Together they take well over 100 MB, and they have a lot of platform-dependent binaries.
+However, deploing minsearch to AWS Lambda isn't trivial. When I created this library, my focus was on teaching the concepts, not on deploying it to serverless environments. Internally, it users Scikit-Learn and Pandas, and these libraries in turn pull in numpy and scipy. Normally, everyone working with data already has these libraries in their standard setup. But for Lambda, they are too heavy and take well over the 50 MB limit.
 
 So I decided to replace minsearch with a zero-dependency search engine written entirely in pure-Python. I called it [zerosearch](https://github.com/alexeygrigorev/zerosearch). It has only one optional dependency - [stemlite](https://github.com/alexeygrigorev/stemlite), which is a stemmer I use across all my small search libraries (zerosearch, minsearch and [SQLiteSearch](https://alexeyondata.substack.com/p/how-i-built-sqlitesearch-a-lightweight)).
 
-I can use zerosearch in the usual AWS Lambda setup with just a Zip archive, so I don't need to worry about Docker containers. This is how I eventually deployed the Slack bot that I use for retrieval and since then I used zerosearch in AWS Lambda in a few other projects.
 
-Another challenge was Pydantic - fine for a traditional setup, but heavy for serverless. Pydantic v2 ships a compiled Rust core, so importing it isn't free: every cold start has to load that native extension and build the model schemas, and the wheels add several megabytes to the package. On a Lambda behind a Slack bot, cold starts happen often, so that import tax shows up in the latency of real messages - and the compiled binary brings back the same platform-dependent packaging problem I was trying to leave behind with minsearch.
+<figure>
+  <img src="../assets/images/faq-assistant-on-automator/lambda-package-size-comparison.svg" alt="Two-bar chart showing approximately 75 MB for the compressed scikit-learn and pandas dependency stack and 8 MB for the deployed Zerosearch bot, with a dashed reference line at the 50 MB AWS Lambda direct-upload ZIP limit">
+  <figcaption>The scientific Python stack exceeds Lambda's direct-upload limit; the Zerosearch deployment fits comfortably</figcaption>
+  <!-- The scientific stack measurement uses compressed CPython 3.12 manylinux x86-64 wheels and includes transitive dependencies. Pydantic is intentionally excluded because its serverless problem is the compiled Rust core and cold-start overhead, not crossing the 50 MB limit by itself -->
+</figure>
 
-So I removed it (and `requests` too), hand-rolling the structured models and calling OpenAI through the standard library instead.
+Another challenge was Pydantic. We typically use for structured output, and it works fine in usual environments, but it's not trivial to get it right for Lambda. It has a compiled Rust core, and you need to make sure the binaries that you send package into your Lambda deployment are compatible. Plus, loading the binaries core and building the model schemas adds to the cold start time.
 
-## Keeping the index fresh
+So I removed it along with `requests` and did all the calls to OpenAI using only the standard library.
 
-Then I started thinking about what to do with updating the index. If a record in the FAQ changes, the search needs to reflect it.
+## Keeping the Index Fresh
 
-Alex solved that by pulling in data using a daily cron job. But I wanted to do this as soon as the data in FAQ changes.
+Then I started thinking about what to do with updating the index. If a record in the FAQ changes, the search needs to reflect it. Alex solved that by pulling in data using a daily cron job. But I wanted to do this as soon as the data in FAQ changes.
 
 Almost all my projects have a CI/CD workflow: when I push to main, the code change is propagated to a live environment. I usually use it for code changes, but for this project I did the same for data changes too.
 
@@ -248,15 +229,23 @@ When a push happens, I re-build the whole index, and push it together with the s
 
 Once it's deployed, the lambda loads the local updated index, and can serve the fresh data.
 
+<figure>
+  <img src="../assets/images/faq-assistant-on-automator/keeping-index-fresh.svg" alt="A FAQ and documentation change triggers an index rebuild, and the new index is sent to AWS Lambda while a Slack user exchanges questions and replies with it">
+  <figcaption>Every push rebuilds and deploys the index used by subsequent Slack requests</figcaption>
+  <!-- The upper path refreshes the deployed index; the lower path shows the user exchanging questions and replies with the same Lambda -->
+</figure>
+
 
 ## FAQ Assistant Retrieval Evaluation
 
-I replaced vector search with text search, but I wanted to make sure I can squeeze the absolute best from text search. So I needed to have a proper evaluation set to make it possible. 
+I replaced vector search with text search, and used zerosearch to make it fast and work well in Serverless. But it would still lose to vector search in terms of retrieval quality.
 
-I built the ground truth dataset for this part from real Slack threads:
+How can I make sure I squeeze the absolute best from text search? For that I needed to have a proper evaluation set.
 
-- Get a Slack dump with all the course data
-- Take all 9,900 Slack threads
+I built the ground truth dataset from real Slack threads:
+
+- Get a Slack dump with all the course channels
+- Take all the Slack threads (9,900 of them)
 - Filter them down to keep actual questions
 
 At the end, I had a sample of 130 records:
@@ -265,9 +254,7 @@ At the end, I had a sample of 130 records:
 - 40 Stock Markets Analytics
 - 30 AI Dev Tools
 
-For each of the questions, I found and marked the correct documents in the index. 
-
-Then I evaluate hit-rate and MRR at k=1,3,5.
+For each of the questions, I found and marked the correct documents in the index. Then I evaluated the hit-rate and MRR at k=1,3,5.
 
 Once I had this dataset, I could start experimenting with search optimization.
 
@@ -277,29 +264,35 @@ I tried multiple options:
 - Keyword expansion
 - Different variants of query rewriting
 
-The winning option distills a chatty Slack message down to keywords while preserving exact error messages, tool names, commands and filenames.
+The best option takes a Slack message and turns it into a bunch of keywords while preserving exact error messages, tool names, commands and filenames.
 
-Over-compressing, or adding synonyms, makes things worse, because it drops the exact tokens keyword search depends on.
+For example, it turns this Slack message:
+
+> Does anyone know why minsearch fails when I run `uv run python index.py`? I get `KeyError: 'course'` after renaming `documents.json` to `faq.json`.
+
+The resulting keywords are:
+
+```text
+minsearch FAQ indexing course field "KeyError: 'course'" "uv run python index.py" index.py documents.json faq.json
+```
 
 For query rewriting I use `gpt-4o-mini` because it's fastest and cheapest, but for the actual generation I rely on `gpt-5.4-mini`. 
 
 ## FAQ Assistant Generation Evaluation
 
-In the previous part I explained how I evaluate search. I also evaluate generation separately. 
+In the previous part I explained how I evaluate search. I also evaluate generation.
 
-I built the evaluation using implicit feedback that I collect from Slack. When a bot answers a question, and I or somebody else later in the thread corrects it or add something extra, it means that the bot couldn't answer the question properly.
+For the evaluation dataset, I collect feedback from Slack. When a bot answers a question, and somebody corrects it or add something extra, it means that the bot couldn't answer the question properly. So we can include it in the evals.
 
-These are the examples I collect and include in the evaluation set.
-
-So far it's not large and has a few cases like
+So far it's not large and has a few cases like:
 
 - the answer from the bot is incomplete
 - the answer is incorrect
 - the search doesn't find anything
 
-Most of the time the way to fix these problems is not tuning the prompt, but going back to the FAQ dataset and seeing why a record wasn't retrieved, or why it didn't contain the correct information. 
+Most of the time the way to fix these problems is not tuning the prompt, but going back to the FAQ dataset and seeing why a record wasn't retrieved, or why it didn't contain the correct information.
 
-Then I'd fix the record, re-run evaluation to make sure these cases are handled now, and re-deploy the bot. 
+Then I'd fix the record, re-run evaluation, and re-deploy the bot.
 
 
 ## Deploying with Au-Tomator
@@ -315,9 +308,15 @@ And I added the third one:
 
 - The FAQ assistant: rewrites the question, searches the index, generates the answer, and returns it to the automator
 
-Now when you mention the bot, it first goes to the automator, and the automator sends it to the FAQ assistant. The assistant only gives the answer, and then the automator handles posting the response to Slack.
+Now when you mention the bot, it first goes to Au-Tomator, and then Au-Tomator sends it to the FAQ assistant. The assistant gets in the question, and send the answers. Posting the response to Slack is handled by Au-Tomator.
 
-As a bonus, now with this setup, I can trigger the FAQ assistant with `:faq:` reaction. Previously this reaction would only post a message to the Slack thread saying "Go check the FAQ"
+<figure>
+  <img src="../assets/images/faq-assistant-on-automator/au-tomator-faq-routing.svg" alt="Slack event flow through the existing Au-Tomator router and automator Lambdas to the new FAQ assistant Lambda, followed by the answer returning through the automator and being posted to Slack">
+  <figcaption>Au-Tomator routes Slack events to the FAQ assistant and posts the generated answer back to Slack</figcaption>
+  <!-- Gray arrows carry the request through the three Lambdas; green arrows carry the answer back through the automator to Slack -->
+</figure>
+
+As a bonus, now with this setup, I can trigger the FAQ assistant with `:faq:` reaction. Previously this reaction would only post a message to the Slack thread saying "Go check the FAQ".
 
 <figure>
   <img src="../assets/images/faq-assistant-on-automator/slack-old-faq-reaction.png" alt="Slack screenshot: someone reacts to a question with the :faq: emoji, and the only response is Au-Tomator posting a static 'Please check the FAQ' link">
@@ -327,11 +326,9 @@ As a bonus, now with this setup, I can trigger the FAQ assistant with `:faq:` re
 
 Now it actually checks the FAQ and generates the answer.
 
-And also, now it could answer questions outside of the course Slack channels too.
-
 <figure>
   <img src="../assets/images/faq-assistant-on-automator/automator-docs-only-answer.jpg" alt="Slack screenshot: a member asks when the next courses start, and Au-Tomator replies with the courses section, the events page, Luma and the Google calendar, citing a docs source">
-  <figcaption>A docs-scope answer outside the course channels - the question was never addressed to the bot</figcaption>
+  <figcaption>The bot processing the :faq: reaction</figcaption>
   <!-- Shows both new capabilities in one screenshot: the reply was triggered on a message that never mentioned the bot, and because the channel sits outside the course channels the answer comes from the documentation only, which is why the single cited source is [docs] Activities -->
 </figure>
 

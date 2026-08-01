@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1250" height="430" viewBox="0 0 1250 430" role="img" aria-labelledby="title desc">
+  <title id="title">FAQ dataset sources overview</title>
+  <desc id="desc">GitHub issues pass through automated screening and batch review. Slack threads and YouTube sessions pass through AI-assisted extraction. Both paths feed one curated Markdown FAQ dataset.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 10 5 0 10Z" fill="#64748b"/>
+    </marker>
+    <symbol id="icon-github" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M12 .7a11.5 11.5 0 0 0-3.64 22.41c.58.11.79-.25.79-.56v-2.23c-3.22.7-3.9-1.37-3.9-1.37-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.04 1.77 2.72 1.26 3.38.96.1-.75.4-1.26.74-1.55-2.57-.29-5.27-1.28-5.27-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.16 1.18a10.9 10.9 0 0 1 5.76 0c2.2-1.49 3.16-1.18 3.16-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.42-2.71 5.38-5.29 5.67.42.36.79 1.06.79 2.14v3.27c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .7Z"/>
+    </symbol>
+    <symbol id="icon-message" viewBox="0 0 24 24">
+      <path d="M4 4h16v12H9l-5 4Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M8 9h8M8 13h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="icon-video" viewBox="0 0 24 24">
+      <rect x="3" y="5" width="18" height="14" rx="3" fill="none" stroke="currentColor" stroke-width="2"/>
+      <path d="m10 9 5 3-5 3Z" fill="currentColor"/>
+    </symbol>
+    <symbol id="icon-settings" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="2"/>
+      <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="icon-pull-request" viewBox="0 0 24 24">
+      <circle cx="6" cy="5" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="6" cy="19" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="18" cy="19" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M6 7.5v9M15 5h1a2 2 0 0 1 2 2v9.5M13 2l3 3-3 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="icon-sparkles" viewBox="0 0 24 24">
+      <path d="m12 2 1.4 4.6L18 8l-4.6 1.4L12 14l-1.4-4.6L6 8l4.6-1.4ZM19 14l.8 2.2L22 17l-2.2.8L19 20l-.8-2.2L16 17l2.2-.8ZM5 14l.8 2.2L8 17l-2.2.8L5 20l-.8-2.2L2 17l2.2-.8Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="icon-database" viewBox="0 0 24 24">
+      <ellipse cx="12" cy="5" rx="8" ry="3" fill="none" stroke="currentColor" stroke-width="2"/>
+      <path d="M4 5v7c0 1.66 3.58 3 8 3s8-1.34 8-3V5M4 12v7c0 1.66 3.58 3 8 3s8-1.34 8-3v-7" fill="none" stroke="currentColor" stroke-width="2"/>
+    </symbol>
+    <style>
+      text { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #172033; text-anchor: middle; }
+      .label { font-size: 16px; font-weight: 700; }
+      .small { font-size: 14px; font-weight: 500; fill: #64748b; }
+      .line { fill: none; stroke: #64748b; stroke-width: 2.5; marker-end: url(#arrow); }
+      .connector { fill: none; stroke: #64748b; stroke-width: 2.5; }
+      .source { fill: #eff6ff; stroke: #60a5fa; stroke-width: 2; }
+      .conversation { fill: #f5f3ff; stroke: #a78bfa; stroke-width: 2; }
+      .process { fill: #fff7ed; stroke: #fb923c; stroke-width: 2; }
+      .review { fill: #f5f3ff; stroke: #a78bfa; stroke-width: 2; }
+      .dataset { fill: #ecfdf5; stroke: #34d399; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <path class="line" d="M250 70H290"/>
+  <path class="line" d="M510 70H580"/>
+  <path class="connector" d="M780 70H930V220"/>
+
+  <path class="connector" d="M250 250H500V310H550"/>
+  <path class="connector" d="M250 370H500V310"/>
+  <path class="line" d="M500 310H550"/>
+  <path class="connector" d="M810 310H930V220"/>
+  <path class="line" d="M930 220H990"/>
+
+  <rect class="source" x="30" y="30" width="220" height="80" rx="14"/>
+  <use href="#icon-github" x="48" y="55" width="28" height="28" color="#172033"/>
+  <text class="label" x="160" y="77">GitHub issues</text>
+
+  <rect class="process" x="290" y="30" width="220" height="80" rx="14"/>
+  <use href="#icon-settings" x="302" y="56" width="26" height="26" color="#9a3412"/>
+  <text class="label" x="420" y="65">Automated screening</text>
+  <text class="small" x="420" y="88">Classify contributions</text>
+
+  <rect class="review" x="580" y="30" width="200" height="80" rx="14"/>
+  <use href="#icon-pull-request" x="600" y="54" width="30" height="30" color="#172033"/>
+  <text class="label" x="701" y="65">Batch review</text>
+  <text class="small" x="701" y="88">Review pull requests</text>
+
+  <rect class="conversation" x="30" y="210" width="220" height="80" rx="14"/>
+  <use href="#icon-message" x="48" y="235" width="28" height="28" color="#172033"/>
+  <text class="label" x="160" y="257">Slack threads</text>
+
+  <rect class="conversation" x="30" y="330" width="220" height="80" rx="14"/>
+  <use href="#icon-video" x="48" y="355" width="28" height="28" color="#172033"/>
+  <text class="label" x="160" y="377">YouTube sessions</text>
+
+  <rect class="process" x="550" y="265" width="260" height="90" rx="14"/>
+  <use href="#icon-sparkles" x="570" y="296" width="28" height="28" color="#9a3412"/>
+  <text class="label" x="702" y="302">AI-assisted extraction</text>
+  <text class="small" x="702" y="329">Turn discussions into Q&amp;A</text>
+
+  <rect class="dataset" x="990" y="170" width="230" height="100" rx="16"/>
+  <use href="#icon-database" x="1000" y="205" width="28" height="28" color="#15803d"/>
+  <text class="label" x="1125" y="210">Curated FAQ dataset</text>
+  <text class="small" x="1125" y="239">Markdown records</text>
+</svg>

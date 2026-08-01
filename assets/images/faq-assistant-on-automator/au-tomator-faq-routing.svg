@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1140" height="270" viewBox="0 0 1140 270" role="img" aria-labelledby="title desc">
+  <title id="title">Deploying the FAQ assistant with Au-Tomator</title>
+  <desc id="desc">A Slack event passes through the existing Au-Tomator router and automator Lambdas to the new FAQ assistant Lambda. The FAQ assistant returns an answer to the automator, which posts the response to Slack.</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 10 5 0 10Z" fill="#64748b"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 10 5 0 10Z" fill="#16a34a"/>
+    </marker>
+    <symbol id="icon-api" viewBox="0 0 24 24">
+      <path d="m8 5-5 7 5 7M16 5l5 7-5 7M14 3l-4 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="icon-sparkles" viewBox="0 0 24 24">
+      <path d="m12 2 1.4 4.6L18 8l-4.6 1.4L12 14l-1.4-4.6L6 8l4.6-1.4ZM19 14l.8 2.2L22 17l-2.2.8L19 20l-.8-2.2L16 17l2.2-.8ZM5 14l.8 2.2L8 17l-2.2.8L5 20l-.8-2.2L2 17l2.2-.8Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="icon-search" viewBox="0 0 24 24">
+      <circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/>
+      <path d="m16 16 4.5 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </symbol>
+    <style>
+      text { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #172033; }
+      .eyebrow { font-size: 12px; font-weight: 800; letter-spacing: 1.1px; text-anchor: middle; }
+      .label { font-size: 17px; font-weight: 750; text-anchor: middle; }
+      .mention-icon { font-size: 27px; font-weight: 750; fill: #7c3aed; text-anchor: middle; }
+      .small { font-size: 14px; font-weight: 500; fill: #64748b; text-anchor: middle; }
+      .request { fill: none; stroke: #64748b; stroke-width: 2.5; marker-end: url(#arrow); }
+      .response { fill: none; stroke: #16a34a; stroke-width: 2.5; marker-end: url(#arrow-green); }
+      .slack { fill: #f5f3ff; stroke: #a78bfa; stroke-width: 2; }
+      .lambda { fill: #fff; stroke: #a78bfa; stroke-width: 2; }
+      .assistant { fill: #ecfdf5; stroke: #34d399; stroke-width: 2.5; }
+    </style>
+  </defs>
+
+  <path class="request" d="M240 110H280"/>
+  <path class="request" d="M490 110H550"/>
+  <path class="request" d="M770 110H860"/>
+  <text class="small" x="815" y="96">question</text>
+
+  <path class="response" d="M980 165V210H700V165"/>
+  <text class="small" x="840" y="201" fill="#15803d">answer</text>
+  <path class="response" d="M620 165V210H135V165"/>
+  <text class="small" x="378" y="201" fill="#15803d">post response</text>
+
+  <g filter="url(#shadow)">
+    <rect class="slack" x="30" y="55" width="210" height="110" rx="18"/>
+    <text class="mention-icon" x="60" y="119">@</text>
+    <text class="label" x="145" y="116">Slack mention</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect class="lambda" x="280" y="55" width="210" height="110" rx="18"/>
+    <text class="eyebrow" x="385" y="82" fill="#7c3aed">LAMBDA</text>
+    <use href="#icon-api" x="340" y="96" width="28" height="28" color="#7c3aed"/>
+    <text class="label" x="406" y="116">Router</text>
+    <text class="small" x="385" y="142">Filter + acknowledge</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect class="lambda" x="550" y="55" width="220" height="110" rx="18"/>
+    <text class="eyebrow" x="660" y="82" fill="#7c3aed">LAMBDA</text>
+    <use href="#icon-sparkles" x="585" y="96" width="28" height="28" color="#7c3aed"/>
+    <text class="label" x="672" y="116">Automator</text>
+    <text class="small" x="660" y="142">Orchestrate events</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect class="assistant" x="860" y="55" width="240" height="110" rx="18"/>
+    <text class="eyebrow" x="980" y="82" fill="#15803d">NEW LAMBDA</text>
+    <use href="#icon-search" x="898" y="96" width="28" height="28" color="#15803d"/>
+    <text class="label" x="998" y="116">FAQ assistant</text>
+    <text class="small" x="980" y="142">Search + generate</text>
+  </g>
+</svg>
