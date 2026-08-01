@@ -122,7 +122,7 @@ In addition to testing the whole flow, I have a retrieval-only evaluation set. T
 
 I usually let the PRs accumulate and process them every two weeks.
 
-For that, I use AI assistants. I have a custom skill that lets me go through each PR and merge it as is, or fix it if it's not correct.
+For that, I use AI assistants. I have a [custom skill](https://github.com/DataTalksClub/faq/tree/main/.claude/skills/clear-backlog) that lets me go through each PR and merge it as is, or fix it if it's not correct.
 
 <figure>
   <img src="../assets/images/faq-assistant-on-automator/automator-faq-fix-report.jpg" alt="Screenshot of an agent report about correcting a certificate requirement in the FAQ, listing two new commits and the validation test results">
@@ -218,7 +218,9 @@ So I decided to replace minsearch with a zero-dependency search engine written e
 
 I can use zerosearch in the usual AWS Lambda setup with just a Zip archive, so I don't need to worry about Docker containers. This is how I eventually deployed the Slack bot that I use for retrieval and since then I used zerosearch in AWS Lambda in a few other projects.
 
-Another challenge was Pydantic - fine for a traditional setup, but heavy for serverless. So I removed it (and `requests` too), hand-rolling the structured models and calling OpenAI through the standard library instead.
+Another challenge was Pydantic - fine for a traditional setup, but heavy for serverless. Pydantic v2 ships a compiled Rust core, so importing it isn't free: every cold start has to load that native extension and build the model schemas, and the wheels add several megabytes to the package. On a Lambda behind a Slack bot, cold starts happen often, so that import tax shows up in the latency of real messages - and the compiled binary brings back the same platform-dependent packaging problem I was trying to leave behind with minsearch.
+
+So I removed it (and `requests` too), hand-rolling the structured models and calling OpenAI through the standard library instead.
 
 ## Keeping the index fresh
 
@@ -302,6 +304,12 @@ And I added the third one:
 Now when you mention the bot, it first goes to the automator, and the automator sends it to the FAQ assistant. The assistant only gives the answer, and then the automator handles posting the response to Slack.
 
 As a bonus, now with this setup, I can trigger the FAQ assistant with `:faq:` reaction. Previously this reaction would only post a message to the Slack thread saying "Go check the FAQ"
+
+<figure>
+  <img src="../assets/images/faq-assistant-on-automator/slack-old-faq-reaction.png" alt="Slack screenshot: someone reacts to a question with the :faq: emoji, and the only response is Au-Tomator posting a static 'Please check the FAQ' link">
+  <figcaption>Before the migration, the :faq: reaction just dropped a static 'check the FAQ' link - no answer was generated</figcaption>
+  <!-- The old behavior: the reaction fires a canned reply and the member is left to go read the FAQ themselves. This is what the new setup replaces with a generated answer -->
+</figure>
 
 Now it actually checks the FAQ and generates the answer.
 
