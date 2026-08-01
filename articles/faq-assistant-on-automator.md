@@ -76,34 +76,36 @@ There are multiple sources of questions for the FAQ dataset:
 - Q&A videos on YouTube
 
 
-## User-Contributed FAQ Records
+## FAQ Automation: User-Contributed FAQ Records
 
 Anyone can contribute to the FAQ dataset:
 
-- You submit an issue, specifying the question, the course and your answer
-- A script runs via GitHub Actions: it indexes the entire dataset using minsearch
-- Then we search twice: with the questions alone, and with both question and answer combined. Then we combine the two results with reciprocal rank fusion
-- Next, we do a RAG variation: we send the retrieved results to OpenAI, and get back structured output with one of the decisions: `NEW`, `UPDATE`, `DUPLICATE` or `WRONG_COURSE`.
-- If it's `NEW` or `UPDATE`, we create a branch, commit the file, and open a pull request.
-- If it's `DUPLICATE` or `WRONG_COURSE`, we close the issue.
+- You [submit an issue](https://github.com/DataTalksClub/faq/blob/main/CONTRIBUTING.md), specifying the question, the course and your answer.
+- A GitHub Actions workflow indexes the entire dataset with minsearch.
+- It searches twice - on the question alone, and on the question and answer together - and combines the two results with reciprocal rank fusion.
+- It sends the results to OpenAI, which returns a structured decision: `NEW`, `UPDATE`, `DUPLICATE` or `WRONG_COURSE`.
+- For `NEW` or `UPDATE`, it commits the file and opens a pull request.
+- For `DUPLICATE` or `WRONG_COURSE`, it closes the issue.
 
+<img src="../assets/images/faq-assistant-on-automator/faq-contribution-workflow.svg" alt="FAQ contribution workflow: an issue triggers dataset indexing, question-only and full-record searches, reciprocal rank fusion, an LLM decision, and either a pull request or issue closure">
 
-When the first version of the script was created, we didn't have any evaluation set. I mostly relied on my gut feeling to make sure it worked okay.
+## FAQ Automation Evaluations
 
-But as more people started using it, it started making more incorrect decisions. So I finally had to take care of the evals. Otherwise I'd risk breaking the whole thing with any next change I make. 
+When the first version of the script was created, we didn't have any evaluation set. I mostly relied on my gut feeling as it was okay for some time. But as more people started using it, the number of incorrect decisions incresed. So I needed to improve it. Naturally, I didn't want to fix it blindly and just hope for the best: I needed a proper evaluation framework.
 
-For creating the evaluation dataset I used historical data: I analyzed the issues where I needed to correct the submissions after the script worked, and selected cases that are quite different from each other. I wanted to have a representative set of cases that would test the system from different angles.
+For creating it, I used those incorrect decisions. I analyzed the issues where I needed to manually adjust the result, and focused on the cases that were different from each other.
 
-Not all decisions made by the script are equal. If the agent makes a mistake in a `NEW` or `UPDATE` decision, it's easy to correct, and I use AI assistants to help me with that.
+Not all decisions made by the script are equal. If the agent makes a mistake in a `NEW` or `UPDATE` decision, it's easy to correct. I use AI assistants to help me with that.
 
-But if the decision is `DUPLICATE` or `WRONG_COURSE`, the PR will never be created, and the issue will be closed. In this case, I will not even have a chance to review them. Thus, a mistake in this case is more expensive, so I had to make sure that these cases don't happen very often.
-
+But if the decision is `DUPLICATE` or `WRONG_COURSE`, the PR will never be created, and the issue will be closed. In this case, I will not even have a chance to review them. Thus, a mistake in this case is way more expensive, so I had to make sure that these cases don't happen very often.
 
 There's also a problem with collecting the evals data from historical decisions. The FAQ data is constantly changing, so we have to use a "leave-one-out" setup.
 
 When the script decides that something is `NEW` and we later use it in the evals, it's no longer `NEW`: the item was already merged into the dataset. So if we run it with the new issue using the updated version of the dataset, it will say `DUPLICATE` instead of `NEW`.
 
 In order to properly test the `NEW` cases, we therefore need to remove the record from our dataset. So if we have 200 records, and the record D is the one we added, we remove the D and test this case against the remaining 199 records.
+
+<img src="../assets/images/faq-assistant-on-automator/leave-one-out-evaluation.svg" alt="Leave-one-out evaluation: remove record D from the current 200-record FAQ dataset, then run the held-out issue D through the FAQ workflow using the remaining 199 records to recover the expected NEW decision">
 
 Right now I have 61 cases:
 
@@ -117,7 +119,10 @@ I eventually switched from gpt-4o-mini to gpt-5.4-nano, because it didn't have a
 
 Most of the corrections I made manually for the new records were because the model would choose a wrong section for the FAQ entry, so these 38 cases also test that. It now picks the right section for most of them, and the per-case results are tracked in the eval suite in the repo.
 
-In addition to testing the whole flow, I have a retrieval-only evaluation set. This is the part where I only test the search component of the flow, so there are no calls to LLMs. I describe it in detail later, in the retrieval evaluation section.
+In addition to testing the whole flow, I have a retrieval-only evaluation set.
+I use this part to test that duplicate detection works correctly. This part is less interesting, so I'll skip it. You can read more about it in the [project's README](https://github.com/DataTalksClub/faq/#retrieval).
+
+<img src="../assets/images/faq-assistant-on-automator/eval-suites.png" alt="Comparison of the two FAQ evaluation suites: a 25-case retrieval suite running in about two seconds with recall at five of 0.840, and a 61-case generation suite running in about two minutes with 42 passing cases on gpt-5.4-nano">
 
 
 ## Bulk Reviewing
@@ -161,20 +166,28 @@ I get the transcript and use AI assistant to extract potential Q&A candidates. I
 
 ## Part 1 Overview
 
-
 ```mermaid
 flowchart TD
-    P1[Participant opens a FAQ Proposal issue] --> WF[GitHub Actions workflow on the faq-proposal label]
+    ISSUE[Open a FAQ Proposal issue] --> INDEX[Index the FAQ dataset]
+    INDEX --> QUESTION[Search with the question]
+    INDEX --> FULL[Search with the question and answer]
+    QUESTION --> RRF[Reciprocal rank fusion]
+    FULL --> RRF
+    RRF --> LLM[Send results to the LLM]
+    LLM --> NEW[NEW]
+    LLM --> UPDATE[UPDATE]
+    LLM --> DUP[DUPLICATE]
+    LLM --> WRONG[WRONG_COURSE]
+    NEW --> PR[Commit the file and open a pull request]
+    UPDATE --> PR
+    DUP --> CLOSE[Close the issue]
+    WRONG --> CLOSE
+
     P2[Participant opens a plain unlabelled issue] --> BATCH
     SL[Slack course channels] --> FETCH[Fetch and scan scripts]
     YT[YouTube session transcripts] --> EXTRACT[Question extraction from transcripts]
 
-    WF --> AGENT[FAQ agent: two searches, reciprocal rank fusion, one structured call]
-    AGENT --> NEW[NEW or UPDATE: branch and pull request]
-    AGENT --> DUP[DUPLICATE: close the issue as completed]
-    AGENT --> WRONG[WRONG_COURSE: close the issue as not planned]
-
-    NEW --> BATCH[Weekly batch review with Claude Code or Codex]
+    PR --> BATCH[Weekly batch review with Claude Code or Codex]
     FETCH --> CURATE[Human plus agent curation into granular questions]
     EXTRACT --> CURATE
 
@@ -182,7 +195,6 @@ flowchart TD
     CURATE --> MERGE
     MERGE --> SITE[FAQ website rebuilt and republished as JSON]
 ```
-
 
 ## Part 2: Retrieval and the Slack Bot
 
