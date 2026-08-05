@@ -104,6 +104,7 @@ Files at the articles root that don't fit into the above categories.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Getting an AI Engineering Job](getting-an-ai-engineering-job.md) | draft | 2026-08-05 | The 2020 data science job-search algorithm updated for AI engineering: networking, applying, building, and the full interview stage-by-stage breakdown |
 | [AI Shipping Labs Content Plan](ai-shipping-labs-content-plan.md) | draft | 2026-08-03 | Gap analysis of the current workshop catalog, a repackaging of the existing sessions into six courses, and the next eight workshops to run |
 | [Taking Over the FAQ Assistant: How the Whole Process Works Now](faq-assistant-on-automator.md) | draft | 2026-07-31 | Follow-up article on the DataTalks.Club FAQ assistant after taking it over from Alex Litvinov - the four question-ingestion sources, the serverless retrieval side built on ZeroSearch, and how both hang off the existing Automator Slack bot |
 | [Playbooks and Agents for DataTalks.Club Events and Content](datatalks-club-playbooks-and-agents.md) | draft | 2026-07-20 | Ideas for extending the course promotion playbooks to events and other recurring activities, handing post creation to agents, and replacing the podcast guest back-and-forth with a form |

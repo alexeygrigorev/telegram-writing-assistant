@@ -1,0 +1,38 @@
+---
+source: telegram_voice
+date: 2026-08-05T09:10:48+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260805_091048_AlexeyDTC_msg4847.ogg
+---
+
+вот в общем я записываю сейчас статью от смотрю что у нас гелина дейта санкций job но первая looking
+for a job network apply build review repeat это все остается про билд это у нас уже есть про статья
+про то как выбирать проекты для портфолио добавь ее и также добавь статью про то как делать ридми
+что обязательно что очень важно для твоих проектов вот ну про нет working все понятно ну насчет
+bootcamp а вот мы тут bootcamp опустим то есть в том докладе был фокус на но тут мы убираем это. То
+есть у нас фокус просто на людях. Типа, if you are a junior, talk to other juniors who recently got
+a job in this field. What did they do? What did they go through? What kind of companies they applied
+to? If their company is still higher? These kind of things. be active and share content online
+Learning in Public learning in public learning in public applying to jobs это нормально но вот и
+фиксируйте кей орден за флоу замени на допустим ланграф и и что там еще популярно, ну не знаю,
+google agents, какие-то, что-то такое, google agent, ADK, да, вот. Put code on readme and write a
+blog post to readme about this. Ну то есть, blog по readme, понятное дело, вообще отдельную секцию
+давай сделаем про build в котором расскажем это пусть она просто тут applying to jobs а билд это
+другое интервью про интервью нормально и не шелковый the recruiter тут все хорошо у нас на салон
+эксперт и шансы рискин encoding спили добавь еще сюда хайри менеджер EI Shipping Labs Theory
+Screening. Ну тут Theoretical Data Science. Тут скажи, что Theoretical AI Engineering Questions. и,
+типа, ну, возьми какие-то вопросы, которые я подготовил в AI Engineering Field Guide, да, то есть
+здесь Data Science вопрос, Coding Session, по Coding Session возьми вопрос, который я подготовил,
+вот, Скажи, что, скорее всего, будет вопрос именно без использования AI написать какой-то
+простенький алгоритм. Но сейчас все чаще и чаще компании спрашивают, включают в интервью AI-assisted
+coding. И возьми из статьи, что именно я говорил про это из статьи про мое интервью. вот home
+assignments Не стоит удивляться home assignment. И в принципе это нормально. Но про флаги оставь,
+да. case study interviews тоже скажи, что вот сейчас допустим, system design популярное AI system
+design что вот case study interview system design, они, ну в принципе возьми интервью из эти
+interview stages из того, что я из AI engineering field guides system design оставляй, потом добавь
+AI System Design, что это новое что-то. Behavioral. Оставляем как есть. Авторное интервью оставляем
+как есть. Ну и добавить какую-то структуру, что типа вот после этого мы забыли сказать, что этот
+процесс итеративный. Рефлексируй и возвращайся к пункту номер один. И тут давай добавим диаграмму
+про то, что этот процесс итеративный. возьми все эти шаги и сделай такую циклическую диаграмму, в
+которой покажи все это.

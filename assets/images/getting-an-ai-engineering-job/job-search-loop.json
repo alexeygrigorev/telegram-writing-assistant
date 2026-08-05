@@ -1,0 +1,63 @@
+{
+  "title": "The AI engineering job search loop",
+  "description": "Networking leads to applications, applications reveal which skills to build, projects and interviews follow, and reflecting on each round sends you back to networking with a better picture of the market.",
+  "canvas": {
+    "width": 1100,
+    "height": 550,
+    "background": "#ffffff"
+  },
+  "layout": {
+    "type": "ring",
+    "card_width": 260,
+    "card_height": 100
+  },
+  "nodes": [
+    {
+      "id": "network",
+      "title": "Network",
+      "subtitle": "Meet people, ask for referrals",
+      "color": "blue",
+      "icon": "user"
+    },
+    {
+      "id": "apply",
+      "title": "Apply",
+      "subtitle": "Apply anyway, note the skills",
+      "color": "purple",
+      "icon": "document"
+    },
+    {
+      "id": "build",
+      "title": "Build",
+      "subtitle": "Projects, README, blog post",
+      "color": "amber",
+      "icon": "settings"
+    },
+    {
+      "id": "interview",
+      "title": "Interview",
+      "subtitle": "Write down what they ask",
+      "color": "green",
+      "icon": "message"
+    },
+    {
+      "id": "reflect",
+      "title": "Reflect",
+      "subtitle": "Retrospective, then start again",
+      "color": "gray",
+      "icon": "check"
+    }
+  ],
+  "edges": [
+    {"from": "network", "to": "apply", "route": "ring"},
+    {"from": "apply", "to": "build", "route": "ring"},
+    {"from": "build", "to": "interview", "route": "ring"},
+    {"from": "interview", "to": "reflect", "route": "ring"},
+    {"from": "reflect", "to": "network", "route": "ring"}
+  ],
+  "center": {
+    "title": "JOB SEARCH",
+    "subtitle": "LOOP",
+    "detail": "Each round tells you what to fix"
+  }
+}
