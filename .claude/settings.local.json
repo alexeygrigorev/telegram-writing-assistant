@@ -17,9 +17,7 @@
       "Bash(python -m py_compile:*)",
       "Bash(python *)",
       "Bash(pip install *)",
-      "Edit(.claude/**)",
-      "Write(.claude/**)",
-      "MultiEdit(.claude/**)"
+      "Edit(.claude/**)"
     ]
   }
 }
