@@ -52,7 +52,7 @@
 
   <path class="edge" d="M657.85 127.05A364.84 364.84 0 0 1 834.03 279.12" stroke="#64748b" marker-end="url(#arrow-gray)"/>
   <path class="edge" d="M882.64 424.8A364.84 364.84 0 0 1 809.45 686.94" stroke="#64748b" marker-end="url(#arrow-gray)"/>
-  <path class="edge" d="M609.45 760A364.84 364.84 0 0 1 430.55 760" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M597.45 760A364.84 364.84 0 0 1 442.55 760" stroke="#64748b" marker-end="url(#arrow-gray)"/>
   <path class="edge" d="M230.55 686.94A364.84 364.84 0 0 1 157.36 424.8" stroke="#64748b" marker-end="url(#arrow-gray)"/>
   <path class="edge" d="M205.97 279.12A364.84 364.84 0 0 1 382.15 127.05" stroke="#64748b" marker-end="url(#arrow-gray)"/>
 
