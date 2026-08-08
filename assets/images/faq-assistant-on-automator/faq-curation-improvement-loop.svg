@@ -50,7 +50,7 @@
 
   <path class="edge" d="M613.21 149.06A315.44 315.44 0 0 1 741.51 269.55" stroke="#64748b" marker-end="url(#arrow-gray)"/>
   <path class="edge" d="M783.53 395.51A315.44 315.44 0 0 1 720.25 622.15" stroke="#64748b" marker-end="url(#arrow-gray)"/>
-  <path class="edge" d="M525.41 685.32L414.59 685.32" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M525.41 685.32A94.27 94.27 0 0 1 414.59 685.32" stroke="#64748b" marker-end="url(#arrow-gray)"/>
   <path class="edge" d="M219.75 622.15A315.44 315.44 0 0 1 156.47 395.51" stroke="#64748b" marker-end="url(#arrow-gray)"/>
   <path class="edge" d="M198.49 269.55A315.44 315.44 0 0 1 326.79 149.06" stroke="#64748b" marker-end="url(#arrow-gray)"/>
 
@@ -75,7 +75,7 @@
     <rect width="260" height="100" rx="18" fill="#ecfdf5" stroke="#15803d"/>
     <use href="#icon-database" x="16" y="26" width="28" height="28" color="#15803d"/>
     <text class="node-title icon-copy" x="56" y="46">Index + deploy</text>
-    <text class="node-subtitle icon-copy" x="16" y="71">Fresh dataset ships with Lambda</text>
+    <text class="node-subtitle icon-copy" x="16" y="71" textLength="228" lengthAdjust="spacingAndGlyphs">Fresh dataset ships with Lambda</text>
   </g>
   <g class="node node-purple" transform="translate(154.59 635.32)" filter="url(#shadow)">
     <rect width="260" height="100" rx="18" fill="#f5f3ff" stroke="#7c3aed"/>
