@@ -18,7 +18,7 @@ This gives Comet a concrete demonstration of the full loop around a mature proof
 
 ## Project links
 
-- Current article draft: [Taking Over the FAQ Assistant: How the Whole Process Works Now](../faq-assistant-on-automator.md)
+- Published article: [(Re)Building a FAQ System for DataTalks.Club](https://alexeyondata.substack.com/p/rebuilding-a-faq-system-for-datatalksclub)
 - FAQ content, website and proposal-triage agent: [DataTalksClub/faq](https://github.com/DataTalksClub/faq)
 - Retrieval, generation and evaluation service: [DataTalksClub/faq-assistant](https://github.com/DataTalksClub/faq-assistant)
 - Slack integration: [DataTalksClub/au-tomator-lambda](https://github.com/DataTalksClub/au-tomator-lambda)

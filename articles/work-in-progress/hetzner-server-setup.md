@@ -100,4 +100,4 @@ It seems nothing happened - need to check the logs to see what went wrong. I wil
 [^10]: [20260220_070616_AlexeyDTC_msg2106_transcript.txt](../inbox/used/20260220_070616_AlexeyDTC_msg2106_transcript.txt)
 [^11]: [20260220_081450_AlexeyDTC_msg2140_photo.md](../inbox/used/20260220_081450_AlexeyDTC_msg2140_photo.md)
 [^12]: [20260220_150400_AlexeyDTC_msg2166.md](../inbox/used/20260220_150400_AlexeyDTC_msg2166.md)
-[^13]: [20260220_175706_AlexeyDTC_msg2182_transcript.txt](../inbox/used/20260220_175706_AlexeyDTC_msg2182_transcript.txt)
+[^13]: [20260220_175706_AlexeyDTC_msg2182_transcript.txt](../inbox/used/feedback/20260220_175706_AlexeyDTC_msg2182_transcript.txt)

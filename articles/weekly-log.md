@@ -110,7 +110,7 @@ On Wednesday we had a workshop in AI Shipping Labs about how to use Cloudflare W
 
 ### Lightweight FAQ Assistant and ZeroSearch
 
-After the Cloudflare workshop I tried to port the DataTalks.Club FAQ assistant to Cloudflare Workers and make it as compact as possible. The Python layer on Cloudflare Workers does not support extra libraries, so I rewrote MinSearch as a zero-dependency pure-Python library called ZeroSearch. See [Taking Over the FAQ Assistant: How the Whole Process Works Now](faq-assistant-on-automator.md) for the full story[^52][^55][^56][^57].
+After the Cloudflare workshop I tried to port the DataTalks.Club FAQ assistant to Cloudflare Workers and make it as compact as possible. The Python layer on Cloudflare Workers does not support extra libraries, so I rewrote MinSearch as a zero-dependency pure-Python library called ZeroSearch. See [(Re)Building a FAQ System for DataTalks.Club](https://alexeyondata.substack.com/p/rebuilding-a-faq-system-for-datatalksclub) for the full story[^52][^55][^56][^57].
 
 ### FAQ Repository Updates
 
@@ -516,7 +516,7 @@ See [Course Management Production Incident Report](course-management-production-
 ## Sources
 
 [^1]: [20260226_071301_AlexeyDTC_msg2486_transcript.txt](../inbox/used/20260226_071301_AlexeyDTC_msg2486_transcript.txt)
-[^2]: [20260226_071213_AlexeyDTC_msg2484_transcript.txt](../inbox/used/20260226_071213_AlexeyDTC_msg2484_transcript.txt)
+[^2]: [20260226_071213_AlexeyDTC_msg2484_transcript.txt](../inbox/used/feedback/20260226_071213_AlexeyDTC_msg2484_transcript.txt)
 [^3]: [20260226_065034_AlexeyDTC_msg2477_transcript.txt](../inbox/used/20260226_065034_AlexeyDTC_msg2477_transcript.txt)
 [^4]: [20260225_163430_AlexeyDTC_msg2408_transcript.txt](../inbox/used/20260225_163430_AlexeyDTC_msg2408_transcript.txt)
 [^5]: [20260225_201000_AlexeyDTC_msg2445_transcript.txt](../inbox/used/20260225_201000_AlexeyDTC_msg2445_transcript.txt)

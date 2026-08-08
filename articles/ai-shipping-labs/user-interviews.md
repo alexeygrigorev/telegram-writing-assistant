@@ -61,4 +61,4 @@ Each interview file assigns a persona from [personas.md](personas.md). If there 
 [^33]: [20260420_083829_AlexeyDTC_msg3451_transcript.txt](../../inbox/used/20260420_083829_AlexeyDTC_msg3451_transcript.txt)
 [^34]: [20260420_083951_AlexeyDTC_msg3453_transcript.txt](../../inbox/used/20260420_083951_AlexeyDTC_msg3453_transcript.txt)
 [^35]: [20260420_083739_AlexeyDTC_msg3442.md](../../inbox/used/20260420_083739_AlexeyDTC_msg3442.md)
-[^36]: [20260420_085844_AlexeyDTC_msg3461_transcript.txt](../../inbox/used/20260420_085844_AlexeyDTC_msg3461_transcript.txt)
+[^36]: [20260420_085844_AlexeyDTC_msg3461_transcript.txt](../../inbox/used/feedback/20260420_085844_AlexeyDTC_msg3461_transcript.txt)

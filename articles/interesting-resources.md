@@ -71,7 +71,6 @@ Interesting for future automation[^28].
 [^5]: [20260131_194824_AlexeyDTC_msg751_transcript.txt](../inbox/used/20260131_194824_AlexeyDTC_msg751_transcript.txt)
 [^6]: [20260202_122612_AlexeyDTC_msg848.md](../inbox/used/20260202_122612_AlexeyDTC_msg848.md)
 [^7]: [20260202_171315_AlexeyDTC_msg854.md](../inbox/used/20260202_171315_AlexeyDTC_msg854.md)
-[^8]: [20260203_134255_AlexeyDTC_msg884_transcript.txt](../inbox/used/20260203_134255_AlexeyDTC_msg884_transcript.txt)
 [^9]: [20260205_152323_AlexeyDTC_msg949.md](../inbox/used/20260205_152323_AlexeyDTC_msg949.md)
 [^10]: [20260205_162426_AlexeyDTC_msg950.md](../inbox/used/20260205_162426_AlexeyDTC_msg950.md)
 [^11]: [20260206_074649_valeriia_kuka_msg971.md](../inbox/used/20260206_074649_valeriia_kuka_msg971.md)
