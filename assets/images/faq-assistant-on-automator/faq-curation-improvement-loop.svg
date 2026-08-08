@@ -12,8 +12,8 @@
     <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#dc2626"/></marker>
     <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#64748b"/></marker>
     <symbol id="icon-database" viewBox="0 0 24 24">
-        <ellipse cx="12" cy="5" rx="8" ry="3" fill="none" stroke="currentColor" stroke-width="1.75" vector-effect="non-scaling-stroke"/>
-        <path d="M4 5v7c0 1.66 3.58 3 8 3s8-1.34 8-3V5M4 12v7c0 1.66 3.58 3 8 3s8-1.34 8-3v-7" fill="none" stroke="currentColor" stroke-width="1.75" vector-effect="non-scaling-stroke"/>
+        <ellipse cx="12" cy="5" rx="8" ry="3" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="M4 5v7c0 1.66 3.58 3 8 3s8-1.34 8-3V5M4 12v7c0 1.66 3.58 3 8 3s8-1.34 8-3v-7" fill="none" stroke="currentColor" stroke-width="2"/>
       </symbol>
     <symbol id="icon-issue" viewBox="0 0 24 24">
         <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/>
@@ -47,11 +47,11 @@
   </defs>
   <rect width="900" height="855" fill="#ffffff"/>
 
-  <path class="edge" d="M550 150.85A323.38 323.38 0 0 1 708.03 263.45" stroke="#64748b" marker-end="url(#arrow-gray)"/>
-  <path class="edge" d="M773.34 453.45A323.38 323.38 0 0 1 727.15 625" stroke="#64748b" marker-end="url(#arrow-gray)"/>
-  <path class="edge" d="M540.08 768.96A323.38 323.38 0 0 1 359.92 768.96" stroke="#64748b" marker-end="url(#arrow-gray)"/>
-  <path class="edge" d="M172.85 625A323.38 323.38 0 0 1 126.66 453.45" stroke="#64748b" marker-end="url(#arrow-gray)"/>
-  <path class="edge" d="M191.97 263.45A323.38 323.38 0 0 1 350 150.85" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M576.28 160.68A323.38 323.38 0 0 1 694.11 246.28" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M772.16 486.49A323.38 323.38 0 0 1 727.15 625" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M522.82 773.45A323.38 323.38 0 0 1 377.18 773.45" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M172.85 625A323.38 323.38 0 0 1 127.84 486.49" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M205.89 246.28A323.38 323.38 0 0 1 323.72 160.68" stroke="#64748b" marker-end="url(#arrow-gray)"/>
 
   <circle class="center-annotation" cx="450" cy="458.38" r="160"/>
   <text class="center-title" x="450" y="446.55" font-size="35">CURATION</text>
@@ -75,7 +75,7 @@
   <g class="node node-green" transform="translate(540.08 625)" filter="url(#shadow)">
     <rect width="200" height="190" rx="18" fill="#ecfdf5" stroke="#15803d"/>
     <use href="#icon-database" x="34.78" y="54" width="34" height="34" color="#15803d"/>
-    <text class="node-title icon-copy" x="75.41" y="74.6" font-size="10">Index + deploy</text>
+    <text class="node-title icon-copy" x="76.53" y="74.6" font-size="10">Index + deploy</text>
     <text class="node-subtitle" x="100" y="109" font-size="16">Fresh dataset ships</text>
     <text class="node-subtitle" x="100" y="131" font-size="16">with Lambda</text>
   </g>
