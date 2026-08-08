@@ -56,10 +56,10 @@
   <path class="edge" d="M210.98 594.56A310.18 310.18 0 0 1 151.2 380.43" stroke="#64748b" marker-end="url(#arrow-gray)"/>
   <path class="edge" d="M195.53 247.55A310.18 310.18 0 0 1 322.08 131.79" stroke="#64748b" marker-end="url(#arrow-gray)"/>
 
-  <circle class="center-annotation" cx="460" cy="409.62" r="68"/>
+  <circle class="center-annotation" cx="460" cy="409.62" r="85"/>
   <text class="center-title" x="460" y="404.62">JOB SEARCH</text>
   <text class="center-title" x="460" y="427.62">LOOP</text>
-  <text class="center-detail" x="460" y="501.62">Each round tells you what to fix</text>
+  <text class="center-detail" x="460" y="518.62">Each round tells you what to fix</text>
 
   <g class="node node-blue" transform="translate(335 45.44)" filter="url(#shadow)">
     <rect width="250" height="108" rx="18" fill="#eff6ff" stroke="#2563eb"/>

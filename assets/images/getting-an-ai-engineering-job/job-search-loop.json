@@ -58,6 +58,7 @@
   "center": {
     "title": "JOB SEARCH",
     "subtitle": "LOOP",
+    "radius": 85,
     "detail": "Each round tells you what to fix"
   }
 }
