@@ -52,43 +52,43 @@
 
   <path class="edge" d="M597.92 131.79A310.18 310.18 0 0 1 724.47 247.55" stroke="#64748b" marker-end="url(#arrow-gray)"/>
   <path class="edge" d="M768.8 380.43A310.18 310.18 0 0 1 709.02 594.56" stroke="#64748b" marker-end="url(#arrow-gray)"/>
-  <path class="edge" d="M505.31 716.47A310.18 310.18 0 0 1 414.69 716.47" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M517.32 660.56L402.68 660.56" stroke="#64748b" marker-end="url(#arrow-gray)"/>
   <path class="edge" d="M210.98 594.56A310.18 310.18 0 0 1 151.2 380.43" stroke="#64748b" marker-end="url(#arrow-gray)"/>
   <path class="edge" d="M195.53 247.55A310.18 310.18 0 0 1 322.08 131.79" stroke="#64748b" marker-end="url(#arrow-gray)"/>
 
   <circle class="center-annotation" cx="460" cy="409.62" r="68"/>
   <text class="center-title" x="460" y="404.62">JOB SEARCH</text>
   <text class="center-title" x="460" y="427.62">LOOP</text>
-  <text class="center-detail" x="460" y="452.62">Each round tells you what to fix</text>
+  <text class="center-detail" x="460" y="501.62">Each round tells you what to fix</text>
 
   <g class="node node-blue" transform="translate(335 45.44)" filter="url(#shadow)">
     <rect width="250" height="108" rx="18" fill="#eff6ff" stroke="#2563eb"/>
-    <use href="#icon-user" x="16" y="40" width="28" height="28" color="#2563eb"/>
-    <text class="node-title icon-copy" x="56" y="60">Network</text>
-    <text class="node-subtitle" x="125" y="85">Meet people, ask for referrals</text>
+    <use href="#icon-user" x="16" y="30" width="28" height="28" color="#2563eb"/>
+    <text class="node-title icon-copy" x="56" y="50">Network</text>
+    <text class="node-subtitle icon-copy" x="16" y="75" textLength="218" lengthAdjust="spacingAndGlyphs">Meet people, ask for referrals</text>
   </g>
   <g class="node node-purple" transform="translate(630 259.77)" filter="url(#shadow)">
     <rect width="250" height="108" rx="18" fill="#f5f3ff" stroke="#7c3aed"/>
-    <use href="#icon-document" x="16" y="40" width="28" height="28" color="#7c3aed"/>
-    <text class="node-title icon-copy" x="56" y="60">Apply</text>
-    <text class="node-subtitle" x="125" y="85">Apply anyway, note the skills</text>
+    <use href="#icon-document" x="16" y="30" width="28" height="28" color="#7c3aed"/>
+    <text class="node-title icon-copy" x="56" y="50">Apply</text>
+    <text class="node-subtitle icon-copy" x="16" y="75">Apply anyway, note the skills</text>
   </g>
   <g class="node node-amber" transform="translate(517.32 606.56)" filter="url(#shadow)">
     <rect width="250" height="108" rx="18" fill="#fff7ed" stroke="#c2410c"/>
-    <use href="#icon-settings" x="16" y="40" width="28" height="28" color="#c2410c"/>
-    <text class="node-title icon-copy" x="56" y="60">Build</text>
-    <text class="node-subtitle" x="125" y="85">Projects, README, blog post</text>
+    <use href="#icon-settings" x="16" y="30" width="28" height="28" color="#c2410c"/>
+    <text class="node-title icon-copy" x="56" y="50">Build</text>
+    <text class="node-subtitle icon-copy" x="16" y="75">Projects, README, blog post</text>
   </g>
   <g class="node node-green" transform="translate(152.68 606.56)" filter="url(#shadow)">
     <rect width="250" height="108" rx="18" fill="#ecfdf5" stroke="#15803d"/>
-    <use href="#icon-message" x="16" y="40" width="28" height="28" color="#15803d"/>
-    <text class="node-title icon-copy" x="56" y="60">Interview</text>
-    <text class="node-subtitle" x="125" y="85">Write down what they ask</text>
+    <use href="#icon-message" x="16" y="30" width="28" height="28" color="#15803d"/>
+    <text class="node-title icon-copy" x="56" y="50">Interview</text>
+    <text class="node-subtitle icon-copy" x="16" y="75">Write down what they ask</text>
   </g>
   <g class="node node-gray" transform="translate(40 259.77)" filter="url(#shadow)">
     <rect width="250" height="108" rx="18" fill="#f8fafc" stroke="#64748b"/>
-    <use href="#icon-check" x="16" y="40" width="28" height="28" color="#64748b"/>
-    <text class="node-title icon-copy" x="56" y="60">Reflect</text>
-    <text class="node-subtitle" x="125" y="85">Retrospective, then start again</text>
+    <use href="#icon-check" x="16" y="30" width="28" height="28" color="#64748b"/>
+    <text class="node-title icon-copy" x="56" y="50">Reflect</text>
+    <text class="node-subtitle icon-copy" x="16" y="75" textLength="218" lengthAdjust="spacingAndGlyphs">Retrospective, then start again</text>
   </g>
 </svg>
