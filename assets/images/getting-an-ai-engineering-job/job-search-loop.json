@@ -2,20 +2,20 @@
   "title": "The AI engineering job search loop",
   "description": "Networking leads to applications, applications reveal which skills to build, projects and interviews follow, and reflecting on each round sends you back to networking with a better picture of the market.",
   "canvas": {
-    "width": 836,
-    "height": 793,
+    "width": 700,
+    "height": 660,
     "background": "#ffffff"
   },
   "layout": {
     "type": "ring",
-    "card_width": 185,
-    "card_height": 170
+    "card_width": 190,
+    "card_height": 110,
+    "font_scale": 1.35
   },
   "nodes": [
     {
       "id": "network",
       "title": "Network",
-      "subtitle": "Meet people, ask for referrals",
       "color": "blue",
       "icon": "user",
       "eyebrow": "STEP 1"
@@ -23,7 +23,6 @@
     {
       "id": "apply",
       "title": "Apply",
-      "subtitle": "Apply anyway, note the skills",
       "color": "blue",
       "icon": "document",
       "eyebrow": "STEP 2"
@@ -31,7 +30,6 @@
     {
       "id": "build",
       "title": "Build",
-      "subtitle": "Projects, README, blog post",
       "color": "blue",
       "icon": "github",
       "eyebrow": "STEP 3"
@@ -39,7 +37,6 @@
     {
       "id": "interview",
       "title": "Interview",
-      "subtitle": "Write down what they ask",
       "color": "blue",
       "icon": "message",
       "eyebrow": "STEP 4"
@@ -47,7 +44,6 @@
     {
       "id": "reflect",
       "title": "Reflect",
-      "subtitle": "Retrospective, then start again",
       "color": "purple",
       "icon": "search",
       "eyebrow": "STEP 5"
@@ -79,9 +75,5 @@
       "to": "network",
       "route": "ring"
     }
-  ],
-  "center": {
-    "detail": "Each round tells you what to fix",
-    "radius": 150
-  }
+  ]
 }
