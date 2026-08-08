@@ -2,8 +2,8 @@
   "title": "Continuous FAQ curation and improvement loop",
   "description": "Students contribute FAQ issues, useful Slack discussions become reviewed records, the dataset is indexed and deployed, Au-Tomator answers questions, and incomplete answers become evaluation cases that guide the next FAQ improvements.",
   "canvas": {
-    "width": 1100,
-    "height": 550,
+    "width": 940,
+    "height": 800,
     "background": "#ffffff"
   },
   "layout": {
