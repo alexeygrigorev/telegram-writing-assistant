@@ -2,14 +2,14 @@
   "title": "The AI engineering job search loop",
   "description": "Networking leads to applications, applications reveal which skills to build, projects and interviews follow, and reflecting on each round sends you back to networking with a better picture of the market.",
   "canvas": {
-    "width": 920,
-    "height": 760,
+    "width": 1040,
+    "height": 860,
     "background": "#ffffff"
   },
   "layout": {
     "type": "ring",
     "card_width": 250,
-    "card_height": 108
+    "card_height": 120
   },
   "nodes": [
     {
@@ -17,48 +17,72 @@
       "title": "Network",
       "subtitle": "Meet people, ask for referrals",
       "color": "blue",
-      "icon": "user"
+      "icon": "user",
+      "eyebrow": "STEP 1"
     },
     {
       "id": "apply",
       "title": "Apply",
       "subtitle": "Apply anyway, note the skills",
-      "color": "purple",
-      "icon": "document"
+      "color": "blue",
+      "icon": "document",
+      "eyebrow": "STEP 2"
     },
     {
       "id": "build",
       "title": "Build",
       "subtitle": "Projects, README, blog post",
-      "color": "amber",
-      "icon": "settings"
+      "color": "blue",
+      "icon": "github",
+      "eyebrow": "STEP 3"
     },
     {
       "id": "interview",
       "title": "Interview",
       "subtitle": "Write down what they ask",
-      "color": "green",
-      "icon": "message"
+      "color": "blue",
+      "icon": "message",
+      "eyebrow": "STEP 4"
     },
     {
       "id": "reflect",
       "title": "Reflect",
       "subtitle": "Retrospective, then start again",
-      "color": "gray",
-      "icon": "check"
+      "color": "purple",
+      "icon": "search",
+      "eyebrow": "STEP 5"
     }
   ],
   "edges": [
-    {"from": "network", "to": "apply", "route": "ring"},
-    {"from": "apply", "to": "build", "route": "ring"},
-    {"from": "build", "to": "interview", "route": "ring"},
-    {"from": "interview", "to": "reflect", "route": "ring"},
-    {"from": "reflect", "to": "network", "route": "ring"}
+    {
+      "from": "network",
+      "to": "apply",
+      "route": "ring"
+    },
+    {
+      "from": "apply",
+      "to": "build",
+      "route": "ring"
+    },
+    {
+      "from": "build",
+      "to": "interview",
+      "route": "ring"
+    },
+    {
+      "from": "interview",
+      "to": "reflect",
+      "route": "ring"
+    },
+    {
+      "from": "reflect",
+      "to": "network",
+      "route": "ring"
+    }
   ],
   "center": {
-    "title": "JOB SEARCH",
-    "subtitle": "LOOP",
-    "radius": 85,
+    "title": "JOB SEARCH LOOP",
+    "radius": 125,
     "detail": "Each round tells you what to fix"
   }
 }

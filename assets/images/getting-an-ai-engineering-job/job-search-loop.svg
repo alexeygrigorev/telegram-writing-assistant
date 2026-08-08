@@ -1,28 +1,29 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="920" height="760" viewBox="0 0 920 760" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="860" viewBox="0 0 1040 860" role="img" aria-labelledby="title desc">
   <title id="title">The AI engineering job search loop</title>
   <desc id="desc">Networking leads to applications, applications reveal which skills to build, projects and interviews follow, and reflecting on each round sends you back to networking with a better picture of the market.</desc>
   <defs>
     <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
       <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0f172a" flood-opacity="0.08"/>
     </filter>
-    <marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#7c3aed"/></marker>
-    <marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#2563eb"/></marker>
-    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#c2410c"/></marker>
-    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#15803d"/></marker>
-    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#dc2626"/></marker>
-    <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#64748b"/></marker>
-    <symbol id="icon-check" viewBox="0 0 24 24">
-        <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="m7.5 12 3 3 6-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </symbol>
+    <marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#7c3aed"/></marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#2563eb"/></marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#c2410c"/></marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#15803d"/></marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#dc2626"/></marker>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#64748b"/></marker>
     <symbol id="icon-document" viewBox="0 0 24 24">
         <path d="M6 2h8l4 4v16H6Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M14 2v5h4M9 12h6M9 16h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+    <symbol id="icon-github" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M12 .7a11.5 11.5 0 0 0-3.64 22.41c.58.11.79-.25.79-.56v-2.23c-3.22.7-3.9-1.37-3.9-1.37-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.04 1.77 2.72 1.26 3.38.96.1-.75.4-1.26.74-1.55-2.57-.29-5.27-1.28-5.27-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.16 1.18a10.9 10.9 0 0 1 5.76 0c2.2-1.49 3.16-1.18 3.16-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.42-2.71 5.38-5.29 5.67.42.36.79 1.06.79 2.14v3.27c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .7Z"/>
       </symbol>
     <symbol id="icon-message" viewBox="0 0 24 24">
         <path d="M4 4h16v12H9l-5 4Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         <path d="M8 9h8M8 13h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
       </symbol>
-    <symbol id="icon-settings" viewBox="0 0 24 24">
-        <circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    <symbol id="icon-search" viewBox="0 0 24 24">
+        <circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="m16 16 4.5 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
       </symbol>
     <symbol id="icon-user" viewBox="0 0 24 24">
         <circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="1.75" vector-effect="non-scaling-stroke"/>
@@ -33,8 +34,7 @@
       .node rect { stroke-width: 2; }
       .node-title { font-size: 16px; font-weight: 750; text-anchor: middle; }
       .node-title.icon-copy { text-anchor: start; }
-      .node-subtitle { font-size: 14px; font-weight: 500; fill: #64748b; text-anchor: middle; }
-      .node-subtitle.icon-copy { text-anchor: start; }
+      .node-subtitle { font-size: 13px; font-weight: 500; fill: #7a8699; text-anchor: middle; }
       .eyebrow { font-size: 12px; font-weight: 750; letter-spacing: 1px; fill: #64748b; text-anchor: middle; }
       .mention-icon { font-size: 27px; font-weight: 750; text-anchor: middle; }
       .standalone-mention { font-size: 52px; font-weight: 750; text-anchor: middle; }
@@ -43,52 +43,56 @@
       .edge-label rect { stroke-width: 2; }
       .edge-label text { font-size: 14px; font-weight: 750; text-anchor: middle; dominant-baseline: central; }
       .divider { stroke: #cbd5e1; stroke-width: 2; stroke-dasharray: 6 8; stroke-linecap: round; }
-      .center-annotation { fill: #f8fafc; stroke: #cbd5e1; stroke-width: 2; stroke-dasharray: 7 7; }
+      .center-annotation { fill: #f1f5f9; stroke: none; }
       .center-title { font-size: 16px; font-weight: 800; letter-spacing: 1.3px; fill: #334155; text-anchor: middle; }
-      .center-detail { font-size: 13px; font-weight: 600; fill: #64748b; text-anchor: middle; }
+      .center-detail { font-size: 13px; font-weight: 600; fill: #7a8699; text-anchor: middle; }
     </style>
   </defs>
-  <rect width="920" height="760" fill="#ffffff"/>
+  <rect width="1040" height="860" fill="#ffffff"/>
 
-  <path class="edge" d="M597.92 131.79A310.18 310.18 0 0 1 724.47 247.55" stroke="#64748b" marker-end="url(#arrow-gray)"/>
-  <path class="edge" d="M768.8 380.43A310.18 310.18 0 0 1 709.02 594.56" stroke="#64748b" marker-end="url(#arrow-gray)"/>
-  <path class="edge" d="M517.32 660.56A97.52 97.52 0 0 1 402.68 660.56" stroke="#64748b" marker-end="url(#arrow-gray)"/>
-  <path class="edge" d="M210.98 594.56A310.18 310.18 0 0 1 151.2 380.43" stroke="#64748b" marker-end="url(#arrow-gray)"/>
-  <path class="edge" d="M195.53 247.55A310.18 310.18 0 0 1 322.08 131.79" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M657.85 127.05A364.84 364.84 0 0 1 834.03 279.12" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M882.64 424.8A364.84 364.84 0 0 1 809.45 686.94" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M609.45 760A364.84 364.84 0 0 1 430.55 760" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M230.55 686.94A364.84 364.84 0 0 1 157.36 424.8" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M205.97 279.12A364.84 364.84 0 0 1 382.15 127.05" stroke="#64748b" marker-end="url(#arrow-gray)"/>
 
-  <circle class="center-annotation" cx="460" cy="409.62" r="85"/>
-  <text class="center-title" x="460" y="404.62">JOB SEARCH</text>
-  <text class="center-title" x="460" y="427.62">LOOP</text>
-  <text class="center-detail" x="460" y="518.62">Each round tells you what to fix</text>
+  <circle class="center-annotation" cx="520" cy="464.84" r="125"/>
+  <text class="center-title" x="520" y="470.84">JOB SEARCH LOOP</text>
+  <text class="center-detail" x="520" y="489.84">Each round tells you what to fix</text>
 
-  <g class="node node-blue" transform="translate(335 45.44)" filter="url(#shadow)">
-    <rect width="250" height="108" rx="18" fill="#eff6ff" stroke="#2563eb"/>
-    <use href="#icon-user" x="16" y="30" width="28" height="28" color="#2563eb"/>
-    <text class="node-title icon-copy" x="56" y="50">Network</text>
-    <text class="node-subtitle icon-copy" x="16" y="75">Meet people, ask for referrals</text>
+  <g class="node node-blue" transform="translate(395 40)" filter="url(#shadow)">
+    <rect width="250" height="120" rx="18" fill="#eff6ff" stroke="#2563eb"/>
+    <text class="eyebrow" x="125" y="37">STEP 1</text>
+    <use href="#icon-user" x="67" y="43" width="28" height="28" color="#2563eb"/>
+    <text class="node-title icon-copy" x="107" y="63">Network</text>
+    <text class="node-subtitle" x="125" y="88">Meet people, ask for referrals</text>
   </g>
-  <g class="node node-purple" transform="translate(630 259.77)" filter="url(#shadow)">
-    <rect width="250" height="108" rx="18" fill="#f5f3ff" stroke="#7c3aed"/>
-    <use href="#icon-document" x="16" y="30" width="28" height="28" color="#7c3aed"/>
-    <text class="node-title icon-copy" x="56" y="50">Apply</text>
-    <text class="node-subtitle icon-copy" x="16" y="75">Apply anyway, note the skills</text>
+  <g class="node node-blue" transform="translate(741.98 292.1)" filter="url(#shadow)">
+    <rect width="250" height="120" rx="18" fill="#eff6ff" stroke="#2563eb"/>
+    <text class="eyebrow" x="125" y="37">STEP 2</text>
+    <use href="#icon-document" x="79.4" y="43" width="28" height="28" color="#2563eb"/>
+    <text class="node-title icon-copy" x="119.4" y="63">Apply</text>
+    <text class="node-subtitle" x="125" y="88">Apply anyway, note the skills</text>
   </g>
-  <g class="node node-amber" transform="translate(517.32 606.56)" filter="url(#shadow)">
-    <rect width="250" height="108" rx="18" fill="#fff7ed" stroke="#c2410c"/>
-    <use href="#icon-settings" x="16" y="30" width="28" height="28" color="#c2410c"/>
-    <text class="node-title icon-copy" x="56" y="50">Build</text>
-    <text class="node-subtitle icon-copy" x="16" y="75">Projects, README, blog post</text>
+  <g class="node node-blue" transform="translate(609.45 700)" filter="url(#shadow)">
+    <rect width="250" height="120" rx="18" fill="#eff6ff" stroke="#2563eb"/>
+    <text class="eyebrow" x="125" y="37">STEP 3</text>
+    <use href="#icon-github" x="82.1" y="43" width="28" height="28" color="#2563eb"/>
+    <text class="node-title icon-copy" x="122.1" y="63">Build</text>
+    <text class="node-subtitle" x="125" y="88">Projects, README, blog post</text>
   </g>
-  <g class="node node-green" transform="translate(152.68 606.56)" filter="url(#shadow)">
-    <rect width="250" height="108" rx="18" fill="#ecfdf5" stroke="#15803d"/>
-    <use href="#icon-message" x="16" y="30" width="28" height="28" color="#15803d"/>
-    <text class="node-title icon-copy" x="56" y="50">Interview</text>
-    <text class="node-subtitle icon-copy" x="16" y="75">Write down what they ask</text>
+  <g class="node node-blue" transform="translate(180.55 700)" filter="url(#shadow)">
+    <rect width="250" height="120" rx="18" fill="#eff6ff" stroke="#2563eb"/>
+    <text class="eyebrow" x="125" y="37">STEP 4</text>
+    <use href="#icon-message" x="62.45" y="43" width="28" height="28" color="#2563eb"/>
+    <text class="node-title icon-copy" x="102.45" y="63">Interview</text>
+    <text class="node-subtitle" x="125" y="88">Write down what they ask</text>
   </g>
-  <g class="node node-gray" transform="translate(40 259.77)" filter="url(#shadow)">
-    <rect width="250" height="108" rx="18" fill="#f8fafc" stroke="#64748b"/>
-    <use href="#icon-check" x="16" y="30" width="28" height="28" color="#64748b"/>
-    <text class="node-title icon-copy" x="56" y="50">Reflect</text>
-    <text class="node-subtitle icon-copy" x="16" y="75">Retrospective, then start again</text>
+  <g class="node node-purple" transform="translate(48.02 292.1)" filter="url(#shadow)">
+    <rect width="250" height="120" rx="18" fill="#f5f3ff" stroke="#7c3aed"/>
+    <text class="eyebrow" x="125" y="37">STEP 5</text>
+    <use href="#icon-search" x="73.55" y="43" width="28" height="28" color="#7c3aed"/>
+    <text class="node-title icon-copy" x="113.55" y="63">Reflect</text>
+    <text class="node-subtitle" x="125" y="88">Retrospective, then start again</text>
   </g>
 </svg>
