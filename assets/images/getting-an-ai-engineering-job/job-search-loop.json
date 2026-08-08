@@ -2,16 +2,16 @@
   "title": "The AI engineering job search loop",
   "description": "Networking leads to applications, applications reveal which skills to build, projects and interviews follow, and reflecting on each round sends you back to networking with a better picture of the market.",
   "canvas": {
-    "width": 900,
-    "height": 856,
+    "width": 812,
+    "height": 770,
     "background": "#ffffff"
   },
   "layout": {
     "type": "ring",
-    "card_width": 230,
-    "card_height": 216,
+    "card_width": 180,
+    "card_height": 165,
     "font_scale": 1.35,
-    "icon_position": "inline"
+    "icon_position": "block"
   },
   "nodes": [
     {
