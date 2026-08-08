@@ -2,14 +2,14 @@
   "title": "Continuous FAQ curation and improvement loop",
   "description": "Students contribute FAQ issues, useful Slack discussions become reviewed records, the dataset is indexed and deployed, Au-Tomator answers questions, and incomplete answers become evaluation cases that guide the next FAQ improvements.",
   "canvas": {
-    "width": 940,
-    "height": 800,
+    "width": 1180,
+    "height": 1120,
     "background": "#ffffff"
   },
   "layout": {
     "type": "ring",
-    "card_width": 260,
-    "card_height": 100
+    "card_width": 190,
+    "card_height": 150
   },
   "nodes": [
     {
@@ -22,7 +22,7 @@
     {
       "id": "curate",
       "title": "Curate discussions",
-      "subtitle": "Slack → reviewed FAQ records",
+      "subtitle": "Slack \u2192 reviewed FAQ records",
       "color": "purple",
       "icon": "message"
     },
@@ -49,15 +49,36 @@
     }
   ],
   "edges": [
-    {"from": "contribute", "to": "curate", "route": "ring"},
-    {"from": "curate", "to": "deploy", "route": "ring"},
-    {"from": "deploy", "to": "answer", "route": "ring"},
-    {"from": "answer", "to": "evaluate", "route": "ring"},
-    {"from": "evaluate", "to": "contribute", "route": "ring"}
+    {
+      "from": "contribute",
+      "to": "curate",
+      "route": "ring"
+    },
+    {
+      "from": "curate",
+      "to": "deploy",
+      "route": "ring"
+    },
+    {
+      "from": "deploy",
+      "to": "answer",
+      "route": "ring"
+    },
+    {
+      "from": "answer",
+      "to": "evaluate",
+      "route": "ring"
+    },
+    {
+      "from": "evaluate",
+      "to": "contribute",
+      "route": "ring"
+    }
   ],
   "center": {
     "title": "CURATION",
     "subtitle": "LOOP",
-    "detail": "Each failure improves the data"
+    "detail": "Each failure improves the data",
+    "radius": 150
   }
 }
