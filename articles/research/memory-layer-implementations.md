@@ -6,6 +6,8 @@ tags: [research, memory, agents, llm, production, chatgpt, claude-code, mem0, le
 status: draft
 ---
 
+todo merge with agentic memory. let's calle it "memory-layer"
+
 # Memory Layer Implementations in Production AI Systems
 
 This article is a tour of how memory is built inside production AI systems. The trigger is a concrete task: a startup asked me to design the memory layer for an AI agent, and I wanted to see how teams that already shipped this in production solved it[^1][^2].

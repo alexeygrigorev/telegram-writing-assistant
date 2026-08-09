@@ -6,6 +6,8 @@ tags: [ai-engineering, career, interviews]
 status: draft
 ---
 
+TODO: move it to the ai engineering field guide, delete from here
+
 # Take-Home Assignments for AI Engineers: Webinar Q&A
 
 After the webinar on take-home assignments for AI engineers, several questions remained. Here are the answers[^1][^2].

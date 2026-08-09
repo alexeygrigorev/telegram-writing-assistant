@@ -6,6 +6,9 @@ tags: [research, course-design, teaching, python]
 status: draft
 ---
 
+todo merge it with agentic-ai-engineering-course.md
+decide on the new nmae
+
 # Course Design Methodology
 
 Research on pedagogical frameworks and stage-gate processes for designing programming courses. The context is a Python course that prepares students for subsequent courses (ML, data engineering, etc.), using an RSS podcast aggregator as a running project.

@@ -6,6 +6,9 @@ tags: [research, agents, content-generation, mermaid, image-generation, gemini, 
 status: draft
 ---
 
+todo rename to ai-assisted-writing.md and find all other things that are related
+to it
+
 # Decoding AI Content Pipeline: Paul Iusztin's Agentic Writing Workflow and Branded Mermaid Images
 
 [Primary source](https://www.decodingai.com/i/194297155/generating-branded-images)

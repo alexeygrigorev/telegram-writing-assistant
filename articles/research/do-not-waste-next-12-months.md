@@ -6,6 +6,9 @@ tags: [research, distribution, marketing, datatalks-club, ai-shipping-labs, seo]
 status: draft
 ---
 
+todo rename the article to make sense - it hsould be a topic
+
+
 # Distribution Without an Audience: Five Plays Applied to DataTalks.Club and AI Shipping Labs
 
 https://open.substack.com/pub/capitalofone/p/do-not-waste-the-next-12-months-building
@@ -38,18 +41,6 @@ graph TD
 The rule Luu sets for himself is that every play comes with named companies and verifiable numbers. That holds up - the case studies are specific and linked. The closing advice is to pick two plays, one compounding and one fast, and that picking two slow plays is the common mistake.
 
 The next five sections cover one play each: what the essay claims and what evidence it gives. After that comes the part that matters for us - what each play means for DataTalks.Club and for AI Shipping Labs, and where the essay doesn't transfer.
-
-## Play 1: an MCP server as a sales channel
-
-The claim: MCP (Model Context Protocol, the standard that lets AI assistants call outside tools) gives your product a second shelf. Instead of only living on your website, one useful function of your product also lives inside Claude, ChatGPT, and Cursor.
-
-The evidence Luu gives:
-
-- Anthropic counted more than 10,000 active public MCP servers at the end of 2025, against millions of software products that could have one. He compares the timing to building a mobile app in 2010.
-- Context7 from Upstash fixes one problem - coding assistants hallucinating outdated library docs. He reports 53,000+ GitHub stars and 240,000+ weekly downloads with no traditional marketing.
-- Firecrawl runs an open-source MCP server that gives Claude and Cursor users web scraping, with the paid API behind it.
-
-The design rule he draws from both: successful servers are small. Pick one thing your product does that a person would rather ask for than click through, expose that one function, host it remotely so nobody has to install anything, and publish it to the official MCP registry, Smithery, mcp.so, and PulseMCP.
 
 ## Play 2: answer engine optimization
 
@@ -86,6 +77,9 @@ He also answers the obvious objection. A tool survives an assistant that can do 
 
 The build sequence is instant value first, email capture second. Give the result immediately, gate the full report. Reverse that and nobody uses it.
 
+TODO what I can do like that for datatalks.club and ai shipping lab?
+
+
 ## Play 4: programmatic SEO
 
 The claim: find a keyword pattern that repeats across thousands of variations, build one useful template, fill it with real data, and publish at scale.
@@ -100,6 +94,9 @@ The structural requirement is a repeatable template plus specific inputs - price
 Two constraints Luu is firm about. Validate the pattern before building: you want hundreds of low-competition variations, not one giant keyword. And publish 100 pages first, then watch indexation in Search Console - if Google indexes 80% or more, scale; if it ignores half, the pages are too thin.
 
 The line separating this from mass-produced junk is the human review step. His words: the gap between people who do this well and people who publish 10,000 pages of slop is that review.
+
+
+TODO what I can do like that for datatalks.club and ai shipping lab?
 
 ## Play 5: something your users want to show off
 
@@ -117,6 +114,12 @@ His starting move is diagnostic rather than creative. Look at your support inbox
 
 That covers the five plays. The rest of this article is about what they imply for two organisations that already exist, with the assets they already have.
 
+
+TODO what I can do like that for datatalks.club and ai shipping lab?
+already do: certificates
+what could do better? pages with summary etc with the list to the certificate
+
+
 ## What this means for DataTalks.Club
 
 DataTalks.Club is the open side: free Zoomcamps, a Slack community, a podcast archive, events, and a public site. The plays land unevenly here, because the assets are unusual. There's a lot of structured content and a lot of students, and almost no product to sell.
@@ -129,16 +132,6 @@ graph LR
     C["Cohort scores, leaderboard,<br/>certificates"] --> P5["Play 5: cohort wrapped"]
     E["Podcast, books, people archives"] --> P4["Play 4: podwiki-style pages"]
 ```
-
-### The FAQ is already an MCP server waiting to happen
-
-The FAQ assistant is a single AWS Lambda that answers course questions in Slack using zerosearch over the FAQ content. That's one function, doing one job, already deployed. Exposing it as a remote MCP server is a small addition to infrastructure that exists, not a new project.
-
-It also fits Luu's test for a tool that survives a chat window: it runs on data the model doesn't have. Cohort deadlines, homework rules, and the accumulated per-module answers aren't in any model's weights.
-
-The content plan already schedules "MCP refreshed" as the fourth of the next eight AI Shipping Labs workshops [^3]. Running that session by building and publishing the real DataTalks.Club server makes the workshop material and the distribution asset the same artifact - which is the pattern the marketing notes already describe, where workshops become content.
-
-The registry step matters as much as the build. A local server nobody can find is a demo. Publishing to the official registry, Smithery, mcp.so, and PulseMCP is what makes it distribution.
 
 ### AEO argues for finishing the Courses page
 
@@ -157,6 +150,12 @@ The purchase equivalent at DataTalks.Club is a course registration. So the free 
 Newcomers don't know what depth of skill each course expects. The site says "you know Python", which is abstract. The observation notes there's no expert telling people "you should know this at this level, and that one at a different level", and suggests a Lightning Lesson on skill depth [^7].
 
 A Python readiness check for ML Zoomcamp is the Website Grader shape applied to that problem. You answer or solve a short set of tasks, you get a score, and the score tells you which course to start with and what to fix first. The instant result is the score. The gated part is the personalised gap list.
+
+TODO move it up. come up with other ideas. analyze the content from all 
+our courses, content, workshops
+for each DTC course for each module come up wih 2-3 ideas
+also CV readiness check, portfolio projects scanner, etc
+(but also I don't really want to pay for LLM calls)
 
 It also produces a number, which is exactly what play 5 needs.
 
@@ -248,26 +247,6 @@ Candidates that sit one step before joining:
 - The public slice of the job-match tool described above.
 
 Each one maps to a course that already exists in the six-course packaging, which is the alignment test Luu insists on: kill every idea where the tool's output doesn't lead naturally to the paid offer.
-
-## Where the essay doesn't transfer
-
-The essay is honest about its own scope, and most of the gaps come from that scope rather than from errors.
-
-The reader Luu is writing for has zero audience. That's not the situation here. There's an existing newsletter, a Slack community, a podcast archive of about 206 episodes, and courses with thousands of students per cohort. For someone starting from nothing, all seven plays are equally available. For an organisation with these assets, the plays split sharply into two groups: the ones that reuse what already exists (cohort wrapped, the FAQ MCP server, the job dataset) and the ones that start from zero (programmatic SEO from scratch). The first group is much cheaper, and the essay's ranking doesn't reflect that difference.
-
-The arithmetic assumes a SaaS product. Luu's programmatic SEO example doesn't map to either organisation: 10,000 pages, 30 visits each, 2% converting at $10. DataTalks.Club's conversion is a free registration, and its revenue comes from sponsors and reach. AI Shipping Labs charges, but not at a price where traffic volume is the binding constraint.
-
-The binding constraint at AI Shipping Labs is moderation capacity, not attention. The activities notes are explicit: two people run the sprints, one timezone group already lands on a weekend, and the open question is how to reach five or more groups without both of them being in every call. More top-of-funnel traffic without more capacity to run sprints makes the member experience worse. That's the opposite of a distribution problem, and the essay has nothing to say about it.
-
-Programmatic SEO pulls against the unified platform work. That effort exists to stop maintaining the same student-facing information in four places. Generating thousands of pages is a way to create new duplication unless every page renders from one canonical source. podwiki already demonstrates the disciplined version, and it's the only version worth copying.
-
-Free tools have a maintenance cost the essay understates. "Ship one small tool a month" works if tools are disposable. A tool attached to an education brand that returns a wrong answer about what you should learn costs trust that's hard to get back. The unified platform analysis also records a pattern of accreting parallel apps in the DataTalks.Club org - docs, FAQ, faq-assistant, the course platform, dataops superseding dtc-operations. Adding a monthly tool to that org without deciding who owns it repeats a problem that's already documented.
-
-The AEO numbers cut both ways. Luu reports AI referrals at below 1% of total web traffic and simultaneously calls this the 2010-SEO moment. Both can be true, but for a community whose reach comes mostly from Slack, YouTube, and the newsletter, sub-1% of web traffic is a small pool today. That argues for the cheap version and against reorganising a site around it. The cheap version is running the 20-question audit, fixing the Courses page, and structuring the FAQ answer-first.
-
-The MCP timing claim is an analogy, not evidence. "10,000 servers today, so this is mobile apps in 2010" assumes the shape of adoption rather than showing it. The two case studies are also both developer-tools companies whose users live inside coding assistants already, which is a favourable case. Discovery inside MCP registries is itself an unsolved distribution problem, which the essay acknowledges only as a list of four places to publish.
-
-Finally, the closing advice to pick two plays, one compounding and one fast, assumes one product. There are two organisations here with different constraints, and the honest reading is that they should pick different pairs. The cheap version for DataTalks.Club is cohort wrapped as the fast play and the FAQ answer-first rewrite as the compounding one. For AI Shipping Labs it's the free job-match tool as the fast play and the answer-first overview articles as the compounding one.
 
 ## Sources
 

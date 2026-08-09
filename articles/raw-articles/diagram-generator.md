@@ -6,6 +6,8 @@ tags: [ideas, diagrams, svg, tooling]
 status: draft
 ---
 
+todo - being done
+
 # Declarative Diagram Generator
 
 Idea for a diagram generator that takes a declarative description of the desired diagram and produces a clean SVG file that can later be opened in Inkscape, Figma, or another vector editor for manual touch-ups.

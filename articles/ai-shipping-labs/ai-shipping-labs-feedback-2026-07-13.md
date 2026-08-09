@@ -6,6 +6,9 @@ tags: [ai-shipping-labs, website, feedback]
 status: draft
 ---
 
+TODO move to ai shipping labs
+make it easy for the agent to know that ai shipping labs stuff should go to the folder next time
+
 # AI Shipping Labs Website Feedback (2026-07-13)
 
 Feedback on the current state of the AI Shipping Labs website, recorded as voice notes. The speaker refers to Alexey in the third person, so this is feedback from a team member reviewing the site.

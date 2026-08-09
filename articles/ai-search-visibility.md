@@ -6,6 +6,8 @@ tags: [seo, ai-search, linkedin, marketing]
 status: draft
 ---
 
+TODO: move to marketing, find all other articles that are similar and move them there too 
+
 # Ranking for AI Search: LinkedIn Visibility and AI Overview Tracking
 
 Two resources on a new SEO challenge. The first is about getting your content cited by AI search engines. The second tracks whether your brand appears in Google's AI Overviews.

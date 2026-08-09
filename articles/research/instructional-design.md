@@ -6,6 +6,8 @@ tags: [research, instructional-design, courses, ai-buildcamp]
 status: draft
 ---
 
+todo - move to courses aritcle
+
 # Instructional Design for Online Courses
 
 Research on instructional design principles for improving course completion rates and student engagement. Based on advice from Alex Migutsky and the book "Instructional Design That Soars."

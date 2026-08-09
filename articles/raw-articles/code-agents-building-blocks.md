@@ -6,6 +6,9 @@ tags: [code-agents, skills, subagents, claude-code, ai-engineering, talk]
 status: draft
 ---
 
+TODO: remove the landscape and focus on the building blocks
+move it as article 5 to the ai dev tools zoomcamp
+
 # Building Blocks of Modern Code Agents: Reusable Skills and Role-Based Subagents
 
 A practical map of modern code agent types and the two key building blocks that make them reliable in real-world development workflows.

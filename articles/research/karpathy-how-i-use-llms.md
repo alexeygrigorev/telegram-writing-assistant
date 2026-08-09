@@ -6,6 +6,8 @@ tags: [research, llm, ai, knowledge-management, obsidian]
 status: draft
 ---
 
+todo rename to llm-wiki
+
 # Karpathy: LLM Knowledge Bases
 
 Andrej Karpathy describes a pattern for using LLMs to build and maintain personal knowledge bases. Instead of traditional RAG (retrieve and generate on every query), the LLM incrementally compiles raw sources into a persistent, interlinked wiki of markdown files. The wiki is the artifact - it compounds over time, and the LLM does all the maintenance work that humans typically abandon.[^1][^2][^3]

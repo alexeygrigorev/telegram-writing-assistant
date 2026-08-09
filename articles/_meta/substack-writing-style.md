@@ -6,6 +6,8 @@ tags: [reference, writing, style, substack]
 status: draft
 ---
 
+TODO some documents are meta. I put them into _meta
+
 # Substack Writing Style
 
 This is how [alexeyondata.substack.com](https://alexeyondata.substack.com) sounds, distilled from the 20 most recent posts - about 56,000 words. Every rule here comes from something the posts actually do, and the quotes are verbatim.

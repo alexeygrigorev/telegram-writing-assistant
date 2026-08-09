@@ -6,6 +6,8 @@ tags: [ai-shipping-labs, courses, workshops, planning]
 status: draft
 ---
 
+TODO put to ai shipping labs directory
+
 # AI Shipping Labs Content Plan
 
 The content plan for AI Shipping Labs[^3]. It covers three things:

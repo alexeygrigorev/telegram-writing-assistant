@@ -6,6 +6,8 @@ tags: [weekly, log]
 status: draft
 ---
 
+TODO this document also have a special status hence _ prefix
+
 # Weekly Log
 
 A running log of what was done each week. When a topic has its own detailed article, this log contains a short summary with a link. When there is not much content for a topic, the details go here directly.
