@@ -1,0 +1,10 @@
+---
+source: telegram_voice
+date: 2026-08-09T08:12:54+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260809_081254_AlexeyDTC_msg4853.ogg
+---
+
+Я сейчас слушаю книгу Lean Product Design и там статья про UX. Я думаю, что нужно проанализировать
+это и применить как раз сейчас к редизайну нашего веб-сайта Data Talks Club.

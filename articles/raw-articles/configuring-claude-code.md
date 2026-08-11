@@ -146,7 +146,7 @@ Instead of maintaining these commands in each individual repository, keeping the
 
 ## Subagents
 
-For subagents (specialized agents for tasks like research workflows and verification) see the dedicated [Subagents](subagents.md) article[^10].
+Subagents are specialized agents for tasks such as research workflows and verification[^10].
 
 ## Skills
 
@@ -289,26 +289,26 @@ Ideas for what can be added to the .claude library next[^15][^16]:
 
 ## Sources
 
-- [20260123_135217_AlexeyDTC_msg532_photo.md](../inbox/used/20260123_135217_AlexeyDTC_msg532_photo.md)
-- [20260122_182057_AlexeyDTC_msg413_photo.md](../inbox/used/20260122_182057_AlexeyDTC_msg413_photo.md)
+- [20260123_135217_AlexeyDTC_msg532_photo.md](../../inbox/used/20260123_135217_AlexeyDTC_msg532_photo.md)
+- [20260122_182057_AlexeyDTC_msg413_photo.md](../../inbox/used/20260122_182057_AlexeyDTC_msg413_photo.md)
 
-[^1]: [20260123_135217_AlexeyDTC_msg532_photo.md](../inbox/used/20260123_135217_AlexeyDTC_msg532_photo.md)
-[^2]: [20260122_182057_AlexeyDTC_msg413_photo.md](../inbox/used/20260122_182057_AlexeyDTC_msg413_photo.md)
-[^3]: [20260207_133114_AlexeyDTC_msg1090.md](../inbox/used/20260207_133114_AlexeyDTC_msg1090.md) - GitHub repository link
-[^4]: [20260207_133739_AlexeyDTC_msg1093_transcript.txt](../inbox/used/20260207_133739_AlexeyDTC_msg1093_transcript.txt) - Release workflow
-[^5]: [20260207_133836_AlexeyDTC_msg1094_transcript.txt](../inbox/used/20260207_133836_AlexeyDTC_msg1094_transcript.txt) - Release notes automation
-[^6]: [20260207_133954_AlexeyDTC_msg1096_transcript.txt](../inbox/used/20260207_133954_AlexeyDTC_msg1096_transcript.txt) - Library analysis
-[^7]: [20260207_135040_AlexeyDTC_msg1099_transcript.txt](../inbox/used/20260207_135040_AlexeyDTC_msg1099_transcript.txt) - Init and release relationship
-[^8]: [20260207_135254_AlexeyDTC_msg1101_transcript.txt](../inbox/used/20260207_135254_AlexeyDTC_msg1101_transcript.txt) - GitHub repo creation
-[^9]: [20260207_133907_AlexeyDTC_msg1095_transcript.txt](../inbox/used/20260207_133907_AlexeyDTC_msg1095_transcript.txt) - Global command benefits
-[^10]: [20260210_152205_AlexeyDTC_msg1293_transcript.txt](../inbox/used/20260210_152205_AlexeyDTC_msg1293_transcript.txt) - Subagents for research workflow
-[^11]: [20260211_053127_AlexeyDTC_msg1371.md](../inbox/used/20260211_053127_AlexeyDTC_msg1371.md) - Safety hooks reference
-[^12]: [20260211_045044_AlexeyDTC_msg1367_photo.md](../inbox/used/20260211_045044_AlexeyDTC_msg1367_photo.md) - Refactor pass skill
-[^13]: [20260213_180159_AlexeyDTC_msg1641.md](../inbox/used/20260213_180159_AlexeyDTC_msg1641.md) - YouTube skill link
-[^14]: [20260213_180241_AlexeyDTC_msg1643_transcript.txt](../inbox/used/20260213_180241_AlexeyDTC_msg1643_transcript.txt) - YouTube skill description
-[^15]: [20260219_121844_AlexeyDTC_msg2066_photo.md](../inbox/used/20260219_121844_AlexeyDTC_msg2066_photo.md) - Workflow orchestration guidelines
-[^16]: [20260219_121856_AlexeyDTC_msg2067_transcript.txt](../inbox/used/20260219_121856_AlexeyDTC_msg2067_transcript.txt) - Add text from screenshot
-[^17]: [20260326_135001_AlexeyDTC_msg3092_photo.md](../inbox/used/20260326_135001_AlexeyDTC_msg3092_photo.md) - Disabling bypass permissions caption
-[^18]: [20260326_135542_AlexeyDTC_msg3096_photo.md](../inbox/used/20260326_135542_AlexeyDTC_msg3096_photo.md) - Bypass permissions disabled screenshot
-[^19]: [20260326_135644_AlexeyDTC_msg3098.md](../inbox/used/20260326_135644_AlexeyDTC_msg3098.md) - Settings.json content
-[^20]: [20260403_193257_AlexeyDTC_msg3141.md](../inbox/used/20260403_193257_AlexeyDTC_msg3141.md) - Token usage reduction tips
+[^1]: [20260123_135217_AlexeyDTC_msg532_photo.md](../../inbox/used/20260123_135217_AlexeyDTC_msg532_photo.md)
+[^2]: [20260122_182057_AlexeyDTC_msg413_photo.md](../../inbox/used/20260122_182057_AlexeyDTC_msg413_photo.md)
+[^3]: [20260207_133114_AlexeyDTC_msg1090.md](../../inbox/used/20260207_133114_AlexeyDTC_msg1090.md) - GitHub repository link
+[^4]: [20260207_133739_AlexeyDTC_msg1093_transcript.txt](../../inbox/used/20260207_133739_AlexeyDTC_msg1093_transcript.txt) - Release workflow
+[^5]: [20260207_133836_AlexeyDTC_msg1094_transcript.txt](../../inbox/used/20260207_133836_AlexeyDTC_msg1094_transcript.txt) - Release notes automation
+[^6]: [20260207_133954_AlexeyDTC_msg1096_transcript.txt](../../inbox/used/20260207_133954_AlexeyDTC_msg1096_transcript.txt) - Library analysis
+[^7]: [20260207_135040_AlexeyDTC_msg1099_transcript.txt](../../inbox/used/20260207_135040_AlexeyDTC_msg1099_transcript.txt) - Init and release relationship
+[^8]: [20260207_135254_AlexeyDTC_msg1101_transcript.txt](../../inbox/used/20260207_135254_AlexeyDTC_msg1101_transcript.txt) - GitHub repo creation
+[^9]: [20260207_133907_AlexeyDTC_msg1095_transcript.txt](../../inbox/used/20260207_133907_AlexeyDTC_msg1095_transcript.txt) - Global command benefits
+[^10]: [20260210_152205_AlexeyDTC_msg1293_transcript.txt](../../inbox/used/20260210_152205_AlexeyDTC_msg1293_transcript.txt) - Subagents for research workflow
+[^11]: [20260211_053127_AlexeyDTC_msg1371.md](../../inbox/used/20260211_053127_AlexeyDTC_msg1371.md) - Safety hooks reference
+[^12]: [20260211_045044_AlexeyDTC_msg1367_photo.md](../../inbox/used/20260211_045044_AlexeyDTC_msg1367_photo.md) - Refactor pass skill
+[^13]: [20260213_180159_AlexeyDTC_msg1641.md](../../inbox/used/20260213_180159_AlexeyDTC_msg1641.md) - YouTube skill link
+[^14]: [20260213_180241_AlexeyDTC_msg1643_transcript.txt](../../inbox/used/20260213_180241_AlexeyDTC_msg1643_transcript.txt) - YouTube skill description
+[^15]: [20260219_121844_AlexeyDTC_msg2066_photo.md](../../inbox/used/20260219_121844_AlexeyDTC_msg2066_photo.md) - Workflow orchestration guidelines
+[^16]: [20260219_121856_AlexeyDTC_msg2067_transcript.txt](../../inbox/used/20260219_121856_AlexeyDTC_msg2067_transcript.txt) - Add text from screenshot
+[^17]: [20260326_135001_AlexeyDTC_msg3092_photo.md](../../inbox/used/20260326_135001_AlexeyDTC_msg3092_photo.md) - Disabling bypass permissions caption
+[^18]: [20260326_135542_AlexeyDTC_msg3096_photo.md](../../inbox/used/20260326_135542_AlexeyDTC_msg3096_photo.md) - Bypass permissions disabled screenshot
+[^19]: [20260326_135644_AlexeyDTC_msg3098.md](../../inbox/used/20260326_135644_AlexeyDTC_msg3098.md) - Settings.json content
+[^20]: [20260403_193257_AlexeyDTC_msg3141.md](../../inbox/used/20260403_193257_AlexeyDTC_msg3141.md) - Token usage reduction tips

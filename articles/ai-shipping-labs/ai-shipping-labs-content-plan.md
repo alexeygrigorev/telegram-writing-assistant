@@ -6,8 +6,6 @@ tags: [ai-shipping-labs, courses, workshops, planning]
 status: draft
 ---
 
-TODO put to ai shipping labs directory
-
 # AI Shipping Labs Content Plan
 
 The content plan for AI Shipping Labs[^3]. It covers three things:
@@ -87,6 +85,6 @@ The order to run them in[^2]:
 
 ## Sources
 
-[^1]: [20260803_073841_AlexeyDTC_msg4829.md](../inbox/used/20260803_073841_AlexeyDTC_msg4829.md)
-[^2]: [20260803_074337_AlexeyDTC_msg4831.md](../inbox/used/20260803_074337_AlexeyDTC_msg4831.md)
-[^3]: [20260803_074432_AlexeyDTC_msg4833.md](../inbox/used/20260803_074432_AlexeyDTC_msg4833.md)
+[^1]: [20260803_073841_AlexeyDTC_msg4829.md](../../inbox/used/20260803_073841_AlexeyDTC_msg4829.md)
+[^2]: [20260803_074337_AlexeyDTC_msg4831.md](../../inbox/used/20260803_074337_AlexeyDTC_msg4831.md)
+[^3]: [20260803_074432_AlexeyDTC_msg4833.md](../../inbox/used/20260803_074432_AlexeyDTC_msg4833.md)

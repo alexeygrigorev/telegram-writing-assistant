@@ -157,11 +157,11 @@ Valeriia has been studying the content Paul from Decoding AI puts out. She likes
 
 Paul uses all of this to promote his AI engineering course. Everything is in service of that course - he also has one[^95].
 
-One thing Valeriia likes is how the course ad slots naturally into his article. In the piece where he describes his writing pipeline, there is an inline ad for his Agentic AI Engineering Course placed right inside the content. It does not feel forced, and it reads as a natural continuation of the article. See the example embedded in the research article at [articles/research/decode-ai-content-generation.md](../research/decode-ai-content-generation.md)[^96].
+One thing Valeriia likes is how the course ad slots naturally into his article. In the piece where he describes his writing pipeline, there is an inline ad for his Agentic AI Engineering Course placed right inside the content. It does not feel forced, and it reads as a natural continuation of the article. See the example embedded in the research article on [AI-assisted writing](../research/ai-assisted-writing.md)[^96].
 
 This same approach could work for Alexey's free Friday newsletters. The newsletter is already about sharing useful things, so pre-advertising the course can slot in the same way Paul does it without feeling like an awkward insert[^96].
 
-The technical side of how Paul generates the branded diagrams and runs his pipeline is covered separately in [articles/research/decode-ai-content-generation.md](../research/decode-ai-content-generation.md). That side is mostly interesting for improving the telegram-writing-assistant agent. The marketing lesson is the one captured here.
+The technical side of how Paul generates the branded diagrams and runs his pipeline is covered separately in [AI-assisted writing](../research/ai-assisted-writing.md). That side is mostly interesting for improving the telegram-writing-assistant agent. The marketing lesson is the one captured here.
 
 ## Content Reuse and Planning
 

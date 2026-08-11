@@ -78,7 +78,7 @@ One of the patterns the linter catches is what I call abstract noun framing. The
 These are all the same shape. They puff up the surrounding sentence. They add an abstract noun where the actual content should lead. The linter flags them as `meta-framing` so they get rewritten into direct statements [^5].
 
 <figure>
-  <img src="../assets/images/stylint/abstract-noun-framing.jpg" alt="Notes on abstract noun framing patterns">
+  <img src="../../assets/images/stylint/abstract-noun-framing.jpg" alt="Notes on abstract noun framing patterns">
   <figcaption>Teaching my agents to write in the style I like - abstract noun framing patterns the linter now catches</figcaption>
 </figure>
 
@@ -89,7 +89,7 @@ The rule list keeps growing. When I want to ban a new phrase I just ask an agent
 This came up while I was preparing the [Working from a Phone](https://alexeyondata.substack.com/p/the-system-i-built-to-ship-code-from) article for the next newsletter.[^7] I noticed I had written "I leaned on GitHub Copilot..." and "I also lean on Makefiles heavily." I did not like the phrasing. So I asked the agent to ban it, run stylint on the article, and replace the matches.[^8]
 
 <figure>
-  <img src="../assets/images/stylint/banning-leaned-on-via-agent.jpg" alt="Terminal showing two 'I leaned on' / 'I also lean on' phrases rewritten in working-from-phone.md and stylint passing">
+  <img src="../../assets/images/stylint/banning-leaned-on-via-agent.jpg" alt="Terminal showing two 'I leaned on' / 'I also lean on' phrases rewritten in working-from-phone.md and stylint passing">
   <figcaption>The agent added the rule, rewrote the two occurrences in working-from-phone.md, and re-ran stylint until it passed</figcaption>
   <!-- Concrete example of the workflow described in this section: notice a phrase I want banned, hand it to the agent, get the rule and the fix in one pass -->
 </figure>
@@ -124,11 +124,11 @@ The markdown side stays for the rules that need judgment. The code side handles 
 
 ## Sources
 
-[^1]: [20260517_092031_AlexeyDTC_msg4152.md](../inbox/used/20260517_092031_AlexeyDTC_msg4152.md) - link to the stylint repo
-[^2]: [20260517_095514_AlexeyDTC_msg4154_transcript.txt](../inbox/used/20260517_095514_AlexeyDTC_msg4154_transcript.txt) - voice note on style file growth and agent skipping rules
-[^3]: [20260517_095638_AlexeyDTC_msg4156_transcript.txt](../inbox/used/20260517_095638_AlexeyDTC_msg4156_transcript.txt) - voice note on the workshop experiment that grew into Stylint
-[^4]: [20260517_095902_AlexeyDTC_msg4158_transcript.txt](../inbox/used/20260517_095902_AlexeyDTC_msg4158_transcript.txt) - voice note on the two components and outcomes
-[^5]: [20260517_091955_AlexeyDTC_msg4150_photo.md](../inbox/used/20260517_091955_AlexeyDTC_msg4150_photo.md) - abstract noun framing notes
-[^6]: [20260517_095939_AlexeyDTC_msg4160_transcript.txt](../inbox/used/20260517_095939_AlexeyDTC_msg4160_transcript.txt) - voice note requesting this article be created
-[^7]: [20260517_124142_AlexeyDTC_msg4166.md](../inbox/used/20260517_124142_AlexeyDTC_msg4166.md) - link to working-from-phone.md and note that the article is being prepared for the next newsletter
-[^8]: [20260517_125939_AlexeyDTC_msg4168_photo.md](../inbox/used/20260517_125939_AlexeyDTC_msg4168_photo.md) / [20260517_125959_AlexeyDTC_msg4170.md](../inbox/used/20260517_125959_AlexeyDTC_msg4170.md) - screenshot of the stylint run replacing "leaned on" phrasing in working-from-phone.md and the note "when I want to ban a new phrase I just ask an agent"
+[^1]: [20260517_092031_AlexeyDTC_msg4152.md](../../inbox/used/20260517_092031_AlexeyDTC_msg4152.md) - link to the stylint repo
+[^2]: [20260517_095514_AlexeyDTC_msg4154_transcript.txt](../../inbox/used/20260517_095514_AlexeyDTC_msg4154_transcript.txt) - voice note on style file growth and agent skipping rules
+[^3]: [20260517_095638_AlexeyDTC_msg4156_transcript.txt](../../inbox/used/20260517_095638_AlexeyDTC_msg4156_transcript.txt) - voice note on the workshop experiment that grew into Stylint
+[^4]: [20260517_095902_AlexeyDTC_msg4158_transcript.txt](../../inbox/used/20260517_095902_AlexeyDTC_msg4158_transcript.txt) - voice note on the two components and outcomes
+[^5]: [20260517_091955_AlexeyDTC_msg4150_photo.md](../../inbox/used/20260517_091955_AlexeyDTC_msg4150_photo.md) - abstract noun framing notes
+[^6]: [20260517_095939_AlexeyDTC_msg4160_transcript.txt](../../inbox/used/20260517_095939_AlexeyDTC_msg4160_transcript.txt) - voice note requesting this article be created
+[^7]: [20260517_124142_AlexeyDTC_msg4166.md](../../inbox/used/20260517_124142_AlexeyDTC_msg4166.md) - link to working-from-phone.md and note that the article is being prepared for the next newsletter
+[^8]: [20260517_125939_AlexeyDTC_msg4168_photo.md](../../inbox/used/20260517_125939_AlexeyDTC_msg4168_photo.md) / [20260517_125959_AlexeyDTC_msg4170.md](../../inbox/used/20260517_125959_AlexeyDTC_msg4170.md) - screenshot of the stylint run replacing "leaned on" phrasing in working-from-phone.md and the note "when I want to ban a new phrase I just ask an agent"

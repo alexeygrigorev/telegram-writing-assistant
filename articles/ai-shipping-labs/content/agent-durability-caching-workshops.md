@@ -24,4 +24,4 @@ The point is that even if you use a wrapper, you still need to understand how th
 
 ## Sources
 
-[^1]: [20260617_082024_AlexeyDTC_msg4603_transcript.txt](../../inbox/used/20260617_082024_AlexeyDTC_msg4603_transcript.txt)
+[^1]: [20260617_082024_AlexeyDTC_msg4603_transcript.txt](../../../inbox/used/20260617_082024_AlexeyDTC_msg4603_transcript.txt)

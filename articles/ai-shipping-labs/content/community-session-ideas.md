@@ -31,8 +31,7 @@ I want to focus on practical approaches that worked in production[^7].
 
 The research on this lives in two places:
 
-- [memory-layer-implementations](../research/memory-layer-implementations.md) covers ChatGPT, Claude Code, and 5 other open source systems.
-- [agentic-memory](../research/agentic-memory.md) has the earlier broader research.
+- [memory-layer](../../research/memory-layer.md) consolidates the production implementations and earlier broader research.
 
 ## Documenting and Refactoring Agent Output (Carlos Pumar)
 
@@ -133,15 +132,15 @@ As a side note, the two people the original conversation was about are both from
 
 ## Sources
 
-[^1]: [20260424_104201_AlexeyDTC_msg3597.md](../inbox/used/20260424_104201_AlexeyDTC_msg3597.md)
-[^2]: [20260424_104335_AlexeyDTC_msg3600_transcript.txt](../inbox/used/20260424_104335_AlexeyDTC_msg3600_transcript.txt)
-[^3]: [20260424_104334_AlexeyDTC_msg3599_transcript.txt](../inbox/used/20260424_104334_AlexeyDTC_msg3599_transcript.txt)
-[^4]: [20260424_104335_AlexeyDTC_msg3601_transcript.txt](../inbox/used/20260424_104335_AlexeyDTC_msg3601_transcript.txt)
-[^5]: [20260429_104254_valeriia_kuka_msg3723.md](../inbox/used/20260429_104254_valeriia_kuka_msg3723.md)
-[^6]: [20260506_090635_AlexeyDTC_msg3866.md](../inbox/used/20260506_090635_AlexeyDTC_msg3866.md)
-[^7]: [20260515_063504_AlexeyDTC_msg4024.md](../inbox/used/20260515_063504_AlexeyDTC_msg4024.md)
-[^8]: [20260703_132055_AlexeyDTC_msg4674_transcript.txt](../inbox/used/20260703_132055_AlexeyDTC_msg4674_transcript.txt)
-[^9]: [20260703_132056_AlexeyDTC_msg4675.md](../inbox/used/20260703_132056_AlexeyDTC_msg4675.md)
-[^10]: [20260703_132117_AlexeyDTC_msg4678.md](../inbox/used/20260703_132117_AlexeyDTC_msg4678.md)
-[^11]: [20260703_132200_AlexeyDTC_msg4680.md](../inbox/used/20260703_132200_AlexeyDTC_msg4680.md)
-[^12]: [20260703_160455_AlexeyDTC_msg4688_transcript.txt](../inbox/used/20260703_160455_AlexeyDTC_msg4688_transcript.txt)
+[^1]: [20260424_104201_AlexeyDTC_msg3597.md](../../../inbox/used/20260424_104201_AlexeyDTC_msg3597.md)
+[^2]: [20260424_104335_AlexeyDTC_msg3600_transcript.txt](../../../inbox/used/20260424_104335_AlexeyDTC_msg3600_transcript.txt)
+[^3]: [20260424_104334_AlexeyDTC_msg3599_transcript.txt](../../../inbox/used/20260424_104334_AlexeyDTC_msg3599_transcript.txt)
+[^4]: [20260424_104335_AlexeyDTC_msg3601_transcript.txt](../../../inbox/used/20260424_104335_AlexeyDTC_msg3601_transcript.txt)
+[^5]: [20260429_104254_valeriia_kuka_msg3723.md](../../../inbox/used/20260429_104254_valeriia_kuka_msg3723.md)
+[^6]: [20260506_090635_AlexeyDTC_msg3866.md](../../../inbox/used/20260506_090635_AlexeyDTC_msg3866.md)
+[^7]: [20260515_063504_AlexeyDTC_msg4024.md](../../../inbox/used/20260515_063504_AlexeyDTC_msg4024.md)
+[^8]: [20260703_132055_AlexeyDTC_msg4674_transcript.txt](../../../inbox/used/20260703_132055_AlexeyDTC_msg4674_transcript.txt)
+[^9]: [20260703_132056_AlexeyDTC_msg4675.md](../../../inbox/used/20260703_132056_AlexeyDTC_msg4675.md)
+[^10]: [20260703_132117_AlexeyDTC_msg4678.md](../../../inbox/used/20260703_132117_AlexeyDTC_msg4678.md)
+[^11]: [20260703_132200_AlexeyDTC_msg4680.md](../../../inbox/used/20260703_132200_AlexeyDTC_msg4680.md)
+[^12]: [20260703_160455_AlexeyDTC_msg4688_transcript.txt](../../../inbox/used/20260703_160455_AlexeyDTC_msg4688_transcript.txt)

@@ -148,9 +148,9 @@ I gave students a homework assignment to implement an agent that converts user q
 
 ## Sources
 
-[^1]: [20260130_090909_AlexeyDTC_msg679.md](../inbox/used/20260130_090909_AlexeyDTC_msg679.md)
-[^2]: [20260130_091056_AlexeyDTC_msg683_transcript.txt](../inbox/used/20260130_091056_AlexeyDTC_msg683_transcript.txt)
-[^3]: [20260225_200726_AlexeyDTC_msg2441_transcript.txt](../inbox/used/20260225_200726_AlexeyDTC_msg2441_transcript.txt)
+[^1]: [20260130_090909_AlexeyDTC_msg679.md](../../inbox/used/20260130_090909_AlexeyDTC_msg679.md)
+[^2]: [20260130_091056_AlexeyDTC_msg683_transcript.txt](../../inbox/used/20260130_091056_AlexeyDTC_msg683_transcript.txt)
+[^3]: [20260225_200726_AlexeyDTC_msg2441_transcript.txt](../../inbox/used/20260225_200726_AlexeyDTC_msg2441_transcript.txt)
 
 ## References
 

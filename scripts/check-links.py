@@ -8,13 +8,16 @@ Usage:
 
 import re
 import sys
+from os.path import relpath
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 ARTICLES_DIR = REPO_ROOT / "articles"
 
-INBOX_RE = re.compile(r"\.\./inbox/(raw|used)/([^)]+)")
-IMG_RE = re.compile(r'src="(\.\./assets/[^"]+)"')
+INBOX_RE = re.compile(
+    r"(?P<link>(?:\.\./)+inbox/(?:raw|used)/(?P<filename>[^)]+))"
+)
+IMG_RE = re.compile(r'src="(?P<link>(?:\.\./)+assets/[^"]+)"')
 
 
 def find_article_files():
@@ -36,13 +39,9 @@ def find_file(filename, file_index):
     return file_index.get(filename, [])
 
 
-def relative_inbox_path(found_path):
-    """Convert an absolute path to a ../inbox/... relative path for articles."""
-    try:
-        rel = found_path.relative_to(REPO_ROOT)
-        return f"../{rel.as_posix()}"
-    except ValueError:
-        return None
+def relative_path(found_path, article_path):
+    """Return the path to a repository file relative to an article."""
+    return Path(relpath(found_path, start=article_path.parent)).as_posix()
 
 
 def check_links(articles, file_index):
@@ -55,11 +54,11 @@ def check_links(articles, file_index):
 
         # Check inbox links
         for match in INBOX_RE.finditer(text):
-            folder, filename = match.group(1), match.group(2)
-            full_match = match.group(0)
-            target = REPO_ROOT / "inbox" / folder / filename
+            filename = match.group("filename")
+            full_match = match.group("link")
+            target = (article.parent / full_match).resolve()
             if not target.exists():
-                candidates = find_file(filename, file_index)
+                candidates = find_file(Path(filename).name, file_index)
                 broken.append({
                     "article": article_rel,
                     "article_path": article,
@@ -71,7 +70,7 @@ def check_links(articles, file_index):
 
         # Check image links
         for match in IMG_RE.finditer(text):
-            img_rel = match.group(1)
+            img_rel = match.group("link")
             resolved = (article.parent / img_rel).resolve()
             if not resolved.exists():
                 img_name = Path(img_rel).name
@@ -170,13 +169,16 @@ def fix(broken):
     fixed = 0
     for article_path, items in by_article.items():
         text = article_path.read_text(encoding="utf-8")
+        seen_links = set()
         for b in items:
+            old_ref = b["link"]
+            if old_ref in seen_links:
+                continue
+            seen_links.add(old_ref)
             found = b["candidates"][0]
-            new_ref = relative_inbox_path(found)
-            if new_ref:
-                old_ref = b["link"]
-                text = text.replace(old_ref, new_ref)
-                fixed += 1
+            new_ref = relative_path(found, article_path)
+            fixed += text.count(old_ref)
+            text = text.replace(old_ref, new_ref)
         article_path.write_text(text, encoding="utf-8")
 
     print(f"Fixed {fixed} links across {len(by_article)} articles.")

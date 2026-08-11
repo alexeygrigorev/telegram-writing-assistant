@@ -50,6 +50,6 @@ Claude Code did well on my existing workshops, so it should handle course lesson
 
 ## Sources
 
-[^1]: [20260430_091318_AlexeyDTC_msg3772_transcript.txt](../inbox/used/20260430_091318_AlexeyDTC_msg3772_transcript.txt)
-[^2]: [20260430_091318_AlexeyDTC_msg3773_transcript.txt](../inbox/used/20260430_091318_AlexeyDTC_msg3773_transcript.txt)
-[^3]: [20260430_091318_AlexeyDTC_msg3774_transcript.txt](../inbox/used/20260430_091318_AlexeyDTC_msg3774_transcript.txt)
+[^1]: [20260430_091318_AlexeyDTC_msg3772_transcript.txt](../../inbox/used/20260430_091318_AlexeyDTC_msg3772_transcript.txt)
+[^2]: [20260430_091318_AlexeyDTC_msg3773_transcript.txt](../../inbox/used/20260430_091318_AlexeyDTC_msg3773_transcript.txt)
+[^3]: [20260430_091318_AlexeyDTC_msg3774_transcript.txt](../../inbox/used/20260430_091318_AlexeyDTC_msg3774_transcript.txt)

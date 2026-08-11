@@ -31,4 +31,4 @@ Based on the recommendations already given to Edu, Carlos, Vancesca, Jakob, and 
 
 ## Sources
 
-[^1]: [20260422_092530_AlexeyDTC_msg3515_transcript.txt](../inbox/used/20260422_092530_AlexeyDTC_msg3515_transcript.txt)
+[^1]: [20260422_092530_AlexeyDTC_msg3515_transcript.txt](../../inbox/used/20260422_092530_AlexeyDTC_msg3515_transcript.txt)

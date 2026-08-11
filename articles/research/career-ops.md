@@ -202,7 +202,7 @@ The batch runner pattern (conductor + `claude -p` workers) is reusable for any t
 
 - This is one of the most complete examples of "Claude Code as application runtime" in the wild. The entire application logic lives in markdown prompt files.
 - The data contract pattern (user layer vs system layer) is worth studying for any project that ships AI agent configurations as open source.
-- The conductor-worker batch pattern is similar to the parallel agent patterns in the [Claude Agent Teams Research](claude-agent-teams.md).
-- The mode system is comparable to gstack's skill modes (see [gstack research](gstack.md)), but career-ops has a more structured data model.
+- The conductor-worker batch pattern is similar to the parallel agent patterns in [Claude Code agent teams](https://code.claude.com/docs/en/agent-teams).
+- The mode system is comparable to the skill modes in [gstack](https://github.com/garrytan/gstack), but career-ops has a more structured data model.
 
 [^1]: [20260409_064531_AlexeyDTC_msg3313.md](../../inbox/used/20260409_064531_AlexeyDTC_msg3313.md)

@@ -1,35 +1,45 @@
 ---
-title: "Declarative Diagram Generator"
+title: "Diagram Creator: Declarative SVG and PNG Workflows"
 created: 2026-05-08
-updated: 2026-05-08
+updated: 2026-08-09
 tags: [ideas, diagrams, svg, tooling]
-status: draft
+status: complete
 ---
 
-todo - being done
+# Diagram Creator: Declarative SVG and PNG Workflows
 
-# Declarative Diagram Generator
+[Diagram Creator](https://github.com/alexeygrigorev/diagram-creator) implements the original idea: it takes a compact JSON specification and deterministically renders SVG or PNG. The SVG remains editable in Inkscape, Figma, or another vector editor.
 
-Idea for a diagram generator that takes a declarative description of the desired diagram and produces a clean SVG file that can later be opened in Inkscape, Figma, or another vector editor for manual touch-ups.
+## Problem
 
-## Why
+Image generators can make attractive diagrams, but they often stretch text, vary styles between renders, or miss the requested structure. It's hard to get the exact layout you want or make a precise correction later.
 
-ChatGPT generates pretty pictures, but they often come out stretched, inconsistent, or not in the style you want. It is hard to get the exact look you are after.
+Mermaid covers structural diagrams, but its styling is limited. The missing layer was a small declarative format with polished reusable cards, icons, connectors, and layouts.
 
-Mermaid covers structural diagrams, but the styling is limited. Want something with nicer styles and the ability to drop in icons (Font Awesome and others) so the result looks polished out of the box.
+## Capabilities
 
-## What it would do
+Diagram Creator provides the following capabilities:
 
-- Accept a declarative description of the diagram.
-- Generate an SVG with consistent, attractive styling.
-- Allow icons to be added (Font Awesome and others).
-- Output a file that opens cleanly in Inkscape or Figma so it can be edited by hand without fighting the tool.
+- Accepts a JSON description of nodes, edges, canvas dimensions, and layout.
+- Generates deterministic SVG and PNG output with the same layout, fonts, and icons.
+- Supports horizontal workflows, explicit rows and columns, staircases, and circular loops.
+- Supports reusable icons, colored cards, labels, curved routes, and bidirectional edges.
+- Produces SVG files that remain easy to edit by hand.
 
-The key property is the editable SVG output - the generator does the heavy lifting, but the user can always tweak the result in a familiar vector editor.
+Diagram Creator handles the initial layout and styling. You can then edit the SVG in a familiar vector editor.
 
-## Status
+## Implementation
 
-Just an idea for now. Already have prior projects that generate Mermaid-style diagrams, so something similar could be built on top of that. Worth picking up when there is time[^1][^2].
+The tool is now a tested Python CLI.
+
+Render a diagram with either output extension:
+
+```bash
+uv run diagram-creator input.json output.svg
+uv run diagram-creator input.json output.png
+```
+
+The repository includes generated examples and their JSON sources, so each layout doubles as documentation. Diagram Creator now fulfills the original idea, and future work belongs in its repository rather than in this note[^1][^2].
 
 ## Sources
 

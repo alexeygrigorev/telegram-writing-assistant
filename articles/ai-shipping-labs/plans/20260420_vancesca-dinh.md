@@ -61,7 +61,7 @@ Week 6:
 ## Resources
 
 - DataTalks.Club hackathon issue list - gives Vancesca ready-made problems instead of a blank ideation step.
-- [AI Engineering Field Guide](../../ai-engineering-field-guide.md) - useful for checking which kinds of portfolio projects map well to target roles.
+- [AI Engineering Field Guide](https://github.com/alexeygrigorev/ai-engineering-field-guide) - useful for checking which kinds of portfolio projects map well to target roles.
 - [Project-idea brainstorming prompt](https://gist.github.com/alexeygrigorev/c1c8dc3ece5cba91e1e381eeba2706c1)
 
 ## Deliverables

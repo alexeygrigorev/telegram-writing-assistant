@@ -16,7 +16,7 @@ You will receive:
 
 2. READ the target file:
    ```bash
-   articles/interesting-resources.md
+   articles/_interesting-resources.md
    ```
 
 3. WRITE DESCRIPTION following this exact format:
@@ -49,7 +49,7 @@ You will receive:
 
 ## OUTPUT
 
-- Edit `articles/interesting-resources.md` directly
+- Edit `articles/_interesting-resources.md` directly
 - DO NOT create separate files
 - The resource becomes a permanent entry in the collection
 

@@ -68,10 +68,10 @@ The recommendation is to use it for datasets up to 100,000 items, maybe even few
 
 ## Sources
 
-[^1]: [20260221_184914_AlexeyDTC_msg2186_transcript.txt](../inbox/used/20260221_184914_AlexeyDTC_msg2186_transcript.txt)
-[^2]: [20260221_185007_AlexeyDTC_msg2188_transcript.txt](../inbox/used/20260221_185007_AlexeyDTC_msg2188_transcript.txt)
-[^3]: [20260225_201829_AlexeyDTC_msg2447_transcript.txt](../inbox/used/20260225_201829_AlexeyDTC_msg2447_transcript.txt)
-[^4]: [20260226_133553_AlexeyDTC_msg2530.md](../inbox/used/20260226_133553_AlexeyDTC_msg2530.md)
-[^5]: [20260226_133811_AlexeyDTC_msg2532_transcript.txt](../inbox/used/20260226_133811_AlexeyDTC_msg2532_transcript.txt)
-[^6]: [20260226_134356_AlexeyDTC_msg2534_transcript.txt](../inbox/used/20260226_134356_AlexeyDTC_msg2534_transcript.txt)
-[^7]: [20260226_134849_AlexeyDTC_msg2536_photo.md](../inbox/used/20260226_134849_AlexeyDTC_msg2536_photo.md)
+[^1]: [20260221_184914_AlexeyDTC_msg2186_transcript.txt](../../inbox/used/20260221_184914_AlexeyDTC_msg2186_transcript.txt)
+[^2]: [20260221_185007_AlexeyDTC_msg2188_transcript.txt](../../inbox/used/20260221_185007_AlexeyDTC_msg2188_transcript.txt)
+[^3]: [20260225_201829_AlexeyDTC_msg2447_transcript.txt](../../inbox/used/20260225_201829_AlexeyDTC_msg2447_transcript.txt)
+[^4]: [20260226_133553_AlexeyDTC_msg2530.md](../../inbox/used/20260226_133553_AlexeyDTC_msg2530.md)
+[^5]: [20260226_133811_AlexeyDTC_msg2532_transcript.txt](../../inbox/used/20260226_133811_AlexeyDTC_msg2532_transcript.txt)
+[^6]: [20260226_134356_AlexeyDTC_msg2534_transcript.txt](../../inbox/used/20260226_134356_AlexeyDTC_msg2534_transcript.txt)
+[^7]: [20260226_134849_AlexeyDTC_msg2536_photo.md](../../inbox/used/20260226_134849_AlexeyDTC_msg2536_photo.md)

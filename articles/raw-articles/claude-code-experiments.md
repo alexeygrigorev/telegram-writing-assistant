@@ -114,13 +114,13 @@ The critical question becomes: when is it worth using Claude, and when is manual
 
 ## Sources
 
-[^1]: [20260212_110716_AlexeyDTC_msg1521_photo.md](../inbox/used/20260212_110716_AlexeyDTC_msg1521_photo.md)
-[^2]: [20260212_110832_AlexeyDTC_msg1525_transcript.txt](../inbox/used/20260212_110832_AlexeyDTC_msg1525_transcript.txt)
-[^3]: [20260212_110716_AlexeyDTC_msg1522_photo.md](../inbox/used/20260212_110716_AlexeyDTC_msg1522_photo.md)
-[^4]: [20260213_065936_AlexeyDTC_msg1573_transcript.txt](../inbox/used/20260213_065936_AlexeyDTC_msg1573_transcript.txt)
-[^5]: [20260216_154857_AlexeyDTC_msg1785_transcript.txt](../inbox/used/20260216_154857_AlexeyDTC_msg1785_transcript.txt)
-[^6]: [20260216_182231_AlexeyDTC_msg1789_transcript.txt](../inbox/used/20260216_182231_AlexeyDTC_msg1789_transcript.txt)
-[^7]: [20260222_182029_AlexeyDTC_msg2224.md](../inbox/used/20260222_182029_AlexeyDTC_msg2224.md)
-[^8]: [20260228_205024_AlexeyDTC_msg2640_photo.md](../inbox/used/20260228_205024_AlexeyDTC_msg2640_photo.md)
-[^9]: [20260309_133536_valeriia_kuka_msg2784.md](../inbox/used/20260309_133536_valeriia_kuka_msg2784.md)
-[^10]: [20260428_192757_AlexeyDTC_msg3719_photo.md](../inbox/used/20260428_192757_AlexeyDTC_msg3719_photo.md), [20260428_192820_AlexeyDTC_msg3721_transcript.txt](../inbox/used/20260428_192820_AlexeyDTC_msg3721_transcript.txt)
+[^1]: [20260212_110716_AlexeyDTC_msg1521_photo.md](../../inbox/used/20260212_110716_AlexeyDTC_msg1521_photo.md)
+[^2]: [20260212_110832_AlexeyDTC_msg1525_transcript.txt](../../inbox/used/20260212_110832_AlexeyDTC_msg1525_transcript.txt)
+[^3]: [20260212_110716_AlexeyDTC_msg1522_photo.md](../../inbox/used/20260212_110716_AlexeyDTC_msg1522_photo.md)
+[^4]: [20260213_065936_AlexeyDTC_msg1573_transcript.txt](../../inbox/used/20260213_065936_AlexeyDTC_msg1573_transcript.txt)
+[^5]: [20260216_154857_AlexeyDTC_msg1785_transcript.txt](../../inbox/used/20260216_154857_AlexeyDTC_msg1785_transcript.txt)
+[^6]: [20260216_182231_AlexeyDTC_msg1789_transcript.txt](../../inbox/used/20260216_182231_AlexeyDTC_msg1789_transcript.txt)
+[^7]: [20260222_182029_AlexeyDTC_msg2224.md](../../inbox/used/20260222_182029_AlexeyDTC_msg2224.md)
+[^8]: [20260228_205024_AlexeyDTC_msg2640_photo.md](../../inbox/used/20260228_205024_AlexeyDTC_msg2640_photo.md)
+[^9]: [20260309_133536_valeriia_kuka_msg2784.md](../../inbox/used/20260309_133536_valeriia_kuka_msg2784.md)
+[^10]: [20260428_192757_AlexeyDTC_msg3719_photo.md](../../inbox/used/20260428_192757_AlexeyDTC_msg3719_photo.md), [20260428_192820_AlexeyDTC_msg3721_transcript.txt](../../inbox/used/20260428_192820_AlexeyDTC_msg3721_transcript.txt)

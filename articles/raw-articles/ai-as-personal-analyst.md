@@ -152,5 +152,5 @@ The real question is: Which repetitive task in your workflow could you delegate 
 
 ## Sources
 
-[^1]: [20260212_090547_AlexeyDTC_msg1480.md](../inbox/used/20260212_090547_AlexeyDTC_msg1480.md)
-[^2]: [20260212_090642_AlexeyDTC_msg1481_transcript.txt](../inbox/used/20260212_090642_AlexeyDTC_msg1481_transcript.txt)
+[^1]: [20260212_090547_AlexeyDTC_msg1480.md](../../inbox/used/20260212_090547_AlexeyDTC_msg1480.md)
+[^2]: [20260212_090642_AlexeyDTC_msg1481_transcript.txt](../../inbox/used/20260212_090642_AlexeyDTC_msg1481_transcript.txt)

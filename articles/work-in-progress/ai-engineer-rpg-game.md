@@ -62,7 +62,7 @@ I plan to work on this after I finish the current course. I think this would be 
 
 ## Sources
 
-[^1]: [20260213_144259_AlexeyDTC_msg1605_transcript.txt](../inbox/used/20260213_144259_AlexeyDTC_msg1605_transcript.txt)
-[^2]: [20260213_145555_AlexeyDTC_msg1608_transcript.txt](../inbox/used/20260213_145555_AlexeyDTC_msg1608_transcript.txt)
-[^3]: [20260213_145721_AlexeyDTC_msg1609_transcript.txt](../inbox/used/20260213_145721_AlexeyDTC_msg1609_transcript.txt)
-[^4]: [20260213_182206_AlexeyDTC_msg1647.md](../inbox/used/20260213_182206_AlexeyDTC_msg1647.md) - GitHub repository link
+[^1]: [20260213_144259_AlexeyDTC_msg1605_transcript.txt](../../inbox/used/20260213_144259_AlexeyDTC_msg1605_transcript.txt)
+[^2]: [20260213_145555_AlexeyDTC_msg1608_transcript.txt](../../inbox/used/20260213_145555_AlexeyDTC_msg1608_transcript.txt)
+[^3]: [20260213_145721_AlexeyDTC_msg1609_transcript.txt](../../inbox/used/20260213_145721_AlexeyDTC_msg1609_transcript.txt)
+[^4]: [20260213_182206_AlexeyDTC_msg1647.md](../../inbox/used/20260213_182206_AlexeyDTC_msg1647.md) - GitHub repository link

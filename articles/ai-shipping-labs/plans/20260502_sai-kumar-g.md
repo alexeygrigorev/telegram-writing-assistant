@@ -102,7 +102,7 @@ Sai also asked for an interview prep plan. The shortest realistic answer: a ship
 Once V1 is running:
 
 - Write a short README that explains the architecture, the trade-offs (why three flows, why four tables, why no agent in Flow A), and what you would change next. This is the answer to most "tell me about a project" interview questions.
-- The community session ideas Sai already raised (recent AI Engineering interview questions, mock interviews, strategy for getting interview calls) are tracked in [community-session-ideas.md](../../community-session-ideas.md#ai-engineer-job-hunt-topics-sai-kumar-g) and will be planned as community-wide sessions rather than as part of the personal sprint.
+- The community session ideas Sai already raised (recent AI Engineering interview questions, mock interviews, strategy for getting interview calls) are tracked in [community-session-ideas.md](../content/community-session-ideas.md#ai-engineer-job-hunt-topics-sai-kumar-g) and will be planned as community-wide sessions rather than as part of the personal sprint.
 
 ## Next Steps
 
@@ -129,7 +129,7 @@ LinkedIn: Sai Kumar G
 
 GitHub (project repo, just started): [github.com/saig217/future-event-remainder](https://github.com/saig217/future-event-remainder)
 
-He previously responded to Valeriia's outreach with topics he wanted the community to cover (recent AI Engineering interview questions, mock interviews and strategy for getting interview calls, and building personal projects) and framed his goal as: "I need the plan to build AI project and get the AI Engineer role". Captured in [community-session-ideas.md](../../community-session-ideas.md#ai-engineer-job-hunt-topics-sai-kumar-g).
+He previously responded to Valeriia's outreach with topics he wanted the community to cover (recent AI Engineering interview questions, mock interviews and strategy for getting interview calls, and building personal projects) and framed his goal as: "I need the plan to build AI project and get the AI Engineer role". Captured in [community-session-ideas.md](../content/community-session-ideas.md#ai-engineer-job-hunt-topics-sai-kumar-g).
 
 ## Intake
 
@@ -249,7 +249,7 @@ Alexey's recommendations after reviewing Sai's intake[^3]:
 
 8. Build pattern: implement the underlying logic (event extraction, freshness check) as plain Python functions first - call them directly from the bot before introducing an agent. Once the functions work, wrap them in an agent that decides when to call which one. This is far easier to debug than starting with an agent.
 
-9. Interview prep is best treated as a side effect of the shipped project rather than a parallel track. A working, well-evaluated bot plus a clear README that explains the trade-offs is the strongest answer to most interview questions. The community already has Sai's broader interview-prep requests (recent AI Engineering interview questions, mock interviews, strategy for getting interview calls) captured in [community-session-ideas.md](../../community-session-ideas.md#ai-engineer-job-hunt-topics-sai-kumar-g) and those will be planned as community-wide sessions.
+9. Interview prep is best treated as a side effect of the shipped project rather than a parallel track. A working, well-evaluated bot plus a clear README that explains the trade-offs is the strongest answer to most interview questions. The community already has Sai's broader interview-prep requests (recent AI Engineering interview questions, mock interviews, strategy for getting interview calls) captured in [community-session-ideas.md](../content/community-session-ideas.md#ai-engineer-job-hunt-topics-sai-kumar-g) and those will be planned as community-wide sessions.
 
 ## Internal Action Items
 

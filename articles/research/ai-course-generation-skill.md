@@ -99,7 +99,7 @@ The prompt does not address content accuracy verification. It trusts Claude's tr
 
 - This skill represents a "template-first" approach to AI generation. The prompt author built one great course manually, then reverse-engineered the process into a reusable prompt.
 - The shared component code is the most valuable part. It solves the hardest UI problems once, then every generated course inherits those solutions.
-- Related to the course-design-methodology research - this is a practical implementation of structured course generation.
+- Related to the [course-design research](course-design.md) - this is a practical implementation of structured course generation.
 - The parallelism strategy (Step 9) shows awareness of Claude's agent capabilities and context window limits.
 
 ## Resources

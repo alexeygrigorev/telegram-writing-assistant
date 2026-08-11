@@ -22,4 +22,4 @@ Collection of testimonials for the services website. Saved here to avoid losing 
 
 ## Sources
 
-[^1]: [20260215_093930_AlexeyDTC_msg1699_photo.md](../inbox/used/20260215_093930_AlexeyDTC_msg1699_photo.md)
+[^1]: [20260215_093930_AlexeyDTC_msg1699_photo.md](../../inbox/used/20260215_093930_AlexeyDTC_msg1699_photo.md)

@@ -6,9 +6,6 @@ tags: [resources, tools, ai, development]
 status: draft
 ---
 
-TODO i renamed it to _interesting-resoures so it's easy to find it
-update the docs
-
 # Interesting Resources
 
 A collection of interesting resources curated for the "Alexey On Data" newsletter and beyond.

@@ -60,6 +60,6 @@ It is interesting how specifically this is implemented in this project. The patt
 
 ## Sources
 
-[^1]: [20260216_094456_AlexeyDTC_msg1717.md](../inbox/used/20260216_094456_AlexeyDTC_msg1717.md)
-[^2]: [20260216_094806_AlexeyDTC_msg1719_transcript.txt](../inbox/used/20260216_094806_AlexeyDTC_msg1719_transcript.txt)
+[^1]: [20260216_094456_AlexeyDTC_msg1717.md](../../inbox/used/20260216_094456_AlexeyDTC_msg1717.md)
+[^2]: [20260216_094806_AlexeyDTC_msg1719_transcript.txt](../../inbox/used/20260216_094806_AlexeyDTC_msg1719_transcript.txt)
 [^3]: [Ralphex GitHub Repository](https://github.com/umputun/ralphex)

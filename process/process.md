@@ -43,26 +43,32 @@ Articles live in `articles/` and are organized into subfolders by category. When
 
 ## Folder categories
 
-- `articles/ideas/` - Recorded ideas without much detail. Just "it would be cool to do this." No implementation, no deep research - just the idea itself. Useful for not forgetting ideas and reviewing them later.
+- `articles/ideas/` - General recorded ideas. Put article and social-content ideas in `ideas/content/`, project ideas in `ideas/projects/`, and broader ideas directly in `ideas/`.
 
 - `articles/work-in-progress/` - Unfinished articles that need more information, experimentation, or testing before they are ready. These require additional content before they can become newsletter material.
 
-- `articles/ready-for-newsletter/` - Articles that are mostly ready for the newsletter. All the necessary content is already inside. They may need a final review or light editing, but the substance is complete.
+- `articles/raw-articles/` - Draft article and talk material whose substance is already collected but may still need review or editing.
 
 - `articles/research/` - Collections of resources and exploration notes on a single topic. Used for gathering links, summaries, and findings when investigating something. Has its own index at `articles/research/_index.md`.
 
-- `articles/talks/` - Notes and preparation materials for upcoming presentations and talks. Not originally meant for articles, but could become one later.
+- `articles/ai-shipping-labs/` - All AI Shipping Labs material. Put course, workshop, and community-session material in `ai-shipping-labs/content/`; personal plans in `ai-shipping-labs/plans/`; member interviews in `ai-shipping-labs/interviews/`; and other community strategy, platform, activity, feedback, and planning documents directly in `ai-shipping-labs/`.
 
-- `articles/` (root) - Files that don't fit neatly into the above categories. Also the default location for new articles. The following stay at the root level:
-  - `interesting-resources.md` - curated resource collection for the newsletter (has sections: Tools, Resources, Project Ideas)
-  - `writing-assistant-improvement-ideas.md` - feedback and improvement ideas for this bot/system
+- `articles/datatalksclub/` - DataTalks.Club platform, event, course-publishing, and product-planning material.
+
+- `articles/marketing/` - General marketing, distribution, social-content, SEO, and search-visibility material that is not specific to another project.
+
+- `articles/testimonials/` - Testimonial collections grouped by program.
+
+- `articles/_meta/` - Writing-system references and other metadata, not article drafts.
+
+- `articles/` (root) - Only uncategorized articles and special underscore-prefixed files. `_interesting-resources.md`, `_weekly-log.md`, `_substack-archive-index.md`, and `_index.md` stay at the root.
 
 ## How the bot should handle folders
 
-- When creating a NEW article, place it in `articles/` root by default. The user will manually move it to the right subfolder later.
+- When creating a NEW article, choose the most specific matching folder immediately. Never leave AI Shipping Labs content at the root: route it using the `articles/ai-shipping-labs/` rules above.
 - When updating an EXISTING article, find it wherever it currently lives (any subfolder) and update it in place.
 - When looking for existing articles, search ALL subfolders, not just the root.
-- Source citation paths depend on the article's depth: articles in subfolders use `../../inbox/used/` while articles in the root use `../inbox/used/`. Similarly for image paths to `assets/images/`.
+- Source citation paths depend on the article's depth: articles at the root use `../inbox/used/`; articles one directory below the root use `../../inbox/used/`; and deeper articles need another `../` per level. The same rule applies to paths under `assets/images/`.
 
 # CRITICAL STYLING REMINDERS
 
@@ -96,7 +102,7 @@ IMPORTANT: When the user mentions corrections to make (e.g., fixing a transcript
 Some messages look like ideas for improving the bot but are actually direct instructions to execute right now. The two look similar at first glance but require very different handling:
 
 - Direct instruction: "Here's URL X. Let's make a markdown document that indexes Y." - This is a TASK to do this session: fetch the URL, build the document, save it.
-- Improvement idea: "The bot should be smarter about routing." - This is a future-work note for `writing-assistant-improvement-ideas.md`.
+- Improvement idea: "The bot should be smarter about routing." - This is a future-work note; preserve it in a relevant process or project-planning document instead of treating it as an immediate command.
 
 Telltale phrases for direct instructions (Russian and English):
 - "Давай сделаем..." / "Let's make/build..."
@@ -107,7 +113,7 @@ Telltale phrases for direct instructions (Russian and English):
 
 When the user provides specific inputs (a URL, a file path, a name) along with a "let's build X" framing, default to treating it as a direct instruction. Execute it during this processing session. If you guess wrong and treat an instruction as an idea, the user will have to correct you.
 
-Do NOT add direct-instruction tasks to `writing-assistant-improvement-ideas.md`. That file is for future-work ideas about how the bot should behave, not for things the user is asking you to do now.
+Do not park direct-instruction tasks in an article. If the user asks for an action now, carry it out during the current processing run.
 
 ## Processing Feedback
 
@@ -277,7 +283,7 @@ Phrases that trigger a Substack lookup (Russian or English):
 
 When you see one of these:
 
-1. Open `articles/substack-archive-index.md` and search by topic, keyword, or utility name. The index has direct URLs for every published Substack post.
+1. Open `articles/_substack-archive-index.md` and search by topic, keyword, or utility name. The index has direct URLs for every published Substack post.
 2. Insert the matching Substack URL inline where the reference belongs.
 3. If you cannot find a matching post in the index, do not fall back to linking a local draft. Say so in the processing log instead and ask Alexey - he may have a post that is not yet indexed, or the topic is not actually covered yet.
 4. Do not link `articles/*.md` files as "previously published" cross-references. Those are internal drafts, not published posts.
@@ -314,7 +320,7 @@ NEVER process URL content inline in the main agent. ALWAYS delegate to subagents
 ### How to identify what type of subagent to launch
 
 Match the user's intent keywords in the message:
-- User says "resource", "save as resource", "bookmark" → resource-describer subagent → writes to `interesting-resources.md`
+- User says "resource", "save as resource", "bookmark" → resource-describer subagent → writes to `_interesting-resources.md`
 - User says "research", "do research", "look into this", "analyze this" → researcher subagent → writes to `articles/research/{topic}.md` (deep investigation with architecture diagrams, source code analysis, multiple sources)
 - URL is a single link to add to an existing research article → article-summarizer subagent → writes a subsection to the target article
 - URL is part of content for an existing non-research article → article-summarizer subagent → writes to the target article
@@ -338,7 +344,7 @@ When to use researcher vs article-summarizer:
 
 ```
 URL Inventory:
-1. https://github.com/user/repo - resource-describer → interesting-resources.md (user said "resource")
+1. https://github.com/user/repo - resource-describer → `_interesting-resources.md` (user said "resource")
 2. https://github.com/user/project - researcher → articles/research/topic.md (user said "research this")
 3. https://example.com/article - article-summarizer → articles/research/topic.md (single URL, no deep research requested)
 ```
@@ -373,7 +379,7 @@ Add to EXISTING article when:
 
 ### Weekly log
 
-There is a special article `articles/weekly-log.md` that tracks what was done each week.
+There is a special article `articles/_weekly-log.md` that tracks what was done each week.
 
 IMPORTANT: Only add content to the weekly log when the user EXPLICITLY says this is what they worked on this week. Look for phrases like "this week I did...", "here's what I did this week", "what I worked on this week", etc. If the user does not explicitly frame the content as a weekly update, do NOT add it to the weekly log - even if the content describes work they did.
 
@@ -464,7 +470,7 @@ CRITICAL: All subagents MUST use Jina Reader (`curl -L "https://r.jina.ai/{URL}"
 - Launch resource-describer subagent for each orphaned URL or URL marked as "resource"
 - Agent fetches content via Jina Reader (for non-GitHub URLs) and writes 2-4 sentence description in newsletter format
 - Multiple resource-describer agents can run in parallel
-- Example: `Add https://example.com/tool to interesting-resources.md`
+- Example: `Add https://example.com/tool to articles/_interesting-resources.md`
 
 **Launch subagents in parallel** when processing multiple URLs to speed up the workflow.
 
@@ -649,7 +655,7 @@ Research articles live in `articles/research/` with their own index at `articles
 
 When creating research articles:
 - Use "research" tag in frontmatter: `tags: [research, ...]`
-- Place in `articles/research/` folder with filename `{topic}.md` (e.g., `articles/research/agentic-memory.md`)
+- Place in `articles/research/` folder with filename `{topic}.md` (e.g., `articles/research/memory-layer.md`)
 - Status should be "draft"
 - Update `articles/research/_index.md` when creating new research articles
 - Remove "research" tag when the investigation is complete and findings are implemented

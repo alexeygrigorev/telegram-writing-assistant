@@ -66,7 +66,7 @@ def feed_posts() -> list[Post]:
 
 
 def archive_urls() -> list[str]:
-    path = ROOT / "articles" / "substack-archive-index.md"
+    path = ROOT / "articles" / "_substack-archive-index.md"
     text = path.read_text(encoding="utf-8")
     return POST_URL_RE.findall(text)
 
@@ -90,7 +90,7 @@ def cmd_missing(_: argparse.Namespace) -> int:
 
 def cmd_validate(_: argparse.Namespace) -> int:
     csv_path = ROOT / "substack.csv"
-    archive_path = ROOT / "articles" / "substack-archive-index.md"
+    archive_path = ROOT / "articles" / "_substack-archive-index.md"
 
     rows = list(csv.DictReader(csv_path.open(newline="", encoding="utf-8")))
     urls = archive_urls()
@@ -120,7 +120,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     missing = subparsers.add_parser(
         "missing",
-        help="Print feed posts not yet present in articles/substack-archive-index.md",
+        help="Print feed posts not yet present in articles/_substack-archive-index.md",
     )
     missing.set_defaults(func=cmd_missing)
 

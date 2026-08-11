@@ -1,6 +1,6 @@
 ---
 name: resource-describer
-description: Fetch URL content via Jina Reader and write short 2-4 sentence description for interesting-resources.md. Use to avoid polluting main agent context. Example: 'Add https://github.com/user/repo to interesting-resources'
+description: Fetch URL content via Jina Reader and write a short 2-4 sentence description for articles/_interesting-resources.md. Use to avoid polluting main agent context. Example: 'Add https://github.com/user/repo to articles/_interesting-resources.md'
 tools: Read, Edit, Write, Bash
 model: opus
 ---

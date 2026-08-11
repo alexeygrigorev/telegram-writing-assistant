@@ -21,11 +21,11 @@ Testimonials from AI Dev Tools Zoomcamp participants, collected in one place.
 > Mostly just feeling grateful to Alexey and this community![^1]
 
 <figure>
-  <img src="../assets/images/ai-dev-tools-zoomcamp-testimonials/carina-ye-testimonial.jpg" alt="Carina Ye thanking the AI Dev Tools Zoomcamp community after shipping her first iOS app">
+  <img src="../../assets/images/ai-dev-tools-zoomcamp-testimonials/carina-ye-testimonial.jpg" alt="Carina Ye thanking the AI Dev Tools Zoomcamp community after shipping her first iOS app">
   <figcaption>Carina Ye's testimonial in the course chat</figcaption>
   <!-- Original screenshot of the thank-you message after shipping Prana: Breathwork Meditation -->
 </figure>
 
 ## Sources
 
-[^1]: [20260501_164723_AlexeyDTC_msg3820_photo.md](../inbox/used/20260501_164723_AlexeyDTC_msg3820_photo.md)
+[^1]: [20260501_164723_AlexeyDTC_msg3820_photo.md](../../inbox/used/20260501_164723_AlexeyDTC_msg3820_photo.md)

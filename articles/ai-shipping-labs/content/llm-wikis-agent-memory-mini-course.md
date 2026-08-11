@@ -159,6 +159,5 @@ The order can be swapped. The important part is that Part 1 is generic and conce
 - [Alexey and Paul discussing second brains and LLM wikis](https://www.youtube.com/live/TDP3tIKxqlc)
 - [Andrej Karpathy's LLM Wiki pattern](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)
 - [Google's Open Knowledge Format](https://cloud.google.com/blog/products/data-analytics/how-the-open-knowledge-format-can-improve-data-sharing)
-- [Existing research note: Karpathy's LLM Knowledge Bases](../research/karpathy-how-i-use-llms.md)
-- [Existing research note: Agentic Memory Systems](../research/agentic-memory.md)
-
+- [Existing research note: LLM Wikis](../../research/llm-wiki.md)
+- [Existing research note: Memory Layers for AI Agents](../../research/memory-layer.md)

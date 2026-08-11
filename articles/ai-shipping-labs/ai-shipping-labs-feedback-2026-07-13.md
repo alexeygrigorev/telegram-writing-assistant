@@ -6,9 +6,6 @@ tags: [ai-shipping-labs, website, feedback]
 status: draft
 ---
 
-TODO move to ai shipping labs
-make it easy for the agent to know that ai shipping labs stuff should go to the folder next time
-
 # AI Shipping Labs Website Feedback (2026-07-13)
 
 Feedback on the current state of the AI Shipping Labs website, recorded as voice notes. The speaker refers to Alexey in the third person, so this is feedback from a team member reviewing the site.
@@ -53,7 +50,7 @@ Then, when I look at View All Workshops, All, Free, and Paid buttons were added 
 
 ## Sources
 
-[^1]: [20260713_092831_AlexeyDTC_msg4751_transcript.txt](../inbox/used/20260713_092831_AlexeyDTC_msg4751_transcript.txt)
-[^2]: [20260713_092831_AlexeyDTC_msg4752_transcript.txt](../inbox/used/20260713_092831_AlexeyDTC_msg4752_transcript.txt)
-[^3]: [20260713_092831_AlexeyDTC_msg4753_transcript.txt](../inbox/used/20260713_092831_AlexeyDTC_msg4753_transcript.txt)
-[^4]: [20260713_092831_AlexeyDTC_msg4754_transcript.txt](../inbox/used/20260713_092831_AlexeyDTC_msg4754_transcript.txt)
+[^1]: [20260713_092831_AlexeyDTC_msg4751_transcript.txt](../../inbox/used/20260713_092831_AlexeyDTC_msg4751_transcript.txt)
+[^2]: [20260713_092831_AlexeyDTC_msg4752_transcript.txt](../../inbox/used/20260713_092831_AlexeyDTC_msg4752_transcript.txt)
+[^3]: [20260713_092831_AlexeyDTC_msg4753_transcript.txt](../../inbox/used/20260713_092831_AlexeyDTC_msg4753_transcript.txt)
+[^4]: [20260713_092831_AlexeyDTC_msg4754_transcript.txt](../../inbox/used/20260713_092831_AlexeyDTC_msg4754_transcript.txt)

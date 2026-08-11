@@ -1,8 +1,8 @@
 ---
 title: "DataTalks.Club Unified Platform"
 created: 2026-07-07
-updated: 2026-07-07
-tags: [datatalks-club, platform, vision, community, planning]
+updated: 2026-08-11
+tags: [datatalks-club, platform, vision, community, planning, ux]
 status: draft
 ---
 
@@ -64,6 +64,20 @@ There was already an idea to move the course notes out of the repos and into thi
 ### On technology
 
 I would not think about the technology yet - what matters first is what it should look like and what should be in it. But to give a sense of the scope: in principle the current course management platform could be replaced with a single site written in Django, for roughly the same cost. Right now I pay for the course management platform; that way I would pay for the site instead. Or we could look at doing it on GitHub Pages. Technology is an open question for later[^7].
+
+## How to approach the redesign
+
+I am listening to the book Lean Product Design, and there is a part in it about UX. I want to analyze it and apply it to the DataTalks.Club website redesign right now[^10].
+
+### User research with students
+
+The book says it is a good idea to run user interviews and do user research. That is a good idea here. Once I make the first version, I should contact some students and tell them I want to show them the new version of the site, so I can get feedback from them[^11].
+
+### Personas for DataTalks.Club
+
+The book also talks about personas. For AI Shipping Labs we defined personas, but for DataTalks.Club we never did this. I think we need to do it. I still need to think about how[^12].
+
+The AI Shipping Labs personas are in [personas.md](../ai-shipping-labs/personas.md).
 
 ## Current DataTalks.Club surfaces
 
@@ -128,11 +142,14 @@ These are directions to discuss, drawn from the analysis - not decisions[^9].
 
 ## Sources
 
-[^1]: [20260707_100803_AlexeyDTC_msg4690_transcript.txt](../inbox/used/20260707_100803_AlexeyDTC_msg4690_transcript.txt)
-[^2]: [20260707_100803_AlexeyDTC_msg4691_transcript.txt](../inbox/used/20260707_100803_AlexeyDTC_msg4691_transcript.txt)
-[^3]: [20260707_100803_AlexeyDTC_msg4692_transcript.txt](../inbox/used/20260707_100803_AlexeyDTC_msg4692_transcript.txt), [20260707_100803_AlexeyDTC_msg4693_transcript.txt](../inbox/used/20260707_100803_AlexeyDTC_msg4693_transcript.txt)
-[^4]: [20260707_100803_AlexeyDTC_msg4694.md](../inbox/used/20260707_100803_AlexeyDTC_msg4694.md)
-[^5]: [20260707_100803_AlexeyDTC_msg4695.md](../inbox/used/20260707_100803_AlexeyDTC_msg4695.md)
-[^7]: [20260707_100803_AlexeyDTC_msg4697_transcript.txt](../inbox/used/20260707_100803_AlexeyDTC_msg4697_transcript.txt), [20260707_100928_AlexeyDTC_msg4708_transcript.txt](../inbox/used/20260707_100928_AlexeyDTC_msg4708_transcript.txt)
-[^8]: [20260707_100803_AlexeyDTC_msg4698_transcript.txt](../inbox/used/20260707_100803_AlexeyDTC_msg4698_transcript.txt)
-[^9]: [20260707_101107_AlexeyDTC_msg4710.md](../inbox/used/20260707_101107_AlexeyDTC_msg4710.md)
+[^1]: [20260707_100803_AlexeyDTC_msg4690_transcript.txt](../../inbox/used/20260707_100803_AlexeyDTC_msg4690_transcript.txt)
+[^2]: [20260707_100803_AlexeyDTC_msg4691_transcript.txt](../../inbox/used/20260707_100803_AlexeyDTC_msg4691_transcript.txt)
+[^3]: [20260707_100803_AlexeyDTC_msg4692_transcript.txt](../../inbox/used/20260707_100803_AlexeyDTC_msg4692_transcript.txt), [20260707_100803_AlexeyDTC_msg4693_transcript.txt](../../inbox/used/20260707_100803_AlexeyDTC_msg4693_transcript.txt)
+[^4]: [20260707_100803_AlexeyDTC_msg4694.md](../../inbox/used/20260707_100803_AlexeyDTC_msg4694.md)
+[^5]: [20260707_100803_AlexeyDTC_msg4695.md](../../inbox/used/20260707_100803_AlexeyDTC_msg4695.md)
+[^7]: [20260707_100803_AlexeyDTC_msg4697_transcript.txt](../../inbox/used/20260707_100803_AlexeyDTC_msg4697_transcript.txt), [20260707_100928_AlexeyDTC_msg4708_transcript.txt](../../inbox/used/20260707_100928_AlexeyDTC_msg4708_transcript.txt)
+[^8]: [20260707_100803_AlexeyDTC_msg4698_transcript.txt](../../inbox/used/20260707_100803_AlexeyDTC_msg4698_transcript.txt)
+[^9]: [20260707_101107_AlexeyDTC_msg4710.md](../../inbox/used/20260707_101107_AlexeyDTC_msg4710.md)
+[^10]: [20260809_081254_AlexeyDTC_msg4853_transcript.txt](../../inbox/used/20260809_081254_AlexeyDTC_msg4853_transcript.txt)
+[^11]: [20260809_081820_AlexeyDTC_msg4855_transcript.txt](../../inbox/used/20260809_081820_AlexeyDTC_msg4855_transcript.txt)
+[^12]: [20260809_082043_AlexeyDTC_msg4857_transcript.txt](../../inbox/used/20260809_082043_AlexeyDTC_msg4857_transcript.txt)

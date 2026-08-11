@@ -19,7 +19,7 @@ Testimonials from Data Engineering Zoomcamp participants, collected in one place
 > Hi everyone, I want to use this opportunity to thank all of our tutors, they have contributed immensely to our learning. The clear structure of this course made it possible for me to understand concepts I couldn't have understood elsewhere. I appreciate and thank you all for the time devoted to the teachings. God bless[^3].
 
 <figure>
-  <img src="../assets/images/data-engineering-zoomcamp-testimonials/freeman-onah-testimonial.jpg" alt="Freeman Onah's message thanking the tutors and praising the clear course structure">
+  <img src="../../assets/images/data-engineering-zoomcamp-testimonials/freeman-onah-testimonial.jpg" alt="Freeman Onah's message thanking the tutors and praising the clear course structure">
   <figcaption>Freeman Onah's testimonial in the course chat</figcaption>
   <!-- Original screenshot of the testimonial as sent by the participant -->
 </figure>
@@ -36,7 +36,7 @@ Testimonials from Data Engineering Zoomcamp participants, collected in one place
 
 ## Sources
 
-[^1]: [20260430_161159_AlexeyDTC_msg3782.md](../inbox/used/20260430_161159_AlexeyDTC_msg3782.md)
-[^2]: [20260430_161208_AlexeyDTC_msg3784.md](../inbox/used/20260430_161208_AlexeyDTC_msg3784.md)
-[^3]: [20260430_161231_AlexeyDTC_msg3786_photo.md](../inbox/used/20260430_161231_AlexeyDTC_msg3786_photo.md)
-[^4]: [20260430_161255_AlexeyDTC_msg3788.md](../inbox/used/20260430_161255_AlexeyDTC_msg3788.md)
+[^1]: [20260430_161159_AlexeyDTC_msg3782.md](../../inbox/used/20260430_161159_AlexeyDTC_msg3782.md)
+[^2]: [20260430_161208_AlexeyDTC_msg3784.md](../../inbox/used/20260430_161208_AlexeyDTC_msg3784.md)
+[^3]: [20260430_161231_AlexeyDTC_msg3786_photo.md](../../inbox/used/20260430_161231_AlexeyDTC_msg3786_photo.md)
+[^4]: [20260430_161255_AlexeyDTC_msg3788.md](../../inbox/used/20260430_161255_AlexeyDTC_msg3788.md)

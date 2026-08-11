@@ -636,5 +636,5 @@ The most important design decision is that community and build-in-public start i
 
 ## Sources
 
-[^1]: [20260701_130457_AlexeyDTC_msg4649.md](../inbox/used/20260701_130457_AlexeyDTC_msg4649.md)
-[^2]: [20260701_130457_AlexeyDTC_msg4650.md](../inbox/used/20260701_130457_AlexeyDTC_msg4650.md)
+[^1]: [20260701_130457_AlexeyDTC_msg4649.md](../../inbox/used/20260701_130457_AlexeyDTC_msg4649.md)
+[^2]: [20260701_130457_AlexeyDTC_msg4650.md](../../inbox/used/20260701_130457_AlexeyDTC_msg4650.md)

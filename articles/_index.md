@@ -1,139 +1,148 @@
 # Articles Index
 
-This file tracks all articles in this repository. Articles are organized into subfolders by category.
+This file tracks the article collections in this repository. Articles are organized into the most specific matching subfolder.
 
 ## Template for New Articles
 
-When adding a new article, include:
+When adding a new article, include this frontmatter and opening:
 
-```markdown
----
-title: "Article Title"
-created: YYYY-MM-DD
-updated: YYYY-MM-DD
-tags: [tag1, tag2, tag3]
-status: draft|published
----
+    ---
+    title: "Article Title"
+    created: YYYY-MM-DD
+    updated: YYYY-MM-DD
+    tags: [tag1, tag2, tag3]
+    status: draft|published
+    ---
 
-# Article Title
+    # Article Title
 
-Brief description of what this article is about.
-```
+    Brief description of what this article is about.
 
 Keep the Description column to one short sentence - what the article is about, not an inventory of everything inside it.
 
-## Ready for Newsletter
+## Special Documents
 
-Articles that are mostly ready for the newsletter. All necessary content is inside, may need final review or light editing.
+Repository-wide indexes and long-running collections with special underscore-prefixed filenames.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
-| [Claude Code Experiments](ready-for-newsletter/claude-code-experiments.md) | draft | 2026-04-28 | Experiments and applications of Claude Code beyond coding, including challenges with communication. Added new running-agents view in the Claude Code UI |
-| [Configuring Claude Code](ready-for-newsletter/configuring-claude-code.md) | draft | 2026-04-05 | Configuration, aliases, slash commands, skills, safety hooks, disabling bypass permissions, and token usage reduction |
-| [OpenCode Experiments with GLM-5](ready-for-newsletter/opencode-experiments.md) | draft | 2026-03-19 | Trying OpenCode AI assistant with GLM-5 model, extracting JS from Claude binary, Claude Code flickering comparison |
-| [Benchmarking SQLiteSearch](ready-for-newsletter/benchmarking-sqlitesearch.md) | draft | 2026-02-26 | Benchmarking SQLiteSearch with Simple Wikipedia and vector search benchmarks from Milvus/Zilliz, HNSW and IVF implementations, v0.0.3 release |
-| [Testing AI Agents with the Judge Pattern](ready-for-newsletter/testing-agents-with-judge-pattern.md) | draft | 2026-02-25 | Using agents to evaluate other agents |
-| [Course Material Preparation](ready-for-newsletter/course-material-preparation.md) | draft | 2026-02-25 | Workflow for keeping code and documentation in sync |
-| [Course Management Agent](ready-for-newsletter/course-management-agent.md) | draft | 2026-01-23 | Automating course administration tasks with Claude Skills |
-| [Streaming JSON Parsing with jaxn](ready-for-newsletter/jaxn-streaming-json.md) | draft | 2026-01-23 | Streaming parser for LLM structured output |
+| [Substack Archive Index](_substack-archive-index.md) | draft | 2026-08-08 | Lookup table of all published Substack posts (title, description, URL), used to insert direct links to things Alexey has already shared |
+| [Interesting Resources](_interesting-resources.md) | draft | 2026-07-13 | Curated collection of tools, resources, and project ideas for the newsletter |
+| [Weekly Log](_weekly-log.md) | draft | 2026-07-09 | Running log of what was done each week. Topics with their own dedicated article appear as short summaries with links; smaller items stay inline |
+
+## Metadata
+
+Reference documents used by the writing system rather than article drafts.
+
+| Title | Status | Last Updated | Description |
+|-------|--------|--------------|-------------|
+| [Substack Writing Style](_meta/substack-writing-style.md) | draft | 2026-07-31 | How the Substack posts are written, distilled from the last 20 of them |
 
 ## AI Shipping Labs
 
-Articles about the AI Shipping Labs paid community. Topics range from vision and activities to courses, marketing, and platform notes.
+Community strategy, platform notes, member research, plans, workshops, and courses.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
-| [Course Ideas](ai-shipping-labs/courses.md) | draft | 2026-07-30 | Running list of course and workshop ideas for the community, with the member requests behind them |
-| [Personalised Plans](ai-shipping-labs/plans/_index.md) | draft | 2026-07-21 | Personalized 6-week sprint plans for AI Shipping Labs members |
-| [Activities](ai-shipping-labs/activities.md) | draft | 2026-05-21 | Regular sessions, accountability circles, mentoring, Office Hours, group course study, and the sprint weekly-call format |
-| [Individual Interviews](ai-shipping-labs/interviews/_index.md) | draft | 2026-05-09 | One file per participant with persona assignment (Koray, Juan, Daniel, Jakob, Vancesca, and others) |
-| [Marketing and Content Strategy](ai-shipping-labs/marketing-and-content.md) | draft | 2026-04-24 | Marketing channels, funnel, lead magnets, and a content strategy that uses overview articles to funnel readers into the community |
+| [AI Shipping Labs Content Plan](ai-shipping-labs/ai-shipping-labs-content-plan.md) | draft | 2026-08-03 | Gap analysis of the current workshop catalog, a repackaging of the existing sessions into six courses, and the next eight workshops to run |
+| [Mini-Course Proposal: LLM Wikis as Agent Memory](ai-shipping-labs/content/llm-wikis-agent-memory-mini-course.md) | draft | 2026-07-31 | Vendor-neutral 90-minute mini-course with theory, a reusable wiki skill, two demos, fit boundaries and a two-part publishing plan |
+| [AI Shipping Labs Course Ideas](ai-shipping-labs/content/courses.md) | draft | 2026-07-30 | Course and workshop ideas for the community, with the member requests behind them. |
+| [AI Shipping Labs Website Feedback (2026-07-13)](ai-shipping-labs/ai-shipping-labs-feedback-2026-07-13.md) | draft | 2026-07-13 | Team member feedback on the AI Shipping Labs website: main page vs Community Overview split, sprint landing pages, free-sample section, Activities page navigation, and the Workshops section |
+| [Course Idea: Safely Running Agents Around Production](ai-shipping-labs/content/agent-production-safety-course.md) | draft | 2026-07-03 | Small course on setting up production alongside agents safely - sandbox account and isolated machine, temporary sandbox-only access, moving work to prod via CI/CD with OIDC, and how to do the projects |
+| [Community Session Ideas](ai-shipping-labs/content/community-session-ideas.md) | draft | 2026-07-03 | Session ideas from community members: memory layer for AI agents, documenting agent learnings, refactoring AI slop, mock interviews and resume reviews, interview-prep topics, book-reading sprints, system design with an AI interviewer, pitch practice, mastermind format |
+| [Workshop and Course Ideas from Member Plans](ai-shipping-labs/workshop-and-course-ideas-from-member-plans.md) | draft | 2026-06-25 | Member-data-grounded synthesis of AI Shipping Labs blockers, 10 workshop ideas, and 3 five-day mini-course ideas mapped to personas |
+| [Workshop Ideas: Agent Durability and Caching Internals](ai-shipping-labs/content/agent-durability-caching-workshops.md) | draft | 2026-06-17 | Two interview-driven workshop ideas: agent durability/idempotency/resumption (LangGraph, Pydantic AI) and caching internals (KV cache) |
+| [AI Shipping Labs Community Activities](ai-shipping-labs/activities.md) | draft | 2026-05-21 | Community activities, accountability formats, mentoring, office hours, and sprint calls. |
 | [Community Observations](ai-shipping-labs/community-observations.md) | draft | 2026-04-24 | Cross-member patterns: perfectionism / needing to understand everything, no clear picture of the role, idea for a Lightning Lesson on the depth of skills needed |
-| [User Interviews (overview)](ai-shipping-labs/user-interviews.md) | draft | 2026-04-20 | Overview of the user interview effort, outreach status, and plan tracking. Individual interviews live in interviews/ folder |
-| [Platform Ideas](ai-shipping-labs/platform-ideas.md) | draft | 2026-04-07 | Business case simulator, career help tools, data collection, cross-linking tools/concepts |
+| [AI Shipping Labs Marketing and Content Strategy](ai-shipping-labs/marketing-and-content.md) | draft | 2026-04-24 | Marketing channels, funnel, lead magnets, and content strategy for the community. |
+| [User Interviews](ai-shipping-labs/user-interviews.md) | draft | 2026-04-20 | Overview of the AI Shipping Labs member interview effort and its findings. |
+| [Community Platform Feature Ideas](ai-shipping-labs/platform-ideas.md) | draft | 2026-04-07 | Feature ideas and product notes for the AI Shipping Labs platform. |
+| [AI Shipping Labs - Target Personas](ai-shipping-labs/personas.md) | draft | 2026-03-21 | Target personas used to understand and support AI Shipping Labs members. |
+| [Python Primer Course Idea](ai-shipping-labs/content/python-primer-course-idea.md) | draft | 2026-03-05 | Paid Python prerequisite course for AI Engineering and Zoomcamps - "Python for AI Engineering" with podcast aggregator project |
+| [Multi-Agent Patterns for the Course](ai-shipping-labs/content/multi-agent-patterns-course.md) | draft | 2026-02-22 | Multi-agent patterns for the AI Buildcamp course module: evaluation, subagent, planner-executor, orchestration |
+| [AI-Assisted Automation Course Idea](ai-shipping-labs/content/ai-assisted-automation-course-idea.md) | draft | 2026-01-29 | Concept for a paid course on AI-assisted automation |
+| [Testing Workshop Idea](ai-shipping-labs/content/testing-workshop-idea.md) | draft | - | Workshop idea covering practical software testing foundations. |
+| [AI Shipping Labs User Interviews](ai-shipping-labs/interviews/_index.md) | draft | - | Index of individual AI Shipping Labs member interviews and persona assignments. |
+| [AI Shipping Labs Personalized Plans](ai-shipping-labs/plans/_index.md) | draft | - | Index of personalized learning and sprint plans for AI Shipping Labs members. |
+
+## DataTalks.Club
+
+DataTalks.Club platform, event, publishing, and product-planning material.
+
+| Title | Status | Last Updated | Description |
+|-------|--------|--------------|-------------|
+| [DataTalks.Club Unified Platform](datatalksclub/datatalks-club-unified-platform.md) | draft | 2026-08-11 | Planning document for consolidating DataTalks.Club's fragmented surfaces (course repos, docs, FAQ, course management platform) into one unified portal - problem statement, vision, how to approach the redesign, and a map of the current org |
+| [Playbooks and Agents for DataTalks.Club Events and Content](datatalksclub/datatalks-club-playbooks-and-agents.md) | draft | 2026-07-20 | Ideas for extending the course promotion playbooks to events and other recurring activities, handing post creation to agents, and replacing the podcast guest back-and-forth with a form |
+| [Product Shipping Zoomcamp](datatalksclub/product-shipping-zoomcamp.md) | draft | 2026-07-01 | Concept for an end-to-end product development Zoomcamp - six modules plus midterm and capstone, taking students from idea to a deployed, measured, publicly launched, peer-reviewed product, with build-in-public starting from Module 1 |
+| [Publishing Zoomcamp Lessons in Text Form](datatalksclub/zoomcamp-text-course-publishing.md) | draft | 2026-04-30 | Idea to publish each LLM Zoomcamp / DataTalks.Club lesson as a long written conspectus with diagrams (Paul Iusztin's Substack format), to own destination traffic, show page-level stats, and attract more sponsors |
+
+## Marketing
+
+General marketing, distribution, social-content, SEO, and search-visibility material.
+
+| Title | Status | Last Updated | Description |
+|-------|--------|--------------|-------------|
+| [Social Post Ideas](marketing/social-post-ideas.md) | draft | 2026-03-12 | Curated social media content ideas and inspiration |
+| [Ranking for AI Search: LinkedIn Visibility and AI Overview Tracking](marketing/ai-search-visibility.md) | draft | 2026-03-10 | LinkedIn AI visibility study findings and AI Overview Tracker concept for monitoring brand presence in AI search |
+
+## Raw Articles
+
+Draft articles and talk material whose core substance has already been collected.
+
+| Title | Status | Last Updated | Description |
+|-------|--------|--------------|-------------|
+| [Diagram Creator: Declarative SVG and PNG Workflows](raw-articles/diagram-generator.md) | complete | 2026-08-09 | How the deterministic diagram creator turns JSON specifications into editable SVG and PNG diagrams. |
+| [Stylint: Enforcing My Writing Style on AI Assistants](raw-articles/stylint.md) | draft | 2026-05-19 | Python linter (github.com/alexeygrigorev/stylint) that codifies writing-style rules as code instead of long markdown style guides, so agents stop skipping them |
+| [Claude Code Experiments](raw-articles/claude-code-experiments.md) | draft | 2026-04-28 | Experiments and applications of Claude Code beyond coding, including challenges with communication. Added new running-agents view in the Claude Code UI |
+| [DataTalks.Club Platform Idea](raw-articles/data-talks-club-platform.md) | draft | 2026-04-27 | Custom DataTalks.Club site with on-site events, registration, summary emails, and course management. Revisit ~September for ML Zoomcamp |
+| [Configuring Claude Code](raw-articles/configuring-claude-code.md) | draft | 2026-04-05 | Configuration, aliases, slash commands, skills, safety hooks, disabling bypass permissions, and token usage reduction |
+| [OpenCode Experiments with GLM-5](raw-articles/opencode-experiments.md) | draft | 2026-03-19 | Trying OpenCode AI assistant with GLM-5 model, extracting JS from Claude binary, Claude Code flickering comparison |
+| [Benchmarking SQLiteSearch](raw-articles/benchmarking-sqlitesearch.md) | draft | 2026-02-26 | Benchmarking SQLiteSearch with Simple Wikipedia and vector search benchmarks from Milvus/Zilliz, HNSW and IVF implementations, v0.0.3 release |
+| [Testing AI Agents with the Judge Pattern](raw-articles/testing-agents-with-judge-pattern.md) | draft | 2026-02-25 | Using agents to evaluate other agents |
+| [Course Material Preparation](raw-articles/course-material-preparation.md) | draft | 2026-02-25 | Workflow for keeping code and documentation in sync |
+| [Coding Agent Building Blocks: Reusable Skills and Specialized Subagents](raw-articles/code-agents-building-blocks.md) | draft | 2026-02-18 | Article about making coding agents more reliable with reusable skills and specialized subagents. |
+| [AI as Personal Analyst](raw-articles/ai-as-personal-analyst.md) | draft | 2026-02-12 | Talk about using AI for Excel automation, data cleaning, and scaling document review |
+| [Streaming JSON Parsing with jaxn](raw-articles/jaxn-streaming-json.md) | draft | 2026-01-29 | Streaming parser for LLM structured output |
+| [Course Management Agent](raw-articles/course-management-agent.md) | draft | 2026-01-23 | Automating course administration tasks with Claude Skills |
 
 ## Work in Progress
 
-Unfinished articles that need more information, experimentation, or testing before they are ready for the newsletter.
+Unfinished articles that still need information, experimentation, or testing.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Interview Experiment](work-in-progress/interview-experiment.md) | draft | 2026-08-11 | Running log of the experiment of interviewing at different companies, starting with the first interview at Deriv |
 | [AI Engineer Role Survey](work-in-progress/ai-engineer-role-survey.md) | draft | 2026-02-22 | Survey collecting first-hand accounts from AI Engineer practitioners about their roles, tools, and interview experiences |
+| [Hetzner Server Setup](work-in-progress/hetzner-server-setup.md) | draft | 2026-02-21 | Setting up a dedicated Hetzner server for running bots, AI workloads, and development environments |
 | [Services Website Testimonials](work-in-progress/services-testimonials.md) | draft | 2026-02-15 | Collection of testimonials for the services website |
 | [AI Engineer RPG Game](work-in-progress/ai-engineer-rpg-game.md) | draft | 2026-02-13 | RPG game for interview practice built with OpenCode/GLM-5 in Rust |
-| [Hetzner Server Setup](work-in-progress/hetzner-server-setup.md) | draft | 2026-02-21 | Setting up a dedicated Hetzner server for running bots, AI workloads, and development environments |
-| [From Vague Ideas to Concrete Results with ChatGPT](work-in-progress/idea-to-concrete-iteration.md) | draft | 2026-01-31 | Process for iterating from undefined ideas to actionable plans |
 
 ## Ideas
 
-Recorded ideas without much detail. Just the short idea, useful for not forgetting and reviewing later.
+Recorded content, project, and workflow ideas for later development.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
-| [Opik Customer Story: Evaluating and Improving the DataTalks.Club FAQ Assistant](ideas/faq-assistant-opik-customer-story.md) | draft | 2026-07-31 | Proposal and future Substack placeholder for adding Opik traces, test suites and prompt optimization to the production FAQ assistant |
-| [Mini-Course Proposal: LLM Wikis as Agent Memory](ideas/llm-wikis-agent-memory-mini-course.md) | draft | 2026-07-31 | Vendor-neutral 90-minute mini-course with theory, a reusable wiki skill, two demos, fit boundaries and a two-part publishing plan |
-| [Course Idea: Safely Running Agents Around Production](ideas/agent-production-safety-course.md) | draft | 2026-07-03 | Small course on setting up production alongside agents safely - sandbox account and isolated machine, temporary sandbox-only access, moving work to prod via CI/CD with OIDC, and how to do the projects |
-| [Workshop Ideas: Agent Durability and Caching Internals](ideas/agent-durability-caching-workshops.md) | draft | 2026-06-17 | Two interview-driven workshop ideas: agent durability/idempotency/resumption (LangGraph, Pydantic AI) and caching internals (KV cache) |
-| [Declarative Diagram Generator](ideas/diagram-generator.md) | draft | 2026-05-08 | Tool that turns a declarative diagram description into a clean, icon-supporting SVG that opens cleanly in Inkscape or Figma, fixing the weaknesses of LLM images and Mermaid |
-| [DataTalks.Club Platform Idea](ideas/data-talks-club-platform.md) | draft | 2026-04-27 | Custom DataTalks.Club site with on-site events, registration, summary emails, and course management. Revisit ~September for ML Zoomcamp |
+| [Opik Customer Story: Evaluating and Improving the DataTalks.Club FAQ Assistant](ideas/content/faq-assistant-opik-customer-story.md) | draft | 2026-07-31 | Proposal and future Substack placeholder for adding Opik traces, test suites and prompt optimization to the production FAQ assistant |
+| [Coming Up with Project Ideas](ideas/coming-up-with-project-ideas.md) | draft | 2026-04-23 | How to pick portfolio projects: three project types, cap-the-time rule, a portfolio-workflow flowchart, Buildcamp demo-day examples, and Alexey's own pet-project write-ups |
 | [Project Approach Reference Doc](ideas/project-approach-reference-doc.md) | draft | 2026-04-22 | Reusable doc for "take my project to production" requests from AI Shipping Labs members - pick one project, describe current + target state, ship end-to-end, metrics from business goals |
-| [Social Post Ideas](ideas/social-post-ideas.md) | draft | 2026-03-12 | Curated social media content ideas and inspiration |
-| [Python Primer Course Idea](ideas/python-primer-course-idea.md) | draft | 2026-03-05 | Paid Python prerequisite course for AI Engineering and Zoomcamps - "Python for AI Engineering" with podcast aggregator project |
-| [Task Management App Idea](ideas/task-management-app-idea.md) | draft | 2026-02-24 | Unified task management system combining Trello and todo lists, with serverless AWS implementation (datatasks) |
-| [Multi-Agent Patterns for the Course](ideas/multi-agent-patterns-course.md) | draft | 2026-02-22 | Multi-agent patterns for the AI Buildcamp course module: evaluation, subagent, planner-executor, orchestration |
-| [Voice-Controlled Development Bot](ideas/voice-controlled-dev-bot.md) | draft | 2026-02-20 | Idea for a general-purpose Telegram bot that executes development commands via voice |
-| [AI Hero Course Rebranding for AI Shipping Labs](ideas/ai-hero-rebranding.md) | draft | 2026-02-17 | Rebranding the existing AI Hero course to fit under the new AI Shipping Labs community |
-| [AI-Assisted Automation Course Idea](ideas/ai-assisted-automation-course-idea.md) | draft | 2026-01-29 | Concept for a paid course on AI-assisted automation |
-| [Google Stitch: Design-First AI Development](ideas/google-stitch.md) | draft | 2026-01-23 | Google's design-focused AI development tool |
-| [New Website Services Section](ideas/new-website-services-section.md) | draft | - | Adding a workshops section to the website |
-| [Resources and Articles Tracking](ideas/resources-and-articles-tracking.md) | draft | - | Tracking resources and draft articles with a table on GitHub |
-| [Testing Workshop Idea](ideas/testing-workshop-idea.md) | draft | - | Workshop idea about testing practices |
+| [Personal Project Ideas](ideas/projects/personal-project-ideas.md) | draft | 2026-03-02 | Personal project ideas to implement: voice-based document editing, notebook server for Claude Code, voice-controlled dev bot, DataTasks, content reuse system |
+| [Pet Projects](ideas/projects/pet-projects.md) | draft | 2026-02-28 | Karpathy's advice on becoming an expert through depth-first projects, teaching, and self-comparison |
+| [AI Agent Project Ideas](ideas/projects/agent-project-ideas.md) | draft | 2026-02-26 | Collection of AI agent project ideas for AI Buildcamp students: GitHub issue bot, idea generator, job analytics, knowledge management, journaling |
 
-## Talks
+## Testimonials
 
-Notes and preparation materials for upcoming presentations and talks.
+Testimonial collections grouped by program.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
-| [Building Blocks of Modern Code Agents](talks/code-agents-building-blocks.md) | draft | 2026-02-18 | Map of code agent types and the two key building blocks: skills and subagents |
-| [AI as Personal Analyst](talks/ai-as-personal-analyst.md) | draft | 2026-02-12 | Talk about using AI for Excel automation, data cleaning, and scaling document review |
-
-## Other
-
-Files at the articles root that don't fit into the above categories.
-
-| Title | Status | Last Updated | Description |
-|-------|--------|--------------|-------------|
-| [AI Shipping Labs Content Plan](ai-shipping-labs-content-plan.md) | draft | 2026-08-03 | Gap analysis of the current workshop catalog, a repackaging of the existing sessions into six courses, and the next eight workshops to run |
-| [Playbooks and Agents for DataTalks.Club Events and Content](datatalks-club-playbooks-and-agents.md) | draft | 2026-07-20 | Ideas for extending the course promotion playbooks to events and other recurring activities, handing post creation to agents, and replacing the podcast guest back-and-forth with a form |
-| [AI Shipping Labs Website Feedback (2026-07-13)](ai-shipping-labs-feedback-2026-07-13.md) | draft | 2026-07-13 | Team member feedback on the AI Shipping Labs website: main page vs Community Overview split, sprint landing pages, free-sample section, Activities page navigation, and the Workshops section |
-| [Interesting Resources](interesting-resources.md) | draft | 2026-07-13 | Curated collection of tools, resources, and project ideas for the newsletter |
-| [Weekly Log](weekly-log.md) | draft | 2026-07-09 | Running log of what was done each week. Topics with their own dedicated article appear as short summaries with links; smaller items stay inline |
-| [DataTalks.Club Unified Platform](datatalks-club-unified-platform.md) | draft | 2026-07-07 | Planning document for consolidating DataTalks.Club's fragmented surfaces (course repos, docs, FAQ, course management platform) into one unified portal - problem statement, vision, and a map of the current org |
-| [Community Session Ideas](community-session-ideas.md) | draft | 2026-07-07 | Session ideas from community members: memory layer for AI agents, documenting agent learnings, refactoring AI slop, mock interviews and resume reviews, interview-prep topics, book-reading sprints, system design with an AI interviewer, pitch practice, mastermind format |
-| [Product Shipping Zoomcamp](product-shipping-zoomcamp.md) | draft | 2026-07-01 | Concept for an end-to-end product development Zoomcamp - six modules plus midterm and capstone, taking students from idea to a deployed, measured, publicly launched, peer-reviewed product, with build-in-public starting from Module 1 |
-| [Workshop and Course Ideas from Member Plans](workshop-and-course-ideas-from-member-plans.md) | draft | 2026-06-25 | Member-data-grounded synthesis of AI Shipping Labs blockers, 10 workshop ideas, and 3 five-day mini-course ideas mapped to personas |
-| [AI Engineering Field Guide](ai-engineering-field-guide.md) | draft | 2026-06-26 | Job listing pipeline for AI Engineer roles - scraping, deduplication, LLM enrichment |
-| [AI Engineering Buildcamp Testimonials](ai-buildcamp-testimonials.md) | draft | 2026-06-19 | Collected testimonials from AI Engineering Buildcamp participants |
-| [Substack Archive Index](substack-archive-index.md) | draft | 2026-08-08 | Lookup table of all published Substack posts (title, description, URL), used to insert direct links to things Alexey has already shared |
-| [Substack Writing Style](substack-writing-style.md) | draft | 2026-07-31 | How the Substack posts are written, distilled from the last 20 of them |
-| [Stylint: Enforcing My Writing Style on AI Assistants](stylint.md) | draft | 2026-05-19 | Python linter (github.com/alexeygrigorev/stylint) that codifies writing-style rules as code instead of long markdown style guides, so agents stop skipping them |
-| [Writing Assistant Improvement Ideas](writing-assistant-improvement-ideas.md) | draft | 2026-05-16 | Feedback and improvement ideas for the Telegram writing assistant bot: index navigation, content routing, resource index, keyword categorization, retry on transcription errors |
-| [AI Dev Tools Zoomcamp Testimonials](ai-dev-tools-zoomcamp-testimonials.md) | draft | 2026-05-02 | Testimonials from AI Dev Tools Zoomcamp participants: Carina Ye on finding the course while job-hunting and going on to ship her first iOS app (Prana: Breathwork Meditation) |
-| [Publishing Zoomcamp Lessons in Text Form](zoomcamp-text-course-publishing.md) | draft | 2026-04-30 | Idea to publish each LLM Zoomcamp / DataTalks.Club lesson as a long written conspectus with diagrams (Paul Iusztin's Substack format), to own destination traffic, show page-level stats, and attract more sponsors |
-| [Data Engineering Zoomcamp Testimonials](data-engineering-zoomcamp-testimonials.md) | draft | 2026-04-30 | Collected DE Zoomcamp testimonials in one place: anonymous "new neural pathways" thank-you, Freeman Onah on the clear course structure, Evgeniia on Spark/Flink/Kestra modules and the overall experience |
-| [Coming Up with Project Ideas](coming-up-with-project-ideas.md) | draft | 2026-04-23 | How to pick portfolio projects: three project types, cap-the-time rule, a portfolio-workflow flowchart, Buildcamp demo-day examples, and Alexey's own pet-project write-ups |
-| [Setting Up a Windows Computer for Development](windows-dev-setup.md) | draft | 2026-03-11 | Step-by-step guide to setting up a fresh Windows computer for development: Terminal, Git Bash, Python/UV, NodeJS, Docker, VS Code, Claude Code |
-| [Ranking for AI Search: LinkedIn Visibility and AI Overview Tracking](ai-search-visibility.md) | draft | 2026-03-10 | LinkedIn AI visibility study findings and AI Overview Tracker concept for monitoring brand presence in AI search |
-| [Take-Home Assignments for AI Engineers: Webinar Q&A](ai-engineer-webinar-qa.md) | draft | 2026-03-10 | Q&A from webinar on take-home assignments for AI engineers: career advice, hiring without CS degree, data scientist transitions |
-| [Google Docs Voice Feedback Tool](google-docs-voice-feedback.md) | draft | 2026-03-02 | Voice-powered Google Docs editor built with Claude Code, using LLM to understand edit requests and apply changes via Google Docs API |
-| [Personal Project Ideas](personal-project-ideas.md) | draft | 2026-03-02 | Personal project ideas to implement: voice-based document editing, notebook server for Claude Code, voice-controlled dev bot, DataTasks, content reuse system |
-| [Pet Projects](pet-projects.md) | draft | 2026-02-28 | Karpathy's advice on becoming an expert through depth-first projects, teaching, and self-comparison |
-| [AI Agent Project Ideas](agent-project-ideas.md) | draft | 2026-02-26 | Collection of AI agent project ideas for AI Buildcamp students: GitHub issue bot, idea generator, job analytics, knowledge management, journaling |
+| [AI Engineering Buildcamp Testimonials](testimonials/ai-buildcamp-testimonials.md) | draft | 2026-06-19 | Collected testimonials from AI Engineering Buildcamp participants |
+| [AI Dev Tools Zoomcamp Testimonials](testimonials/ai-dev-tools-zoomcamp-testimonials.md) | draft | 2026-05-02 | Testimonials from AI Dev Tools Zoomcamp participants: Carina Ye on finding the course while job-hunting and going on to ship her first iOS app (Prana: Breathwork Meditation) |
+| [Data Engineering Zoomcamp Testimonials](testimonials/data-engineering-zoomcamp-testimonials.md) | draft | 2026-04-30 | Collected DE Zoomcamp testimonials in one place: anonymous "new neural pathways" thank-you, Freeman Onah on the clear course structure, Evgeniia on Spark/Flink/Kestra modules and the overall experience |
 
 ## Claw Drafts
 
-Articles drafted by Clo (AI assistant) using the shoot-the-article skill. Generated from trending topic research and following Alexey's voice templates.
+Articles drafted by Clo from topic research and voice templates.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
@@ -141,15 +150,13 @@ Articles drafted by Clo (AI assistant) using the shoot-the-article skill. Genera
 
 ## Research
 
-See [Research Articles](research/_index.md) for research and investigation topics.
+See [Research Articles](research/_index.md) for the current research and investigation topics.
 
 ## Workflow
 
-These rules describe how this repo is meant to be used:
-
-1. Articles are stored as Markdown files in this directory and its subfolders
-2. Each article follows the template above
-3. Use this index to track all articles and their status
-4. The Telegram bot collects materials in `inbox/raw/`
-5. Use `/process` command to commit and push materials
-6. New articles are created in `articles/` root by default. Manually move to the right subfolder later
+1. Store each Markdown article in the most specific matching subfolder.
+2. Route all AI Shipping Labs material under articles/ai-shipping-labs/; use its content/, plans/, and interviews/ subfolders where appropriate.
+3. Put general marketing and distribution material in articles/marketing/.
+4. Keep special repository documents underscore-prefixed and metadata in articles/_meta/.
+5. Search all subfolders before creating a new article, then update this index and any applicable child index.
+6. The Telegram bot collects new materials in inbox/raw/; use /process to turn them into article updates.

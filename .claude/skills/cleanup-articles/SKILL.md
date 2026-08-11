@@ -15,7 +15,7 @@ Use this for repository hygiene after articles are published or removed.
 
 ## Remove Published Articles
 
-1. Confirm the article drafts are already published, usually via `articles/substack-archive-index.md`.
+1. Confirm the article drafts are already published, usually via `articles/_substack-archive-index.md`.
 2. Run a dry run:
 
 ```bash

@@ -34,6 +34,6 @@ Instead, the guest could be given a form to fill in themselves. Maybe such a pro
 
 ## Sources
 
-[^1]: [20260720_164822_AlexeyDTC_msg4784_transcript.txt](../inbox/used/20260720_164822_AlexeyDTC_msg4784_transcript.txt)
-[^2]: [20260720_164822_AlexeyDTC_msg4785_transcript.txt](../inbox/used/20260720_164822_AlexeyDTC_msg4785_transcript.txt)
-[^3]: [20260720_164822_AlexeyDTC_msg4786_transcript.txt](../inbox/used/20260720_164822_AlexeyDTC_msg4786_transcript.txt)
+[^1]: [20260720_164822_AlexeyDTC_msg4784_transcript.txt](../../inbox/used/20260720_164822_AlexeyDTC_msg4784_transcript.txt)
+[^2]: [20260720_164822_AlexeyDTC_msg4785_transcript.txt](../../inbox/used/20260720_164822_AlexeyDTC_msg4785_transcript.txt)
+[^3]: [20260720_164822_AlexeyDTC_msg4786_transcript.txt](../../inbox/used/20260720_164822_AlexeyDTC_msg4786_transcript.txt)

@@ -48,8 +48,8 @@ I can also run OpenCode as a web service. My plan is to try this - with Claude C
 
 I built two projects with OpenCode and GLM-5 to test the tool:
 
-- [Microphone Booster App](microphone-booster-app.md) - a Windows microphone booster using Tauri + Rust
-- [AI Engineer RPG Game](ai-engineer-rpg-game.md) - an RPG game for interview practice in Rust
+- Microphone Booster App - a Windows microphone booster using Tauri + Rust
+- [AI Engineer RPG Game](../work-in-progress/ai-engineer-rpg-game.md) - an RPG game for interview practice in Rust
 
 Both were done in the background while I was recording course videos.
 
@@ -101,12 +101,12 @@ The testing challenge remains unsolved - I have no idea how to test desktop appl
 
 ## Sources
 
-[^1]: [20260213_090850_AlexeyDTC_msg1591.md](../inbox/used/20260213_090850_AlexeyDTC_msg1591.md)
-[^2]: [20260213_144434_AlexeyDTC_msg1606_transcript.txt](../inbox/used/20260213_144434_AlexeyDTC_msg1606_transcript.txt)
-[^3]: [20260213_145200_AlexeyDTC_msg1607_transcript.txt](../inbox/used/20260213_145200_AlexeyDTC_msg1607_transcript.txt)
-[^4]: [20260213_145555_AlexeyDTC_msg1608_transcript.txt](../inbox/used/20260213_145555_AlexeyDTC_msg1608_transcript.txt)
-[^5]: [20260213_164644_AlexeyDTC_msg1633_transcript.txt](../inbox/used/20260213_164644_AlexeyDTC_msg1633_transcript.txt)
-[^6]: [20260213_164714_AlexeyDTC_msg1635.md](../inbox/used/20260213_164714_AlexeyDTC_msg1635.md)
+[^1]: [20260213_090850_AlexeyDTC_msg1591.md](../../inbox/used/20260213_090850_AlexeyDTC_msg1591.md)
+[^2]: [20260213_144434_AlexeyDTC_msg1606_transcript.txt](../../inbox/used/20260213_144434_AlexeyDTC_msg1606_transcript.txt)
+[^3]: [20260213_145200_AlexeyDTC_msg1607_transcript.txt](../../inbox/used/20260213_145200_AlexeyDTC_msg1607_transcript.txt)
+[^4]: [20260213_145555_AlexeyDTC_msg1608_transcript.txt](../../inbox/used/20260213_145555_AlexeyDTC_msg1608_transcript.txt)
+[^5]: [20260213_164644_AlexeyDTC_msg1633_transcript.txt](../../inbox/used/20260213_164644_AlexeyDTC_msg1633_transcript.txt)
+[^6]: [20260213_164714_AlexeyDTC_msg1635.md](../../inbox/used/20260213_164714_AlexeyDTC_msg1635.md)
 [^7]: [20260317_105133_AlexeyDTC_msg2974_photo.md](../../inbox/used/20260317_105133_AlexeyDTC_msg2974_photo.md)
 [^8]: [20260317_112019_AlexeyDTC_msg2976_photo.md](../../inbox/used/20260317_112019_AlexeyDTC_msg2976_photo.md)
 [^9]: [20260318_110900_AlexeyDTC_msg2996_video.md](../../inbox/used/20260318_110900_AlexeyDTC_msg2996_video.md)

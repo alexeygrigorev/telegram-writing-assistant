@@ -102,4 +102,4 @@ The deploy-eval-monitor-CI arc (Course 1 / Workshops 1-3) is the one gap that li
 
 ## Sources
 
-[^1]: [20260625_095357_AlexeyDTC_msg4631.md](../inbox/used/20260625_095357_AlexeyDTC_msg4631.md)
+[^1]: [20260625_095357_AlexeyDTC_msg4631.md](../../inbox/used/20260625_095357_AlexeyDTC_msg4631.md)

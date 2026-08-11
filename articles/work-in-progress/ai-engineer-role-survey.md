@@ -94,7 +94,7 @@ Third, what's becoming critical: system design with AI elements. For example, if
 
 ## Sources
 
-[^1]: [20260222_093944_AlexeyDTC_msg2205_transcript.txt](../inbox/used/20260222_093944_AlexeyDTC_msg2205_transcript.txt)
-[^2]: [20260222_093955_AlexeyDTC_msg2206.md](../inbox/used/20260222_093955_AlexeyDTC_msg2206.md)
-[^3]: [20260222_094007_AlexeyDTC_msg2207_transcript.txt](../inbox/used/20260222_094007_AlexeyDTC_msg2207_transcript.txt)
-[^4]: [20260221_200011_AlexeyDTC_msg2202_transcript.txt](../inbox/used/20260221_200011_AlexeyDTC_msg2202_transcript.txt)
+[^1]: [20260222_093944_AlexeyDTC_msg2205_transcript.txt](../../inbox/used/20260222_093944_AlexeyDTC_msg2205_transcript.txt)
+[^2]: [20260222_093955_AlexeyDTC_msg2206.md](../../inbox/used/20260222_093955_AlexeyDTC_msg2206.md)
+[^3]: [20260222_094007_AlexeyDTC_msg2207_transcript.txt](../../inbox/used/20260222_094007_AlexeyDTC_msg2207_transcript.txt)
+[^4]: [20260221_200011_AlexeyDTC_msg2202_transcript.txt](../../inbox/used/20260221_200011_AlexeyDTC_msg2202_transcript.txt)

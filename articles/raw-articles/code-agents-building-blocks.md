@@ -1,111 +1,16 @@
 ---
-title: "Building Blocks of Modern Code Agents: Reusable Skills and Role-Based Subagents"
+title: "Coding Agent Building Blocks: Reusable Skills and Specialized Subagents"
 created: 2026-02-17
 updated: 2026-02-18
-tags: [code-agents, skills, subagents, claude-code, ai-engineering, talk]
+tags: [code-agents, skills, subagents, claude-code, ai-dev-tools-zoomcamp]
 status: draft
 ---
 
-TODO: remove the landscape and focus on the building blocks
-move it as article 5 to the ai dev tools zoomcamp
+# Coding Agent Building Blocks: Reusable Skills and Specialized Subagents
 
-# Building Blocks of Modern Code Agents: Reusable Skills and Role-Based Subagents
+This is Article 5 in the [AI Dev Tools Zoomcamp](https://github.com/DataTalksClub/ai-dev-tools-zoomcamp) series. It focuses on two capabilities from Module 5 that make coding agents more reliable: reusable skills and specialized subagents.
 
-A practical map of modern code agent types and the two key building blocks that make them reliable in real-world development workflows.
-
-Talk by Alexey Grigorev (DataTalks.Club). Format: 20 min talk + 10 min Q&A.
-
-## The Landscape of Coding Assistants
-
-Coding assistants appear in many forms today. Before diving into the building blocks, here is a quick overview of the main categories.
-
-<!-- PLACEHOLDER: overview diagram showing the categories of code agents arranged as a spectrum from low autonomy (chat) to high autonomy (autonomous agents) -->
-
-## Chat-Based Assistants
-
-Examples:
-
-- [ChatGPT](https://chatgpt.com/)
-- [Claude.ai](https://claude.ai/)
-- [DeepSeek](https://chat.deepseek.com/)
-- [Microsoft Copilot](https://copilot.microsoft.com/)
-- [Google Gemini](https://gemini.google.com/)
-
-You paste code and ask questions. Good for exploration, brainstorming, and quick answers. No direct access to your codebase. Cannot run code or verify output.
-
-<figure>
-  <img src="../../assets/images/code-agents-building-blocks/claude-ai-chat-assistant.png" alt="Claude.ai chat interface showing Opus 4.6 model with a text input prompt">
-  <figcaption>Claude.ai: a chat-based assistant - paste code, ask questions, get answers</figcaption>
-</figure>
-
-## IDE Agents
-
-Examples:
-
-- [GitHub Copilot](https://github.com/features/copilot) in VS Code
-- [Cursor](https://cursor.com/)
-- [Windsurf](https://windsurf.com/)
-- [Augment Code](https://www.augmentcode.com/)
-- [Antigravity](https://antigravity.dev/)
-
-These sit inside your editor with direct access to the codebase. They can suggest code inline, generate tests, and make multi-file edits.
-
-<figure>
-  <img src="../../assets/images/code-agents-building-blocks/vscode-claude-ide-agent.png" alt="VS Code with Claude agent implementing a plan: reviewing editor.ts, adding YAML frontmatter decorations, with session history on the right">
-  <figcaption>Claude in VS Code: implementing a plan step by step with file tree, code, and session history visible</figcaption>
-</figure>
-
-## CLI/Terminal Agents
-
-Examples:
-
-- [Claude Code](https://docs.anthropic.com/en/docs/claude-code)
-- [OpenAI Codex CLI](https://github.com/openai/codex)
-- [GitHub Copilot CLI](https://docs.github.com/en/copilot/using-github-copilot/using-github-copilot-in-the-command-line)
-- [Aider](https://aider.chat/)
-- [OpenCode](https://github.com/nicepkg/OpenCode)
-
-These run in the terminal with full access to the filesystem and shell. They can read and write files, run commands, execute tests, and manage git. More powerful than IDE agents for complex tasks because they have unrestricted tool access.
-
-<figure>
-  <img src="../../assets/images/ai-engineer-my-vision/claude-code-backend-start.jpg" alt="Claude Code terminal showing Opus 4.6 entering plan mode to create a FastAPI backend">
-  <figcaption>Claude Code: a CLI agent entering plan mode to build a FastAPI backend from a voice prompt</figcaption>
-</figure>
-
-## Project Bootstrappers
-
-Examples:
-
-- [Bolt.new](https://bolt.new/)
-- [Lovable.dev](https://lovable.dev/)
-- [v0.dev](https://v0.dev/)
-
-These generate full-stack applications from natural language prompts.
-
-My typical workflow:
-
-1. Create the app in Lovable or Bolt.new with a few prompts
-2. Export the code to GitHub
-3. Clone it locally
-4. Use CLI/IDE agents (Claude Code) to polish, add backend, write tests
-
-For the "Day of AI Engineer" webinar, I created an entire marketplace app ([Trova](https://github.com/alexeygrigorev/simple-sell)) this way: two prompts in Lovable for the frontend, then three prompts in Claude Code to add a FastAPI backend with AI image analysis. Five prompts total for a working app with AI pre-filling.
-
-<figure>
-  <img src="../../assets/images/ai-engineer-my-vision/lovable-bazaar-marketplace.jpg" alt="Lovable interface showing a prompt on the left and the generated Bazaar marketplace on the right">
-  <figcaption>Lovable: one prompt generated a full marketplace with categories, listings, and search</figcaption>
-</figure>
-
-<figure>
-  <img src="../../assets/images/code-agents-building-blocks/trova-marketplace.png" alt="Trova marketplace app showing product listings with AI-generated descriptions and prices">
-  <figcaption>Trova: the finished marketplace app after polishing with Claude Code</figcaption>
-</figure>
-
-## More
-
-- Computer use agents ([Anthropic Computer Use](https://docs.anthropic.com/en/docs/agents-and-tools/computer-use), [OpenAI Operator](https://operator.chatgpt.com/))
-- Tester and reviewer agents ([CodeRabbit](https://coderabbit.ai/), [PR Agent](https://github.com/Codium-ai/pr-agent))
-- Fully autonomous agents ([Devin](https://devin.ai/), [SWE-Agent](https://swe-agent.com/))
+The product around the agent can be an IDE, a terminal, or a hosted environment. That interface matters less than the workflow inside it. Skills make a good procedure repeatable. Subagents isolate focused work in fresh context and, when useful, run it in parallel.
 
 ## Running Example: The Telegram Writing Assistant
 
@@ -114,9 +19,9 @@ For the "Day of AI Engineer" webinar, I created an entire marketplace app ([Trov
   <figcaption>The Telegram Writing Assistant on GitHub: from scattered thoughts to publishable articles</figcaption>
 </figure>
 
-Before diving into the building blocks, let me introduce the system I will use as the main example throughout: the [Telegram writing assistant](https://alexeyondata.substack.com/p/telegram-assistant).
+I use the [Telegram writing assistant](https://alexeyondata.substack.com/p/telegram-assistant) as the running example.
 
-It is a personal knowledge management system. I send voice messages, photos, links, and text to a Telegram bot throughout the day. The bot transcribes voice messages, stores everything in an inbox. When I type `/process`, a Claude Code agent reads the inbox, routes content to the correct article, fetches external URLs, verifies nothing was lost, and commits the result to git.
+It's a personal knowledge management system. I send voice messages, photos, links, and text to a Telegram bot throughout the day. The bot transcribes voice messages and stores everything in an inbox. When I type `/process`, a Claude Code agent reads the inbox and routes content to the correct article. It also fetches external URLs, verifies nothing was lost, and commits the result to Git.
 
 This system uses both building blocks:
 
@@ -125,7 +30,7 @@ This system uses both building blocks:
 
 <figure>
   <img src="../../assets/images/code-agents-building-blocks/telegram-process-command.png" alt="Telegram chat showing the /process command running: Read 35 files, Edited 16 files, Found 3 items, Launched 1 agents">
-  <figcaption>The /process command in action: reads 35 files, edits 16 articles, launches subagents for research</figcaption>
+  <figcaption>The /process command reads 35 files, edits 16 articles, and launches research subagents</figcaption>
 </figure>
 
 The bot itself was built by Claude Code. I describe it in detail on [Substack](https://alexeyondata.substack.com/p/telegram-assistant). Let me now show the two building blocks that make it work reliably.
@@ -145,9 +50,14 @@ In practice, there are two related concepts:
 - Skills: agent-discovered workflows. The agent sees a list of available skills and autonomously decides when to load one. For example, when a user asks for a code review, the agent recognizes this matches the "review" skill and loads it.
 - Commands: user-triggered shortcuts with `/command` syntax. When a user types `/release`, the system preprocesses this into a detailed prompt that the agent receives.
 
-<!-- PLACEHOLDER: side-by-side diagram showing the two flows:
-Left: "Skills flow" - User request -> Agent sees skills list -> Agent loads skill -> Agent follows instructions
-Right: "Commands flow" - User types /release -> System renders template -> Agent executes -->
+```mermaid
+graph LR
+    U1["User request"] --> A["Agent matches a listed skill"]
+    A --> L["Agent loads the instructions"]
+    L --> E1["Agent follows the workflow"]
+    U2["User types /release"] --> R["System renders the command template"]
+    R --> E2["Agent follows the workflow"]
+```
 
 Both encode reusable workflows. The difference is who initiates them: the agent (skills) or the user (commands).
 
@@ -221,8 +131,6 @@ This is the most complex skill I have:
 - Move processed files from inbox/raw to inbox/used
 - Create a git commit
 
-<!-- PLACEHOLDER: screenshot of Claude Code running /release or /init-library - showing the skill in action with the step-by-step progress -->
-
 The collection keeps growing. Each time I find myself repeating a workflow, it becomes a candidate for a new skill.
 
 ## Building Block 2: Subagents
@@ -270,7 +178,7 @@ The Telegram writing assistant uses three subagents, each defined as a markdown 
 - Adds summaries to the correct research article
 - Can run in parallel for multiple URLs
 
-[resource-describer](https://github.com/alexeygrigorev/telegram-writing-assistant/blob/main/.claude/agents/resource-describer.md) - short descriptions for the [interesting resources](https://github.com/alexeygrigorev/telegram-writing-assistant/blob/main/articles/interesting-resources.md) collection:
+[resource-describer](https://github.com/alexeygrigorev/telegram-writing-assistant/blob/main/.claude/agents/resource-describer.md) - short descriptions for the [interesting resources](https://github.com/alexeygrigorev/telegram-writing-assistant/blob/main/articles/_interesting-resources.md) collection:
 
 - Fetches content via Jina Reader
 - Writes 2-4 sentence descriptions
@@ -285,12 +193,16 @@ The Telegram writing assistant uses three subagents, each defined as a markdown 
 - Flags any content that was improperly summarized
 - Provides a verification report with issues found
 
-<!-- PLACEHOLDER: diagram of Telegram assistant subagent architecture:
-Main Agent (/process) -> spawns:
-  - article-summarizer -> deep URL analysis
-  - resource-describer -> short resource descriptions
-  - verify-content -> check nothing was missed
-All results flow back to Main Agent -> git commit -->
+```mermaid
+graph LR
+    M["Main agent: /process"] --> A["Article summarizer"]
+    M --> R["Resource describer"]
+    M --> V["Content verifier"]
+    A --> C["Curated article changes"]
+    R --> C
+    V --> C
+    C --> G["Reviewed Git commit"]
+```
 
 ## Subagents for Batch Processing
 
@@ -333,35 +245,6 @@ This way skills evolve through real usage. Each correction makes the next run be
 - Build incrementally: start with one skill and one subagent. Add more as you discover what your workflow needs
 - Always verify: even the best models take shortcuts. Skills encode the "right way" and subagent reviewers catch what the implementer missed
 
-## The Meetup Talk
-
-This talk was presented at a meetup. The preparation process itself was a demonstration of the skills and subagents workflow described above[^6].
-
-<figure>
-  <img src="../../assets/images/code-agents-building-blocks/meetup-presentation.jpg" alt="Alexey presenting at a meetup with a projector screen showing GitHub links to the claude and telegram-writing-assistant repos">
-  <figcaption>Presenting the talk at the meetup with links to the project repos on the screen</figcaption>
-  <!-- Photo from the actual meetup where this talk was delivered -->
-</figure>
-
-## How the Talk Was Prepared
-
-The whole preparation took about an hour.
-
-The process went like this[^7]:
-
-1. Opened the Telegram writing assistant and said: "let's create an article based on which we will then prepare a talk." Gave it the talk plan and pointed it to several sources - the AI DevTools course, the Substack posts, and what had been written in this repository
-2. The assistant gathered everything and created the article. The content was enough for about 50 minutes, but the talk slot was 20 minutes, so it needed to be cut down
-3. Then said: "now let's make slides." The agent created slides using reveal.js
-4. Went through the slides during rehearsal. While rehearsing, spoke the text which Claude Code recognized and used to update the article and the slides
-5. For missing illustrations, took screenshots and sent them to the agent saying "this slide needs an illustration, here take this"
-6. Iterated on the slides until they were ready
-
-The whole approach is: dictate first or use sources to make an article, review the article, then turn the article into slides, and iterate on the slides. No need to waste time transferring everything into Google Docs manually. The focus stays on content, not on making slides[^7].
-
-## Slides from Articles as a Reusable Skill
-
-Making slides from articles turned out to be a great reusable skill. This should be packaged as a proper skill that can be reused for future talks[^8].
-
 ## Resources
 
 - [AI Dev Tools Zoomcamp](https://github.com/DataTalksClub/ai-dev-tools-zoomcamp) (free course)
@@ -375,14 +258,3 @@ Making slides from articles turned out to be a great reusable skill. This should
 - [My Experiments with Claude Code](https://alexeyondata.substack.com/p/my-experiments-with-claude-code)
 - [Telegram Assistant](https://alexeyondata.substack.com/p/telegram-assistant)
 - [How I Reviewed 2,500 AI Bootcamp Scholarship Applications](https://alexeyondata.substack.com/p/how-i-reviewed-2500-ai-bootcamp-scholarship)
-
-## Sources
-
-[^1]: [20260212_110716_AlexeyDTC_msg1521_photo.md](../inbox/used/20260212_110716_AlexeyDTC_msg1521_photo.md)
-[^2]: [20260212_110832_AlexeyDTC_msg1525_transcript.txt](../inbox/used/20260212_110832_AlexeyDTC_msg1525_transcript.txt)
-[^3]: [20260213_065936_AlexeyDTC_msg1573_transcript.txt](../inbox/used/20260213_065936_AlexeyDTC_msg1573_transcript.txt)
-[^4]: [20260216_154857_AlexeyDTC_msg1785_transcript.txt](../inbox/used/20260216_154857_AlexeyDTC_msg1785_transcript.txt)
-[^5]: [20260216_182231_AlexeyDTC_msg1789_transcript.txt](../inbox/used/20260216_182231_AlexeyDTC_msg1789_transcript.txt)
-[^6]: [20260217_132807_AlexeyDTC_msg1915_transcript.txt](../inbox/used/20260217_132807_AlexeyDTC_msg1915_transcript.txt)
-[^7]: [20260217_205850_AlexeyDTC_msg1919_transcript.txt](../inbox/used/20260217_205850_AlexeyDTC_msg1919_transcript.txt)
-[^8]: [20260217_205927_AlexeyDTC_msg1921_transcript.txt](../inbox/used/20260217_205927_AlexeyDTC_msg1921_transcript.txt)

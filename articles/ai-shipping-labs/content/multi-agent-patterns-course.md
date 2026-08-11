@@ -738,11 +738,11 @@ The plan: make it a webinar where I briefly cover all the patterns and say that 
 
 ## Sources
 
-[^1]: [20260221_193111_AlexeyDTC_msg2190_transcript.txt](../inbox/used/20260221_193111_AlexeyDTC_msg2190_transcript.txt)
-[^2]: [20260221_193257_AlexeyDTC_msg2192_transcript.txt](../inbox/used/20260221_193257_AlexeyDTC_msg2192_transcript.txt)
-[^3]: [20260221_193907_AlexeyDTC_msg2194_transcript.txt](../inbox/used/20260221_193907_AlexeyDTC_msg2194_transcript.txt)
-[^4]: [20260221_194006_AlexeyDTC_msg2196_transcript.txt](../inbox/used/20260221_194006_AlexeyDTC_msg2196_transcript.txt)
-[^5]: [20260222_102956_AlexeyDTC_msg2216_transcript.txt](../inbox/used/20260222_102956_AlexeyDTC_msg2216_transcript.txt)
+[^1]: [20260221_193111_AlexeyDTC_msg2190_transcript.txt](../../../inbox/used/20260221_193111_AlexeyDTC_msg2190_transcript.txt)
+[^2]: [20260221_193257_AlexeyDTC_msg2192_transcript.txt](../../../inbox/used/20260221_193257_AlexeyDTC_msg2192_transcript.txt)
+[^3]: [20260221_193907_AlexeyDTC_msg2194_transcript.txt](../../../inbox/used/20260221_193907_AlexeyDTC_msg2194_transcript.txt)
+[^4]: [20260221_194006_AlexeyDTC_msg2196_transcript.txt](../../../inbox/used/20260221_194006_AlexeyDTC_msg2196_transcript.txt)
+[^5]: [20260222_102956_AlexeyDTC_msg2216_transcript.txt](../../../inbox/used/20260222_102956_AlexeyDTC_msg2216_transcript.txt)
 
 ## References
 

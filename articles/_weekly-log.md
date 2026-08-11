@@ -6,8 +6,6 @@ tags: [weekly, log]
 status: draft
 ---
 
-TODO this document also have a special status hence _ prefix
-
 # Weekly Log
 
 A running log of what was done each week. When a topic has its own detailed article, this log contains a short summary with a link. When there is not much content for a topic, the details go here directly.
@@ -50,13 +48,13 @@ I am trying out Fable while the opportunity is there[^67]. I used it for auditin
 
 ### New Course Concept: Product Shipping Zoomcamp
 
-This week I was thinking about the concept of a new course. Wrote up a full concept for a Product Shipping Zoomcamp - an end-to-end product development course where students go from an idea to a deployed product that is improved, measured, launched publicly, and peer-reviewed. The key design decision is that community and build-in-public start in Module 1, not at the end. See [Product Shipping Zoomcamp](product-shipping-zoomcamp.md)[^61][^62].
+This week I was thinking about the concept of a new course. Wrote up a full concept for a Product Shipping Zoomcamp - an end-to-end product development course where students go from an idea to a deployed product that is improved, measured, launched publicly, and peer-reviewed. The key design decision is that community and build-in-public start in Module 1, not at the end. See [Product Shipping Zoomcamp](datatalksclub/product-shipping-zoomcamp.md)[^61][^62].
 
 ## Week of 2026-06-22
 
 ### AI Engineering Field Guide Scrape and Trend Analysis
 
-Ran the full [AI Engineering Field Guide](ai-engineering-field-guide.md) pipeline end to end again, updating the job listings. Scraped 3,024 raw listings across LA (604), New York (1,011), India (896), London (293), Berlin (145), and Amsterdam (75), which gave 888 new unique jobs after deduplication against the 4,009-job global CSV. 887 of 888 HTML downloads succeeded on the first pass, and the one 403 was retried successfully. All 888 raw YAML extractions and all 888 LLM enrichments completed - the enrichments ran on 12 parallel Z.ai/GLM-5.1 workers, with the 2 that errored retried. Both READMEs now show 4,894 total jobs (was 2,445), covering January through June 2026, across 1,954 unique companies[^63].
+Ran the full AI Engineering Field Guide pipeline end to end again, updating the job listings. Scraped 3,024 raw listings across LA (604), New York (1,011), India (896), London (293), Berlin (145), and Amsterdam (75), which gave 888 new unique jobs after deduplication against the 4,009-job global CSV. 887 of 888 HTML downloads succeeded on the first pass, and the one 403 was retried successfully. All 888 raw YAML extractions and all 888 LLM enrichments completed - the enrichments ran on 12 parallel Z.ai/GLM-5.1 workers, with the 2 that errored retried. Both READMEs now show 4,894 total jobs (was 2,445), covering January through June 2026, across 1,954 unique companies[^63].
 
 <figure>
   <img src="../assets/images/weekly-log/field-guide-scrape-2026-06-25.jpg" alt="Scrape log for 2026-06-25: 3,024 raw listings across six cities, 888 new unique jobs after dedup against the 4,009-job global CSV, 887/888 HTML downloads on first pass, all 888 YAML extractions and LLM enrichments, READMEs updated to 4,894 total jobs and 1,954 unique companies">
@@ -166,7 +164,7 @@ Ran an experiment on it: coordinating three coding agents - Codex, Claude Code, 
 
 ## AI Engineering Field Guide Scrape
 
-Did another scrape of all job postings for the [AI Engineering Field Guide](ai-engineering-field-guide.md). The goal is to keep doing this throughout the year and then analyse the trends - to see what changes over this year and beyond[^48].
+Did another scrape of all job postings for the AI Engineering Field Guide. The goal is to keep doing this throughout the year and then analyse the trends - to see what changes over this year and beyond[^48].
 
 This run scraped 2,751 listings and added 919 new unique jobs after deduplication, downloading the HTML and generating the raw and structured YAML for all of them. The fresh dump now holds around 4,000 unique vacancies[^48][^49].
 
@@ -280,7 +278,7 @@ Last week, ran a team of Codex agents to update the DataTalks.Club course manage
 
 Taking advantage of Codex's 2x limits while they last, so running things in parallel. Most of this work happened from a phone while travelling last week in the Harz mountains[^38].
 
-The mockup-first workflow that drove the design pass is written up separately in [Redesigning the DataTalks.Club Course Platform with ChatGPT Mockups](dtc-course-platform-redesign.md).
+The design pass used a mockup-first workflow built around ChatGPT-generated interface mockups.
 
 ## Week of 2026-04-20
 
@@ -393,7 +391,7 @@ Claude updated 52 `pyproject.toml` files across all UV projects - 5 already had 
 
 ## AI Hero Course Migration
 
-Migrated the AI Hero course to the new AI Shipping Labs platform. Used the same agent teams approach described in [Building Projects with Agent Teams](building-projects-with-agent-teams.md) - this time through GitHub Issues. Shared a link to the existing course content, told the agents "migrate this," and they handled everything. The agents created [a detailed GitHub issue](https://github.com/AI-Shipping-Labs/website/issues/128) with full specifications and completed the migration autonomously[^20].
+Migrated the AI Hero course to the new AI Shipping Labs platform using the same agent-teams approach as an earlier project, this time through GitHub Issues. Shared a link to the existing course content, told the agents "migrate this," and they handled everything. The agents created [a detailed GitHub issue](https://github.com/AI-Shipping-Labs/website/issues/128) with full specifications and completed the migration autonomously[^20].
 
 The course is now live at [aishippinglabs.com/courses/aihero](https://aishippinglabs.com/courses/aihero). This was for the Django version of the platform[^21].
 
@@ -435,7 +433,7 @@ Used Claude Code instead of doing it manually to avoid missing things and becaus
 
 Based on this list, came up with a project - the course will use a project-based approach (same methodology as all the Zoomcamps). The project is a podcast aggregator, covering everything from Python basics to advanced topics like database interaction, multithreading, and async. Async is included because AI Engineering Buildcamp uses Pydantic AI which is async-based.
 
-The curriculum is not fully finalized yet (no time right now because of Buildcamp. Doing this as background work) switching to it between recording sessions, brainstorming in ChatGPT during breaks. The course name will be "Python for AI Engineering" (tentative). The goal: after completing this course, students can take any Zoomcamp and the AI Engineering course with the right Python foundation. See [Python Primer Course Idea](ideas/python-primer-course-idea.md) for the full concept[^18].
+The curriculum is not fully finalized yet (no time right now because of Buildcamp. Doing this as background work) switching to it between recording sessions, brainstorming in ChatGPT during breaks. The course name will be "Python for AI Engineering" (tentative). The goal: after completing this course, students can take any Zoomcamp and the AI Engineering course with the right Python foundation. See [Python Primer Course Idea](ai-shipping-labs/content/python-primer-course-idea.md) for the full concept[^18].
 
 ## Exasol In-Person Meetup Preparation
 
@@ -457,7 +455,7 @@ Content was prepared about a month ago, now needs polishing and rehearsal. Still
 
 ## Telegram Writing Assistant
 
-Added YouTube transcript processing and external audio file support. The bot can now accept audio files recorded outside of Telegram and process them through the same Whisper transcription pipeline. YouTube URL processing also works now. See [What's New in the Telegram Writing Assistant](ready-for-newsletter/telegram-writing-assistant-updates.md) for details[^1][^2].
+Added YouTube transcript processing and external audio file support. The bot can now accept audio files recorded outside of Telegram and process them through the same Whisper transcription pipeline. YouTube URL processing also works now[^1][^2].
 
 ## PNG to SVG Conversion
 
@@ -471,33 +469,33 @@ Created a logo with ChatGPT and attempted SVG recreation. All integrations now r
 
 ## AI Engineer Webinar Session 2
 
-Ran the second "Defining the Role of AI Engineer" session with 200 attendees. Presented data-driven analysis of 895 job descriptions - RAG is the top skill, 93% of roles need more than just GenAI, Python dominates at 82.5%. Answered live Q&A. See [Defining the Role of AI Engineer: Webinar Q&A](ai-engineer-role-definition-qa.md)[^7].
+Ran the second "Defining the Role of AI Engineer" session with 200 attendees. Presented data-driven analysis of 895 job descriptions - RAG is the top skill, 93% of roles need more than just GenAI, Python dominates at 82.5%. Answered live Q&A[^7].
 
 ## Testing Agents
 
-Added a workflow for generating tests from usage sessions - record yourself using the agent on video, transcribe with Whisper, feed to ChatGPT to generate test scenarios. Also gave students a homework assignment to test an SQL analytics agent. See [Testing AI Agents with the Judge Pattern](ready-for-newsletter/testing-agents-with-judge-pattern.md)[^8].
+Added a workflow for generating tests from usage sessions - record yourself using the agent on video, transcribe with Whisper, feed to ChatGPT to generate test scenarios. Also gave students a homework assignment to test an SQL analytics agent. See [Testing AI Agents with the Judge Pattern](raw-articles/testing-agents-with-judge-pattern.md)[^8].
 
 ## SQLiteSearch Benchmarking and Release
 
 Continued benchmarking, hit scaling issues with vector search on 1 million records. The LSH approach breaks at that scale. Claude suggested HNSW, started implementing it[^9].
 
-Published version 0.0.3 to PyPI with HNSW and IVF implementations. HNSW is the best performer at 6ms query speed on 1M vectors. Recommended for up to 100K items. See [Benchmarking SQLiteSearch](ready-for-newsletter/benchmarking-sqlitesearch.md)[^14].
+Published version 0.0.3 to PyPI with HNSW and IVF implementations. HNSW is the best performer at 6ms query speed on 1M vectors. Recommended for up to 100K items. See [Benchmarking SQLiteSearch](raw-articles/benchmarking-sqlitesearch.md)[^14].
 
 ## Course Materials
 
-Working on the monitoring module for AI Buildcamp. Using Langfuse with Pydantic AI integration. Expanded the monitoring content from the previous cohort. Planning to re-record the DIY self-monitoring part with Grafana. See [Course Material Preparation](ready-for-newsletter/course-material-preparation.md)[^10].
+Working on the monitoring module for AI Buildcamp. Using Langfuse with Pydantic AI integration. Expanded the monitoring content from the previous cohort. Planning to re-record the DIY self-monitoring part with Grafana. See [Course Material Preparation](raw-articles/course-material-preparation.md)[^10].
 
 ## DataTasks
 
-Started implementing the task management app using Claude Code (Opus 4.6). Reused an existing repo. Claude Code followed the PROCESS.md workflow - grooming issues first, then implementing in batches of 2 with parallel PM agents. See [Task Management App Idea](ideas/task-management-app-idea.md)[^11].
+Started implementing the task management app using Claude Code (Opus 4.6). Reused an existing repo. Claude Code followed the PROCESS.md workflow - grooming issues first, then implementing in batches of 2 with parallel PM agents[^11].
 
 ## AI Agent Project Ideas
 
-Started collecting project ideas for AI Buildcamp students. Ideas include a GitHub issue creator bot, project idea generator agent, problem discovery framework, job market analytics agent, knowledge management bot, and journaling agent. See [AI Agent Project Ideas](agent-project-ideas.md)[^12].
+Started collecting project ideas for AI Buildcamp students. Ideas include a GitHub issue creator bot, project idea generator agent, problem discovery framework, job market analytics agent, knowledge management bot, and journaling agent. See [AI Agent Project Ideas](ideas/projects/agent-project-ideas.md)[^12].
 
 ## Community Platform Features
 
-Started a new article for feature ideas for the AI Shipping Labs site. Includes a business case simulator inspired by Karpov.Courses, career help and job search tools, and data collection strategy. See [Community Platform Feature Ideas](community-platform-features.md)[^13].
+Started a new article for feature ideas for the AI Shipping Labs site. Includes a business case simulator inspired by Karpov.Courses, career help and job search tools, and data collection strategy. See [Community Platform Feature Ideas](ai-shipping-labs/platform-ideas.md)[^13].
 
 ## Production Incident
 
@@ -513,7 +511,7 @@ Implemented multiple preventive measures:
 - Deletion protection flags
 - Migrated Terraform state to S3
 
-See [Course Management Production Incident Report](course-management-production-incident.md)[^15].
+The incident and recovery work were recorded in the source note[^15].
 
 ## Sources
 

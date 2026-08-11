@@ -189,5 +189,5 @@ Alexey's recommendations after reviewing the intake doc[^4]:
 
 [^1]: [Juan Perez Prim's intake (Google Doc)](https://docs.google.com/document/d/1j-vldwylQfbFkqOBNmtwHj8of2rq36VGakkP6DX2ev0/edit?usp=sharing), shared via [20260508_084825_AlexeyDTC_msg3955.md](../../../inbox/used/20260508_084825_AlexeyDTC_msg3955.md), and re-confirmed in [20260509_113436_AlexeyDTC_msg3986.md](../../../inbox/used/20260509_113436_AlexeyDTC_msg3986.md).
 [^2]: `amr_ai` GitHub repository: [github.com/juanpprim/amr_ai](https://github.com/juanpprim/amr_ai).
-[^3]: [AI Engineering Buildcamp Cohort 2 - Demo Day](../../demo-day-cohort-2.md) - "AMR Awareness Platform (Juan Prim)" entry, including stack and feature breakdown.
+[^3]: [9 Real-Life AI Projects from AI Engineering Buildcamp Graduates](https://alexeyondata.substack.com/p/9-real-life-ai-projects-from-ai-engineering) - includes Juan Prim's AMR Awareness Platform, its stack, and feature breakdown.
 [^4]: [20260509_113453_AlexeyDTC_msg3988_transcript.txt](../../../inbox/used/20260509_113453_AlexeyDTC_msg3988_transcript.txt) - Alexey's recommendations after reviewing Juan's intake doc.
