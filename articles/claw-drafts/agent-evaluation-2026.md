@@ -95,7 +95,7 @@ Here's what this looks like in practice, for the three common agent patterns:
 
 ### Building test data when you don't have users yet
 
-The hardest part of agent evaluation is the cold-start problem. You know you need a golden dataset. You don't have users yet, so you don't have real conversations. What do you do?
+The hardest part of agent evaluation is the cold-start problem. You know you need a golden dataset. You don't have users yet, so you don't have real conversations. Here's how to bridge the gap.
 
 **Start with synthetic data, but treat it as a placeholder, not a destination.** Generate test cases with an LLM. Give it your tool definitions, your system prompt, and your expected behavior, and ask it to generate diverse test scenarios. Be specific: "Generate 50 test queries that cover happy path, edge cases, off-topic questions, and adversarial inputs for a RAG agent that answers questions about Python documentation."
 
