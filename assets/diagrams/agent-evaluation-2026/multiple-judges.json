@@ -1,0 +1,30 @@
+{
+  "title": "Multiple judges",
+  "description": "One agent run is scored by several judges, each looking at a different dimension of quality.",
+  "canvas": {"width": 1120, "height": 760, "background": "#ffffff"},
+  "layout": {"type": "manual", "card_width": 260, "card_height": 100},
+  "nodes": [
+    {"id": "run", "title": "Agent run", "subtitle": "Answer + tool calls", "color": "blue", "icon": "sparkles", "x": 30, "y": 330},
+    {"id": "completion", "title": "Task completion", "subtitle": "The problem is solved", "color": "amber", "icon": "check", "x": 430, "y": 30, "width": 280},
+    {"id": "correctness", "title": "Correctness", "subtitle": "The answer is right", "color": "amber", "icon": "search", "x": 430, "y": 150, "width": 280},
+    {"id": "grounded", "title": "Groundedness", "subtitle": "Backed by the documents", "color": "amber", "icon": "document", "x": 430, "y": 270, "width": 280},
+    {"id": "complete", "title": "Completeness", "subtitle": "Nothing is missing", "color": "amber", "icon": "rank-fusion", "x": 430, "y": 390, "width": 280},
+    {"id": "instructions", "title": "Instructions", "subtitle": "Stays inside the rules", "color": "amber", "icon": "settings", "x": 430, "y": 510, "width": 280},
+    {"id": "trajectory", "title": "Trajectory", "subtitle": "The tool calls are optimal", "color": "amber", "icon": "api", "x": 430, "y": 630, "width": 280},
+    {"id": "scorecard", "title": "Scorecard", "subtitle": "One metric per dimension", "color": "green", "icon": "database", "x": 830, "y": 330}
+  ],
+  "edges": [
+    {"from": "run", "to": "completion", "route": "curve", "from_anchor": "right", "to_anchor": "left", "controls": [[360, 380], [360, 80]]},
+    {"from": "run", "to": "correctness", "route": "curve", "from_anchor": "right", "to_anchor": "left", "controls": [[360, 380], [360, 200]]},
+    {"from": "run", "to": "grounded", "route": "curve", "from_anchor": "right", "to_anchor": "left", "controls": [[360, 380], [360, 320]]},
+    {"from": "run", "to": "complete", "route": "curve", "from_anchor": "right", "to_anchor": "left", "controls": [[360, 380], [360, 440]]},
+    {"from": "run", "to": "instructions", "route": "curve", "from_anchor": "right", "to_anchor": "left", "controls": [[360, 380], [360, 560]]},
+    {"from": "run", "to": "trajectory", "route": "curve", "from_anchor": "right", "to_anchor": "left", "controls": [[360, 380], [360, 680]]},
+    {"from": "completion", "to": "scorecard", "route": "curve", "from_anchor": "right", "to_anchor": "left", "controls": [[770, 80], [770, 380]]},
+    {"from": "correctness", "to": "scorecard", "route": "curve", "from_anchor": "right", "to_anchor": "left", "controls": [[770, 200], [770, 380]]},
+    {"from": "grounded", "to": "scorecard", "route": "curve", "from_anchor": "right", "to_anchor": "left", "controls": [[770, 320], [770, 380]]},
+    {"from": "complete", "to": "scorecard", "route": "curve", "from_anchor": "right", "to_anchor": "left", "controls": [[770, 440], [770, 380]]},
+    {"from": "instructions", "to": "scorecard", "route": "curve", "from_anchor": "right", "to_anchor": "left", "controls": [[770, 560], [770, 380]]},
+    {"from": "trajectory", "to": "scorecard", "route": "curve", "from_anchor": "right", "to_anchor": "left", "controls": [[770, 680], [770, 380]]}
+  ]
+}

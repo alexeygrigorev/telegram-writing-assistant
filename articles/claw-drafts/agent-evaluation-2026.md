@@ -22,7 +22,7 @@ That's just the tip of the iceberg. To make sure this agent works reliably, you 
 
 Also, without evaluations, you're blind. You don't know how the agent is performing. You also can't really change anything: every change you introduce may break the system in many ways, including the areas where you least expect it.
 
-Agent evaluation is not simple. It takes a lot of time to understand the problem, get input from real users, gather the right data. It's not something you can just delegate to Claude and forget about it.
+Agent evaluation is not simple. It takes a lot of time to understand the problem, get input from real users, and gather the right data. It's not something you can just delegate to Claude and forget about it.
 
 That's what makes evals such an important part of AI Engineering. 
 
@@ -31,11 +31,16 @@ In this article, I will tell you about my approach to evaluations:
 - Start manually by "vibe-checking" the system, but also collect logs as early as possible
 - Create a tool for labelling the logs and put together a gold standard dataset
 - Create a judge that's aligned with our judgement 
-- Break the agent lika a QA engineer
+- Break the agent like a QA engineer
 - Get more data by generating it synthetically
 - Start collecting data from real users
 - Monitor your system with online evaluation
 - Always refine your gold standard dataset
+
+<figure>
+  <img src="../../assets/images/agent-evaluation-2026/evaluation-stages.png" alt="A descending staircase of six stages - vibe-check and log, label good or bad, align the judge, break the agent, synthetic data, real users">
+  <figcaption>The stages, in the order I go through them. Each one adds new cases to the gold standard dataset</figcaption>
+</figure>
 
 Let's get into details.
 
@@ -167,6 +172,11 @@ Now we have a fully automated process that:
 2. Runs the judge against the output of step 1
 3. Outputs a metric - the fraction of "good" results
 
+<figure>
+  <img src="../../assets/images/agent-evaluation-2026/eval-pipeline.png" alt="Pipeline diagram: the gold standard dataset feeds the agent, the agent output goes to the judge which reads judge.md, and the judge produces a metric, with a feedback arrow going back to the agent">
+  <figcaption>The automated evaluation pipeline: dataset, agent, judge, metric - then fix and re-run</figcaption>
+</figure>
+
 Because it's automated, we can use it to improve our agent. You can ask the coding assistant to do it. 
 
 I recommend following the [implementer-tester pattern](https://alexeyondata.substack.com/p/ai-native-development-specifications) for that:
@@ -184,7 +194,7 @@ I recommend following the [implementer-tester pattern](https://alexeyondata.subs
 
 So far we focused on the quality of our gold standard dataset. In this section, I want to talk about the quantity.
 
-Quantity is also important because agents are non-deterministic. Even if the agent works properly on our small dataset, it will break when we get more traffic - just because of probability and statistics. When you expose your agent to a bigger number of inputs, things will break: with more repetitions, you increase the chances of something going wrong. That's why here you want quantity.
+Quantity is also important because agents are non-deterministic. Even if the agent works properly on our small dataset, it will break when we get more traffic - just because of probability and statistics. When you expose your agent to a bigger number of inputs, things will break: with more repetitions, you increase the chances of something going wrong. That's why you want quantity here.
 
 We can generate a lot more data using AI. Open your AI assistant, ask it to analyze your code, describe to it your target users, and then tell it to generate questions that these users are likely to ask.
 
@@ -261,14 +271,19 @@ For inspecting this live traffic I also often use coding assistants. I take a sa
 
 We started with a GOOD/BAD evaluation, but I didn't really explain what it means.
 
-In reality we usually have multiple judges and evaluate the agent from multiple angles:
+In reality, we usually have multiple judges, each evaluating the agent from a different angle:
 
 - Task completion: the agent actually solved the user's problem
 - Relevance/Correctness: the answer is relevant/correct
 - Groundedness: the claims in the answer are supported by the documents in the knowledge base
 - Completeness: the answer includes all the required information 
 - Following instructions: the agent follows the instructions correctly
-- Trajectory optimality: the sequence of tool calls the agent used to complete the task is the most optimal one 
+- Trajectory optimality: the sequence of tool calls the agent used to complete the task is an optimal one 
+
+<figure>
+  <img src="../../assets/images/agent-evaluation-2026/multiple-judges.png" alt="One agent run fanning out to six judges - task completion, correctness, groundedness, completeness, instructions, trajectory - which all feed into a single scorecard">
+  <figcaption>One agent run, several judges, one metric per dimension</figcaption>
+</figure>
 
 There are other criteria too that you can consider for your application. 
 
@@ -277,7 +292,7 @@ But I usually recommend starting with one judge and then adding others as your s
 
 ## The agent evaluation checklist
 
-As a summary for this article I wanted to give you a checklist that you can use next time you work on a new agent.
+As a summary for this article, I wanted to give you a checklist that you can use next time you work on a new agent.
 
 ```
 Gold standard dataset:
@@ -291,10 +306,10 @@ Gold standard dataset:
 The judge:
 
 - [ ] judge.md describes the classification rules in generic terms, not specific to your examples
-- [ ] Judge runs as a subagent that reads only judge.md
+- [ ] The judge runs as a subagent that reads only judge.md
 - [ ] Check the judge's answers with "agree" or "disagree"
 - [ ] Use the fraction of "good" results as your metric
-- [ ] Have multiple different judges as your system matures
+- [ ] Add more judges as your system matures
 
 Improving the agent:
 

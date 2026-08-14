@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="760" viewBox="0 0 1120 760" role="img" aria-labelledby="title desc">
+  <title id="title">Multiple judges</title>
+  <desc id="desc">One agent run is scored by several judges, each looking at a different dimension of quality.</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+    <marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#7c3aed"/></marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#2563eb"/></marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#c2410c"/></marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#15803d"/></marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#dc2626"/></marker>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#64748b"/></marker>
+    <symbol id="icon-api" viewBox="0 0 24 24">
+        <path d="m8 5-5 7 5 7M16 5l5 7-5 7M14 3l-4 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="m7.5 12 3 3 6-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+    <symbol id="icon-database" viewBox="0 0 24 24">
+        <ellipse cx="12" cy="5" rx="8" ry="3" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="M4 5v7c0 1.66 3.58 3 8 3s8-1.34 8-3V5M4 12v7c0 1.66 3.58 3 8 3s8-1.34 8-3v-7" fill="none" stroke="currentColor" stroke-width="2"/>
+      </symbol>
+    <symbol id="icon-document" viewBox="0 0 24 24">
+        <path d="M6 2h8l4 4v16H6Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M14 2v5h4M9 12h6M9 16h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+    <symbol id="icon-rank-fusion" viewBox="0 0 24 24">
+        <path d="M3 6h4c4 0 4 6 9 6h5M3 18h4c4 0 4-6 9-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="m18 9 3 3-3 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+    <symbol id="icon-search" viewBox="0 0 24 24">
+        <circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="m16 16 4.5 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+    <symbol id="icon-settings" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+    <symbol id="icon-sparkles" viewBox="0 0 24 24">
+        <path d="m12 2 1.4 4.6L18 8l-4.6 1.4L12 14l-1.4-4.6L6 8l4.6-1.4ZM19 14l.8 2.2L22 17l-2.2.8L19 20l-.8-2.2L16 17l2.2-.8ZM5 14l.8 2.2L8 17l-2.2.8L5 20l-.8-2.2L2 17l2.2-.8Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+      </symbol>
+    <style>
+      text { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #172033; }
+      symbol [stroke] { vector-effect: non-scaling-stroke; }
+      .node rect { stroke-width: 2; }
+      .node-boundary rect { stroke-width: 2; stroke-dasharray: 8 8; }
+      .boundary-title { font-size: 16px; font-weight: 750; text-anchor: start; }
+      .node-title { font-size: 20px; font-weight: 750; text-anchor: middle; }
+      .node-title.icon-copy { text-anchor: start; }
+      .node-subtitle { font-size: 16px; font-weight: 500; fill: #475569; text-anchor: middle; }
+      .eyebrow { font-size: 13px; font-weight: 750; letter-spacing: 1px; fill: #475569; text-anchor: middle; }
+      .mention-icon { font-size: 27px; font-weight: 750; text-anchor: middle; }
+      .standalone-mention { font-size: 52px; font-weight: 750; text-anchor: middle; }
+      .icon-node-title { font-size: 16px; font-weight: 750; text-anchor: middle; }
+      .edge { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+      .edge-label rect { stroke-width: 2; }
+      .edge-label text { font-size: 14px; font-weight: 750; text-anchor: middle; dominant-baseline: central; }
+      .divider { stroke: #cbd5e1; stroke-width: 2; stroke-dasharray: 6 8; stroke-linecap: round; }
+      .center-annotation { fill: #f1f5f9; stroke: none; }
+      .center-title { font-weight: 800; letter-spacing: 0.08em; fill: #334155; text-anchor: middle; }
+      .center-detail { font-weight: 600; fill: #475569; text-anchor: middle; }
+    </style>
+  </defs>
+  <rect width="1120" height="760" fill="#ffffff"/>
+
+  <path class="edge" d="M290 380C360 380 360 80 430 80" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M290 380C360 380 360 200 430 200" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M290 380C360 380 360 320 430 320" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M290 380C360 380 360 440 430 440" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M290 380C360 380 360 560 430 560" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M290 380C360 380 360 680 430 680" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M710 80C770 80 770 380 830 380" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M710 200C770 200 770 380 830 380" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M710 320C770 320 770 380 830 380" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M710 440C770 440 770 380 830 380" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M710 560C770 560 770 380 830 380" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M710 680C770 680 770 380 830 380" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+
+  <g class="node node-blue" transform="translate(30 330)" filter="url(#shadow)">
+    <rect width="260" height="100" rx="18" fill="#eff6ff" stroke="#2563eb"/>
+    <use href="#icon-sparkles" x="50.9" y="20" width="34" height="34" color="#2563eb"/>
+    <text class="node-title icon-copy" x="95.2" y="44.2" font-size="20">Agent run</text>
+    <text class="node-subtitle" x="130" y="75" font-size="16">Answer + tool calls</text>
+  </g>
+  <g class="node node-amber" transform="translate(430 30)" filter="url(#shadow)">
+    <rect width="280" height="100" rx="18" fill="#fff7ed" stroke="#c2410c"/>
+    <use href="#icon-check" x="24.47" y="20" width="34" height="34" color="#c2410c"/>
+    <text class="node-title icon-copy" x="67.65" y="44.2" font-size="20">Task completion</text>
+    <text class="node-subtitle" x="140" y="75" font-size="16">The problem is solved</text>
+  </g>
+  <g class="node node-amber" transform="translate(430 150)" filter="url(#shadow)">
+    <rect width="280" height="100" rx="18" fill="#fff7ed" stroke="#c2410c"/>
+    <use href="#icon-search" x="49.03" y="20" width="34" height="34" color="#c2410c"/>
+    <text class="node-title icon-copy" x="91.36" y="44.2" font-size="20">Correctness</text>
+    <text class="node-subtitle" x="140" y="75" font-size="16">The answer is right</text>
+  </g>
+  <g class="node node-amber" transform="translate(430 270)" filter="url(#shadow)">
+    <rect width="280" height="100" rx="18" fill="#fff7ed" stroke="#c2410c"/>
+    <use href="#icon-document" x="35.94" y="20" width="34" height="34" color="#c2410c"/>
+    <text class="node-title icon-copy" x="74.86" y="44.2" font-size="20">Groundedness</text>
+    <text class="node-subtitle" x="140" y="75" font-size="16">Backed by the documents</text>
+  </g>
+  <g class="node node-amber" transform="translate(430 390)" filter="url(#shadow)">
+    <rect width="280" height="100" rx="18" fill="#fff7ed" stroke="#c2410c"/>
+    <use href="#icon-rank-fusion" x="37.81" y="20" width="34" height="34" color="#c2410c"/>
+    <text class="node-title icon-copy" x="80.99" y="44.2" font-size="20">Completeness</text>
+    <text class="node-subtitle" x="140" y="75" font-size="16">Nothing is missing</text>
+  </g>
+  <g class="node node-amber" transform="translate(430 510)" filter="url(#shadow)">
+    <rect width="280" height="100" rx="18" fill="#fff7ed" stroke="#c2410c"/>
+    <use href="#icon-settings" x="49.5" y="20" width="34" height="34" color="#c2410c"/>
+    <text class="node-title icon-copy" x="94.07" y="44.2" font-size="20">Instructions</text>
+    <text class="node-subtitle" x="140" y="75" font-size="16">Stays inside the rules</text>
+  </g>
+  <g class="node node-amber" transform="translate(430 630)" filter="url(#shadow)">
+    <rect width="280" height="100" rx="18" fill="#fff7ed" stroke="#c2410c"/>
+    <use href="#icon-api" x="59.06" y="20" width="34" height="34" color="#c2410c"/>
+    <text class="node-title icon-copy" x="102.24" y="44.2" font-size="20">Trajectory</text>
+    <text class="node-subtitle" x="140" y="75" font-size="16">The tool calls are optimal</text>
+  </g>
+  <g class="node node-green" transform="translate(830 330)" filter="url(#shadow)">
+    <rect width="260" height="100" rx="18" fill="#ecfdf5" stroke="#15803d"/>
+    <use href="#icon-database" x="50.94" y="20" width="34" height="34" color="#15803d"/>
+    <text class="node-title icon-copy" x="92.69" y="44.2" font-size="20">Scorecard</text>
+    <text class="node-subtitle" x="130" y="75" font-size="16">One metric per dimension</text>
+  </g>
+</svg>

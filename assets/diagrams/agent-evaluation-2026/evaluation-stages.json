@@ -1,0 +1,21 @@
+{
+  "title": "The stages of agent evaluation",
+  "description": "Six stages, in the order they happen. Each one adds new cases to the gold standard dataset.",
+  "canvas": {"width": 1560, "height": 800, "background": "#ffffff"},
+  "layout": {"type": "staircase", "direction": "descending", "card_width": 320, "card_height": 96},
+  "nodes": [
+    {"id": "vibe", "title": "Vibe-check and log", "subtitle": "10-15 interactions", "icon": "message", "color": "blue"},
+    {"id": "label", "title": "Label good / bad", "subtitle": "Gold standard v0", "icon": "check", "color": "blue"},
+    {"id": "judge", "title": "Align the judge", "subtitle": "judge.md + a metric", "icon": "settings", "color": "amber"},
+    {"id": "break", "title": "Break the agent", "subtitle": "Partitions and boundaries", "icon": "warning", "color": "red"},
+    {"id": "synth", "title": "Synthetic data", "subtitle": "Quantity, not just quality", "icon": "sparkles", "color": "purple"},
+    {"id": "users", "title": "Real users", "subtitle": "Live traffic and online evals", "icon": "user", "color": "green"}
+  ],
+  "edges": [
+    {"from": "vibe", "to": "label"},
+    {"from": "label", "to": "judge"},
+    {"from": "judge", "to": "break"},
+    {"from": "break", "to": "synth"},
+    {"from": "synth", "to": "users"}
+  ]
+}

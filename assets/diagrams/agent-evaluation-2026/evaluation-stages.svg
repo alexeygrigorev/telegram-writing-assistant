@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1560" height="800" viewBox="0 0 1560 800" role="img" aria-labelledby="title desc">
+  <title id="title">The stages of agent evaluation</title>
+  <desc id="desc">Six stages, in the order they happen. Each one adds new cases to the gold standard dataset.</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+    <marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#7c3aed"/></marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#2563eb"/></marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#c2410c"/></marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#15803d"/></marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#dc2626"/></marker>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#64748b"/></marker>
+    <symbol id="icon-check" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="m7.5 12 3 3 6-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+    <symbol id="icon-message" viewBox="0 0 24 24">
+        <path d="M4 4h16v12H9l-5 4Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M8 9h8M8 13h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+    <symbol id="icon-settings" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+    <symbol id="icon-sparkles" viewBox="0 0 24 24">
+        <path d="m12 2 1.4 4.6L18 8l-4.6 1.4L12 14l-1.4-4.6L6 8l4.6-1.4ZM19 14l.8 2.2L22 17l-2.2.8L19 20l-.8-2.2L16 17l2.2-.8ZM5 14l.8 2.2L8 17l-2.2.8L5 20l-.8-2.2L2 17l2.2-.8Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+      </symbol>
+    <symbol id="icon-user" viewBox="0 0 24 24">
+        <circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="M4 22c.6-5 3.3-7 8-7s7.4 2 8 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+    <symbol id="icon-warning" viewBox="0 0 24 24">
+        <path d="M12 3 2.5 21h19Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 9v5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="17.5" r="1.1" fill="currentColor"/>
+      </symbol>
+    <style>
+      text { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #172033; }
+      symbol [stroke] { vector-effect: non-scaling-stroke; }
+      .node rect { stroke-width: 2; }
+      .node-boundary rect { stroke-width: 2; stroke-dasharray: 8 8; }
+      .boundary-title { font-size: 16px; font-weight: 750; text-anchor: start; }
+      .node-title { font-size: 20px; font-weight: 750; text-anchor: middle; }
+      .node-title.icon-copy { text-anchor: start; }
+      .node-subtitle { font-size: 16px; font-weight: 500; fill: #475569; text-anchor: middle; }
+      .eyebrow { font-size: 13px; font-weight: 750; letter-spacing: 1px; fill: #475569; text-anchor: middle; }
+      .mention-icon { font-size: 27px; font-weight: 750; text-anchor: middle; }
+      .standalone-mention { font-size: 52px; font-weight: 750; text-anchor: middle; }
+      .icon-node-title { font-size: 16px; font-weight: 750; text-anchor: middle; }
+      .edge { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+      .edge-label rect { stroke-width: 2; }
+      .edge-label text { font-size: 14px; font-weight: 750; text-anchor: middle; dominant-baseline: central; }
+      .divider { stroke: #cbd5e1; stroke-width: 2; stroke-dasharray: 6 8; stroke-linecap: round; }
+      .center-annotation { fill: #f1f5f9; stroke: none; }
+      .center-title { font-weight: 800; letter-spacing: 0.08em; fill: #334155; text-anchor: middle; }
+      .center-detail { font-weight: 600; fill: #475569; text-anchor: middle; }
+    </style>
+  </defs>
+  <rect width="1560" height="800" fill="#ffffff"/>
+
+  <path class="edge" d="M360 115H464Q476 115 476 127V181" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M592 229H696Q708 229 708 241V295" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M824 343H928Q940 343 940 355V409" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M1056 457H1160Q1172 457 1172 469V523" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M1288 571H1392Q1404 571 1404 583V637" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+
+  <g class="node node-blue" transform="translate(40 67)" filter="url(#shadow)">
+    <rect width="320" height="96" rx="18" fill="#eff6ff" stroke="#2563eb"/>
+    <use href="#icon-message" x="30.06" y="18" width="34" height="34" color="#2563eb"/>
+    <text class="node-title icon-copy" x="71.81" y="42.2" font-size="20">Vibe-check and log</text>
+    <text class="node-subtitle" x="160" y="73" font-size="16">10-15 interactions</text>
+  </g>
+  <g class="node node-blue" transform="translate(272 181)" filter="url(#shadow)">
+    <rect width="320" height="96" rx="18" fill="#eff6ff" stroke="#2563eb"/>
+    <use href="#icon-check" x="43.28" y="18" width="34" height="34" color="#2563eb"/>
+    <text class="node-title icon-copy" x="86.46" y="42.2" font-size="20">Label good / bad</text>
+    <text class="node-subtitle" x="160" y="73" font-size="16">Gold standard v0</text>
+  </g>
+  <g class="node node-amber" transform="translate(504 295)" filter="url(#shadow)">
+    <rect width="320" height="96" rx="18" fill="#fff7ed" stroke="#c2410c"/>
+    <use href="#icon-settings" x="51.12" y="18" width="34" height="34" color="#c2410c"/>
+    <text class="node-title icon-copy" x="95.69" y="42.2" font-size="20">Align the judge</text>
+    <text class="node-subtitle" x="160" y="73" font-size="16">judge.md + a metric</text>
+  </g>
+  <g class="node node-red" transform="translate(736 409)" filter="url(#shadow)">
+    <rect width="320" height="96" rx="18" fill="#fef2f2" stroke="#dc2626"/>
+    <use href="#icon-warning" x="46.19" y="18" width="34" height="34" color="#dc2626"/>
+    <text class="node-title icon-copy" x="89.91" y="42.2" font-size="20">Break the agent</text>
+    <text class="node-subtitle" x="160" y="73" font-size="16">Partitions and boundaries</text>
+  </g>
+  <g class="node node-purple" transform="translate(968 523)" filter="url(#shadow)">
+    <rect width="320" height="96" rx="18" fill="#f5f3ff" stroke="#7c3aed"/>
+    <use href="#icon-sparkles" x="54.97" y="18" width="34" height="34" color="#7c3aed"/>
+    <text class="node-title icon-copy" x="99.27" y="42.2" font-size="20">Synthetic data</text>
+    <text class="node-subtitle" x="160" y="73" font-size="16">Quantity, not just quality</text>
+  </g>
+  <g class="node node-green" transform="translate(1200 637)" filter="url(#shadow)">
+    <rect width="320" height="96" rx="18" fill="#ecfdf5" stroke="#15803d"/>
+    <use href="#icon-user" x="78.34" y="18" width="34" height="34" color="#15803d"/>
+    <text class="node-title icon-copy" x="120.09" y="42.2" font-size="20">Real users</text>
+    <text class="node-subtitle" x="160" y="73" font-size="16">Live traffic and online evals</text>
+  </g>
+</svg>

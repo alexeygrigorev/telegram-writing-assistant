@@ -1,0 +1,76 @@
+{
+  "title": "The automated evaluation pipeline",
+  "description": "The gold standard dataset runs through the agent, the judge scores the output, and the metric drives the next change.",
+  "canvas": {
+    "width": 1310,
+    "height": 370,
+    "background": "#ffffff"
+  },
+  "layout": {
+    "type": "manual",
+    "card_width": 260,
+    "card_height": 100
+  },
+  "nodes": [
+    {
+      "id": "dataset",
+      "title": "Gold standard",
+      "subtitle": "Questions + expectations",
+      "color": "green",
+      "icon": "database",
+      "x": 30,
+      "y": 60
+    },
+    {
+      "id": "agent",
+      "title": "Agent",
+      "subtitle": "Answer + tool calls",
+      "color": "blue",
+      "icon": "sparkles",
+      "x": 360,
+      "y": 60
+    },
+    {
+      "id": "judge",
+      "title": "Judge",
+      "subtitle": "Reads judge.md only",
+      "color": "amber",
+      "icon": "shield",
+      "x": 690,
+      "y": 60
+    },
+    {
+      "id": "metric",
+      "title": "Metric",
+      "subtitle": "Fraction of good results",
+      "color": "purple",
+      "icon": "check",
+      "x": 1020,
+      "y": 60
+    }
+  ],
+  "edges": [
+    {
+      "from": "dataset",
+      "to": "agent",
+      "route": "straight"
+    },
+    {
+      "from": "agent",
+      "to": "judge",
+      "route": "straight"
+    },
+    {
+      "from": "judge",
+      "to": "metric",
+      "route": "straight"
+    },
+    {
+      "from": "metric",
+      "to": "agent",
+      "route": "below",
+      "label": "Fix the agent, re-run everything",
+      "color": "red"
+    }
+  ]
+}
