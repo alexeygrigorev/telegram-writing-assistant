@@ -210,7 +210,9 @@ Then ask Alexey to pick one (or adjust). Once he picks, research that angle deep
 
 ## Research workflow (how to actually do it)
 
-1. **Start with Grok** — query X/Twitter + Reddit for trending AI engineering debates from the past 2 weeks. This is the fastest way to find what practitioners are arguing about right now.
+**⚠️ Know the current date.** Before researching, check the actual current date (via `session_status` or the runtime timestamp in the inbound context). Always scope your Grok queries with the correct year and month. AI search tools often return results from 6-12 months ago if you don't explicitly anchor to the current date. Use phrases like "August 2026", "this week August 2026", or "past 2 weeks" in your queries.
+
+1. **Start with Grok** — query X/Twitter + Reddit for trending AI engineering debates from the past 2 weeks. This is the fastest way to find what practitioners are arguing about right now. Include the current month/year explicitly in the query.
 2. **Check HN front page** via Algolia API. Note anything AI/LLM/agent related with >100 points. Query by keyword for the past week.
 3. **Scan TLDR AI** (today + yesterday). Note model launches, funding, big stories.
 4. **Read 3-4 key blogs** (Simon Willison, Latent Space, Sebastian Raschka, Hamel Husain). What are they arguing about?

@@ -93,10 +93,8 @@ Draft articles and talk material whose core substance has already been collected
 |-------|--------|--------------|-------------|
 | [Diagram Creator: Declarative SVG and PNG Workflows](raw-articles/diagram-generator.md) | complete | 2026-08-09 | How the deterministic diagram creator turns JSON specifications into editable SVG and PNG diagrams. |
 | [Stylint: Enforcing My Writing Style on AI Assistants](raw-articles/stylint.md) | draft | 2026-05-19 | Python linter (github.com/alexeygrigorev/stylint) that codifies writing-style rules as code instead of long markdown style guides, so agents stop skipping them |
-| [Claude Code Experiments](raw-articles/claude-code-experiments.md) | draft | 2026-04-28 | Experiments and applications of Claude Code beyond coding, including challenges with communication. Added new running-agents view in the Claude Code UI |
 | [DataTalks.Club Platform Idea](raw-articles/data-talks-club-platform.md) | draft | 2026-04-27 | Custom DataTalks.Club site with on-site events, registration, summary emails, and course management. Revisit ~September for ML Zoomcamp |
 | [Configuring Claude Code](raw-articles/configuring-claude-code.md) | draft | 2026-04-05 | Configuration, aliases, slash commands, skills, safety hooks, disabling bypass permissions, and token usage reduction |
-| [OpenCode Experiments with GLM-5](raw-articles/opencode-experiments.md) | draft | 2026-03-19 | Trying OpenCode AI assistant with GLM-5 model, extracting JS from Claude binary, Claude Code flickering comparison |
 | [Benchmarking SQLiteSearch](raw-articles/benchmarking-sqlitesearch.md) | draft | 2026-02-26 | Benchmarking SQLiteSearch with Simple Wikipedia and vector search benchmarks from Milvus/Zilliz, HNSW and IVF implementations, v0.0.3 release |
 | [Testing AI Agents with the Judge Pattern](raw-articles/testing-agents-with-judge-pattern.md) | draft | 2026-02-25 | Using agents to evaluate other agents |
 | [Course Material Preparation](raw-articles/course-material-preparation.md) | draft | 2026-02-25 | Workflow for keeping code and documentation in sync |
