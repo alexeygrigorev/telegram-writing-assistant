@@ -91,6 +91,7 @@ Draft articles and talk material whose core substance has already been collected
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Interview Experiment](raw-articles/interview-experiment.md) | draft | 2026-08-11 | Running log of the experiment of interviewing at different companies, starting with the first interview at Deriv |
 | [Diagram Creator: Declarative SVG and PNG Workflows](raw-articles/diagram-generator.md) | complete | 2026-08-09 | How the deterministic diagram creator turns JSON specifications into editable SVG and PNG diagrams. |
 | [Stylint: Enforcing My Writing Style on AI Assistants](raw-articles/stylint.md) | draft | 2026-05-19 | Python linter (github.com/alexeygrigorev/stylint) that codifies writing-style rules as code instead of long markdown style guides, so agents stop skipping them |
 | [DataTalks.Club Platform Idea](raw-articles/data-talks-club-platform.md) | draft | 2026-04-27 | Custom DataTalks.Club site with on-site events, registration, summary emails, and course management. Revisit ~September for ML Zoomcamp |
@@ -98,22 +99,13 @@ Draft articles and talk material whose core substance has already been collected
 | [Benchmarking SQLiteSearch](raw-articles/benchmarking-sqlitesearch.md) | draft | 2026-02-26 | Benchmarking SQLiteSearch with Simple Wikipedia and vector search benchmarks from Milvus/Zilliz, HNSW and IVF implementations, v0.0.3 release |
 | [Testing AI Agents with the Judge Pattern](raw-articles/testing-agents-with-judge-pattern.md) | draft | 2026-02-25 | Using agents to evaluate other agents |
 | [Course Material Preparation](raw-articles/course-material-preparation.md) | draft | 2026-02-25 | Workflow for keeping code and documentation in sync |
+| [AI Engineer Role Survey](raw-articles/ai-engineer-role-survey.md) | draft | 2026-02-22 | Survey collecting first-hand accounts from AI Engineer practitioners about their roles, tools, and interview experiences |
+| [Hetzner Server Setup](raw-articles/hetzner-server-setup.md) | draft | 2026-02-21 | Setting up a dedicated Hetzner server for running bots, AI workloads, and development environments |
 | [Coding Agent Building Blocks: Reusable Skills and Specialized Subagents](raw-articles/code-agents-building-blocks.md) | draft | 2026-02-18 | Article about making coding agents more reliable with reusable skills and specialized subagents. |
+| [AI Engineer RPG Game](raw-articles/ai-engineer-rpg-game.md) | draft | 2026-02-13 | RPG game for interview practice built with OpenCode/GLM-5 in Rust |
 | [AI as Personal Analyst](raw-articles/ai-as-personal-analyst.md) | draft | 2026-02-12 | Talk about using AI for Excel automation, data cleaning, and scaling document review |
 | [Streaming JSON Parsing with jaxn](raw-articles/jaxn-streaming-json.md) | draft | 2026-01-29 | Streaming parser for LLM structured output |
 | [Course Management Agent](raw-articles/course-management-agent.md) | draft | 2026-01-23 | Automating course administration tasks with Claude Skills |
-
-## Work in Progress
-
-Unfinished articles that still need information, experimentation, or testing.
-
-| Title | Status | Last Updated | Description |
-|-------|--------|--------------|-------------|
-| [Interview Experiment](work-in-progress/interview-experiment.md) | draft | 2026-08-11 | Running log of the experiment of interviewing at different companies, starting with the first interview at Deriv |
-| [AI Engineer Role Survey](work-in-progress/ai-engineer-role-survey.md) | draft | 2026-02-22 | Survey collecting first-hand accounts from AI Engineer practitioners about their roles, tools, and interview experiences |
-| [Hetzner Server Setup](work-in-progress/hetzner-server-setup.md) | draft | 2026-02-21 | Setting up a dedicated Hetzner server for running bots, AI workloads, and development environments |
-| [Services Website Testimonials](work-in-progress/services-testimonials.md) | draft | 2026-02-15 | Collection of testimonials for the services website |
-| [AI Engineer RPG Game](work-in-progress/ai-engineer-rpg-game.md) | draft | 2026-02-13 | RPG game for interview practice built with OpenCode/GLM-5 in Rust |
 
 ## Ideas
 
@@ -137,6 +129,7 @@ Testimonial collections grouped by program.
 | [AI Engineering Buildcamp Testimonials](testimonials/ai-buildcamp-testimonials.md) | draft | 2026-06-19 | Collected testimonials from AI Engineering Buildcamp participants |
 | [AI Dev Tools Zoomcamp Testimonials](testimonials/ai-dev-tools-zoomcamp-testimonials.md) | draft | 2026-05-02 | Testimonials from AI Dev Tools Zoomcamp participants: Carina Ye on finding the course while job-hunting and going on to ship her first iOS app (Prana: Breathwork Meditation) |
 | [Data Engineering Zoomcamp Testimonials](testimonials/data-engineering-zoomcamp-testimonials.md) | draft | 2026-04-30 | Collected DE Zoomcamp testimonials in one place: anonymous "new neural pathways" thank-you, Freeman Onah on the clear course structure, Evgeniia on Spark/Flink/Kestra modules and the overall experience |
+| [Services Website Testimonials](testimonials/services-testimonials.md) | draft | 2026-02-15 | Collection of testimonials for the services website |
 
 ## Claw Drafts
 
@@ -145,6 +138,7 @@ Articles drafted by Clo from topic research and voice templates.
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
 | [Prompt Engineering Is Dead. Long Live Context Engineering.](claw-drafts/context-engineering.md) | draft | 2026-07-24 | Strategic Essay + Framework (~2,000 words). Prompt engineering evolved into context engineering with 1M-token windows. Four-layer framework: Selection, Ordering, Compression, Eviction |
+| [How to Do Agent Evals in 2026](claw-drafts/agent-evaluation-2026.md) | draft | 2026-08-14 | Practical Workflow (~2,200 words). Tool-agnostic agent evaluation framework: three-layer model, QA-inspired test design, LLM-as-judge, production observability |
 
 ## Research
 
