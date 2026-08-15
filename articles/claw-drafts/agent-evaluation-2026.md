@@ -1,7 +1,7 @@
 # How to Do Evals in 2026
 ## A tool-agnostic framework for evaluating AI agents
 
-Across all 4,894 AI engineering job descriptions that I collected for the [AI Engineering Field Guide](https://github.com/alexeygrigorev/ai-engineering-field-guide), evaluation consistently comes up as the number one skill that AI Engineers must have.
+Across all 4,894 AI engineering job descriptions that I collected for the [AI Engineering Field Guide](https://github.com/alexeygrigorev/ai-engineering-field-guide), evaluation consistently comes as the number one skill that AI Engineers must have.
 
 It also appears in interview questions. In interviews, you'll definitely hear something like "how do you evaluate a RAG pipeline?" or "how do you measure agent performance?". If you don't include evals in your home assignment, it's a red flag.
 

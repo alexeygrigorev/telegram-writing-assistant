@@ -139,6 +139,7 @@ Articles drafted by Clo from topic research and voice templates.
 |-------|--------|--------------|-------------|
 | [Prompt Engineering Is Dead. Long Live Context Engineering.](claw-drafts/context-engineering.md) | draft | 2026-07-24 | Strategic Essay + Framework (~2,000 words). Prompt engineering evolved into context engineering with 1M-token windows. Four-layer framework: Selection, Ordering, Compression, Eviction |
 | [How to Do Agent Evals in 2026](claw-drafts/agent-evaluation-2026.md) | draft | 2026-08-14 | Practical Workflow (~2,200 words). Tool-agnostic agent evaluation framework: three-layer model, QA-inspired test design, LLM-as-judge, production observability |
+| [Too Many Tools: What the MCP Backlash Gets Right, and What It Misses](claw-drafts/mcp-vs-code.md) | draft | 2026-08-15 | Strategic Essay + Framework (~2,100 words). MCP tool-count limits + code-first backlash + 5-rule hybrid framework + OpenClaw case study |
 
 ## Research
 
