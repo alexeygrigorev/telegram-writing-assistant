@@ -193,20 +193,27 @@ An angle is weak when:
 Bring 3-5 angles back to Alexey, each like this:
 
 ```markdown
-### Angle {N}: {Working title direction}
+### Angle {N}: {Working title}
 
 **Thesis (1 sentence):** {The argument the article makes.}
 
 **Best template:** {Practical Workflow / Strategic Essay + Framework / Concepts Explainer / Tool Teardown}
 
-**Why now:** {The concrete recent event/post/research/model release that makes it timely. Link 1-2 sources.}
+**Why it's hot:** {The concrete recent event/post/research/model release that makes it timely, phrased as the *debate* it triggered. Link 1-2 sources.}
+
+**Where it's being discussed:** {Specific venues and voices — X handles, subreddits, HN threads, blog posts — with links. If it's only being discussed in one place, say so; that's a weaker signal.}
 
 **Practical payoff:** {The checklist, framework, code pattern, or architecture decision the reader walks away with.}
 
 **Risk / tradeoff:** {What's hard about writing it, or what nuance might get lost.}
 ```
 
-Then ask Alexey to pick one (or adjust). Once he picks, research that angle deeper, capturing every URL you'll cite, before moving to the outline.
+Then present the angles to Alexey and ask him to pick one (or adjust). Once he picks, research that angle deeper, capturing every URL you'll cite, before moving to the outline.
+
+**Presentation rules for topic pitches:**
+- **Always pitch in English.** The articles are written in English, so working titles, theses, and angle descriptions are in English even if the conversation with Alexey is in Russian.
+- **Every pitch must state why it's hot and where it's discussed** — specific venues, voices, and links, not "it's trending." Alexey uses this to judge whether the wave is worth riding.
+- **Generate fresh topics from live research, not from existing drafts/backlog.** Don't scan the drafts folder or work-in-progress files when brainstorming topics unless Alexey explicitly asks for them. Fresh angles come from the Grok/HN/blog scan, not from the archive.
 
 ## Research workflow (how to actually do it)
 
