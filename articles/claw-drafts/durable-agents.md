@@ -58,6 +58,20 @@ And the frameworks are absorbing the pattern. [Pydantic AI ships durable executi
 
 One honesty note, and it shapes how I read all of the above: the numbers in this space come from engineering blogs and vendor comparisons, [including a coding-level comparison from DBOS itself](https://www.dbos.dev/blog/durable-execution-coding-comparison). There is no neutral benchmark of durable engines running agent workloads yet. Treat every claim as a data point from an interested party.
 
+### Graph checkpointing is not durable execution
+
+LangGraph earned two mentions already, so it deserves its own clarification, because it's the most common source of ladder confusion.
+
+[LangGraph](https://docs.langchain.com/oss/python/langgraph/persistence) models agents as graphs and persists them through a **checkpointer**: after each node completes, the full graph state is serialized and attached to a thread, in Postgres (or Redis, SQLite, in-memory). Hand the same thread id back and the graph resumes from the last snapshot. You also get **time travel**: query the state history, fork from any past checkpoint, edit the state, continue down a different branch. For debugging and human-in-the-loop flows this is genuinely great, and nothing in the durable-engine world matches the ergonomics.
+
+Here is the distinction that matters. **A checkpoint is a snapshot of state. A journal is a record of execution.** [Diagrid's comparison](https://www.diagrid.io/blog/checkpoints-are-not-durable-execution-why-langgraph-crewai-google-adk-and-others-fall-short-for-production-agent-workflows) puts it in the title: checkpoints are not durable execution. Three gaps follow.
+
+- **The data survives, the run doesn't.** LangGraph executes in your process. A crash kills the run; the checkpoint lives on, but something external has to notice the death, load the thread id, and invoke the resume. [Temporal's LangGraph integration post](https://temporal.io/blog/temporal-langgraph-plugin-durable-execution) is explicit about the split: the engine owns failure detection and automatic resumption, the checkpointer owns the saved state.
+- **Side effects can fire twice.** Nodes re-execute on resume, and the LangGraph docs themselves say to keep nondeterministic and mutating operations idempotent. Nothing in the checkpointer dedupes an email sent from inside a re-run node.
+- **Boundaries only.** Checkpoints exist between nodes. Fail in the middle of a node, three of five API calls done, and the whole node re-runs unless you built inner bookkeeping yourself.
+
+None of this makes LangGraph the wrong tool. On the ladder, a Postgres-backed checkpointer is a strong rung 1.5: durable state, manual recovery, excellent introspection. The popular production pattern is the hybrid: keep the graph in LangGraph, run it on a durable engine. [Temporal ships a LangGraph integration](https://docs.temporal.io/develop/python/integrations/langgraph) (public preview) that executes graphs as workflows, adding automatic recovery and durable interrupts, and [DBOS pairs naturally](https://www.dbos.dev/blog/durable-execution-crashproof-ai-agents) with the Postgres checkpointer for state plus execution durability. Practitioner guidance converges on a simple split: [LangGraph alone for short, read-heavy runs](https://cordum.io/blog/temporal-vs-langgraph), a durable engine underneath once the agent makes real mutations, pauses for humans, or runs longer than a coffee break.
+
 ### The Durability Ladder: four rungs, pick honestly
 
 The real question is never "which engine." It's "how much durability does this agent owe its users." I think of it as a ladder, and you should be able to say out loud which rung you're on and why.
@@ -80,7 +94,7 @@ A `runs` table, a `steps` table, a status column, idempotency keys on external w
 
 ### Rung 2: Durability as a library
 
-Adopt DBOS or the framework-level durability in Pydantic AI or LangGraph. Journaling, replay, and suspend-resume come along, still backed by your Postgres, still inside your process or service.
+Adopt DBOS or the framework-level durability in Pydantic AI. Journaling, replay, and suspend-resume come along, still backed by your Postgres, still inside your process or service.
 
 **Why it works:** you stop writing recovery code, and the guarantees (replay correctness, exactly-once side-effect wrappers) come from someone whose full-time job is getting them right. For most teams building real agents, this is the sweet spot.
 
@@ -139,6 +153,7 @@ Alexey
 - DBOS vs Temporal
 - agent crash recovery
 - agent checkpointing replay
+- LangGraph checkpointer durability
 - idempotent agent side effects
 - long-running agent reliability
 - Restate durable execution

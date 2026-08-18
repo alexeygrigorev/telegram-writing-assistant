@@ -61,3 +61,14 @@ Backlog slot: "Agent runtimes / long-horizon reliability". Pairs naturally with:
 1. "Durable Agents: Stop Losing Step 37 of 40" — Practical Workflow: the failure modes of non-durable agents + engine landscape (Temporal/DBOS/Restate/Resonate) + when you actually need one vs a Postgres table
 2. "Durable Execution for Agents, Demystified" — Concepts Explainer on replay/journaling/checkpointing mechanics (Vanlightly-based), with agent-specific twists (non-determinism, idempotent side effects)
 3. "Postgres Is Enough for Agent Durability (Until It Isn't)" — tension piece: DBOS-style minimalism vs Temporal-scale, with decision framework
+
+## Addendum: LangGraph checkpointing vs durable execution (17:22)
+Grok `langgraph-checkpointing-vs-durable` (20260818_172330). Raw JSON in field-guide grok-responses.
+- Checkpointer = thread-scoped state snapshots after each node (Postgres/Redis/SQLite). Gives resume, time travel (fork from any checkpoint), HITL interrupts.
+- NOT durable execution: snapshots preserve data, journal preserves the run. Crash kills run; external code must detect + re-invoke thread_id. Nodes re-execute on resume (docs say keep mutations idempotent). Boundaries-only checkpointing (mid-node failures re-run whole node).
+- Diagrid: "Checkpoints are not durable execution" https://www.diagrid.io/blog/checkpoints-are-not-durable-execution-why-langgraph-crewai-google-adk-and-others-fall-short-for-production-agent-workflows
+- Temporal LangGraph plugin (public preview mid-2026): graphs as workflows, auto recovery + durable interrupts https://temporal.io/blog/temporal-langgraph-plugin-durable-execution + https://docs.temporal.io/develop/python/integrations/langgraph
+- DBOS pairs with Postgres checkpointer for state+execution durability
+- When LangGraph alone: short (<30s), read-heavy, prototypes, time-travel-first workflows. Add engine: >=3 external calls, mutations, human pauses. https://cordum.io/blog/temporal-vs-langgraph
+- Also: https://appscale.blog/en/blog/durable-execution-llm-agents-temporal-langgraph-checkpointing-2026 ; older SQLite/Redis checkpointers had security issues (CSA note) https://labs.cloudsecurityalliance.org/research/csa-research-note-langgraph-rce-chain-20260614-csa-styled/
+- Added as section "Graph checkpointing is not durable execution" in the article (before Durability Ladder); rung 2 wording adjusted (Pydantic AI only); SEO keyword added
