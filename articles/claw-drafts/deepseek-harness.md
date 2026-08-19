@@ -62,6 +62,25 @@ The generated [tool catalog](https://github.com/deepseek-ai/deepseek-harness) li
 
 That last category is the strategic tell. The open harness calling the closed ones as sub-agents is a bet that the coordination layer matters more than any single model.
 
+### The field, and where dsh sits in it
+
+Launch coverage keeps calling dsh "the open-source rival to Claude Code." The reality is a field of at least eight credible harnesses, and they differ less in quality than in what they optimize for. The useful comparisons, from the coverage and the repos themselves:
+
+| Harness | Source | Models | Strongest at |
+|---|---|---|---|
+| [Claude Code](https://code.claude.com) | Closed | Claude only | Polished, safety-gated coding agent inside the Anthropic ecosystem |
+| [Codex CLI](https://github.com/openai/codex) | Open core (Rust) | OpenAI first | Fast terminal agent for OpenAI-centric workflows, JSON-RPC extension seam |
+| [Gemini CLI](https://github.com/google-gemini/gemini-cli) | Open source | Gemini | Terminal workflows with extensions and MCP support |
+| [Amp](https://ampcode.com) | Proprietary | Multi-model | Power users across web, terminal, and phone with a rich toolset |
+| [opencode](https://opencode.ai) | Open source | Any of 75+ providers | Everyday coding ergonomics, model-agnostic [daily driver](https://pub.towardsai.net/why-opencode-beat-out-every-other-ai-coding-harness-i-tried-4f1d60922303) |
+| [OpenClaw](https://docs.openclaw.ai) | Open platform | Flexible providers | Persistent, multi-channel personal agents with a plugin SDK |
+| [Hermes Agent](https://github.com/nousresearch/hermes-agent) | MIT | Any model | Self-improving agents with persistent memory, local-model emphasis |
+| [dsh](https://github.com/deepseek-ai/deepseek-harness) | MIT | Any OpenAI-compatible provider | Total composability: every layer swappable, the loop included |
+
+Three axes decide most of the choice. **Who owns the loop**: Claude Code and Codex give you a vendor's loop with extension points, dsh hands you the loop as a plugin. **Model freedom**: Claude Code is locked to Claude, Gemini CLI to Gemini, while dsh, opencode, and Hermes take any OpenAI-compatible provider, which is exactly why the r/LocalLLaMA crowd adopted dsh on day one. **What the harness is for**: Claude Code and Codex are coding agents, opencode is a daily-driver coding TUI, OpenClaw and Hermes target persistent general-purpose agents, and dsh is a runtime for people composing their own.
+
+Practitioner comparisons land roughly [here](https://myclaw.ai/blog/deepseek-harness-vs-opencode): opencode for daily coding comfort, dsh when you want to rebuild the machine itself, the vendor CLIs when you live in one ecosystem and want the polish. My own daily runtime is OpenClaw (you've met my disclosure by now), and the honest one-line summary of the whole field: no harness wins yet, because the axis that matters, what the harness architecture does to long-session reliability and cost, is exactly the axis nobody has benchmarked independently. dsh's log-derived context is the most credible attempt at that problem in the open field, and it is still a preview.
+
 ### What people actually say
 
 The community reaction splits into three camps, and the links are worth your time.

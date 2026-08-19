@@ -74,3 +74,16 @@ Cloned shallow to /tmp/deepseek-harness. My counts: 494,724 TS lines (excl. vend
 - Progressive disclosure take: https://x.com/TensorSlay/status/2088601806230442137
 - Star skepticism: "Bots for sure", "stars meaningless since OpenClaw, every harness has 100k+" https://www.reddit.com/r/LocalLLaMA/comments/1vnb66j/deepseek_harness_is_up/
 - Medium vs Grok Build: https://medium.com/@richardhightower/deepseek-harness-launches-deepseek-harness-vs-grok-build-are-they-the-claude-code-killer-c7259fa1d507
+
+## Addendum: harness landscape comparison (13:13)
+Grok `harness-landscape-compare` (20260819_131438). Added section "The field, and where dsh sits in it" to the article (table + 3 axes + practitioner consensus).
+- dsh: MIT, any OpenAI-compatible provider, composability play
+- Claude Code: closed, Claude-locked, polished+safety-gated
+- Codex CLI: open core (Rust), OpenAI-first, JSON-RPC seam
+- Gemini CLI: open source, Gemini-locked, extensions+MCP
+- Amp: proprietary multi-model, multi-surface power users
+- opencode: open source, 75+ providers, daily-driver ergonomics (Towards AI review: "beat out every other harness I tried")
+- OpenClaw: open platform, persistent multi-channel agents, plugin SDK
+- Hermes Agent: MIT, self-improving, persistent memory, local-model emphasis
+- Consensus use-case fit: dsh=composing runtimes/plugins; opencode=daily coding; vendor CLIs=ecosystem polish; OpenClaw/Hermes=persistent personal agents; Amp=max capability
+- Key sources: https://pub.towardsai.net/why-opencode-beat-out-every-other-ai-coding-harness-i-tried-4f1d60922303 ; https://myclaw.ai/blog/deepseek-harness-vs-opencode ; https://github.com/openai/codex ; https://github.com/google-gemini/gemini-cli ; https://ampcode.com ; https://opencode.ai ; https://github.com/nousresearch/hermes-agent
