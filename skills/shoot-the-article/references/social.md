@@ -31,7 +31,7 @@ The social posts use the **exact same voice rules** as the article. Read `refere
 ## What to include / leave out
 
 - **Hashtags: yes**, curated per network (see per-platform specs). Tune 1-2 of them to the article's specific topic.
-- **Teaser link:** subscribe/follow CTA + `[SUBSCRIBE LINK]` (default: https://alexeyondata.substack.com).
+- **Teaser link:** subscribe/follow CTA + `[SUBSCRIBE LINK]` (default: https://aishippingblog.com).
 - **Announcement link:** provide **both** placeholders: `[SUBSTACK LINK]` and `[MEDIUM LINK]`.
 - **Emojis: no.** Keep social posts clean text.
 - **Image briefs: no.** Alexey attaches his own visuals.

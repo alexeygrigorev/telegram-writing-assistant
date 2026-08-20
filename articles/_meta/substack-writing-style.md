@@ -8,7 +8,7 @@ status: draft
 
 # Substack Writing Style
 
-This is how [alexeyondata.substack.com](https://alexeyondata.substack.com) sounds, distilled from the 20 most recent posts - about 56,000 words. Every rule here comes from something the posts actually do, and the quotes are verbatim.
+This is how [alexeyondata.substack.com](https://aishippingblog.com) sounds, distilled from the 20 most recent posts - about 56,000 words. Every rule here comes from something the posts actually do, and the quotes are verbatim.
 
 Use it when drafting a new post, or when checking whether a draft sounds right.
 

@@ -238,7 +238,7 @@ After all sections are approved, save as `{slug}-draft.md` with this layout:
 ## Platform Deltas
 
 **Substack (Alexey On Data):**
-- URL: https://alexeyondata.substack.com
+- URL: https://aishippingblog.com
 - Subtitle: {chosen subtitle}
 - Paywall: place `[PAYWALL BREAK — free preview ends here]` after {section}.
 - Ends on the Sincerely / Alexey signoff.

@@ -133,7 +133,7 @@ Alexey
 ## Platform Deltas
 
 **Substack (Alexey On Data):**
-- URL: https://alexeyondata.substack.com
+- URL: https://aishippingblog.com
 - Subtitle: What durable execution actually does for AI agents, how replay survives non-deterministic models, and a four-rung ladder for choosing between Postgres, libraries, and workflow engines.
 - Paywall: place `[PAYWALL BREAK — free preview ends here]` after "Who actually runs agents this way".
 - Ends on the Sincerely / Alexey signoff.

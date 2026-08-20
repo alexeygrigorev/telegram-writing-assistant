@@ -179,7 +179,7 @@ Now we have a fully automated process that:
 
 Because it's automated, we can use it to improve our agent. You can ask the coding assistant to do it. 
 
-I recommend following the [implementer-tester pattern](https://alexeyondata.substack.com/p/ai-native-development-specifications) for that:
+I recommend following the [implementer-tester pattern](https://aishippingblog.com/p/ai-native-development-specifications) for that:
 
 - Define the implementer subagent that modifies the agent
 - Define the judge subagent that uses judge.md to evaluate the output

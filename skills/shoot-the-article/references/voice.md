@@ -118,7 +118,7 @@ Alexey
 A warm closing invite in Alexey's voice. The reference version:
 
 ```
-Thanks for reading! If you found this useful, subscribe to [Alexey On Data](https://alexeyondata.substack.com) for more AI engineering deep dives, practical guides, and the occasional production war story. Or just share it with someone who's debugging their RAG pipeline at 2am.
+Thanks for reading! If you found this useful, subscribe to [Alexey On Data](https://aishippingblog.com) for more AI engineering deep dives, practical guides, and the occasional production war story. Or just share it with someone who's debugging their RAG pipeline at 2am.
 ```
 
 Adapt the wording to fit the piece, but keep the warmth and the practical nudge.

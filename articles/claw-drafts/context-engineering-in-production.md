@@ -127,7 +127,7 @@ Alexey
 ## Platform Deltas
 
 **Substack (Alexey On Data):**
-- URL: https://alexeyondata.substack.com
+- URL: https://aishippingblog.com
 - Subtitle: Context rot is measurable, external memory is real, and the single-versus-multi-agent fight finally has data. A practical stack for agents that last longer than a demo.
 - Paywall: place `[PAYWALL BREAK — free preview ends here]` after "Isolation: split the context, split the failure".
 - Ends on the Sincerely / Alexey signoff.

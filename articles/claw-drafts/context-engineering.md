@@ -135,7 +135,7 @@ The models are good enough now. GPT-5.5, Claude Opus, Gemini 3.6, Kimi K3, the o
 
 That decision used to be an afterthought. You wrote a prompt, threw in some context, and hoped. Now it's the whole game. Context engineering is the skill that separates teams shipping reliable LLM applications from teams debugging hallucinations at 2am.
 
-If you're building AI systems and not thinking about context architecture explicitly yet, this is your sign to start. I teach this and other production AI engineering patterns in [AI Engineering Buildcamp](https://maven.com/alexey-grigorev/from-rag-to-agents) and write about them at [Alexey On Data](https://alexeyondata.substack.com). Come join.
+If you're building AI systems and not thinking about context architecture explicitly yet, this is your sign to start. I teach this and other production AI engineering patterns in [AI Engineering Buildcamp](https://maven.com/alexey-grigorev/from-rag-to-agents) and write about them at [Alexey On Data](https://aishippingblog.com). Come join.
 
 Sincerely,
 Alexey
@@ -145,7 +145,7 @@ Alexey
 ## Platform Deltas
 
 **Substack (Alexey On Data):**
-- URL: https://alexeyondata.substack.com
+- URL: https://aishippingblog.com
 - Subtitle: With 1M-token windows, the skill that matters isn't asking the right question. It's curating what the model knows in the moment.
 - Paywall: place `[PAYWALL BREAK — free preview ends here]` after "### What this looks like in production".
 - Ends on the Sincerely / Alexey signoff.
@@ -153,7 +153,7 @@ Alexey
 **Medium:**
 - 5 topic tags: Artificial Intelligence, Machine Learning, LLM, NLP, MLOps
 - Member-only: yes
-- Ends on the community CTA: "Thanks for reading! If you found this useful, subscribe to [Alexey On Data](https://alexeyondata.substack.com) for more AI engineering deep dives, practical guides, and the occasional production war story. Or just share it with someone who's debugging their context window at 2am."
+- Ends on the community CTA: "Thanks for reading! If you found this useful, subscribe to [Alexey On Data](https://aishippingblog.com) for more AI engineering deep dives, practical guides, and the occasional production war story. Or just share it with someone who's debugging their context window at 2am."
 
 ---
 

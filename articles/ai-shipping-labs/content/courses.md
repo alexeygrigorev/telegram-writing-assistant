@@ -39,7 +39,7 @@ The course could include a domain-driven design component[^11]:
 - Have an actual team of agents for discussing things, each with their own personality (so a personality generator is needed)
 - Outcome: a shared vocabulary document
 
-The [AI-native development article](https://alexeyondata.substack.com/p/ai-native-development-specifications) covers the existing work on specifications, context engineering, loop engineering, and agent teams.
+The [AI-native development article](https://aishippingblog.com/p/ai-native-development-specifications) covers the existing work on specifications, context engineering, loop engineering, and agent teams.
 
 ## Refactoring AI Slop
 

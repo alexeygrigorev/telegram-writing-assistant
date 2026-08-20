@@ -15,7 +15,7 @@ from urllib.request import Request, urlopen
 
 
 ROOT = Path(__file__).resolve().parent.parent
-FEED_URL = "https://alexeyondata.substack.com/feed"
+FEED_URL = "https://aishippingblog.com/feed"
 POST_URL_RE = re.compile(r"https://alexeyondata\.substack\.com/p/[^ |,\n]+")
 USER_AGENT = (
     "Mozilla/5.0 (compatible; telegram-writing-assistant/1.0; "

@@ -156,7 +156,7 @@ Alexey
 ## Platform Deltas
 
 **Substack (Alexey On Data):**
-- URL: https://alexeyondata.substack.com
+- URL: https://aishippingblog.com
 - Subtitle: The evidence on when tool-calling breaks down, when writing code wins, and a framework for giving agents the right surface area.
 - Paywall: place `[PAYWALL BREAK — free preview ends here]` after "The case the backlash misses".
 - Ends on the Sincerely / Alexey signoff.

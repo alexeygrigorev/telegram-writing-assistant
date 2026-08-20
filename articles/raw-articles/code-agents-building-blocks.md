@@ -19,7 +19,7 @@ The product around the agent can be an IDE, a terminal, or a hosted environment.
   <figcaption>The Telegram Writing Assistant on GitHub: from scattered thoughts to publishable articles</figcaption>
 </figure>
 
-I use the [Telegram writing assistant](https://alexeyondata.substack.com/p/telegram-assistant) as the running example.
+I use the [Telegram writing assistant](https://aishippingblog.com/p/telegram-assistant) as the running example.
 
 It's a personal knowledge management system. I send voice messages, photos, links, and text to a Telegram bot throughout the day. The bot transcribes voice messages and stores everything in an inbox. When I type `/process`, a Claude Code agent reads the inbox and routes content to the correct article. It also fetches external URLs, verifies nothing was lost, and commits the result to Git.
 
@@ -33,7 +33,7 @@ This system uses both building blocks:
   <figcaption>The /process command reads 35 files, edits 16 articles, and launches research subagents</figcaption>
 </figure>
 
-The bot itself was built by Claude Code. I describe it in detail on [Substack](https://alexeyondata.substack.com/p/telegram-assistant). Let me now show the two building blocks that make it work reliably.
+The bot itself was built by Claude Code. I describe it in detail on [Substack](https://aishippingblog.com/p/telegram-assistant). Let me now show the two building blocks that make it work reliably.
 
 ## Building Block 1: Skills and Commands
 
@@ -206,7 +206,7 @@ graph LR
 
 ## Subagents for Batch Processing
 
-For [reviewing 2,500+ scholarship applications](https://alexeyondata.substack.com/p/how-i-reviewed-2500-ai-bootcamp-scholarship) for the AI Bootcamp, I used Claude Code with multiple commands running in parallel via subagents. Each subagent handled a batch of applications with consistent evaluation criteria defined in a markdown command file. The AI did preliminary screening, then I manually reviewed the top 50. This reduced the work from approximately two full days to 4-5 hours.
+For [reviewing 2,500+ scholarship applications](https://aishippingblog.com/p/how-i-reviewed-2500-ai-bootcamp-scholarship) for the AI Bootcamp, I used Claude Code with multiple commands running in parallel via subagents. Each subagent handled a batch of applications with consistent evaluation criteria defined in a markdown command file. The AI did preliminary screening, then I manually reviewed the top 50. This reduced the work from approximately two full days to 4-5 hours.
 
 <figure>
   <img src="../../assets/images/code-agents-building-blocks/parallel-subagents-batches.png" alt="7 Task agents finished: Evaluate batches 1-6, 7-12, 38-42, 43-48, 49-54, 55-60, 65-69 - all Done with 11-20 tool uses each">
@@ -255,6 +255,6 @@ This way skills evolve through real usage. Each correction makes the next run be
 
 ## Related Substack Articles
 
-- [My Experiments with Claude Code](https://alexeyondata.substack.com/p/my-experiments-with-claude-code)
-- [Telegram Assistant](https://alexeyondata.substack.com/p/telegram-assistant)
-- [How I Reviewed 2,500 AI Bootcamp Scholarship Applications](https://alexeyondata.substack.com/p/how-i-reviewed-2500-ai-bootcamp-scholarship)
+- [My Experiments with Claude Code](https://aishippingblog.com/p/my-experiments-with-claude-code)
+- [Telegram Assistant](https://aishippingblog.com/p/telegram-assistant)
+- [How I Reviewed 2,500 AI Bootcamp Scholarship Applications](https://aishippingblog.com/p/how-i-reviewed-2500-ai-bootcamp-scholarship)

@@ -42,7 +42,7 @@ The order matters though: pick the problem first, then pick the technology that 
 
 ## Portfolio projects
 
-I wrote a separate, detailed guide on selecting portfolio projects, covering the domain-based selection framework with step-by-step AI-assisted research prompts, project types, and how to make the project interview-ready: [Choosing a Portfolio Project. The Definite Guide](https://alexeyondata.substack.com/p/choosing-a-portfolio-project-the)[^8].
+I wrote a separate, detailed guide on selecting portfolio projects, covering the domain-based selection framework with step-by-step AI-assisted research prompts, project types, and how to make the project interview-ready: [Choosing a Portfolio Project. The Definite Guide](https://aishippingblog.com/p/choosing-a-portfolio-project-the)[^8].
 
 ## Course projects
 
@@ -149,9 +149,9 @@ You don't need the perfect idea. You need a real problem, a small scope, and a r
 [^6]: [Project Ideas: Prompts for Getting Unstuck](../../../ai-engineering-buildcamp/gist-prompts/00-project-ideas.md)
 [^7]: [20260423_182032_AlexeyDTC_msg3559_transcript.txt](../../inbox/used/feedback/20260423_182032_AlexeyDTC_msg3559_transcript.txt)
 [^8]: [AI Engineering Field Guide - Portfolio](https://github.com/alexeygrigorev/ai-engineering-field-guide/blob/main/portfolio/README.md)
-[^9]: [5 Useful Utilities I Built with AI Coding Assistants](https://alexeyondata.substack.com/p/5-useful-utilities-i-built-with-ai)
-[^10]: [Telegram Writing Assistant](https://alexeyondata.substack.com/p/telegram-assistant)
-[^11]: [5 Ideas for AI Agents (AI Bootcamp Demo Day)](https://alexeyondata.substack.com/p/5-ideas-for-ai-agents-and-openais)
+[^9]: [5 Useful Utilities I Built with AI Coding Assistants](https://aishippingblog.com/p/5-useful-utilities-i-built-with-ai)
+[^10]: [Telegram Writing Assistant](https://aishippingblog.com/p/telegram-assistant)
+[^11]: [5 Ideas for AI Agents (AI Bootcamp Demo Day)](https://aishippingblog.com/p/5-ideas-for-ai-agents-and-openais)
 [^12]: [20260423_183850_AlexeyDTC_msg3565_transcript.txt](../../inbox/used/20260423_183850_AlexeyDTC_msg3565_transcript.txt)
 [^13]: [20260423_184156_AlexeyDTC_msg3567_transcript.txt](../../inbox/used/20260423_184156_AlexeyDTC_msg3567_transcript.txt)
 [^14]: [20260423_184259_AlexeyDTC_msg3569_transcript.txt](../../inbox/used/20260423_184259_AlexeyDTC_msg3569_transcript.txt)

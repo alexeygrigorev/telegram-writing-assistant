@@ -18,12 +18,12 @@ This gives Comet a concrete demonstration of the full loop around a mature proof
 
 ## Project links
 
-- Published article: [(Re)Building a FAQ System for DataTalks.Club](https://alexeyondata.substack.com/p/rebuilding-a-faq-system-for-datatalksclub)
+- Published article: [(Re)Building a FAQ System for DataTalks.Club](https://aishippingblog.com/p/rebuilding-a-faq-system-for-datatalksclub)
 - FAQ content, website and proposal-triage agent: [DataTalksClub/faq](https://github.com/DataTalksClub/faq)
 - Retrieval, generation and evaluation service: [DataTalksClub/faq-assistant](https://github.com/DataTalksClub/faq-assistant)
 - Slack integration: [DataTalksClub/au-tomator-lambda](https://github.com/DataTalksClub/au-tomator-lambda)
-- Previous FAQ article: [From Google Docs to an Automated FAQ System for DataTalks.Club Courses](https://alexeyondata.substack.com/p/from-google-docs-to-an-automated)
-- Previous Au-Tomator article: [Building and Maintaining a Slack Moderation Bot for an 88k-Member Community](https://alexeyondata.substack.com/p/building-and-maintaining-a-slack)
+- Previous FAQ article: [From Google Docs to an Automated FAQ System for DataTalks.Club Courses](https://aishippingblog.com/p/from-google-docs-to-an-automated)
+- Previous Au-Tomator article: [Building and Maintaining a Slack Moderation Bot for an 88k-Member Community](https://aishippingblog.com/p/building-and-maintaining-a-slack)
 
 ## Proposed proof of concept
 

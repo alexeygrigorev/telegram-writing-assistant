@@ -32,5 +32,5 @@ The second part is about how to actually do the projects inside this setup.
 
 ## Sources
 
-[^1]: [How I Dropped Our Production Database and Now Pay 10% More for AWS](https://alexeyondata.substack.com/p/how-i-dropped-our-production-database)
+[^1]: [How I Dropped Our Production Database and Now Pay 10% More for AWS](https://aishippingblog.com/p/how-i-dropped-our-production-database)
 [^2]: [20260703_133204_AlexeyDTC_msg4682_transcript.txt](../../../inbox/used/20260703_133204_AlexeyDTC_msg4682_transcript.txt)

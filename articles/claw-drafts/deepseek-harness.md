@@ -115,7 +115,7 @@ Alexey
 ## Platform Deltas
 
 **Substack (Alexey On Data):**
-- URL: https://alexeyondata.substack.com
+- URL: https://aishippingblog.com
 - Subtitle: DeepSeek's new agent runtime, torn down from the source: a kernel with no core, a session log that is the single source of truth, and a community split between love and star-count skepticism.
 - Paywall: place `[PAYWALL BREAK — free preview ends here]` after "The log is the truth".
 - Ends on the Sincerely / Alexey signoff.
