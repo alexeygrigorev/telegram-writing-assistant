@@ -36,7 +36,7 @@ Reference documents used by the writing system rather than article drafts.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
-| [Substack Writing Style](_meta/substack-writing-style.md) | draft | 2026-07-31 | How the Substack posts are written, distilled from the last 20 of them |
+| [Substack Writing Style](_meta/substack-writing-style.md) | draft | 2026-08-22 | How the Substack posts are written, distilled from the complete archive of 47 published posts |
 
 ## AI Shipping Labs
 
@@ -138,7 +138,6 @@ Articles drafted by Clo from topic research and voice templates.
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
 | [Prompt Engineering Is Dead. Long Live Context Engineering.](claw-drafts/context-engineering.md) | draft | 2026-07-24 | Strategic Essay + Framework (~2,000 words). Prompt engineering evolved into context engineering with 1M-token windows. Four-layer framework: Selection, Ordering, Compression, Eviction |
-| [How to Do Agent Evals in 2026](claw-drafts/agent-evaluation-2026.md) | draft | 2026-08-14 | Practical Workflow (~2,200 words). Tool-agnostic agent evaluation framework: three-layer model, QA-inspired test design, LLM-as-judge, production observability |
 | [Too Many Tools: What the MCP Backlash Gets Right, and What It Misses](claw-drafts/mcp-vs-code.md) | draft | 2026-08-15 | Strategic Essay + Framework (~2,100 words). MCP tool-count limits + code-first backlash + 5-rule hybrid framework + OpenClaw case study |
 | [Context Engineering in Production: What Survives Long Sessions](claw-drafts/context-engineering-in-production.md) | draft | 2026-08-15 | Practical Workflow (~2,300 words). Context rot, compaction, external memory, sub-agent isolation, 5-stage production stack + OpenClaw memory case study |
 | [Durable Agents: Stop Losing Step 37 of 40](claw-drafts/durable-agents.md) | draft | 2026-08-18 | Practical Workflow + Concepts hybrid (~2,250 words). Durable execution for agents: journal/replay mechanics, LLM non-determinism, engine landscape, Durability Ladder framework |
