@@ -5,13 +5,14 @@ description: Pull latest Alexey On Data Substack posts and update the local arch
 
 # Update Substack Archive
 
-Update the local lookup index for published posts on `alexeyondata.substack.com`.
+Update the local lookup index and full-text reference archive for published posts on [aishippingblog.com](https://aishippingblog.com) (the AI Shipping Blog newsletter, formerly `alexeyondata.substack.com`).
 
 ## Files
 
 - `articles/_substack-archive-index.md`: human-readable archive table with dates, URLs, and searchable descriptions
 - `substack.csv`: compact URL/title/description list used by tooling or ad hoc lookup
 - `articles/_index.md`: root article index entry for `Substack Archive Index`
+- `reference/substack/{date}-{slug}.md`: full text of every published post, re-fetched from the live page so real `##`/`###` headings are preserved (not just the RSS description). Use this whenever you need to quote, summarize, or check the exact wording of something already published, or to check whether a draft in `articles/` duplicates a post that already went out.
 
 ## Workflow
 
@@ -22,7 +23,8 @@ Update the local lookup index for published posts on `alexeyondata.substack.com`
 5. Update the `Substack Archive Index` row in `articles/_index.md` with the same date.
 6. Add the missing posts near the top of `substack.csv`, after the header.
 7. Run `scripts/update-substack-archive.py validate`.
-8. Check `git diff -- articles/_substack-archive-index.md articles/_index.md substack.csv` is scoped to archive updates.
+8. Run `scripts/update-substack-archive.py reference-sync` to fetch full text for any newly-added rows into `reference/substack/`.
+9. Check `git diff -- articles/_substack-archive-index.md articles/_index.md substack.csv reference/substack` is scoped to archive updates.
 
 ## Description Style
 
@@ -43,3 +45,9 @@ python scripts/update-substack-archive.py validate
 ```bash
 python scripts/update-substack-archive.py feed
 ```
+
+```bash
+python scripts/update-substack-archive.py reference-sync
+```
+
+`reference-sync` only fetches rows missing a `reference/substack/*.md` file. Pass `--force` to re-fetch and overwrite everything (e.g. after a conversion-quality fix).
