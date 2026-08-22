@@ -143,7 +143,7 @@ Beyond the plain noun phrase, other forms recur:
 - Numbered process headings, which include the step count: "1. Start with an Idea"
 - Direct questions, occasionally: "Is this role for you?"
 
-Expect five to nine H2 sections before the apparatus, with H3s for enumerated sub-steps.
+Expect five to nine H2 sections before the apparatus. The archive uses H3s for enumerated sub-steps, and the occasional question heading, but stylint rejects both in new drafts - see "Where the linter is stricter than the archive" below. For new posts, keep everything at H2 and put the step number in the heading text.
 
 ## Sentences and paragraphs
 
@@ -235,7 +235,7 @@ These are the moves that make a post recognisable:
 8. Continuity with past posts, treated as running lore. The dropped production database is invoked in at least six later posts, and nearly every essay from February 2026 onward links back to one or two earlier newsletters by name.
 9. Jargon defined inline at first use, in apposition: "the harness: the system around an agent, such as Claude Code or Codex". And "tmux (Terminal Multiplexer), a tool that manages multiple terminal sessions and keeps processes running in the background".
 10. People credited by full name, with explicit thanks where earned, and often a LinkedIn or GitHub link. Community showcase posts are built entirely from this move.
-11. A rhetorical question as a pivot: "What could go wrong?" and "But why?" and "So I started my Substack today. Now what?"
+11. A rhetorical question as a pivot: "What could go wrong?" and "But why?" and "So I started my Substack today. Now what?". This move is real in the archive but stylint now flags questions in prose, so new drafts make the statement instead ("Plenty could go wrong").
 12. Personal life as scaffolding - school runs, gym rest periods, tram stops, his son's book requests - matter-of-fact and specific, never sentimental, always in service of the engineering problem. Present from the first month (the kids horror stories pipeline) to the latest posts.
 13. One-line distilled verdicts: "An AI application without evaluation is only a demo". And "Structure beats search". And "When the assistant gives a bad answer, it's not because of the tech stack, but because of the data".
 14. "It works like this:" or "Here's how it works:" followed by a sequence. This appears in over half the posts.
@@ -317,6 +317,20 @@ April 2026 onward, the essay era and the current default. One long essay-first b
 July to August 2026, the series era layered on top. Course-notes tutorials with part lists and verbatim prompts joined the rotation, alternating with the build logs.
 
 What never changed: first-person practitioner stance, concreteness in the first sentence, honest failure plus extracted rule, hedged estimates and deflated headline numbers, links to his own repos, personal life as scaffolding, "Edited by Valeriia Kuka" at the end.
+
+## Where the linter is stricter than the archive
+
+New drafts are gated by `stylint`, and the raw archive would not pass it clean. Some of that is scraping noise (smart quotes, image-embed URLs rendered as bare links). But some habits are real in the published posts and still banned going forward, so match the archive's voice while obeying the linter on these points:
+
+- Sentence budget. The archive occasionally runs 26-48 word sentences with 4-5 commas; stylint caps sentences at 25 words and 3 commas. Split once at a clause boundary rather than chopping into fragments.
+- Headings. The archive uses H3 and H4 sub-steps and the occasional question heading ("Why Do AI Agents Need Memory?"); new drafts use H2 only, no question headings, and carry step numbers in the heading text.
+- Questions in prose. The archive pivots on "What could go wrong?"; stylint flags questions, so write the statement form.
+- Word slips. "itself", "worth testing/packaging/saving", "source of truth", "at once", "very", and "signal" as a metaphor all appear a handful of times across nine months of posts, and all are banned now.
+- Quote punctuation. Periods and commas go after the closing quotation mark in new drafts.
+- Bare URLs. A few early posts drop a raw link in prose ("The source code is here: https://..."); new drafts always use `[name](url)`.
+- Code fences. Always tag the language (```bash, ```python, ```text) and keep a connective sentence between blocks, which the archive already does.
+
+Everything else in this document and the linter agree: short plain sentences, 1-3 sentence paragraphs, bulleted lists with colon lead-ins, no bold or italic in prose, no horizontal rules, no tables, contractions, concrete numbers.
 
 ## The checklist
 

@@ -1,250 +1,279 @@
-# Structure Guide — Article Templates
+# Structure Guide - Article Shapes and File Layout
 
-Open this file once a template is chosen. It covers title and subtitle craft, the shared article anatomy, the template set (five slots, one deprecated) with word norms and annotated scaffolds, code and image conventions, and the final-draft file structure.
+This file was rebuilt from scratch against the 50 published posts archived in `reference/substack/*.md` (December 2025 through August 2026). Every rule below is observed in that archive, with the posts that show it named. Where an older version of this guide invented a rule that the archive contradicts, the invented rule is gone. Open this file once a template is chosen; it covers titles and subtitles, the shared anatomy, the four templates, code and image conventions, and the final-draft file layout.
 
----
+A note on reading the archive files: the scrape preserved markdown headings in most files, but a few artifacts remain. Some headings arrive wrapped in bold markers, some code blocks carry curly quotes, and at least one file (Getting an AI Engineering Job) lost the headings for its first half. If a file reads suspiciously flat, check the live URL in its frontmatter before treating flatness as a style rule.
+
+## What the archive actually contains
+
+The 50 posts fall into recognizable families. Counts are approximate because some posts straddle two shapes.
+
+- Build logs and system stories - the largest group (roughly 20 posts). How I built, fixed, broke, or retired something of my own.
+- How-to and method guides - around 6 posts. Numbered steps the reader can copy.
+- Analysis and argument essays - around 5 posts. Numbered claims, or findings from scraped data.
+- Teardowns of someone else's project - 2 posts (Karpathy's autoresearch, MemPalace).
+- Announcements, launches, and course promos - around 8 posts.
+- Showcases and digest roundups - 2 posts of student projects.
+- Course-module tutorials - the AI Dev Tools Zoomcamp series (4 parts), written as course notes with a series index.
+
+The skill drafts the first four families; they get templates below. The last three are described briefly at the end - if Alexey asks for one, mimic the specific archive post rather than a template.
 
 ## Title and subtitle
 
+All guidance here comes from the real title/subtitle pairs in `substack.csv` (39 pairs).
+
 ### Title style
 
-Titles are descriptive and confident. The most common form is `Main idea: a practical promise`:
+Titles run 4 to 16 words, median 9. They are plain and descriptive, usually first person, and they carry a concrete number or named thing when one exists. Colon constructions are rare: 3 of 39 titles use one. Real titles:
 
-- *Evaluation-Driven Development: A practical framework for shipping LLM apps*
-- *How Vector Search Actually Works: From embeddings to production*
-- *RAG Is Not a Search Problem*
+- How I Dropped Our Production Database and Now Pay 10% More for AWS
+- The System I Built to Ship Code From a Phone
+- Six Projects That Didn't Make It
+- My PyPI Release Pipeline for Python Libraries
+- How to Do Evals in 2026
+- What AI Forward-Deployed Engineers Do
+- Building and Maintaining a Slack Moderation Bot for an 88k-Member Community
+- 5 Useful Utilities I Built with AI Coding Assistants
+- Minsearch: The Small Search Library Behind My RAG Workshops and Courses
 
-Offer **3-5 options, mixing flavors:**
+The recurring patterns: "How I [did specific thing]" (11 of 39 start with How), "My [system/pipeline/experiments]", "The System I Built [for/to] X", a leading count ("5 Useful Utilities...", "50 Theory Interview Questions..."), and the occasional confessional ("How I Dropped Our Production Database..."). Numbers appear in 12 of 39 titles and are always real counts or results, never invented round numbers.
 
-- **Descriptive:** says plainly what the reader gets. *"Building a Production RAG Pipeline: A step-by-step guide."*
-- **Thesis / curiosity:** stakes a claim or opens a gap. *"Evaluation Is the New Unit Test."*
-- **Tension:** X vs. Y or a provocation with a follow-on. *"Prompts vs. Pipelines: Why your LLM app needs more than good instructions."*
-- **Clickbait-leaning (include at least one):** a number, a curiosity gap, a parenthetical promise. *"The One Thing Missing From Your RAG Pipeline (And How to Fix It in 10 Lines)."*
+Offer 3-5 title options at kickoff. All of them should fit the norms above; do not pad the list with a clickbait variant, a colon-form variant, or a "tension" variant for coverage - the archive doesn't do those.
 
-### Subtitle
+### Subtitle style
 
-A **single descriptive sentence** that works as both the Substack subtitle and the Medium deck. It previews the payoff. Offer **3 options**.
+One plain line, median 12 words, usually no final period, usually a fragment rather than a full sentence. Real title/subtitle pairs:
 
-Examples:
-- *"A step-by-step method for building retrieval pipelines that survive production traffic."*
-- *"A practical framework for evaluating LLM applications beyond vibes-based testing."*
-- *"From prototype to production: how to ship AI features that don't hallucinate at scale."*
+- How to Do Evals in 2026 - "A tool-agnostic framework for evaluating AI agents"
+- Six Projects That Didn't Make It - "But I learned a ton while building them"
+- My PyPI Release Pipeline for Python Libraries - "How I release Python packages with agents and without"
+- How to Write a Good README - "16 sections your project should have in the README"
+- What AI Forward-Deployed Engineers Do - "An Analysis of 113 AI FDE Job Postings"
+- Getting an AI Engineering Job - "The 5-step framework that will land you a job"
+- 50 Theory Interview Questions for AI Engineer Roles - "Plus downloadable cheatsheets with answers"
 
----
+Three real moves: a concrete descriptor of what's inside, a numbered promise, or a continuation of the title's own sentence (the Six Projects pair). Offer 3 subtitle options, each a single line in this register. Keep them shorter than you think; the archive's are tight.
 
-## Shared article anatomy
+## Shared anatomy
 
-The default shape across most of Alexey's posts, per `articles/_meta/substack-writing-style.md`, is the build log: a concrete personal opener, a roadmap, a chronological progression through dated stages, and a reflective close. Every template below is a variant of this spine, not a replacement for it - read the style doc's "The skeleton" and "The close" sections before drafting, and default to the Build Log template (below) unless the topic clearly fits one of the others.
+The beats below hold across all four templates.
 
-1. **Title + subtitle** (offered as options in Step 2).
-2. **Opener** (1-3 short sentences, first person, past tense). A concrete personal situation, not a general framing - a number or proper noun should land in the first sentence or two. No rhetorical questions as a setup, no "in the age of AI."
-3. **Roadmap** (after 2-5 short paragraphs of setup). Announce what the piece covers, either as a bulleted list introduced by "In this post, I'll share:" or the same move in running text. This block is load-bearing - keep it.
-4. **Body** — H2 sections (not H3) with plain, short headings, mostly noun phrases ("The workshop problem," "Grooming: the product manager agent"), five to nine of them before any closing apparatus. This is where the template shape lives.
-5. **Practical artifact** when it fits — a checklist, framework, code snippet, or step list the reader can lift.
-6. **Close** (three to eight short paragraphs, under a plain heading like "Where I use it now" or "What I've Learned"). Restate the arc compactly, extract the principle, look forward. Then the signoff.
-7. **Signoff:** `Sincerely,` / `Alexey` (and the Medium community CTA in the platform deltas).
+### Opener
 
-Headings are H2 (`##`), short and plain, mostly noun phrases with no cleverness. Real examples: "A kernel with no core," "The log is the truth," "What people actually say," "The rule I took from it." Reserve H3 for enumerated sub-steps inside an H2 section.
+One to three short first-person sentences that put a specific situation, project, number, or year in front of the reader before any framing. Real openers:
 
----
+- "I sometimes run offline workshops. These workshops require participants to have access to cloud resources such as AWS." (AWS access)
+- "I published my first Python library in early 2021. Since then, I've released 24 packages on PyPI" (PyPI pipeline)
+- "My child has very specific interests and information requests. He asks me to find books on narrow topics like metals or signal sirens" (book generator)
+- "People keep asking me how to get started with coding agents. At first, this puzzled me." (coding agent setup)
+- "Your README is the first file people read in your project, and sometimes the only one." (README - the reader-directed variant that how-to guides sometimes use)
 
-## Template 1 — Build Log (default, most common)
+No abstract framing, no rhetorical-question setup, no "in the age of AI." The concrete case always comes first.
 
-*Best for narrating how something was built, fixed, broken, or figured out - the shape most of Alexey's posts actually use. Default to this template unless the topic clearly fits one of the others below.*
+### Roadmap
 
-**Default length: 1,800-2,400 words.**
+Almost every post announces its contents within the first 3 to 8 short paragraphs. Two real forms:
 
-### Structure
+- A lead-in plus bulleted list, the dominant form from mid-2026 on: "In this post, I'll share:" followed by 4 to 8 bullets (book generator, minsearch, six projects, ship-from-phone, 11 workshops). The bullets often map one-to-one onto the section headings.
+- A single running-text sentence: "In this post, I walk through how the bot is built and how I used AI to diagnose and fix it." (Slack bot); "In this post, I'll share how I let this happen and the steps I've taken to prevent it from happening again." (dropped database).
 
-1. **Opener** — a concrete personal situation, first person, past tense, one to three sentences, before any framing or thesis. A number or proper noun lands in the first sentence or two. Example shape: "I sometimes run offline workshops. These workshops require participants to have access to cloud resources such as AWS."
-2. **Roadmap** — after 2-5 short paragraphs of setup, announce the contents, as a bulleted list introduced by "In this post, I'll share:" or the same move in running text.
-3. **The chronological build** — narrated forward through time, each stage anchored to a specific month or date ("In October 2025, I built...", "Around December 2025..."). Each stage exists because the previous one broke. Within this:
-   - Show the naive first attempt and why it failed, before showing what replaced it: "The obvious choice was X, so I tried that first. It broke almost immediately."
-   - State each mistake in one flat clause, no self-flagellation, then extract a one-line rule from it: "It was my fault for not telling Claude that... The rule I took from it: [principle]."
-   - Justify choices by self-knowledge rather than benchmarks where that's honest: "I chose Django because I know it well enough to review."
-   - Give every claim a number, price, duration, file path, or repo link. Hedge estimates rather than rounding confidently, and deflate your own best numbers where honesty demands it.
-4. **Where it stands now** — including what still doesn't work. No result ships without its limitation attached.
-5. **Close** — a short reflective section, three to eight short paragraphs, under a plain heading like "Where I use it now" or "What I've Learned." Restate the arc compactly, extract the principle, look forward. Then the signoff.
+This block is load-bearing; keep it. Only teardowns and short showcases skip it.
 
-### Notes
+### Headings
 
-- This is the template the deepseek-harness / durable-agents style third-party-analysis pieces should still borrow the arc from, even though they drop personal narrative for the middle sections (see Template 5).
-- Read `articles/_meta/substack-writing-style.md` section "The skeleton" and "The signature moves" before drafting this template - the failure-then-rule pairing and the naive-attempt-first move are what make it read as a story instead of a spec sheet.
+Body sections use `##` with short, plain, mostly noun-phrase headings. Real examples: "The workshop problem", "Implementation", "Final Solution", "Incident Timeline", "Curation over Complexity", "Where I use it now". Steps and claims get numbered headings that mirror the roadmap list: "1. Start with an Idea", "Step 1: Choose an Assistant", "1. Business Understanding".
 
----
+The published posts frequently nest numbered `###` and even `####` sub-steps under a section. Drafts must not: stylint flags any heading deeper than `##`. When a section wants sub-steps, either promote them to numbered `##` headings (as the archive's flatter posts do) or fold them into a numbered list inside the section.
 
-## Template 2 — Practical Workflow / Method
+### Paragraphs
 
-*Best for a repeatable method, a named framework, or a set of steps the reader can copy into their own project. Grounded in "My PyPI Release Pipeline for Python Libraries," "How to Set Up Your Coding Agent," "Getting an AI Engineering Job," "Choosing a Portfolio Project," and "How to Write a Good README."*
+One to three sentences is the default, with frequent single-sentence paragraphs used as beats: "The entire production infrastructure had been destroyed." (dropped database); "Done. It was fixed while I was packing and getting ready to leave." (Slack bot). Four-sentence paragraphs appear but are the ceiling, not the norm.
 
-**Default length: 1,800-2,400 words.**
+### Lists
 
-### Structure
+Lists are constant and carry real content: requirements, evaluation verdicts, workflow recaps, percentage-annotated findings, checklists. Every list follows a lead-in sentence, usually ending in a colon ("The flow in EC2 looks like this:", "Here are the terms:"). Recaps near the close are often bulleted (deploy article, FAQ system).
 
-1. **Opener** — a concrete personal situation or a plainly stated problem, one to three sentences, before any framing. No stat-led hook. Real openers: "I published my first Python library in early 2021. Since then, I've released 24 packages on PyPI" and "Your README is the first file people read in your project, and sometimes the only one."
-2. **Roadmap** — the method stated once, as a short bulleted or numbered list, right after the opener, per the shared anatomy.
-3. **Name the method, if it has a name** — some pieces brand it early: "The Project-Selection Framework" (Choosing a Portfolio Project) or "The Job Search Algorithm" (Getting an AI Engineering Job). Others go straight into the steps without naming them.
-4. **Walk the steps in order, one H2 per step, and number the heading itself** — real headings carry the step number: "1. Start with an Idea" through "6. Automate Publishing with Skills" (PyPI pipeline), "Step 1: Choose an Assistant" through "Step 6: Use Subagents When Context Gets Too Large" (coding agent setup), "Part 1: What is this project?" through "Part 4: How was it built?" (good README). Each section says what to do, why, and shows the real command, prompt, or config for it, in flowing prose - not a fixed "what / why / example / trap" sub-pattern.
-5. **Failed or weaker approaches folded into the walk-through, not a separate contrast section** — when an approach is worse than the recommended one, say so inside the step where it belongs. "Choosing a Portfolio Project" contrasts a naive "Spray-and-Pray Strategy" with the recommended domain-based approach as two H3s inside one step, rather than as a dedicated before/after section.
-6. **The practical artifact, embedded where it's used** — a prompt template, a named skill or tool, or a config snippet, placed inside the step it belongs to rather than collected at the end. The PyPI post's artifacts are the actual named Claude Code skills (`init-library`, `setup-pypi-ci`, `release`), each introduced at the point in the pipeline where it gets used.
-7. **A short practical wrap-up before the close** — "Other Tips," "Where to go from here," or a plain "Common mistakes" list, as in "How to Write a Good README." This carries the caveats and honest limitations. It is not a "good signs / warning signs" pair.
-8. **Close** — the same short reflective landing as the shared anatomy, sometimes just one short paragraph before the signoff and apparatus.
+### The close
 
-### Notes
+The article proper ends under a plain heading, in three to eight short paragraphs. Real closing headings: "Where I use it now", "What I've Learned", "Lessons Learned", "When Minsearch Is the Right Tool", "Curation over Complexity", "Starting Simple", "What These Tools Have in Common". Data-analysis pieces are the only ones that use a literal "Conclusion" heading (FDE post).
 
-- No dedicated "why it matters" stat-stacking section, no before/after or wrong-way/right-way contrast as its own beat, no "good signs / warning signs" list, and no strategic zoom-out to teams or orgs. None of the real posts checked do any of these.
-- Headings do exist in these posts and carry real structure. The `reference/substack/*.md` archive files lost all markdown heading syntax during scraping - confirmed by fetching the live pages directly, which show rich, numbered H2/H3 structure the local files don't preserve. Don't take a flat, heading-free archive file as evidence that a post itself has no headings; check the live URL if in doubt.
-- This is the same real scaffold as Template 3 (a numbered sequence, one H2 per item, the number in the heading). The difference is content, not structure: use this template when the numbered items are actions the reader takes, and Template 3 when they are claims, benefits, or dimensions the reader is meant to weigh rather than execute.
+The close restates the arc compactly, extracts the rule ("The rule I took from it: an agent should never have a path to production."), and names what still doesn't work or what stays unresolved (book generator ends on zero copies sold; ChatGPT viewer ends on "polish usability"). Some posts end with a course or subscribe CTA in the last paragraph ("You can use code SUBSTACK to get 20% off. See you there!" - evals post). That is the full repertoire.
 
----
+### What never gets drafted
 
-## Template 3 — Argument Essay (Numbered Claims)
+No post in the archive signs off with a name. There is no "Sincerely, Alexey" anywhere in the 50 posts; the single personal signoff ("Thanks for being part of the community, Alexey") is Substack's referral-program boilerplate, not article style. What the published posts do carry after the article proper is publish-time apparatus: the "Edited by Valeriia Kuka" credit (31 of 50 posts) and, on regular newsletter issues, the digest sections ("What I've Been Working On Recently", "Tools", "Resources", "Interesting Tools"). None of that is drafted; it gets attached at publish. A draft ends on the closing section or its final CTA sentence, full stop.
 
-*Best for an essay that argues toward a set of claims, benefits, or dimensions, stated as a bare numbered list and unpacked afterward in prose. Grounded in "Benefits of Learning in Public and Why It Works," "What AI Forward-Deployed Engineers Do," and "How CRISP-DM Still Applies to AI Engineering." The elaborate headed "framework" with per-item sub-labels does not exist anywhere in the corpus - dropped in favor of what these posts actually do.*
+## Template 1 - Build Log (default)
 
-**Default length: 1,800-2,400 words.**
+Narrating how something of Alexey's own was built, fixed, broken, or figured out. The most common shape; default to it unless the topic clearly fits another template. Archive evidence: the Telegram assistant, SQLiteSearch, the ChatGPT data viewer, the dropped production database, the book generator, ship-from-phone, minsearch, the AWS access system, the FAQ system (both posts), the image-to-podcast pipeline, the Slack bot.
 
-### Structure
+Article-proper length in the archive runs 900 to 2,600 words, typically 1,400 to 1,900.
 
-1. **Opener** — the same concrete-situation or plain-claim opener as the shared anatomy, not an invented vivid scene. "Benefits of Learning in Public" opens on the DataTalks.Club context; "What AI Forward-Deployed Engineers Do" opens on a dated stat.
-2. **State the list once, bare, no sub-labels** — a numbered list of the claims or dimensions the piece will cover, under its own H2 (as in "Benefits of Learning in Public," which states eight one-line benefits under a "Benefits of Learning in Public" heading immediately before unpacking them).
-3. **Unpack each item, one H2 per item, and number the heading itself** — real headings carry the number: "1. Visibility and Career Opportunities" through "8. Beyond Jobs: Unexpected Opportunities" (Learning in Public); "1. Business Understanding" through "6. Deployment" (CRISP-DM, mapping an existing outside framework onto AI work, phase by phase). One to three short paragraphs per item. Evidence is a named practitioner's quote, a linked tool, or a stat woven into the paragraph, never a repeated "why it matters / practical applications / trap to avoid" formula.
-4. **A caveat, stated plainly where it belongs, not saved for the end** — the data-backed variant states its own bias inline, where the claim needs it: "But our data is probably biased because in our scrapes we focus on AI Engineering roles" (What AI Forward-Deployed Engineers Do).
-5. **Close** — short and plain. The personal essay ends on a compact maxim plus the standard forward teaser and subscribe nudge. The data-backed variant sometimes closes under a plain "Conclusion" heading instead, per the style doc's note that only the data posts use that heading.
+The beats:
 
-### Notes
+1. Opener - the concrete personal situation, per the shared anatomy.
+2. Roadmap - "In this post, I'll share:" plus bullets, or one running sentence.
+3. The build, narrated forward - sections walk chronology or system parts. Show the naive first attempt and why it failed before what replaced it ("The first thing I thought about was EC2 instance profiles... But to create instances with the profiles, I'd need to distribute my key to the participants again."). State mistakes in one flat clause and extract a one-line rule ("The rule I took from it: an agent should never have a path to production."). Give claims numbers, dates, prices, and repo links; hedge estimates ("this reduced the time required by roughly a factor of four").
+4. Where it stands now - including what still doesn't work. No result ships without its limitation.
+5. Close - the reflective section under a plain heading, per the shared anatomy.
 
-- There is no numbered, headed "framework" with per-item sub-labels (why it matters / practical applications / trap to avoid) anywhere in the corpus. The closest real pattern is a bare numbered list of claims or dimensions, stated once, then unpacked afterward in ordinary prose, one H2 per item, with the number in the heading itself.
-- Don't force a metaphor-driven "build the argument" section before the list. The real posts move from the opener straight to the list.
-- Headings do exist and carry the item number (see the heading note under Template 2 - the local archive files lost heading markup during scraping, but the live posts show it clearly).
-- This is the same real scaffold as Template 2 (a numbered sequence, one H2 per item). The difference is content, not structure: use this template when the items are claims, benefits, or dimensions to weigh, and Template 2 when they are actions to take.
-- Even this essay form opens on the concrete personal or organizational case before any abstract framing, per the style doc: "Abstract framing, where it exists at all, comes after the concrete personal case."
+Real variants of this shape, all in the archive: the incident postmortem (dropped database - timeline, cause, remediation numbered list, lessons), the retrospective (Six Projects That Didn't Make It - one section per dead project, each mined for a lesson), the tool biography (minsearch - origin, evolution, "When Minsearch Is the Right Tool"), and the multi-project proof of a workflow (the agent-team post - method first, then one numbered section per project it built).
 
----
+## Template 2 - How-To Guide
 
-## Template 4 — Concepts / Architecture Explainer (deprecated)
+A repeatable method or numbered sequence of steps the reader executes. Archive evidence: My PyPI Release Pipeline, How to Set Up Your Coding Agent, How to Write a Good README, Choosing a Portfolio Project, Getting an AI Engineering Job, How to Do Evals in 2026.
 
-*This template does not hold up against the real archive. It is kept here, marked deprecated, only so the numbering in this file matches `SKILL.md`. Do not offer it at kickoff - use Template 1 or Template 3 instead, per the notes below.*
+Article-proper length runs 1,400 to 2,900 words, typically 2,000 to 2,400 - the longest family.
 
-### What we checked
+The beats:
 
-Three archived posts about Alexey's own libraries plausibly fit "decode how a system works": [Minsearch: The Small Search Library Behind My RAG Workshops and Courses](https://aishippingblog.com/p/minsearch-the-small-search-library), [How I Built SQLiteSearch: A Lightweight Python Library for Local Text and Vector Search](https://aishippingblog.com/p/how-i-built-sqlitesearch-a-lightweight), and [How I Built a Tool to Search and Visualize My Entire ChatGPT History](https://aishippingblog.com/p/chatgpt-data-viewer).
+1. Opener - personal credential or plainly stated reader problem ("I published my first Python library in early 2021. Since then, I've released 24 packages on PyPI").
+2. Roadmap - the steps stated once, as a lead-in plus list. Getting a Job states it as "The algorithm is straightforward:" plus six numbered items.
+3. One `##` per step, number in the heading - "1. Start with an Idea" through "6. Automate Publishing with Skills"; "Step 1: Choose an Assistant" through "Step 6: Use Subagents When Context Gets Too Large". Each section says what to do, why, and shows the real command, prompt, or config, in flowing prose. Weaker alternatives are dismissed inside the step where they belong, not in a separate contrast section.
+4. The practical artifact, embedded where it's used - a named tool or skill introduced at the point in the pipeline it applies (the PyPI post's `init-library`, `setup-pypi-ci`, `release` skills), or a liftable checklist near the end (the evals post closes with a 28-line markdown checklist in a fenced block).
+5. A short practical wrap before the close - "Other Tips" or "Common mistakes" carrying caveats (coding agent setup, README guide).
+6. Close - short, sometimes one paragraph plus a CTA ("The next cohort starts September 21. You can use code SUBSTACK to get 20% off. See you there!").
 
-All three are chronological build logs, confirmed against the live pages, not concept-by-concept explainers. Minsearch's real H2s run "Why Elasticsearch Was Too Much," "The First Version," "From a File to a Package," "Where I Use It," "Implementing Inverted Index and Vector Search," "Making minsearch Faster with Claude Code," "When Minsearch Is the Right Tool" - a build history, not one H2 per mechanism. SQLiteSearch's real H2s run "Background," "My Requirements," "Research Phase," "Implementation," "Final Solution," "Release Workflow for the Publication to PyPI."
+## Template 3 - Analysis Essay
 
-Both close by pivoting into "What I've Been Working on Recently" and other newsletter apparatus, not a recap list of concepts covered. No other post in the 47-post archive reads as a pure concept explainer either. `articles/_meta/substack-writing-style.md`'s "Differences between post types" section documents build logs, tutorials, digest editions, announcements, the data-analysis posts, third-party explainers, and community showcase posts, and none of those is "decode a concept with no build narrative and no third-party subject."
+An essay arguing toward numbered claims, or reporting findings from Alexey's own data. Archive evidence: Benefits of Learning in Public (8 numbered benefits), What AI Forward-Deployed Engineers Do (113 postings analyzed), What 1,000+ Job Descriptions Reveal, How CRISP-DM Still Applies to AI Engineering, What Is an AI Engineer.
 
-### What to use instead
+Article-proper length runs 850 to 2,400 words; the data teasers sit at the short end.
 
-- Explaining your own system, library, or pipeline: use **Template 1 (Build Log)**. That's what minsearch, SQLiteSearch, and the ChatGPT data viewer actually are.
-- Explaining a general concept or an outside framework structurally, one phase or dimension per H2, without a build narrative: use **Template 3**, whose CRISP-DM example is exactly this shape.
-- Explaining someone else's tool: use **Template 5**.
+The beats:
 
----
+1. Opener - the concrete organizational case or the dataset itself ("Since January 2026 I scrape AI Engineering jobs monthly for AI Engineering Field Guide. So far we have 4,894 descriptions").
+2. The list stated once, bare - the claims or dimensions as a plain numbered list before unpacking (Learning in Public states all eight benefits, then "Let's cover each of them in more detail.").
+3. One `##` per item, number in the heading - "1. Visibility and Career Opportunities" through "8. Beyond Jobs: Unexpected Opportunities"; "1. Business Understanding" through "6. Deployment". One to three short paragraphs per item. Evidence is a named person, a linked tool, or a stat woven into the paragraph - data pieces annotate bullets with percentages ("Python (82.5%)", "Direct client engagement (90% of postings)").
+4. Caveats stated inline where the claim needs them, not saved for the end ("But our data is probably biased because in our scrapes we focus on AI Engineering roles").
+5. Close - short and plain. Only the data pieces use a "Conclusion" heading; the personal essays end on a compact forward-looking paragraph. Two of the data posts (1,000+ JDs, CRISP-DM) are written in "we" voice and end with a read-the-full-article CTA; use "we" only when the piece genuinely reports team research.
 
-## Template 5 — Tool / Library Teardown (third-party explainer)
+## Template 4 - Tool Teardown
 
-*Best for a deep read of one tool, library, or framework through an engineer's lens - someone else's project, not Alexey's own build. This is the one template where the style doc says personal narrative mostly drops out, so don't force the build-log arc's "I hit this problem" opener here. Use this for pieces like the deepseek-harness draft.*
+A read of someone else's project through an engineer's lens. Archive evidence: exactly two posts - Karpathy's Autoresearch Went Viral (about 950 words) and the MemPalace teardown (about 1,700 words). Both are notably shorter than the other shapes; keep teardowns in the 900 to 1,700 word range.
 
-**Default length: 1,200-2,000 words.**
+The beats, as the two real posts do them:
 
-### Structure
+1. News-hook opener - what happened, who, when: "Over the last few days, Andrej Karpathy's autoresearch project has been widely shared and discussed." A headline number lands early (MemPalace leads with its 96.6% recall@5 claim).
+2. A one-sentence statement of the work behind the piece, in place of a roadmap: "I looked through the repository and decided to write a short note explaining what the project actually does and why it is attracting so much interest." Neither teardown has a bulleted roadmap.
+3. Mechanism sections - plain `##` headings naming what each part is, specific to the tool: "Core Idea", "Repository Structure", "Optimization Process", "How Room Detection Works", "Ingestion Pipeline". Walk the 3 to 6 mechanisms this tool actually has; concrete numbers throughout (chunk sizes, token budgets, module counts, license).
+4. Others' usage where it exists - the autoresearch post has an "Others Experimenting with the Pattern" section citing real follow-on projects, woven in as evidence rather than a reception roundup.
+5. A verdict close under a heading like the real ones - "Why People Find It Interesting" / "What Makes This Interesting" - saying plainly what is solid, what is clever, and what it means ("There's nothing magical here - it's solid engineering with a few clever ideas"). The autoresearch post adds a "Project Idea" section riffing on what the reader could build with the pattern; that move is optional but real.
 
-Six beats, confirmed against real drafting: what it is, how to configure and run it, first impressions, how it works under the hood, comparison with other tools, recommendations. Use these as the actual H2 headings (reworded for the specific tool, not left generic).
+Neither teardown carries newsletter apparatus, a comparison table, or a standalone recommendations checklist. Do not add them.
 
-1. **What it is** — the concrete news hook: what happened, when, with numbers (a release, a star count, a launch thread, a controversy). Ground it in real, dated events and real links before any analysis starts. Fold in a flat, first-person statement of the work behind the piece ("I did the only thing that settles such arguments: I cloned it and read the code"), the scale (lines of code, packages, license), and the one-line bet the tool makes.
-2. **How to configure and run it** — the practical setup path: the actual command, what it launches, the actual config/composition mechanism if one exists. This is the concrete, reproducible part - real commands in fenced code blocks, each with a sentence of explanation before and after.
-3. **First impressions** — a short, personal reaction after actually running or reading it, before the deep mechanism dive. This is where a stray community comparison (someone else's take on X) can be cited and agreed or disagreed with in one sentence, plus the one-line verdict-so-far.
-4. **How it works under the hood** — the guided walkthrough, as H3s nested under this H2, each with a plain heading naming the mechanism, not a generic label ("A kernel with no core" and "The log is the truth," not "Architecture"). Walk 3-5 mechanisms relevant to this specific tool - don't force a fixed dimension checklist (architecture/DX/performance/ecosystem/tradeoffs) if the tool doesn't warrant each one. Cite the actual source (docs, code, commits, postmortems) inline for every claim, and fold in real community reaction (fans and skeptics both) at the point in the mechanism it's actually evidence for, rather than saving it all for a separate reception section at the end.
-5. **Comparison with other harnesses/tools** — where this sits next to comparable tools, ideally as a comparison table plus 2-3 axes that actually decide the choice.
-6. **Recommendations** — an honest, evaluative close in the same dry, hedged register as the rest of the piece: who should run this and why, who should skip it and why, the honest caveats (what's unproven, what has no independent benchmark), and what's worth stealing regardless of the tool's own fate, folded into the same paragraphs rather than a separate bulleted "what to steal" section. Then the signoff.
+### The component diagram requirement
 
-### Notes
+When the piece breaks down someone else's codebase or architecture, the draft must include a real component diagram, authored as a Mermaid diagram in a ```mermaid fence: a flowchart or graph showing the actual major components and how they connect. A vague `[IMAGE: ...]` placeholder standing in for the architecture is not acceptable in this template - a "read the code" piece with no code-level visual undercuts its own claim to have read the code.
 
-- Review from real use or deep reading, never on vibes. Specific observations beat adjectives ("cold start is 8 seconds on an A10G" beats "slow startup").
-- Link the tool on first mention, and any other libraries or people referenced.
-- Do not add a standalone "What people actually say" or "What to steal" section - both read as generic bolt-on listicles when separated from the piece. Weave reactions into the mechanism they support, and weave the stealable patterns into the closing recommendation paragraphs.
+The published posts back this up: technical pieces routinely carry inline architecture and pipeline diagrams (the evals post's gold-standard-to-judge pipeline diagram, the deployment post's FastAPI-plus-Vite architecture diagram, the FAQ system's seventeen captioned diagrams), and Alexey authors his article diagrams in Mermaid via his own merm tool ("now I use it to generate diagrams, including the ones in this article" - Six Projects That Didn't Make It). A Mermaid fence in the draft is the source form of exactly what publishes as a rendered image.
 
----
+Keep the diagram high level: the major components and their relationships, in the tool's own vocabulary, not implementation minutiae. Introduce it with a sentence like any other block. A shape to aim for:
+
+```mermaid
+flowchart LR
+    prepare[prepare.py] --> train[train.py]
+    program[program.md] --> train
+    train --> results[results log]
+    results --> agent[research agent]
+    agent -->|edits| program
+```
+
+Screenshots of someone else's UI or README can supplement the diagram; they don't replace it.
+
+## Other archive shapes, not templated
+
+These exist in the archive but are not what the skill normally drafts. If asked for one, open the named post and mimic it directly.
+
+- Announcements and course promos (Last Call for AI Engineering Buildcamp, the Buildcamp rename, the AI Shipping Labs launch, 11 Workshops): CTA-driven, list-heavy, often ending on a join/register button rather than a reflective close.
+- Showcases (5 ideas for AI agents, 9 Real-Life AI Projects): one numbered `##` or `###` per project, two to four short paragraphs each, builder credited and linked.
+- Course-module tutorials (the AI Dev Tools Zoomcamp series): a series index up top, a "We will:" bulleted roadmap, many short fenced prompt blocks, a "Next in the series" close, no digest apparatus.
 
 ## Code snippets
 
-Use fenced code blocks with the correct language tag. Keep snippets:
+Code is rarer than you'd guess. Most build logs have zero fenced blocks; screenshots and inline backticked commands do the work (the Telegram assistant, Slack bot, dropped database, and agent-team posts have none). How-to guides carry 1 to 8 short blocks; only the course-module tutorials go above ten, and most of those blocks are prompts to agents, not code.
 
-- **Short** — show the essential logic, not a full codebase.
-- **Runnable when possible** — or at least structurally accurate.
-- **Explained** — always say what the code does before or after.
-- **Annotated** — use inline comments for non-obvious lines.
+When a draft does need a block:
 
-```python
-# Cross-encoder reranking: slower but more accurate than bi-encoder retrieval
-from sentence_transformers import CrossEncoder
+- Keep it 1 to 20 lines, showing the essential piece, not a codebase.
+- Introduce every block with a sentence, and never place two blocks adjacent - the archive always has prose between.
+- Tag the language: `bash` for commands the reader runs, `text` for output, prompts, file trees, and env examples, `python` (or the real language) for code. The archive scrapes are untagged, but that is a scraping artifact; stylint requires tags in drafts.
 
-reranker = CrossEncoder("cross-encoder/ms-marco-MiniLM-L-6-v2")
-scores = reranker.predict([(query, doc) for doc in retrieved_docs])
-top_k = sorted(zip(retrieved_docs, scores), key=lambda x: x[1], reverse=True)[:5]
+A shape that recurs in the archive is the introduced one-liner:
+
+```bash
+uv add minsearch
 ```
 
----
+preceded by a sentence like "now people can install it with `uv` or `pip`:" and followed by what happens next. Prompts given to agents go in `text` blocks introduced the same way ("Ask the coding agent:").
 
 ## Images and diagrams
 
-Leave a clearly-marked placeholder at the spot the visual belongs. Write captions plainly, naming the components shown:
+The published posts are image-heavy (screenshots, diagrams, phone photos), but drafts don't embed real images. Architecture and pipeline diagrams are the exception: author those directly in the draft as ```mermaid fences (see the teardown template's diagram requirement - the same applies whenever a build log or how-to hinges on an architecture the reader must see). For screenshots and photos, leave a clearly marked placeholder where the visual belongs, with a plain caption naming what's shown:
 
+```text
+[IMAGE: Diagram of the credential flow - Codespace, Lambda, STS, sandbox account]
+Caption: The Lambda assumes the role and returns temporary credentials in the format the SDK expects.
 ```
-[IMAGE: Architecture diagram of a RAG pipeline with reranking]
-Caption: 1. Document ingestion and chunking. 2. Embedding and vector storage. 3. Bi-encoder retrieval. 4. Cross-encoder reranking. 5. LLM generation.
-```
 
-Don't embed real images. One lead diagram near the top plus 2-4 inline visuals is typical for a deep dive.
+List all placeholders again in the meta file so nothing is lost at publish time.
 
----
+## Final draft file layout
 
-## Final draft file structure
+A finished draft is two files in `articles/claw-drafts/`, so the linted file contains nothing but publish-ready article prose.
 
-After all sections are approved, save as `{slug}-draft.md` with this layout:
+### The article file: {slug}.md
+
+YAML frontmatter with the working title and chosen subtitle, then the article exactly as it should publish: opener through closing section, ending on the close's last sentence or CTA. No signoff, no editor credit, no digest sections, no platform notes, no horizontal rules. This file is the stylint target and should pass the full check; structurally it should be indistinguishable from an archive post minus the publish-time apparatus.
 
 ```markdown
-# {Working title}
-
-> Subtitle: {chosen subtitle}
-
-[Lead image placeholder]
-
-{Hook through close, in full publish-ready markdown, ending with the Sincerely / Alexey signoff}
-
+---
+title: "{Working title}"
+subtitle: "{Chosen subtitle}"
 ---
 
-## Platform Deltas
-
-**Substack (Alexey On Data):**
-- URL: https://aishippingblog.com
-- Subtitle: {chosen subtitle}
-- Paywall: place `[PAYWALL BREAK - free preview ends here]` after {section}.
-- Ends on the Sincerely / Alexey signoff.
-
-**Medium:**
-- 5 topic tags: {e.g. Artificial Intelligence, Machine Learning, LLM, NLP, MLOps}
-- Member-only: yes/no.
-- Ends on the community CTA: "Thanks for reading! If you found this useful, subscribe for more AI engineering deep dives..."
-
----
-
-## SEO Keywords
-
-- 8-12 keywords/phrases mixing head terms (e.g. "LLM evaluation," "RAG pipeline") and long-tail phrases tied to the article's specific topic.
-
----
-
-## Title & Subtitle Shortlist (for publish-time selection)
-
-### Titles
-1. ...
-2. ...
-3. ...
-
-### Subtitles
-1. ...
-2. ...
-3. ...
+{Opener through close, publish-ready}
 ```
+
+### The meta file: {slug}-meta.md
+
+Everything the publish step needs that is not article prose. This file is internal publishing notes, not user-facing prose - never run stylint on it; when linting the directory, pass `--exclude '*-meta.md'`.
+
+```markdown
+# {Working title} - publishing notes
+
+## Platform deltas
+
+Substack (Alexey On Data, aishippingblog.com):
+- Subtitle: {chosen subtitle}
+- Paywall: place the break after {section}, if paywalled
+- Publish-time apparatus added on Substack, not in the draft:
+  editor credit, digest sections if it's a regular issue
+
+Medium:
+- Topic tags: {5 tags}
+- Member-only: yes/no
+- End CTA: {the Medium-specific closing line}
+
+## SEO keywords
+
+8-12 phrases mixing head terms and long-tail phrases for this topic.
+
+## Title and subtitle shortlist
+
+Titles:
+1. ...
+2. ...
+3. ...
+
+Subtitles:
+1. ...
+2. ...
+3. ...
+
+## Image placeholders
+
+1. {placeholder + caption, copied from the draft}
+```
+
+Keep both files' slugs identical so they sort together, and update `claw-drafts/_index.md` and `articles/_index.md` per SKILL.md when saving.

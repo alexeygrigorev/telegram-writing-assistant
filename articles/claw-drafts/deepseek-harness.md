@@ -1,193 +1,238 @@
-# DeepSeek Harness: I Read the Code Behind the 100k Stars
+---
+title: "DeepSeek Harness Went Viral. Here's How It Works"
+subtitle: "What I found reading the source of DeepSeek's open agent runtime"
+---
 
-> Subtitle: DeepSeek's new agent runtime, torn down from the source: a kernel with no core, a session log that is the single source of truth, and a community split between love and star-count skepticism.
+On August 13, DeepSeek made [DeepSeek-V4-Pro](https://api-docs.deepseek.com/news/news260813/) generally available and put [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) on GitHub as an open-source agent runtime. The repo calls it dsh.
 
-[IMAGE: Diagram of the DeepSeek Harness architecture: a small Cordis kernel at the center, surrounded by swappable plugin modules for models, tools, skills, sessions, sandboxes, storage, the agent loop, permissions, sub-agents, and the Web UI]
-Caption: 1. The Cordis kernel coordinates services and events. 2. Every capability, including the UI, loads as a plugin. 3. Profiles stack bundles, and any row can be replaced by a patch.
+Nine days later the repository had 182,880 stars and 20,084 forks. I checked those numbers on August 22. The [Hacker News launch thread](https://news.ycombinator.com/item?id=49285244) hit 740 points and 309 comments. On r/LocalLLaMA, [the launch thread](https://www.reddit.com/r/LocalLLaMA/comments/1vnb66j/deepseek_harness_is_up/) split between people praising the architecture and people calling the star count fake.
 
-## What it is
+I cloned the repository and read the source, and this post explains what dsh actually does and how it's put together.
 
-On August 13, DeepSeek shipped two releases at once: [DeepSeek-V4-Pro](https://api-docs.deepseek.com/news/news260813/) reaching general availability, and [DeepSeek Harness](https://venturebeat.com/technology/deepseek-harness-launches-as-open-source-rival-to-claude-code-alongside-v4-pro-on-api-with-higher-prices), an open-source agent runtime that reportedly picked up 100,000 GitHub stars in a matter of days. The [Hacker News launch thread](https://news.ycombinator.com/item?id=49285244) hit 740 points and 309 comments. On r/LocalLLaMA, half the thread praised the architecture, and the other half called the star count fake.
+The size depends on how you measure it. Skipping tests, there are about 247,000 lines of `.ts` and `.tsx` under `packages/` and `apps/`. Counting every `.ts` file in the tree gives 546,000. The workspace holds 256 packages, all MIT-licensed.
 
-I did the only thing that settles an argument like that: I cloned it and read the code.
+## Everything is a plugin
 
-About 495,000 lines of TypeScript, across roughly 250 packages, MIT-licensed. The [architecture docs](https://github.com/deepseek-ai/deepseek-harness) are unusually good, and the team publishes its own postmortems.
+The pitch in the README is that everything is a plugin. DeepSeek puts it more bluntly in the [architecture doc](https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/architecture.md), with "no privileged core to patch". The model adapter, the tool registry, the session log and the agent loop are all replaceable from configuration.
 
-The README's pitch is one line: everything is a plugin. dsh is built on [Cordis](https://github.com/cordiverse/cordis), a composition framework whose design is described in an [academic paper](https://github.com/cordiverse/paper) on spatiotemporal composability. Plugins contribute services, typed events, and reversible effects to a shared context. Per the architecture doc, there is no privileged core to patch. The model adapter is a plugin. The tool registry is a plugin. The session log, the agent loop itself, the sandbox, the permission system, sub-agents, the Web UI - all plugins, all replaceable from configuration.
+The composition kernel is [Cordis](https://github.com/cordiverse/cordis), whose design comes out of an [academic paper](https://github.com/cordiverse/paper) on spatiotemporal composability. dsh doesn't depend on Cordis as a package. The source is vendored into [`vendor/`](https://github.com/deepseek-ai/deepseek-harness/blob/master/vendor/README.md) and renamed into the `@deepseek-ai` scope, at version 4.0.0-rc.7 from commit `56b3d4f`.
 
-The bet dsh makes is that the harness itself is the product. The loop, the context, and the sandbox are all replaceable parts, and the session log is the only source of truth.
+The kernel is small, only nine files under `vendor/cordis/src`, and [the primer in the repo](https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/cordis-primer.md) boils the design down to a few ideas:
 
-## How to configure and run it
+- A plugin implements a service and registers under a `ctx.<key>`.
+- A context is a repository of those services, addressed by key.
+- Dependencies are declared with `inject` instead of boot ordering.
+- Communication happens through typed events, with `emit`, `waterfall`, `parallel` and `serial` dispatch.
+- Every registration is a reversible effect, so unloading a plugin undoes it.
 
-Starting it takes one command:
+## Running it
 
-```
+Starting dsh takes one command:
+
+```bash
 npx @deepseek-ai/dsh web
 ```
 
 That launches a browser UI on port 3080.
 
-Composition happens through profiles and bundles. A profile is a named stack of bundles stored in the harness home, and `web` and `headless` ship as templates. A bundle is a distribution format for config rows plus the code they mount, and every layer stays patchable by the layers above it.
+Composition happens through profiles and bundles. A profile is a named stack of bundles in `$DSH_HOME/profiles/<name>`, and `web` and `headless` ship as templates. A bundle is an npm package whose manifest points at a `cordis.patch.yml` file.
 
-You can dump the exact plugin tree your machine boots with one command:
+The layers stack onto an empty entry list. Each bundle applies in order, then the profile patch, then the home patch, then any `--patch` overlay.
 
-```
+The base bundle shows what that looks like. [`dsh-base`](https://github.com/deepseek-ai/deepseek-harness/blob/master/packages/bundle/base/cordis.patch.yml) is one `insert:` list of config rows, each naming a plugin and addressable by id. Row order has no load semantics, because activation is driven by service availability.
+
+To see the exact plugin tree your machine boots, dump it:
+
+```bash
 dsh --profile web --dump-config
 ```
 
-Any row it prints can be replaced by your own patch. From there, the profile machinery stays out of sight until you go looking for it.
+Any row it prints can be replaced by your own patch.
 
-## First impressions
+## The plugin tree
 
-One community poster [compared the design to Kubernetes](https://x.com/stretchcloud/status/2089040743222407487): stable interfaces for storage, scheduling, and networking, applied instead to the agent loop, the model, and the session. I'd put it a bit differently. dsh is an operating system for agents, and an unusually disciplined one.
+The loader applies the layers and produces this tree.
 
-The short version: the star count tells you nothing. The code tells you a lot.
+```mermaid
+flowchart TD
+  profile["Profile = ordered bundle layers<br/>dsh-base -> dsh-web-app or dsh-headless -> user patches"]
+  kernel["Cordis kernel (vendored 4.0.0-rc.7)<br/>context of services, typed events, reversible effects"]
+  profile -->|"Loader + include mount config rows"| kernel
+  kernel --> spine
+  kernel --> seams
+  kernel --> policy
+  kernel --> surfaces
+  subgraph spine["Core spine - every composition boots it"]
+    sessions["ctx.sessions<br/>append-only SessionEvent log"]
+    prompt["ctx.systemPrompt<br/>prompt sections + tool schemas"]
+    tools["ctx.tools<br/>tool registry + guarded pipeline"]
+    agents["ctx.agents<br/>Agent interface + agent/* events"]
+    driver["ctx.agentLoop<br/>default driver, a swappable plugin"]
+    llm["ctx.llm<br/>model adapter registry"]
+  end
+  subgraph seams["Capability seams - one interface, swappable providers"]
+    fs["ctx.fs"]
+    shell["ctx.shell"]
+    sandbox["ctx.sandbox"]
+    subagents["ctx.subagents"]
+    jobs["ctx.jobs"]
+    web["ctx.web"]
+  end
+  subgraph policy["Policy plugins - listeners, no service of their own"]
+    repeat["repeat-tool-reminder"]
+    timeout["timeout-policy"]
+    approval["ctx.approval + permission presets"]
+  end
+  subgraph surfaces["Surfaces - optional bundles"]
+    webapp["Web UI: host-webserver + apiproxy + client modules"]
+    headless["headless: one-shot runner, no server"]
+    bridges["ACP server, SDK, Claude Code / Codex hook bridges"]
+  end
+  driver -.->|"reaches capabilities by ctx key, never by import"| seams
+  policy -.->|"waterfall listeners on tools/*"| tools
+  surfaces -.->|"drive ctx.agents, render session/event"| agents
+```
 
-## How it works under the hood
+Six packages under `packages/core` form what the [core doc](https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/subsystems/core.md) calls the spine:
 
-### The log is the truth
+- `session` holds the append-only event log
+- `system-prompt` assembles prompt sections and tool schemas
+- `tools` is the registry plus the guarded execution pipeline
+- `agent` owns the `Agent` interface and the `agent/*` event vocabulary
+- `agent-loop` is the default driver behind that interface
+- `scope` handles scoping
 
-The most consequential design decision sits in the session subsystem. Every session is an append-only log of typed `SessionEvent`s. The model's history gets derived from that log, on demand, by a projection, `deriveMessages()` in the code. Fork a session, resume it, render a transcript, replay telemetry - all of it is a projection of the same stream.
+Around the spine sit the capability seams. A seam is one service definition, one provider and one consumer, described in [capability-seams.md](https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/capability-seams.md). Filesystem and subprocess providers share a single execution world, so repointing them moves bash, PTY and LSP together.
 
-The docs state the invariant in plain terms: model-visible means logged. Anything that reaches a model request must be reconstructable from the log, and a runtime invariant asserts it. A new kind of model-visible input requires a new session event, never a side channel.
+The guards own no service at all. They're listeners on the tool pipeline, so they can be added or removed on their own.
 
-This is the same architecture event-sourced systems have used for years, just applied to agent context, and it pays off. Context compaction becomes a log derivation instead of a destructive edit of a chat transcript. Time travel is basically free, since the whole history is already there.
+dsh ships the Web UI as a bundle rather than a core. [`dsh-host-webserver`](https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/subsystems/web-server.md) is a plain `node:http` route registry that "knows no harness concepts", and every feature route gets registered by some other plugin. The [headless bundle](https://github.com/deepseek-ai/deepseek-harness/blob/master/packages/bundle/headless/cordis.patch.yml) mounts none of it.
 
-One r/LocalLLaMA user [put it plainly](https://www.reddit.com/r/LocalLLaMA/comments/1vpqum89_deepseek_harnness_why_is_feels_better/): the append-only log versus a verbatim conversation buffer is the difference that makes long sessions work.
+## One turn through the session log
 
-The turn machinery is just as explicit. A step is one model request plus the tool calls it triggers. A turn is zero or more steps. Interception happens through waterfall events: `agent/pre-step` decides what the model sees and can reject the claim entirely, `tools/pre-execute` guards every call, `llm/stream` sits on the wire to the model itself. Plugins hook these seams without importing the loop, because the loop is itself a plugin.
+The second diagram follows a single turn from the user's message to the model and back.
 
-### Guardrails that hold up in the wild
+```mermaid
+flowchart LR
+  ui["User, Web UI, or SDK"] -->|"followup()"| inbox["Agent inbox<br/>ctx.agents"]
+  inbox --> driver["agent-loop driver"]
+  driver -->|"turn/start, step/start, user/message"| log
+  driver -->|"agent/pre-step waterfall"| hooks["Interceptors<br/>compaction, plan mode, hooks"]
+  driver -->|"assemble()"| prompt["ctx.systemPrompt<br/>sections + ctx.tools schemas"]
+  log["Session log<br/>append-only SessionEvent[]"] -->|"deriveMessages()"| req["Model request"]
+  prompt --> req
+  req -->|"agent/request then llm/stream"| adapter["ctx.llm adapter"]
+  adapter -->|"assistant/chunk*, assistant/message"| log
+  log -->|"tool/call"| pipe["tools/pre-execute<br/>tools/execute<br/>tools/post-execute"]
+  pipe -->|"tool/result"| log
+  log -->|"session/event"| sinks["Persistence, Web UI apiproxy, SDK, telemetry"]
+  req -.->|"invariant re-derives and compares"| log
+```
 
-The detail that convinced me dsh is a serious engineering effort, and not a star farm: they publish [postmortems](https://github.com/deepseek-ai/deepseek-harness), and they're good ones.
+Every session is an append-only log of typed `SessionEvent` records. The model's history gets derived from that log on demand by [`deriveMessages()`](https://github.com/deepseek-ai/deepseek-harness/blob/master/packages/core/session/src/index.ts), which walks the surface-marked events and caches the projection per node. A compaction bumps a generation counter and the projection rebuilds.
 
-Postmortem 0003 is my favorite artifact in the whole repo. A web agent was asked to change the GUI theme. It edited the source, launched a bare Vite dev server, saw HTTP 200, and declared success. The browser showed a white screen, because the boot manifest only gets injected by the real host.
+The invariant behind this is "model-visible means logged", and it's enforced at runtime rather than only documented. A prepended global `llm/stream` listener in [`invariant.ts`](https://github.com/deepseek-ai/deepseek-harness/blob/master/packages/core/agent-loop/src/invariant.ts) re-derives history at dispatch time and compares it to the outgoing request. When `JSON.stringify(options.messages)` differs from the re-derived version, it raises a "log-reconstruction desync" error. The same listener checks that the request is frozen and holds a live session id.
 
-The agent then rebuilt, launched a second server on a different port, verified that one, and reported a URL the user wasn't even looking at. The user's actual page had picked up the theme via the running server two turns earlier.
+One mechanism then covers a lot of ground. Compaction becomes a derivation instead of a destructive edit of a transcript, and forking, resume, transcript rendering and telemetry replay all read the same stream.
 
-The writeup cites evidence by sequence number in the persisted event log (sequences 30939, 31865, 34309). It names the root cause: the GUI had no model-visible identity, no canonical URL, no runtime mode.
+The turn machinery is equally explicit. A step is one model request plus the tool calls it triggers, and a turn is zero or more steps. Interception happens through waterfall events, where `agent/pre-step` decides what the model sees, `tools/pre-execute` guards every call, and `llm/stream` intercepts the model stream. Plugins attach to those events without importing the loop package.
 
-It lists the guardrails added, too, including a managed `$DSH_WEB_URL` environment variable and tests that "must be able to fail for the reported mechanism." That's a mature engineering culture, on a repo that's a week old.
+Even the model-visible tool set is recomputed per assembly and per scope. The [tool registry](https://github.com/deepseek-ai/deepseek-harness/blob/master/packages/core/tools/src/index.ts) declares `static inject = ['systemPrompt']` and registers a callback with the prompt instead of a fixed list.
 
-The same instinct shows up outside the DeepSeek team, too. One user traced 3.5-second hangs on trivial commands to a prompt-string mismatch between the terminal and the persistent bash tool, [fixed it in one line, and dropped latency to 158ms](https://x.com/alamin_ai_/status/2089335178426560585), about 70x. The append-only log is what made the diagnosis possible in the first place. That's what an open harness buys you: postmortems you don't have to wait for DeepSeek to write.
+## The tool catalog
 
-The same culture shows up in the guard plugins. `repeat-tool-reminder` is an advisory loop-breaker. It watches for consecutive identical tool calls, arguments canonicalized and deep key-sorted, and at thresholds of 3, 5, and 8 it injects an escalating reminder telling the model to change approach. It never vetoes. Denied calls still count toward the chain, and bookkeeping tools like `todo_write` are excluded so they can't launder a loop.
+The published [tool catalog](https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/tool-catalog.md) is generated by booting the harness. The generator mounts each tool plugin on a real Cordis context and reads `ctx.tools.schemas()`. Runtime-spread enums and config-driven names make a schema impossible to know statically. A completeness guard globs `packages/*/tool-*` and fails when a package is missing from the boot manifest.
 
-`timeout-policy` arms per-call deadlines from each tool's own declaration. The sandbox story includes a native [Landlock](https://github.com/deepseek-ai/deepseek-harness) launcher (Linux's self-restrict-then-exec sandbox), shipped as per-platform npm packages, plus an E2B sandbox proof of concept.
+The shipped set covers the expected tools, from `bash` and `read` through `glob`, `grep` and `web_fetch`.
 
-### The tool catalog
+Past those, the catalog gets more interesting:
 
-The generated [tool catalog](https://github.com/deepseek-ai/deepseek-harness) lists every model-visible tool, and the generator is honest in a way I haven't seen elsewhere: it boots each tool plugin on a real context and reads the schemas at runtime, because, as the docs put it, a tool schema is not statically knowable.
-
-The shipped set covers the expected: `bash`, `read`, `edit`, `glob`, `grep`, `web_fetch`. Plus a longer list:
-
-- Background jobs (`job_list`, `job_output`, `kill`) that unify background shell runs, PTY sends, and subagents under one controller
-- A sub-agent family: `subagent` (continuable, background by default), `subagent_fork` (one-shot), plus `send_message`, `interrupt_agent`, `list_agents`, and a child-scoped `report` tool
+- Background jobs (`job_list`, `job_output`, `kill`) that unify background shell runs, PTY sends and subagents under one controller
 - `goal` and `schedule` tools with explicit human authority gates for creating or editing goals
-- Plan mode and `ask_user_question`, mirroring the interaction patterns people know from Claude Code
-- A `ralph` tool: a fixed workflow that spawns one fresh structured child agent per round, with only the objective and a round cap as parameters, the "run an agent in a loop until done" pattern, productized
-- `run_code`, a Code Mode transport where a program calls tools through bindings that re-enter the full guarded pipeline
-- `cordis_*` tools, opt-in and VM-sandboxed, that let the agent define and mount new plugins at runtime - self-modification with a seatbelt
-- Hook bridges for Claude Code and Codex, and an Agent Client Protocol server, so dsh can orchestrate the commercial agents instead of just competing with them
+- `ralph`, a fixed workflow that spawns one fresh structured child agent per round, taking only an objective and a round cap
+- `run_code`, a Code Mode transport where a program calls tools through bindings that re-enter the guarded pipeline
+- `cordis_*` tools, opt-in and VM-sandboxed, that let the agent define and mount new plugins at runtime
+- Hook bridges for Claude Code and Codex, plus an Agent Client Protocol server
 
-That last item is the tell. An open harness that can call the closed ones as sub-agents is a bet that the coordination layer matters more than any single model.
+Several sub-agent providers coexist in a single context, which happens on no other seam. dsh ships in-process spawn and fork alongside ACP, Codex, Claude Code and the dsh SDK, [all on `ctx.subagents`](https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/subsystems/subagent.md). Through the last three, dsh can run the commercial agents as its own sub-agents.
 
-## Comparison with other harnesses
+## Guards, sandboxing and postmortems
 
-Launch coverage keeps calling dsh "the open-source rival to Claude Code." The reality is a field of at least eight credible harnesses, and they differ less in quality than in what they optimize for. Here's how I'd line them up, based on the coverage and the repos themselves:
+[`repeat-tool-reminder`](https://github.com/deepseek-ai/deepseek-harness/blob/master/packages/guard/repeat-tool-reminder/README.md) sits on `tools/post-execute` and watches for consecutive identical calls, with arguments canonicalized and deep key-sorted. At 3, 5 and 8 repeats it injects an escalating reminder telling the model to change approach, and it never blocks the call. The counter includes denied calls, and `todo_write` is excluded so bookkeeping doesn't reset it.
 
-| Harness | Source | Models | Strongest at |
-|---|---|---|---|
-| [Claude Code](https://code.claude.com) | Closed | Claude only | Polished, safety-gated coding agent inside the Anthropic ecosystem |
-| [Codex CLI](https://github.com/openai/codex) | Open core (Rust) | OpenAI first | Fast terminal agent for OpenAI-centric workflows, JSON-RPC extension seam |
-| [Gemini CLI](https://github.com/google-gemini/gemini-cli) | Open source | Gemini | Terminal workflows with extensions and MCP support |
-| [Amp](https://ampcode.com) | Proprietary | Multi-model | Power users across web, terminal, and phone with a rich toolset |
-| [opencode](https://opencode.ai) | Open source | Any of 75+ providers | Everyday coding ergonomics, model-agnostic [daily driver](https://pub.towardsai.net/why-opencode-beat-out-every-other-ai-coding-harness-i-tried-4f1d60922303) |
-| [OpenClaw](https://docs.openclaw.ai) | Open platform | Flexible providers | Persistent, multi-channel personal agents with a plugin SDK |
-| [Hermes Agent](https://github.com/nousresearch/hermes-agent) | MIT | Any model | Self-improving agents with persistent memory, local-model emphasis |
-| [dsh](https://github.com/deepseek-ai/deepseek-harness) | MIT | Any OpenAI-compatible provider | Total composability: every layer swappable, the loop included |
+The [timeout guard](https://github.com/deepseek-ai/deepseek-harness/blob/master/packages/guard/timeout-policy/README.md) attaches one zero-config around-listener to `tools/execute`. It reads each tool's own declared `timeoutMs` and returns a structured `TOOL_TIMEOUT` result.
 
-Three things decide most of the choice.
+Process confinement lives on the `ctx.sandbox` seam, and the shipped provider is `dsh-sandbox-local`. [It supplies](https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/subsystems/sandbox.md) Linux bwrap and Landlock, macOS Seatbelt, and a Windows ACL restricted-token backend. The Landlock self-restrict-then-exec launcher is [native code](https://github.com/deepseek-ai/deepseek-harness/blob/master/native/README.md), shipped as per-platform npm packages.
 
-Who owns the loop: Claude Code and Codex give you a vendor's loop with extension points. dsh hands you the loop itself as a plugin.
+E2B is in the repo too, on different seams. [`packages/e2b`](https://github.com/deepseek-ai/deepseek-harness/blob/master/packages/e2b/README.md) is an experimental composition implementing `ctx.fs` and `ctx.subprocess` over a remote Linux sandbox, and no shipped bundle loads it.
 
-Model freedom: Claude Code is locked to Claude, Gemini CLI to Gemini, while dsh, opencode, and Hermes take any OpenAI-compatible provider. That's exactly why the r/LocalLLaMA crowd adopted dsh on day one.
+The team also publishes [four postmortems](https://github.com/deepseek-ai/deepseek-harness/tree/master/docs/postmortem), numbered 0001 to 0004. Number 0003 is the one I keep going back to.
 
-A detailed [thread there](https://www.reddit.com/r/LocalLLaMA/comments/1vpqum89_deepseek_harnness_why_is_feels_better/) documents 16-hour runs and 20M+ tokens through a single Qwen 3.8 27B on an RTX 3090, with auto-compaction that "just works" and a 6k system prompt where competitors ship 20k. Another user [calls the pairing "amazing"](https://www.reddit.com/r/LocalLLaMA/comments/1vpv12b/qwen_38_27b_with_dshdeepseek_harness_is_amazing/) and reports no goal drift over long sessions.
+A web agent was asked to change the GUI theme. It edited the source, launched a bare Vite dev server, saw HTTP 200 and declared success. The browser showed a white screen, because the boot manifest only gets injected by the real host. The agent rebuilt, launched a second server on another port, verified that one, and reported a URL the user wasn't looking at.
 
-What the harness is for: Claude Code and Codex are coding agents, opencode is a daily-driver coding TUI, OpenClaw and Hermes target persistent general-purpose agents, and dsh is a runtime for people composing their own.
+The writeup cites its evidence by sequence number from the persisted event log, at 30939, 31865 and 34309. The root cause it names is that the GUI had no model-visible identity, no canonical URL and no runtime mode. The fixes include a managed `$DSH_WEB_URL` environment variable and a rule that tests must be able to fail for the reported mechanism.
 
-Practitioner comparisons land roughly [here](https://myclaw.ai/blog/deepseek-harness-vs-opencode): opencode for daily coding comfort, dsh when you want to rebuild the machine itself, the vendor CLIs when you live in one ecosystem and want the polish.
+That same log makes outside diagnosis possible. One user traced 3.5-second hangs on trivial commands to a prompt-string mismatch between the terminal and the persistent bash tool. One [changed line](https://x.com/alamin_ai_/status/2089335178426560585) dropped latency to 158ms.
 
-My own daily runtime is OpenClaw (you've met my disclosure by now). The honest one-line summary of the whole field: no harness wins yet, because the axis that matters, what the harness architecture does to long-session reliability and cost, is exactly the axis nobody has benchmarked independently. dsh's log-derived context is the most credible attempt at that problem in the open field, and it is still a preview.
+## Compared with Claude Code, Codex CLI and opencode
 
-On X, the quotes collected [here](https://x.com/joostvdheijden/status/2089084268492235114) include "unusually well-designed, context management actually efficient instead of token-hungry" and "finally an agent runtime that doesn't treat the loop as sacred." A [technical dive](https://x.com/YoussefHosni951/status/2088074985457807740) walks through the same architecture I found in the docs.
+Launch coverage keeps calling dsh an open-source rival to Claude Code. I read the docs and source of the other three to see where the architectures actually differ.
 
-## Recommendations
+[Claude Code](https://code.claude.com/docs/en/hooks) has the richest documented extension surface of the four, with around 30 named hook events. `PreToolUse` can block a call, rewrite the tool input through `updatedInput`, or return a permission decision, and `PostToolBatch` can stop the run before the next model request. Sessions are conventional, with transcripts stored in plaintext under `~/.claude/projects/` for 30 days by default. The CLI's implementation isn't published, and the model family is Claude only.
 
-dsh is the most architecturally serious open harness I've read, and the least proven. Everything that matters is still ahead of it: a tagged release, a compatibility promise, independent benchmarks, and proof that the plugin ecosystem compounds past week one.
+[Codex CLI](https://github.com/openai/codex) ships as Apache-2.0 Rust. Its [protocol doc](https://github.com/openai/codex/blob/main/codex-rs/docs/protocol_v1.md) defines the engine as something any UI can drive over two queues. Its session model is closer to dsh than most comparisons admit. `codex-rs/rollout` writes append-only JSONL records, each with a timestamp and an ordinal. A comment in the rollout source notes that resume uses the same item decoder as projection.
 
-The skeptics have a case, and it's worth stating plainly. The launch thread on r/LocalLLaMA [collected the doubts](https://www.reddit.com/r/LocalLLaMA/comments/1vnb66j/deepseek_harness_is_up/): "bots for sure," "stars have been meaningless ever since AI agents, ever since OpenClaw every damn AI harness has 100k+ stars easily." The [HN thread](https://news.ycombinator.com/item?id=49285244) spent most of its energy arguing about TypeScript and memory footprint instead of the architecture.
+The two mechanisms run in opposite directions. Codex logs the items it sends rather than deriving them, and `policy.rs` filters which ones get persisted at all. Its `CompactedItem` has a `replacement_history` field, so compaction swaps history out. dsh's invariant re-derives history from the log instead, which keeps the pre-compaction state reachable from the running structure.
 
-The repo backs up some of that caution itself: developer preview, breaking changes guaranteed, session format explicitly version-zero with no compatibility promise, and a BENCHMARK.md that fits in two sentences. There are no independent benchmarks of the harness itself. DeepSeek used it in minimal mode behind its [V4-Flash code agent numbers](https://api-docs.deepseek.com/updates/), which proves it can host a strong agent and nothing more.
+[opencode](https://opencode.ai/docs/plugins/) moved repos recently, from `sst/opencode` to [`anomalyco/opencode`](https://github.com/anomalyco/opencode), which matters if you reference a fixed source path. It runs as a headless HTTP server with an OpenAPI 3.1 spec, and model support runs to 75-plus providers through the AI SDK and Models.dev.
 
-The star count is noise. The postmortems are signal.
+opencode derives history too, through machinery that gets little attention. [`CONTEXT.md`](https://github.com/anomalyco/opencode/blob/dev/CONTEXT.md) defines Session History as the projected conversation for a provider turn, after applying the active compaction and Context Epoch cutoffs. Messages live in a SQLite table with a `seq` column, and `session/history.ts` selects rows from the latest compaction forward. The durable rows are messages, so non-message state needs the parallel Context Epoch and Context Snapshot machinery. dsh gets the same property from one event vocabulary.
 
-Run dsh if you want model freedom and are willing to own the loop yourself. That's exactly the r/LocalLLaMA crowd's use case. Stick with Claude Code or Codex if you want a vendor's polish and don't want to think about the plugin tree.
+People on r/LocalLLaMA picked dsh up on day one because it takes any OpenAI-compatible provider. One user [reports](https://www.reddit.com/r/LocalLLaMA/comments/1vpv12b/qwen_38_27b_with_dshdeepseek_harness_is_amazing/) running Qwen 3.8 27B against dsh on a single RTX 3090 over long sessions without goal drift.
 
-Even if you never run dsh at all, four things in the repo are worth stealing regardless. Log-derived context, deriving model history from an append-only event log with a "model-visible means logged" invariant, solves compaction, forking, replay, and auditability with one mechanism. Waterfall interception points, `pre-step`, `pre-execute`, and stream-level seams, let policy live beside the loop instead of inside it.
+Here's what I'd actually decide on:
 
-Advisory guards beat silent vetoes: the escalating reminder design trusts the model with the decision and keeps the audit trail clean. And a catalog that boots, generated by actually running each plugin instead of hand-written, catches the drift between docs and reality that kills agent frameworks.
+- Whether you need to change turn semantics or only constrain them. Blocking a command or injecting context works in all four. Retrying differently, or compacting by a different rule, means a fork everywhere except dsh.
+- How exactly you need to reconstruct what the model saw. dsh closes that gap by construction, at the cost of an event vocabulary shipped at version zero.
+- Whether isolation is your problem or your platform's. Codex ships Seatbelt, Landlock, bubblewrap and a Windows path, Claude Code has no native Windows, opencode has no sandbox, and dsh has the Landlock launcher.
 
-My own daily driver is a different runtime. I'm writing this from inside an OpenClaw instance, so weigh my read accordingly. Reading dsh's source still changed how I think about my own context handling.
+## Owning the loop
 
-Try it for the one-command start. Stay for the architecture docs. Steal the patterns either way.
+The distinction that gets flattened in launch coverage is whether the loop's own decision logic is addressable. All four harnesses are configurable, so configurability doesn't separate them.
 
-Sincerely,
-Alexey
+Claude Code's extension points are numerous and genuinely powerful. Every one of them attaches to a named moment inside a loop that stays closed. Anthropic's own code decides how context gets assembled each step, what compaction does to the transcript, and when a turn is finished. The Agent SDK gives you that same loop, and the documented alternative is the Client SDK, where you implement the tool loop yourself.
 
----
+Codex is open core, so you can read every line of the loop. It has a real extension seam in `codex-rs/ext/extension-api`, a Rust trait registry with contributors for context, tools, turn input and turn lifecycle. The host builds that registry at startup from crates linked into the binary, so there's no runtime path for mounting your own contributor. Contributing to a turn also isn't the same as replacing it.
 
-## Platform Deltas
+In dsh the loop is a row in the tree. `core/agent` owns the `Agent` interface, the live registry and the `agent/*` events on `ctx.agents`, while `core/agent-loop` is the default driver on `ctx.agentLoop`. DeepSeek states the separation as a rule: extension plugins depend on `agent` and never on `agent-loop`. Agent creation goes through a factory seam registered with `setFactory`. A replacement driver with different turn, retry or compaction semantics registers the same way.
 
-**Substack (Alexey On Data):**
-- URL: https://aishippingblog.com
-- Subtitle: DeepSeek's new agent runtime, torn down from the source: a kernel with no core, a session log that is the single source of truth, and a community split between love and star-count skepticism.
-- Paywall: place `[PAYWALL BREAK - free preview ends here]` after "The log is the truth".
-- Ends on the Sincerely / Alexey signoff.
+dsh ships exactly one loop today. [`capability-seams.md`](https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/capability-seams.md) calls `ctx.agentLoop` "the one concrete loop plugin", and the only other consumer it lists is an example package. I couldn't find a third-party loop anywhere.
 
-**Medium:**
-- 5 topic tags: Artificial Intelligence, AI Agents, DeepSeek, Open Source, Developer Tools
-- Member-only: no
-- Ends on the community CTA: "Thanks for reading! If you found this useful, subscribe for more AI engineering deep dives..."
+So the gain is narrower than the design suggests. Extensions bind to the `agent` interface instead of the loop package, so the shipped loop can be rewritten without breaking them. A fork also doesn't have to be a fork of everything.
 
----
+The closed loop has an advantage here too. One team can profile and regression-test a loop end to end. That's a defensible reason why Claude Code's turn behaviour feels more finished than anything in the open field.
 
-## SEO Keywords
+## My read on dsh
 
-- DeepSeek Harness
-- dsh agent runtime
-- everything is a plugin
-- Cordis framework agents
-- open source agent harness 2026
-- DeepSeek V4-Pro harness
-- agent session log event sourcing
-- Claude Code open source alternative
-- agent loop plugin architecture
-- DeepSeek Harness review
+dsh is the most carefully structured open harness I've read. It's also nine days old, and almost nothing in it has been exercised by anyone outside DeepSeek.
 
----
+The repo states its own caveats:
 
-## Title & Subtitle Shortlist (for publish-time selection)
+- developer preview status, with breaking changes guaranteed
+- a session event format at version zero, with no compatibility promise
+- a `BENCHMARK.md` that fits in two sentences
 
-### Titles
-1. DeepSeek Harness: I Read the Code Behind the 100k Stars
-2. DeepSeek's dsh, Torn Down: A Kernel With No Core
-3. The Agent Harness That Publishes Its Own Postmortems
-4. DeepSeek Harness: What the Source Actually Says
-5. Everything Is a Plugin: Inside DeepSeek's Agent Runtime
+There are no independent benchmarks of the harness. DeepSeek ran it in minimal mode behind its [V4-Flash code agent numbers](https://api-docs.deepseek.com/updates/), which doesn't separate the harness from the model.
 
-### Subtitles
-1. DeepSeek's new agent runtime, torn down from the source: a kernel with no core, a session log that is the single source of truth, and a community split between love and star-count skepticism.
-2. 495k lines, 250 packages, one invariant: model-visible means logged. What I found reading dsh, and what practitioners on local models report.
-3. From the append-only session log to the advisory loop-breaker and public postmortems, the engineering behind the fastest-starring repo of the year.
+The skepticism about the stars is fair. The [launch thread on r/LocalLLaMA](https://www.reddit.com/r/LocalLLaMA/comments/1vnb66j/deepseek_harness_is_up/) collected it directly, with "bots for sure" and "stars have been meaningless ever since AI agents". The [HN thread](https://news.ycombinator.com/item?id=49285244) spent most of its energy on TypeScript and memory footprint rather than on the architecture.
+
+What I'll watch is whether the postmortems keep coming, because 0003 was written in the repo's first week.
+
+Here's what I'd take from the repo even without running it:
+
+- Deriving model history from an append-only event log, with an invariant that fails the request when the derivation diverges. Compaction, forking, replay and auditability come out of one mechanism.
+- Waterfall interception at `pre-step`, `pre-execute` and the model stream, so policy lives beside the loop instead of inside it.
+- Guards that inject an escalating reminder instead of blocking, which leaves the decision with the model and keeps the audit trail readable.
+- A tool catalog generated by booting each plugin, so the published docs can't drift away from the code.
+
+My own daily runtime is OpenClaw, and reading dsh hasn't changed that. It did change how I think about context handling in my own agents, and I'll write about what I'm changing in a future newsletter. Subscribe to follow along.

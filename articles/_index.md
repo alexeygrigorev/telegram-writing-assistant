@@ -141,7 +141,7 @@ Articles drafted by Clo from topic research and voice templates.
 | [Too Many Tools: What the MCP Backlash Gets Right, and What It Misses](claw-drafts/mcp-vs-code.md) | draft | 2026-08-15 | Strategic Essay + Framework (~2,100 words). MCP tool-count limits + code-first backlash + 5-rule hybrid framework + OpenClaw case study |
 | [Context Engineering in Production: What Survives Long Sessions](claw-drafts/context-engineering-in-production.md) | draft | 2026-08-15 | Practical Workflow (~2,300 words). Context rot, compaction, external memory, sub-agent isolation, 5-stage production stack + OpenClaw memory case study |
 | [Durable Agents: Stop Losing Step 37 of 40](claw-drafts/durable-agents.md) | draft | 2026-08-18 | Practical Workflow + Concepts hybrid (~2,250 words). Durable execution for agents: journal/replay mechanics, LLM non-determinism, engine landscape, Durability Ladder framework |
-| [DeepSeek Harness: I Read the Code Behind the 100k Stars](claw-drafts/deepseek-harness.md) | draft | 2026-08-19 | Tool Teardown (~2,130 words). Primary-source teardown of dsh: Cordis kernel, session log, guards, postmortems, toolbench, community reaction |
+| [DeepSeek Harness Went Viral. Here's How It Works](claw-drafts/deepseek-harness.md) | draft | 2026-08-22 | Tool Teardown (~2,560 words). Rewritten primary-source teardown of dsh: vendored Cordis kernel, two Mermaid diagrams, enforced log invariant, guards and sandbox, postmortems, generated tool catalog, cited comparison with Claude Code / Codex CLI / opencode |
 
 ## Research
 
