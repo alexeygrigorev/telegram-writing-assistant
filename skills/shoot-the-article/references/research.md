@@ -197,7 +197,7 @@ Bring 3-5 angles back to Alexey, each like this:
 
 **Thesis (1 sentence):** {The argument the article makes.}
 
-**Best template:** {Practical Workflow / Strategic Essay + Framework / Concepts Explainer / Tool Teardown}
+**Best template:** {Build Log / Practical Workflow / Argument Essay / Tool Teardown}
 
 **Why it's hot:** {The concrete recent event/post/research/model release that makes it timely, phrased as the *debate* it triggered. Link 1-2 sources.}
 

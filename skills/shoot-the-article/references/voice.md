@@ -73,20 +73,15 @@ Every article opens with a hook. Three flavors that work:
 - **A relatable, specific moment** (stated, not asked).
   > "Most of us have shipped an LLM feature that worked perfectly in the notebook and fell apart in production. The difference between those two outcomes is evaluation."
 
-### Extended metaphors
+### No bold, no italics, metaphor only if it's earned
 
-Aim for **one strong extended metaphor per essay-style article**, built across 2-3 paragraphs, not a one-line garnish. The metaphor is the spine, not a decoration.
+The real corpus almost never uses bold or italic in body text, and metaphor is almost entirely absent from it. Don't bold a thesis line, don't bold key phrases or tool names, and don't italicize terms on first use. Emphasis comes from sentence position and paragraph isolation instead, a one-sentence paragraph does the work bold would otherwise do.
 
-### Bolded thesis line
+Don't force an extended metaphor into every piece. The rare metaphors that do appear are homely and cashed out immediately ("grading its own homework", a README as "your landing page"), not built across paragraphs as the spine of the essay. If a piece doesn't produce a natural one, skip it.
 
-Place **one bolded sentence near the middle** of the article. The line you'd quote on a slide.
-- "**Evaluation is not the last step before shipping. It's the first step of design.**"
-- "**The bottleneck in production LLM systems is rarely the model. It's the pipeline around it.**"
-
-### Bolded short phrases and italics
-
-- **Bold** short chunks (3-8 words) on key concepts and tool names on first mention. Never bold whole sentences except the thesis line.
-- *Italics* for technical terms on first definition (*retrieval-augmented generation*, *semantic search*, *quantization*), and brief quoted "signal" lines.
+Instead of a bolded thesis line, land the thesis as a plain short sentence, often its own one-sentence paragraph, the same way the rest of the piece delivers a verdict:
+- "Evaluation is not the last step before shipping. It's the first step of design."
+- "The bottleneck in production LLM systems is rarely the model. It's the pipeline around it."
 
 ### Understated humor
 
@@ -148,7 +143,7 @@ Default depth is a **deep dive (~1,800-2,400 words)**. Other targets:
 2. Any rhetorical questions? Rewrite as statements.
 3. Any "not X, but Y" / "more than just X" patterns? Rewrite.
 4. Any hype words or stock openings? Replace with concrete language.
-5. Is there a hook in the opening, and a bolded thesis-like line somewhere in an essay piece?
+5. Is there a hook in the opening, and a plain (unbolded) thesis-like sentence, isolated in its own short paragraph, somewhere in an essay piece?
 6. Are sentence lengths varied?
 7. Is every stat, tool, person, benchmark, and claim linked to a real source (or flagged `[VERIFY]`)?
 8. Are code snippets (if any) correct, runnable or at least structurally accurate, and explained?
