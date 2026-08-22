@@ -26,7 +26,7 @@ Repository-wide indexes and long-running collections with special underscore-pre
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
-| [Substack Archive Index](_substack-archive-index.md) | draft | 2026-08-08 | Lookup table of all published Substack posts (title, description, URL), used to insert direct links to things Alexey has already shared |
+| [Substack Archive Index](_substack-archive-index.md) | draft | 2026-08-22 | Lookup table of all published Substack posts (title, description, URL), used to insert direct links to things Alexey has already shared |
 | [Interesting Resources](_interesting-resources.md) | draft | 2026-07-13 | Curated collection of tools, resources, and project ideas for the newsletter |
 | [Weekly Log](_weekly-log.md) | draft | 2026-07-09 | Running log of what was done each week. Topics with their own dedicated article appear as short summaries with links; smaller items stay inline |
 

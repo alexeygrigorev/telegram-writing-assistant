@@ -1,7 +1,7 @@
 ---
 title: "Substack Archive Index"
 created: 2026-05-16
-updated: 2026-08-08
+updated: 2026-08-22
 tags: [reference, index]
 status: draft
 ---
@@ -21,6 +21,9 @@ When processing a message where I refer back to something I already shared, scan
 
 | Date | Title | URL | Description |
 |------|-------|-----|-------------|
+| 2026-08-18 | DevOps and Observability for an AI-Built App | https://aishippingblog.com/p/devops-and-observability-for-an-ai | Fourth article in the AI Dev Tools Zoomcamp series, on dev/prod environments, a container repository, and an observability stack (OpenTelemetry, OTel Collectors, metrics) for the AI System Design Canvas app, plus alerting and an on-call rotation. |
+| 2026-08-14 | How to Do Evals in 2026 | https://aishippingblog.com/p/how-to-do-evals-in-2026 | A tool-agnostic framework for evaluating AI agents: building a gold standard dataset from vibe-checking and logs, creating and aligning a judge.md judge, breaking the agent with QA-style equivalence partitioning and boundary testing, generating synthetic data, online evaluation with a live dashboard, and multiple judges (task completion, correctness, groundedness, completeness, instruction-following, trajectory). Ends with a full evaluation checklist. |
+| 2026-08-10 | Deploy a Full-Stack App with AI Coding Assistants | https://aishippingblog.com/p/deploy-a-full-stack-app-with-ai-coding | Third article in the AI Dev Tools Zoomcamp series, taking the AI System Design Canvas app from the previous article to production: containerization, switching from SQLite to Postgres, Docker Compose, integration and end-to-end tests, deploying to AWS, and CI/CD with GitHub Actions. |
 | 2026-08-08 | Getting an AI Engineering Job | https://aishippingblog.com/p/getting-an-ai-engineering-job | The 2020 data science job-search algorithm (network, apply, build, interview, repeat) updated for AI engineering, plus a stage-by-stage breakdown of the interview process derived from 1,765 AI Engineer job descriptions: recruiter call, salary expectations, hiring manager interview, theoretical questions, coding screening, home assignments, case studies, system design and AI system design, and behavioral questions. Links to the portfolio project and README guides. |
 | 2026-08-03 | Build and Ship a Full-Stack App with AI Coding Assistants | https://aishippingblog.com/p/build-and-ship-a-full-stack-app-with | Second article in the AI Dev Tools Zoomcamp series, building the AI System Design Canvas app (repository interview-canvas-share) end to end: spec via ChatGPT dictation, React frontend generated with Lovable behind a mocked service layer, an openapi.yaml contract, a FastAPI backend with WebSocket rooms, and persistence with SQLite and SQLAlchemy. Based on the AI Shipping Labs full-day workshop Build and Deploy a Full-Stack App with AI Coding Assistants; deployment is left to the next article. |
 | 2026-08-01 | (Re)Building a FAQ System for DataTalks.Club | https://aishippingblog.com/p/rebuilding-a-faq-system-for-datatalksclub | How the DataTalks.Club FAQ assistant was taken over from Alex Litvinov's ZoomcampQABot (OpenAI, Fly.io, HuggingFace, Milvus on Zilliz, Cohere, Upstash Redis, LangSmith) and rebuilt on serverless AWS Lambda alongside the Au-Tomator Slack bot. Covers the FAQ curation dataset in DataTalksClub/faq, user-contributed records and bulk reviewing, Slack and YouTube sources, zero-dependency serverless retrieval, keeping the index fresh, and retrieval and generation evaluations. |
