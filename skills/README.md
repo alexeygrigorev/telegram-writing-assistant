@@ -1,6 +1,6 @@
 # Reference Skills
 
-Saved Claude skills kept as reference examples - how other people structure a skill for researching topics and turning them into content. Not active skills for this repo's bot; they live here so we can study the patterns and reuse them later.
+Skills kept here as reference examples for content workflows. Most were saved from other people's packaged skills to study their patterns; `recap-the-series` is one we authored ourselves after actually running the workflow once. Not active skills for this repo's bot - they live here so we can study and reuse the patterns later.
 
 ## shoot-the-article
 
@@ -15,3 +15,11 @@ Contents:
 - `references/voice.md` - banned patterns, positive signatures, the signoff and CTA, a pre-delivery self-check
 - `references/structure.md` - the four article templates with word counts and annotated scaffolds
 - `references/social.md` - teaser and announcement social post templates for LinkedIn, X, and Threads
+
+## recap-the-series
+
+A skill for drafting a condensed "recap"/"intro" article that summarizes an existing multi-part series - written after actually doing this for the *AI Dev Tools Zoomcamp* series' Article 0. The first attempt regenerated the series' content from scratch and read as generic; the rework that worked instead copies the source articles' real prompts verbatim, flags what needs to change (app-specific vs. tool/stack-specific), builds the draft as a bullets-plus-transitions skeleton before any prose, and only then hands it to a pinned-model rewrite pass via the `prose-write` subprocess pattern.
+
+Contents:
+
+- `SKILL.md` - the full workflow: copy-don't-regenerate, the two axes of "does this need to change," filling tool-choice gaps, the bullets/transitions skeleton, choosing a new running example, and the final prose handoff (including a real failure mode to avoid: never let the rewrite subprocess write the target file directly)
