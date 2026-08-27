@@ -1,0 +1,148 @@
+{
+  "title": "How aplexer separates sessions",
+  "description": "aplexer routes one client into independent session workers, so each worker owns one PTY and optional workload cgroup and one session can fail without taking the others with it.",
+  "style": "default",
+  "canvas": {
+    "width": 1440,
+    "height": 530,
+    "background": "#ffffff"
+  },
+  "layout": {
+    "type": "manual",
+    "card_width": 220,
+    "card_height": 86
+  },
+  "nodes": [
+    {
+      "id": "client",
+      "title": "a / Python client",
+      "subtitle": "lookup + control",
+      "color": "purple",
+      "icon": "workflow",
+      "x": 610,
+      "y": 25
+    },
+    {
+      "id": "worker_a",
+      "title": "Session worker A",
+      "subtitle": "private socket · PTY · lifecycle",
+      "color": "blue",
+      "icon": "container",
+      "x": 140,
+      "y": 245
+    },
+    {
+      "id": "workload_a",
+      "title": "Workload A",
+      "subtitle": "agent or shell · optional cgroup",
+      "color": "blue",
+      "icon": "robot",
+      "x": 140,
+      "y": 365
+    },
+    {
+      "id": "worker_b",
+      "title": "Session worker B",
+      "subtitle": "private socket · PTY · lifecycle",
+      "color": "red",
+      "icon": "container",
+      "x": 610,
+      "y": 245
+    },
+    {
+      "id": "workload_b",
+      "title": "Workload B",
+      "subtitle": "agent or shell · can OOM",
+      "color": "red",
+      "icon": "robot",
+      "x": 610,
+      "y": 365
+    },
+    {
+      "id": "worker_c",
+      "title": "Session worker C",
+      "subtitle": "private socket · PTY · lifecycle",
+      "color": "green",
+      "icon": "container",
+      "x": 1080,
+      "y": 245
+    },
+    {
+      "id": "workload_c",
+      "title": "Workload C",
+      "subtitle": "agent or shell · optional cgroup",
+      "color": "green",
+      "icon": "robot",
+      "x": 1080,
+      "y": 365
+    },
+    {
+      "id": "session_a_boundary",
+      "title": "Session A",
+      "variant": "boundary",
+      "x": 80,
+      "y": 180,
+      "width": 340,
+      "height": 310
+    },
+    {
+      "id": "session_b_boundary",
+      "title": "Session B",
+      "variant": "boundary",
+      "x": 550,
+      "y": 180,
+      "width": 340,
+      "height": 310
+    },
+    {
+      "id": "session_c_boundary",
+      "title": "Session C",
+      "variant": "boundary",
+      "x": 1020,
+      "y": 180,
+      "width": 340,
+      "height": 310
+    }
+  ],
+  "edges": [
+    {
+      "from": "client",
+      "to": "worker_a",
+      "route": "orthogonal",
+      "from_anchor": "bottom",
+      "to_anchor": "top"
+    },
+    {
+      "from": "client",
+      "to": "worker_b",
+      "from_anchor": "bottom",
+      "to_anchor": "top"
+    },
+    {
+      "from": "client",
+      "to": "worker_c",
+      "route": "orthogonal",
+      "from_anchor": "bottom",
+      "to_anchor": "top"
+    },
+    {
+      "from": "worker_a",
+      "to": "workload_a",
+      "from_anchor": "bottom",
+      "to_anchor": "top"
+    },
+    {
+      "from": "worker_b",
+      "to": "workload_b",
+      "from_anchor": "bottom",
+      "to_anchor": "top",
+      "color": "red"
+    },
+    {
+      "from": "worker_c",
+      "to": "workload_c",
+      "from_anchor": "bottom",
+      "to_anchor": "top"
+    }
+  ]
+}

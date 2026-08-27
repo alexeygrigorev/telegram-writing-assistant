@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1360" height="650" viewBox="0 0 1360 650" role="img" aria-labelledby="title desc">
+  <title id="title">How tmux keeps terminal work alive</title>
+  <desc id="desc">tmux keeps several persistent terminal programs behind one shared server, so clients can disconnect and reconnect to the same session.</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+    <marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#7c3aed"/></marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#2563eb"/></marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#c2410c"/></marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#15803d"/></marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#dc2626"/></marker>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#64748b"/></marker>
+    <symbol id="icon-container" viewBox="0 0 24 24">
+        <rect x="2" y="5" width="20" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="M7 5v14M12 5v14M17 5v14" fill="none" stroke="currentColor" stroke-width="2"/>
+      </symbol>
+    <symbol id="icon-database" viewBox="0 0 24 24">
+        <ellipse cx="12" cy="5" rx="8" ry="3" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="M4 5v7c0 1.66 3.58 3 8 3s8-1.34 8-3V5M4 12v7c0 1.66 3.58 3 8 3s8-1.34 8-3v-7" fill="none" stroke="currentColor" stroke-width="2"/>
+      </symbol>
+    <symbol id="icon-observability" viewBox="0 0 24 24">
+        <rect x="2" y="3" width="17" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/>
+        <path d="M6 13v-3M10 13V7M14 13V9M7 21h7M10.5 17v4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        <circle cx="18" cy="15" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/>
+        <circle cx="18" cy="15" r="1" fill="currentColor"/>
+        <path d="m21 18 2 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </symbol>
+    <symbol id="icon-robot" viewBox="0 0 24 24">
+        <path d="M12 5V2.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        <circle cx="12" cy="2.5" r="1" fill="currentColor"/>
+        <rect x="4" y="5" width="16" height="15" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/>
+        <path d="M4 10H2.5v5H4M20 10h1.5v5H20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="9" cy="11" r="1.3" fill="currentColor"/>
+        <circle cx="15" cy="11" r="1.3" fill="currentColor"/>
+        <path d="M8.5 16h7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </symbol>
+    <symbol id="icon-websocket" viewBox="0 0 24 24">
+        <path d="M4 7a8 8 0 0 1 12.8-2.1M20 17a8 8 0 0 1-12.8 2.1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="m14 3 3 2-2 3M10 21l-3-2 2-3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M8.5 9 6 12l2.5 3M15.5 9l2.5 3-2.5 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+    <symbol id="icon-workflow" viewBox="0 0 24 24">
+        <path d="M4 11A8.5 8.5 0 0 1 19.5 8.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M19.5 4.5v4h-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M20 13A8.5 8.5 0 0 1 4.5 15.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M4.5 19.5v-4h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+    <style>
+      text { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #172033; }
+      symbol [stroke] { vector-effect: non-scaling-stroke; }
+      .node rect { stroke-width: 2; }
+      .node-boundary rect { stroke-width: 2; stroke-dasharray: 8 8; }
+      .boundary-title { font-size: 16px; font-weight: 750; text-anchor: start; }
+      .node-title { font-weight: 750; text-anchor: middle; }
+      .node-title.icon-copy { text-anchor: start; }
+      .node-subtitle { font-weight: 500; fill: #475569; text-anchor: middle; }
+      .eyebrow { font-weight: 750; letter-spacing: 1px; fill: #475569; text-anchor: middle; }
+      .mention-icon { font-size: 27px; font-weight: 750; text-anchor: middle; }
+      .standalone-mention { font-size: 52px; font-weight: 750; text-anchor: middle; }
+      .icon-node-title { font-size: 16px; font-weight: 750; text-anchor: middle; }
+      .edge { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+      .edge-label rect { stroke-width: 2; }
+      .edge-label text { font-size: 14px; font-weight: 750; text-anchor: middle; dominant-baseline: central; }
+      .divider { stroke: #cbd5e1; stroke-width: 2; stroke-dasharray: 6 8; stroke-linecap: round; }
+      .center-annotation { fill: #f1f5f9; stroke: none; }
+      .center-title { font-weight: 800; letter-spacing: 0.08em; fill: #334155; text-anchor: middle; }
+      .center-detail { font-weight: 600; fill: #475569; text-anchor: middle; }
+    </style>
+  </defs>
+  <rect width="1360" height="650" fill="#ffffff"/>
+
+  <g class="node-boundary node-blue" transform="translate(480 35)">
+    <rect width="850" height="545" rx="22" fill="none" stroke="#2563eb"/>
+    <text class="boundary-title" x="20" y="31">One shared tmux server</text>
+  </g>
+  <path class="edge" d="M250 325L285 325" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge-boundary-halo" d="M505 325H520V138H535" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path class="edge" d="M505 325H520V138H535" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M645 181L645 275" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M755 318L800 318" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M1020 318L1065 318" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M1175 361L1175 430" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+
+  <g class="node node-blue" transform="translate(30 282)" filter="url(#shadow)">
+    <rect width="220" height="86" rx="18" fill="#eff6ff" stroke="#2563eb"/>
+    <use href="#icon-workflow" x="16" y="2" width="34" height="34" color="#2563eb"/>
+    <text class="node-title icon-copy" x="62" y="22.96" font-size="11">Terminal client</text>
+    <text class="node-subtitle" x="110" y="57" font-size="16">SSH or local terminal ·</text>
+    <text class="node-subtitle" x="110" y="79" font-size="16">detachable view</text>
+  </g>
+  <g class="node node-gray" transform="translate(285 282)" filter="url(#shadow)">
+    <rect width="220" height="86" rx="18" fill="#f8fafc" stroke="#64748b"/>
+    <use href="#icon-websocket" x="16" y="2" width="34" height="34" color="#64748b"/>
+    <text class="node-title icon-copy" x="62" y="22.96" font-size="11">Unix socket</text>
+    <text class="node-subtitle" x="110" y="57" font-size="16">commands + terminal</text>
+    <text class="node-subtitle" x="110" y="79" font-size="16">I/O</text>
+  </g>
+  <g class="node node-purple" transform="translate(535 95)" filter="url(#shadow)">
+    <rect width="220" height="86" rx="18" fill="#f5f3ff" stroke="#7c3aed"/>
+    <use href="#icon-container" x="16" y="2" width="34" height="34" color="#7c3aed"/>
+    <text class="node-title icon-copy" x="62" y="22.96" font-size="11">tmux server</text>
+    <text class="node-subtitle" x="110" y="57" font-size="16">shared long-lived</text>
+    <text class="node-subtitle" x="110" y="79" font-size="16">owner</text>
+  </g>
+  <g class="node node-blue" transform="translate(535 275)" filter="url(#shadow)">
+    <rect width="220" height="86" rx="18" fill="#eff6ff" stroke="#2563eb"/>
+    <use href="#icon-database" x="16" y="2" width="34" height="34" color="#2563eb"/>
+    <text class="node-title icon-copy" x="62" y="22.96" font-size="11">Session</text>
+    <text class="node-subtitle" x="110" y="57" font-size="16">survives client</text>
+    <text class="node-subtitle" x="110" y="79" font-size="16">disconnect</text>
+  </g>
+  <g class="node node-blue" transform="translate(800 275)" filter="url(#shadow)">
+    <rect width="220" height="86" rx="18" fill="#eff6ff" stroke="#2563eb"/>
+    <use href="#icon-workflow" x="16" y="13" width="34" height="34" color="#2563eb"/>
+    <text class="node-title icon-copy" x="62" y="33.96" font-size="11">Windows</text>
+    <text class="node-subtitle" x="110" y="68" font-size="16">linked into sessions</text>
+  </g>
+  <g class="node node-amber" transform="translate(1065 275)" filter="url(#shadow)">
+    <rect width="220" height="86" rx="18" fill="#fff7ed" stroke="#c2410c"/>
+    <use href="#icon-observability" x="16" y="13" width="34" height="34" color="#c2410c"/>
+    <text class="node-title icon-copy" x="62" y="33.96" font-size="11">Panes</text>
+    <text class="node-subtitle" x="110" y="68" font-size="16">one PTY per pane</text>
+  </g>
+  <g class="node node-green" transform="translate(1065 430)" filter="url(#shadow)">
+    <rect width="220" height="86" rx="18" fill="#ecfdf5" stroke="#15803d"/>
+    <use href="#icon-robot" x="16" y="13" width="34" height="34" color="#15803d"/>
+    <text class="node-title icon-copy" x="62" y="33.96" font-size="11">PTY-backed workload</text>
+    <text class="node-subtitle" x="110" y="68" font-size="16">shell, agent, or process</text>
+  </g>
+</svg>

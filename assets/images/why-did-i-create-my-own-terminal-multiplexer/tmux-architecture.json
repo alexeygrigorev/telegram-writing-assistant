@@ -1,0 +1,122 @@
+{
+  "title": "How tmux keeps terminal work alive",
+  "description": "tmux keeps several persistent terminal programs behind one shared server, so clients can disconnect and reconnect to the same session.",
+  "style": "default",
+  "canvas": {
+    "width": 1360,
+    "height": 650,
+    "background": "#ffffff"
+  },
+  "layout": {
+    "type": "manual",
+    "card_width": 220,
+    "card_height": 86
+  },
+  "nodes": [
+    {
+      "id": "client",
+      "title": "Terminal client",
+      "subtitle": "SSH or local terminal · detachable view",
+      "color": "blue",
+      "icon": "workflow",
+      "x": 30,
+      "y": 282
+    },
+    {
+      "id": "socket",
+      "title": "Unix socket",
+      "subtitle": "commands + terminal I/O",
+      "color": "gray",
+      "icon": "websocket",
+      "x": 285,
+      "y": 282
+    },
+    {
+      "id": "server",
+      "title": "tmux server",
+      "subtitle": "shared long-lived owner",
+      "color": "purple",
+      "icon": "container",
+      "x": 535,
+      "y": 95
+    },
+    {
+      "id": "session",
+      "title": "Session",
+      "subtitle": "survives client disconnect",
+      "color": "blue",
+      "icon": "database",
+      "x": 535,
+      "y": 275
+    },
+    {
+      "id": "window",
+      "title": "Windows",
+      "subtitle": "linked into sessions",
+      "color": "blue",
+      "icon": "workflow",
+      "x": 800,
+      "y": 275
+    },
+    {
+      "id": "pane",
+      "title": "Panes",
+      "subtitle": "one PTY per pane",
+      "color": "amber",
+      "icon": "observability",
+      "x": 1065,
+      "y": 275
+    },
+    {
+      "id": "workload",
+      "title": "PTY-backed workload",
+      "subtitle": "shell, agent, or process",
+      "color": "green",
+      "icon": "robot",
+      "x": 1065,
+      "y": 430
+    },
+    {
+      "id": "server_boundary",
+      "title": "One shared tmux server",
+      "variant": "boundary",
+      "x": 480,
+      "y": 35,
+      "width": 850,
+      "height": 545
+    }
+  ],
+  "edges": [
+    {
+      "from": "client",
+      "to": "socket"
+    },
+    {
+      "from": "socket",
+      "to": "server",
+      "route": "orthogonal",
+      "from_anchor": "right",
+      "to_anchor": "left"
+    },
+    {
+      "from": "server",
+      "to": "session",
+      "from_anchor": "bottom",
+      "to_anchor": "top"
+    },
+    {
+      "from": "session",
+      "to": "window"
+    },
+    {
+      "from": "window",
+      "to": "pane"
+    },
+    {
+      "from": "pane",
+      "to": "workload",
+      "from_anchor": "bottom",
+      "to_anchor": "top"
+    }
+  ]
+}

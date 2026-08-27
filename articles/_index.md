@@ -120,6 +120,14 @@ Recorded content, project, and workflow ideas for later development.
 | [Pet Projects](ideas/projects/pet-projects.md) | draft | 2026-02-28 | Karpathy's advice on becoming an expert through depth-first projects, teaching, and self-comparison |
 | [AI Agent Project Ideas](ideas/projects/agent-project-ideas.md) | draft | 2026-02-26 | Collection of AI agent project ideas for AI Buildcamp students: GitHub issue bot, idea generator, job analytics, knowledge management, journaling |
 
+## Work in Progress
+
+Articles currently being developed from a researched outline.
+
+| Title | Status | Last Updated | Description |
+|-------|--------|--------------|-------------|
+| [Why Did I Create My Own Terminal Multiplexer?](work-in-progress/why-did-i-create-my-own-terminal-multiplexer.md) | draft | 2026-08-27 | Why tmux's persistent terminal model stopped matching an agent-heavy workflow, and how aplexer uses identified sessions, per-session workers, and Rust |
+
 ## Testimonials
 
 Testimonial collections grouped by program.
