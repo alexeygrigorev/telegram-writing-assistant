@@ -1,7 +1,7 @@
 ---
 title: "AI-Assisted Automation Course Idea"
 created: 2026-01-29
-updated: 2026-01-29
+updated: 2026-08-28
 tags: [course-idea, ai-assisted, automation, claude, copilot]
 status: draft
 ---
@@ -49,6 +49,20 @@ There are multiple reasons for preferring paid courses:
 
 This is a brainstorm/braindump format - some ideas may be developed further, others may not be suitable for publishing[^2].
 
+## Target Audience: Business People, Not Engineers
+
+Hugo pointed out that engineers are not the highest-paying audience. They typically do not control budgets. Hamel Husain's course targets PMs and product managers who can spend more on courses because they manage budgets directly[^3].
+
+The current course is designed for engineers. A better focus might be business people who need to automate their processes. They have more money and can spend it on courses[^3].
+
+This aligns with real experience. DataTalks.Club runs on automated business processes. The entire business was built from scratch with documented, automated workflows. That is practical knowledge to share: how to automate business processes with AI, using Codex, Claude Code, and similar tools[^3].
+
+A recent interview reinforced this direction. The interviewer's company automates business processes for clients. The course could target more technically-minded founders who want to figure this out and do it themselves rather than hiring an agency. The course would walk them through everything in detail[^3].
+
+The course could be small but priced high. It is worth trying on Maven to see how people react. The existing audience is not the ideal match, but Maven might surface business people who are looking for exactly this kind of course[^3].
+
+This could also be a path to consulting: helping business people automate their processes one on one after they go through the course material[^3].
+
 ## Sources
 
 - [20260129_173919_AlexeyDTC_msg653_transcript.txt](../../../inbox/used/20260129_173919_AlexeyDTC_msg653_transcript.txt)
@@ -56,3 +70,4 @@ This is a brainstorm/braindump format - some ideas may be developed further, oth
 
 [^1]: [20260129_173919_AlexeyDTC_msg653_transcript.txt](../../../inbox/used/20260129_173919_AlexeyDTC_msg653_transcript.txt)
 [^2]: [20260129_174124_AlexeyDTC_msg654_transcript.txt](../../../inbox/used/20260129_174124_AlexeyDTC_msg654_transcript.txt)
+[^3]: [20260827_103955_AlexeyDTC_msg4882_transcript.txt](../../../inbox/used/20260827_103955_AlexeyDTC_msg4882_transcript.txt)

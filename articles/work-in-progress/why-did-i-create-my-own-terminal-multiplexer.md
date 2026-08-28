@@ -1,7 +1,7 @@
 ---
 title: "Why Did I Create My Own Terminal Multiplexer?"
 created: 2026-08-27
-updated: 2026-08-27
+updated: 2026-08-28
 tags: [aplexer, tmux, rust, coding-agents, terminal-multiplexer]
 status: draft
 ---
@@ -131,6 +131,30 @@ tmux has one shared server because that's a good way to manage a coherent collec
 The fifth mismatch was coordination. Sending bytes to a selected pane is useful, but it doesn't give agents a durable mailbox or a way to recover their identity. I wanted communication addressable by workspace, tag, and engine rather than by whatever layout happened to be visible.
 
 None of these are defects in tmux. I could build conventions, scripts, hooks, and plugins around tmux to cover some of them. I wanted to make the new assumptions part of the runtime.
+
+## What happens when the shared server goes down
+
+The failure-boundary mismatch isn't theoretical. Here is one incident[^3].
+
+I had about 10 sessions running, each with one to five agents. Everything collapsed at once. No warning, no clear cause. Even though each session ran in its own worktree, the crash still reached the main tmux server. Some sessions could be picked up and continued after the server restarted, but others disappeared entirely. Recovery was slow and not always possible[^3].
+
+The root cause turned out to be a graphical XRDP/XFCE session. At 15:56, session `c1` requested the user systemd manager to enter `exit.target`. That instruction means "shut down the entire user service manager," so systemd deliberately stopped every `tmuxctl-server-*` service and every `tmuxctl-*.scope` containing shells and agents[^4].
+
+<figure>
+  <img src="../../assets/images/why-did-i-create-my-own-terminal-multiplexer/systemd-orderly-shutdown-diagnosis.jpg" alt="Diagnostic log showing tmux servers were not OOM-killed but stopped by an orderly systemd shutdown">
+  <figcaption>Initial diagnosis: the tmux servers were not OOM-killed. The user systemd manager performed an orderly shutdown at 15:57.</figcaption>
+  <!-- First diagnostic showing the shutdown was orderly, not resource-related -->
+</figure>
+
+This was not OOM. There were no OOM events. The journal showed an orderly shutdown. The exact executable that requested it was not recorded because audit logging was insufficient. The evidence pointed to the graphical logout path, but it was not possible to prove whether it was a manual logout or an XFCE/XRDP component[^5].
+
+<figure>
+  <img src="../../assets/images/why-did-i-create-my-own-terminal-multiplexer/x11-session-exit-root-cause.jpg" alt="Root cause analysis showing X11 session c1 requested exit.target, causing systemd to stop all tmux services">
+  <figcaption>Root cause: the graphical X11 session requested exit.target and systemd stopped all tmux services, scopes, and agents.</figcaption>
+  <!-- Second diagnostic identifying the X11 session as the trigger -->
+</figure>
+
+A completely unrelated thing destroyed every tmux session[^6]. That is the shared-server failure boundary in practice. With aplexer, no single event can bring down all sessions because each session runs its own worker process.
 
 ## The model I wanted
 
@@ -323,3 +347,10 @@ tmux models persistent terminal topology. Its shared server keeps a hierarchy of
 My workflow needed a runtime that modeled an identified agent session. It needed workspace, engine, profile, and resource-boundary metadata. It also needed observable state and session-to-session coordination.
 
 aplexer is my smaller, more specialized, Linux-specific attempt to make that model explicit, and it's still evolving. I don't think everyone should replace tmux. I built it because a familiar tool can solve the old problem so well that a changed workflow reveals a new one.
+
+## Sources
+
+[^3]: [20260827_140101_AlexeyDTC_msg4884_transcript.txt](../../inbox/used/20260827_140101_AlexeyDTC_msg4884_transcript.txt)
+[^4]: [20260827_140547_AlexeyDTC_msg4888_photo.md](../../inbox/used/20260827_140547_AlexeyDTC_msg4888_photo.md)
+[^5]: [20260827_140438_AlexeyDTC_msg4886_photo.md](../../inbox/used/20260827_140438_AlexeyDTC_msg4886_photo.md)
+[^6]: [20260827_140605_AlexeyDTC_msg4890.md](../../inbox/used/20260827_140605_AlexeyDTC_msg4890.md)

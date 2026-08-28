@@ -44,6 +44,7 @@ Community strategy, platform notes, member research, plans, workshops, and cours
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [AI-Assisted Automation Course Idea](ai-shipping-labs/content/ai-assisted-automation-course-idea.md) | draft | 2026-08-28 | Concept for a paid course on AI-assisted automation |
 | [AI Shipping Labs Content Plan](ai-shipping-labs/ai-shipping-labs-content-plan.md) | draft | 2026-08-03 | Gap analysis of the current workshop catalog, a repackaging of the existing sessions into six courses, and the next eight workshops to run |
 | [Mini-Course Proposal: LLM Wikis as Agent Memory](ai-shipping-labs/content/llm-wikis-agent-memory-mini-course.md) | draft | 2026-07-31 | Vendor-neutral 90-minute mini-course with theory, a reusable wiki skill, two demos, fit boundaries and a two-part publishing plan |
 | [AI Shipping Labs Course Ideas](ai-shipping-labs/content/courses.md) | draft | 2026-07-30 | Course and workshop ideas for the community, with the member requests behind them. |
@@ -60,7 +61,6 @@ Community strategy, platform notes, member research, plans, workshops, and cours
 | [AI Shipping Labs - Target Personas](ai-shipping-labs/personas.md) | draft | 2026-03-21 | Target personas used to understand and support AI Shipping Labs members. |
 | [Python Primer Course Idea](ai-shipping-labs/content/python-primer-course-idea.md) | draft | 2026-03-05 | Paid Python prerequisite course for AI Engineering and Zoomcamps - "Python for AI Engineering" with podcast aggregator project |
 | [Multi-Agent Patterns for the Course](ai-shipping-labs/content/multi-agent-patterns-course.md) | draft | 2026-02-22 | Multi-agent patterns for the AI Buildcamp course module: evaluation, subagent, planner-executor, orchestration |
-| [AI-Assisted Automation Course Idea](ai-shipping-labs/content/ai-assisted-automation-course-idea.md) | draft | 2026-01-29 | Concept for a paid course on AI-assisted automation |
 | [Testing Workshop Idea](ai-shipping-labs/content/testing-workshop-idea.md) | draft | - | Workshop idea covering practical software testing foundations. |
 | [AI Shipping Labs User Interviews](ai-shipping-labs/interviews/_index.md) | draft | - | Index of individual AI Shipping Labs member interviews and persona assignments. |
 | [AI Shipping Labs Personalized Plans](ai-shipping-labs/plans/_index.md) | draft | - | Index of personalized learning and sprint plans for AI Shipping Labs members. |
@@ -126,7 +126,7 @@ Articles currently being developed from a researched outline.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
-| [Why Did I Create My Own Terminal Multiplexer?](work-in-progress/why-did-i-create-my-own-terminal-multiplexer.md) | draft | 2026-08-27 | Why tmux's persistent terminal model stopped matching an agent-heavy workflow, and how aplexer uses identified sessions, per-session workers, and Rust |
+| [Why Did I Create My Own Terminal Multiplexer?](work-in-progress/why-did-i-create-my-own-terminal-multiplexer.md) | draft | 2026-08-28 | Why tmux's persistent terminal model stopped matching an agent-heavy workflow, and how aplexer uses identified sessions, per-session workers, and Rust |
 
 ## Testimonials
 
