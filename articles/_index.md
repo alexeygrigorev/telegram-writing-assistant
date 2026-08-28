@@ -153,6 +153,7 @@ Articles drafted by Clo from topic research and voice templates.
 | [Everyone Runs Agents Now. 41% of Them Break Every Day.](claw-drafts/state-of-agents-2026.md) | draft | 2026-08-28 | Data essay (~1,800 words). Temporal survey: adoption vs reliability gap, cross-checked, four-metric dashboard |
 | [The SaaSpocalypse Is Real. So Is the Maintenance Bill.](claw-drafts/saaspocalypse.md) | draft | 2026-08-28 | Strategic Essay (~1,650 words). Rebuild wave vs maintenance bill, three-gate Rebuild Filter |
 | [Context That Improves Itself](claw-drafts/self-improving-context.md) | draft | 2026-08-28 | Concepts Explainer (~1,800 words). ACE, Meta-Harness, memory wave, self-improvement ladder |
+| [The Open-Source AI CEO: A Joke That Ships](claw-drafts/open-executive.md) | draft | 2026-08-28 | Tool Teardown lite (~1,500 words). OpenExecutive teardown + delegation ladder |
 
 ## Research
 
