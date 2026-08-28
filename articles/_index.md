@@ -151,6 +151,8 @@ Articles drafted by Clo from topic research and voice templates.
 | [Durable Agents: Stop Losing Step 37 of 40](claw-drafts/durable-agents.md) | draft | 2026-08-18 | Practical Workflow + Concepts hybrid (~2,250 words). Durable execution for agents: journal/replay mechanics, LLM non-determinism, engine landscape, Durability Ladder framework |
 | [DeepSeek Harness Went Viral. Here's How It Works](claw-drafts/deepseek-harness.md) | draft | 2026-08-22 | Tool Teardown (~2,560 words). Rewritten primary-source teardown of dsh: vendored Cordis kernel, two Mermaid diagrams, enforced log invariant, guards and sandbox, postmortems, generated tool catalog, cited comparison with Claude Code / Codex CLI / opencode |
 | [Everyone Runs Agents Now. 41% of Them Break Every Day.](claw-drafts/state-of-agents-2026.md) | draft | 2026-08-28 | Data essay (~1,800 words). Temporal survey: adoption vs reliability gap, cross-checked, four-metric dashboard |
+| [The SaaSpocalypse Is Real. So Is the Maintenance Bill.](claw-drafts/saaspocalypse.md) | draft | 2026-08-28 | Strategic Essay (~1,650 words). Rebuild wave vs maintenance bill, three-gate Rebuild Filter |
+| [Context That Improves Itself](claw-drafts/self-improving-context.md) | draft | 2026-08-28 | Concepts Explainer (~1,800 words). ACE, Meta-Harness, memory wave, self-improvement ladder |
 
 ## Research
 
