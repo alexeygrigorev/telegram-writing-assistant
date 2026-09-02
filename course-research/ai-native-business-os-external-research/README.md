@@ -29,14 +29,14 @@ Coverage:
 
 ## Alternative-course and instructor research
 
-- [Complete readable research report](10-alternative-courses-public-research-complete.md) — competitor comparison, instructor footprints, public frameworks, source summaries, unified free curriculum and Alexey differentiation opportunities
-- `ai-operations-public-research-dossier.xlsx` — structured workbook with a filterable course map, instructor footprints, a 104-source library, framework crosswalk, self-study curriculum and white-space analysis
+- [Complete readable research report](10-alternative-courses-public-research-complete.md) — comparison of nine offers, instructor footprints, public frameworks and materials, course-by-course overlap, a ten-stage free self-study curriculum and Alexey differentiation opportunities
+- [Framework coverage crosswalk](11-framework-crosswalk.md) — public curriculum emphasis scored across thirteen dimensions
 
 Coverage:
 
 - **9 alternative courses**
 - **12 instructor or organization footprint profiles**
-- **104 indexed source entries**, including one Alexey comparison-baseline row
+- **100+ linked public materials and source pages**
 - **13 curriculum comparison dimensions**
 - **10-stage public self-study curriculum**
 - **13 premium differentiation opportunities**
@@ -49,6 +49,6 @@ Email-gated resources are indexed but not reconstructed. Paid course content is 
 
 ## How to use the pack
 
-Start with the complete readable report for the market synthesis. Use the workbook when filtering by course, instructor, source type, depth or Map/Specify/Build/Prove/Run stage. Use the original 01–09 files for independent case studies and implementation evidence outside the instructors' own channels.
+Start with the complete readable report for the market synthesis, course-by-course source library and free curriculum. Use the framework crosswalk for fast comparison. Use the original 01–09 files for independent case studies and implementation evidence outside the instructors' own channels.
 
 The central finding is that public resources can reproduce much of the conceptual and demonstration layer. They do not reproduce confidential workflow diagnosis, feedback on real systems, access debugging, implementation accountability, controlled go-live, production stabilization or organizational adoption.
