@@ -1,0 +1,10 @@
+---
+source: telegram_voice
+date: 2026-09-03T06:23:30+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260903_062330_AlexeyDTC_msg4906.ogg
+---
+
+Давай начнем статью roles in AI team, например. Это будет ребрендинг моей статьи roles in a data
+team, где я расскажу про все, что делают вообще люди в команде, в AI команде или data команде.

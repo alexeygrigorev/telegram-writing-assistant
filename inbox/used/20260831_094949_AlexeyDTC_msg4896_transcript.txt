@@ -1,0 +1,24 @@
+---
+source: telegram_voice
+date: 2026-08-31T09:49:49+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260831_094949_AlexeyDTC_msg4896.ogg
+---
+
+I'm listening to Systemology now, book Systemology. There are many good ideas that I can use for my
+course for businesses, automating your business. First one is the way he starts the book that he
+comes across an opportunity and he could step away from his business to work on this. So this is
+also my angle because whatever angle I can use is because I can have a vacation with my son, have a
+vacation for my own. So I live in Europe and in Europe, in Germany I can actually be not actively
+involved into my business for two months without losing much of the traction. So I'm still working,
+I'm still available but I'm available only 90 of like only 10 of the usual availability while my
+business still keeps running Things still keep happening and this was before even AI was a thing
+because of the systems And then another idea is systems. Yes, I can show them how I build the
+systems, how I record it, so how I go from recording a Luma screen, a screen with Luma, LUM to
+creating a process document but also I want to show them like yeah they don't really need an
+assistant who would do this because you can use AI for actually creating this process document or
+standard operating procedures SOPs right so the goal is they will have to take time they will have
+to record videos they will have to document it but that's pretty much it and now I can just show you
+how you can replace this part that you don't have an assistant you can replace this thing with a
+markdown document with an agent that can do this

@@ -44,7 +44,7 @@ Community strategy, platform notes, member research, plans, workshops, and cours
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
-| [AI-Assisted Automation Course Idea](ai-shipping-labs/content/ai-assisted-automation-course-idea.md) | draft | 2026-08-28 | Concept for a paid course on AI-assisted automation |
+| [AI-Assisted Automation Course Idea](ai-shipping-labs/content/ai-assisted-automation-course-idea.md) | draft | 2026-09-03 | Concept for a paid course on AI-assisted automation |
 | [AI Shipping Labs Content Plan](ai-shipping-labs/ai-shipping-labs-content-plan.md) | draft | 2026-08-03 | Gap analysis of the current workshop catalog, a repackaging of the existing sessions into six courses, and the next eight workshops to run |
 | [Mini-Course Proposal: LLM Wikis as Agent Memory](ai-shipping-labs/content/llm-wikis-agent-memory-mini-course.md) | draft | 2026-07-31 | Vendor-neutral 90-minute mini-course with theory, a reusable wiki skill, two demos, fit boundaries and a two-part publishing plan |
 | [AI Shipping Labs Course Ideas](ai-shipping-labs/content/courses.md) | draft | 2026-07-30 | Course and workshop ideas for the community, with the member requests behind them. |
@@ -91,6 +91,7 @@ Draft articles and talk material whose core substance has already been collected
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Roles in an AI Team](raw-articles/roles-in-ai-team.md) | draft | 2026-09-03 | Updated version of the Data Team Roles article with the AI Engineer role added |
 | [Interview Experiment](raw-articles/interview-experiment.md) | draft | 2026-08-11 | Running log of the experiment of interviewing at different companies, starting with the first interview at Deriv |
 | [Diagram Creator: Declarative SVG and PNG Workflows](raw-articles/diagram-generator.md) | complete | 2026-08-09 | How the deterministic diagram creator turns JSON specifications into editable SVG and PNG diagrams. |
 | [Stylint: Enforcing My Writing Style on AI Assistants](raw-articles/stylint.md) | draft | 2026-05-19 | Python linter (github.com/alexeygrigorev/stylint) that codifies writing-style rules as code instead of long markdown style guides, so agents stop skipping them |
