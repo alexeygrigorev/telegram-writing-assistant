@@ -44,10 +44,11 @@ Community strategy, platform notes, member research, plans, workshops, and cours
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [AI Shipping Labs Marketing and Content Strategy](ai-shipping-labs/marketing-and-content.md) | draft | 2026-09-03 | Marketing channels, funnel, lead magnets, and content strategy for the community. |
+| [AI Shipping Labs Course Ideas](ai-shipping-labs/content/courses.md) | draft | 2026-09-03 | Course and workshop ideas for the community, with the member requests behind them. |
 | [AI-Assisted Automation Course Idea](ai-shipping-labs/content/ai-assisted-automation-course-idea.md) | draft | 2026-09-03 | Concept for a paid course on AI-assisted automation |
 | [AI Shipping Labs Content Plan](ai-shipping-labs/ai-shipping-labs-content-plan.md) | draft | 2026-08-03 | Gap analysis of the current workshop catalog, a repackaging of the existing sessions into six courses, and the next eight workshops to run |
 | [Mini-Course Proposal: LLM Wikis as Agent Memory](ai-shipping-labs/content/llm-wikis-agent-memory-mini-course.md) | draft | 2026-07-31 | Vendor-neutral 90-minute mini-course with theory, a reusable wiki skill, two demos, fit boundaries and a two-part publishing plan |
-| [AI Shipping Labs Course Ideas](ai-shipping-labs/content/courses.md) | draft | 2026-07-30 | Course and workshop ideas for the community, with the member requests behind them. |
 | [AI Shipping Labs Website Feedback (2026-07-13)](ai-shipping-labs/ai-shipping-labs-feedback-2026-07-13.md) | draft | 2026-07-13 | Team member feedback on the AI Shipping Labs website: main page vs Community Overview split, sprint landing pages, free-sample section, Activities page navigation, and the Workshops section |
 | [Course Idea: Safely Running Agents Around Production](ai-shipping-labs/content/agent-production-safety-course.md) | draft | 2026-07-03 | Small course on setting up production alongside agents safely - sandbox account and isolated machine, temporary sandbox-only access, moving work to prod via CI/CD with OIDC, and how to do the projects |
 | [Community Session Ideas](ai-shipping-labs/content/community-session-ideas.md) | draft | 2026-07-03 | Session ideas from community members: memory layer for AI agents, documenting agent learnings, refactoring AI slop, mock interviews and resume reviews, interview-prep topics, book-reading sprints, system design with an AI interviewer, pitch practice, mastermind format |
@@ -55,7 +56,6 @@ Community strategy, platform notes, member research, plans, workshops, and cours
 | [Workshop Ideas: Agent Durability and Caching Internals](ai-shipping-labs/content/agent-durability-caching-workshops.md) | draft | 2026-06-17 | Two interview-driven workshop ideas: agent durability/idempotency/resumption (LangGraph, Pydantic AI) and caching internals (KV cache) |
 | [AI Shipping Labs Community Activities](ai-shipping-labs/activities.md) | draft | 2026-05-21 | Community activities, accountability formats, mentoring, office hours, and sprint calls. |
 | [Community Observations](ai-shipping-labs/community-observations.md) | draft | 2026-04-24 | Cross-member patterns: perfectionism / needing to understand everything, no clear picture of the role, idea for a Lightning Lesson on the depth of skills needed |
-| [AI Shipping Labs Marketing and Content Strategy](ai-shipping-labs/marketing-and-content.md) | draft | 2026-04-24 | Marketing channels, funnel, lead magnets, and content strategy for the community. |
 | [User Interviews](ai-shipping-labs/user-interviews.md) | draft | 2026-04-20 | Overview of the AI Shipping Labs member interview effort and its findings. |
 | [Community Platform Feature Ideas](ai-shipping-labs/platform-ideas.md) | draft | 2026-04-07 | Feature ideas and product notes for the AI Shipping Labs platform. |
 | [AI Shipping Labs - Target Personas](ai-shipping-labs/personas.md) | draft | 2026-03-21 | Target personas used to understand and support AI Shipping Labs members. |

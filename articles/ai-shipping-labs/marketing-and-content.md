@@ -1,7 +1,7 @@
 ---
 title: "AI Shipping Labs Marketing and Content Strategy"
 created: 2026-02-14
-updated: 2026-04-24
+updated: 2026-09-03
 tags: [community, marketing, content-strategy, ai-shipping-labs]
 status: draft
 ---
@@ -163,6 +163,20 @@ This same approach could work for Alexey's free Friday newsletters. The newslett
 
 The technical side of how Paul generates the branded diagrams and runs his pipeline is covered separately in [AI-assisted writing](../research/ai-assisted-writing.md). That side is mostly interesting for improving the telegram-writing-assistant agent. The marketing lesson is the one captured here.
 
+## AI Shipping Labs Development Priorities
+
+Instead of launching new courses and fully focusing on them, the priority should be to not neglect AI Shipping Labs and dedicate more time to it. The community already has over 100 members, and many of them are not very active. The plan is to try to reactivate them: ask what is missing, what content they want, learn how their life is going, what they need, and how to help. The feedback from members should drive decisions about which courses to make[^102].
+
+Development has two sides: community engagement and community growth[^103].
+
+For engagement, the plan is to create activities for members inside the community, find ways to increase engagement, and introduce members to each other so they work on things together[^103].
+
+For growth, courses are the main driver right now. Beyond courses, the plan is to look at what else can be done: SEO, agentic optimization (optimizing for AI search), and approach growth more strategically. One option is to ask Valeria to create a plan for this[^103].
+
+A new course is good, but it is important not to neglect AI Shipping Labs. It is a great thing and deserves more focused attention. The goal is to get it to a level where it brings in around $5,000 per month[^103].
+
+One concrete step: run the MLOps course inside AI Shipping Labs instead of at DataTalks Club. More details on this in the [course ideas](content/courses.md)[^104].
+
 ## Content Reuse and Planning
 
 ## Content Reuse System
@@ -199,3 +213,6 @@ For the community, the goal is to create an events plan and content plan. Once w
 [^99]: [20260424_130858_AlexeyDTC_msg3627_transcript.txt](../../inbox/used/20260424_130858_AlexeyDTC_msg3627_transcript.txt)
 [^100]: [20260424_130858_AlexeyDTC_msg3624.md](../../inbox/used/20260424_130858_AlexeyDTC_msg3624.md)
 [^101]: [20260424_130906_AlexeyDTC_msg3628.md](../../inbox/used/20260424_130906_AlexeyDTC_msg3628.md)
+[^102]: [20260903_063102_AlexeyDTC_msg4914_transcript.txt](../../inbox/used/20260903_063102_AlexeyDTC_msg4914_transcript.txt)
+[^103]: [20260903_065134_AlexeyDTC_msg4922_transcript.txt](../../inbox/used/20260903_065134_AlexeyDTC_msg4922_transcript.txt)
+[^104]: [20260903_065210_AlexeyDTC_msg4924_transcript.txt](../../inbox/used/20260903_065210_AlexeyDTC_msg4924_transcript.txt)

@@ -1,0 +1,15 @@
+---
+source: telegram_voice
+date: 2026-09-03T06:26:05+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260903_062605_AlexeyDTC_msg4913.ogg
+---
+
+Ну, следующее, что я хотел, это вот был вопрос такой про AI в Data Engineering. Что за AI Data
+Engineer? Вот, я подумал, что, ну, я хоть и не Data Engineer, но вот люди знают меня как Data
+Engineer. И благодаря тому, что вот есть этот курс популярный по Data Engineering, возможно, это тот
+рынок, который мне может быть полезен. это сделать курс про AI in Data Engineering, вот, ну и за
+него брать деньги. То есть не про AI Engineering, а конкретно про AI in Data Engineering. Ладно,
+потому что курсов про AI Engineering много, у меня один из таких курсов именно с с фокусом на Data
+Engineering. Курсов намного меньше. Поэтому я могу что-то сделать там.

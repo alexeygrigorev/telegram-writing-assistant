@@ -1,7 +1,7 @@
 ---
 title: "AI Shipping Labs Course Ideas"
 created: 2026-02-12
-updated: 2026-07-30
+updated: 2026-09-03
 tags: [courses, community, ai-shipping-labs, ideas]
 status: draft
 ---
@@ -81,6 +81,8 @@ Want to create a course on data engineering for AI (how all these AI tools can b
 
 There seems to be less demand and less content about data engineering for AI compared to generic AI engineering. This might be an advantage - an underserved niche where we can create something and see how it works. The community should cover these topics to attract people interested in both areas[^7].
 
+There is also a personal positioning advantage. Although not a Data Engineer by current role, many people know Alexey as a Data Engineer thanks to the popular Data Engineering Zoomcamp. That audience is already accessible. The idea is to make a course specifically about AI in Data Engineering - not AI Engineering in general, but AI applied to the data engineering domain. There are many AI Engineering courses out there, but courses focused specifically on AI in Data Engineering are much rarer[^18].
+
 ## Maven course continuation
 
 Want to continue the AI Engineering course on Maven with focus on creating AI products. This attracts AI engineers who will be interested and potentially buy the course[^9].
@@ -159,6 +161,16 @@ It looks like people want materials about this. I did not know it is called infe
 
 Research on what the discipline covers and a proposed four-module breakdown is collected in the [Inference Engineering research article](../../research/inference-engineering.md).
 
+## Product Engineering / Product Shipping
+
+There was an idea about a Product Engineering or Product Shipping course. It would be better to launch it as a paid course since the existing courses are free. The plan is to continue with courses but in parallel look at things closer to what is currently being done, and gradually move in that direction[^19].
+
+## MLOps course refresh
+
+Many people want the MLOps course redone with more of an AI focus. Updating it to shift MLOps more toward AI would be more useful. The goal is to find a way to minimally update the course so it continues to bring people into the community[^20].
+
+One option is to run the MLOps course within AI Shipping Labs instead of DataTalks Club. The reasoning: sponsors did not work out, and running it without a sponsor is not interesting. Launching it for free is not appealing either. The old material stays available where it has always been. But the course can be done together within AI Shipping Labs, going through it as a group and updating it along the way[^21].
+
 ## Course format strategy
 
 The plan is to have at least one big course on Maven (if time permits), while the rest would be mini-courses available in the community at tier 3. Will actively ask people what they're interested in and monitor what content they engage with most[^10].
@@ -182,3 +194,7 @@ The plan is to have at least one big course on Maven (if time permits), while th
 [^15]: [20260701_182540_AlexeyDTC_msg4653.md](../../../inbox/used/20260701_182540_AlexeyDTC_msg4653.md)
 [^16]: [20260730_111602_AlexeyDTC_msg4801_photo.md](../../../inbox/used/20260730_111602_AlexeyDTC_msg4801_photo.md)
 [^17]: [20260730_130806_AlexeyDTC_msg4803_transcript.txt](../../../inbox/used/20260730_130806_AlexeyDTC_msg4803_transcript.txt)
+[^18]: [20260903_062605_AlexeyDTC_msg4913_transcript.txt](../../../inbox/used/20260903_062605_AlexeyDTC_msg4913_transcript.txt)
+[^19]: [20260903_063138_AlexeyDTC_msg4915_transcript.txt](../../../inbox/used/20260903_063138_AlexeyDTC_msg4915_transcript.txt)
+[^20]: [20260903_063239_AlexeyDTC_msg4916_transcript.txt](../../../inbox/used/20260903_063239_AlexeyDTC_msg4916_transcript.txt)
+[^21]: [20260903_065210_AlexeyDTC_msg4924_transcript.txt](../../../inbox/used/20260903_065210_AlexeyDTC_msg4924_transcript.txt)
