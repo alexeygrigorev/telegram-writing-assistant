@@ -44,7 +44,7 @@ Community strategy, platform notes, member research, plans, workshops, and cours
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
-| [AI Shipping Labs Marketing and Content Strategy](ai-shipping-labs/marketing-and-content.md) | draft | 2026-09-03 | Marketing channels, funnel, lead magnets, and content strategy for the community. |
+| [AI Shipping Labs Marketing and Content Strategy](ai-shipping-labs/marketing-and-content.md) | draft | 2026-09-03 | Marketing channels, funnel, lead magnets, pricing, moat, and content strategy for the community. |
 | [AI Shipping Labs Course Ideas](ai-shipping-labs/content/courses.md) | draft | 2026-09-03 | Course and workshop ideas for the community, with the member requests behind them. |
 | [AI-Assisted Automation Course Idea](ai-shipping-labs/content/ai-assisted-automation-course-idea.md) | draft | 2026-09-03 | Concept for a paid course on AI-assisted automation |
 | [AI Shipping Labs Content Plan](ai-shipping-labs/ai-shipping-labs-content-plan.md) | draft | 2026-08-03 | Gap analysis of the current workshop catalog, a repackaging of the existing sessions into six courses, and the next eight workshops to run |
@@ -91,6 +91,7 @@ Draft articles and talk material whose core substance has already been collected
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [13 Real-Life AI Projects from AI Engineering Buildcamp Cohort 3](raw-articles/ai-engineering-buildcamp-cohort-3-projects.md) | draft | 2026-09-03 | Newsletter draft of cohort 3 Demo Day plus the rest of the submitted Buildcamp projects |
 | [Roles in an AI Team](raw-articles/roles-in-ai-team.md) | draft | 2026-09-03 | Updated version of the Data Team Roles article with the AI Engineer role added |
 | [Interview Experiment](raw-articles/interview-experiment.md) | draft | 2026-08-11 | Running log of the experiment of interviewing at different companies, starting with the first interview at Deriv |
 | [Diagram Creator: Declarative SVG and PNG Workflows](raw-articles/diagram-generator.md) | complete | 2026-08-09 | How the deterministic diagram creator turns JSON specifications into editable SVG and PNG diagrams. |

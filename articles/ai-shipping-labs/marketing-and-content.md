@@ -177,6 +177,24 @@ A new course is good, but it is important not to neglect AI Shipping Labs. It is
 
 One concrete step: run the MLOps course inside AI Shipping Labs instead of at DataTalks Club. More details on this in the [course ideas](content/courses.md)[^104].
 
+## Moat from The SaaS Playbook
+
+Listening to [The SaaS Playbook](https://www.saasplaybook.com/). The book talks about moat. I need to think about what my moat is: what I can do that others do not have, and focus more on that[^105].
+
+There are already a lot of AI engineering courses. The market in that direction is still not saturated, so I can keep making courses there, and the current course still sells well. That is not what I should focus on. Given that people already know me, I need to look at what unique content I can have in my current position. What can I do that others do not do, or that very few people do. Hamel's course is the example: he managed to dominate that space. I need to find what that thing could be for me[^105].
+
+## Pricing
+
+The same book has the line: if nobody is complaining about your price, you set it too low. That is worth thinking about. In AI Shipping Labs I need to add courses, and then maybe I can raise the price. People who already joined would keep going on the current terms[^106].
+
+I also need to think about discounts for people who cannot afford to pay that much, and about price parity. Nobody complains about the prices. It is not that many people buy, though. So this is something to think about, but first I need to make the community more engaged[^106].
+
+## Maven course content on AI Shipping Labs
+
+I want all the content from going through the Maven course to live on AI Shipping Labs. That means reworking the courses page and adding other courses there too, so people who finished a course can take other courses[^106].
+
+Maven students already received free access to AI Shipping Labs. For them, make an upgrade for access to the other courses that will exist. The upgrade should be yearly, so that extra-course access is not perpetual[^106].
+
 ## Content Reuse and Planning
 
 ## Content Reuse System
@@ -216,3 +234,5 @@ For the community, the goal is to create an events plan and content plan. Once w
 [^102]: [20260903_063102_AlexeyDTC_msg4914_transcript.txt](../../inbox/used/20260903_063102_AlexeyDTC_msg4914_transcript.txt)
 [^103]: [20260903_065134_AlexeyDTC_msg4922_transcript.txt](../../inbox/used/20260903_065134_AlexeyDTC_msg4922_transcript.txt)
 [^104]: [20260903_065210_AlexeyDTC_msg4924_transcript.txt](../../inbox/used/20260903_065210_AlexeyDTC_msg4924_transcript.txt)
+[^105]: [20260903_065523_AlexeyDTC_msg4929_transcript.txt](../../inbox/used/20260903_065523_AlexeyDTC_msg4929_transcript.txt)
+[^106]: [20260903_070241_AlexeyDTC_msg4930_transcript.txt](../../inbox/used/20260903_070241_AlexeyDTC_msg4930_transcript.txt)

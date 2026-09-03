@@ -175,6 +175,14 @@ One option is to run the MLOps course within AI Shipping Labs instead of DataTal
 
 The plan is to have at least one big course on Maven (if time permits), while the rest would be mini-courses available in the community at tier 3. Will actively ask people what they're interested in and monitor what content they engage with most[^10].
 
+## Maven course content on the AI Shipping Labs courses page
+
+I want all the content from going through the Maven course to live on AI Shipping Labs. Rework the courses page and add other courses there too, so people who finished a course can take other courses[^22].
+
+Maven students already received free access to AI Shipping Labs. For them, make an upgrade for access to the other courses that will exist. The upgrade should be yearly, so that extra-course access is not perpetual[^22].
+
+Adding more courses is also the step before considering a price raise. Details on pricing sit in the [marketing and content strategy](../marketing-and-content.md)[^22].
+
 ## Sources
 
 [^1]: [20260301_085144_AlexeyDTC_msg2642_transcript.txt](../../../inbox/used/20260301_085144_AlexeyDTC_msg2642_transcript.txt)
@@ -198,3 +206,4 @@ The plan is to have at least one big course on Maven (if time permits), while th
 [^19]: [20260903_063138_AlexeyDTC_msg4915_transcript.txt](../../../inbox/used/20260903_063138_AlexeyDTC_msg4915_transcript.txt)
 [^20]: [20260903_063239_AlexeyDTC_msg4916_transcript.txt](../../../inbox/used/20260903_063239_AlexeyDTC_msg4916_transcript.txt)
 [^21]: [20260903_065210_AlexeyDTC_msg4924_transcript.txt](../../../inbox/used/20260903_065210_AlexeyDTC_msg4924_transcript.txt)
+[^22]: [20260903_070241_AlexeyDTC_msg4930_transcript.txt](../../../inbox/used/20260903_070241_AlexeyDTC_msg4930_transcript.txt)
