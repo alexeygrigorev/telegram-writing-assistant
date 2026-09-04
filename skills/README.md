@@ -23,3 +23,11 @@ A skill for drafting a condensed "recap"/"intro" article that summarizes an exis
 Contents:
 
 - `SKILL.md` - the full workflow: copy-don't-regenerate, the two axes of "does this need to change," filling tool-choice gaps, the bullets/transitions skeleton, choosing a new running example, and the final prose handoff (including a real failure mode to avoid: never let the rewrite subprocess write the target file directly)
+
+## scan-the-tools
+
+A weekly digest skill authored after running the workflow for real on 2026-09-04: scans the past 7 days of open-source AI engineering tool releases (agent harnesses, MCP tooling, evals, context/memory, inference/serving, coding agents; tools only, no models) via the x.ai Grok search over X/Reddit plus the HN Algolia Show HN feed, verifies GitHub repos, and writes the digest as a ready-to-paste "Tools" section formatted exactly like the Tools sections in Alexey's Substack articles (`reference/substack/*.md`): bold linked tool name, lowercase one-line "a X that ..." description, concrete numbers, and a usefulness line.
+
+Contents:
+
+- `SKILL.md` - the weekly workflow: date anchoring, the Grok query template, the HN Show HN script, selection criteria (OSS only, repo link required, visible traction), the strict Tools-section format spec, output path `clo/digests/<date>-tools.md`, and the Russian chat-summary report format
