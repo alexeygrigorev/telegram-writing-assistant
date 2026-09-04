@@ -81,4 +81,4 @@ Match the tone of the reference sections: plain, specific, practical. Describe w
 
 ## Run cadence
 
-Weekly, on request ("tools digest", "что нового из инструментов") or via heartbeat/scheduler if Alexey wires one. Always same weekday window comparison when possible.
+**Scheduled: every Thursday 09:00 Europe/Berlin** via OpenClaw automation `Weekly tools digest` (`openclaw automations`, isolated session, delivers to Alexey's Telegram). The scan window is the previous Thursday through Wednesday night. Can also run on request ("tools digest", "что нового из инструментов").
