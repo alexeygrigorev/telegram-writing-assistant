@@ -175,6 +175,8 @@ Images are analyzed using Groq Vision to generate descriptions. When placed in a
 - Placed in `assets/images/{article_name}/`
 - Unused images go to `assets/images/_unused/`
 
+For running GitHub projects and preparing article figures, see [the project screenshot guide](process/project-screenshot-guide.md).
+
 ## Video Handling
 
 Videos are NOT downloaded (to save storage and bandwidth). Instead:
