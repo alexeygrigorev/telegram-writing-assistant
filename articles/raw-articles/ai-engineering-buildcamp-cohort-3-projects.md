@@ -252,9 +252,16 @@ Each requirement goes through the same steps:
   <figcaption>LearnMate active review session with a generated question, student answer, and evaluated feedback</figcaption>
 </figure>
 
-Dianne's [LearnMate AI](https://github.com/dinobronx/learnmate-ai) turns a YouTube lesson into spaced-repetition review. Ingest builds a concept map, and a review agent quizzes you. Separate judges grade answers and code, and mastery decays so fading concepts come back.
+Dianne built [LearnMate AI](https://github.com/dinobronx/learnmate-ai) to help her study from YouTube videos.
 
-Dianne put the due-concept logic, question order, mastery math, and session caps in code. The agent handles the review conversation. She designed it for `gpt-4o-mini`. A cosine match threshold of 0.65 scored 8/8 on an 8-query sweep. Judge calibration on 35-row CSVs came out at 85.7% for answers, 85.7% for code, and 74.3% for session conduct.
+Many of us have this problem: you watch a tutorial, understand it at the time, and forget most of it a week later. Rewatching the entire video is slow, and simply saving it to a playlist doesn't help you retain the material.
+
+LearnMate helps with that problem.
+
+You give it a video, and it extracts concepts from it, connects them into a knowledge map. When the knowledge map is ready, it asks you questions about each concept, gives hints when you get stuck, and generates coding exercises if you need.
+
+The stack includes FastAPI, React, PydanticAI, SQLite, ChromaDB, and OpenAI.
+
 
 ## 13) GapFinder by Katja Weber
 
