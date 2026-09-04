@@ -9,8 +9,9 @@ Run path
 - Ran `ANTHROPIC_API_KEY=fake-local-demo COVERLETTER_MODEL=claude-haiku-4-5-20251001 uv run clio sync --paragraphs demo/library.md --no-embed --no-angles`.
 - Used the real `extract_to_review`, `insert_from_review`, and `build_outline` functions with a local fake provider replacing model calls. Three claims and their evidence were inserted into SQLite, then grouped into two outline blocks.
 
-Screenshot
+Screenshots
 
+- `work-chronicle-overview.png` - the attached project overview, cropped to remove the narrow side borders, describing WorkerChronicle's experience library and cover-letter generator.
 - `work-chronicle-outline.png` - the generated claim-evidence outline before cover-letter generation, showing the thesis, job requirements, argument categories, grounded claims, preserved anchor phrases, and editable block structure.
 
 Limitations

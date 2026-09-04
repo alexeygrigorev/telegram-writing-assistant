@@ -171,8 +171,8 @@ Lars used PydanticAI, OpenAI, DuckDB, and Streamlit. He also used Logfire, minse
 ### 10) WorkerChronicle by Miki Foster
 
 <figure>
-  <img src="../../assets/images/ai-engineering-buildcamp-cohort-3-projects/work-chronicle/work-chronicle-outline.png" alt="WorkerChronicle outline showing grounded claim-evidence pairs and anchor phrases before cover-letter generation">
-  <figcaption>WorkerChronicle outline of grounded claim-evidence pairs before cover-letter generation</figcaption>
+  <img src="../../assets/images/ai-engineering-buildcamp-cohort-3-projects/work-chronicle/work-chronicle-overview.png" alt="WorkerChronicle project overview describing its worker's experience library and cover-letter generator">
+  <figcaption>WorkerChronicle's experience library and cover-letter generator</figcaption>
 </figure>
 
 Miki's [WorkerChronicle](https://github.com/MikiYamFos/work-chronicle) builds a personal work-experience library in your own words, then writes cover letters, blurbs, and interview briefs from that library. Generic LLM polish flattens the story, and that's what this pipeline is built to stop.
