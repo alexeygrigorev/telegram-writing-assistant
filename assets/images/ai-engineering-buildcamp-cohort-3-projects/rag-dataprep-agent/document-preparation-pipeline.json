@@ -1,0 +1,92 @@
+{
+  "title": "Preparing documents for RAG",
+  "description": "ArXiv papers, product manuals, and EU documents converge on an LLM preparation stage, which writes one JSON manifest per document.",
+  "style": "asl-light",
+  "canvas": {
+    "width": 740,
+    "height": 300,
+    "background": "#ffffff"
+  },
+  "layout": {
+    "type": "manual",
+    "card_width": 180,
+    "card_height": 150,
+    "font_scale": 1.0,
+    "fixed_icon_axis": true
+  },
+  "nodes": [
+    {
+      "id": "arxiv",
+      "title": "ArXiv",
+      "icon": "document",
+      "color": "blue",
+      "x": 10,
+      "y": 15,
+      "width": 180,
+      "height": 65
+    },
+    {
+      "id": "manuals",
+      "title": "Manuals",
+      "icon": "settings",
+      "color": "blue",
+      "x": 10,
+      "y": 117.5,
+      "width": 180,
+      "height": 65
+    },
+    {
+      "id": "eu_docs",
+      "title": "EU docs",
+      "icon": "shield",
+      "color": "blue",
+      "x": 10,
+      "y": 220,
+      "width": 180,
+      "height": 65
+    },
+    {
+      "id": "prepare",
+      "title": "LLM",
+      "subtitle": "parse · classify · chunk",
+      "color": "purple",
+      "x": 280,
+      "y": 75
+    },
+    {
+      "id": "manifests",
+      "title": "Manifests",
+      "subtitle": "one JSON per document",
+      "color": "green",
+      "x": 550,
+      "y": 75
+    }
+  ],
+  "edges": [
+    {
+      "from": "arxiv",
+      "to": "prepare",
+      "route": "orthogonal",
+      "from_anchor": "right",
+      "to_anchor": "left_top"
+    },
+    {
+      "from": "manuals",
+      "to": "prepare",
+      "from_anchor": "right",
+      "to_anchor": "left"
+    },
+    {
+      "from": "eu_docs",
+      "to": "prepare",
+      "route": "orthogonal",
+      "from_anchor": "right",
+      "to_anchor": "left_bottom"
+    },
+    {
+      "from": "prepare",
+      "to": "manifests",
+      "color": "green"
+    }
+  ]
+}

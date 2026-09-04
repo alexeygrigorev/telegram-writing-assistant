@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="740" height="300" viewBox="0 0 740 300" role="img" aria-labelledby="title desc">
+  <title id="title">Preparing documents for RAG</title>
+  <desc id="desc">ArXiv papers, product manuals, and EU documents converge on an LLM preparation stage, which writes one JSON manifest per document.</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000000" flood-opacity="0.08"/>
+    </filter>
+    <marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#7c3aed"/></marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#2563eb"/></marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#c2410c"/></marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#648900"/></marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#dc2626"/></marker>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#737373"/></marker>
+    <symbol id="icon-document" viewBox="0 0 24 24">
+        <path d="M6 2h8l4 4v16H6Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M14 2v5h4M9 12h6M9 16h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+    <symbol id="icon-settings" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+    <symbol id="icon-shield" viewBox="0 0 24 24">
+        <path d="M12 2.5 20 6v5.5c0 5-3.1 8.6-8 10-4.9-1.4-8-5-8-10V6Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+        <path d="m8.5 12 2.2 2.2 4.8-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+    <style>
+      text { font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #171717; }
+      symbol [stroke] { vector-effect: non-scaling-stroke; }
+      .node rect { stroke-width: 2; }
+      .node-boundary rect { stroke-width: 2; stroke-dasharray: 8 8; }
+      .boundary-title { font-size: 16px; font-weight: 750; text-anchor: start; }
+      .node-title { font-weight: 750; text-anchor: middle; }
+      .node-title.icon-copy { text-anchor: start; }
+      .node-subtitle { font-weight: 500; fill: #525252; text-anchor: middle; }
+      .eyebrow { font-weight: 750; letter-spacing: 1px; fill: #525252; text-anchor: middle; }
+      .mention-icon { font-size: 27px; font-weight: 750; text-anchor: middle; }
+      .standalone-mention { font-size: 52px; font-weight: 750; text-anchor: middle; }
+      .icon-node-title { font-size: 16px; font-weight: 750; text-anchor: middle; }
+      .edge { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+      .edge-label rect { stroke-width: 2; }
+      .edge-label text { font-size: 14px; font-weight: 750; text-anchor: middle; dominant-baseline: central; }
+      .divider { stroke: #d4d4d4; stroke-width: 2; stroke-dasharray: 6 8; stroke-linecap: round; }
+      .center-annotation { fill: #f5f5f5; stroke: none; }
+      .center-title { font-weight: 800; letter-spacing: 0.08em; fill: #404040; text-anchor: middle; }
+      .center-detail { font-weight: 600; fill: #525252; text-anchor: middle; }
+    </style>
+  </defs>
+  <rect width="740" height="300" fill="#ffffff"/>
+
+  <path class="edge" d="M190 47.5H235V125H280" stroke="#737373" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M190 150L280 150" stroke="#737373" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M190 252.5H235V175H280" stroke="#737373" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M460 150L550 150" stroke="#648900" marker-end="url(#arrow-green)"/>
+
+  <g class="node node-blue" transform="translate(10 15)" filter="url(#shadow)">
+    <rect width="180" height="65" rx="16" fill="#eff6ff" stroke="#2563eb"/>
+    <use href="#icon-document" x="16" y="19" width="34" height="34" color="#2563eb"/>
+    <text class="node-title icon-copy" x="62" y="27" font-size="20">ArXiv</text>
+  </g>
+  <g class="node node-blue" transform="translate(10 117.5)" filter="url(#shadow)">
+    <rect width="180" height="65" rx="16" fill="#eff6ff" stroke="#2563eb"/>
+    <use href="#icon-settings" x="16" y="19" width="34" height="34" color="#2563eb"/>
+    <text class="node-title icon-copy" x="62" y="27" font-size="20">Manuals</text>
+  </g>
+  <g class="node node-blue" transform="translate(10 220)" filter="url(#shadow)">
+    <rect width="180" height="65" rx="16" fill="#eff6ff" stroke="#2563eb"/>
+    <use href="#icon-shield" x="16" y="19" width="34" height="34" color="#2563eb"/>
+    <text class="node-title icon-copy" x="62" y="27" font-size="20">EU docs</text>
+  </g>
+  <g class="node node-purple" transform="translate(280 75)" filter="url(#shadow)">
+    <rect width="180" height="150" rx="18" fill="#f5f3ff" stroke="#7c3aed"/>
+    <text class="node-title" x="90" y="58.2" font-size="20">LLM</text>
+    <text class="node-subtitle" x="90" y="89" font-size="16">parse · classify ·</text>
+    <text class="node-subtitle" x="90" y="111" font-size="16">chunk</text>
+  </g>
+  <g class="node node-green" transform="translate(550 75)" filter="url(#shadow)">
+    <rect width="180" height="150" rx="18" fill="#f5fbe7" stroke="#648900"/>
+    <text class="node-title" x="90" y="58.2" font-size="20">Manifests</text>
+    <text class="node-subtitle" x="90" y="89" font-size="16">one JSON per</text>
+    <text class="node-subtitle" x="90" y="111" font-size="16">document</text>
+  </g>
+</svg>
