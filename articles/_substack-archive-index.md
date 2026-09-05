@@ -1,7 +1,7 @@
 ---
 title: "Substack Archive Index"
 created: 2026-05-16
-updated: 2026-08-22
+updated: 2026-09-04
 tags: [reference, index]
 status: draft
 ---
@@ -21,6 +21,10 @@ When processing a message where I refer back to something I already shared, scan
 
 | Date | Title | URL | Description |
 |------|-------|-----|-------------|
+| 2026-09-04 | 13 AI Projects from AI Engineering Buildcamp Cohort 3 | https://aishippingblog.com/p/13-ai-projects-from-ai-engineering | Thirteen graduate projects covering exam-question generation, ATS and CV analysis, chess coaching, research radar, diet and learning assistants, RAG, natural-language SQL, and multi-agent software development, using FastAPI, Streamlit, PydanticAI, minsearch, OpenAI, and Logfire. |
+| 2026-08-31 | AI Dev Tools Zoomcamp 2026 Starts Today | https://aishippingblog.com/p/ai-dev-tools-zoomcamp-2026-starts | Launch and curriculum for the free, tool-agnostic AI Dev Tools Zoomcamp: specifications, AI-assisted full-stack development, testing, Docker, Postgres, CI/CD, OpenTelemetry, observability, reusable skills, MCP, plugins, and specialized subagents. |
+| 2026-08-31 | Coding Agent Building Blocks: Reusable Skills and Specialized Subagents | https://aishippingblog.com/p/coding-agent-building-blocks-reusable | Part 5 of the AI Dev Tools Zoomcamp series, explaining reusable skills, project-specific and global instructions, subagents, agentic teams, orchestration, context isolation, and parallel execution with git worktrees. |
+| 2026-08-28 | From Idea to Production in 28 Prompts | https://aishippingblog.com/p/from-idea-to-production | A tool-agnostic 28-prompt workflow for taking an idea through build, deploy, and operate stages: specifications, frontend and backend, OpenAPI, SQLite and Postgres, Docker Compose, integration and end-to-end tests, CI/CD, dev/prod environments, OpenTelemetry, dashboards, alerts, and AI on-call. |
 | 2026-08-18 | DevOps and Observability for an AI-Built App | https://aishippingblog.com/p/devops-and-observability-for-an-ai | Fourth article in the AI Dev Tools Zoomcamp series, on dev/prod environments, a container repository, and an observability stack (OpenTelemetry, OTel Collectors, metrics) for the AI System Design Canvas app, plus alerting and an on-call rotation. |
 | 2026-08-14 | How to Do Evals in 2026 | https://aishippingblog.com/p/how-to-do-evals-in-2026 | A tool-agnostic framework for evaluating AI agents: building a gold standard dataset from vibe-checking and logs, creating and aligning a judge.md judge, breaking the agent with QA-style equivalence partitioning and boundary testing, generating synthetic data, online evaluation with a live dashboard, and multiple judges (task completion, correctness, groundedness, completeness, instruction-following, trajectory). Ends with a full evaluation checklist. |
 | 2026-08-10 | Deploy a Full-Stack App with AI Coding Assistants | https://aishippingblog.com/p/deploy-a-full-stack-app-with-ai-coding | Third article in the AI Dev Tools Zoomcamp series, taking the AI System Design Canvas app from the previous article to production: containerization, switching from SQLite to Postgres, Docker Compose, integration and end-to-end tests, deploying to AWS, and CI/CD with GitHub Actions. |
