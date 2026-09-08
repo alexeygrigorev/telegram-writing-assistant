@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="506" viewBox="0 0 1024 506">
+<rect width="1024" height="506" fill="#fff"/>
+<style>.h{font:700 42px system-ui,sans-serif;fill:#172033}.t{font:700 25px system-ui,sans-serif;fill:#172033}.s{font:400 21px system-ui,sans-serif;fill:#334155}.card{stroke-width:2}.arrow{stroke:#172033;stroke-width:4;fill:none;stroke-linecap:round;stroke-linejoin:round}</style>
+<text x="512" y="62" text-anchor="middle" class="h">One system, built step by step</text>
+<rect x="35" y="120" width="205" height="210" rx="18" fill="#eef8ff" stroke="#6bb7ea" class="card"/>
+<rect x="286" y="120" width="205" height="210" rx="18" fill="#f3efff" stroke="#9c85d8" class="card"/>
+<rect x="537" y="120" width="205" height="210" rx="18" fill="#effcf5" stroke="#55c98f" class="card"/>
+<rect x="788" y="120" width="201" height="210" rx="18" fill="#fff5eb" stroke="#e9a261" class="card"/>
+<g transform="translate(95 162)" stroke="#172033" stroke-width="4" fill="none"><rect x="0" y="0" width="72" height="88" rx="8"/><line x1="14" y1="24" x2="53" y2="24"/><line x1="14" y1="42" x2="53" y2="42"/><circle cx="67" cy="67" r="22"/><line x1="83" y1="83" x2="99" y2="99"/></g>
+<g transform="translate(350 160)" stroke="#172033" stroke-width="4" fill="none" stroke-linecap="round"><path d="M15 14c-8 18 4 36 24 37l41 41 17-17-41-41c1-20-19-31-36-22l18 17-9 9z"/><line x1="18" y1="94" x2="90" y2="22"/></g>
+<g transform="translate(603 158)" stroke="#172033" stroke-width="4" fill="none" stroke-linecap="round"><rect x="0" y="0" width="76" height="94" rx="9"/><path d="M14 25l8 8 13-16M14 49l8 8 13-16M14 73l8 8 13-16"/><line x1="44" y1="26" x2="62" y2="26"/><line x1="44" y1="50" x2="62" y2="50"/><line x1="44" y1="74" x2="62" y2="74"/></g>
+<g transform="translate(850 163)" stroke="#172033" stroke-width="4" fill="none" stroke-linecap="round"><path d="M0 44a42 42 0 0 1 72-25l8 8M80 27l-1-17M80 27l-17 1M80 52a42 42 0 0 1-72 25l-8-8M0 69l1 17M0 69l17-1"/></g>
+<text x="138" y="300" text-anchor="middle" class="t">Retrieve</text><text x="389" y="300" text-anchor="middle" class="t">Act</text><text x="640" y="300" text-anchor="middle" class="t">Test</text><text x="888" y="300" text-anchor="middle" class="t">Improve</text>
+<path d="M246 224h28m-12-12l12 12-12 12M497 224h28m-12-12l12 12-12 12M748 224h28m-12-12l12 12-12 12" class="arrow"/>
+<path d="M50 384H974m-12-12l12 12-12 12" class="arrow"/>
+<text x="512" y="430" text-anchor="middle" class="s">Your capstone grows throughout the course</text>
+</svg>
