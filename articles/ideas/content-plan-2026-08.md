@@ -46,3 +46,4 @@ Based on Grok social-signal research (2026-08-15, `~/git/ai-engineering-field-gu
 - Local models + determinism in agents (Grok research slot)
 - Agent runtimes / long-horizon reliability (Microsoft paper angle)
 - FAQ assistant with Opik — customer story (file exists in ideas/content/)
+- Free/cheap LLM access ✅ DRAFT READY 2026-09-09 — `claw-drafts/free-llm-access.md` (voice-requested, off-plan). How-To Guide: free tiers, $5 token math, local GPU costs, coding-agent deals

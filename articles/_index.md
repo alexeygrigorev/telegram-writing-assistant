@@ -157,6 +157,7 @@ Articles drafted by Clo from topic research and voice templates.
 | [Context That Improves Itself](claw-drafts/self-improving-context.md) | draft | 2026-08-28 | Concepts Explainer (~1,800 words). ACE, Meta-Harness, memory wave, self-improvement ladder |
 | [The Open-Source AI CEO: A Joke That Ships](claw-drafts/open-executive.md) | draft | 2026-08-28 | Tool Teardown lite (~1,500 words). OpenExecutive teardown + delegation ladder |
 | [The Skeptic Scorecard: Dan Luu Audited Ed Zitron, and It Wasn't Close](claw-drafts/ai-skeptic-scorecard.md) | draft | 2026-09-03 | Reaction essay (~1,900 words). Zitron prediction audit + how to scorecard AI sources |
+| [How to Get LLM Access for Free (or Almost Free)](claw-drafts/free-llm-access.md) | draft | 2026-09-09 | How-To Guide (~1,300 words). Free API tiers + $5 token math + local GPU hardware costs + coding-agent deals |
 
 ## Research
 
