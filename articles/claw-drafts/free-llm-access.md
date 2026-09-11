@@ -1,94 +1,78 @@
 ---
-title: "How to Get LLM Access for Free (or Almost Free)"
-subtitle: "Free API tiers, five-dollar token math, and what a local GPU really costs"
+title: "Free and Affordable AI-Native Development"
+subtitle: ""
 ---
 
-People keep asking me where to get unlimited tokens for LLMs. Students in my courses ask it most. They want to build, and every API call costs money they don't have.
+I recenly tweeted in X that we have access to so many tokens that I'm running out of ideas what to build.
 
-I spend my own money on APIs every month, so I know the prices. I also checked every number in this post against fresh data from September 2026. Free tiers change fast, and a stale limit will waste your afternoon.
+https://x.com/Al_Grigor/status/2096543638687756663
 
-In this post, I'll share:
+At DataTalks.Club we're running AI Dev Tools Zoomcamp and people are asking me where they can get access to coding agents for free or without paying a lot of money. So I figured that I should write a post and share what I use.
 
-- The free API tiers that need no credit card
-- The free chats I use for exploration
-- How far five dollars stretches on the cheapest paid APIs
-- What a local GPU setup costs, with the math
-- The coding-agent deals running right now
+While I do recommend getting a paid Codex or Claude subscription and use it for the course, there are some other providers that can get you a lot of tokens for less money or even for free. 
 
-## 1. Start with the free API tiers
+In this post, I'll share some of them. We'll cover
 
-Four providers give you real API access for free, with no credit card. Each one caps you by rate limits instead of credits. That means you can't burn through a balance by accident.
+- Free coding plans
+- Cheap coding plans
+- Current promotions
 
-[Groq](https://groq.com) is the fastest option. Its free tier covers all models on its hardware, and you never enter a card number. Small models like Llama 3.1 8B allow around 30 requests per minute and 14,400 requests per day. Larger models like Llama 3.3 70B allow the same 30 per minute but only about 1,000 requests per day. Daily token caps sit near 500K for small models and 100K for large ones.
+Let's go
 
-You can watch your usage in the `x-ratelimit` response headers.
 
-[OpenRouter](https://openrouter.ai) gives you one key for many free models. Any model ID ending in `:free` costs zero tokens, and the list rotates between providers like DeepSeek, Qwen, and Gemma. The limits are strict: 20 requests per minute and 50 requests per day. A one-time $10 credit purchase lifts the daily cap to 1,000 requests permanently, and the credits never expire. Congestion hits the popular routes, so keep a fallback model in your code.
+## Free coding plans
 
-[Google AI Studio](https://aistudio.google.com) hosts the Gemini free tier. Flash models allow roughly 15 requests per minute and 1,500 per day, per project. The token allowances are generous, and the daily request cap is the binding constraint for most people. One warning: Google may use free-tier data to improve its products. Don't send anything sensitive through it.
+There are multiple platforms that currently offer free coding plans. 
 
-[Cerebras](https://cerebras.ai) offers the most generous daily allowance I found: 1 million tokens per day, free, with no card. The free model lineup rotates and recently included GPT-OSS 120B on its wafer-scale hardware. The rate cap is low at around 5 requests per minute, and free-tier context is capped near 8K. For batch-style prototyping it's hard to beat.
+One of them is Tencent. They recently released Hy3 and offers a free tier through its [WorkBuddy](https://www.workbuddy.ai/) and [CodeBuddy](https://www.codebuddy.ai/) assistants. It's not available in Germany, so I couldn't try it - but maybe it'll work for you.
 
-## 2. Use the free chats for exploration
+Another one is [OpenCode Zen](https://opencode.ai/zen). They have a variety of models absolutely for free. One of these models is Muse 3 from Meta. 
 
-Before you connect anything to code, explore in a free chat. Every major lab runs one, and Chinese vendors run the most generous ones.
+articles/claw-drafts/llm-zen-free.png
 
-[ChatGPT](https://chatgpt.com) has a free tier with its own limits, separate from Codex limits. [Gemini](https://gemini.google.com) gets consistent praise for generosity. [Grok](https://grok.com) is rate-limited through X. [Claude](https://claude.ai) has a free tier too, though it's the tightest of the group.
+The full name for this model is "Muse Spark 1.3 Contributor Free". The "contributor" part here means that you're "contributing" your data to meta, so they can use it to improve their model. That's why it's free - you pay for it with your data.
 
-The models topping usage charts right now come from Chinese labs. [DeepSeek](https://chat.deepseek.com), [Zhipu GLM](https://chat.z.ai), [Moonshot Kimi](https://www.kimi.com), and Mistral all run free chats. GLM made noise recently with an unlimited free window on its coding model during evening hours. These windows come and go, so treat them as a bonus and not a plan.
+For me it's not a concern. It's quite a powerful model, it feels like Opus 5 level. I can have one or two heavy coding sessions with Muse 3 in OpenCode Zen for free.
 
-## 3. Pay a little and get a lot
+Once I hit the limits, I can stay in OpenCode and switch the session to OpenCode Go - their coding plan.
 
-Five dollars goes further than most people expect. I did the math with [DeepSeek's official pricing](https://api-docs.deepseek.com/quick_start/pricing) for its V4 Flash model at off-peak hours.
+## Affordable coding plans
 
-The off-peak rates per million tokens are 22 cents for input and 66 cents for output. The cache-hit rate covers repeated system prompts and conversation history, and it stays under a cent per million. Peak hours double every rate, and peak means weekday mornings in UTC. Weekends are always off-peak.
+[OpenCode Go](https://opencode.ai/go) costs $10 per month. For this $10 you get a lot. Specifically, you get the same Muse 3 Contributor, although withiht the "free" part. 
 
-A $5 top-up stretches to the following at off-peak rates:
+![alt text](llm-go.png)
 
-- About 22 million input tokens, if every token is fresh
-- About 7.5 million output tokens
-- Hundreds of millions of cached input tokens, at under a cent per million
+Again, it's a contributor model, so meta is subsidizing 90% of the cost - at least this is what they say. And you can get a lot done with this model. Combine it with 1-2 free sessions from OpenCode Go, and you'll get 5+ hours of work per day with this plan.
 
-A realistic mix of half input and half output comes to about 11 million tokens for $5. That's months of student projects. DeepSeek also announced further Flash price cuts effective September 10, so check the [live pricing page](https://api-docs.deepseek.com/quick_start/pricing) before you budget.
+And there are other models, like DeepSeek V4.1 Flash, which currently offers 75% discount (i.e. 4x more usage).
 
-Two habits stretch any paid balance further. Route through OpenRouter to reach the cheapest provider for each call. Prices for the same model differ up to 33x by call structure. And batch non-urgent work into off-peak hours, where DeepSeek charges half.
+I used to recommend GitHub Copilot as the first coding plan. Not anymore - now it's OpenCode Go.
 
-Trial credits fill the gap before you pay anything. [Modal](https://modal.com) and [Baseten](https://www.baseten.co) have offered $30 in trial credits, and cloud student programs add more. These rotate, so grab them when you see them.
+TODO list alternatives... 
+ 
 
-## 4. Run models locally and pay once
+## Cheap API access 
 
-Local models are the only option with zero marginal cost after setup. You pay for hardware once, plus electricity, and every token after that costs nothing. You get no rate limits and no data leaving your machine.
+So far we talked about coding plans. Instead, you can pay for API calls yourself and plug any API LLM platform to your coding agent. 
 
-A 24 GB card runs 27 to 30 billion parameter models at 4-bit quantization. That class includes Qwen 3.x 27B and Gemma 27B variants, which need about 16 to 18 GB for weights plus a few more for context. The standard stack is [Ollama](https://ollama.com) or [LM Studio](https://lmstudio.ai) on top, with [llama.cpp](https://github.com/ggml-project/llama.cpp) inside.
+If you do that directly with OpenAI or Anthropic and put $5 into your account, they will disappear before you can say "hello" to your coding agent.
 
-Here's what the hardware costs on the used market in September 2026:
+But if you use [DeepSeek's V4 Flash](https://api-docs.deepseek.com/quick_start/pricing) during off-peak hours, you'll be getting mullions of tokens, which is enough to do multiple coding sessions. 
 
-- Used RTX 3090 with 24 GB: around $1,300 to $1,500
-- Used RTX 4090 with 24 GB: around $2,500 to $2,800
-- A Mac with Apple silicon (M4 class): from about $1,500 new, and it runs the same models through unified memory
+Also, OpenRouter
 
-The 3090 is the value pick. The 4090 costs nearly twice as much for meaningfully faster inference. Both cards draw serious power at 350 to 450 watts under load. Budget for a strong power supply, and expect a few dollars a month on your electricity bill.
+## Current promotions
 
-Smaller models need far less. Models under 8 billion parameters run at over 100 tokens per second on cards with 6 to 8 GB, which covers most gaming laptops. If your goal is learning rather than serving, start there before spending on hardware.
 
-Local models still lag the frontier on hard reasoning and long agentic loops. I use local models for drafting, extraction, and experiments, and I pay for API calls when quality matters.
+I really like Z.ai. I have used them since September last year though their API, and I've been using their plan since December. Now they are regularly giving away 300 million tokens for glm-5.3-flash if you use their Zcode harness. Tihs promotion is typically timed for a weekend and most people can't spend so many tokens.
 
-## 5. Grab the coding-agent deals
+Additionally, they run a promo that all Z.ai coding plan subscribers get unlimited tokens from 5pm to 3am CET. (TODO find link) Well, they are rate-limited, but I don't hit these limites unless I run 20+ agents in paralel. 
 
-Coding agents are where token bills explode, so the deals matter most here. Tencent released a large open model this year and offers a free tier through its [WorkBuddy](https://copilot.tencent.com) coding assistant. Trial windows on agent platforms rotate monthly, and student packs from [GitHub](https://education.github.com/pack) bundle several of them.
+articles/claw-drafts/llm-zai-glm53-flash.png
 
-I do exploration and small edits on free tiers or local models, and I save paid agents for the tasks that earn it. A $5 DeepSeek top-up covers a surprising amount of agent traffic at off-peak rates, because agent prompts cache well across turns.
+that plus 300m tokens plus their quota reduction if you use Zcode - that combined gives you a lot of tokens. 
 
-## My current setup
+One minus of Zcode is it's GUI only. There's no terminal app. But I figured out how to connect it to Codex, so I can now use ZCode from my terminal. https://github.com/alexeygrigorev/codex-zcode/
 
-Free tiers cover learning and prototypes. Five dollars on a cheap API covers months of real projects. A used 3090 covers everything after that, if you want tokens without a meter running.
 
-I prototype against Groq and OpenRouter free tiers. I keep a small DeepSeek balance for agent work, and I run a local model for anything private. Total monthly spend stays in the single digits.
 
-Start with the free tier that matches your stack:
-
-- Groq for fast general calls
-- OpenRouter free models for model choice
-- Gemini Flash for large daily request counts
-
-When you hit those caps, you'll know exactly what to pay for. Subscribe for more posts like this, where I check the prices instead of guessing them.
