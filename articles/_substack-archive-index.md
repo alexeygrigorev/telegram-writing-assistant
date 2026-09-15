@@ -1,7 +1,7 @@
 ---
 title: "Substack Archive Index"
 created: 2026-05-16
-updated: 2026-09-04
+updated: 2026-09-15
 tags: [reference, index]
 status: draft
 ---
@@ -21,6 +21,8 @@ When processing a message where I refer back to something I already shared, scan
 
 | Date | Title | URL | Description |
 |------|-------|-----|-------------|
+| 2026-09-14 | AI Engineering Buildcamp Starts Next Week | https://aishippingblog.com/p/ai-engineering-buildcamp-starts-next | Cohort 4 announcement for AI Engineering Buildcamp (September 21 to November 22, 2026): Evidently Documentation Agent running example, optional RAG and agent projects, homework mini-projects, capstone with design-thinking project ideation and the Project Ideation Tool by Amar Agrawal, cohort 3 project showcase, testimonials, 2,100 plus scholarship applications, enrollment options, and completion certificate. |
+| 2026-09-11 | Free and Affordable AI-Native Development | https://aishippingblog.com/p/free-and-affordable-ai-native-development | Free and cheap coding-agent access for AI Dev Tools Zoomcamp: Tencent WorkBuddy and CodeBuddy free tier, OpenCode Zen free models including Muse Spark 1.3 Contributor Free, the 10-dollar OpenCode Go plan, plus ChatGPT Plus, Z.ai GLM Coding Plan Lite, MiniMax Token Plan, Command Code GOAT, and current promotions. |
 | 2026-09-04 | 13 AI Projects from AI Engineering Buildcamp Cohort 3 | https://aishippingblog.com/p/13-ai-projects-from-ai-engineering | Thirteen graduate projects covering exam-question generation, ATS and CV analysis, chess coaching, research radar, diet and learning assistants, RAG, natural-language SQL, and multi-agent software development, using FastAPI, Streamlit, PydanticAI, minsearch, OpenAI, and Logfire. |
 | 2026-08-31 | AI Dev Tools Zoomcamp 2026 Starts Today | https://aishippingblog.com/p/ai-dev-tools-zoomcamp-2026-starts | Launch and curriculum for the free, tool-agnostic AI Dev Tools Zoomcamp: specifications, AI-assisted full-stack development, testing, Docker, Postgres, CI/CD, OpenTelemetry, observability, reusable skills, MCP, plugins, and specialized subagents. |
 | 2026-08-31 | Coding Agent Building Blocks: Reusable Skills and Specialized Subagents | https://aishippingblog.com/p/coding-agent-building-blocks-reusable | Part 5 of the AI Dev Tools Zoomcamp series, explaining reusable skills, project-specific and global instructions, subagents, agentic teams, orchestration, context isolation, and parallel execution with git worktrees. |
