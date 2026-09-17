@@ -955,7 +955,14 @@ def main() -> None:
         return
 
     # Create the Application
-    application = Application.builder().token(TELEGRAM_BOT_API_KEY).build()
+    application = (
+        Application.builder()
+        .token(TELEGRAM_BOT_API_KEY)
+        .connect_timeout(NETWORK_TIMEOUT)
+        .read_timeout(NETWORK_TIMEOUT)
+        .write_timeout(NETWORK_TIMEOUT)
+        .build()
+    )
 
     # Register command handlers
     application.add_handler(CommandHandler("start", start_command))
