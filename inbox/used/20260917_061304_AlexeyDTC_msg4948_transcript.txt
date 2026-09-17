@@ -1,0 +1,10 @@
+---
+source: telegram_voice
+date: 2026-09-17T06:13:04+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20260917_061304_AlexeyDTC_msg4948.ogg
+---
+
+Он называет это Problem Spotting, то есть как находить проблемы. Вот, я смотрю, что предыдущее
+сообщение моё timed out. Я сейчас его перешлю ещё раз.

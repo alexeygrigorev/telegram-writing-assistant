@@ -1,7 +1,7 @@
 ---
 title: "Coming Up with Project Ideas"
 created: 2026-04-23
-updated: 2026-04-23
+updated: 2026-09-17
 tags: [projects, ai-buildcamp, design-thinking, capstone]
 status: draft
 ---
@@ -133,6 +133,12 @@ The same bar works outside the course too. A project that solves a real problem 
 
 And if you're planning to talk about this project in interviews later, the field guide makes one thing clear: hiring managers can tell the difference between a course you followed step by step and something you built yourself[^8]. A project you genuinely owned (where you chose the problem, scoped it, hit real issues, and fixed them) gives you something to talk about for the whole interview, because you lived through it.
 
+## Problem Spotting from Million Dollar Weekend
+
+In chapter 3 of "Million Dollar Weekend," the author talks about finding ideas. He calls the approach Problem Spotting. The core idea is to look for things that irritate you in your everyday life. What happened this morning that you wanted to do, but something got in the way? What about this week? This resonates with the approach described above in "Projects for yourself" - start from everyday friction and small annoyances[^17][^18].
+
+The specific phrasings and exercises from the book should be pulled and added here later[^18].
+
 ## If you're still stuck
 
 If after all of this you still don't have an idea, stop reading idea lists for a moment and try this instead. For the next two days, keep a short note called "annoying things" and write down repetitive workflows, frustrations, and delays as they happen. Then pick one item that feels both useful and finishable, write a one-paragraph project card for it, and start version 1.
@@ -157,3 +163,5 @@ You don't need the perfect idea. You need a real problem, a small scope, and a r
 [^14]: [20260423_184259_AlexeyDTC_msg3569_transcript.txt](../../inbox/used/20260423_184259_AlexeyDTC_msg3569_transcript.txt)
 [^15]: [20260423_185520_AlexeyDTC_msg3571_transcript.txt](../../inbox/used/20260423_185520_AlexeyDTC_msg3571_transcript.txt)
 [^16]: [20260423_185630_AlexeyDTC_msg3573.md](../../inbox/used/20260423_185630_AlexeyDTC_msg3573.md)
+[^17]: [20260917_061304_AlexeyDTC_msg4948_transcript.txt](../../inbox/used/20260917_061304_AlexeyDTC_msg4948_transcript.txt)
+[^18]: [20260917_061326_AlexeyDTC_msg4952_transcript.txt](../../inbox/used/20260917_061326_AlexeyDTC_msg4952_transcript.txt)

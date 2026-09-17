@@ -115,8 +115,10 @@ Recorded content, project, and workflow ideas for later development.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Coming Up with Project Ideas](ideas/coming-up-with-project-ideas.md) | draft | 2026-09-17 | How to pick portfolio projects: three project types, cap-the-time rule, a portfolio-workflow flowchart, Buildcamp demo-day examples, and Alexey's own pet-project write-ups |
+| [Indie Game Promotion Strategy](ideas/indie-game-promotion.md) | draft | 2026-09-17 | Notes from a Berlin data breakfast on promoting indie games via social accounts, demo platforms, and Steam wishlisting |
+| [Start Small Stay Small - Book Notes](ideas/start-small-stay-small-book-notes.md) | draft | 2026-09-09 | Book notes on goal-setting, the three roles (technician, manager, entrepreneur), product priority ordering, and tour pages |
 | [Opik Customer Story: Evaluating and Improving the DataTalks.Club FAQ Assistant](ideas/content/faq-assistant-opik-customer-story.md) | draft | 2026-07-31 | Proposal and future Substack placeholder for adding Opik traces, test suites and prompt optimization to the production FAQ assistant |
-| [Coming Up with Project Ideas](ideas/coming-up-with-project-ideas.md) | draft | 2026-04-23 | How to pick portfolio projects: three project types, cap-the-time rule, a portfolio-workflow flowchart, Buildcamp demo-day examples, and Alexey's own pet-project write-ups |
 | [Project Approach Reference Doc](ideas/project-approach-reference-doc.md) | draft | 2026-04-22 | Reusable doc for "take my project to production" requests from AI Shipping Labs members - pick one project, describe current + target state, ship end-to-end, metrics from business goals |
 | [Personal Project Ideas](ideas/projects/personal-project-ideas.md) | draft | 2026-03-02 | Personal project ideas to implement: voice-based document editing, notebook server for Claude Code, voice-controlled dev bot, DataTasks, content reuse system |
 | [Pet Projects](ideas/projects/pet-projects.md) | draft | 2026-02-28 | Karpathy's advice on becoming an expert through depth-first projects, teaching, and self-comparison |
