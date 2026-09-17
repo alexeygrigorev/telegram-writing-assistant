@@ -43,11 +43,70 @@ ASSETS_IMAGES = REPO_PATH / "assets" / "images"
 ARTICLES_DIR = REPO_PATH / "articles"
 LOGS_DIR = REPO_PATH / "claude_runs"
 
+# Network settings: Telegram and file downloads occasionally time out, so every
+# network call goes through with_retries() with exponential backoff.
+NETWORK_TIMEOUT = 60.0
+MAX_RETRIES = 3
+
 # Initialize Groq client
 groq_client = Groq(api_key=GROQ_API_KEY) if GROQ_API_KEY else None
 
 
-async def safe_reply(message, text: str, entities=None, parse_mode=None, max_retries: int = 3):
+def is_non_retryable(error: Exception) -> bool:
+    """Errors that will fail the same way no matter how often we retry."""
+    error_text = f"{type(error).__name__}: {error}"
+    return "Forbidden" in error_text or "BadRequest" in error_text
+
+
+async def with_retries(label: str, operation, max_retries: int = MAX_RETRIES):
+    """Run an async operation, retrying timeouts with exponential backoff.
+
+    Args:
+        label: Name used in log lines (e.g. "voice.get_file")
+        operation: Zero-argument async callable to run
+        max_retries: Total number of attempts before giving up
+
+    Returns:
+        Whatever the operation returns.
+
+    Raises:
+        The last exception if every attempt failed, or immediately for errors
+        that are not worth retrying (Forbidden, BadRequest).
+    """
+    for attempt in range(max_retries):
+        try:
+            return await operation()
+        except Exception as e:
+            error_name = type(e).__name__
+            error_msg = str(e)
+
+            if is_non_retryable(e):
+                print(f"[{label}] Non-retryable error: {error_name}: {error_msg}")
+                raise
+
+            if attempt == max_retries - 1:
+                print(f"[{label}] All {max_retries} attempts failed: {error_name}: {error_msg}")
+                raise
+
+            wait_time = 2 ** attempt  # Exponential backoff: 1s, 2s, 4s
+            print(f"[{label}] Retry {attempt + 1}/{max_retries} after {wait_time}s: {error_name}: {error_msg}")
+            await asyncio.sleep(wait_time)
+
+
+async def download_file(url: str, destination: Path) -> None:
+    """Download a Telegram file to disk, retrying on timeouts."""
+    async def fetch():
+        async with httpx.AsyncClient(timeout=NETWORK_TIMEOUT) as client:
+            response = await client.get(url)
+            response.raise_for_status()
+            return response.content
+
+    content = await with_retries(f"download {destination.name}", fetch)
+    with open(destination, "wb") as f:
+        f.write(content)
+
+
+async def safe_reply(message, text: str, entities=None, parse_mode=None, max_retries: int = MAX_RETRIES):
     """Reply to a message with retry logic for timeouts.
 
     Args:
@@ -63,34 +122,19 @@ async def safe_reply(message, text: str, entities=None, parse_mode=None, max_ret
     if message is None:
         print(f"[safe_reply] Cannot reply: message is None")
         return None
-    for attempt in range(max_retries):
+
+    async def send():
+        return await message.reply_text(text, entities=entities, parse_mode=parse_mode)
+
+    try:
+        return await with_retries("safe_reply", send, max_retries=max_retries)
+    except Exception as e:
+        # Last resort: a plain short message that is much more likely to go through
+        fallback = f"Error: {type(e).__name__}" if is_non_retryable(e) else "Saved (reply failed)"
         try:
-            return await message.reply_text(text, entities=entities, parse_mode=parse_mode)
-        except Exception as e:
-            error_name = type(e).__name__
-            error_msg = str(e)
-
-            # Don't retry on certain errors
-            if "Forbidden" in error_msg or "BadRequest" in error_msg:
-                print(f"[safe_reply] Non-retryable error: {error_name}: {error_msg}")
-                try:
-                    return await message.reply_text(f"Error: {error_name}", parse_mode=None)
-                except:
-                    return None
-
-            # Retry on timeout and network errors
-            if attempt < max_retries - 1:
-                wait_time = 2 ** attempt  # Exponential backoff: 1s, 2s, 4s
-                print(f"[safe_reply] Retry {attempt + 1}/{max_retries} after {wait_time}s: {error_name}: {error_msg}")
-                await asyncio.sleep(wait_time)
-            else:
-                print(f"[safe_reply] All retries failed: {error_name}: {error_msg}")
-                # Try to send a simple error message
-                try:
-                    return await message.reply_text(f"Saved (reply failed)", parse_mode=None)
-                except:
-                    return None
-    return None
+            return await message.reply_text(fallback, parse_mode=None)
+        except Exception:
+            return None
 
 
 def create_collapsible_message(prefix: str, content: str, max_length: int = 1000) -> tuple[str, list]:

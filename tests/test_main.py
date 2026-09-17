@@ -893,3 +893,126 @@ class TestDocumentVideoShortcut:
         content = written_content[0] if written_content else ""
         assert "source: telegram_video" in content
         document.get_file.assert_not_called()
+
+
+class TestWithRetries:
+    """Tests for with_retries - exponential backoff around network calls."""
+
+    @pytest.mark.asyncio
+    async def test_returns_result_without_retrying(self):
+        """A call that succeeds first time is not retried."""
+        from main import with_retries
+
+        operation = AsyncMock(return_value="ok")
+        with patch("main.asyncio.sleep", AsyncMock()) as mock_sleep:
+            result = await with_retries("test", operation)
+
+        assert result == "ok"
+        assert operation.call_count == 1
+        mock_sleep.assert_not_called()
+
+    @pytest.mark.asyncio
+    async def test_retries_timeout_then_succeeds(self):
+        """A timeout is retried and the later success is returned."""
+        from telegram.error import TimedOut
+        from main import with_retries
+
+        operation = AsyncMock(side_effect=[TimedOut(), TimedOut(), "ok"])
+        with patch("main.asyncio.sleep", AsyncMock()) as mock_sleep:
+            result = await with_retries("test", operation)
+
+        assert result == "ok"
+        assert operation.call_count == 3
+        assert [call.args[0] for call in mock_sleep.call_args_list] == [1, 2]
+
+    @pytest.mark.asyncio
+    async def test_raises_after_max_retries(self):
+        """After the last attempt the original error propagates."""
+        from telegram.error import TimedOut
+        from main import with_retries
+
+        operation = AsyncMock(side_effect=TimedOut())
+        with patch("main.asyncio.sleep", AsyncMock()):
+            with pytest.raises(TimedOut):
+                await with_retries("test", operation)
+
+        assert operation.call_count == 3
+
+    @pytest.mark.asyncio
+    async def test_does_not_retry_bad_request(self):
+        """BadRequest fails the same way every time, so it is raised at once."""
+        from telegram.error import BadRequest
+        from main import with_retries
+
+        operation = AsyncMock(side_effect=BadRequest("message not found"))
+        with patch("main.asyncio.sleep", AsyncMock()) as mock_sleep:
+            with pytest.raises(BadRequest):
+                await with_retries("test", operation)
+
+        assert operation.call_count == 1
+        mock_sleep.assert_not_called()
+
+
+class TestDownloadFile:
+    """Tests for download_file."""
+
+    @pytest.mark.asyncio
+    async def test_writes_content_after_retry(self, tmp_path):
+        """A timed-out download is retried and the file still lands on disk."""
+        import httpx
+        from main import download_file
+
+        response = MagicMock()
+        response.content = b"audio-bytes"
+        response.raise_for_status = MagicMock()
+
+        client = MagicMock()
+        client.get = AsyncMock(side_effect=[httpx.ReadTimeout("timeout"), response])
+        client.__aenter__ = AsyncMock(return_value=client)
+        client.__aexit__ = AsyncMock(return_value=False)
+
+        destination = tmp_path / "voice.ogg"
+        with patch("main.httpx.AsyncClient", return_value=client):
+            with patch("main.asyncio.sleep", AsyncMock()):
+                await download_file("https://example.com/voice.ogg", destination)
+
+        assert destination.read_bytes() == b"audio-bytes"
+        assert client.get.call_count == 2
+
+
+class TestSafeReply:
+    """Tests for safe_reply."""
+
+    @pytest.mark.asyncio
+    async def test_retries_timeout(self):
+        """A reply that times out once is sent again."""
+        from telegram.error import TimedOut
+        from main import safe_reply
+
+        sent = MagicMock()
+        message = MagicMock()
+        message.reply_text = AsyncMock(side_effect=[TimedOut(), sent])
+
+        with patch("main.asyncio.sleep", AsyncMock()):
+            result = await safe_reply(message, "Saved: voice.ogg")
+
+        assert result is sent
+        assert message.reply_text.call_count == 2
+
+    @pytest.mark.asyncio
+    async def test_falls_back_when_all_retries_fail(self):
+        """When every attempt times out, a short plain message is sent instead."""
+        from telegram.error import TimedOut
+        from main import safe_reply
+
+        fallback = MagicMock()
+        message = MagicMock()
+        message.reply_text = AsyncMock(
+            side_effect=[TimedOut(), TimedOut(), TimedOut(), fallback]
+        )
+
+        with patch("main.asyncio.sleep", AsyncMock()):
+            result = await safe_reply(message, "Saved: voice.ogg")
+
+        assert result is fallback
+        assert message.reply_text.call_args.args[0] == "Saved (reply failed)"
