@@ -6,7 +6,9 @@ The goal of research is to find **3-5 article angles** worth pitching. A strong 
 
 ### Primary social signal: x.ai Grok (use this first)
 
-The fastest way to find what AI engineers are debating right now is **Grok's live search** across X/Twitter, Reddit, and the web. It has real-time access to both platforms (which block conventional scraping) and returns citations.
+The fastest way to find what AI engineers are debating right now is **Grok's live search** across Reddit, HN, blogs, and the web. It has real-time access and returns citations.
+
+> Do NOT use `x_search`: since Sep 2026 X charges per viewed post, making it too expensive. `web_search` only.
 
 **Tool:** `~/git/ai-engineering-field-guide/interview/_internal/xai_search.py`
 **API key:** `XAI_API_KEY` in `~/git/ai-engineering-field-guide/.env`
@@ -17,24 +19,24 @@ The fastest way to find what AI engineers are debating right now is **Grok's liv
 ```bash
 cd ~/git/ai-engineering-field-guide && python3 interview/_internal/xai_search.py \
   '<research prompt>' \
-  --tools web_search,x_search \
+  --tools web_search \
   --label 'descriptive-name'
 ```
 
 **Writing good Grok prompts:**
 1. State what you're researching (context)
 2. Define exactly what you want (debates, opinions, data, links)
-3. Specify where to look (Reddit r/LocalLLaMA, X/Twitter, HN, blogs)
+3. Specify where to look (Reddit r/LocalLLaMA, HN, blogs)
 4. Scope it (time period, exclude what you don't want)
 5. Request structured output (for each result: source link, who said it, what they argued)
 
-**Best for:** trending debates, contrarian takes, production war stories, tool comparisons, what practitioners are arguing about on X and Reddit. This is the **primary trend discovery tool** — start here before anything else.
+**Best for:** trending debates, contrarian takes, production war stories, tool comparisons, what practitioners are arguing about on Reddit and HN. This is the **primary trend discovery tool** — start here before anything else.
 
 **Example query that works well:**
 ```
 I'm researching trending topics in AI engineering for article ideas.
 Find me the hottest discussions from the past 2 weeks on Reddit
-(r/LocalLLaMA, r/MachineLearning), X/Twitter, and Hacker News about:
+(r/LocalLLaMA, r/MachineLearning) and Hacker News about:
 LLM agents in production, model routing, evaluation challenges, open-weight
 vs closed models, context engineering, AI cost optimization. For each trend,
 give me: what the debate is about, key voices/links, and why it matters
@@ -107,11 +109,7 @@ Read the last 2-3 weeks for what's being discussed and argued:
 - [Unstructured Blog](https://unstructured.io/blog) — document parsing, ingestion
 - [Cursor Blog](https://cursor.com/blog) — coding agents, agent economics
 
-### X/Twitter thought leaders
-
-Search via Grok `--tools x_search` for recent posts by: Andrew Ng, Yann LeCun, Andrej Karpathy, Sebastian Raschka, Harrison Chase (LangChain), Jerry Liu (LlamaIndex), Swyx, Clem Delangue (Hugging Face), Greg Brockman, Simon Willison, Eugene Yan, Chip Huyen, Hamel Husain, Jason Liu (Instructor), Lilian Weng, Pieter Abbeel, Jeremy Howard (fast.ai), Zach Mueller, @_avichawla (model routing), @nikesharora (evals/orchestration), @orvi_onethread (agent costs).
-
-Look for: posts with high engagement, original frameworks, candid takes on AI engineering, tooling debates, production failures, benchmarks. Andrew Ng's provocations and Karpathy's hot takes are good foils to argue with.
+### Practitioner blogs (deep dives by the same voices)
 
 ### Reddit communities (via Grok or direct)
 
@@ -201,7 +199,7 @@ Bring 3-5 angles back to Alexey, each like this:
 
 **Why it's hot:** {The concrete recent event/post/research/model release that makes it timely, phrased as the *debate* it triggered. Link 1-2 sources.}
 
-**Where it's being discussed:** {Specific venues and voices — X handles, subreddits, HN threads, blog posts — with links. If it's only being discussed in one place, say so; that's a weaker signal.}
+**Where it's being discussed:** {Specific venues — subreddits, HN threads, blog posts — with links. If it's only being discussed in one place, say so; that's a weaker signal.}
 
 **Practical payoff:** {The checklist, framework, code pattern, or architecture decision the reader walks away with.}
 
@@ -219,7 +217,7 @@ Then present the angles to Alexey and ask him to pick one (or adjust). Once he p
 
 **⚠️ Know the current date.** Before researching, check the actual current date (via `session_status` or the runtime timestamp in the inbound context). Always scope your Grok queries with the correct year and month. AI search tools often return results from 6-12 months ago if you don't explicitly anchor to the current date. Use phrases like "August 2026", "this week August 2026", or "past 2 weeks" in your queries.
 
-1. **Start with Grok** — query X/Twitter + Reddit for trending AI engineering debates from the past 2 weeks. This is the fastest way to find what practitioners are arguing about right now. Include the current month/year explicitly in the query.
+1. **Start with Grok** — query Reddit for trending AI engineering debates from the past 2 weeks. This is the fastest way to find what practitioners are arguing about right now. Include the current month/year explicitly in the query.
 2. **Check HN front page** via Algolia API. Note anything AI/LLM/agent related with >100 points. Query by keyword for the past week.
 3. **Scan TLDR AI** (today + yesterday). Note model launches, funding, big stories.
 4. **Read 3-4 key blogs** (Simon Willison, Latent Space, Sebastian Raschka, Hamel Husain). What are they arguing about?

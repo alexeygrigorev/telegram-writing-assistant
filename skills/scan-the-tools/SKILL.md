@@ -1,11 +1,11 @@
 ---
 name: scan-the-tools
-description: Weekly digest of NEW open-source AI engineering tools (agent harnesses, MCP tooling, evals, context/memory, inference/serving, coding agents), pulled from live social signal (Grok over X/Reddit + HN Show HN), written as a ready-to-paste "Tools" section in Alexey's Substack format. Triggers - "weekly tools digest", "new AI tools this week", "tools section", "scan the tools", any request for a recurring OSS tools roundup.
+description: Weekly digest of NEW open-source AI engineering tools (agent harnesses, MCP tooling, evals, context/memory, inference/serving, coding agents), pulled from live social signal (Grok web_search over Reddit/blogs + HN Show HN), written as a ready-to-paste "Tools" section in Alexey's Substack format. Triggers - "weekly tools digest", "new AI tools this week", "tools section", "scan the tools", any request for a recurring OSS tools roundup.
 ---
 
 # Scan the Tools — Weekly OSS Tools Digest
 
-Produce a weekly digest of **new open-source AI engineering tools** (tools and infrastructure, **not models**) that gained real traction in the past 7 days on X/Twitter, Reddit, and Hacker News. The output document is formatted exactly like the **Tools sections of Alexey's Substack articles** (`reference/substack/*.md`), so it can be pasted into a future article with zero rework.
+Produce a weekly digest of **new open-source AI engineering tools** (tools and infrastructure, **not models**) that gained real traction in the past 7 days on Reddit and Hacker News. The output document is formatted exactly like the **Tools sections of Alexey's Substack articles** (`reference/substack/*.md`), so it can be pasted into a future article with zero rework.
 
 ## Scope
 
@@ -25,9 +25,11 @@ Check the current date first (`session_status`). The scan window is the **past 7
 
 ```bash
 cd ~/git/ai-engineering-field-guide && python3 interview/_internal/xai_search.py \
-  'Current date <DATE>. Find NEW open-source AI engineering tools and technologies (NOT models) released or trending in the past 7 days on X/Twitter, Reddit (r/LocalLLaMA, r/MachineLearning, r/MCPservers), and Hacker News. I want GitHub repos: agent frameworks and harnesses, LLM inference/serving tools, eval and observability tools, context engineering and memory tools, MCP tooling, RAG pipelines, fine-tuning tools, coding agents, agent orchestration. For each tool: what it does, GitHub link, why it is gaining traction right now, where it is being discussed (specific X handles/threads, HN links, Reddit threads), stars if known' \
-  --tools web_search,x_search --label 'oss-tools-<yyyymmdd>'
+  'Current date <DATE>. Find NEW open-source AI engineering tools and technologies (NOT models) released or trending in the past 7 days on Reddit (r/LocalLLaMA, r/MachineLearning, r/MCPservers), Hacker News, and engineering blogs. I want GitHub repos: agent frameworks and harnesses, LLM inference/serving tools, eval and observability tools, context engineering and memory tools, MCP tooling, RAG pipelines, fine-tuning tools, coding agents, agent orchestration. For each tool: what it does, GitHub link, why it is gaining traction right now, where it is being discussed (Reddit threads, HN links, blog posts), stars if known' \
+  --tools web_search --label 'oss-tools-<yyyymmdd>'
 ```
+
+> Do NOT use `x_search`: since Sep 2026 X charges per viewed post, making it too expensive. `web_search` only.
 
 ### 3. HN Show HN scan (secondary)
 
