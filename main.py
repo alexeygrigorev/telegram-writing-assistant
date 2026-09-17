@@ -302,10 +302,7 @@ async def save_voice_message(file_path: str, user_id: int, username: str = None,
     transcription_filename = INBOX_RAW / f"{base_name}_transcript.txt"
 
     # Download voice file
-    async with httpx.AsyncClient() as client:
-        response = await client.get(file_path)
-        with open(audio_filename, "wb") as f:
-            f.write(response.content)
+    await download_file(file_path, audio_filename)
 
     # Transcribe with Groq Whisper
     with open(audio_filename, "rb") as audio_file:
@@ -352,10 +349,7 @@ async def save_photo(file_path: str, user_id: int, username: str = None, caption
     # Save image in inbox/raw alongside its markdown description
     filename = INBOX_RAW / f"{base_name}.jpg"
 
-    async with httpx.AsyncClient() as client:
-        response = await client.get(file_path)
-        with open(filename, "wb") as f:
-            f.write(response.content)
+    await download_file(file_path, filename)
 
     # Generate image description
     description = describe_image(filename)
@@ -417,7 +411,7 @@ async def handle_voice_message(update: Update, context: ContextTypes.DEFAULT_TYP
         msg_id = update.message.message_id
 
         # Get the file path
-        file = await voice.get_file()
+        file = await with_retries("voice.get_file", voice.get_file)
         audio_file, transcript_file, transcript_text = await save_voice_message(file.file_path, user.id, user.username, msg_date, msg_id)
 
         # Send transcript to chat with collapsible blockquote
@@ -446,7 +440,7 @@ async def handle_audio_message(update: Update, context: ContextTypes.DEFAULT_TYP
         msg_id = update.message.message_id
 
         # Get the file path
-        file = await audio.get_file()
+        file = await with_retries("audio.get_file", audio.get_file)
         audio_file, transcript_file, transcript_text = await save_voice_message(
             file.file_path, user.id, user.username, msg_date, msg_id
         )
@@ -478,7 +472,7 @@ async def handle_photo_message(update: Update, context: ContextTypes.DEFAULT_TYP
         msg_id = update.message.message_id
 
         # Get the file path
-        file = await photo.get_file()
+        file = await with_retries("photo.get_file", photo.get_file)
         filename, description = await save_photo(file.file_path, user.id, user.username, caption, msg_date, msg_id)
 
         # Reply with description in collapsible blockquote
@@ -736,7 +730,7 @@ async def handle_document_message(update: Update, context: ContextTypes.DEFAULT_
             await safe_reply(update.message, reply_text, parse_mode=None)
             return
 
-        file = await document.get_file()
+        file = await with_retries("document.get_file", document.get_file)
         file_path = file.file_path
 
         # Create base filename
@@ -744,10 +738,7 @@ async def handle_document_message(update: Update, context: ContextTypes.DEFAULT_
         saved_filename = INBOX_RAW / f"{base_name}{extension}"
 
         # Download the file
-        async with httpx.AsyncClient() as client:
-            response = await client.get(file_path)
-            with open(saved_filename, "wb") as f:
-                f.write(response.content)
+        await download_file(file_path, saved_filename)
 
         # Audio files: transcribe like voice messages
         audio_extensions = {'.m4a', '.mp3', '.wav', '.ogg', '.flac', '.webm'}
