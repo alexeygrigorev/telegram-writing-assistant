@@ -1,0 +1,60 @@
+{
+  "title": "The routing benchmark",
+  "description": "The same 50 labeled requests run through JEV and GPT-4o-mini. We compare each prediction with the destination to match before aggregating accuracy, latency, and cost.",
+  "canvas": {"width": 1220, "height": 440, "background": "#ffffff"},
+  "layout": {"type": "manual", "card_width": 220, "card_height": 100},
+  "nodes": [
+    {
+      "id": "cases",
+      "title": "50 test cases",
+      "subtitle": "50 benchmark requests",
+      "icon": "document",
+      "color": "blue",
+      "x": 40,
+      "y": 170
+    },
+    {
+      "id": "jev",
+      "title": "JEV router",
+      "subtitle": "OpenRouter decisions",
+      "icon": "api",
+      "color": "purple",
+      "x": 340,
+      "y": 40
+    },
+    {
+      "id": "gpt",
+      "title": "GPT-4o-mini",
+      "subtitle": "Pydantic AI output",
+      "icon": "openai",
+      "color": "gray",
+      "x": 340,
+      "y": 300
+    },
+    {
+      "id": "compare",
+      "title": "Compare routes",
+      "subtitle": "Destination to match",
+      "icon": "check",
+      "color": "amber",
+      "x": 660,
+      "y": 170
+    },
+    {
+      "id": "metrics",
+      "title": "Measure results",
+      "subtitle": "Accuracy · latency · cost",
+      "icon": "observability",
+      "color": "green",
+      "x": 960,
+      "y": 170
+    }
+  ],
+  "edges": [
+    {"from": "cases", "to": "jev", "route": "orthogonal"},
+    {"from": "cases", "to": "gpt", "route": "orthogonal"},
+    {"from": "jev", "to": "compare", "route": "orthogonal"},
+    {"from": "gpt", "to": "compare", "route": "orthogonal"},
+    {"from": "compare", "to": "metrics"}
+  ]
+}

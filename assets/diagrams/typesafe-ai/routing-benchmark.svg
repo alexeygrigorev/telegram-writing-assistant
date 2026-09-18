@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1220" height="440" viewBox="0 0 1220 440" role="img" aria-labelledby="title desc">
+  <title id="title">The routing benchmark</title>
+  <desc id="desc">The same 50 labeled requests run through JEV and GPT-4o-mini. We compare each prediction with the destination to match before aggregating accuracy, latency, and cost.</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+    <marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#7c3aed"/></marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#2563eb"/></marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#c2410c"/></marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#15803d"/></marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#dc2626"/></marker>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#64748b"/></marker>
+    <symbol id="icon-api" viewBox="0 0 24 24">
+        <path d="m8 5-5 7 5 7M16 5l5 7-5 7M14 3l-4 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="m7.5 12 3 3 6-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+    <symbol id="icon-document" viewBox="0 0 24 24">
+        <path d="M6 2h8l4 4v16H6Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M14 2v5h4M9 12h6M9 16h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+    <symbol id="icon-observability" viewBox="0 0 24 24">
+        <rect x="2" y="3" width="17" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/>
+        <path d="M6 13v-3M10 13V7M14 13V9M7 21h7M10.5 17v4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        <circle cx="18" cy="15" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/>
+        <circle cx="18" cy="15" r="1" fill="currentColor"/>
+        <path d="m21 18 2 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </symbol>
+    <symbol id="icon-openai" viewBox="146 227 268 265">
+        <path fill="currentColor" d="M249.176 323.434V298.276c0-2.118.795-3.707 2.649-4.767l50.581-29.128c6.884-3.972 15.094-5.826 23.567-5.826 31.777 0 51.904 24.63 51.904 50.844 0 1.854 0 3.972-.266 6.091l-52.433-30.719c-3.177-1.852-6.356-1.852-9.533 0l-66.469 38.663Zm118.107 97.981v-60.114c0-3.709-1.589-6.356-4.767-8.209l-66.468-38.662 21.715-12.448c1.854-1.057 3.443-1.057 5.295 0l50.581 29.13c14.566 8.474 24.364 26.48 24.364 43.957 0 20.126-11.916 38.664-30.72 46.343v.003Zm-133.73-52.963-21.715-12.71c-1.852-1.058-2.648-2.647-2.648-4.767v-58.257c0-28.335 21.715-49.786 51.111-49.786 11.122 0 21.447 3.709 30.189 10.328l-52.169 30.189c-3.175 1.854-4.766 4.502-4.766 8.21v76.796l-.002-.003Zm46.739 27.01-31.116-17.477v-37.072l31.116-17.477 31.115 17.477v37.072l-31.115 17.477Zm19.994 80.506c-11.123 0-21.449-3.709-30.189-10.328l52.167-30.191c3.177-1.852 4.766-4.5 4.766-8.21v-76.794l21.981 12.71c1.854 1.058 2.649 2.647 2.649 4.767v58.257c0 28.335-21.981 49.786-51.374 49.786v.003Zm-62.761-59.053-50.581-29.13c-14.566-8.475-24.362-26.48-24.362-43.958 0-20.391 12.181-38.663 30.981-46.342v60.376c0 3.71 1.591 6.356 4.767 8.21l66.205 38.396-21.715 12.448c-1.853 1.057-3.443 1.057-5.295 0Zm-2.911 43.428c-29.925 0-51.904-22.51-51.904-50.315 0-2.118.266-4.236.528-6.356l52.167 30.191c3.177 1.852 6.358 1.852 9.533 0l66.469-38.397v25.156c0 2.12-.795 3.709-2.649 4.767l-50.579 29.13c-6.886 3.972-15.096 5.824-23.568 5.824h.004Zm65.672 31.511c32.043 0 58.787-22.772 64.881-52.962 29.658-7.681 48.725-35.486 48.725-63.819 0-18.538-7.944-36.544-22.244-49.521 1.324-5.561 2.118-11.122 2.118-16.682 0-37.867-30.718-66.204-66.204-66.204-7.149 0-14.034 1.057-20.918 3.443-11.919-11.652-28.337-19.067-46.343-19.067-32.043 0-58.788 22.773-64.881 52.962-29.659 7.681-48.726 35.486-48.726 63.82 0 18.538 7.944 36.544 22.244 49.52-1.325 5.562-2.119 11.123-2.119 16.683 0 37.867 30.719 66.204 66.205 66.204 7.148 0 14.034-1.058 20.919-3.443 11.916 11.653 28.335 19.067 46.343 19.067Z"/>
+      </symbol>
+    <style>
+      text { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #172033; }
+      symbol [stroke] { vector-effect: non-scaling-stroke; }
+      .node rect { stroke-width: 2; }
+      .node-boundary rect { stroke-width: 2; stroke-dasharray: 8 8; }
+      .boundary-title { font-size: 16px; font-weight: 750; text-anchor: start; }
+      .node-title { font-weight: 750; text-anchor: middle; }
+      .node-title.icon-copy { text-anchor: start; }
+      .node-subtitle { font-weight: 500; fill: #475569; text-anchor: middle; }
+      .eyebrow { font-weight: 750; letter-spacing: 1px; fill: #475569; text-anchor: middle; }
+      .mention-icon { font-size: 27px; font-weight: 750; text-anchor: middle; }
+      .standalone-mention { font-size: 52px; font-weight: 750; text-anchor: middle; }
+      .icon-node-title { font-size: 16px; font-weight: 750; text-anchor: middle; }
+      .edge { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+      .edge-label rect { stroke-width: 2; }
+      .edge-label text { font-size: 14px; font-weight: 750; text-anchor: middle; dominant-baseline: central; }
+      .divider { stroke: #cbd5e1; stroke-width: 2; stroke-dasharray: 6 8; stroke-linecap: round; }
+      .center-annotation { fill: #f1f5f9; stroke: none; }
+      .center-title { font-weight: 800; letter-spacing: 0.08em; fill: #334155; text-anchor: middle; }
+      .center-detail { font-weight: 600; fill: #475569; text-anchor: middle; }
+    </style>
+  </defs>
+  <rect width="1220" height="440" fill="#ffffff"/>
+
+  <path class="edge" d="M260 220H300V90H340" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M260 220H300V350H340" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M560 90H610V220H660" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M560 350H610V220H660" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M880 220L960 220" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+
+  <g class="node node-blue" transform="translate(40 170)" filter="url(#shadow)">
+    <rect width="220" height="100" rx="18" fill="#eff6ff" stroke="#2563eb"/>
+    <use href="#icon-document" x="16" y="9" width="34" height="34" color="#2563eb"/>
+    <text class="node-title icon-copy" x="62" y="31.4" font-size="15">50 test cases</text>
+    <text class="node-subtitle" x="110" y="64" font-size="16">50 benchmark</text>
+    <text class="node-subtitle" x="110" y="86" font-size="16">requests</text>
+  </g>
+  <g class="node node-purple" transform="translate(340 40)" filter="url(#shadow)">
+    <rect width="220" height="100" rx="18" fill="#f5f3ff" stroke="#7c3aed"/>
+    <use href="#icon-api" x="16" y="20" width="34" height="34" color="#7c3aed"/>
+    <text class="node-title icon-copy" x="62" y="42.4" font-size="15">JEV router</text>
+    <text class="node-subtitle" x="110" y="75" font-size="16">OpenRouter decisions</text>
+  </g>
+  <g class="node node-gray" transform="translate(340 300)" filter="url(#shadow)">
+    <rect width="220" height="100" rx="18" fill="#f8fafc" stroke="#64748b"/>
+    <use href="#icon-openai" x="16" y="20" width="34" height="34" color="#64748b"/>
+    <text class="node-title icon-copy" x="62" y="42.4" font-size="15">GPT-4o-mini</text>
+    <text class="node-subtitle" x="110" y="75" font-size="16">Pydantic AI output</text>
+  </g>
+  <g class="node node-amber" transform="translate(660 170)" filter="url(#shadow)">
+    <rect width="220" height="100" rx="18" fill="#fff7ed" stroke="#c2410c"/>
+    <use href="#icon-check" x="16" y="20" width="34" height="34" color="#c2410c"/>
+    <text class="node-title icon-copy" x="62" y="42.4" font-size="15">Compare routes</text>
+    <text class="node-subtitle" x="110" y="75" font-size="16">Destination to match</text>
+  </g>
+  <g class="node node-green" transform="translate(960 170)" filter="url(#shadow)">
+    <rect width="220" height="100" rx="18" fill="#ecfdf5" stroke="#15803d"/>
+    <use href="#icon-observability" x="16" y="9" width="34" height="34" color="#15803d"/>
+    <text class="node-title icon-copy" x="62" y="31.4" font-size="15">Measure results</text>
+    <text class="node-subtitle" x="110" y="64" font-size="16">Accuracy · latency ·</text>
+    <text class="node-subtitle" x="110" y="86" font-size="16">cost</text>
+  </g>
+</svg>

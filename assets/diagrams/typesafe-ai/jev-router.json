@@ -1,0 +1,59 @@
+{
+  "title": "Jev routes site operations",
+  "description": "An incoming request goes to Jev through OpenRouter. Jev returns one typed destination and sends the task to one of three specialist agents.",
+  "canvas": {"width": 1020, "height": 440, "background": "#ffffff"},
+  "layout": {"type": "manual", "card_width": 220, "card_height": 100},
+  "nodes": [
+    {
+      "id": "request",
+      "title": "User request",
+      "subtitle": "Task text",
+      "icon": "message",
+      "color": "blue",
+      "x": 40,
+      "y": 170
+    },
+    {
+      "id": "jev",
+      "title": "Jev decision",
+      "subtitle": "OpenRouter API",
+      "icon": "api",
+      "color": "purple",
+      "x": 350,
+      "y": 170
+    },
+    {
+      "id": "dtc",
+      "title": "DataTalks.Club",
+      "subtitle": "Courses and website",
+      "icon": "document",
+      "color": "green",
+      "x": 760,
+      "y": 40
+    },
+    {
+      "id": "aisl",
+      "title": "AI Shipping Labs",
+      "subtitle": "Marketing and content",
+      "icon": "sparkles",
+      "color": "green",
+      "x": 760,
+      "y": 170
+    },
+    {
+      "id": "admin",
+      "title": "Admin tasks",
+      "subtitle": "Reminders and tracking",
+      "icon": "settings",
+      "color": "green",
+      "x": 760,
+      "y": 300
+    }
+  ],
+  "edges": [
+    {"from": "request", "to": "jev"},
+    {"from": "jev", "to": "dtc", "route": "orthogonal"},
+    {"from": "jev", "to": "aisl", "route": "orthogonal"},
+    {"from": "jev", "to": "admin", "route": "orthogonal"}
+  ]
+}
