@@ -344,18 +344,12 @@ These are the results:
   <img src="../../assets/images/typesafe-ai/benchmark-results.png" alt="Benchmark results: Jev 50/50 at 0.32 s median, 0.55 s p95 and $0.001089, gpt-4o-mini 50/50 at 0.76 s median, 1.17 s p95 and $0.003704">
 </figure>
 
-Both routers get every case right, the terse workshop one included. For a three-way split between domains that barely share vocabulary, that is what I expected - this is an easy classification task, and it should be.
+Both routers get every case right. It's not a suprsize, though. But speed and price are different: Jev was 2.4 times faster and 3.4 times cheaper.
 
-So the difference is speed and price: Jev was 2.4 times faster by median latency and 3.4 times cheaper. I ran the benchmark several times and the numbers barely moved - Jev's median stayed between 0.32 and 0.34 seconds, gpt-4o-mini's between 0.73 and 0.76 seconds, and the cost was the same on every run.
-
-
-Jev is so cheap that OpenRouter shows $0.00 on the dashboard:
-
-<figure>
-  <img src="../../assets/images/typesafe-ai/openrouter-spend.png" alt="The OpenRouter spend-by-model dashboard showing $0.00 for both Jev 1.13 and gpt-4o-mini">
-</figure>
+I ran the benchmark several times and the numbers barely moved - Jev's median stayed between 0.32 and 0.34 seconds, gpt-4o-mini's between 0.73 and 0.76 second. The cost was the same on every run.
 
 I think it's a very promising technology and I'll most likely integrate it in my workflows.
+
 
 ### Workshop on Tuesday
 
