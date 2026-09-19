@@ -1,200 +1,285 @@
 ---
-title: "Why Did I Create My Own Terminal Multiplexer?"
+title: "Aplexer - Why I Stopped Using Tmux and Created My Own Terminal Multiplexer"
 created: 2026-08-27
-updated: 2026-08-28
+updated: 2026-09-17
 tags: [aplexer, tmux, rust, coding-agents, terminal-multiplexer]
 status: draft
 ---
 
-# Why Did I Create My Own Terminal Multiplexer?
+## Advantages and disadvantages of tmux and my new agent multiplexer 
 
-I created [aplexer](https://github.com/alexeygrigorev/aplexer) after tmux stopped being the thing I needed most from a terminal multiplexer.
+tmux is a terminal multiplexer that I use to run agents on a remote machine. I wrote about using it in my article [The System I Built to Ship Code From a Phone](https://aishippingblog.com/p/the-system-i-built-to-ship-code-from).
 
-That sentence needs a qualification. tmux remains useful because it keeps terminal programs alive on a remote machine while letting me detach and reconnect later.
+When you connect to a remote machine with ssh, the processes you launch are bound to your ssh session. That means when you disconnect, or the connection drops, the processes die together with the session. 
 
-My problem changed when the programs inside those terminals became coding agents. I was no longer managing only shells and panes. Each session had an identity and a repository. It also had an engine, a profile, a resource budget, and a lifecycle. I wanted scripts to query those fields.
+A terminal multiplexer is a tool that detaches the processes you start from the ssh session, so they can keep running after the disconnect. Screen and tmux are the most well-known terminal multiplexers, but tmux is more modern and generally preferred among developers. 
 
-So I built a different kind of terminal runtime. To explain the choice, I first need to show how tmux works.
+I've used tmux for ages but with agents running 24/7 on my remote dev box, it no longer works for me. To replace it, I created [aplexer](https://github.com/alexeygrigorev/aplexer). In this article I'll tell you why. 
 
-## tmux's architecture
+In particular, we'll cover:
 
-The simplest way to think about tmux is as a long-lived server that sits between terminal clients and terminal programs.
+- What tmux is and how it works
+- Advantages and disadvantages of tmux 
+- My tool tmuxctl to make tmux easier to manage
+- Aplexer as the solution to my current problems with tmux
 
-When I run something like this:
+Let's start!
 
-```bash
-tmux new -s project
-```
+## Terminal Multiplexer
 
-my terminal becomes a tmux client. If a tmux server isn't already running, tmux starts one. The client connects to that server through a Unix-domain socket. The server owns the session and keeps it alive after the client disconnects.
+The [tmux README](https://github.com/tmux/tmux) says:
 
-The hierarchy looks like this:
+> tmux is a terminal multiplexer: it enables a number of terminals to be created, accessed, and controlled from a single screen. tmux may be detached from a screen and continue running in the background, then later reattached.
 
-```text
-terminal client → Unix socket → tmux server
-                                  └─ session
-                                      └─ window
-                                          └─ pane → PTY → shell or process
-```
+It's a layer between you (your ssh session) and the processes you run. 
 
-The [tmux Getting Started guide](https://github.com/tmux/tmux/wiki/Getting-Started) describes the user-facing hierarchy and the detach/reattach flow. The [tmux manual](https://github.com/tmux/tmux/blob/master/tmux.1) fills in lower-level details such as separate client and server processes, sockets, and pseudo-terminals.
-
-A session is the persistent container, and a window is a view inside it. A pane is a region of a window with its own PTY. The shell or program in that pane believes it has a normal terminal. tmux reads from the other side of the PTY, then forwards input and output.
-
-The server owns the sessions, windows, and panes, along with terminal state and client connections. This shared owner gives every client one coherent terminal world.
-
-Commands such as these operate on the same server-managed state:
+After I ssh into my devbox, I can start a tmux session:
 
 ```bash
-tmux split-window
-tmux detach-client
-tmux attach -t project
+tmux new-session -s ai-shipping-labs
 ```
 
-Detaching only removes the client view. It doesn't stop the shell or the process in the pane. When I reconnect, I get the same session back.
+Under the hood, multiple things happen:
+
+- My terminal becomes a tmux client 
+- The client connects to a tmux server
+- If the server is not running, the command starts it 
+
+The client connects to the server through a Unix-domain socket. The server creates a session and a PTY for that session. 
+
+TODO: diagram 
+user -> ssh -> tmux server -- socket -- tmux client -- PTY
+
+A PTY is a pseudo-terminal created by the kernel. It has two sides:
+
+- the master (user side) - sends the input from the user to whatever is runing in the terminal. 
+- the slave (shell side) - receives the input from the master and sends it to shell or whatever programm running in the terminal.  
+
+TODO diagram
+user --> PTY master <--> PTY slave <-- shell
+
+When we start the standard terminal emulator app on any Linux, it creates a PTY. The master side is the terminal app, and the slave side is a shell (usually bash).
+
+TODO: image of terminal on Ubuntu 
+user --> ubuntu terminal --> PTY master <--> PTY slave <-- shell
+
+
+When we start a proccess from a PTY, it gets attached to the shell runing on the slave side - unless we explicitly detach it with `nohup`. 
+
+TODO terminal
+terminal <-> PTY <-> bash -> claude -> make run
+
+When the PTY stops, the slave exists too, switching off the shell. All the connected processes follow.
+
+```
+kill ----------------> kill -> kill -> kill 
+terminal <-> PTY <-> bash -> claude -> make run
+```
+
+That's why when you're close  a terminal tab in Ubuntu, all the processed that run there exit too.
+
+
+When we use ssh, the ssh client on our computer connects to the ssh server (sshd) on the remote machine. sshd also server creates a PTY: the master is on the sshd side, and the slave is on the shell side.
+
+
+TODO diagram
+```
+    local                                                         remote
+---------------------------------------------------------     ------------------------------------
+terminal emulator --> PTY <-- bash (local) --> ssh client <-> ssh server --> PTY <-- bash (remote)
+---------------------------------------------------------     ------------------------------------
+```
+
+When ssh disconnects, sshd stops the PTY that was created for this session, and all the processed die with it.
+
+TOOD diagram with kill propagation
+
+Terminal multiplexers add one more hup: tmux server creates another PTY, and the shell that's running inside that PTY is the parent for all these processes. 
+
+```
+ ssh connection                              tmux session
+-------------------------------------     -------------------------------------------------------
+sshd --> PTY <-- bash --> tmux client <-> tmux server --> PTY <-- bash --> claude -> ...
+-------------------------------------     ------------------------------------------------------- 
+```
+
+That's why when we stop the ssh connection, all the processes that we started in tmux continue running - they are attached to tmux server's PTY. Only the tmux client dies. 
+
+```
+ ssh connection                              tmux session
+-------------------------------------     -------------------------------------------------------
+kill -----------> kill ----> kill -x-x-x- not propagated
+
+sshd <-> PTY <-> bash <-> tmux client <-> tmux server <-> PTY <-> bash -> claude -> uv run python ...
+-------------------------------------     ------------------------------------------------------- 
+```
+
+
+One tmux server holds multiple PTYs. The basic unit of tmux is a pane and each pane has its own PTY. Then there's a window that can have multiple panes inside it, and a session that can have multiple windows. 
 
 <figure>
-  <img src="../../assets/images/why-did-i-create-my-own-terminal-multiplexer/tmux-architecture.png" alt="A terminal client connects through a Unix socket to one shared tmux server, which owns a session, windows, panes, and PTY-backed workloads">
-  <figcaption>tmux puts one shared server in charge of persistent sessions, windows, panes, and their PTYs.</figcaption>
+  <img src="../../assets/images/why-did-i-create-my-own-terminal-multiplexer/tmux-multiple-panes.png" alt="A tmux window with three panes: htop monitors the devbox, an agent session runs in the top-right pane, and a shell lists other sessions in the bottom pane">
+  <figcaption>One tmux window with 3 panes: htop, claude and shell.</figcaption>
 </figure>
 
-This architecture isn't accidental complexity. The shared server gives tmux one place to coordinate terminal layout and state. It also gives tmux a powerful scripting and integration point. The [control mode documentation](https://github.com/tmux/tmux/wiki/Control-Mode/f2a922866c30d367146c5ec24be4f176e0934912), for example, describes a text protocol that lets another program drive tmux without pretending to be a human at the keyboard.
 
-## The case for a terminal multiplexer
-
-The original problem is simple: terminal connections are temporary, but the work inside them often isn't.
-
-An SSH connection can drop, a laptop can close, or a network can change. Without a multiplexer, a long-running command stays tied to that connection unless I add another layer of process management.
-
-With tmux, I can start work on a remote machine and detach from it. I can close my laptop, reconnect later, and continue where I left off.
-
-I can keep several tools running at the same time:
-
-- a shell for commands
-- a test runner
-- a log tail
-- an editor or agent
-
-The terminal becomes a durable workspace instead of a disposable window.
-
-That distinction matters:
-
-- The client is temporary.
-- The server and session are persistent.
-- The programs attached to the panes keep running.
-
-For a long time, that was exactly the abstraction I needed. A session was a project. A pane was a useful place to run a command. The layout was mostly for me, the human, to look at.
-
-Coding agents changed the requirements, so the terminal became more than a user interface. It became a small runtime for launching and identifying agents, supervising them, and coordinating several processes.
-
-## The mismatch with my workflow
-
-The first mismatch was identity.
-
-I can name a tmux session `project` and a pane `review`, but those names are conventions around a terminal layout. They don't automatically become authoritative metadata for the process running there.
-
-The useful identity of one of my sessions is closer to this:
-
-```text
-workspace = /home/alexey/git/project
-tag       = review
-engine    = claude
-profile   = work
-```
-
-I wanted to be able to ask for that session directly. I didn't want to remember which pane contained which agent, or depend on a naming convention that another script might interpret differently.
-
-The second mismatch was launch configuration.
-
-Launching an agent isn't always just typing its executable name.
-
-Different engines need their own configuration:
-
-- engine-specific arguments
-- profile directories
-- permission settings
-- environment variables
-- working directories
-
-After I repeated these commands often enough, the launch command became part of the runtime configuration.
-
-The third mismatch was resource ownership.
-
-Coding agents are heavier than a few shells. If I run several of them on one machine, memory and process limits become useful controls. I wanted a session to have its own budget and to report what happened when the workload exceeded it.
-
-On Linux, a cgroup is a kernel-supported group of processes to which I can apply resource limits. That was the mechanism I wanted to attach to each session's workload.
-
-The fourth mismatch was the failure boundary.
-
-tmux has one shared server because that's a good way to manage a coherent collection of terminal state. My desired failure unit was different. If one agent session ran out of memory or its supervisor died, I wanted the other sessions to keep their own owners and state.
-
-The fifth mismatch was coordination. Sending bytes to a selected pane is useful, but it doesn't give agents a durable mailbox or a way to recover their identity. I wanted communication addressable by workspace, tag, and engine rather than by whatever layout happened to be visible.
-
-None of these are defects in tmux. I could build conventions, scripts, hooks, and plugins around tmux to cover some of them. I wanted to make the new assumptions part of the runtime.
-
-## What happens when the shared server goes down
-
-The failure-boundary mismatch isn't theoretical. Here is one incident[^3].
-
-I had about 10 sessions running, each with one to five agents. Everything collapsed at once. No warning, no clear cause. Even though each session ran in its own worktree, the crash still reached the main tmux server. Some sessions could be picked up and continued after the server restarted, but others disappeared entirely. Recovery was slow and not always possible[^3].
-
-The root cause turned out to be a graphical XRDP/XFCE session. At 15:56, session `c1` requested the user systemd manager to enter `exit.target`. That instruction means "shut down the entire user service manager," so systemd deliberately stopped every `tmuxctl-server-*` service and every `tmuxctl-*.scope` containing shells and agents[^4].
-
-<figure>
-  <img src="../../assets/images/why-did-i-create-my-own-terminal-multiplexer/systemd-orderly-shutdown-diagnosis.jpg" alt="Diagnostic log showing tmux servers were not OOM-killed but stopped by an orderly systemd shutdown">
-  <figcaption>Initial diagnosis: the tmux servers were not OOM-killed. The user systemd manager performed an orderly shutdown at 15:57.</figcaption>
-  <!-- First diagnostic showing the shutdown was orderly, not resource-related -->
-</figure>
-
-This was not OOM. There were no OOM events. The journal showed an orderly shutdown. The exact executable that requested it was not recorded because audit logging was insufficient. The evidence pointed to the graphical logout path, but it was not possible to prove whether it was a manual logout or an XFCE/XRDP component[^5].
-
-<figure>
-  <img src="../../assets/images/why-did-i-create-my-own-terminal-multiplexer/x11-session-exit-root-cause.jpg" alt="Root cause analysis showing X11 session c1 requested exit.target, causing systemd to stop all tmux services">
-  <figcaption>Root cause: the graphical X11 session requested exit.target and systemd stopped all tmux services, scopes, and agents.</figcaption>
-  <!-- Second diagnostic identifying the X11 session as the trigger -->
-</figure>
-
-A completely unrelated thing destroyed every tmux session[^6]. That is the shared-server failure boundary in practice. With aplexer, no single event can bring down all sessions because each session runs its own worker process.
-
-## The model I wanted
-
-The central idea in aplexer is that a session isn't an anonymous terminal area. It's an identified workload.
-
-The identity is:
-
-```text
-workspace + tag + engine + profile
-```
-
-`a` is the user-facing CLI, while the longer `aplexer` executable runs each session worker. Every session gets an internal UUID. I can usually find it with a workspace and tag selector instead of copying an opaque identifier.
-
-For example, starting a shell can look like this:
+When I create a new session with a command like this:
 
 ```bash
-a start --workspace "$PWD" --tag shell -- /bin/bash -l
-a list
-a attach --workspace "$PWD" --tag shell
+tmux new-session -s ai-shipping-labs
 ```
 
-An agent session adds the engine and profile to the same model:
+It creates a session with one window with one pane inside it, and this pane has a PTY. Then I can add a new window or split the current one horizontally or vertically into multiple panes. But I usually don't do that. For me it's always one session - one PTY setup.
+
+One tmux server can have multiple sessions
+
+TODO diagram 
+
+```
+            <-> PTY <-> session 1
+tmux server <-> PTY <-> session 2
+. ...       <-> PTY <-> session 3 
+```
+
+This allows me to run many agentic sessions on my remote machine. 
+
+
+Also we can do a lot of things programmatically with tmux. We can create all these windows and panes using tmix CLI, or we can send input to any of the panes as if it was typed by a human. In fact, the scheenshot above came from [this script](https://gist.github.com/alexeygrigorev/8df0400d8814914291487ada31b4a119).
+
+
+## Problems with tmux and solving them with tmuxctl
+
+As I started running more and more agents, session management with tmux became more difficult. 
+
+I really struggle with the CLI. The commands are:
 
 ```bash
-a start \
-  --workspace "$PWD" \
-  --tag review \
-  --engine claude \
-  --profile work
+tmux new-session -s ai-shipping-labs
+tmux list-sessions
+tmux attach-session -t ai-shipping-labs
 ```
 
-The configuration supplies the exact launch details. Recording the metadata at session creation matters more than reconstructing it later from a pane title.
+I always forget these commands. Typing all that, even with autocomplete, is always complicated. I never seem to remember what to type and need to look it up.
 
-That decision drives the rest of the architecture.
+Also, you have to remember that it's `-s` for new session and `-t` for attach. To make it even more consufing, `new-session` also has the `-t` parameter, but it's not the same as `-s`: (it groups the new session with an existing one. TODO rewrite it to make it clear what's that)
 
-## aplexer's runtime architecture
+Eventually I solved this problem with [tmuxctl](https://github.com/alexeygrigorev/tmuxctl). I created an executable `tmuxctl` and an alias `t` for it to save typing time.
+
+With it, I can simply run 
+
+```bash
+t -
+```
+
+It will:
+
+- create a tmux session in the current directory
+- name the session after the directory
+- if a session already exists, attach to it
+
+
+If I run just `t` without any arguments, I'll see the list of sessions ordered by creation time.
+
+(TODO attach screenshot)
+
+And if I want to connect to any particular session from that list, I simply run 
+
+```
+t 8
+```
+
+That made the process more convenient and also saved a lot of time when jumping between sessions.
+
+
+
+## OOM and cgroups 
+
+But then there's another problem with tmux - its server is its single point of failure.
+
+On my devbox, I run many things in parallel. 
+
+At the same time, it could be running 
+
+- compiling something in Rust
+- running Android emulator tests
+- running e2e tests with Playwright 
+
+If I'm unlucky, all these things can run exactly at the same time, and my machine runs out of memory. 
+
+It's usually not a problem for Android emulators or Playwright - they are simply killed when it happens.
+
+But with something like `cargo clippy` (a linter in Rust) it can not only bring `cargo`, but also the agent that's running it, the shell that's running the agent, the session that's running the shell, and the tmux server too. And when tmux server dies, all the other sessions go with it. So an OOM in Rust can wipe out all the tmux sessions on the machine. 
+
+TODO illustation
+
+This problem is not specific to Rust. When there's OOM, the kernel (OOM killer) decides which process should receive SIGKILL. Usually it's just the process that caused the OOM error. But [sometimes](link tmux#4151) it may decide to kill the entire memory cgroup where it's working, which includes the tmux server and all the sessions that it started. 
+
+A cgroup (control group) is a container around a group of processes that Linux manages like a single unit. It helps limiting the resources each group can use - memory, CPU, the number of processes, and so on. If a process in the group exceeds its memory limit, the kernel kills only that group, and everything outside keeps running.
+
+For clippy, I eventually started running it in an isolated cgroup with [cargo-safe](https://github.com/alexeygrigorev/rustkyll/blob/main/scripts/cargo-safe), so OOM killer only kills it.
+
+However, you don't really know in advance which thing can cause the OOM collapse. I wrapped clippy, but at some point I was testing 
+
+However, you can't know in advance which thing may cause the OOM collapse, so you want to have a session-level isolation. That is, the process you start in your session should also be wrapped in such a scope.
+
+This is what I eventually did in tmuxctl. Under the hood, when I create a new session with `t -`, it wraps the command in a systemd scope with a memory limit and runs the session isolated.
+
+It still didn't completely solve the problem - the tmux server was still the single point of failure. With many things running on the devbox, OOMs were still happening, and occasionally they would still kill the server. 
+
+After consulting Fable, we did it this way: every session now has its own server, with its own socket file and its own systemd unit.
+
+So when I implemented it with tmuxctl, it no longer was just a wrapper around tmux. Now listing sessions in tmuxctl would give a completely different result from `tmux list-sessions`.
+
+And the whole thing became a Frankenstein monster. At this point, I looked at this, opened ChatGPT and asked "how difficult is it to write own terminal multiplexer?" It said it would be a few weeks of work. Then I asked it to implement it (turning the pro mode on), it thought for 10 minutes and gave me a version written in Rust. 
+
+I decided to call it "aplexer" (it's very difficult to find a name that's available on PyPI these days!), which stands for "Agent Multiplexer". "Amux" was already taken - I counted 3 products with this name, and none of them were doing what I needed.
+
+## Aplexer's initial requirements
+
+What I needed from it:
+
+- Simple commands to create sessions, list sessions, attach and detach
+- No server - so no single point of failure.
+- Dealing with OOM errors without having to worry about cgroups - but with optional cgroups support
+
+Plus I wanted to have the same features that tmux had:
+
+- Working after ssh disconnects
+- Attaching and detaching sessions
+- Sending input to each session
+- Seeing the history 
+
+The main focus was on running agents, so I also wanted
+
+- Which folder ("workspace") this session is running in
+- What's running inside each session - which agent
+- Letting agents send messages to each other natively
+
+I always follow [spec-driven development approach](https://aishippingblog.com/p/ai-native-development-specifications), so I discussed the requirements with ChatGPT, got the [specification](https://github.com/PocketShell-io/aplexer/blob/main/spec.md) out, and started developing it.
+
+## Eat your own dog food 
+
+I don't know why this approach is called this way (to me the dog food doesn't smell nice at all) but the idea behind it is that you use the tool you develop in your development process as soon as you can.
+
+This approach works extremely well and forces you to find and fix all the inconvenient points. 
+
+My v0 was that - the version of aplexer that I could use for running the agents that were building aplexer.
+
+The main acceptance criteria for v0 were:
+
+- I can use it for running agents
+- Agents are in detachable sessions that don't stop after ssh disconnect
+- OOM in one session doesn't affect any other session  
+
+It took one week to have a stable version that works well, and then another couple of weeks to polish and add the features that I needed. Now it has fully replaced tmux in my workflow. 
+
+I like short aliases, so I use `a` for aplexer in my terminal. 
+
+## aplexer's architecture
 
 A session starts with the client, not with a shared daemon.
 
-First, `a` validates the tag and canonicalizes the workspace. It resolves the engine and profile, then combines the launch configuration with command-line overrides. It writes a versioned session record to durable state. The record stores the launch identity and configuration. It also stores runtime fields such as process IDs, socket path, phase, and timestamps.
+When I create a session, the client first figures out what this session is: which workspace (folder) it belongs to, which agent to run, and with which settings. It writes all of this to disk as a session record - together with runtime details like the process IDs, the socket path, and the current status. Since the record is on disk, aplexer can always pick the session back up, even after a restart.
 
 Then the client starts one worker for that session and waits for the worker to become ready.
 
@@ -218,9 +303,7 @@ The workload child performs the normal Unix terminal setup:
 
 The worker stays outside the workload cgroup, which limits the agent or shell. This lets it observe the workload, report its exit state, and clean up after a kill.
 
-The core implementation lives in the [session API](https://github.com/alexeygrigorev/aplexer/blob/main/src/api.rs), [worker](https://github.com/alexeygrigorev/aplexer/blob/main/src/worker.rs), [screen tracker](https://github.com/alexeygrigorev/aplexer/blob/main/src/screen.rs), and [messaging](https://github.com/alexeygrigorev/aplexer/blob/main/src/messaging.rs) modules.
-
-The runtime keeps two views of output. It stores a bounded raw history for text tails and feeds the same bytes through a terminal-screen tracker. That tracker reconstructs the current screen of an interactive application. An attach operation can return either view.
+aplexer keeps two views of the output. The first is a bounded log of everything the workload has printed - useful for scrolling back through the history. The second is the current screen: the same bytes are also fed through a screen tracker that reconstructs what an interactive application, like vim, is showing right now. When you attach, you can get either view.
 
 The resulting architecture looks like this:
 
@@ -244,113 +327,9 @@ With three independent sessions, no single worker owns all three PTYs. If the me
 
 That's the invariant I was building toward.
 
-## Features that follow from the architecture
-
-Once identity and ownership live in the runtime, several features become straightforward consequences instead of separate conventions.
-
-Engines and profiles provide consistent launches.
-
-A profile can define:
-
-- the executable and its arguments
-- the working directory
-- environment changes
-- history settings and limits
-- permission behavior
-
-Starting an agent becomes selecting a configuration rather than repeating a fragile shell command.
-
-The worker makes identity available inside the workload by injecting `APLEXER_SESSION_ID`, `APLEXER_WORKSPACE`, and `APLEXER_TAG`. The `a whoami` command exposes or recovers that context, so a process can learn its session without reading a terminal title.
-
-The CLI gives me explicit observation through `a list` and `a status`. I can also use `a capture` or `a attach` to look at a session. The state records activity and process information, plus phase, exit details, and resource diagnostics. The worker can provide a current screen for an interactive program or a bounded text history for a log-like view.
-
-aplexer uses a durable mailbox for coordination. Each message is a JSON file in a workspace-specific directory. aplexer writes files atomically and reads them with consumer cursors. Messages can target a tag, reach a whole workspace, filter by engine, or go directly to a pane. The system is pull-based rather than full push, but agents still have a durable place to exchange messages.
-
-aplexer also exposes a transcript surface. It can read native JSONL logs from supported agent tools and return structured events such as messages, tool calls, tool results, and usage. It doesn't copy the entire conversation into aplexer state. It reads the logs where the agent already writes them.
-
-Finally, Python code can call the Rust core through a PyO3 extension. The Python package remains a thin integration layer, while the runtime model stays in Rust.
-
-This is why aplexer is personally better for me.
-
-I can:
-
-- start an agent by identity
-- find it by workspace
-- look at it after I disconnect
-- limit the resources it can consume
-- recover its identity
-- communicate with it without treating my pane layout as a database
-
-It's a better fit for my workflow, not a universal replacement for tmux. aplexer gives up tmux compatibility and much of the existing ecosystem.
-
-It also leaves out:
-
-- windows and split layouts
-- plugins and copy mode
-
-These are real costs.
-
-## My reasons for choosing Rust
-
-I had two main reasons for choosing Rust.
-
-Distribution came first because aplexer is a systems tool. I wanted a native `a` binary without a Python interpreter, a virtual environment, or a second runtime in the critical path. The project also has an optional Python extension for integrations that already use Python.
-
-Rust also fit the implementation because aplexer works close to Unix terminal and process primitives. It gives me direct access to them. Its ownership model helps keep the worker, PTY, socket, and lifecycle state from becoming shared mutable bookkeeping.
-
-I also expected a native binary to have lower startup and runtime overhead than a Python implementation. That expectation influenced the choice, but I haven't turned it into a benchmark against tmux or a comparable Python design. The honest claim is that Rust fits the job and produces a convenient binary, not that I have proven it's faster.
-
-Rust doesn't make systems programming simple. It makes some classes of mistakes visible earlier, while leaving all the real operating-system behavior in place. The project is Linux-focused because PTYs, cgroup-v2, and user-systemd delegation are part of the design.
-
-## The first version came from AI; the working version came from tools
-
-I started by chatting with an AI assistant about the structure of the tool. Then I used GPT Pro to produce an initial Rust version.
-
-That first version was an experiment. It gave me a direction, but it didn't give me a working systems program. The [initial import commit](https://github.com/alexeygrigorev/aplexer/commit/e9ed6c6) even noted that compilation and Python tests still needed verification in the environment.
-
-Next, I compiled the code and ran it, then looked at the failures and wrote tests for the behavior I cared about.
-
-One of the first real problems appeared in the memory-isolation scenario. The worker tried to create a cgroup inside an ambient worker or tmux cgroup and received `EACCES`. I moved the workload into a delegated sibling systemd scope and kept the worker outside it. The [runtime-fix commit](https://github.com/alexeygrigorev/aplexer/commit/2ac9a72) records that change along with the process-startup fix.
-
-Another problem was a process-startup deadlock. I had a parent-child gate for cgroup membership, but `Command::spawn()` waits through the child's `pre_exec` hook before returning to the parent. The parent waited for the child to finish setup. The child waited for a signal from the parent, so the two sides deadlocked.
-
-I changed the design so the child joins the cgroup from `pre_exec` without waiting for the parent to release the gate.
-
-I also redirected worker stderr to a per-session `worker.log`. A worker failure should be visible without mixing its diagnostics into the terminal session it's supposed to supervise.
-
-Those bugs changed the code more than the first prompt did. AI helped me get an initial structure quickly, while compilation and the Linux environment exposed issues. Logs, runtime experiments, and failure tests showed which parts of that structure were wrong.
-
-The generated version was a Rust hypothesis, not the implementation.
-
-## Current verification
-
-In the current checkout, the ordinary Rust test suite passes.
-
-It covers:
-
-- 61 library tests
-- 37 CLI tests
-- the non-destructive start/attach/send/capture round trip
-- three screen snapshot tests
-- three transcript tests
-
-The repository also contains tests for three-session OOM isolation and worker-kill isolation. The test runner currently ignores them because they need a suitable user-systemd session and cgroup-v2 delegation. I treat them as important scenarios that still need to run reliably in the target environment. Passing them wouldn't prove identical behavior on every Linux setup.
-
-That distinction is part of the project too. A terminal runtime that manages processes and memory needs tests for the failure cases, not only tests for the happy path.
 
 ## Conclusion
 
-I didn't create a terminal multiplexer because tmux is bad. I created one because the unit of work had changed.
+I didn't create a terminal multiplexer because tmux is bad. It's excellent for what it does, but it stopped working for my particular use case - running agents on a devbox.
 
-tmux models persistent terminal topology. Its shared server keeps a hierarchy of terminal contexts alive. That model supports shells and long-running commands well.
-
-My workflow needed a runtime that modeled an identified agent session. It needed workspace, engine, profile, and resource-boundary metadata. It also needed observable state and session-to-session coordination.
-
-aplexer is my smaller, more specialized, Linux-specific attempt to make that model explicit, and it's still evolving. I don't think everyone should replace tmux. I built it because a familiar tool can solve the old problem so well that a changed workflow reveals a new one.
-
-## Sources
-
-[^3]: [20260827_140101_AlexeyDTC_msg4884_transcript.txt](../../inbox/used/20260827_140101_AlexeyDTC_msg4884_transcript.txt)
-[^4]: [20260827_140547_AlexeyDTC_msg4888_photo.md](../../inbox/used/20260827_140547_AlexeyDTC_msg4888_photo.md)
-[^5]: [20260827_140438_AlexeyDTC_msg4886_photo.md](../../inbox/used/20260827_140438_AlexeyDTC_msg4886_photo.md)
-[^6]: [20260827_140605_AlexeyDTC_msg4890.md](../../inbox/used/20260827_140605_AlexeyDTC_msg4890.md)
+aplexer is my smaller, more specialized, Linux-specific attempt to make that model explicit.
