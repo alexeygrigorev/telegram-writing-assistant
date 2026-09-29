@@ -8,7 +8,7 @@ status: draft
 
 # Project Approach Reference Doc
 
-Several AI Shipping Labs members have come in with a similar ask: they have an existing project (often the Buildcamp capstone) and want to take it to a "production-level" state, but they do not have a concrete plan for how to get there[^1].
+Several AI Shipping Labs members have come in with a similar ask: they have an existing project (often the Buildcamp capstone) and want to take it to a "production-level" state, but they do not have a concrete plan for how to get there.
 
 Nirajan is not the first person to ask this, so it makes sense to create a reusable reference document on how to approach these requests, rather than rewriting the same recommendations into each individual plan.
 
@@ -29,6 +29,3 @@ Based on the recommendations already given to Edu, Carlos, Vancesca, Jakob, and 
 - Gives members a single place to walk through the approach themselves.
 - Keeps individual plan files focused on what is specific to that person.
 
-## Sources
-
-[^1]: [20260422_092530_AlexeyDTC_msg3515_transcript.txt](../../inbox/used/20260422_092530_AlexeyDTC_msg3515_transcript.txt)

@@ -51,7 +51,7 @@ Articles live in `articles/` and are organized into subfolders by category. When
 
 - `articles/research/` - Collections of resources and exploration notes on a single topic. Used for gathering links, summaries, and findings when investigating something. Has its own index at `articles/research/_index.md`.
 
-- `articles/ai-shipping-labs/` - All AI Shipping Labs material. Put course, workshop, and community-session material in `ai-shipping-labs/content/`; personal plans in `ai-shipping-labs/plans/`; member interviews in `ai-shipping-labs/interviews/`; and other community strategy, platform, activity, feedback, and planning documents directly in `ai-shipping-labs/`.
+- `articles/ai-shipping-labs/` - All AI Shipping Labs material. Put course, workshop, and community-session material in `ai-shipping-labs/content/`; member interviews in `ai-shipping-labs/interviews/`; and other community strategy, platform, activity, feedback, and planning documents directly in `ai-shipping-labs/`. Personal plans now live in the zoom-calls repo at `~/git/zoom-calls/1x1/plans/`.
 
 - `articles/datatalksclub/` - DataTalks.Club platform, event, course-publishing, and product-planning material.
 
@@ -670,7 +670,7 @@ Example: "Spec-Driven Development" or "Agentic Memory" - topics to investigate, 
 
 # AI SHIPPING LABS PLAN FILE NAMING
 
-Personal plan files in `articles/ai-shipping-labs/plans/` use a `YYYYMMDD_` prefix based on the file's creation date (the `created` field in the frontmatter). Example: a plan file for Sai Kumar G created on 2026-05-02 lives at `articles/ai-shipping-labs/plans/20260502_sai-kumar-g.md`.
+Personal plan files in `~/git/zoom-calls/1x1/plans/` use a `YYYYMMDD_` prefix based on the file's creation date (the `created` field in the frontmatter). Example: a plan file for Sai Kumar G created on 2026-05-02 lives at `~/git/zoom-calls/1x1/plans/20260502_sai-kumar-g.md`.
 
 The prefix is for sorting by creation date in the directory listing. The order in `_index.md` is independent and stays sorted by last updated.
 
@@ -752,7 +752,7 @@ Do the same for `articles/research/_index.md` if any research articles were chan
 
 The Description column says what the article IS, not what changed in it last. Keep it short - one sentence describing the article's scope or purpose. Do not list recent updates, recently-added subsections, or per-item details from a child index inside the parent description. The "Last Updated" column already conveys recency; the description should stay stable across processing sessions and only change when the article's scope materially changes.
 
-Index entries that point at another index (e.g. the Personalised Plans row pointing at `plans/_index.md`) should describe the index's scope in one line, not summarise its rows.
+Index entries that point at another index (e.g. the Personalised Plans row pointing at `~/git/zoom-calls/1x1/plans/_index.md`) should describe the index's scope in one line, not summarise its rows.
 
 ## Step 7: Summary Report
 

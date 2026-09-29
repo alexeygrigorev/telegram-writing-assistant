@@ -63,7 +63,7 @@ Community strategy, platform notes, member research, plans, workshops, and cours
 | [Multi-Agent Patterns for the Course](ai-shipping-labs/content/multi-agent-patterns-course.md) | draft | 2026-02-22 | Multi-agent patterns for the AI Buildcamp course module: evaluation, subagent, planner-executor, orchestration |
 | [Testing Workshop Idea](ai-shipping-labs/content/testing-workshop-idea.md) | draft | - | Workshop idea covering practical software testing foundations. |
 | [AI Shipping Labs User Interviews](ai-shipping-labs/interviews/_index.md) | draft | - | Index of individual AI Shipping Labs member interviews and persona assignments. |
-| [AI Shipping Labs Personalized Plans](ai-shipping-labs/plans/_index.md) | draft | - | Index of personalized learning and sprint plans for AI Shipping Labs members. |
+| [AI Shipping Labs Personalized Plans](~/git/zoom-calls/1x1/plans/_index.md) | draft | - | Index of personalized learning and sprint plans for AI Shipping Labs members. |
 
 ## DataTalks.Club
 

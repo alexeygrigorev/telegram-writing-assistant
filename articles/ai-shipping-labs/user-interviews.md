@@ -41,9 +41,9 @@ Valeriia will share their answers as soon as they are ready[^30].
 
 ## Plan Input Collected (April 2026-04-20)
 
-To keep each member's input separate and easy to review, personalised plan inputs live in their own folder at [plans/](plans/_index.md). Alexey will review each input and record follow-up notes per member[^33][^34].
+To keep each member's input separate and easy to review, personalised plan inputs live in their own folder, indexed at [plans/_index.md](~/git/zoom-calls/1x1/plans/_index.md). Alexey will review each input and record follow-up notes per member[^33][^34].
 
-Full intake collected so far: Jakob Zischka, Carlos Pumar, Vancesca Dinh, Grace, and Edu Gonzalo Almorox. Carlos has already written a lot on his own, so no separate follow-up questions were sent to him[^35].
+Full intake collected so far: Jakob Zischka, Carlos Pumar, Vancesca Dinh, Grace, and Edu Gonzalo Almorox. Carlos has already written a lot on his own, so no separate follow-up questions were sent to him.
 
 ## How Interviews Are Organised
 
@@ -60,5 +60,4 @@ Each interview file assigns a persona from [personas.md](personas.md). If there 
 [^30]: [20260416_141112_valeriia_kuka_msg3419.md](../../inbox/used/20260416_141112_valeriia_kuka_msg3419.md)
 [^33]: [20260420_083829_AlexeyDTC_msg3451_transcript.txt](../../inbox/used/20260420_083829_AlexeyDTC_msg3451_transcript.txt)
 [^34]: [20260420_083951_AlexeyDTC_msg3453_transcript.txt](../../inbox/used/20260420_083951_AlexeyDTC_msg3453_transcript.txt)
-[^35]: [20260420_083739_AlexeyDTC_msg3442.md](../../inbox/used/20260420_083739_AlexeyDTC_msg3442.md)
 [^36]: [20260420_085844_AlexeyDTC_msg3461_transcript.txt](../../inbox/used/feedback/20260420_085844_AlexeyDTC_msg3461_transcript.txt)
