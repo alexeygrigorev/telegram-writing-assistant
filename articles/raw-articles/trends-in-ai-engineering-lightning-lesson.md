@@ -43,7 +43,7 @@ An attendee asked how we see the future a year or two from now: which roles will
 
 Hugo said nobody can see what roles, hiring processes, or even tools will look like then. The last part of the question - how can we add value - is the one to ask. He encourages people, including students at college or university, to learn current tools and technologies that help them add value where they are: their local communities, their businesses, their universities[^1].
 
-The other meta-skill is learning constantly and being a hacker. When a new model comes out - the new Fable, or Sonnet 5.5 that just came out - the valuable person is the one who plays with it, wonders what they can do with it, and then delivers business value or helps people with it[^1].
+The other meta-skill is learning constantly and being a hacker. In the past couple of weeks, a classifier model has become the exciting thing - who would have thought a classifier would be exciting in 2026? When a new model comes out - the new Fable, or Sonnet 5.5 that just came out - the valuable person is the one who plays with it, wonders what they can do with it, and then delivers business value or helps people with it[^1].
 
 Hugo added one more thing - the data scientist skills that will always be useful[^1]:
 
@@ -175,7 +175,7 @@ Hugo sees the opposite problem too. In his exploratory EDA notebooks, like the o
 
 ## Working With Agents Is Hard Work
 
-Hugo made another point: this is really hard work, and working with agents requires a different mindset. You can't work with them all day, every day. We haven't evolved to make that many decisions and read that much text. Software engineering has always been hard. Agents didn't make it easy - they made it a different kind of hard. Hardcore engineers, like the people building the Amp coding agent, use AI to generate pretty much all their code, but they also use AI to trim and sculpt it until it is beautiful to them. That is a huge amount of work - you can't just generate tokens and get that[^1].
+Hugo made another point: this is really hard work, and working with agents requires a different mindset. You can't work with them all day, every day. We haven't evolved to make that many decisions and read that much text. Software engineering has always been hard. Agents didn't make it easy - they made it a different kind of hard. Hardcore software engineers do it too. One engineer who builds the Amp coding agent uses AI to generate pretty much all his code, but he also uses AI to trim and sculpt it until it is beautiful to him. That is a huge amount of work - you can't just generate tokens and get that[^1].
 
 I think PMs have superpowers these days. They are used to context switching and juggling multiple problems at the same time. Now one PM can build so much[^1].
 
@@ -201,7 +201,7 @@ Hugo likes Opus but works with another model much more, partly because Opus's pr
 
 My experience is different. I have a lot of AI-generated text. I run a workshop, and the easiest way to turn it into a written document is AI. I do minimal editing, a few hours removing obvious slop, because if I spend more time editing, I slow down and can't produce the next workshop. Some slop still creeps in. Opus 5.5 found a lot of that slop, removed it, and the text became crystal clear. I already have skills for this, and Opus 5.5 is quite good at following them[^1].
 
-Someone in the chat recommended ASD-STE100, Simplified Technical English. People recommend it, but neither Hugo nor I have tried it[^1].
+Someone in the chat recommended ASD-STE100, Simplified Technical English. I see people recommending it, but I haven't tried it. Hugo hasn't used it either, although he has read a lot about it[^1].
 
 ## Human Skills Still Matter
 
@@ -225,7 +225,7 @@ Hugo uses Codex with a gaming controller during the day, jumping between convers
 
 I don't think it is swarms. A corporation is not a swarm. There are different ways to organize work, but there is usually a hierarchy - a CEO or president, then CPO, CTO, CFO, and then the verticals. You can't just tell 10,000 agents to go solve millennium problems. You need organization - for example, a chief scientist who says "you try this, you try that"[^1].
 
-When OpenAI made its announcement about the Navier-Stokes problem, what interested me was that it was a team of 10,000 agents. I ran a thought experiment: if I had to approach a problem I don't know, with nearly infinite compute - 10,000 agents - how would I organize the work? I arrived at a hierarchical approach. It all comes from the leadership and soft skills world[^1].
+When OpenAI made its announcement about the Navier-Stokes problem - I'm very far from that world, while for Hugo it is actually his world - what interested me was that it was a team of 10,000 agents. I ran a thought experiment: if I had to approach a problem I don't know, with nearly infinite compute - 10,000 agents - how would I organize the work? I arrived at a hierarchical approach. It all comes from the leadership and soft skills world[^1].
 
 That's why I think product managers are uniquely equipped to run agents. They already have the skills: they know how to organize work in a team, set up processes, define specifications, and check work. This sets them apart from developers who follow whatever processes are set. Heads of product work at an even higher level, and with agents, we need this kind of structure for complicated problems[^1].
 
@@ -237,7 +237,7 @@ Hugo hasn't done much of this either. Chip Huyen told him on his podcast that sh
 
 An attendee asked whether it is better for AI engineers to work on the harness or on the model[^1].
 
-Hugo didn't say which is better. Training models is like working on an internal combustion engine. If you are a Formula One driver, it is good to know how it works, but most people who drive don't need to. Most people building production systems won't train models themselves, although they may be interested in how it works. He wouldn't even say an AI engineer works on the harness. An AI engineer works on a product. That involves working on the harness, but the harness is a technical implementation detail[^1].
+Hugo didn't say which is better. Training models is like working on an internal combustion engine. If you are a Formula One driver, it is good to know how it works, but most people who use a car don't need to. Most people building production systems won't train models themselves, although they may be interested in how it works. He wouldn't even say an AI engineer works on the harness. An AI engineer works on a product. That involves working on the harness, but the harness is a technical implementation detail[^1].
 
 I recently read Inference Engineering by Philip Kiely. It is about hosting open-source models yourself. Most of the time, we send a request to OpenAI, Anthropic, or another provider, get a response, and do something around it. That is AI engineering simplified into two sentences - overly simplified, because there is a lot of work around it to make it reliable[^1].
 
@@ -245,7 +245,7 @@ If you want to look under the hood of what happens when you send a request, the 
 
 Hugo added that Philip is not some random author - he worked at Baseten for several years on high-performance inference at scale for some of the world's biggest companies[^1].
 
-The other author to follow is Sebastian Raschka. Hugo recommends his Substack. His most recent book, Build a Reasoning Model from Scratch, walks you through building a reasoning model with all the code. It is a sequel to Build a Large Language Model from Scratch, which Hugo also recommends. Hugo interviewed Sebastian on his podcast and asked what the third book of the trilogy would be. The answer, of course, is build a coding agent from scratch[^1].
+I also brought up Sebastian Raschka, whom Hugo interviewed. Hugo recommends following him, especially his Substack. His most recent book, Build a Reasoning Model from Scratch, walks you through building a reasoning model with all the code. It is a sequel to Build a Large Language Model from Scratch, which Hugo also recommends. Hugo interviewed Sebastian on his podcast and asked what the third book of the trilogy would be. The answer, of course, is build a coding agent from scratch[^1].
 
 ## Becoming an AI Engineer in Three Months
 
@@ -277,7 +277,7 @@ Hugo agreed that an agent harness is different from an eval harness. An eval har
 
 ## What Comes Next
 
-Hugo and I want to run a paid course together, like the ones we already run on Maven. There are infinitely many ideas, so we want to understand what people actually want: where they stand, what they want to build, where they are stuck, what their goals are, and what format they prefer. We shared a form that asks about this. It is not a short form and needs some focus time, so as a thank you, people who fill it in will get a discount on the future course once we decide what to build[^1].
+Hugo and I want to run a paid course together, like the ones we already run on Maven. There are infinitely many ideas, so we want to understand what people actually want: where they stand, what they want to build, where they are stuck, what their goals are, and what format they prefer. We shared a form that asks about this. It is not a short form and needs some focus time, so as a thank you, people who fill it in will get a discount on the future course once we decide what to build. If there is something you want to learn specifically from us and haven't found the content for it, the form is the place to share what bothers or worries you about AI. Hugo added that we want to hear both what pains you and what excites you, so we can build an offering that meets your needs[^1].
 
 We will send the form, the recording, and a transcript by email to everyone who signed up. Hugo will also invite me to do another lightning lesson soon[^1].
 
