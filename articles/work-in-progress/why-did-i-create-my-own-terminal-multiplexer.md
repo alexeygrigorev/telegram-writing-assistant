@@ -41,87 +41,60 @@ tmux new-session -s ai-shipping-labs
 
 Under the hood, multiple things happen:
 
-- My terminal becomes a tmux client 
+- My terminal starts a tmux client process
 - The client connects to a tmux server
 - If the server is not running, the command starts it 
 
 The client connects to the server through a Unix-domain socket. The server creates a session and a PTY for that session. 
 
-TODO: diagram 
-user -> ssh -> tmux server -- socket -- tmux client -- PTY
-
 A PTY is a pseudo-terminal created by the kernel. It has two sides:
 
-- the master (user side) - sends the input from the user to whatever is runing in the terminal. 
-- the slave (shell side) - receives the input from the master and sends it to shell or whatever programm running in the terminal.  
+- the master (user side) - sends the input from the user to whatever is running in the terminal.
+- the slave (shell side) - receives the input from the master and sends it to the shell or whatever program is running in the terminal. 
 
-TODO diagram
-user --> PTY master <--> PTY slave <-- shell
+When we start the standard terminal emulator app on any Linux, it creates a PTY. The master side connects to the terminal app, and the slave side connects to a shell (usually bash). It's a bit more complicated than that but I won't go into more details here.
 
-When we start the standard terminal emulator app on any Linux, it creates a PTY. The master side is the terminal app, and the slave side is a shell (usually bash).
-
-TODO: image of terminal on Ubuntu 
-user --> ubuntu terminal --> PTY master <--> PTY slave <-- shell
-
-
-When we start a proccess from a PTY, it gets attached to the shell runing on the slave side - unless we explicitly detach it with `nohup`. 
-
-TODO terminal
-terminal <-> PTY <-> bash -> claude -> make run
-
-When the PTY stops, the slave exists too, switching off the shell. All the connected processes follow.
-
-```
-kill ----------------> kill -> kill -> kill 
-terminal <-> PTY <-> bash -> claude -> make run
-```
-
-That's why when you're close  a terminal tab in Ubuntu, all the processed that run there exit too.
+<figure>
+  <img src="../../assets/images/why-did-i-create-my-own-terminal-multiplexer/pty-normal-terminal.png" alt="A terminal emulator connects to the master end of one kernel PTY while Bash connects to the slave end">
+  <figcaption>The terminal emulator uses the master end, and Bash uses the slave end.</figcaption>
+</figure>
 
 
-When we use ssh, the ssh client on our computer connects to the ssh server (sshd) on the remote machine. sshd also server creates a PTY: the master is on the sshd side, and the slave is on the shell side.
+When we start a process from a PTY, it gets attached to the shell running on the slave side - unless we explicitly detach it with `nohup`. When the PTY stops, the slave exits too, switching off the shell. All the connected processes follow.
+
+If we take the terminal app in Ubuntu, each tab in the app is a PTY. When I start a process in a tab, and then close that tab, the PTY closes too, and the process follows.
+
+A similar thing happens when we use ssh. The ssh client on our computer connects to the ssh server (sshd) on the remote machine, and sshd creates a PTY. The master is on the sshd side, and the slave is on the shell side.
 
 
-TODO diagram
-```
-    local                                                         remote
----------------------------------------------------------     ------------------------------------
-terminal emulator --> PTY <-- bash (local) --> ssh client <-> ssh server --> PTY <-- bash (remote)
----------------------------------------------------------     ------------------------------------
-```
+<figure>
+  <img src="../../assets/images/why-did-i-create-my-own-terminal-multiplexer/ssh-pty-flow.png" alt="An SSH connection crosses from an SSH client on the local computer to sshd on the remote devbox, where sshd opens a separate PTY for Bash">
+  <figcaption>SSH uses a separate PTY on the remote machine.</figcaption>
+</figure>
 
-When ssh disconnects, sshd stops the PTY that was created for this session, and all the processed die with it.
+When ssh disconnects, sshd stops the PTY that was created for this session, and all the processes die with it.
 
-TOOD diagram with kill propagation
+Terminal multiplexers add one more hop: tmux server creates another PTY, and the shell that's connected to that PTY is the parent for all these processes.
 
-Terminal multiplexers add one more hup: tmux server creates another PTY, and the shell that's running inside that PTY is the parent for all these processes. 
-
-```
- ssh connection                              tmux session
--------------------------------------     -------------------------------------------------------
-sshd --> PTY <-- bash --> tmux client <-> tmux server --> PTY <-- bash --> claude -> ...
--------------------------------------     ------------------------------------------------------- 
-```
-
-That's why when we stop the ssh connection, all the processes that we started in tmux continue running - they are attached to tmux server's PTY. Only the tmux client dies. 
-
-```
- ssh connection                              tmux session
--------------------------------------     -------------------------------------------------------
-kill -----------> kill ----> kill -x-x-x- not propagated
-
-sshd <-> PTY <-> bash <-> tmux client <-> tmux server <-> PTY <-> bash -> claude -> uv run python ...
--------------------------------------     ------------------------------------------------------- 
-```
+That's why the processes that we start in tmux continue running - they are attached to tmux server's PTY. Only the tmux client dies when the ssh connection drops. 
 
 
-One tmux server holds multiple PTYs. The basic unit of tmux is a pane and each pane has its own PTY. Then there's a window that can have multiple panes inside it, and a session that can have multiple windows. 
+<figure>
+  <img src="../../assets/images/why-did-i-create-my-own-terminal-multiplexer/tmux-client-server.png" alt="After an SSH disconnect, sshd, its PTY, and the tmux client stop while the tmux server keeps its pane PTY and agent running">
+  <figcaption>After SSH disconnects, the tmux client exits. The server keeps the agent's PTY open.</figcaption>
+</figure>
+
+There are multiple important organizational primitives in tmux:
+
+- A pane is the basic unit of tmux. Each pane has its own PTY.
+- A window has one or multiple panes.
+- A session holds one or multiple windows. 
+- The tmux server can have many sessions. 
 
 <figure>
   <img src="../../assets/images/why-did-i-create-my-own-terminal-multiplexer/tmux-multiple-panes.png" alt="A tmux window with three panes: htop monitors the devbox, an agent session runs in the top-right pane, and a shell lists other sessions in the bottom pane">
   <figcaption>One tmux window with 3 panes: htop, claude and shell.</figcaption>
 </figure>
-
 
 When I create a new session with a command like this:
 
@@ -129,27 +102,25 @@ When I create a new session with a command like this:
 tmux new-session -s ai-shipping-labs
 ```
 
-It creates a session with one window with one pane inside it, and this pane has a PTY. Then I can add a new window or split the current one horizontally or vertically into multiple panes. But I usually don't do that. For me it's always one session - one PTY setup.
+It creates a session with one window with one pane inside it, and this pane has a PTY. I can add a new window or split the current one horizontally or vertically into multiple panes, and each pane would be a separate PTY. 
 
-One tmux server can have multiple sessions
+I usually don't do that, though. I use tmux mostly for keeping my agents running when I disconnect, so I don't need any window arrangement capabilities. For me it's always one session - one PTY, and different agents are running in different sessions. 
 
-TODO diagram 
-
-```
-            <-> PTY <-> session 1
-tmux server <-> PTY <-> session 2
-. ...       <-> PTY <-> session 3 
-```
-
-This allows me to run many agentic sessions on my remote machine. 
+<figure>
+  <img src="../../assets/images/why-did-i-create-my-own-terminal-multiplexer/tmux-architecture.png" alt="One tmux server fans out to three sessions, each with one pane, one PTY, and an agent or shell">
+  <figcaption>I use one pane per session, so each agent gets its own PTY.</figcaption>
+</figure>
 
 
-Also we can do a lot of things programmatically with tmux. We can create all these windows and panes using tmix CLI, or we can send input to any of the panes as if it was typed by a human. In fact, the scheenshot above came from [this script](https://gist.github.com/alexeygrigorev/8df0400d8814914291487ada31b4a119).
+We can do a lot of things programmatically with tmux. We can create all these windows and panes using the tmux CLI, or we can send input to any of the panes as if it was typed by a human.
+In fact, the screenshot above came from [this script](https://gist.github.com/alexeygrigorev/8df0400d8814914291487ada31b4a119).
+
+Because of that, with a bit of scripting, you can teach agents running in different tmux sessions talk to each other.
 
 
-## Problems with tmux and solving them with tmuxctl
+## Problems with tmux
 
-As I started running more and more agents, session management with tmux became more difficult. 
+I like tmux, but as I started running more and more agents, session management became more difficult. 
 
 I really struggle with the CLI. The commands are:
 
@@ -161,11 +132,11 @@ tmux attach-session -t ai-shipping-labs
 
 I always forget these commands. Typing all that, even with autocomplete, is always complicated. I never seem to remember what to type and need to look it up.
 
-Also, you have to remember that it's `-s` for new session and `-t` for attach. To make it even more consufing, `new-session` also has the `-t` parameter, but it's not the same as `-s`: (it groups the new session with an existing one. TODO rewrite it to make it clear what's that)
+Also, you have to remember that `-s` is for new session and `-t` is for attach. To make it even more confusing, `new-session` also has the `-t` parameter, but it's not the same as `-s` (it groups the new session with an existing one).
 
-Eventually I solved this problem with [tmuxctl](https://github.com/alexeygrigorev/tmuxctl). I created an executable `tmuxctl` and an alias `t` for it to save typing time.
+Eventually I solved this problem with [tmuxctl](https://github.com/alexeygrigorev/tmuxctl) - a wrapper aroud tmux. 
 
-With it, I can simply run 
+I created an executable `tmuxctl` and an alias `t` for it to save typing time. With it, I can simply run 
 
 ```bash
 t -
@@ -177,10 +148,12 @@ It will:
 - name the session after the directory
 - if a session already exists, attach to it
 
-
 If I run just `t` without any arguments, I'll see the list of sessions ordered by creation time.
 
-(TODO attach screenshot)
+
+```
+TODO: add example
+```
 
 And if I want to connect to any particular session from that list, I simply run 
 
@@ -191,48 +164,55 @@ t 8
 That made the process more convenient and also saved a lot of time when jumping between sessions.
 
 
-
 ## OOM and cgroups 
 
-But then there's another problem with tmux - its server is its single point of failure.
+But there's another problem with tmux - its server is its single point of failure.
 
 On my devbox, I run many things in parallel. 
 
 At the same time, it could be running 
 
-- compiling something in Rust
-- running Android emulator tests
-- running e2e tests with Playwright 
+- compiling a project in Rust (like [Codex-ZCode bridge](https://github.com/alexeygrigorev/codex-zcode/))
+- running Android emulator tests for [PocketShell](https://github.com/PocketShell-io/pocketshell)
+- running e2e tests with Playwright for [AI Shipping Labs](https://aishippinglabs.com/)
 
-If I'm unlucky, all these things can run exactly at the same time, and my machine runs out of memory. 
+If I'm unlucky, and all these things can run exactly at the same time, my machine runs out of memory. 
 
 It's usually not a problem for Android emulators or Playwright - they are simply killed when it happens.
 
-But with something like `cargo clippy` (a linter in Rust) it can not only bring `cargo`, but also the agent that's running it, the shell that's running the agent, the session that's running the shell, and the tmux server too. And when tmux server dies, all the other sessions go with it. So an OOM in Rust can wipe out all the tmux sessions on the machine. 
+But if I run something like `cargo clippy` (a linter in Rust), it's more dangerous.
 
-TODO illustation
+Not only OOM can kill `cargo`, but also bring down the agent that's running it, the shell that's running the agent, the session that's running the shell, and the tmux server too. When tmux server dies, all the other sessions go with it.
 
-This problem is not specific to Rust. When there's OOM, the kernel (OOM killer) decides which process should receive SIGKILL. Usually it's just the process that caused the OOM error. But [sometimes](link tmux#4151) it may decide to kill the entire memory cgroup where it's working, which includes the tmux server and all the sessions that it started. 
+So an OOM in Rust can wipe out all the tmux sessions on the machine. All of them.
 
-A cgroup (control group) is a container around a group of processes that Linux manages like a single unit. It helps limiting the resources each group can use - memory, CPU, the number of processes, and so on. If a process in the group exceeds its memory limit, the kernel kills only that group, and everything outside keeps running.
+<figure>
+  <img src="../../assets/images/why-did-i-create-my-own-terminal-multiplexer/tmux-oom-blast-radius.png" alt="A cargo clippy workload exhausts memory. If the OOM also kills the shared tmux server, sessions A, B, and C all lose their PTYs">
+  <figcaption>If an OOM kills the tmux server, all three sessions lose their terminals.</figcaption>
+</figure>
 
-For clippy, I eventually started running it in an isolated cgroup with [cargo-safe](https://github.com/alexeygrigorev/rustkyll/blob/main/scripts/cargo-safe), so OOM killer only kills it.
+OOM kill doesn't propagate from cargo to tmux. There's a process in the kernel called "OOM killer" that decides who should receive `SIGKILL` when OOM happens. Usually it's the process that caused the actuall OOM. But [sometimes](TODO: link tmux#4151) it may decide to kill the entire memory cgroup where it's working, which includes the process, the shell, and the tmux server (brinding down all the sessions too). 
 
-However, you don't really know in advance which thing can cause the OOM collapse. I wrapped clippy, but at some point I was testing 
+A cgroup (control group) is a container around a group of processes that Linux manages like a single unit. It's used to limit the resources each group can use like memory, CPU, and the number of processes. If a process in the group exceeds its memory limit, the kernel kills only the processes inside that group, and everything else outside keeps running.
 
-However, you can't know in advance which thing may cause the OOM collapse, so you want to have a session-level isolation. That is, the process you start in your session should also be wrapped in such a scope.
+So a natural solution is to [wrap up](https://github.com/alexeygrigorev/rustkyll/blob/main/scripts/cargo-safe) unsafe operations in an isolated cgroup, so the OOM killer won't touch anything outside.
 
-This is what I eventually did in tmuxctl. Under the hood, when I create a new session with `t -`, it wraps the command in a systemd scope with a memory limit and runs the session isolated.
+However, you can't know in advance which process will cause the OOM collapse, so it kept happening to me over and over again.
 
-It still didn't completely solve the problem - the tmux server was still the single point of failure. With many things running on the devbox, OOMs were still happening, and occasionally they would still kill the server. 
+Eventually, I decided to run each tmux session in its own cgroup. Since I was already using tmuxctl as a wrapper around tmux, [I added support for cgroups there](TODO find the code that does it - maybe in commit history).
 
-After consulting Fable, we did it this way: every session now has its own server, with its own socket file and its own systemd unit.
+It worked well, but unfortunately it still didn't solve the main problem - the tmux server was still the single point of failure. Even with each session running in a cgroup, the server would still die occasionally, bringing down all the sessions along with it.
 
-So when I implemented it with tmuxctl, it no longer was just a wrapper around tmux. Now listing sessions in tmuxctl would give a completely different result from `tmux list-sessions`.
+After consulting Fable, we did the next logical thing: started a separate server for each tmux session. 
 
-And the whole thing became a Frankenstein monster. At this point, I looked at this, opened ChatGPT and asked "how difficult is it to write own terminal multiplexer?" It said it would be a few weeks of work. Then I asked it to implement it (turning the pro mode on), it thought for 10 minutes and gave me a version written in Rust. 
+All that logic went into tmuxctl, which by that time became a Frankenstein monster, not just a simple wrapper around tmux CLI.
 
-I decided to call it "aplexer" (it's very difficult to find a name that's available on PyPI these days!), which stands for "Agent Multiplexer". "Amux" was already taken - I counted 3 products with this name, and none of them were doing what I needed.
+I got really tired of patching it. So I opened ChatGPT and asked "how difficult is it to write own terminal multiplexer?". It said it would be a few weeks of work. Then turned on the pro mode and asked it to implement it. It thought for 10 minutes and gave me a first verstion written in Rust (which kind of worked).
+
+![alt text](image.png)
+My brain dump captured via dictation mode that became the first vrsion of aplexer
+
+I decided to call it "aplexer" which stands for "Agent Multiplexer". "Amux" was already taken - I counted 3 products with this name, and none of them were doing what I needed. It's very difficult to find a name that's available on PyPI these days!
 
 ## Aplexer's initial requirements
 
@@ -240,7 +220,7 @@ What I needed from it:
 
 - Simple commands to create sessions, list sessions, attach and detach
 - No server - so no single point of failure.
-- Dealing with OOM errors without having to worry about cgroups - but with optional cgroups support
+- Dealing with OOM errors without having to worry about cgroups
 
 Plus I wanted to have the same features that tmux had:
 
@@ -255,77 +235,85 @@ The main focus was on running agents, so I also wanted
 - What's running inside each session - which agent
 - Letting agents send messages to each other natively
 
-I always follow [spec-driven development approach](https://aishippingblog.com/p/ai-native-development-specifications), so I discussed the requirements with ChatGPT, got the [specification](https://github.com/PocketShell-io/aplexer/blob/main/spec.md) out, and started developing it.
+I always follow the [spec-driven development approach](https://aishippingblog.com/p/ai-native-development-specifications), so I discussed the requirements with ChatGPT, got the [first specification](https://github.com/PocketShell-io/aplexer/blob/main/spec.md) out, and started developing it.
 
 ## Eat your own dog food 
 
-I don't know why this approach is called this way (to me the dog food doesn't smell nice at all) but the idea behind it is that you use the tool you develop in your development process as soon as you can.
+I don't know why this approach is called this way. But the idea is to start using the tool you develop as soon as possible.
 
 This approach works extremely well and forces you to find and fix all the inconvenient points. 
 
-My v0 was that - the version of aplexer that I could use for running the agents that were building aplexer.
+That's why the focus on v0 of aplexer was to let me start using it instead of tmux, and then iterate and polish all the rough edges. 
 
 The main acceptance criteria for v0 were:
 
 - I can use it for running agents
-- Agents are in detachable sessions that don't stop after ssh disconnect
+- Agents run in detachable sessions that don't stop after ssh disconnect
 - OOM in one session doesn't affect any other session  
 
-It took one week to have a stable version that works well, and then another couple of weeks to polish and add the features that I needed. Now it has fully replaced tmux in my workflow. 
+The first test that I implemented was causing OOM for one process and making sure the others aren't affected (TODO: find it).
+
+It took one week to have a stable version that works well, and then another couple of weeks to polish and add the features that I needed. (ChatGPT was right!)
 
 I like short aliases, so I use `a` for aplexer in my terminal. 
 
+![alt text](image-1.png)
+
+
+By now it has fully replaced tmux in my workflow, and I haven't had a problem of OOM wiping out all my sessions since then.
+
+
 ## aplexer's architecture
 
-A session starts with the client, not with a shared daemon.
+Each session in aplexer is independent from each other. Ther's no shared server. Insetad, each session has a PTY worker assigned only for that session.
 
-When I create a session, the client first figures out what this session is: which workspace (folder) it belongs to, which agent to run, and with which settings. It writes all of this to disk as a session record - together with runtime details like the process IDs, the socket path, and the current status. Since the record is on disk, aplexer can always pick the session back up, even after a restart.
+When a new session is created, the aplexer client creates a worker. That worker operates the PTY (describe which side goes where). Optionally, the process can be launched in a cgroup too, but I never actually needed it. 
 
-Then the client starts one worker for that session and waits for the worker to become ready.
-
-The worker does the session-specific work:
-
-1. It binds a private Unix control socket.
-2. It creates an optional workload cgroup with the requested memory, task-count, CPU, and swap limits.
-3. It opens a PTY master and slave.
-4. It starts the workload with the PTY slave as its controlling terminal.
-5. It keeps the PTY master and reads the workload's output.
-6. It serves attach, input, resize, capture, status, rename, and kill operations.
-7. It records exit or out-of-memory diagnostics and cleans up when the session ends.
-
-The workload child performs the normal Unix terminal setup:
-
-1. It creates a session with `setsid`.
-2. It acquires the PTY slave as its controlling terminal.
-3. It connects the slave to standard input, output, and error.
-4. It applies the working directory and environment.
-5. It executes the configured program.
-
-The worker stays outside the workload cgroup, which limits the agent or shell. This lets it observe the workload, report its exit state, and clean up after a kill.
-
-aplexer keeps two views of the output. The first is a bounded log of everything the workload has printed - useful for scrolling back through the history. The second is the current screen: the same bytes are also fed through a screen tracker that reconstructs what an interactive application, like vim, is showing right now. When you attach, you can get either view.
-
-The resulting architecture looks like this:
+aplexer keeps track of all the sessions by storing this information on filesystem, so there's no central process that needs to keep track of all the sessions. 
 
 <figure>
   <img src="../../assets/images/why-did-i-create-my-own-terminal-multiplexer/aplexer-architecture.png" alt="The aplexer client routes to three independent session boundaries, each containing a worker and workload, with session B shown in red to illustrate an independent failure">
   <figcaption>aplexer gives each session its own worker, PTY, lifecycle, and optional workload cgroup.</figcaption>
 </figure>
 
-Both runtimes have a client and a persistent process.
+I don't need panes, windows and other things, so for me one session is one PTY. But I still want to organize the sessions. For me I use workspaces to organize sessoins - this is the folder where the agents are running. When I run `a`, I get a list of all the workspaces and a list of sessions in each
 
-They differ in who owns the session and where the failure boundary sits:
+![alt text](image-2.png)
 
-- tmux's primary abstraction is persistent terminal layout.
-- aplexer's primary abstraction is an identified agent or workspace session.
-- tmux has one shared server, while aplexer has one worker per session.
-- tmux exposes pane-backed PTYs, while aplexer gives each worker its own PTY.
-- aplexer can add an optional workload cgroup to each session.
-- aplexer exposes structured state, a mailbox, and worker operations.
 
-With three independent sessions, no single worker owns all three PTYs. If the memory limit kills B's workload, sessions A and C keep their own workers and workload boundaries. If worker B dies, session B loses its supervisor, but workers A and C can continue.
+Now if I want to attach to any of the sessoins, I can type
 
-That's the invariant I was building toward.
+```
+a 7 2
+```
+
+This will attach to the workspace number 7 (`~/git/dapier`), session 2 (`designer`). I can refer to them by names too, but that's too much to type.
+
+## Agent-Native Multiplexer
+
+I didn't just want to create a terminal multiplexer that's immute too OOM kills. I also wanted to make it agent-aware.
+
+So it has a few more things that are specific to agents:
+
+- I know which agent is running in each session
+- I also can detect if agents are idle or working
+- I can see when they started 
+- It's possible to sort the sessions workspaces using these things 
+- I can start a new agent session by just typing `TODO - what`
+
+Plus, agents have special primitives to send input to each other:
+
+```
+TODO
+```
+
+And they have a message bus for async coordination:
+
+```
+TODO
+```
+
+TODO: screenshot
 
 
 ## Conclusion
