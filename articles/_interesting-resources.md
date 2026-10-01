@@ -1,7 +1,7 @@
 ---
 title: "Interesting Resources"
 created: 2026-01-31
-updated: 2026-07-13
+updated: 2026-10-01
 tags: [resources, tools, ai, development]
 status: draft
 ---
@@ -27,6 +27,10 @@ Each resource entry follows this simple format:
 
 
 ## Tools
+
+### Whiteboard
+
+[The forwarded Whiteboard review](../inbox/used/20261001_041857_AlexeyDTC_msg4987.md) describes an agent plugin and VS Code viewer for reviewing pull requests through explanations, architecture diagrams, call trees, and code diffs. You can click diagram elements to look at the relevant diff, while the semantic diff viewer hides less relevant detail. The reviewer liked the algorithm diagrams but reported poor integration with existing architecture, unreliable requirement extraction, and bugs. The [full notes](research/whiteboard-architecture-review.md) preserve those findings.[^60]
 
 ### Floci
 
@@ -122,3 +126,5 @@ Interesting for future automation[^28].
 [^57]: [https://github.com/omnigent-ai/omnigent](https://github.com/omnigent-ai/omnigent) via [20260614_135242_AlexeyDTC_msg4599.md](../inbox/used/20260614_135242_AlexeyDTC_msg4599.md)
 [^58]: [https://github.com/JustVugg/colibri](https://github.com/JustVugg/colibri) via [20260711_145906_AlexeyDTC_msg4749.md](../inbox/used/20260711_145906_AlexeyDTC_msg4749.md)
 [^59]: [https://github.com/floci-io/floci](https://github.com/floci-io/floci) via [20260711_100445_AlexeyDTC_msg4747.md](../inbox/used/20260711_100445_AlexeyDTC_msg4747.md)
+
+[^60]: [20261001_041857_AlexeyDTC_msg4987.md](../inbox/used/20261001_041857_AlexeyDTC_msg4987.md) - Forwarded review, marked as a resource in the preceding message

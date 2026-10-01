@@ -26,8 +26,8 @@ Repository-wide indexes and long-running collections with special underscore-pre
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Interesting Resources](_interesting-resources.md) | draft | 2026-10-01 | Curated collection of tools, resources, and project ideas for the newsletter |
 | [Substack Archive Index](_substack-archive-index.md) | draft | 2026-09-15 | Lookup table of all published Substack posts (title, description, URL), used to insert direct links to things Alexey has already shared |
-| [Interesting Resources](_interesting-resources.md) | draft | 2026-07-13 | Curated collection of tools, resources, and project ideas for the newsletter |
 | [Weekly Log](_weekly-log.md) | draft | 2026-07-09 | Running log of what was done each week. Topics with their own dedicated article appear as short summaries with links; smaller items stay inline |
 
 ## Metadata
@@ -44,6 +44,7 @@ Community strategy, platform notes, member research, plans, workshops, and cours
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [AI Engineering Buildcamp Cohort 4 Launch](ai-shipping-labs/content/ai-engineering-buildcamp-cohort-4-launch.md) | draft | 2026-10-01 | Photo from the cohort 4 launch call. |
 | [AI Shipping Labs Marketing and Content Strategy](ai-shipping-labs/marketing-and-content.md) | draft | 2026-09-03 | Marketing channels, funnel, lead magnets, pricing, moat, and content strategy for the community. |
 | [AI Shipping Labs Course Ideas](ai-shipping-labs/content/courses.md) | draft | 2026-09-03 | Course and workshop ideas for the community, with the member requests behind them. |
 | [AI-Assisted Automation Course Idea](ai-shipping-labs/content/ai-assisted-automation-course-idea.md) | draft | 2026-09-03 | Concept for a paid course on AI-assisted automation |
@@ -82,6 +83,7 @@ General marketing, distribution, social-content, SEO, and search-visibility mate
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Course Promotion Through Podcast Guests](marketing/course-promotion-through-podcast-guests.md) | draft | 2026-10-01 | Plan to invite course-topic practitioners to the podcast and register listeners through Maven. |
 | [Social Post Ideas](marketing/social-post-ideas.md) | draft | 2026-03-12 | Curated social media content ideas and inspiration |
 | [Ranking for AI Search: LinkedIn Visibility and AI Overview Tracking](marketing/ai-search-visibility.md) | draft | 2026-03-10 | LinkedIn AI visibility study findings and AI Overview Tracker concept for monitoring brand presence in AI search |
 
@@ -116,6 +118,9 @@ Recorded content, project, and workflow ideas for later development.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Million Dollar Weekend - Book Notes](ideas/million-dollar-weekend-book-notes.md) | draft | 2026-10-01 | Notes on committing to 100 repetitions, making repetition easy, and choosing a marketing goal. |
+| [ChatGPT for Kleinanzeigen Listings](ideas/content/chatgpt-kleinanzeigen-listings.md) | draft | 2026-10-01 | A friend asks ChatGPT to create second-hand listings from photos and choose prices. |
+| [Personal Scheduler Deployment](ideas/projects/personal-scheduler-deployment.md) | draft | 2026-10-01 | Agent deployment report covering shared authentication and TLS certificate fixes. |
 | [Coming Up with Project Ideas](ideas/coming-up-with-project-ideas.md) | draft | 2026-09-17 | How to pick portfolio projects: three project types, cap-the-time rule, a portfolio-workflow flowchart, Buildcamp demo-day examples, and Alexey's own pet-project write-ups |
 | [Indie Game Promotion Strategy](ideas/indie-game-promotion.md) | draft | 2026-09-17 | Notes from a Berlin data breakfast on promoting indie games via social accounts, demo platforms, and Steam wishlisting |
 | [Start Small Stay Small - Book Notes](ideas/start-small-stay-small-book-notes.md) | draft | 2026-09-09 | Book notes on goal-setting, the three roles (technician, manager, entrepreneur), product priority ordering, and tour pages |
@@ -131,7 +136,7 @@ Articles currently being developed from a researched outline.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
-| [Why Did I Create My Own Terminal Multiplexer?](work-in-progress/why-did-i-create-my-own-terminal-multiplexer.md) | draft | 2026-08-28 | Why tmux's persistent terminal model stopped matching an agent-heavy workflow, and how aplexer uses identified sessions, per-session workers, and Rust |
+| [Why Did I Create My Own Terminal Multiplexer?](work-in-progress/why-did-i-create-my-own-terminal-multiplexer.md) | draft | 2026-10-01 | Why tmux stopped matching an agent-heavy workflow and how aplexer supports persistent sessions and agent coordination. |
 
 ## Testimonials
 

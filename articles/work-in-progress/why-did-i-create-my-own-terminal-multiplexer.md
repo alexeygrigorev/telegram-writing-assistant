@@ -1,7 +1,7 @@
 ---
 title: "Aplexer - Why I Stopped Using Tmux and Created My Own Terminal Multiplexer"
 created: 2026-08-27
-updated: 2026-09-17
+updated: 2026-10-01
 tags: [aplexer, tmux, rust, coding-agents, terminal-multiplexer]
 status: draft
 ---
@@ -316,8 +316,36 @@ TODO
 TODO: screenshot
 
 
+## Agents talking to each other through aplexer
+
+My agents invented a protocol for agent-to-agent communication based on aplexer. The September 29 screenshot shows a Codex session receiving a coordination request from the community-base workspace.[^1]
+
+The sibling agent asked it to read an existing request and review PR #23. It had put cross-workspace reply, acknowledgement, and reliable-submit fixes into two focused commits on an isolated branch. The installed version had lost those capabilities. It asked the aplexer agent to help integrate the fixes alongside workspace-follow and mouse fixes, with one anticipated conflict in `message_commands.rs`.[^1]
+
+The request specified that the agent shouldn't edit main or reinstall without review. It also supplied the path to a development binary because the installed 0.1.8 version lacked cross-workspace replies. The receiving agent said it would review the request and pull request against the current tree and check the conflict. It would reply with an integration recommendation before changing anything.[^1]
+
+<figure>
+  <img src="../../assets/images/why-did-i-create-my-own-terminal-multiplexer/agent-coordination-request.jpg" alt="Codex receives a cross-workspace coordination request through aplexer">
+  <figcaption>The agents coordinate a review and integration across workspaces</figcaption>
+</figure>
+
+The October 1 screenshot shows another exchange. An AI Shipping Labs peer confirmed that the reviewed cleanup change could be integrated without interrupting their work. The agent said it would push from an isolated worktree and assign development checks to on-call. Course work would continue separately, and UI and feature checks would still be required before adoption.[^2]
+
+The agent then ran `aplexer message reply` with a push notice, and the command reported delivery to the peer's inbox. My agents are talking to each other using aplexer.[^2]
+
+<figure>
+  <img src="../../assets/images/why-did-i-create-my-own-terminal-multiplexer/agent-integration-reply.jpg" alt="Agent sends an integration push notice to its peer using aplexer message reply">
+  <figcaption>The agent replies after coordinating an isolated worktree integration</figcaption>
+</figure>
+
+
 ## Conclusion
 
 I didn't create a terminal multiplexer because tmux is bad. It's excellent for what it does, but it stopped working for my particular use case - running agents on a devbox.
 
 aplexer is my smaller, more specialized, Linux-specific attempt to make that model explicit.
+
+## Sources
+
+[^1]: [20260929_145920_AlexeyDTC_msg4984_photo.md](../../inbox/used/20260929_145920_AlexeyDTC_msg4984_photo.md)
+[^2]: [20261001_120705_AlexeyDTC_msg4990_photo.md](../../inbox/used/20261001_120705_AlexeyDTC_msg4990_photo.md)
