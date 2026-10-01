@@ -110,7 +110,7 @@ I usually don't do that, though. I use tmux mostly for keeping my agents running
 </figure>
 
 We can do a lot of things programmatically with tmux. We can create all these windows and panes using the tmux CLI, or we can send input to any of the panes as if it was typed by a human.
-In fact, the earlier screenshot with three panes were created by [this script](https://gist.github.com/alexeygrigorev/8df0400d8814914291487ada31b4a119).
+In fact, the earlier screenshot with three panes was created by [this script](https://gist.github.com/alexeygrigorev/8df0400d8814914291487ada31b4a119).
 
 Because of that, with a bit of scripting, you can teach agents running in different tmux sessions to talk to each other.
 
@@ -177,7 +177,7 @@ If I'm unlucky and all these things run at the same time, my machine runs out of
 
 It's usually not a problem for Android emulators or Playwright - they are simply killed when it happens. But if I run something like `cargo clippy` (a linter in Rust), it's more dangerous.
 
-Not only OOM can kill the linter process, but also bring down the agent that's running it, the shell that's running the agent, the session that's running the shell, and the tmux server too. When tmux server dies, all the other sessions go with it.
+OOM can not only kill the linter process, but also bring down the agent that's running it, the shell that's running the agent, the session that's running the shell, and the tmux server too. When the tmux server dies, all the other sessions go with it.
 
 So an OOM in Rust can wipe out all the tmux sessions on the machine. All of them.
 
@@ -189,6 +189,11 @@ So an OOM in Rust can wipe out all the tmux sessions on the machine. All of them
 An OOM kill doesn't propagate from cargo to tmux. The kernel ("OOM killer") decides who should receive `SIGKILL` when OOM happens. Usually it's the process that caused the actual OOM. But [sometimes](https://github.com/tmux/tmux/issues/4151) it may decide to kill the entire memory cgroup where it's working, which includes the process, the shell, and the tmux server (bringing down all the sessions too). 
 
 A cgroup (control group) is a container around a group of processes that Linux manages like a single unit. It's used to limit the CPU, memory and other resources each group can use. If a process in the group exceeds its memory limit, the kernel will target the processes inside that group for `SIGKILL`.
+
+<figure>
+  <img src="../../assets/images/why-did-i-create-my-own-terminal-multiplexer/cgroup-isolation.png" alt="Agent B hits its cgroup memory limit and is killed. The tmux server, both shells, and agent A keep running.">
+  <figcaption>Agent B is killed at its cgroup memory limit, while the tmux server and workload A keep running. Machine-wide OOM can still affect other groups.</figcaption>
+</figure>
 
 So a natural solution is to [wrap up](https://github.com/alexeygrigorev/rustkyll/blob/main/scripts/cargo-safe) unsafe operations in an isolated cgroup, so the OOM killer won't touch anything outside.
 
@@ -263,11 +268,11 @@ By now it has fully replaced tmux in my workflow, and I haven't had a problem wi
 
 ## Aplexer's architecture
 
-Each session in aplexer is independent from each other, and there's no shared server. Instead, each session has a PTY worker that's assigned only to that session.
+Each session in aplexer is independent of the others, and there's no shared server. Instead, each session has a PTY worker that's assigned only to that session.
 
 When a new session is created, the aplexer client creates a worker, and the worker manages the PTY. Optionally, the process can be launched in a cgroup too, but I never actually needed it. 
 
-Aplexer doesn't need a cetral process for keeping track of all the sessions: it stores them in the filesystem.
+Aplexer doesn't need a central process for keeping track of all the sessions: it stores them in the filesystem.
 
 <figure>
   <img src="../../assets/images/why-did-i-create-my-own-terminal-multiplexer/aplexer-architecture.png" alt="The aplexer client routes to three independent session boundaries, each containing a worker and workload, with session B shown in red to illustrate an independent failure">
@@ -276,7 +281,7 @@ Aplexer doesn't need a cetral process for keeping track of all the sessions: it 
 
 I don't need panes, windows and other things, so for me one session is one PTY.
 
-But I still want to organize the sessions. I group sessions by the workspaces - this is the folder where the agents are running.
+But I still want to organize the sessions. I group sessions by workspace - the folder where the agents are running.
 
 When I run `a`, I get a list of all the workspaces and a list of sessions in each.
 
@@ -295,23 +300,23 @@ This will attach to the workspace number 7 (`~/git/dapier`), session 2 (`designe
 
 ## Making it agent-aware
 
-I also wanted aplexer to keep track of what's running inside each sessions.
+I also wanted aplexer to keep track of what's running inside each session.
 
-It shows which agent is there, whether it is running or idle, and when it last activity.
+It shows which agent is there, whether it is running or idle, and when it was last active.
 
-If I want to start a codex session with tag "code-refactor" in the current directory, I simply type:
+If I want to start a Codex session with the tag "code-refactor" in the current directory, I simply type:
 
 ```bash
 a - codex code-refactor
 ```
 
-Of course, that's all document in the [README](https://github.com/PocketShell-io/aplexer/blob/main/README.md).
+Of course, that's all documented in the [README](https://github.com/PocketShell-io/aplexer/blob/main/README.md).
 
 ## Communication
 
 In tmux my agents were already talking to each other, so I wanted to have the same functionality in aplexer too. 
 
-This is how it looks like: 
+This is what it looks like:
 
 ```bash
 a send code-refactor "Please review the current diff and report any bugs." --enter
@@ -328,7 +333,7 @@ And check what's on the screen:
 a capture code-refactor --screen
 ```
 
-These commands send text as the prompt. But there's also a message bus that the agents can use for asynchronous communication. Within a session it looks like that:
+These commands send text as the prompt. But there's also a message bus that the agents can use for asynchronous communication. Within a session it looks like this:
 
 ```bash
 a message send --to code-refactor "Implementation is ready. Please review the diff."
@@ -350,12 +355,25 @@ a message reply <message-id> <message>
 
 ## Aplexer and PocketShell
 
-tmux is excellent at what it does, but it stopped working for me for running agents on a devbox. So I created aplexer. Aplexer is agent multiplexer written in Rust that doesn't require a single shared server. It groups my sessions in workspaces, I can tag them and see their state. 
+tmux is excellent at what it does, but it stopped working for me when running agents on a devbox. So I created aplexer. Aplexer is an agent multiplexer written in Rust that doesn't require a single shared server. It groups my sessions in workspaces, and I can tag them and see their state.
 
 If you run agents on a Linux devbox and want to try it, the [README](https://github.com/PocketShell-io/aplexer/blob/main/README.md) has installation instructions and the full command reference.
 
-Now I don't use aplexer directly - I use PocketShell to manage them. It's an app that lets me connect to my devbox from my Android phone, from my laptop or from web. It lists all the sessions there and let's me switch easily between them.
+Now I rarely use aplexer directly - I use PocketShell to manage my sessions. It's an app that lets me connect to my devbox from my Android phone, from my laptop or from the web. It lists all the sessions there and lets me switch easily between them.
 
-I started working on it in May and I like how it's coming <missing word?>. I'll polish it a bit more and soon will write another blogpost on how I use it for my work with agents. 
+I started working on it in May and I like how it's coming along. I'll polish it a bit more and soon will write another blog post on how I use it for my work with agents, so you can try it too.
 
-![pocketsheel](image-3.png)
+<figure>
+  <img src="../../assets/images/why-did-i-create-my-own-terminal-multiplexer/pocketshell.png" alt="PocketShell">
+  <figcaption>Managing agent sessions with PocketShell. Each agent runs in aplexer, and the list of sessions on the side bar is coming from aplexer too.</figcaption>
+</figure>
+
+
+## Tools
+
+<figure>
+  <img src="../../assets/images/why-did-i-create-my-own-terminal-multiplexer/paperclip.png" alt="Paperclip homepage with the tagline A team of agents for every person">
+  <figcaption>Paperclip - managing AI agents for work.</figcaption>
+</figure>
+
+- [Paperclip](https://github.com/paperclipai/paperclip) is a control plane for managing fleets of AI agents, organized like an org chart with roles, reporting lines, goals and task tracking. I don't have this hierarchy in my workflows, but it could be interested to experiment with it.

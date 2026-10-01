@@ -1,0 +1,128 @@
+{
+  "title": "Cgroup memory limits isolate workloads",
+  "description": "Agent B hits its cgroup memory limit and is killed. The tmux server, both shells, and agent A keep running.",
+  "canvas": {
+    "width": 920,
+    "height": 610,
+    "background": "#ffffff"
+  },
+  "layout": {
+    "type": "manual",
+    "card_width": 280,
+    "card_height": 100,
+    "font_scale": 1.45
+  },
+  "nodes": [
+    {
+      "id": "group-a",
+      "title": "CGROUP A",
+      "variant": "boundary",
+      "contains": [
+        "shell-a",
+        "agent-a"
+      ],
+      "margin": {
+        "top": 60,
+        "right": 40,
+        "bottom": 30,
+        "left": 40
+      },
+      "color": "green"
+    },
+    {
+      "id": "group-b",
+      "title": "CGROUP B",
+      "variant": "boundary",
+      "contains": [
+        "shell-b",
+        "agent-b"
+      ],
+      "margin": {
+        "top": 60,
+        "right": 40,
+        "bottom": 30,
+        "left": 40
+      },
+      "color": "amber"
+    },
+    {
+      "id": "server",
+      "title": "tmux server",
+      "subtitle": "still running",
+      "icon": "settings",
+      "color": "green",
+      "x": 320,
+      "y": 40
+    },
+    {
+      "id": "shell-a",
+      "title": "Shell A",
+      "subtitle": "still running",
+      "icon": "shell",
+      "color": "amber",
+      "x": 100,
+      "y": 280
+    },
+    {
+      "id": "agent-a",
+      "title": "Agent A",
+      "subtitle": "still running",
+      "icon": "robot",
+      "color": "amber",
+      "x": 100,
+      "y": 440
+    },
+    {
+      "id": "shell-b",
+      "title": "Shell B",
+      "subtitle": "still running",
+      "icon": "shell",
+      "color": "amber",
+      "x": 540,
+      "y": 280
+    },
+    {
+      "id": "agent-b",
+      "title": "Agent B",
+      "subtitle": "OOM-killed",
+      "icon": "robot",
+      "color": "red",
+      "x": 540,
+      "y": 440
+    }
+  ],
+  "edges": [
+    {
+      "from": "server",
+      "to": "shell-a",
+      "route": "orthogonal",
+      "from_anchor": "bottom",
+      "to_anchor": "right",
+      "directed": false
+    },
+    {
+      "from": "server",
+      "to": "shell-b",
+      "route": "orthogonal",
+      "from_anchor": "bottom",
+      "to_anchor": "left",
+      "directed": false
+    },
+    {
+      "from": "shell-a",
+      "to": "agent-a",
+      "directed": false,
+      "from_anchor": "bottom",
+      "to_anchor": "top"
+    },
+    {
+      "from": "shell-b",
+      "to": "agent-b",
+      "directed": false,
+      "dashed": true,
+      "color": "red",
+      "from_anchor": "bottom",
+      "to_anchor": "top"
+    }
+  ]
+}

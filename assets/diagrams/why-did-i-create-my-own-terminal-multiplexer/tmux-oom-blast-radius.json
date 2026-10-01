@@ -1,0 +1,23 @@
+{
+  "title": "OOM across shared tmux sessions",
+  "description": "A Rust workload exhausts memory. If the OOM also kills the shared tmux server, every session loses its PTY.",
+  "canvas": {"width": 1040, "height": 600, "background": "#ffffff"},
+  "layout": {"type": "manual", "card_width": 210, "card_height": 100},
+  "nodes": [
+    {"id": "server", "title": "tmux server", "subtitle": "killed during OOM", "icon": "close", "color": "red", "x": 60, "y": 250},
+    {"id": "session-a", "title": "Session A", "subtitle": "PTY closes", "icon": "container", "color": "gray", "x": 420, "y": 70},
+    {"id": "session-b", "title": "Session B", "subtitle": "PTY closes", "icon": "container", "color": "gray", "x": 420, "y": 250},
+    {"id": "session-c", "title": "Session C", "subtitle": "PTY closes", "icon": "container", "color": "gray", "x": 420, "y": 430},
+    {"id": "agent-a", "title": "Agent A", "subtitle": "collateral loss", "icon": "robot", "color": "gray", "x": 800, "y": 70},
+    {"id": "clippy", "title": "cargo clippy", "subtitle": "memory exhausted", "icon": "warning", "color": "amber", "x": 800, "y": 250},
+    {"id": "agent-c", "title": "Agent C", "subtitle": "collateral loss", "icon": "robot", "color": "gray", "x": 800, "y": 430}
+  ],
+  "edges": [
+    {"from": "server", "to": "session-a", "route": "orthogonal", "from_anchor": "right_top", "to_anchor": "left", "color": "red", "dashed": true, "directed": false},
+    {"from": "server", "to": "session-b", "color": "red", "dashed": true, "directed": false},
+    {"from": "server", "to": "session-c", "route": "orthogonal", "from_anchor": "right_bottom", "to_anchor": "left", "color": "red", "dashed": true, "directed": false},
+    {"from": "session-a", "to": "agent-a", "color": "red", "dashed": true, "directed": false},
+    {"from": "session-b", "to": "clippy", "color": "red", "dashed": true, "directed": false},
+    {"from": "session-c", "to": "agent-c", "color": "red", "dashed": true, "directed": false}
+  ]
+}

@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="600" viewBox="0 0 1040 600" role="img" aria-labelledby="title desc">
+  <title id="title">My tmux setup: one pane per session</title>
+  <desc id="desc">One shared tmux server owns three sessions. I use one pane and one PTY for each agent or shell.</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+    <marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#7c3aed"/></marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#2563eb"/></marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#c2410c"/></marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#15803d"/></marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#dc2626"/></marker>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#64748b"/></marker>
+    <marker id="arrow-start-gray" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0 0 10 5 0 10Z" fill="#64748b"/></marker>
+    <symbol id="icon-container" viewBox="0 0 24 24">
+        <rect x="2" y="5" width="20" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="M7 5v14M12 5v14M17 5v14" fill="none" stroke="currentColor" stroke-width="2"/>
+      </symbol>
+    <symbol id="icon-robot" viewBox="0 0 24 24">
+        <path d="M12 5V2.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        <circle cx="12" cy="2.5" r="1" fill="currentColor"/>
+        <rect x="4" y="5" width="16" height="15" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/>
+        <path d="M4 10H2.5v5H4M20 10h1.5v5H20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="9" cy="11" r="1.3" fill="currentColor"/>
+        <circle cx="15" cy="11" r="1.3" fill="currentColor"/>
+        <path d="M8.5 16h7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </symbol>
+    <symbol id="icon-settings" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+    <symbol id="icon-shell" viewBox="0 0 24 24">
+        <path d="m4 7 5 5-5 5M12 17h8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+    <style>
+      text { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #172033; }
+      symbol [stroke] { vector-effect: non-scaling-stroke; }
+      .node rect { stroke-width: 2; }
+      .node-boundary rect { stroke-width: 2; stroke-dasharray: 8 8; }
+      .boundary-title { font-size: 16px; font-weight: 750; text-anchor: start; }
+      .node-title { font-weight: 750; text-anchor: middle; }
+      .node-title.icon-copy { text-anchor: start; }
+      .node-subtitle { font-weight: 500; fill: #475569; text-anchor: middle; }
+      .eyebrow { font-weight: 750; letter-spacing: 1px; fill: #475569; text-anchor: middle; }
+      .mention-icon { font-size: 27px; font-weight: 750; text-anchor: middle; }
+      .standalone-mention { font-size: 52px; font-weight: 750; text-anchor: middle; }
+      .icon-node-title { font-size: 16px; font-weight: 750; text-anchor: middle; }
+      .edge { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+      .edge-label rect { stroke-width: 2; }
+      .edge-label text { font-size: 14px; font-weight: 750; text-anchor: middle; dominant-baseline: central; }
+      .divider { stroke: #cbd5e1; stroke-width: 2; stroke-dasharray: 6 8; stroke-linecap: round; }
+      .center-annotation { fill: #f1f5f9; stroke: none; }
+      .center-title { font-weight: 800; letter-spacing: 0.08em; fill: #334155; text-anchor: middle; }
+      .center-detail { font-weight: 600; fill: #475569; text-anchor: middle; }
+    </style>
+  </defs>
+  <rect width="1040" height="600" fill="#ffffff"/>
+
+  <g class="node-boundary node-green" transform="translate(30 10)">
+    <rect width="630" height="550" rx="22" fill="none" stroke="#15803d"/>
+    <text class="boundary-title" x="20" y="31">TMUX SERVER · ONE SHARED PROCESS</text>
+  </g>
+  <path class="edge" d="M270 283.33H345V120H420" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M270 300L420 300" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M270 316.67H345V480H420" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge-boundary-halo" d="M630 120L800 120" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path class="edge" d="M630 120L800 120" stroke="#64748b" marker-start="url(#arrow-start-gray)" marker-end="url(#arrow-gray)"/>
+  <path class="edge-boundary-halo" d="M630 300L800 300" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path class="edge" d="M630 300L800 300" stroke="#64748b" marker-start="url(#arrow-start-gray)" marker-end="url(#arrow-gray)"/>
+  <path class="edge-boundary-halo" d="M630 480L800 480" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path class="edge" d="M630 480L800 480" stroke="#64748b" marker-start="url(#arrow-start-gray)" marker-end="url(#arrow-gray)"/>
+
+  <g class="node node-green" transform="translate(60 250)" filter="url(#shadow)">
+    <rect width="210" height="100" rx="18" fill="#ecfdf5" stroke="#15803d"/>
+    <use href="#icon-settings" x="16" y="20" width="34" height="34" color="#15803d"/>
+    <text class="node-title icon-copy" x="62" y="43.84" font-size="19">tmux server</text>
+    <text class="node-subtitle" x="105" y="75" font-size="16">owns the PTY masters</text>
+  </g>
+  <g class="node node-purple" transform="translate(420 70)" filter="url(#shadow)">
+    <rect width="210" height="100" rx="18" fill="#f5f3ff" stroke="#7c3aed"/>
+    <use href="#icon-container" x="16" y="20" width="34" height="34" color="#7c3aed"/>
+    <text class="node-title icon-copy" x="62" y="43.84" font-size="19">Session A</text>
+    <text class="node-subtitle" x="105" y="75" font-size="16">one pane · one PTY</text>
+  </g>
+  <g class="node node-purple" transform="translate(420 250)" filter="url(#shadow)">
+    <rect width="210" height="100" rx="18" fill="#f5f3ff" stroke="#7c3aed"/>
+    <use href="#icon-container" x="16" y="20" width="34" height="34" color="#7c3aed"/>
+    <text class="node-title icon-copy" x="62" y="43.84" font-size="19">Session B</text>
+    <text class="node-subtitle" x="105" y="75" font-size="16">one pane · one PTY</text>
+  </g>
+  <g class="node node-purple" transform="translate(420 430)" filter="url(#shadow)">
+    <rect width="210" height="100" rx="18" fill="#f5f3ff" stroke="#7c3aed"/>
+    <use href="#icon-container" x="16" y="20" width="34" height="34" color="#7c3aed"/>
+    <text class="node-title icon-copy" x="62" y="43.84" font-size="19">Session C</text>
+    <text class="node-subtitle" x="105" y="75" font-size="16">one pane · one PTY</text>
+  </g>
+  <g class="node node-amber" transform="translate(800 70)" filter="url(#shadow)">
+    <rect width="210" height="100" rx="18" fill="#fff7ed" stroke="#c2410c"/>
+    <use href="#icon-robot" x="16" y="20" width="34" height="34" color="#c2410c"/>
+    <text class="node-title icon-copy" x="62" y="43.84" font-size="19">Agent A</text>
+    <text class="node-subtitle" x="105" y="75" font-size="16">runs on its PTY</text>
+  </g>
+  <g class="node node-amber" transform="translate(800 250)" filter="url(#shadow)">
+    <rect width="210" height="100" rx="18" fill="#fff7ed" stroke="#c2410c"/>
+    <use href="#icon-shell" x="16" y="20" width="34" height="34" color="#c2410c"/>
+    <text class="node-title icon-copy" x="62" y="43.84" font-size="19">Shell</text>
+    <text class="node-subtitle" x="105" y="75" font-size="16">runs on its PTY</text>
+  </g>
+  <g class="node node-amber" transform="translate(800 430)" filter="url(#shadow)">
+    <rect width="210" height="100" rx="18" fill="#fff7ed" stroke="#c2410c"/>
+    <use href="#icon-robot" x="16" y="20" width="34" height="34" color="#c2410c"/>
+    <text class="node-title icon-copy" x="62" y="43.84" font-size="19">Agent C</text>
+    <text class="node-subtitle" x="105" y="75" font-size="16">runs on its PTY</text>
+  </g>
+</svg>

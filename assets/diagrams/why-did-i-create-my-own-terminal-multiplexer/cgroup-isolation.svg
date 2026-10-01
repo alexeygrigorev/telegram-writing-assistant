@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="610" viewBox="0 0 920 610" role="img" aria-labelledby="title desc">
+  <title id="title">Cgroup memory limits isolate workloads</title>
+  <desc id="desc">Agent B hits its cgroup memory limit and is killed. The tmux server, both shells, and agent A keep running.</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+    <marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#7c3aed"/></marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#2563eb"/></marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#c2410c"/></marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#15803d"/></marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#dc2626"/></marker>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#64748b"/></marker>
+    <symbol id="icon-robot" viewBox="0 0 24 24">
+        <path d="M12 5V2.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        <circle cx="12" cy="2.5" r="1" fill="currentColor"/>
+        <rect x="4" y="5" width="16" height="15" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/>
+        <path d="M4 10H2.5v5H4M20 10h1.5v5H20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="9" cy="11" r="1.3" fill="currentColor"/>
+        <circle cx="15" cy="11" r="1.3" fill="currentColor"/>
+        <path d="M8.5 16h7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </symbol>
+    <symbol id="icon-settings" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+    <symbol id="icon-shell" viewBox="0 0 24 24">
+        <path d="m4 7 5 5-5 5M12 17h8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+    <style>
+      text { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #172033; }
+      symbol [stroke] { vector-effect: non-scaling-stroke; }
+      .node rect { stroke-width: 2; }
+      .node-boundary rect { stroke-width: 2; stroke-dasharray: 8 8; }
+      .boundary-title { font-size: 16px; font-weight: 750; text-anchor: start; }
+      .node-title { font-weight: 750; text-anchor: middle; }
+      .node-title.icon-copy { text-anchor: start; }
+      .node-subtitle { font-weight: 500; fill: #475569; text-anchor: middle; }
+      .eyebrow { font-weight: 750; letter-spacing: 1px; fill: #475569; text-anchor: middle; }
+      .mention-icon { font-size: 27px; font-weight: 750; text-anchor: middle; }
+      .standalone-mention { font-size: 52px; font-weight: 750; text-anchor: middle; }
+      .icon-node-title { font-size: 16px; font-weight: 750; text-anchor: middle; }
+      .edge { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+      .edge-label rect { stroke-width: 2; }
+      .edge-label text { font-size: 14px; font-weight: 750; text-anchor: middle; dominant-baseline: central; }
+      .divider { stroke: #cbd5e1; stroke-width: 2; stroke-dasharray: 6 8; stroke-linecap: round; }
+      .center-annotation { fill: #f1f5f9; stroke: none; }
+      .center-title { font-weight: 800; letter-spacing: 0.08em; fill: #334155; text-anchor: middle; }
+      .center-detail { font-weight: 600; fill: #475569; text-anchor: middle; }
+    </style>
+  </defs>
+  <rect width="920" height="610" fill="#ffffff"/>
+
+  <g class="node-boundary node-green" transform="translate(60 220)">
+    <rect width="360" height="350" rx="22" fill="none" stroke="#15803d"/>
+    <text class="boundary-title" x="20" y="31">CGROUP A</text>
+  </g>
+  <g class="node-boundary node-amber" transform="translate(500 220)">
+    <rect width="360" height="350" rx="22" fill="none" stroke="#c2410c"/>
+    <text class="boundary-title" x="20" y="31">CGROUP B</text>
+  </g>
+  <path class="edge-boundary-halo" d="M460 140L460 330L380 330" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path class="edge" d="M460 140L460 330L380 330" stroke="#64748b"/>
+  <path class="edge-boundary-halo" d="M460 140L460 330L540 330" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path class="edge" d="M460 140L460 330L540 330" stroke="#64748b"/>
+  <path class="edge" d="M240 380L240 440" stroke="#64748b"/>
+  <path class="edge" d="M680 380L680 440" stroke="#dc2626" stroke-dasharray="8 8"/>
+
+  <g class="node node-green" transform="translate(320 40)" filter="url(#shadow)">
+    <rect width="280" height="100" rx="18" fill="#ecfdf5" stroke="#15803d"/>
+    <use href="#icon-settings" x="16" y="6.65" width="49" height="49" color="#15803d"/>
+    <text class="node-title icon-copy" x="82.4" y="40.51" font-size="26">tmux server</text>
+    <text class="node-subtitle" x="140" y="86.1" font-size="23">still running</text>
+  </g>
+  <g class="node node-amber" transform="translate(100 280)" filter="url(#shadow)">
+    <rect width="280" height="100" rx="18" fill="#fff7ed" stroke="#c2410c"/>
+    <use href="#icon-shell" x="16" y="6.65" width="49" height="49" color="#c2410c"/>
+    <text class="node-title icon-copy" x="82.4" y="40.51" font-size="26">Shell A</text>
+    <text class="node-subtitle" x="140" y="86.1" font-size="23">still running</text>
+  </g>
+  <g class="node node-amber" transform="translate(100 440)" filter="url(#shadow)">
+    <rect width="280" height="100" rx="18" fill="#fff7ed" stroke="#c2410c"/>
+    <use href="#icon-robot" x="16" y="6.65" width="49" height="49" color="#c2410c"/>
+    <text class="node-title icon-copy" x="82.4" y="40.51" font-size="26">Agent A</text>
+    <text class="node-subtitle" x="140" y="86.1" font-size="23">still running</text>
+  </g>
+  <g class="node node-amber" transform="translate(540 280)" filter="url(#shadow)">
+    <rect width="280" height="100" rx="18" fill="#fff7ed" stroke="#c2410c"/>
+    <use href="#icon-shell" x="16" y="6.65" width="49" height="49" color="#c2410c"/>
+    <text class="node-title icon-copy" x="82.4" y="40.51" font-size="26">Shell B</text>
+    <text class="node-subtitle" x="140" y="86.1" font-size="23">still running</text>
+  </g>
+  <g class="node node-red" transform="translate(540 440)" filter="url(#shadow)">
+    <rect width="280" height="100" rx="18" fill="#fef2f2" stroke="#dc2626"/>
+    <use href="#icon-robot" x="16" y="6.65" width="49" height="49" color="#dc2626"/>
+    <text class="node-title icon-copy" x="82.4" y="40.51" font-size="26">Agent B</text>
+    <text class="node-subtitle" x="140" y="86.1" font-size="23">OOM-killed</text>
+  </g>
+</svg>

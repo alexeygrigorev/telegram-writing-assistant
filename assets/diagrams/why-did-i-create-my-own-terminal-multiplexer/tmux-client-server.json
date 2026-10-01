@@ -1,0 +1,23 @@
+{
+  "title": "After SSH disconnects",
+  "description": "The SSH PTY and tmux client stop after a disconnect, but the tmux server keeps its pane PTY and agent running.",
+  "canvas": {"width": 1260, "height": 520, "background": "#ffffff"},
+  "layout": {"type": "manual", "card_width": 180, "card_height": 100},
+  "nodes": [
+    {"id": "ssh-life", "title": "SSH SESSION · ENDS ON DISCONNECT", "variant": "boundary", "color": "gray", "x": 20, "y": 30, "width": 1220, "height": 200},
+    {"id": "tmux-life", "title": "TMUX SERVER AND WORKLOAD · KEEP RUNNING", "variant": "boundary", "color": "green", "x": 20, "y": 280, "width": 1220, "height": 210},
+    {"id": "sshd", "title": "sshd", "subtitle": "connection closed", "icon": "settings", "color": "gray", "x": 40, "y": 85},
+    {"id": "ssh-pty", "title": "SSH PTY", "subtitle": "closed", "color": "gray", "x": 280, "y": 85},
+    {"id": "client", "title": "tmux client", "subtitle": "exits", "icon": "terminal", "color": "gray", "x": 520, "y": 85},
+    {"id": "server", "title": "tmux server", "subtitle": "still running", "icon": "settings", "color": "green", "x": 520, "y": 335},
+    {"id": "pane-pty", "title": "Pane PTY", "subtitle": "still open", "color": "purple", "x": 780, "y": 335},
+    {"id": "agent", "title": "Agent", "subtitle": "still running", "icon": "robot", "color": "amber", "x": 1040, "y": 335}
+  ],
+  "edges": [
+    {"from": "sshd", "to": "ssh-pty", "bidirectional": true, "dashed": true},
+    {"from": "ssh-pty", "to": "client", "bidirectional": true, "dashed": true},
+    {"from": "client", "to": "server", "from_anchor": "bottom", "to_anchor": "top", "label": "Unix socket closed", "bidirectional": true, "dashed": true},
+    {"from": "server", "to": "pane-pty", "bidirectional": true},
+    {"from": "pane-pty", "to": "agent", "bidirectional": true}
+  ]
+}

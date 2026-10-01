@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="620" viewBox="0 0 1240 620" role="img" aria-labelledby="title desc">
+  <title id="title">Aplexer isolates each workload</title>
+  <desc id="desc">Each worker stays outside its workload cgroup. If session B reaches its memory limit, worker B records the exit while sessions A and C keep running.</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+    <marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#7c3aed"/></marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#2563eb"/></marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#c2410c"/></marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#15803d"/></marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#dc2626"/></marker>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#64748b"/></marker>
+    <symbol id="icon-close" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="m8 8 8 8M16 8l-8 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+    <symbol id="icon-robot" viewBox="0 0 24 24">
+        <path d="M12 5V2.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        <circle cx="12" cy="2.5" r="1" fill="currentColor"/>
+        <rect x="4" y="5" width="16" height="15" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/>
+        <path d="M4 10H2.5v5H4M20 10h1.5v5H20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="9" cy="11" r="1.3" fill="currentColor"/>
+        <circle cx="15" cy="11" r="1.3" fill="currentColor"/>
+        <path d="M8.5 16h7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </symbol>
+    <symbol id="icon-settings" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+    <symbol id="icon-workflow" viewBox="0 0 24 24">
+        <path d="M4 11A8.5 8.5 0 0 1 19.5 8.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M19.5 4.5v4h-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M20 13A8.5 8.5 0 0 1 4.5 15.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M4.5 19.5v-4h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+    <style>
+      text { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #172033; }
+      symbol [stroke] { vector-effect: non-scaling-stroke; }
+      .node rect { stroke-width: 2; }
+      .node-boundary rect { stroke-width: 2; stroke-dasharray: 8 8; }
+      .boundary-title { font-size: 16px; font-weight: 750; text-anchor: start; }
+      .node-title { font-weight: 750; text-anchor: middle; }
+      .node-title.icon-copy { text-anchor: start; }
+      .node-subtitle { font-weight: 500; fill: #475569; text-anchor: middle; }
+      .eyebrow { font-weight: 750; letter-spacing: 1px; fill: #475569; text-anchor: middle; }
+      .mention-icon { font-size: 27px; font-weight: 750; text-anchor: middle; }
+      .standalone-mention { font-size: 52px; font-weight: 750; text-anchor: middle; }
+      .icon-node-title { font-size: 16px; font-weight: 750; text-anchor: middle; }
+      .edge { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+      .edge-label rect { stroke-width: 2; }
+      .edge-label text { font-size: 14px; font-weight: 750; text-anchor: middle; dominant-baseline: central; }
+      .divider { stroke: #cbd5e1; stroke-width: 2; stroke-dasharray: 6 8; stroke-linecap: round; }
+      .center-annotation { fill: #f1f5f9; stroke: none; }
+      .center-title { font-weight: 800; letter-spacing: 0.08em; fill: #334155; text-anchor: middle; }
+      .center-detail { font-weight: 600; fill: #475569; text-anchor: middle; }
+    </style>
+  </defs>
+  <rect width="1240" height="620" fill="#ffffff"/>
+
+  <g class="node-boundary node-green" transform="translate(0 390)">
+    <rect width="400" height="190" rx="22" fill="none" stroke="#15803d"/>
+    <text class="boundary-title" x="20" y="31">WORKLOAD A CGROUP</text>
+  </g>
+  <g class="node-boundary node-red" transform="translate(410 390)">
+    <rect width="400" height="190" rx="22" fill="none" stroke="#dc2626"/>
+    <text class="boundary-title" x="20" y="31">WORKLOAD B CGROUP</text>
+  </g>
+  <g class="node-boundary node-green" transform="translate(820 390)">
+    <rect width="400" height="190" rx="22" fill="none" stroke="#15803d"/>
+    <text class="boundary-title" x="20" y="31">WORKLOAD C CGROUP</text>
+  </g>
+  <path class="edge" d="M620 130V175H210V220" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M620 130L620 220" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M620 130V175H1030V220" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge-boundary-halo" d="M210 320V385H270V450" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path class="edge" d="M210 320V385H270V450" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge-boundary-halo" d="M620 320V385H680V450" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path class="edge" d="M620 320V385H680V450" stroke="#dc2626" stroke-dasharray="8 8" marker-end="url(#arrow-red)"/>
+  <path class="edge-boundary-halo" d="M1030 320V385H1090V450" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path class="edge" d="M1030 320V385H1090V450" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+
+  <g class="node node-purple" transform="translate(510 30)" filter="url(#shadow)">
+    <rect width="220" height="100" rx="18" fill="#f5f3ff" stroke="#7c3aed"/>
+    <use href="#icon-workflow" x="16" y="9" width="34" height="34" color="#7c3aed"/>
+    <text class="node-title icon-copy" x="62" y="32.48" font-size="18">aplexer client</text>
+    <text class="node-subtitle" x="110" y="64" font-size="16">finds and controls</text>
+    <text class="node-subtitle" x="110" y="86" font-size="16">sessions</text>
+  </g>
+  <g class="node node-purple" transform="translate(100 220)" filter="url(#shadow)">
+    <rect width="220" height="100" rx="18" fill="#f5f3ff" stroke="#7c3aed"/>
+    <use href="#icon-settings" x="16" y="20" width="34" height="34" color="#7c3aed"/>
+    <text class="node-title icon-copy" x="62" y="43.48" font-size="18">Worker A</text>
+    <text class="node-subtitle" x="110" y="75" font-size="16">private socket · PTY</text>
+  </g>
+  <g class="node node-purple" transform="translate(510 220)" filter="url(#shadow)">
+    <rect width="220" height="100" rx="18" fill="#f5f3ff" stroke="#7c3aed"/>
+    <use href="#icon-settings" x="16" y="20" width="34" height="34" color="#7c3aed"/>
+    <text class="node-title icon-copy" x="62" y="43.48" font-size="18">Worker B</text>
+    <text class="node-subtitle" x="110" y="75" font-size="16">records workload exit</text>
+  </g>
+  <g class="node node-purple" transform="translate(920 220)" filter="url(#shadow)">
+    <rect width="220" height="100" rx="18" fill="#f5f3ff" stroke="#7c3aed"/>
+    <use href="#icon-settings" x="16" y="20" width="34" height="34" color="#7c3aed"/>
+    <text class="node-title icon-copy" x="62" y="43.48" font-size="18">Worker C</text>
+    <text class="node-subtitle" x="110" y="75" font-size="16">private socket · PTY</text>
+  </g>
+  <g class="node node-amber" transform="translate(160 450)" filter="url(#shadow)">
+    <rect width="220" height="100" rx="18" fill="#fff7ed" stroke="#c2410c"/>
+    <use href="#icon-robot" x="16" y="20" width="34" height="34" color="#c2410c"/>
+    <text class="node-title icon-copy" x="62" y="43.48" font-size="18">Workload A</text>
+    <text class="node-subtitle" x="110" y="75" font-size="16">still running</text>
+  </g>
+  <g class="node node-red" transform="translate(570 450)" filter="url(#shadow)">
+    <rect width="220" height="100" rx="18" fill="#fef2f2" stroke="#dc2626"/>
+    <use href="#icon-close" x="16" y="20" width="34" height="34" color="#dc2626"/>
+    <text class="node-title icon-copy" x="62" y="43.48" font-size="18">Workload B</text>
+    <text class="node-subtitle" x="110" y="75" font-size="16">killed at memory limit</text>
+  </g>
+  <g class="node node-amber" transform="translate(980 450)" filter="url(#shadow)">
+    <rect width="220" height="100" rx="18" fill="#fff7ed" stroke="#c2410c"/>
+    <use href="#icon-robot" x="16" y="20" width="34" height="34" color="#c2410c"/>
+    <text class="node-title icon-copy" x="62" y="43.48" font-size="18">Workload C</text>
+    <text class="node-subtitle" x="110" y="75" font-size="16">still running</text>
+  </g>
+</svg>

@@ -1,0 +1,26 @@
+{
+  "title": "Aplexer isolates each workload",
+  "description": "Each worker stays outside its workload cgroup. If session B reaches its memory limit, worker B records the exit while sessions A and C keep running.",
+  "canvas": {"width": 1240, "height": 620, "background": "#ffffff"},
+  "layout": {"type": "manual", "card_width": 220, "card_height": 100},
+  "nodes": [
+    {"id": "client", "title": "aplexer client", "subtitle": "finds and controls sessions", "icon": "workflow", "color": "purple", "x": 510, "y": 30},
+    {"id": "worker-a", "title": "Worker A", "subtitle": "private socket · PTY", "icon": "settings", "color": "purple", "x": 100, "y": 220},
+    {"id": "worker-b", "title": "Worker B", "subtitle": "records workload exit", "icon": "settings", "color": "purple", "x": 510, "y": 220},
+    {"id": "worker-c", "title": "Worker C", "subtitle": "private socket · PTY", "icon": "settings", "color": "purple", "x": 920, "y": 220},
+    {"id": "cgroup-a", "title": "WORKLOAD A CGROUP", "variant": "boundary", "contains": ["workload-a"], "margin": {"top": 60, "right": 20, "bottom": 30, "left": 160}, "color": "green"},
+    {"id": "cgroup-b", "title": "WORKLOAD B CGROUP", "variant": "boundary", "contains": ["workload-b"], "margin": {"top": 60, "right": 20, "bottom": 30, "left": 160}, "color": "red"},
+    {"id": "cgroup-c", "title": "WORKLOAD C CGROUP", "variant": "boundary", "contains": ["workload-c"], "margin": {"top": 60, "right": 20, "bottom": 30, "left": 160}, "color": "green"},
+    {"id": "workload-a", "title": "Workload A", "subtitle": "still running", "icon": "robot", "color": "amber", "x": 160, "y": 450},
+    {"id": "workload-b", "title": "Workload B", "subtitle": "killed at memory limit", "icon": "close", "color": "red", "x": 570, "y": 450},
+    {"id": "workload-c", "title": "Workload C", "subtitle": "still running", "icon": "robot", "color": "amber", "x": 980, "y": 450}
+  ],
+  "edges": [
+    {"from": "client", "to": "worker-a", "route": "orthogonal", "from_anchor": "bottom", "to_anchor": "top"},
+    {"from": "client", "to": "worker-b", "from_anchor": "bottom", "to_anchor": "top"},
+    {"from": "client", "to": "worker-c", "route": "orthogonal", "from_anchor": "bottom", "to_anchor": "top"},
+    {"from": "worker-a", "to": "workload-a", "route": "orthogonal", "from_anchor": "bottom", "to_anchor": "top"},
+    {"from": "worker-b", "to": "workload-b", "route": "orthogonal", "from_anchor": "bottom", "to_anchor": "top", "color": "red", "dashed": true},
+    {"from": "worker-c", "to": "workload-c", "route": "orthogonal", "from_anchor": "bottom", "to_anchor": "top"}
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "title": "My tmux setup: one pane per session",
+  "description": "One shared tmux server owns three sessions. I use one pane and one PTY for each agent or shell.",
+  "canvas": {"width": 1040, "height": 600, "background": "#ffffff"},
+  "layout": {"type": "manual", "card_width": 210, "card_height": 100},
+  "nodes": [
+    {"id": "server-boundary", "title": "TMUX SERVER · ONE SHARED PROCESS", "variant": "boundary", "contains": ["server", "session-a", "session-b", "session-c"], "color": "green", "margin": {"top": 60, "right": 30, "bottom": 30, "left": 30}},
+    {"id": "server", "title": "tmux server", "subtitle": "owns the PTY masters", "icon": "settings", "color": "green", "x": 60, "y": 250},
+    {"id": "session-a", "title": "Session A", "subtitle": "one pane · one PTY", "icon": "container", "color": "purple", "x": 420, "y": 70},
+    {"id": "session-b", "title": "Session B", "subtitle": "one pane · one PTY", "icon": "container", "color": "purple", "x": 420, "y": 250},
+    {"id": "session-c", "title": "Session C", "subtitle": "one pane · one PTY", "icon": "container", "color": "purple", "x": 420, "y": 430},
+    {"id": "agent-a", "title": "Agent A", "subtitle": "runs on its PTY", "icon": "robot", "color": "amber", "x": 800, "y": 70},
+    {"id": "shell-b", "title": "Shell", "subtitle": "runs on its PTY", "icon": "shell", "color": "amber", "x": 800, "y": 250},
+    {"id": "agent-c", "title": "Agent C", "subtitle": "runs on its PTY", "icon": "robot", "color": "amber", "x": 800, "y": 430}
+  ],
+  "edges": [
+    {"from": "server", "to": "session-a", "route": "orthogonal", "from_anchor": "right_top", "to_anchor": "left"},
+    {"from": "server", "to": "session-b"},
+    {"from": "server", "to": "session-c", "route": "orthogonal", "from_anchor": "right_bottom", "to_anchor": "left"},
+    {"from": "session-a", "to": "agent-a", "bidirectional": true},
+    {"from": "session-b", "to": "shell-b", "bidirectional": true},
+    {"from": "session-c", "to": "agent-c", "bidirectional": true}
+  ]
+}

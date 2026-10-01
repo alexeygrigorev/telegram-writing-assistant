@@ -1,0 +1,19 @@
+{
+  "title": "SSH opens a PTY on the remote machine",
+  "description": "The SSH connection crosses from your computer to sshd on the remote devbox. There, sshd opens a separate PTY for Bash.",
+  "canvas": {"width": 1180, "height": 400, "background": "#ffffff"},
+  "layout": {"type": "manual", "card_width": 190, "card_height": 100},
+  "nodes": [
+    {"id": "local-machine", "title": "YOUR COMPUTER", "variant": "boundary", "color": "blue", "x": 20, "y": 40, "width": 210, "height": 320},
+    {"id": "remote-machine", "title": "REMOTE DEVBOX", "variant": "boundary", "color": "green", "x": 250, "y": 40, "width": 900, "height": 320},
+    {"id": "ssh-client", "title": "SSH client", "variant": "icon", "icon": "terminal", "color": "blue", "x": 85, "y": 172, "width": 56, "height": 56},
+    {"id": "sshd", "title": "sshd", "subtitle": "accepts the connection", "icon": "settings", "color": "green", "x": 300, "y": 150},
+    {"id": "remote-pty", "title": "Remote PTY", "subtitle": "master side ↔ slave side", "color": "purple", "x": 590, "y": 140, "width": 240, "height": 120},
+    {"id": "bash", "title": "Bash", "subtitle": "remote shell", "icon": "shell", "color": "amber", "x": 920, "y": 150}
+  ],
+  "edges": [
+    {"from": "ssh-client", "to": "sshd", "label": "SSH", "bidirectional": true},
+    {"from": "sshd", "to": "remote-pty", "bidirectional": true},
+    {"from": "remote-pty", "to": "bash", "bidirectional": true}
+  ]
+}

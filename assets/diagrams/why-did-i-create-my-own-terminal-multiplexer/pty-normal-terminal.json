@@ -1,0 +1,17 @@
+{
+  "title": "PTY input and output",
+  "description": "A terminal emulator and Bash connect to opposite ends of one PTY. Input and output travel in opposite directions.",
+  "canvas": {"width": 1080, "height": 280, "background": "#ffffff"},
+  "layout": {"type": "manual", "card_width": 220, "card_height": 100},
+  "nodes": [
+    {"id": "terminal", "title": "Terminal emulator", "subtitle": "draws output · reads keys", "icon": "terminal", "color": "blue", "x": 40, "y": 90},
+    {"id": "pty", "title": "Kernel PTY", "subtitle": "input →\n← output", "color": "purple", "x": 410, "y": 80, "width": 260, "height": 120},
+    {"id": "master", "title": "Master", "variant": "attached", "attach_to": "pty", "attach_side": "left", "color": "purple"},
+    {"id": "slave", "title": "Slave", "variant": "attached", "attach_to": "pty", "attach_side": "right", "color": "purple"},
+    {"id": "bash", "title": "Bash", "subtitle": "uses a terminal device", "icon": "shell", "color": "amber", "x": 820, "y": 90}
+  ],
+  "edges": [
+    {"from": "terminal", "to": "master", "bidirectional": true},
+    {"from": "slave", "to": "bash", "bidirectional": true}
+  ]
+}

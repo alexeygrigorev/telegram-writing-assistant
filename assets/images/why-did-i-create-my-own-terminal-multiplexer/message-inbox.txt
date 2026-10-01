@@ -1,0 +1,11 @@
+$ a message send --from builder --to review 'Implementation is ready. Please review the diff.'
+01a0f81b-41e1-7773-811a-166937f3c14e
+
+$ a message inbox --from review
+01a0f81b-41e1-7773-811a-166937f3c14e  [note] builder -> to:review  Implementation is ready. Please review the diff.
+
+$ a message ack --from review 01a0f81b-41e1-7773-811a-166937f3c14e
+acked 1 message(s)
+
+$ a message inbox --from review
+no unread messages
