@@ -25,13 +25,13 @@ In particular, we'll cover:
 
 Let's start!
 
-## Terminal Multiplexer
+## Terminal multiplexer
 
 The [tmux README](https://github.com/tmux/tmux) says:
 
 > tmux is a terminal multiplexer: it enables a number of terminals to be created, accessed, and controlled from a single screen. tmux may be detached from a screen and continue running in the background, then later reattached.
 
-It's a layer between you (your ssh session) and the processes you run.
+It's a layer between you (your SSH session) and the processes you run.
 
 After I ssh into my devbox, I can start a tmux session:
 
@@ -45,7 +45,7 @@ Under the hood, multiple things happen:
 - The client connects to a tmux server
 - If the server is not running, the command starts it
 
-The client connects to the server through a Unix-domain socket. The server creates a session and a PTY for that session. 
+The client connects to the server through a socket. The server creates a session and a PTY for that session. 
 
 A PTY is a pseudo-terminal created by the kernel. It has two sides:
 
@@ -60,11 +60,11 @@ When we start the standard terminal emulator app on any Linux, it creates a PTY.
 </figure>
 
 
-When we start a process from a PTY, it gets attached to the shell running on the slave side - unless we explicitly detach it with `nohup`. When the PTY stops, the slave exits too, switching off the shell. All the connected processes follow.
+When we start a process from a PTY, it gets attached to the shell. When the PTY stops, the shell stops too, and all the connected processes follow.
 
 If we take the terminal app in Ubuntu, each tab in the app is a PTY. When I start a process in a tab, and then close that tab, the PTY closes too, and the process follows.
 
-A similar thing happens when we use ssh. The ssh client on our computer connects to the ssh server (sshd) on the remote machine, and sshd creates a PTY. The master is on the sshd side, and the slave is on the shell side.
+A similar thing happens when we use SSH. The SSH client on our computer connects to the SSH server (sshd) on the remote machine, and sshd creates a PTY. The master is on the sshd side, and the slave is on the shell side.
 
 <figure>
   <img src="../../assets/images/why-did-i-create-my-own-terminal-multiplexer/ssh-pty-flow.png" alt="An SSH connection crosses from an SSH client on the local computer to sshd on the remote devbox, where sshd opens a separate PTY for Bash">
@@ -75,7 +75,7 @@ When SSH disconnects, sshd stops the PTY that was created for this session, and 
 
 Terminal multiplexers add one more hop: tmux server creates another PTY, and the shell that's connected to that PTY is the parent for all these processes.
 
-That's why the processes that we start in tmux continue running - they are attached to tmux server's PTY. Only the tmux client dies when the ssh connection drops.
+That's why the processes that we start in tmux continue running - they are attached to tmux server's PTY. Only the tmux client dies when the SSH connection drops.
 
 <figure>
   <img src="../../assets/images/why-did-i-create-my-own-terminal-multiplexer/tmux-client-server.png" alt="After an SSH disconnect, sshd, its PTY, and the tmux client stop while the tmux server keeps its pane PTY and agent running">
@@ -110,7 +110,7 @@ I usually don't do that, though. I use tmux mostly for keeping my agents running
 </figure>
 
 We can do a lot of things programmatically with tmux. We can create all these windows and panes using the tmux CLI, or we can send input to any of the panes as if it was typed by a human.
-In fact, the earlier screenshot with three panes came from [this script](https://gist.github.com/alexeygrigorev/8df0400d8814914291487ada31b4a119).
+In fact, the earlier screenshot with three panes were created by [this script](https://gist.github.com/alexeygrigorev/8df0400d8814914291487ada31b4a119).
 
 Because of that, with a bit of scripting, you can teach agents running in different tmux sessions to talk to each other.
 
@@ -128,7 +128,7 @@ tmux attach-session -t ai-shipping-labs
 
 I always forget these commands. Typing all that, even with autocomplete, is always complicated. I never seem to remember what to type and need to look it up.
 
-Also, you have to remember that `-s` is for new session and `-t` is for attach. To make it even more confusing, `new-session` also has the `-t` parameter, but it's not the same as `-s` (it groups the new session with an existing one).
+Also, you have to remember that `-s` is for new session and `-t` is for attach. To make it even more confusing, `new-session` also has the `-t` parameter, but it's not the same as `-s`.
 
 Eventually I solved this problem with [tmuxctl](https://github.com/alexeygrigorev/tmuxctl) - a wrapper around tmux.
 
@@ -163,7 +163,7 @@ That made the process more convenient and also saved a lot of time when jumping 
 
 ## OOM and cgroups
 
-But there's another problem with tmux - its server is its single point of failure.
+But there's another problem with tmux - its server is the single point of failure.
 
 On my devbox, I run many things in parallel.
 
@@ -175,9 +175,7 @@ At the same time, it could be:
 
 If I'm unlucky and all these things run at the same time, my machine runs out of memory. 
 
-It's usually not a problem for Android emulators or Playwright - they are simply killed when it happens.
-
-But if I run something like `cargo clippy` (a linter in Rust), it's more dangerous.
+It's usually not a problem for Android emulators or Playwright - they are simply killed when it happens. But if I run something like `cargo clippy` (a linter in Rust), it's more dangerous.
 
 Not only OOM can kill the linter process, but also bring down the agent that's running it, the shell that's running the agent, the session that's running the shell, and the tmux server too. When tmux server dies, all the other sessions go with it.
 
@@ -188,9 +186,9 @@ So an OOM in Rust can wipe out all the tmux sessions on the machine. All of them
   <figcaption>If an OOM kills the tmux server, all three sessions lose their terminals.</figcaption>
 </figure>
 
-An OOM kill doesn't propagate from cargo to tmux. There's a process in the kernel called "OOM killer" that decides who should receive `SIGKILL` when OOM happens. Usually it's the process that caused the actuall OOM. But [sometimes](https://github.com/tmux/tmux/issues/4151) it may decide to kill the entire memory cgroup where it's working, which includes the process, the shell, and the tmux server (brinding down all the sessions too). 
+An OOM kill doesn't propagate from cargo to tmux. The kernel ("OOM killer") decides who should receive `SIGKILL` when OOM happens. Usually it's the process that caused the actual OOM. But [sometimes](https://github.com/tmux/tmux/issues/4151) it may decide to kill the entire memory cgroup where it's working, which includes the process, the shell, and the tmux server (bringing down all the sessions too). 
 
-A cgroup (control group) is a container around a group of processes that Linux manages like a single unit. It's used to limit the resources each group can use like memory, CPU, and the number of processes. If a process in the group exceeds its memory limit, the kernel kills only the processes inside that group, and everything else outside keeps running.
+A cgroup (control group) is a container around a group of processes that Linux manages like a single unit. It's used to limit the CPU, memory and other resources each group can use. If a process in the group exceeds its memory limit, the kernel will target the processes inside that group for `SIGKILL`.
 
 So a natural solution is to [wrap up](https://github.com/alexeygrigorev/rustkyll/blob/main/scripts/cargo-safe) unsafe operations in an isolated cgroup, so the OOM killer won't touch anything outside.
 
@@ -198,13 +196,13 @@ However, you can't know in advance which process will cause the OOM collapse, so
 
 Eventually, I decided to run each tmux session in its own cgroup. Since I was already using tmuxctl as a wrapper around tmux, [I added support for cgroups there](https://github.com/alexeygrigorev/tmuxctl/blob/6a20db9ac1b42b5c01fbce1e27fadcbda4fe0605/tmuxctl/robust.py#L326-L347).
 
-It worked well, but unfortunately it still didn't solve the main problem - the tmux server was still the single point of failure. Even with each session running in a cgroup, the server would still die occasionally, bringing down all the sessions along with it.
+It worked well, but unfortunately it didn't solve the main problem - the tmux server was still the single point of failure. Even with each session running in a cgroup, the server would die occasionally, bringing down all the sessions along with it.
 
 After consulting Fable, we did the next logical thing: started a separate server for each tmux session. 
 
 All that logic went into tmuxctl, which by that time became a Frankenstein monster, not just a simple wrapper around tmux CLI.
 
-I got really tired of patching it. So I opened ChatGPT and asked "how difficult is it to write my own terminal multiplexer?". It said it would be a few weeks of work. Then I turned on pro mode and asked it to implement it. It thought for 10 minutes and gave me a first version written in Rust (which kind of worked).
+I got really tired of patching it. So I opened ChatGPT and asked "how difficult is it to write my own terminal multiplexer?". It said it would be a few weeks of work. Then I turned on Pro mode and asked it to implement it. It thought for 10 minutes and gave me a first version written in Rust (which kind of worked).
 
 <figure>
   <img src="../../assets/images/why-did-i-create-my-own-terminal-multiplexer/first-prompt.png" alt="My dictated ChatGPT prompt asking for a Linux terminal multiplexer in Rust that keeps other sessions alive when one runs out of memory">
@@ -228,7 +226,7 @@ Plus I wanted to have the same features that tmux had:
 - Sending input to each session
 - Seeing the history
 
-The main focus was on running agents, so I also wanted
+The main focus was on running agents, so I also wanted:
 
 - Seeing which folder ("workspace") each session is running in
 - Seeing what's running inside each session - which agent
@@ -247,7 +245,7 @@ That's why the focus for v0 of aplexer was to let me start using it instead of t
 The main acceptance criteria for v0 were:
 
 - I can use it for running agents
-- Agents run in detachable sessions that don't stop after ssh disconnect
+- Agents run in detachable sessions that don't stop after SSH disconnect
 - OOM in one session doesn't affect any other session
 
 The first test that I implemented was causing OOM in one session and making sure the others weren't affected. The [OOM isolation test](https://github.com/PocketShell-io/aplexer/blob/main/tests/oom_isolation.rs) starts three sessions with 128 MB memory limits, exhausts the memory in session B, and checks that sessions A and C still respond to commands.
@@ -261,22 +259,26 @@ I like short aliases, so I use `a` for aplexer in my terminal.
   <figcaption>My sessions grouped by workspace, with the agent and its current state.</figcaption>
 </figure>
 
-By now it has fully replaced tmux in my workflow, and I haven't had a problem of OOM wiping out all my sessions since then.
+By now it has fully replaced tmux in my workflow, and I haven't had a problem with OOM wiping out all my sessions since then.
 
 ## Aplexer's architecture
 
-Each session in aplexer is independent from each other. Ther's no shared server. Insetad, each session has a PTY worker assigned only for that session.
+Each session in aplexer is independent from each other, and there's no shared server. Instead, each session has a PTY worker that's assigned only to that session.
 
-When a new session is created, the aplexer client creates a worker. That worker operates the PTY (describe which side goes where). Optionally, the process can be launched in a cgroup too, but I never actually needed it. 
+When a new session is created, the aplexer client creates a worker, and the worker manages the PTY. Optionally, the process can be launched in a cgroup too, but I never actually needed it. 
 
-aplexer keeps track of all the sessions by storing this information on filesystem, so there's no central process that needs to keep track of all the sessions. 
+Aplexer doesn't need a cetral process for keeping track of all the sessions: it stores them in the filesystem.
 
 <figure>
   <img src="../../assets/images/why-did-i-create-my-own-terminal-multiplexer/aplexer-architecture.png" alt="The aplexer client routes to three independent session boundaries, each containing a worker and workload, with session B shown in red to illustrate an independent failure">
   <figcaption>aplexer gives each session its own worker, PTY, lifecycle, and optional workload cgroup.</figcaption>
 </figure>
 
-I don't need panes, windows and other things, so for me one session is one PTY. But I still want to organize the sessions. For me I use workspaces to organize sessoins - this is the folder where the agents are running. When I run `a`, I get a list of all the workspaces and a list of sessions in each
+I don't need panes, windows and other things, so for me one session is one PTY.
+
+But I still want to organize the sessions. I group sessions by the workspaces - this is the folder where the agents are running.
+
+When I run `a`, I get a list of all the workspaces and a list of sessions in each.
 
 <figure>
   <img src="../../assets/images/why-did-i-create-my-own-terminal-multiplexer/workspace-detail.png" alt="Workspace 7, dapier, contains six sessions including designer at index 2; community-base and ai-shipping-labs appear below it">
@@ -293,79 +295,67 @@ This will attach to the workspace number 7 (`~/git/dapier`), session 2 (`designe
 
 ## Making it agent-aware
 
-I also wanted aplexer to understand the agents running inside it.
+I also wanted aplexer to keep track of what's running inside each sessions.
 
-It shows which agent is running in each session, whether it is running, waiting, or idle, and when it last produced activity. For supported agents, `a init` installs hooks so the agent can report its state. When there is no explicit report, terminal activity provides a fallback - a silent computation can look idle, so this isn't a perfect signal.
+It shows which agent is there, whether it is running or idle, and when it last activity.
 
-I can sort the workspace list by recent activity with `a list --sort activity`. And I can start or attach to a Codex session tagged `review` in the current directory with:
-
-```bash
-a - codex review
-```
-
-If I want a fresh session every time, I use `a new --engine codex --tag review` instead. These shortcuts and the state hooks are documented in the [README](https://github.com/PocketShell-io/aplexer/blob/main/README.md).
-
-Agents can send input to another session and read its terminal output without attaching:
+If I want to start a codex session with tag "code-refactor" in the current directory, I simply type:
 
 ```bash
-a send review "Please review the current diff and report any bugs." --enter
-a capture review --screen
+a - codex code-refactor
 ```
 
-`send` types directly into the target terminal, so the sender needs to check that the other agent is ready for input. Sending into an agent that's busy can interfere with what it's doing.
+Of course, that's all document in the [README](https://github.com/PocketShell-io/aplexer/blob/main/README.md).
 
-For asynchronous coordination, sessions in the same workspace share a durable mailbox:
+## Communication
+
+In tmux my agents were already talking to each other, so I wanted to have the same functionality in aplexer too. 
+
+This is how it looks like: 
 
 ```bash
-a message send --to review "Implementation is ready. Please review the diff."
-a message send --all "The tests pass. I'm ready for review."
+a send code-refactor "Please review the current diff and report any bugs." --enter
 ```
-
-The recipient reads its inbox when it's ready. Reading a message doesn't acknowledge it; the agent explicitly marks it handled using the ID returned by the inbox:
-
-```bash
-a message inbox
-a message ack <message-id>
-```
-
-These messages are stored on disk, so they don't depend on a shared messaging daemon. An inbox message by itself doesn't submit a prompt to the recipient's terminal. This lets agents exchange updates without typing into each other's active prompts. The [message command implementation](https://github.com/PocketShell-io/aplexer/blob/main/src/bin/aplexer/message_commands.rs) handles sending, reading, and acknowledging them.
-
-<figure>
-  <img src="../../assets/images/why-did-i-create-my-own-terminal-multiplexer/message-inbox.png" alt="Local aplexer CLI demo sends a message from builder to review, reads it from review's inbox, acknowledges it, and shows the empty inbox">
-  <figcaption>Output from a local CLI demo with two shell sessions: send, read, and acknowledge a message.</figcaption>
-</figure>
-
-## Agents talking to each other through aplexer
-
-My agents invented a protocol for agent-to-agent communication based on aplexer. The September 29 screenshot shows a Codex session receiving a coordination request from the community-base workspace.[^1]
-
-The sibling agent asked it to read an existing request and review PR #23. It had put cross-workspace reply, acknowledgement, and reliable-submit fixes into two focused commits on an isolated branch. The installed version had lost those capabilities. It asked the aplexer agent to help integrate the fixes alongside workspace-follow and mouse fixes, with one anticipated conflict in `message_commands.rs`.[^1]
-
-The request specified that the agent shouldn't edit main or reinstall without review. It also supplied the path to a development binary because the installed 0.1.8 version lacked cross-workspace replies. The receiving agent said it would review the request and pull request against the current tree and check the conflict. It would reply with an integration recommendation before changing anything.[^1]
 
 <figure>
   <img src="../../assets/images/why-did-i-create-my-own-terminal-multiplexer/agent-coordination-request.jpg" alt="Codex receives a cross-workspace coordination request through aplexer">
   <figcaption>The agents coordinate a review and integration across workspaces</figcaption>
 </figure>
 
-The October 1 screenshot shows another exchange. An AI Shipping Labs peer confirmed that the reviewed cleanup change could be integrated without interrupting their work. The agent said it would push from an isolated worktree and assign development checks to on-call. Course work would continue separately, and UI and feature checks would still be required before adoption.[^2]
+And check what's on the screen:
 
-The agent then ran `aplexer message reply` with a push notice, and the command reported delivery to the peer's inbox. My agents are talking to each other using aplexer.[^2]
+```bash
+a capture code-refactor --screen
+```
+
+These commands send text as the prompt. But there's also a message bus that the agents can use for asynchronous communication. Within a session it looks like that:
+
+```bash
+a message send --to code-refactor "Implementation is ready. Please review the diff."
+a message send --all "The tests pass. I'm ready for review."
+```
+
+The recipient can read its inbox, acknowledge it, and then reply when it's ready:
+
+```bash
+a message inbox
+a message ack <message-id>
+a message reply <message-id> <message>
+```
 
 <figure>
   <img src="../../assets/images/why-did-i-create-my-own-terminal-multiplexer/agent-integration-reply.jpg" alt="Agent sends an integration push notice to its peer using aplexer message reply">
   <figcaption>The agent replies after coordinating an isolated worktree integration</figcaption>
 </figure>
 
-## Conclusion
+## Aplexer and PocketShell
 
-I didn't create a terminal multiplexer because tmux is bad. It's excellent for what it does, but it stopped working for my particular use case - running agents on a devbox.
-
-aplexer gives each of my sessions its own worker and lets me manage agents by workspace, tag, and state. That fits how I work now.
+tmux is excellent at what it does, but it stopped working for me for running agents on a devbox. So I created aplexer. Aplexer is agent multiplexer written in Rust that doesn't require a single shared server. It groups my sessions in workspaces, I can tag them and see their state. 
 
 If you run agents on a Linux devbox and want to try it, the [README](https://github.com/PocketShell-io/aplexer/blob/main/README.md) has installation instructions and the full command reference.
 
-## Sources
+Now I don't use aplexer directly - I use PocketShell to manage them. It's an app that lets me connect to my devbox from my Android phone, from my laptop or from web. It lists all the sessions there and let's me switch easily between them.
 
-[^1]: [20260929_145920_AlexeyDTC_msg4984_photo.md](../../inbox/used/20260929_145920_AlexeyDTC_msg4984_photo.md)
-[^2]: [20261001_120705_AlexeyDTC_msg4990_photo.md](../../inbox/used/20261001_120705_AlexeyDTC_msg4990_photo.md)
+I started working on it in May and I like how it's coming <missing word?>. I'll polish it a bit more and soon will write another blogpost on how I use it for my work with agents. 
+
+![pocketsheel](image-3.png)
