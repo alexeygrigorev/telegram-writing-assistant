@@ -93,6 +93,7 @@ Draft articles and talk material whose core substance has already been collected
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Specs First: Building a Full-Stack App with AI Coding Agents](raw-articles/devmio-spec-driven-full-stack-app.md) | draft | 2026-10-02 | Guest article for devmio on spec-driven full-stack development with coding agents, based on the AI Shipping Labs full-stack workshop |
 | [Trends in AI Engineering: Lightning Lesson with Hugo Bowne-Anderson](raw-articles/trends-in-ai-engineering-lightning-lesson.md) | draft | 2026-09-29 | Recap of the open Q&A lightning lesson with Hugo Bowne-Anderson on AI engineering job trends, agentic verification, and career advice |
 | [13 Real-Life AI Projects from AI Engineering Buildcamp Cohort 3](raw-articles/ai-engineering-buildcamp-cohort-3-projects.md) | draft | 2026-09-03 | Newsletter draft of cohort 3 Demo Day plus the rest of the submitted Buildcamp projects |
 | [Roles in an AI Team](raw-articles/roles-in-ai-team.md) | draft | 2026-09-03 | Updated version of the Data Team Roles article with the AI Engineer role added |
