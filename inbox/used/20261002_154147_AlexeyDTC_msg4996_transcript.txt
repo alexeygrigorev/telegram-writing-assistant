@@ -1,0 +1,18 @@
+---
+source: telegram_voice
+date: 2026-10-02T15:41:47+00:00
+user_id: 822266080
+username: AlexeyDTC
+audio_file: 20261002_154147_AlexeyDTC_msg4996.ogg
+---
+
+I'm listening to a book called Over-subscribed. It's a very interesting book. And then I'm thinking
+how can I apply these things to AI shipping labs. So first for AI shipping labs I think what I need
+to do is to make it very interesting for people who are already there. But once they are there I
+need to follow the approach that there is a community, Russian speaking community called submarine
+padlotka so what they do is they make it invite only so only if somebody who is already in the
+community if they invite somebody then they can get in so that's one thing uh and then the community
+is paid of course and then another thing i can do is I can at some point say hey now we are limiting
+the number of people who can join and now it's only you need to fill in a questionnaire and only
+five people per month can get in something like this so this perhaps could be a a good approach, a
+good idea from that book to introduce artificial scarcity.

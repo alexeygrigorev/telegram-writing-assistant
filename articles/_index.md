@@ -44,8 +44,8 @@ Community strategy, platform notes, member research, plans, workshops, and cours
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [AI Shipping Labs Marketing and Content Strategy](ai-shipping-labs/marketing-and-content.md) | draft | 2026-10-04 | Marketing channels, funnel, lead magnets, pricing, moat, and content strategy for the community. |
 | [AI Engineering Buildcamp Cohort 4 Launch](ai-shipping-labs/content/ai-engineering-buildcamp-cohort-4-launch.md) | draft | 2026-10-01 | Photo from the cohort 4 launch call. |
-| [AI Shipping Labs Marketing and Content Strategy](ai-shipping-labs/marketing-and-content.md) | draft | 2026-09-03 | Marketing channels, funnel, lead magnets, pricing, moat, and content strategy for the community. |
 | [AI Shipping Labs Course Ideas](ai-shipping-labs/content/courses.md) | draft | 2026-09-03 | Course and workshop ideas for the community, with the member requests behind them. |
 | [AI-Assisted Automation Course Idea](ai-shipping-labs/content/ai-assisted-automation-course-idea.md) | draft | 2026-09-03 | Concept for a paid course on AI-assisted automation |
 | [AI Shipping Labs Content Plan](ai-shipping-labs/ai-shipping-labs-content-plan.md) | draft | 2026-08-03 | Gap analysis of the current workshop catalog, a repackaging of the existing sessions into six courses, and the next eight workshops to run |
@@ -137,6 +137,7 @@ Articles currently being developed from a researched outline.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Cloudflare Git for Agents Competition](work-in-progress/cloudflare-git-for-agents-competition.md) | draft | 2026-10-04 | Daily log of participating in Cloudflare's competition to build a git alternative for agentic workloads. |
 | [Why Did I Create My Own Terminal Multiplexer?](work-in-progress/why-did-i-create-my-own-terminal-multiplexer.md) | draft | 2026-10-01 | Why tmux stopped matching an agent-heavy workflow and how aplexer supports persistent sessions and agent coordination. |
 
 ## Testimonials

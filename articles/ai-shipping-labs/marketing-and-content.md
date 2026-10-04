@@ -1,7 +1,7 @@
 ---
 title: "AI Shipping Labs Marketing and Content Strategy"
 created: 2026-02-14
-updated: 2026-09-03
+updated: 2026-10-04
 tags: [community, marketing, content-strategy, ai-shipping-labs]
 status: draft
 ---
@@ -195,6 +195,16 @@ I want all the content from going through the Maven course to live on AI Shippin
 
 Maven students already received free access to AI Shipping Labs. For them, make an upgrade for access to the other courses that will exist. The upgrade should be yearly, so that extra-course access is not perpetual[^106].
 
+## Invite-Only and Artificial Scarcity
+
+Ideas from the book "Over-subscribed" applied to AI Shipping Labs[^107].
+
+The first priority is to make the community interesting for the people who are already there. Once that is working, the next step is to control how new members join[^107].
+
+One model to follow is the Russian-speaking community "Submarine" (Podlotka). They use an invite-only approach: only existing members can invite new people. Nobody can just sign up on their own[^107].
+
+On top of that, I can introduce artificial scarcity at some point. Announce that we are limiting the number of new members. To join, you fill in a questionnaire, and only five people per month get accepted. This creates a sense of exclusivity and demand[^107].
+
 ## Content Reuse and Planning
 
 ## Content Reuse System
@@ -236,3 +246,4 @@ For the community, the goal is to create an events plan and content plan. Once w
 [^104]: [20260903_065210_AlexeyDTC_msg4924_transcript.txt](../../inbox/used/20260903_065210_AlexeyDTC_msg4924_transcript.txt)
 [^105]: [20260903_065523_AlexeyDTC_msg4929_transcript.txt](../../inbox/used/20260903_065523_AlexeyDTC_msg4929_transcript.txt)
 [^106]: [20260903_070241_AlexeyDTC_msg4930_transcript.txt](../../inbox/used/20260903_070241_AlexeyDTC_msg4930_transcript.txt)
+[^107]: [20261002_154147_AlexeyDTC_msg4996_transcript.txt](../../inbox/used/20261002_154147_AlexeyDTC_msg4996_transcript.txt)
