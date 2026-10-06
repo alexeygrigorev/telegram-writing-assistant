@@ -93,6 +93,7 @@ Draft articles and talk material whose core substance has already been collected
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [AI Agents Do Everything Now. You Still Need Kubernetes.](raw-articles/why-kubernetes-still-matters.md) | draft | 2026-10-06 | Short article on why Kubernetes remains relevant in the age of AI agents, with KubeAuto Day Berlin CTA |
 | [Specs First: Building a Full-Stack App with AI Coding Agents](raw-articles/devmio-spec-driven-full-stack-app.md) | draft | 2026-10-02 | Guest article for devmio on spec-driven full-stack development with coding agents, based on the AI Shipping Labs full-stack workshop |
 | [Trends in AI Engineering: Lightning Lesson with Hugo Bowne-Anderson](raw-articles/trends-in-ai-engineering-lightning-lesson.md) | draft | 2026-09-29 | Recap of the open Q&A lightning lesson with Hugo Bowne-Anderson on AI engineering job trends, agentic verification, and career advice |
 | [13 Real-Life AI Projects from AI Engineering Buildcamp Cohort 3](raw-articles/ai-engineering-buildcamp-cohort-3-projects.md) | draft | 2026-09-03 | Newsletter draft of cohort 3 Demo Day plus the rest of the submitted Buildcamp projects |
