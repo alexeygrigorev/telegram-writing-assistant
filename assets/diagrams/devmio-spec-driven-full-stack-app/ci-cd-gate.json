@@ -1,0 +1,110 @@
+{
+  "title": "Agents push code, only the pipeline deploys",
+  "description": "Coding agents push to GitHub but have no AWS access. GitHub Actions runs unit and frontend tests in parallel, then integration tests, and only then deploys to AWS from main.",
+  "canvas": {
+    "width": 1420,
+    "height": 420,
+    "background": "#ffffff"
+  },
+  "layout": {
+    "type": "manual",
+    "card_width": 230,
+    "card_height": 100
+  },
+  "nodes": [
+    {
+      "id": "agent",
+      "title": "Coding agent",
+      "variant": "icon",
+      "icon": "robot",
+      "color": "blue",
+      "x": 40,
+      "y": 182
+    },
+    {
+      "id": "repo",
+      "title": "GitHub",
+      "subtitle": "push / pull request",
+      "icon": "github",
+      "color": "blue",
+      "x": 200,
+      "y": 160
+    },
+    {
+      "id": "backend",
+      "title": "Backend tests",
+      "subtitle": "pytest",
+      "icon": "check",
+      "color": "amber",
+      "x": 520,
+      "y": 60
+    },
+    {
+      "id": "frontend",
+      "title": "Frontend tests",
+      "subtitle": "npm test",
+      "icon": "check",
+      "color": "purple",
+      "x": 520,
+      "y": 260
+    },
+    {
+      "id": "integration",
+      "title": "Integration tests",
+      "subtitle": "full user flows",
+      "icon": "workflow",
+      "color": "amber",
+      "x": 840,
+      "y": 160
+    },
+    {
+      "id": "deploy",
+      "eyebrow": "MAIN ONLY",
+      "title": "Deploy to AWS",
+      "subtitle": "OIDC role, no keys",
+      "icon": "aws",
+      "color": "green",
+      "x": 1150,
+      "y": 160
+    }
+  ],
+  "edges": [
+    {
+      "from": "agent",
+      "to": "repo"
+    },
+    {
+      "from": "repo",
+      "to": "backend",
+      "route": "orthogonal",
+      "from_anchor": "right",
+      "to_anchor": "left"
+    },
+    {
+      "from": "repo",
+      "to": "frontend",
+      "route": "orthogonal",
+      "from_anchor": "right",
+      "to_anchor": "left"
+    },
+    {
+      "from": "backend",
+      "to": "integration",
+      "route": "orthogonal",
+      "from_anchor": "right",
+      "to_anchor": "left"
+    },
+    {
+      "from": "frontend",
+      "to": "integration",
+      "route": "orthogonal",
+      "from_anchor": "right",
+      "to_anchor": "left"
+    },
+    {
+      "from": "integration",
+      "to": "deploy",
+      "color": "green"
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "title": "The API spec sits between frontend and backend",
+  "description": "We extract openapi.yaml from the frontend's services layer and generate the FastAPI backend from it. When the two sides disagree, the side that doesn't match the spec changes.",
+  "canvas": {
+    "width": 1180,
+    "height": 340,
+    "background": "#ffffff"
+  },
+  "layout": {
+    "type": "manual",
+    "card_width": 260,
+    "card_height": 100
+  },
+  "nodes": [
+    {
+      "id": "frontend",
+      "title": "React frontend",
+      "subtitle": "services/ layer + mock",
+      "icon": "browser",
+      "color": "purple",
+      "x": 40,
+      "y": 60
+    },
+    {
+      "id": "spec",
+      "eyebrow": "SOURCE OF TRUTH",
+      "title": "openapi.yaml",
+      "subtitle": "endpoints, bodies, auth",
+      "icon": "document",
+      "color": "blue",
+      "x": 460,
+      "y": 60
+    },
+    {
+      "id": "backend",
+      "title": "FastAPI backend",
+      "subtitle": "routers under /api",
+      "icon": "api",
+      "color": "amber",
+      "x": 880,
+      "y": 60
+    },
+    {
+      "id": "tests",
+      "title": "Tests",
+      "subtitle": "unit + integration",
+      "icon": "check",
+      "color": "green",
+      "x": 880,
+      "y": 220
+    }
+  ],
+  "edges": [
+    {
+      "from": "frontend",
+      "to": "spec",
+      "label": "Extract"
+    },
+    {
+      "from": "spec",
+      "to": "backend",
+      "label": "Generate",
+      "color": "amber"
+    },
+    {
+      "from": "backend",
+      "to": "tests",
+      "from_anchor": "bottom",
+      "to_anchor": "top",
+      "color": "green"
+    }
+  ]
+}

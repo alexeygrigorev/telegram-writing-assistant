@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="480" viewBox="0 0 1100 480" role="img" aria-labelledby="title desc">
+  <title id="title">Three specifications, each with its own check</title>
+  <desc id="desc">The project spec, the API spec, and the task spec appear at different moments of the build, and each one has something that checks the code against it. AGENTS.md sits under all three and gives every session the same project context.</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+    <marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#7c3aed"/></marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#2563eb"/></marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#c2410c"/></marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#15803d"/></marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#dc2626"/></marker>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#64748b"/></marker>
+    <symbol id="icon-api" viewBox="0 0 24 24">
+        <path d="m8 5-5 7 5 7M16 5l5 7-5 7M14 3l-4 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+    <symbol id="icon-browser" viewBox="0 0 32 22">
+        <rect x="1" y="1.5" width="30" height="19" rx="2.25" fill="none" stroke="currentColor" stroke-width="2.67"/>
+        <path d="M1.5 6.5h29" fill="none" stroke="currentColor" stroke-width="2.67"/>
+        <circle cx="4" cy="4" r=".48" fill="currentColor"/>
+        <circle cx="6.2" cy="4" r=".48" fill="currentColor"/>
+        <circle cx="8.4" cy="4" r=".48" fill="currentColor"/>
+        <rect x="12" y="3.3" width="15" height="1.5" rx=".75" fill="currentColor" opacity=".35"/>
+      </symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="m7.5 12 3 3 6-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+    <symbol id="icon-document" viewBox="0 0 24 24">
+        <path d="M6 2h8l4 4v16H6Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M14 2v5h4M9 12h6M9 16h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+    <symbol id="icon-issue" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="M12 7v6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="17" r="1.2" fill="currentColor"/>
+      </symbol>
+    <symbol id="icon-robot" viewBox="0 0 24 24">
+        <path d="M12 5V2.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        <circle cx="12" cy="2.5" r="1" fill="currentColor"/>
+        <rect x="4" y="5" width="16" height="15" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/>
+        <path d="M4 10H2.5v5H4M20 10h1.5v5H20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="9" cy="11" r="1.3" fill="currentColor"/>
+        <circle cx="15" cy="11" r="1.3" fill="currentColor"/>
+        <path d="M8.5 16h7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </symbol>
+    <symbol id="icon-search" viewBox="0 0 24 24">
+        <circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="m16 16 4.5 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+    <style>
+      text { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #172033; }
+      symbol [stroke] { vector-effect: non-scaling-stroke; }
+      .node rect { stroke-width: 2; }
+      .node-boundary rect { stroke-width: 2; stroke-dasharray: 8 8; }
+      .boundary-title { font-size: 16px; font-weight: 750; text-anchor: start; }
+      .node-title { font-weight: 750; text-anchor: middle; }
+      .node-title.icon-copy { text-anchor: start; }
+      .node-subtitle { font-weight: 500; fill: #475569; text-anchor: middle; }
+      .eyebrow { font-weight: 750; letter-spacing: 1px; fill: #475569; text-anchor: middle; }
+      .mention-icon { font-size: 27px; font-weight: 750; text-anchor: middle; }
+      .standalone-mention { font-size: 52px; font-weight: 750; text-anchor: middle; }
+      .icon-node-title { font-size: 16px; font-weight: 750; text-anchor: middle; }
+      .edge { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+      .edge-label rect { stroke-width: 2; }
+      .edge-label text { font-size: 14px; font-weight: 750; text-anchor: middle; dominant-baseline: central; }
+      .divider { stroke: #cbd5e1; stroke-width: 2; stroke-dasharray: 6 8; stroke-linecap: round; }
+      .center-annotation { fill: #f1f5f9; stroke: none; }
+      .center-title { font-weight: 800; letter-spacing: 0.08em; fill: #334155; text-anchor: middle; }
+      .center-detail { font-weight: 600; fill: #475569; text-anchor: middle; }
+    </style>
+  </defs>
+  <rect width="1100" height="480" fill="#ffffff"/>
+
+  <path class="edge" d="M200 140L200 210" stroke="#7c3aed" marker-end="url(#arrow-purple)"/>
+  <path class="edge" d="M550 140L550 210" stroke="#15803d" marker-end="url(#arrow-green)"/>
+  <path class="edge" d="M900 140L900 210" stroke="#15803d" marker-end="url(#arrow-green)"/>
+
+  <g class="node node-blue" transform="translate(50 40)" filter="url(#shadow)">
+    <rect width="300" height="100" rx="18" fill="#eff6ff" stroke="#2563eb"/>
+    <text class="eyebrow" x="150" y="20" font-size="13">BEFORE THE FIRST PROMPT</text>
+    <use href="#icon-document" x="16" y="30" width="34" height="34" color="#2563eb"/>
+    <text class="node-title icon-copy" x="62" y="54.2" font-size="20">Project spec</text>
+    <text class="node-subtitle" x="150" y="85" font-size="16">what we build, for whom</text>
+  </g>
+  <g class="node node-blue" transform="translate(400 40)" filter="url(#shadow)">
+    <rect width="300" height="100" rx="18" fill="#eff6ff" stroke="#2563eb"/>
+    <text class="eyebrow" x="150" y="20" font-size="13">BEFORE THE BACKEND</text>
+    <use href="#icon-api" x="16" y="30" width="34" height="34" color="#2563eb"/>
+    <text class="node-title icon-copy" x="62" y="54.2" font-size="20">API spec</text>
+    <text class="node-subtitle" x="150" y="85" font-size="16">openapi.yaml</text>
+  </g>
+  <g class="node node-blue" transform="translate(750 40)" filter="url(#shadow)">
+    <rect width="300" height="100" rx="18" fill="#eff6ff" stroke="#2563eb"/>
+    <text class="eyebrow" x="150" y="20" font-size="13">BEFORE EACH CHANGE</text>
+    <use href="#icon-issue" x="16" y="30" width="34" height="34" color="#2563eb"/>
+    <text class="node-title icon-copy" x="62" y="54.2" font-size="20">Task spec</text>
+    <text class="node-subtitle" x="150" y="85" font-size="16">goal, acceptance criteria</text>
+  </g>
+  <g class="node node-purple" transform="translate(50 210)" filter="url(#shadow)">
+    <rect width="300" height="100" rx="18" fill="#f5f3ff" stroke="#7c3aed"/>
+    <use href="#icon-browser" x="16" y="20" width="34" height="34" color="#7c3aed"/>
+    <text class="node-title icon-copy" x="62" y="44.2" font-size="20">Clickable mock UI</text>
+    <text class="node-subtitle" x="150" y="75" font-size="16">runs without a backend</text>
+  </g>
+  <g class="node node-green" transform="translate(400 210)" filter="url(#shadow)">
+    <rect width="300" height="100" rx="18" fill="#ecfdf5" stroke="#15803d"/>
+    <use href="#icon-check" x="16" y="20" width="34" height="34" color="#15803d"/>
+    <text class="node-title icon-copy" x="62" y="44.2" font-size="20">Test suites</text>
+    <text class="node-subtitle" x="150" y="75" font-size="16">unit + integration</text>
+  </g>
+  <g class="node node-green" transform="translate(750 210)" filter="url(#shadow)">
+    <rect width="300" height="100" rx="18" fill="#ecfdf5" stroke="#15803d"/>
+    <use href="#icon-search" x="16" y="20" width="34" height="34" color="#15803d"/>
+    <text class="node-title icon-copy" x="62" y="44.2" font-size="20">QA verdict</text>
+    <text class="node-subtitle" x="150" y="75" font-size="16">PASS or FAIL per criterion</text>
+  </g>
+  <g class="node node-gray" transform="translate(50 360)" filter="url(#shadow)">
+    <rect width="1000" height="80" rx="18" fill="#f8fafc" stroke="#64748b"/>
+    <text class="eyebrow" x="500" y="20.5" font-size="13">READ BY EVERY SESSION</text>
+    <use href="#icon-robot" x="16" y="30.5" width="34" height="34" color="#64748b"/>
+    <text class="node-title icon-copy" x="62" y="54.7" font-size="20">AGENTS.md · project context</text>
+  </g>
+</svg>

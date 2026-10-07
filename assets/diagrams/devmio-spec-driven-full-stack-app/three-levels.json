@@ -1,0 +1,107 @@
+{
+  "title": "Three specifications, each with its own check",
+  "description": "The project spec, the API spec, and the task spec appear at different moments of the build, and each one has something that checks the code against it. AGENTS.md sits under all three and gives every session the same project context.",
+  "canvas": {
+    "width": 1100,
+    "height": 480,
+    "background": "#ffffff"
+  },
+  "layout": {
+    "type": "manual",
+    "card_width": 300,
+    "card_height": 100
+  },
+  "nodes": [
+    {
+      "id": "project",
+      "eyebrow": "BEFORE THE FIRST PROMPT",
+      "title": "Project spec",
+      "subtitle": "what we build, for whom",
+      "icon": "document",
+      "color": "blue",
+      "x": 50,
+      "y": 40
+    },
+    {
+      "id": "api",
+      "eyebrow": "BEFORE THE BACKEND",
+      "title": "API spec",
+      "subtitle": "openapi.yaml",
+      "icon": "api",
+      "color": "blue",
+      "x": 400,
+      "y": 40
+    },
+    {
+      "id": "task",
+      "eyebrow": "BEFORE EACH CHANGE",
+      "title": "Task spec",
+      "subtitle": "goal, acceptance criteria",
+      "icon": "issue",
+      "color": "blue",
+      "x": 750,
+      "y": 40
+    },
+    {
+      "id": "ui",
+      "title": "Clickable mock UI",
+      "subtitle": "runs without a backend",
+      "icon": "browser",
+      "color": "purple",
+      "x": 50,
+      "y": 210
+    },
+    {
+      "id": "tests",
+      "title": "Test suites",
+      "subtitle": "unit + integration",
+      "icon": "check",
+      "color": "green",
+      "x": 400,
+      "y": 210
+    },
+    {
+      "id": "qa",
+      "title": "QA verdict",
+      "subtitle": "PASS or FAIL per criterion",
+      "icon": "search",
+      "color": "green",
+      "x": 750,
+      "y": 210
+    },
+    {
+      "id": "agents",
+      "eyebrow": "READ BY EVERY SESSION",
+      "title": "AGENTS.md · project context",
+      "icon": "robot",
+      "color": "gray",
+      "x": 50,
+      "y": 360,
+      "width": 1000,
+      "height": 80
+    }
+  ],
+  "edges": [
+    {
+      "from": "project",
+      "to": "ui",
+      "from_anchor": "bottom",
+      "to_anchor": "top",
+      "color": "purple"
+    },
+    {
+      "from": "api",
+      "to": "tests",
+      "from_anchor": "bottom",
+      "to_anchor": "top",
+      "color": "green"
+    },
+    {
+      "from": "task",
+      "to": "qa",
+      "from_anchor": "bottom",
+      "to_anchor": "top",
+      "color": "green"
+    }
+  ]
+}
