@@ -1,73 +1,126 @@
 ---
 title: "AI Agents Do Everything Now. You Still Need Kubernetes."
 created: 2026-10-06
-updated: 2026-10-06
-tags: [kubernetes, ai-agents, infrastructure]
+updated: 2026-10-07
+tags: [kubernetes, ai-agents, infrastructure, kubeauto-day, ml-zoomcamp, ai-dev-tools-zoomcamp]
 status: draft
 ---
 
-# AI Agents Do Everything Now. You Still Need Kubernetes.
+# AI Agents Can Everything Now. Do We Still Need Kubernetes?
 
-AI agents write code, deploy services, monitor systems, and fix problems automatically. So why would you still care about Kubernetes?
+AI agents write code, trigger deployments, watch dashboards, and handle on-call problems. Should we still care about Kubernetes? Yes, we should.
 
-The answer is simple: agents need somewhere to run.
+The agents need a place to run. They need
 
-## Agents Are Tenants, Not Landlords
+- Compute
+- GPUs
+- Networking
+- Access to data
+- A way to scale
 
-An AI agent can generate a Dockerfile, write a Helm chart, and push it to a cluster. But it can't be the cluster. It needs compute, GPUs, networking, access to data, the ability to scale, and a way to recover when something fails.
+And when something fails, they need to recover.
 
-That's infrastructure. Kubernetes is that infrastructure layer.
+Kubernetes is the layer that coordinates all of that.
 
-Think of it this way: AI agents are software that runs on infrastructure. Kubernetes is the infrastructure. One doesn't replace the other. They work at different levels of the stack.
+https://youtu.be/uBpXLrpc3IY
 
-## The AI Boom Made Kubernetes More Relevant
 
-Here's the thing most people miss: AI workloads didn't make Kubernetes less important. They made it more important.
+(TODO: let's make a smooth and very short transition)
 
-Running AI in production comes with a specific set of problems:
+Next Thursday, October 15, Kubernetes Automation Day Berlin. 
 
-- GPU scheduling. A single A100 costs $2-3 per hour. Without proper scheduling, GPUs sit idle while teams wait for their turn
-- Model serving at scale. You need autoscaling for inference endpoints, or you're either over-provisioning (wasting money) or dropping requests
-- Multi-model deployments. Canary rollouts, A/B testing between model versions, traffic splitting. Kubernetes networking handles all of that
-- Training pipelines. Distributed training across multiple nodes needs orchestration that manual scripts can't reliably provide
-- Multi-tenancy. Multiple teams sharing GPU resources need fair scheduling and resource quotas
+In this article, I want to go though some of the talks that I find quite interesting. They explain why Kubernetes is still relevant and we should care about it. 
 
-The ecosystem is already built for this. Kubeflow runs end-to-end ML pipelines on Kubernetes. KServe handles serverless model inference with autoscaling. KubeRay runs distributed Ray workloads. The NVIDIA GPU Operator automates GPU driver management. Kueue provides job queueing for batch and AI workloads.
 
-The 2025 CNCF survey found that 82% of container users run Kubernetes in production, up from 66% in 2023. Two-thirds of organizations running generative AI models use Kubernetes for some or all of their inference workloads, and 90% expect their AI workloads on Kubernetes to increase in the next 12 months. The CNCF now calls Kubernetes "the de facto operating system for AI."
+## An Agent on a Laptop Isn't Production
 
-## AI Agents Make Kubernetes Easier
+Giant Swarm (TODO: who? let's be more specific) built an SRE agent that helps them handle real incidents. At the beginning it was running on the laptop of the engineer who built it. 
 
-There's an irony here. While people ask "does AI replace Kubernetes?", AI is actually making Kubernetes more accessible.
+When an alert fired at 3 AM, a human still had to wake up just to watch the agent work.
 
-Tools like K8sGPT diagnose cluster issues in plain language. Kubectl AI lets you manage clusters through natural conversation. Robusta automates incident response. Kagent, an open-source framework by Solo.io, runs AI agents inside Kubernetes that troubleshoot and manage the cluster itself. AI coding agents generate correct Kubernetes manifests from a description of what you want.
+They moved this agent to Kubernetes, so now it runs in the background, reacts to alerts on its own, and wakes an engineer only when it can't fix the incident.
 
-The barrier to using Kubernetes was always the learning curve. AI agents are lowering that barrier, which means more teams can use Kubernetes, not fewer.
+In the talk Dominik Schmidle from Giant Swarm will describe how they did it.
 
-## The Complexity Didn't Go Away
+<figure>
+  <img src="../../assets/diagrams/why-kubernetes-still-matters/agent-in-cluster.png" alt="SRE agent running inside a Kubernetes cluster with a ServiceAccount, the Kubernetes API, and monitoring">
+  <figcaption>Once the agent runs in the cluster, it gets an identity, a reviewed deploy path from Git, and monitoring</figcaption>
+</figure>
 
-"But serverless replaces Kubernetes." Most serverless platforms run on Kubernetes under the hood. AWS Fargate, Google Cloud Run - they abstract it away, but it's still there.
 
-"AI agents can deploy themselves." They can write deployment scripts, but they need a platform to deploy to. You don't remove the platform just because the tenant got smarter.
+## The Night Ops 
 
-"You can just use managed services for everything." Until you hit vendor lock-in, cost problems at scale, GPU availability issues, or compliance requirements that force you on-prem.
+Mehul Patel from BuildingMinds talks about the same problem. He'll talk about an autonomous SRE agent that he built with Google's ADK. It has two components: an agent for triage and and an agent for investigation.
 
-The complexity of running production systems hasn't decreased. It shifted. AI helps manage that complexity, but the underlying infrastructure challenges remain. Someone needs to schedule containers, manage secrets, handle network policies, perform rolling updates, and run health checks.
+But you don't want to let the agent have unlimited access to the production environment. [Bad things can happen](https://aishippingblog.com/p/how-i-dropped-our-production-database) when you do that. Instead, you need to have a set of guardrails that stop the agent when it attempts to do something wrong. 
 
-That someone is Kubernetes.
+In the talk, Mehul will present his open-source project [TheNightOps](https://github.com/nomadicmehul/TheNightOps) and show what these guardrails can look like. In this case, it's a policy file that describes which actions the agent may take on its own.
+
+<figure>
+  <img src="../../assets/diagrams/why-kubernetes-still-matters/agent-guardrails.png" alt="Agent actions pass a policy file that auto-runs, asks a human, or blocks them before RBAC in the Kubernetes API">
+  <figcaption>The policy file decides who acts, and the API server enforces RBAC whatever the prompt says</figcaption>
+</figure>
+
+
+## Agents Aren't Microservices
+
+Abdel Sghiouar from Google Cloud will talk about agent deployment.
+
+For anyone who knows a bit of Kubernetes, the first idea is to give each agent its own pod. We always do it when we develop a microservice.
+
+> If you don't know what a pod is and want to learn more about Kubernetes, I teach it in [Machine Learning Zoomcamp Module 10](https://github.com/DataTalksClub/machine-learning-zoomcamp/tree/main/10-kubernetes)
+
+But agents aren't microservices. You run it for a task in a pod, and it can spawn multiple subagents when it does it. And then it can sit idle for a while, waiting for the subagents to finish.
+
+Agents can spend up to 90% of their time idle, so giving agents a dedicated pod may be a waste of resources. It also hits scale limits.
+
+In the talk, Abdel describes [Agent Substrate](https://github.com/agent-substrate/substrate) - an open-source system that separates the agent session from the pod it runs on. With it, you can host many agents on very few pods.
+
+<figure>
+  <img src="../../assets/diagrams/why-kubernetes-still-matters/agent-substrate.png" alt="Substrate restores an idle agent from a snapshot onto a free worker pod">
+  <figcaption>Idle agents wait as snapshots, so about 250 agents share eight worker pods</figcaption>
+</figure>
+
+
+## Agents Ship More Code to Production
+
+We all know that agents produce a lot of code.
+
+GitHub's COO Kyle Daigle [shared the numbers](https://x.com/kdaigle/status/2040164759836778878) in April. There were 1 billion commits on GitHub in 2025. For 2026, they predict to have 14 billion commits.
+
+<figure>
+  <img src="../../assets/diagrams/why-kubernetes-still-matters/github-commits-2025-2026.png" alt="Bar chart of commits on GitHub: 1 billion in 2025 and about 14 billion projected for 2026">
+  <figcaption>2026 is on pace for 14 times the commits of 2025, and all of that code needs somewhere to run</figcaption>
+</figure>
+
+We're drowning in code. I also contribute to it by teaching agentic engineering in [AI Dev Tools Zoomcamp](https://github.com/DataTalksClub/machine-learning-zoomcamp/tree/main/10-kubernetes).
+
+Adi Shacham-Shavit, who leads the platform team at Enpal, will open the event with a keynote about it: someone has to run, secure, and scale the flood of "vibe-coded" software.
+
+From her abstract:
+
+> We used to teach engineers how the infrastructure worked. Now platform teams design for people and agents who have no idea what production looks like.
+
+The barrier to entry is much lower in 2026, but we still need to follow the best engineering practices. Platforms can help with that.
+
 
 ## KubeAuto Day Berlin
 
-If you're in Berlin and want to see how Kubernetes and AI work together in practice, check out Kubernetes Automation Day on October 15.
+If you're in Berlin, come to [Kubernetes Automation Day Berlin](https://kubeauto.day/berlin?utm_source=substack&utm_medium=newsletter&utm_campaign=kubeauto_day_berlin_2026&utm_content=article) on Thursday, October 15. There will be these and many other talks:
 
-There are talks about taking autonomous AI agents from your laptop to Kubernetes, building autonomous SRE agents, optimizing hundreds of Kubernetes clusters, and what platform engineering looks like in an AI-driven world.
+- building Kubernetes operators
+- attacking misconfigured clusters
+- optimizing workloads
+- a panel on DevOps and platform engineering in the AI world
 
-It's a free, community-run evening event at Alte Turnhalle with 200+ attendees and speakers from Delivery Hero, DKB, Weaviate, Giant Swarm, Pulumi, Google Cloud, and AWS.
+It's a free community event at Alte Turnhalle in Friedrichshain, from 3:30 PM to 10 PM, with 200+ attendees.
 
-Register at [kubeauto.day/berlin](https://kubeauto.day/berlin).
+Tickets are limited. 
 
-If you're not in Berlin, there are KubeAuto Days in other cities too - check [kubeauto.day](https://kubeauto.day/) for the full list.
+[register here](https://kubeauto.day/berlin?utm_source=substack&utm_medium=newsletter&utm_campaign=kubeauto_day_berlin_2026&utm_content=article).
 
-## Sources
 
-[^1]: [20261006_172142_AlexeyDTC_msg5006.md](../../inbox/used/20261006_172142_AlexeyDTC_msg5006.md)
+If you're not in Berlin, there are KubeAuto Days in Paris, Salt Lake City, and Las Vegas. Tel Aviv and São Paulo come next year. The full list is on [kubeauto.day](https://kubeauto.day/).
+
+
+This post is made in collaboration with KubeAuto Day Berlin. Thank you for supporting our community!

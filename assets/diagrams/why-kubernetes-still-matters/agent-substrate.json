@@ -1,0 +1,106 @@
+{
+  "title": "Agent Substrate on Kubernetes",
+  "description": "Substrate suspends an idle agent into a snapshot and frees its worker pod. When a request arrives, it restores the agent onto any free pod in under a second. This way about 250 agents share eight Kubernetes pods.",
+  "canvas": {
+    "width": 980,
+    "height": 520,
+    "background": "#ffffff"
+  },
+  "layout": {
+    "type": "manual",
+    "card_width": 260,
+    "card_height": 100
+  },
+  "nodes": [
+    {
+      "id": "user",
+      "title": "User request",
+      "variant": "icon",
+      "icon": "user",
+      "color": "blue",
+      "x": 107,
+      "y": 40
+    },
+    {
+      "id": "router",
+      "title": "Substrate",
+      "subtitle": "Picks a free pod",
+      "icon": "workflow",
+      "color": "amber",
+      "x": 40,
+      "y": 200,
+      "width": 190,
+      "height": 120
+    },
+    {
+      "id": "pool",
+      "title": "Kubernetes · 8 worker pods",
+      "variant": "boundary",
+      "contains": [
+        "active",
+        "free"
+      ],
+      "color": "gray"
+    },
+    {
+      "id": "active",
+      "eyebrow": "WORKER POD",
+      "title": "Agent",
+      "subtitle": "Restored and running",
+      "icon": "robot",
+      "color": "purple",
+      "x": 290,
+      "y": 200,
+      "height": 120
+    },
+    {
+      "id": "free",
+      "eyebrow": "WORKER POD",
+      "title": "Free",
+      "subtitle": "Waits in the warm pool",
+      "icon": "container",
+      "color": "gray",
+      "x": 290,
+      "y": 350
+    },
+    {
+      "id": "store",
+      "title": "Snapshots",
+      "subtitle": "~250 idle agents",
+      "icon": "database",
+      "color": "green",
+      "x": 750,
+      "y": 200,
+      "width": 190,
+      "height": 120
+    }
+  ],
+  "edges": [
+    {
+      "from": "user",
+      "to": "router"
+    },
+    {
+      "from": "router",
+      "to": "active",
+      "color": "purple"
+    },
+    {
+      "from": "store",
+      "to": "active",
+      "from_anchor": "left_top",
+      "to_anchor": "right_top",
+      "label": "Restore < 1 s",
+      "color": "purple"
+    },
+    {
+      "from": "active",
+      "to": "store",
+      "from_anchor": "right_bottom",
+      "to_anchor": "left_bottom",
+      "label": "Suspend if idle",
+      "dashed": true,
+      "color": "green"
+    }
+  ]
+}

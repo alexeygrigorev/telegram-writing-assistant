@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="520" viewBox="0 0 980 520" role="img" aria-labelledby="title desc">
+  <title id="title">Agent Substrate on Kubernetes</title>
+  <desc id="desc">Substrate suspends an idle agent into a snapshot and frees its worker pod. When a request arrives, it restores the agent onto any free pod in under a second. This way about 250 agents share eight Kubernetes pods.</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+    <marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#7c3aed"/></marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#2563eb"/></marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#c2410c"/></marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#15803d"/></marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#dc2626"/></marker>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#64748b"/></marker>
+    <symbol id="icon-container" viewBox="0 0 24 24">
+        <rect x="2" y="5" width="20" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="M7 5v14M12 5v14M17 5v14" fill="none" stroke="currentColor" stroke-width="2"/>
+      </symbol>
+    <symbol id="icon-database" viewBox="0 0 24 24">
+        <ellipse cx="12" cy="5" rx="8" ry="3" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="M4 5v7c0 1.66 3.58 3 8 3s8-1.34 8-3V5M4 12v7c0 1.66 3.58 3 8 3s8-1.34 8-3v-7" fill="none" stroke="currentColor" stroke-width="2"/>
+      </symbol>
+    <symbol id="icon-robot" viewBox="0 0 24 24">
+        <path d="M12 5V2.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        <circle cx="12" cy="2.5" r="1" fill="currentColor"/>
+        <rect x="4" y="5" width="16" height="15" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/>
+        <path d="M4 10H2.5v5H4M20 10h1.5v5H20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="9" cy="11" r="1.3" fill="currentColor"/>
+        <circle cx="15" cy="11" r="1.3" fill="currentColor"/>
+        <path d="M8.5 16h7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </symbol>
+    <symbol id="icon-user" viewBox="0 0 24 24">
+        <circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="M4 22c.6-5 3.3-7 8-7s7.4 2 8 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+    <symbol id="icon-workflow" viewBox="0 0 24 24">
+        <path d="M4 11A8.5 8.5 0 0 1 19.5 8.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M19.5 4.5v4h-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M20 13A8.5 8.5 0 0 1 4.5 15.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M4.5 19.5v-4h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+    <style>
+      text { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #172033; }
+      symbol [stroke] { vector-effect: non-scaling-stroke; }
+      .node rect { stroke-width: 2; }
+      .node-boundary rect { stroke-width: 2; stroke-dasharray: 8 8; }
+      .boundary-title { font-size: 16px; font-weight: 750; text-anchor: start; }
+      .node-title { font-weight: 750; text-anchor: middle; }
+      .node-title.icon-copy { text-anchor: start; }
+      .node-subtitle { font-weight: 500; fill: #475569; text-anchor: middle; }
+      .eyebrow { font-weight: 750; letter-spacing: 1px; fill: #475569; text-anchor: middle; }
+      .mention-icon { font-size: 27px; font-weight: 750; text-anchor: middle; }
+      .standalone-mention { font-size: 52px; font-weight: 750; text-anchor: middle; }
+      .icon-node-title { font-size: 16px; font-weight: 750; text-anchor: middle; }
+      .edge { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+      .edge-label rect { stroke-width: 2; }
+      .edge-label text { font-size: 14px; font-weight: 750; text-anchor: middle; dominant-baseline: central; }
+      .divider { stroke: #cbd5e1; stroke-width: 2; stroke-dasharray: 6 8; stroke-linecap: round; }
+      .center-annotation { fill: #f1f5f9; stroke: none; }
+      .center-title { font-weight: 800; letter-spacing: 0.08em; fill: #334155; text-anchor: middle; }
+      .center-detail { font-weight: 600; fill: #475569; text-anchor: middle; }
+    </style>
+  </defs>
+  <rect width="980" height="520" fill="#ffffff"/>
+
+  <g class="node-boundary node-gray" transform="translate(270 140)">
+    <rect width="300" height="340" rx="22" fill="none" stroke="#64748b"/>
+    <text class="boundary-title" x="20" y="31">Kubernetes · 8 worker pods</text>
+  </g>
+  <path class="edge" d="M135 96L135 200" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge-boundary-halo" d="M230 260L290 260" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path class="edge" d="M230 260L290 260" stroke="#7c3aed" marker-end="url(#arrow-purple)"/>
+  <path class="edge-boundary-halo" d="M750 240L550 240" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path class="edge" d="M750 240L550 240" stroke="#7c3aed" marker-end="url(#arrow-purple)"/>
+  <g class="edge-label" transform="translate(650 240)">
+    <rect x="-63.53" y="-16" width="127.07" height="32" rx="16.0" fill="#ffffff" stroke="#7c3aed"/>
+    <text fill="#7c3aed">Restore &lt; 1 s</text>
+  </g>
+  <path class="edge-boundary-halo" d="M550 280L750 280" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path class="edge" d="M550 280L750 280" stroke="#15803d" stroke-dasharray="8 8" marker-end="url(#arrow-green)"/>
+  <g class="edge-label" transform="translate(650 280)">
+    <rect x="-70.15" y="-16" width="140.29" height="32" rx="16.0" fill="#ffffff" stroke="#15803d"/>
+    <text fill="#15803d">Suspend if idle</text>
+  </g>
+
+  <g class="node-icon-only node-blue" transform="translate(107 40)">
+    <use href="#icon-user" x="0" y="0" width="56" height="56" color="#2563eb"/>
+    <text class="icon-node-title" x="28" y="81">User request</text>
+  </g>
+  <g class="node node-amber" transform="translate(40 200)" filter="url(#shadow)">
+    <rect width="190" height="120" rx="18" fill="#fff7ed" stroke="#c2410c"/>
+    <use href="#icon-workflow" x="16" y="30" width="34" height="34" color="#c2410c"/>
+    <text class="node-title icon-copy" x="62" y="53.84" font-size="19">Substrate</text>
+    <text class="node-subtitle" x="95" y="85" font-size="16">Picks a free pod</text>
+  </g>
+  <g class="node node-purple" transform="translate(290 200)" filter="url(#shadow)">
+    <rect width="260" height="120" rx="18" fill="#f5f3ff" stroke="#7c3aed"/>
+    <text class="eyebrow" x="130" y="30" font-size="13">WORKER POD</text>
+    <use href="#icon-robot" x="16" y="40" width="34" height="34" color="#7c3aed"/>
+    <text class="node-title icon-copy" x="62" y="63.84" font-size="19">Agent</text>
+    <text class="node-subtitle" x="130" y="95" font-size="16">Restored and running</text>
+  </g>
+  <g class="node node-gray" transform="translate(290 350)" filter="url(#shadow)">
+    <rect width="260" height="100" rx="18" fill="#f8fafc" stroke="#64748b"/>
+    <text class="eyebrow" x="130" y="20" font-size="13">WORKER POD</text>
+    <use href="#icon-container" x="16" y="30" width="34" height="34" color="#64748b"/>
+    <text class="node-title icon-copy" x="62" y="53.84" font-size="19">Free</text>
+    <text class="node-subtitle" x="130" y="85" font-size="16">Waits in the warm pool</text>
+  </g>
+  <g class="node node-green" transform="translate(750 200)" filter="url(#shadow)">
+    <rect width="190" height="120" rx="18" fill="#ecfdf5" stroke="#15803d"/>
+    <use href="#icon-database" x="16" y="30" width="34" height="34" color="#15803d"/>
+    <text class="node-title icon-copy" x="62" y="53.84" font-size="19">Snapshots</text>
+    <text class="node-subtitle" x="95" y="85" font-size="16">~250 idle agents</text>
+  </g>
+</svg>

@@ -1,0 +1,112 @@
+{
+  "title": "Policy and RBAC guardrails",
+  "description": "The policy file decides whether each proposed action runs on its own, waits for a human, or is blocked. Whatever gets through still hits the Kubernetes API, where RBAC lets the agent only delete pods and scale deployments.",
+  "canvas": {
+    "width": 940,
+    "height": 740,
+    "background": "#ffffff"
+  },
+  "layout": {
+    "type": "manual",
+    "card_width": 260,
+    "card_height": 100
+  },
+  "nodes": [
+    {
+      "id": "agent",
+      "title": "SRE agent",
+      "subtitle": "Proposes a fix",
+      "icon": "robot",
+      "color": "purple",
+      "x": 340,
+      "y": 40
+    },
+    {
+      "id": "policy",
+      "title": "Policy file",
+      "subtitle": "Autonomy level per action",
+      "icon": "document",
+      "color": "amber",
+      "x": 340,
+      "y": 200
+    },
+    {
+      "id": "auto",
+      "title": "Auto-run",
+      "subtitle": "Silence alert\nRestart pod in dev",
+      "icon": "check",
+      "color": "purple",
+      "x": 40,
+      "y": 380,
+      "height": 120
+    },
+    {
+      "id": "ask",
+      "title": "Ask a human",
+      "subtitle": "Roll back\nRestart pod in prod",
+      "icon": "user",
+      "color": "blue",
+      "x": 340,
+      "y": 380,
+      "height": 120
+    },
+    {
+      "id": "blocked",
+      "title": "Blocked",
+      "subtitle": "Delete namespace\nDrain node",
+      "icon": "close",
+      "color": "gray",
+      "x": 640,
+      "y": 380,
+      "height": 120
+    },
+    {
+      "id": "api",
+      "title": "Kubernetes API",
+      "subtitle": "RBAC allows only\npod delete and scale",
+      "icon": "api",
+      "color": "green",
+      "x": 40,
+      "y": 580,
+      "height": 120
+    }
+  ],
+  "edges": [
+    {
+      "from": "agent",
+      "to": "policy"
+    },
+    {
+      "from": "policy",
+      "to": "auto",
+      "route": "orthogonal",
+      "from_anchor": "bottom",
+      "to_anchor": "top"
+    },
+    {
+      "from": "policy",
+      "to": "ask"
+    },
+    {
+      "from": "policy",
+      "to": "blocked",
+      "route": "orthogonal",
+      "from_anchor": "bottom",
+      "to_anchor": "top"
+    },
+    {
+      "from": "auto",
+      "to": "api",
+      "color": "green"
+    },
+    {
+      "from": "ask",
+      "to": "api",
+      "route": "orthogonal",
+      "from_anchor": "bottom",
+      "to_anchor": "right",
+      "label": "Approved",
+      "color": "green"
+    }
+  ]
+}

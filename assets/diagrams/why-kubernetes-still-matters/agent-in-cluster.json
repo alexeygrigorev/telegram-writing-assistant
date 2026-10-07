@@ -1,0 +1,134 @@
+{
+  "title": "The SRE agent as cluster infrastructure",
+  "description": "An alert wakes the SRE agent inside the Kubernetes cluster, where it's deployed from Git and calls the API as its own service account. Its logs and metrics go to monitoring, and it pages the on-call engineer only when it can't fix the incident.",
+  "canvas": {
+    "width": 980,
+    "height": 640,
+    "background": "#ffffff"
+  },
+  "layout": {
+    "type": "manual",
+    "card_width": 240,
+    "card_height": 100
+  },
+  "nodes": [
+    {
+      "id": "git",
+      "title": "Git repo",
+      "variant": "icon",
+      "icon": "github",
+      "color": "gray",
+      "x": 87,
+      "y": 40
+    },
+    {
+      "id": "cluster",
+      "title": "Kubernetes cluster",
+      "variant": "boundary",
+      "color": "gray",
+      "x": 170,
+      "y": 148,
+      "width": 770,
+      "height": 350
+    },
+    {
+      "id": "alert",
+      "title": "Alert",
+      "variant": "icon",
+      "icon": "alert",
+      "color": "red",
+      "x": 87,
+      "y": 275
+    },
+    {
+      "id": "agent",
+      "eyebrow": "POD",
+      "title": "SRE agent",
+      "subtitle": "Investigates incidents",
+      "icon": "robot",
+      "color": "purple",
+      "x": 260,
+      "y": 228,
+      "width": 280,
+      "height": 150
+    },
+    {
+      "id": "sa",
+      "title": "ServiceAccount",
+      "variant": "attached",
+      "attach_to": "agent",
+      "attach_side": "top",
+      "attach_align": "end",
+      "color": "purple",
+      "width": 150,
+      "height": 40
+    },
+    {
+      "id": "api",
+      "title": "Kubernetes API",
+      "subtitle": "RBAC checks every call",
+      "icon": "api",
+      "color": "green",
+      "x": 680,
+      "y": 228
+    },
+    {
+      "id": "obs",
+      "title": "Monitoring",
+      "subtitle": "Logs and metrics",
+      "icon": "observability",
+      "color": "green",
+      "x": 680,
+      "y": 368
+    },
+    {
+      "id": "human",
+      "title": "On-call engineer",
+      "variant": "icon",
+      "icon": "user",
+      "color": "blue",
+      "x": 87,
+      "y": 510
+    }
+  ],
+  "edges": [
+    {
+      "from": "git",
+      "to": "agent",
+      "label": "GitOps",
+      "route": "orthogonal",
+      "from_anchor": "right",
+      "to_anchor": "top"
+    },
+    {
+      "from": "alert",
+      "to": "agent",
+      "color": "red"
+    },
+    {
+      "from": "agent",
+      "to": "api",
+      "from_anchor": "right_top",
+      "to_anchor": "left",
+      "color": "green"
+    },
+    {
+      "from": "agent",
+      "to": "obs",
+      "route": "orthogonal",
+      "from_anchor": "right_bottom",
+      "to_anchor": "left",
+      "color": "green"
+    },
+    {
+      "from": "agent",
+      "to": "human",
+      "route": "orthogonal",
+      "from_anchor": "bottom",
+      "to_anchor": "right",
+      "dashed": true,
+      "label": "Can't fix it",
+      "color": "blue"
+    }
+  ]
+}
