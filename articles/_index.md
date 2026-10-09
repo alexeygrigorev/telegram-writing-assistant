@@ -138,6 +138,7 @@ Articles currently being developed from a researched outline.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Organizational Agents - Progress Report](work-in-progress/organizational-agents-progress-report.md) | draft | 2026-10-08 | Experiment with multi-team AI agent organization: hierarchy, self-healing, and the gap between design and operational reliability. |
 | [Cloudflare Git for Agents Competition](work-in-progress/cloudflare-git-for-agents-competition.md) | draft | 2026-10-04 | Daily log of participating in Cloudflare's competition to build a git alternative for agentic workloads. |
 | [Why Did I Create My Own Terminal Multiplexer?](work-in-progress/why-did-i-create-my-own-terminal-multiplexer.md) | draft | 2026-10-01 | Why tmux stopped matching an agent-heavy workflow and how aplexer supports persistent sessions and agent coordination. |
 
@@ -169,6 +170,16 @@ Articles drafted by Clo from topic research and voice templates.
 | [The Open-Source AI CEO: A Joke That Ships](claw-drafts/open-executive.md) | draft | 2026-08-28 | Tool Teardown lite (~1,500 words). OpenExecutive teardown + delegation ladder |
 | [The Skeptic Scorecard: Dan Luu Audited Ed Zitron, and It Wasn't Close](claw-drafts/ai-skeptic-scorecard.md) | draft | 2026-09-03 | Reaction essay (~1,900 words). Zitron prediction audit + how to scorecard AI sources |
 | [How to Get LLM Access for Free (or Almost Free)](claw-drafts/free-llm-access.md) | draft | 2026-09-09 | How-To Guide (~1,300 words). Free API tiers + $5 token math + local GPU hardware costs + coding-agent deals |
+
+## Interviews
+
+Detailed summaries of podcast episodes, YouTube interviews, and other conversations.
+
+| Title | Status | Last Updated | Description |
+|-------|--------|--------------|-------------|
+| [AI Content Machines: How Creators Build Anti-Slop Writing Systems](interviews/ai-content-machines.md) | draft | 2026-10-09 | Research on AI content creation systems: Lieberman's Content Machine, OpenClaw's agent team, Koe's validation-first workflow, with a prompts directory |
+| [AI Tools Assessment: A Productized Service Business Model](interviews/ai-tools-assessment-business.md) | draft | 2026-10-09 | Corey Ganim's $999 AI tools assessment for small businesses: four delivery phases, six upsells, seven client acquisition methods |
+| [Jonathan Courtney on the Promoter Blueprint: AI Marketing with Claude Code](interviews/jonathan-courtney-promoter-blueprint-ai-marketing.md) | draft | 2026-10-09 | Four-step Promoter Blueprint framework and live Claude Code workflow for AI marketing from The Startup Ideas Podcast |
 
 ## Research
 
