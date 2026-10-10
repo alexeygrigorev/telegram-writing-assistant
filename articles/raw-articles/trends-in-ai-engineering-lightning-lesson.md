@@ -25,6 +25,10 @@ We had two goals for it:
 
 At the end of the session Hugo and I talked about turning this recap into a shared Substack article - this article.
 
+If you prefer video, here's the recording:
+
+https://youtu.be/whIdxTQsU0A
+
 Agents now write more and more of the code. Hugo and I think the human engineer still adds value at the two ends of the work - deciding what to build, and checking that what got built is right.
 
 <figure>
