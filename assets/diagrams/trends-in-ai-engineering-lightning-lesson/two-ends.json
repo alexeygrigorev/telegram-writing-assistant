@@ -1,0 +1,18 @@
+{
+  "title": "You work at both ends",
+  "description": "Agents write most of the code in the middle. The human decides what to build at the start and checks that the result is right at the end.",
+  "canvas": {"width": 1080, "height": 380, "background": "#ffffff"},
+  "layout": {"type": "manual", "card_width": 260, "card_height": 100},
+  "nodes": [
+    {"id": "you", "title": "You", "variant": "plain", "icon": "user", "color": "blue", "x": 40, "y": 40, "width": 160},
+    {"id": "agents", "title": "Agents", "variant": "plain", "icon": "robot", "color": "gray", "x": 40, "y": 240, "width": 160},
+    {"id": "decide", "title": "Decide what to build", "subtitle": "problems, customers, specs", "icon": "search", "color": "blue", "x": 240, "y": 40},
+    {"id": "build", "title": "Build", "subtitle": "write most of the code", "icon": "terminal", "color": "gray", "x": 510, "y": 240},
+    {"id": "check", "title": "Check it's right", "subtitle": "tests, evals, review", "icon": "check", "color": "blue", "x": 780, "y": 40}
+  ],
+  "dividers": [{"after_node": "you"}],
+  "edges": [
+    {"from": "decide", "to": "build", "route": "step"},
+    {"from": "build", "to": "check", "route": "step"}
+  ]
+}

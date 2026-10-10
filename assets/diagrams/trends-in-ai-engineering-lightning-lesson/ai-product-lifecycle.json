@@ -1,0 +1,20 @@
+{
+  "title": "The AI product lifecycle",
+  "description": "AI products improve in a loop: build, add traces, turn the data into an eval set, fix the problems it shows, and iterate in production with domain experts.",
+  "canvas": {"width": 940, "height": 800, "background": "#ffffff"},
+  "layout": {"type": "ring", "card_width": 260, "card_height": 100},
+  "nodes": [
+    {"id": "build", "title": "Build", "icon": "terminal", "color": "amber"},
+    {"id": "trace", "title": "Add traces", "subtitle": "observability", "icon": "observability", "color": "purple"},
+    {"id": "eval", "title": "Build an eval set", "subtitle": "from real data", "icon": "database", "color": "green"},
+    {"id": "fix", "title": "Fix what you see", "subtitle": "pull the levers", "icon": "settings", "color": "amber"},
+    {"id": "iterate", "title": "Iterate in production", "subtitle": "with domain experts", "icon": "user", "color": "blue"}
+  ],
+  "edges": [
+    {"from": "build", "to": "trace", "route": "ring"},
+    {"from": "trace", "to": "eval", "route": "ring"},
+    {"from": "eval", "to": "fix", "route": "ring"},
+    {"from": "fix", "to": "iterate", "route": "ring"},
+    {"from": "iterate", "to": "build", "route": "ring"}
+  ]
+}

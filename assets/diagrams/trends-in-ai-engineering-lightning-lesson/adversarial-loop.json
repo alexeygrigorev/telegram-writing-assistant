@@ -1,0 +1,19 @@
+{
+  "title": "One agent builds, another tries to reject",
+  "description": "A maker agent builds and a checker agent tests the result against the same shared rules. The checker sends the work back until it finds nothing to reject.",
+  "canvas": {"width": 1000, "height": 460, "background": "#ffffff"},
+  "layout": {"type": "manual", "card_width": 260, "card_height": 100},
+  "nodes": [
+    {"id": "rules", "title": "Shared rules", "subtitle": "design system, Clean Code", "icon": "document", "color": "gray", "x": 330, "y": 40},
+    {"id": "maker", "title": "Maker agent", "subtitle": "designer or implementer", "icon": "robot", "color": "amber", "x": 160, "y": 220},
+    {"id": "checker", "title": "Checker agent", "subtitle": "senior designer or tester", "icon": "search", "color": "purple", "x": 500, "y": 220},
+    {"id": "done", "title": "Accepted", "variant": "icon", "icon": "check", "color": "green", "x": 900, "y": 242}
+  ],
+  "edges": [
+    {"from": "maker", "to": "checker"},
+    {"from": "checker", "to": "done", "color": "green"},
+    {"from": "checker", "to": "maker", "label": "Rejected", "color": "red", "route": "below"},
+    {"from": "rules", "to": "maker", "route": "orthogonal", "dashed": true},
+    {"from": "rules", "to": "checker", "route": "orthogonal", "dashed": true}
+  ]
+}
