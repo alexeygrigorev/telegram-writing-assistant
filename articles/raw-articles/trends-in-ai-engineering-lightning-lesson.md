@@ -120,6 +120,11 @@ Hugo separated two terms that often get confused:
 - In agentic engineering (a term coined by Simon Willison), you build software with agents. The agent is part of the dev team. Your job is specification, delegation, review, and orchestration.
 - In AI engineering, you build agentic search, RAG, or an agent. AI is part of the product. You think about models, prompts, evals, harness engineering, and agentic loops.
 
+<figure>
+  <img src="../../assets/images/trends-in-ai-engineering-lightning-lesson/agentic-vs-ai-engineering.jpg" alt="Two-column slide: in agentic engineering, the agent is part of the development team; in AI engineering, AI is part of the product">
+  <figcaption>Hugo's slide comparing agentic engineering and AI engineering</figcaption>
+</figure>
+
 In practice, you do both. You build AI-powered products with agents. And for agentic engineering, you build up your own harness - skills in your AGENTS.md, MCP servers, sandboxes, and guardrails.
 
 I see this confusion among people who join my courses: they join a course about AI engineering wanting to learn how to use AI for coding. There's a lot of overlap, but the work is different. If you write code with AI, someone else takes care of evaluating and monitoring that tool. You focus on creating the proper specification, making sure the agent follows it, and enforcing the development lifecycle rules.
@@ -131,6 +136,11 @@ If agents write the code, you need a way to know that the code is right.
 Hugo ran a survey on how people do agentic data science. Many people said AI changes their workflow significantly: 34 said "fundamentally" and 39 said "significantly". Hugo wanted to see what made the difference, so he built a heat map of how much AI changed people's workflow against how they verify AI-generated code.
 
 Agentic verification means using agents to verify the work of other agents. 59% of the people whose workflow changed fundamentally use it and write tests. The less impact people reported, the fewer of them wrote tests or used agentic verification. It isn't causal, but there's a correlation: the more tests you write and the more agentic verification you use, the more value you get from agents.
+
+<figure>
+  <img src="../../assets/images/trends-in-ai-engineering-lightning-lesson/agentic-verification-heat-map.jpg" alt="Heat map of verification methods by how much AI agents changed people's workflow. In the group whose workflow changed fundamentally, 59% ask another agent to critique the work and 62% write tests">
+  <figcaption>From Hugo's survey: how people verify AI-generated work, grouped by how much agents changed their workflow</figcaption>
+</figure>
 
 Hugo doesn't say to stop reading code manually - only that you probably shouldn't read all of it.
 
@@ -146,6 +156,11 @@ With agents, the steps look like this:
    - Agentic review, where agents review code and design
    - Human review for context, UX, and similar things
 4. Once you get sophisticated enough, agents monitor, operate, and suggest changes in production.
+
+<figure>
+  <img src="../../assets/images/trends-in-ai-engineering-lightning-lesson/agentic-software-lifecycle.jpg" alt="Diagram of the agentic software lifecycle: an agent-assisted spec, an agent-driven build, a verification layer with human review, agent review, LLM as a judge and automated tests, then ship and maintain, with a loop back to the spec">
+  <figcaption>Hugo's diagram of the software lifecycle with agents</figcaption>
+</figure>
 
 ## Sloppy Agent Code
 
