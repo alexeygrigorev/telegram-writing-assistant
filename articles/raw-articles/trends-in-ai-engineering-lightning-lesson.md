@@ -25,7 +25,7 @@ We had two goals for it:
 
 At the end of the session Hugo and I talked about turning this recap into a shared Substack article - this article.
 
-Most attendees asked about the same thing. Agents now write more and more of the code, and people want to know where the human engineer still adds value. Hugo and I think the human adds value at the two ends of the work - deciding what to build, and checking that what got built is right.
+Agents now write more and more of the code. Hugo and I think the human engineer still adds value at the two ends of the work - deciding what to build, and checking that what got built is right.
 
 <figure>
   <img src="../../assets/images/trends-in-ai-engineering-lightning-lesson/two-ends.png" alt="Two lanes: you decide what to build, agents build and write most of the code, and you check that the result is right">
@@ -145,9 +145,7 @@ With agents, the steps look like this:
 
 ## Sloppy Agent Code
 
-An attendee asked whether coding agents, even frontier ones, make sloppy design and code - and whether only a technical human can fix that.
-
-They make sloppy design, absolutely. They give you pages and pages of design that are absolute slop. When you design with them, you need to be in the loop and in control. Hugo asks them to respond in three sentences, or to give him 10 ideas of three sentences each, so he can choose the best one.
+Coding agents, even frontier ones, make sloppy design and code. They give you pages and pages of design that are absolute slop. When you design with them, you need to be in the loop and in control. Hugo asks them to respond in three sentences, or to give him 10 ideas of three sentences each, so he can choose the best one.
 
 I use what I call adversarial design. I set up two agents: a designer and a senior designer. The designer designs, and the senior designer tries to find a reason to reject the design. They share a design system document that describes how the design should look, and they bounce the design between each other until the senior designer is satisfied.
 
@@ -179,7 +177,7 @@ For example, agents like defensive coding. In Python, they check if an attribute
 
 I tested this on a fairly large and relatively old codebase. I developed it with AI, first by copy-pasting from ChatGPT and then fully with coding agents. When I noticed a lot of slop, I asked the agent to refactor the entire codebase using these rules. It took two Codex resets, but after that I could read the code without crying.
 
-Hugo pushed back on the last part of the question, "only a technical human can fix it". The fixer can be an agent with the correct instructions and the correct verification processes. Parallelize with a few of them because some will mess up, and surface the high-risk, important things to a human. That doesn't have to mean looking at code - it can be dashboards, information graphics, or cards.
+Many people think only a technical human can fix the slop. Hugo disagrees: the fixer can be an agent with the correct instructions and the correct verification processes. Parallelize with a few of them because some will mess up, and surface the high-risk, important things to a human. That doesn't have to mean looking at code - it can be dashboards, information graphics, or cards.
 
 ## Evals Are the Same Skill
 
@@ -205,7 +203,7 @@ Hugo added that this is still hard work. We haven't evolved to make that many de
 
 ## The Human Side
 
-An attendee asked which roles will exist a year or two from now. Nobody can see what roles, hiring processes, or even tools will look like then. But we can name the skills that matter at the other end of the work - deciding what to build and for whom.
+Nobody can see what roles, hiring processes, or even tools will look like in a year or two. But we can name the skills that matter at the other end of the work - deciding what to build and for whom.
 
 Hugo listed the data scientist skills that will always be useful:
 
@@ -233,9 +231,7 @@ That's why I think product managers are uniquely equipped to run agents. They al
 
 ## Becoming an AI Engineer
 
-One attendee wrote: "My goal is to become an AI engineer and get hired in the next three months. Do I need to focus on training and serving, or should I spend my time elsewhere?"
-
-Hugo compared training models to working on an internal combustion engine. If you're a Formula One driver, it's good to know how it works, but most people who use a car don't need to. An AI engineer works on a product.
+If you want to become an AI engineer and get hired in the next three months, you don't need to focus on training and serving models. Hugo compared training models to working on an internal combustion engine. If you're a Formula One driver, it's good to know how it works, but most people who use a car don't need to. An AI engineer works on a product.
 
 Instead, Hugo would focus on the data science mentality and the lifecycle of AI products. Unlike the traditional spec, build, deploy, maintain cycle, it's iterative and experimental.
 
