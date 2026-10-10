@@ -1,7 +1,7 @@
 ---
 title: "Trends in AI Engineering: Lightning Lesson with Hugo Bowne-Anderson"
 created: 2026-09-29
-updated: 2026-09-29
+updated: 2026-10-11
 tags: [ai-engineering, agentic-engineering, career, evals, hugo-bowne-anderson, lightning-lesson]
 status: draft
 ---
@@ -14,23 +14,22 @@ Last week I ran a webinar with Hugo Bowne-Anderson. Hugo and I met in Berlin abo
 The first step was an open ask-us-anything session - which was the webinar. We had two goals for it:
 
 - help the people who came to the webinar
-- undestand what we could create together for you longer term
+- understand what we could create together for you longer term
 
-At the end of the session Hugo and I talked about turning this recap into a shared Substack article - this article. 
-
+At the end of the session Hugo and I talked about turning this recap into a shared Substack article - this article.
 
 ## Who We Are
 
-![alt text](image.png)
-Hugo and I (turn into a jpeg) TODO - ptoper figure, proper image localtion
+<figure>
+  <img src="../../assets/images/trends-in-ai-engineering-lightning-lesson/hugo-and-alexey.jpg" alt="Alexey Grigorev and Hugo Bowne-Anderson in a cafe in Berlin">
+  <figcaption>Hugo and I at our breakfast in Berlin</figcaption>
+</figure>
 
-
-I have been an educator for about six years. I started with machine learning engineering (TOD link ml zoomcamp), then did data engineering (likn de zoomcap), and in the last few years I have focused on AI engineering (lik maven). Before that I was a hands-on data scientist, machine learning engineer and data engineer - a full-stack data scientist doing whatever needed to be done to work with machine learning and AI.
+I have been an educator for about six years. I started with machine learning engineering ([ML Zoomcamp](https://github.com/DataTalksClub/machine-learning-zoomcamp)), then did data engineering ([Data Engineering Zoomcamp](https://github.com/DataTalksClub/data-engineering-zoomcamp)), and in the last few years I have focused on AI engineering ([AI Engineering Buildcamp](https://maven.com/alexey-grigorev/from-rag-to-agents)). Before that I was a hands-on data scientist, machine learning engineer and data engineer - a full-stack data scientist doing whatever needed to be done to work with machine learning and AI.
 
 Now I call myself a product AI engineer: I do whatever it takes to integrate AI from the user's perspective. This is what I teach in my courses.
 
 Hugo's background is in mathematics, physics, and biology. He researched cell biology in Dresden, at the Max Planck Institute, and then at Yale. About 15 years ago, living in New York, he moved to industry because the machine learning and data science scene was so exciting, but he stayed in education. He has worked on machine learning and data products in SaaS for most of those 15 years: DataCamp, education in the SciPy and PyData ecosystems, and developer relations at startups such as Coiled and Outerbounds. He hosts podcasts, and that is how we first met - we have done a bunch of podcasts together.
-
 
 ## Trends in AI Engineering
 
@@ -40,9 +39,12 @@ Every month since January 2026 I scrape job postings for the query "AI engineeri
 
 I then process the raw data with LLMs to extract structured information: skills, responsibilities, and use cases.
 
-All this data is saves in the AI Engineering Field Guide repo.
+All this data is saved in the AI Engineering Field Guide repo. This is what one processed job posting looks like:
 
-TODO add a screenshot of one of the scraped jobs.
+<figure>
+  <img src="../../assets/images/trends-in-ai-engineering-lightning-lesson/structured-job.png" alt="Structured YAML extracted from a Senior AI Engineer job posting: company, responsibilities, use cases, and skills">
+  <figcaption>A Senior AI Engineer posting from the September 2026 scrape after LLM extraction</figcaption>
+</figure>
 
 Nine months of data is not enough to build models that predict the future. But there are already interesting trends that show where the market is going:
 
@@ -55,21 +57,21 @@ Nine months of data is not enough to build models that predict the future. But t
 
 ## What Roles Will Exist in a Year or Two
 
-An attendee (TODO: let's not add these meta stuff. we can just say ... no need to say who said what - let's simplify the rest of the chapter) asked how we see the future a year or two from now: which roles will exist, and how can humans add real value in their work?
+Which roles will exist a year or two from now, and how can humans add real value in their work?
 
-Hugo said nobody can see what roles, hiring processes, or even tools will look like then. The last part of the question - how can we add value - is the one to ask. He encourages people, including students at college or university, to learn current tools and technologies that help them add value where they are: their local communities, their businesses, their universities.
+Nobody can see what roles, hiring processes, or even tools will look like then. The second part - how can we add value - is the one to ask. Hugo encourages people, including students at college or university, to learn current tools and technologies that help them add value where they are: their local communities, their businesses, their universities.
 
 The other meta-skill is learning constantly and being a hacker. In the past couple of weeks, a classifier model has become the exciting thing - who would have thought a classifier would be exciting in 2026? When a new model comes out - the new Fable, or Sonnet 5.5 that just came out - the valuable person is the one who plays with it, wonders what they can do with it, and then delivers business value or helps people with it.
 
-Hugo added one more thing - the data scientist skills that will always be useful:
+Some data scientist skills will always be useful:
 
 - A hacker mentality, as described above
 - Knowing some statistics, how to analyze data, and how to use data to improve products
 - Domain expertise in something - SRE, DevOps, marketing, or anything else
 
-He didn't say you need to know how to build retrieval systems, although he thinks search is becoming increasingly important. Adding value, hacker skills, and knowing how to analyze data and apply it to business problems are what he finds incredibly useful.
+Building retrieval systems is not on this list, although search is becoming increasingly important. Adding value, hacker skills, and knowing how to analyze data and apply it to business problems matter more.
 
-I agree with all of it - hacking, learning, statistics, evaluations. I would add one skill to the list. I call it problem discovery. I don't know if it has an official name.
+I would add one more skill to the list. I call it problem discovery. I don't know if it has an official name.
 
 There are so many problems around us waiting to be discovered and solved. Look at your own everyday life. There are so many things you repeat, and so many things that are mildly annoying, but you're not doing anything about them yet. Discovering these things and doing something about them is a big source of projects - projects that improve your own life and potentially the lives of others.
 
@@ -299,4 +301,4 @@ We will send the form, the recording, and a transcript by email to everyone who 
 
 ## Sources
 
-: "Trends in AI Engineering" lightning lesson with Hugo Bowne-Anderson, Zoom recording, 2026-09-29 (67 minutes). The recording and transcript are kept private and are not stored in this repository.
+"Trends in AI Engineering" lightning lesson with Hugo Bowne-Anderson, Zoom recording, 2026-09-29 (67 minutes). The recording and transcript are kept private and are not stored in this repository.

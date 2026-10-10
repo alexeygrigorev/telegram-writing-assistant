@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1783" height="2006" viewBox="0 0 1783 2006" role="img" aria-label="ai-engineering-field-guide/job-market">
+<rect x="1" y="1" width="1781" height="2004" rx="16" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+<path d="M 2 16 Q 2 2 16 2 L 1767 2 Q 1781 2 1781 16 L 1781 99 Q 1781 109 1771 109 L 26 109 Q 16 109 16 99 Z" fill="#161b22"/>
+<line x1="2" y1="80" x2="1781" y2="80" stroke="#30363d" stroke-width="2"/>
+<circle cx="44.5" cy="40" r="12.5" fill="#ff5f56"/>
+<circle cx="84.5" cy="40" r="12.5" fill="#ffbd2e"/>
+<circle cx="124.5" cy="40" r="12.5" fill="#27c93f"/>
+<text x="891.5" y="48" text-anchor="middle" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="21" fill="#8b949e">ai-engineering-field-guide/job-market</text>
+<text x="52" y="156" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#7ee787" xml:space="preserve">$ </text>
+<text x="88.12" y="156" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" font-weight="bold" fill="#e6edf3" xml:space="preserve">cat data_structured/2026-09-23/10038736_Ecolab_Senior_AI_Engineer.yaml</text>
+<text x="52" y="240" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">company:</text>
+<text x="52" y="282" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">  </text>
+<text x="88.12" y="282" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">name:</text>
+<text x="178.42" y="282" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve"> Ecolab</text>
+<text x="52" y="324" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">  </text>
+<text x="88.12" y="324" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">stage:</text>
+<text x="196.48" y="324" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#f0883e" xml:space="preserve"> null</text>
+<text x="52" y="366" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">  </text>
+<text x="88.12" y="366" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">focus:</text>
+<text x="196.48" y="366" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve"> Water, hygiene and infection prevention solutions</text>
+<text x="52" y="408" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">position:</text>
+<text x="52" y="450" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">  </text>
+<text x="88.12" y="450" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">title:</text>
+<text x="196.48" y="450" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve"> Senior AI Engineer</text>
+<text x="52" y="492" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">  </text>
+<text x="88.12" y="492" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">ai_type:</text>
+<text x="52" y="534" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">    </text>
+<text x="124.24" y="534" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">type:</text>
+<text x="214.54" y="534" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve"> ai-first</text>
+<text x="52" y="576" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">    </text>
+<text x="124.24" y="576" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">reasoning:</text>
+<text x="304.84" y="576" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve"> |-</text>
+<text x="52" y="618" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">      The role designs RAG, multi-agent orchestration, and LLM-</text>
+<text x="52" y="660" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">      powered workflows directly, shaping model behavior and</text>
+<text x="52" y="702" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">      output quality of generative systems, so it is ai-first.</text>
+<text x="52" y="744" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">  </text>
+<text x="88.12" y="744" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">responsibilities:</text>
+<text x="52" y="786" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">  </text>
+<text x="88.12" y="786" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#8b949e" xml:space="preserve">- </text>
+<text x="124.24" y="786" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">Lead development of scalable GenAI-powered systems</text>
+<text x="52" y="828" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">  </text>
+<text x="88.12" y="828" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#8b949e" xml:space="preserve">- </text>
+<text x="124.24" y="828" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">Design intelligent workflows leveraging LLMs, vector-based retrieval, and multi-agent</text>
+<text x="52" y="870" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">    orchestration</text>
+<text x="52" y="912" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">  </text>
+<text x="88.12" y="912" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#8b949e" xml:space="preserve">- </text>
+<text x="124.24" y="912" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">Drive solution architecture for AI applications</text>
+<text x="52" y="954" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">  </text>
+<text x="88.12" y="954" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#8b949e" xml:space="preserve">- </text>
+<text x="124.24" y="954" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">Mentor junior engineers</text>
+<text x="52" y="996" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">  </text>
+<text x="88.12" y="996" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#8b949e" xml:space="preserve">- </text>
+<text x="124.24" y="996" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">Deliver production-ready applications integrated with business processes and platforms</text>
+<text x="52" y="1038" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">  </text>
+<text x="88.12" y="1038" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">use_cases:</text>
+<text x="52" y="1080" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">  </text>
+<text x="88.12" y="1080" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#8b949e" xml:space="preserve">- </text>
+<text x="124.24" y="1080" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">Intelligent business process workflows powered by LLMs</text>
+<text x="52" y="1122" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">  </text>
+<text x="88.12" y="1122" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#8b949e" xml:space="preserve">- </text>
+<text x="124.24" y="1122" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">Vector-based retrieval and multi-agent orchestration for enterprise applications</text>
+<text x="52" y="1164" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">  </text>
+<text x="88.12" y="1164" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#8b949e" xml:space="preserve">- </text>
+<text x="124.24" y="1164" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">GenAI applications integrated with business platforms</text>
+<text x="52" y="1206" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">  </text>
+<text x="88.12" y="1206" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">skills:</text>
+<text x="52" y="1248" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">    </text>
+<text x="124.24" y="1248" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">genai:</text>
+<text x="232.6" y="1248" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve"> [Generative AI, LLMs, RAG, Multi-Agent Systems]</text>
+<text x="52" y="1290" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">    </text>
+<text x="124.24" y="1290" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">ml:</text>
+<text x="178.42" y="1290" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#f0883e" xml:space="preserve"> []</text>
+<text x="52" y="1332" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">    </text>
+<text x="124.24" y="1332" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">web:</text>
+<text x="196.48" y="1332" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#f0883e" xml:space="preserve"> []</text>
+<text x="52" y="1374" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">    </text>
+<text x="124.24" y="1374" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">databases:</text>
+<text x="304.84" y="1374" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#f0883e" xml:space="preserve"> []</text>
+<text x="52" y="1416" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">    </text>
+<text x="124.24" y="1416" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">data:</text>
+<text x="214.54" y="1416" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#f0883e" xml:space="preserve"> []</text>
+<text x="52" y="1458" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">    </text>
+<text x="124.24" y="1458" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">cloud:</text>
+<text x="232.6" y="1458" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#f0883e" xml:space="preserve"> []</text>
+<text x="52" y="1500" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">    </text>
+<text x="124.24" y="1500" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">ops:</text>
+<text x="196.48" y="1500" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#f0883e" xml:space="preserve"> []</text>
+<text x="52" y="1542" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">    </text>
+<text x="124.24" y="1542" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">languages:</text>
+<text x="304.84" y="1542" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#f0883e" xml:space="preserve"> []</text>
+<text x="52" y="1584" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">    </text>
+<text x="124.24" y="1584" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">domains:</text>
+<text x="268.72" y="1584" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#f0883e" xml:space="preserve"> []</text>
+<text x="52" y="1626" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">    </text>
+<text x="124.24" y="1626" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">other:</text>
+<text x="232.6" y="1626" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#f0883e" xml:space="preserve"> []</text>
+<text x="52" y="1668" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">  </text>
+<text x="88.12" y="1668" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">is_customer_facing:</text>
+<text x="431.26" y="1668" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#f0883e" xml:space="preserve"> false</text>
+<text x="52" y="1710" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">  </text>
+<text x="88.12" y="1710" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">is_management:</text>
+<text x="340.96" y="1710" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#f0883e" xml:space="preserve"> false</text>
+<text x="52" y="1752" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">meta:</text>
+<text x="52" y="1794" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">  </text>
+<text x="88.12" y="1794" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">job_id:</text>
+<text x="214.54" y="1794" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#3fb950" xml:space="preserve"> '10038736'</text>
+<text x="52" y="1836" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">  </text>
+<text x="88.12" y="1836" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">location:</text>
+<text x="250.66" y="1836" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve"> Bengaluru, IND</text>
+<text x="52" y="1878" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">  </text>
+<text x="88.12" y="1878" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">extracted_at:</text>
+<text x="322.9" y="1878" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#3fb950" xml:space="preserve"> '2026-09-23T10:57:17.683468'</text>
+<text x="52" y="1920" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">  </text>
+<text x="88.12" y="1920" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">model:</text>
+<text x="196.48" y="1920" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve"> glm-5.2</text>
+<text x="52" y="1962" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">  </text>
+<text x="88.12" y="1962" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">prompt_sha:</text>
+<text x="286.78" y="1962" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve"> ef6fdeb19af2</text>
+</svg>
