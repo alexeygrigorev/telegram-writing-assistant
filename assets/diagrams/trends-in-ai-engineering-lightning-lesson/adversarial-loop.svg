@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="460" viewBox="0 0 1000 460" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="360" viewBox="0 0 1080 360" role="img" aria-labelledby="title desc">
   <title id="title">One agent builds, another tries to reject</title>
   <desc id="desc">A maker agent builds and a checker agent tests the result against the same shared rules. The checker sends the work back until it finds nothing to reject.</desc>
   <defs>
@@ -52,37 +52,37 @@
       .center-detail { font-weight: 600; fill: #475569; text-anchor: middle; }
     </style>
   </defs>
-  <rect width="1000" height="460" fill="#ffffff"/>
+  <rect width="1080" height="360" fill="#ffffff"/>
 
-  <path class="edge" d="M420 270L500 270" stroke="#64748b" marker-end="url(#arrow-gray)"/>
-  <path class="edge" d="M760 270L900 270" stroke="#15803d" marker-end="url(#arrow-green)"/>
-  <path class="edge" d="M630 336.1V354.2H290V340.7" stroke="#dc2626" marker-end="url(#arrow-red)"/>
-  <g class="edge-label" transform="translate(460 354.2)">
+  <path class="edge" d="M300 253.33L540 253.33" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M540 286.67L300 286.67" stroke="#dc2626" marker-end="url(#arrow-red)"/>
+  <g class="edge-label" transform="translate(420 286.67)">
     <rect x="-46.43" y="-16" width="92.86" height="32" rx="16.0" fill="#ffffff" stroke="#dc2626"/>
     <text fill="#dc2626">Rejected</text>
   </g>
-  <path class="edge" d="M460 140V180H290V220" stroke="#64748b" stroke-dasharray="8 8" marker-end="url(#arrow-gray)"/>
-  <path class="edge" d="M460 140V180H630V220" stroke="#64748b" stroke-dasharray="8 8" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M800 270L980 270" stroke="#15803d" marker-end="url(#arrow-green)"/>
+  <path class="edge" d="M420 140V180H170V220" stroke="#64748b" stroke-dasharray="8 8" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M420 140V180H670V220" stroke="#64748b" stroke-dasharray="8 8" marker-end="url(#arrow-gray)"/>
 
-  <g class="node node-gray" transform="translate(330 40)" filter="url(#shadow)">
+  <g class="node node-gray" transform="translate(290 40)" filter="url(#shadow)">
     <rect width="260" height="100" rx="18" fill="#f8fafc" stroke="#64748b"/>
     <use href="#icon-document" x="16" y="20" width="34" height="34" color="#64748b"/>
     <text class="node-title icon-copy" x="62" y="44.2" font-size="20">Shared rules</text>
     <text class="node-subtitle" x="130" y="75" font-size="16">design system, Clean Code</text>
   </g>
-  <g class="node node-amber" transform="translate(160 220)" filter="url(#shadow)">
+  <g class="node node-amber" transform="translate(40 220)" filter="url(#shadow)">
     <rect width="260" height="100" rx="18" fill="#fff7ed" stroke="#c2410c"/>
     <use href="#icon-robot" x="16" y="20" width="34" height="34" color="#c2410c"/>
     <text class="node-title icon-copy" x="62" y="44.2" font-size="20">Maker agent</text>
     <text class="node-subtitle" x="130" y="75" font-size="16">designer or implementer</text>
   </g>
-  <g class="node node-purple" transform="translate(500 220)" filter="url(#shadow)">
+  <g class="node node-purple" transform="translate(540 220)" filter="url(#shadow)">
     <rect width="260" height="100" rx="18" fill="#f5f3ff" stroke="#7c3aed"/>
     <use href="#icon-search" x="16" y="20" width="34" height="34" color="#7c3aed"/>
     <text class="node-title icon-copy" x="62" y="44.2" font-size="20">Checker agent</text>
     <text class="node-subtitle" x="130" y="75" font-size="16">senior designer or tester</text>
   </g>
-  <g class="node-icon-only node-green" transform="translate(900 242)">
+  <g class="node-icon-only node-green" transform="translate(980 242)">
     <use href="#icon-check" x="0" y="0" width="56" height="56" color="#15803d"/>
     <text class="icon-node-title" x="28" y="81">Accepted</text>
   </g>
