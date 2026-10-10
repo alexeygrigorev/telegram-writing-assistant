@@ -25,9 +25,9 @@ At the end of the session Hugo and I talked about turning this recap into a shar
   <figcaption>Hugo and I at our breakfast in Berlin</figcaption>
 </figure>
 
-I have been an educator for about six years. I started with machine learning engineering ([ML Zoomcamp](https://github.com/DataTalksClub/machine-learning-zoomcamp)), then did data engineering ([Data Engineering Zoomcamp](https://github.com/DataTalksClub/data-engineering-zoomcamp)), and in the last few years I have focused on AI engineering ([AI Engineering Buildcamp](https://maven.com/alexey-grigorev/from-rag-to-agents)). Before that I was a hands-on data scientist, machine learning engineer and data engineer - a full-stack data scientist doing whatever needed to be done to work with machine learning and AI.
+I have been an educator for about six years. I started with [machine learning engineering](https://github.com/DataTalksClub/machine-learning-zoomcamp), then did [data engineering](https://github.com/DataTalksClub/data-engineering-zoomcamp), and in the last few years I have focused on [AI Engineering](https://maven.com/alexey-grigorev/from-rag-to-agents). Before that I was a hands-on data scientist, machine learning engineer and data engineer - a full-stack data scientist doing whatever needed to be done to work with machine learning and AI.
 
-Now I call myself a product AI engineer: I do whatever it takes to integrate AI from the user's perspective. This is what I teach in my courses.
+I like calling myself a product AI engineer: I do whatever it takes to integrate AI from the user's perspective. This is what I teach in my courses.
 
 Hugo's background is in mathematics, physics, and biology. He researched cell biology in Dresden, at the Max Planck Institute, and then at Yale. About 15 years ago, living in New York, he moved to industry because the machine learning and data science scene was so exciting, but he stayed in education. He has worked on machine learning and data products in SaaS for most of those 15 years: DataCamp, education in the SciPy and PyData ecosystems, and developer relations at startups such as Coiled and Outerbounds. He hosts podcasts, and that is how we first met - we have done a bunch of podcasts together.
 
@@ -57,11 +57,11 @@ Nine months of data is not enough to build models that predict the future. But t
 
 ## What Roles Will Exist in a Year or Two
 
-Which roles will exist a year or two from now, and how can humans add real value in their work?
+The job data shows what the market looks like today. But what about the future: which roles will exist a year or two from now, and how can humans add real value in their work?
 
 Nobody can see what roles, hiring processes, or even tools will look like then. The second part - how can we add value - is the one to ask. Hugo encourages people, including students at college or university, to learn current tools and technologies that help them add value where they are: their local communities, their businesses, their universities.
 
-The other meta-skill is learning constantly and being a hacker. In the past couple of weeks, a classifier model has become the exciting thing - who would have thought a classifier would be exciting in 2026? When a new model comes out - the new Fable, or Sonnet 5.5 that just came out - the valuable person is the one who plays with it, wonders what they can do with it, and then delivers business value or helps people with it.
+The other meta-skill is learning constantly and being a hacker. When a new model comes out - the new Fable, or Sonnet 5.5 that just came out - the valuable person is the one who plays with it, wonders what they can do with it, and then delivers business value or helps people with it.
 
 Some data scientist skills will always be useful:
 
@@ -79,9 +79,7 @@ With AI, I can finally approach these problems. Every week there is a new model 
 
 ## Agentic Verification
 
-Hugo hates typing. He uses a Stream Deck, his voice, and now a Bluetooth gaming joystick to move around his screen, so he can walk around his office. He demonstrated it live: in a Marimo notebook inside Codex, he dictated "I'm doing a lightning lesson with my friend Alexey, say what's up to everyone", and the agent greeted everyone and offered to poke at the data together.
-
-The notebook analyzes a survey he ran on how people do agentic data science. It asks about their role, the kind of organization they work in, how often they use agents, and so on. Over 50% of respondents use Claude and Claude Code - more than ChatGPT.
+Hugo ran a survey on how people do agentic data science.
 
 Many people said AI changes their workflow significantly: 34 said "fundamentally" and 39 said "significantly". Hugo wanted to see what made the difference, so he built a heat map of how much AI changed people's workflow against how they verify AI-generated code. Many people read the code manually, and many run it and inspect the output.
 
@@ -91,21 +89,15 @@ Hugo is not saying "don't read code manually". He is saying "probably don't read
 
 I asked what he means by agentic verification. It is using agents to verify the work of other agents.
 
-From what I see, there is a lot of resistance to trying agents. People in software engineering - data scientists, backend engineers, frontend engineers - are on the population level more eager to jump on new things than people in other, more conservative domains. Still, many people are not yet convinced that AI is a good thing. They are waiting, or hesitant to adopt it.
-
-What really convinces people is seeing automation. You have a markdown file that describes a process, and all of a sudden the agent takes a mundane task you've been doing manually and just runs with it. That is the aha moment. Then the next question is: will it always work? What are the edge cases? Proving that these things work is what agentic verification is about.
+What convinces people to adopt agents is seeing automation. You have a markdown file that describes a process, and all of a sudden the agent takes a mundane task you've been doing manually and just runs with it. That is the aha moment. Then the next question is: will it always work? What are the edge cases? Proving that these things work is what agentic verification is about.
 
 On the individual level, having the agent run the process is already good enough. It's kind of autopilot, but I'm still holding the wheel and can intervene. Eventually this gives a lot of trust, and I don't need to keep an eye on it constantly.
 
 In AI engineering more generally, this is evaluation, and it is one of the most important skills - this is what I see in the job data too. Knowing evals is the difference between getting hired and not getting hired. If you don't know evals, the conversation with the hiring manager will likely end once they discover that. These systems are not deterministic, so we cannot simply trust them. We need a framework to make sure they can be trusted - for example, an agent that evaluates another agent. For that framework to be sound, the data science skills help a lot: data scientists have done this kind of evaluation for a very long time, because machine learning is non-deterministic too.
 
-Hugo added that verification also puts trust in the alignment process. We take an agent or an agentic process and give it skills, guardrails, and prompts to align it with our judgment.
-
 ## How the Software Lifecycle Changes
 
-Hugo shared a blog post he published the day before the session about agentic data science. It also describes how he thinks software development is changing.
-
-A very reductive software development lifecycle is: spec it out, build it, verify it, and if it works, ship and maintain it. With agents, every step changes:
+Hugo described how he thinks software development is changing. A very reductive software development lifecycle is: spec it out, build it, verify it, and if it works, ship and maintain it. With agents, every step changes:
 
 1. Speccing is agent-assisted.
 2. The build is agent-driven - agents write most of the code.
@@ -116,33 +108,22 @@ A very reductive software development lifecycle is: spec it out, build it, verif
    - Human review for context, UX, and similar things
 4. Once you get sophisticated enough, agents monitor, operate, and suggest changes in production.
 
-Hugo has worked on cases where parallel agents develop machine learning workflows and evaluator agents compare the results.
+## Agentic Engineering vs AI Engineering
 
-## Agent Engineering, Agentic Engineering, AI Engineering
+Hugo then separated two terms that often get confused:
 
-Hugo then separated terms that often get confused. They are related but distinct:
-
-- Agent engineering is building agents.
-- AI engineering is building systems that include AI.
-- Agentic engineering is using agents to do the engineering work.
-- Agentic data science is using agents to do data science work.
-
-Zooming in on the two that get confused most:
-
-- In agentic engineering, you build software with agents. The agent is part of the dev team. The question is how to use AI as a development partner. Your job is specification, delegation, review, and orchestration.
+- In agentic engineering (a term coined by Simon Willison), you build software with agents. The agent is part of the dev team. The question is how to use AI as a development partner. Your job is specification, delegation, review, and orchestration.
 - In AI engineering, you build agentic search, RAG, or an agent. AI is part of the product. The question is how to use AI within the application. You think about models, prompts, evals, harness engineering, and agentic loops.
 
 The truth is, if you do one of them, you also do the other. If you build AI-powered products, you use agents to build them. If you do agentic engineering, you also build up your harness - skills in your AGENTS.md, MCP servers, sandboxes, guardrails. Once you see they are two different things, you see they collapse into each other. It is still important to separate them, because people say "agentic engineering" when they talk about building a retrieval system.
 
 I see this confusion among people who join my courses. They join a course about AI engineering wanting to learn agentic engineering - how to use AI for coding. There is a lot of overlap. As an AI engineer, your job is to include AI in the product, and your job can also be creating something like Claude Code or Codex. But if you write code with AI, you don't need to know the details of how that tool is evaluated or monitored - that is taken care of. You focus on creating the proper specification, making sure the agent follows it, and enforcing the development lifecycle rules. The work is very different.
 
-Simon Willison coined the term agentic engineering.
-
 ## No Handwritten Code
 
 The way we coded one year ago is very different from how we code now, and the reason is agentic engineering. I think we will see more and more of it.
 
-I talk to more and more companies whose policy is "no handwritten code". From now on, you are not allowed to write code yourself - only through an agent. At the same time, many companies still ask LeetCode-style questions in interviews, although more and more stop doing that.
+I talk to more and more companies whose policy is "no handwritten code". From now on, you are not allowed to write code yourself - only through an agent.
 
 At one of these companies, many engineers resisted and said they still wanted to write code by hand. The answer was: nobody is keeping you here, go find a different place. I was surprised they were that adamant about it. But it is their choice - they know how to run their business better.
 
@@ -169,7 +150,7 @@ If you let it run uncontrolled, you get a lot of slop. So remember the good book
 
 Of course it burns more tokens, but I don't want to cry when I look at the code.
 
-It is the same as leading a team of juniors. If you let the team write code uncontrolled, you get code that is very hard to maintain. Even if you don't look at every line, you share the design principles with the team, and you check from time to time: "No, this is not good, I said no ternary operator". Sometimes you see something that isn't in the rules yet, and you think about how to teach the team. For example, list comprehensions are fine, but not when taken to the extreme with nested loops and if statements - so maybe I just ban comprehensions, and the code quality improves. You stay in the loop and look at the code from time to time, but you are not the bottleneck. And at the end, even the sloppy code kind of works.
+It is the same as leading a team of juniors. If you let the team write code uncontrolled, you get code that is very hard to maintain. Even if you don't look at every line, you share the design principles with the team, and you check from time to time: "No, this is not good, I said no ternary operator". Sometimes you see something that isn't in the rules yet, and you think about how to teach the team. For example, list comprehensions are fine, but not when taken to the extreme with nested loops and if statements - so maybe I just ban comprehensions, and the code quality improves. You stay in the loop and look at the code from time to time, but you are not the bottleneck.
 
 Hugo does the same for prose. For marketing copy and blog posts, he uses Strunk and White's The Elements of Style. Some of its principles:
 
@@ -189,21 +170,17 @@ I have done experiments where I turned super sloppy code into code I didn't cry 
 
 I used to be a purist about code when I worked as an engineer, and I tried to make my code look really good. With that mindset I can still find flaws. But if I set it aside and ask "is this good, readable code?", the answer was yes. When I notice something, I add a rule. For example, agents love defensive coding. In Python, they check if an attribute exists before accessing it. This is nonsense and makes the code hard to read. The solution is a type checker.
 
-Hugo sees the opposite problem too. In his exploratory EDA notebooks, like the one he showed, the agent writes tests he doesn't need, so his AGENTS.md says: "Do not write tests. This is an exploratory and experimental repository." You need to know the beast. His collaborator Eleanor was writing a markdown document, and the agent started writing tests for the markdown. When she told it to stop, it said "okay, I'll delete it" - and deleted the markdown document too.
-
 ## Working With Agents Is Hard Work
 
 Hugo made another point: this is really hard work, and working with agents requires a different mindset. You can't work with them all day, every day. We haven't evolved to make that many decisions and read that much text. Software engineering has always been hard. Agents didn't make it easy - they made it a different kind of hard. Hardcore software engineers do it too. One engineer who builds the Amp coding agent uses AI to generate pretty much all his code, but he also uses AI to trim and sculpt it until it is beautiful to him. That is a huge amount of work - you can't just generate tokens and get that.
 
-I think PMs have superpowers these days. They are used to context switching and juggling multiple problems at the same time. Now one PM can build so much.
-
-It is also a question of how important code quality really is. If you are building a prototype or bootstrapping a business, crappy code that works is better than ideal code that doesn't. As a PM, you describe an idea, set up the specification, the agent builds it, and you check the UI and verify it works as expected - which is already a lot of work. Even if it is the worst code in the world, if it gets the job done and gets you your first thousand customers, why not? When you have paying customers, you can spend time refactoring. Before that, does it make sense to invest in it? Perhaps, perhaps not.
+It is also a question of how important code quality really is. If you are building a prototype or bootstrapping a business, crappy code that works is better than ideal code that doesn't. As a founder, you describe an idea, set up the specification, the agent builds it, and you check the UI and verify it works as expected - which is already a lot of work. Even if it is the worst code in the world, if it gets the job done and gets you your first thousand customers, why not? When you have paying customers, you can spend time refactoring. Before that, does it make sense to invest in it? Perhaps, perhaps not.
 
 ## Dark Software Factories
 
-Hugo said something he admitted may sound radical. In a couple of weeks he is teaching a course on building agentic software factories. The premise is to move from using a coding harness yourself to a setup with more automation and continuous learning, which does appropriate work while you are asleep or away. You take a few things you do every day with Codex or Hermes, start automating them, add more on top, and build in continuous learning.
+Hugo said something he admitted may sound radical. He thinks a lot about agentic software factories. The premise is to move from using a coding harness yourself to a setup with more automation and continuous learning, which does appropriate work while you are asleep or away. You take a few things you do every day with Codex or Hermes, start automating them, add more on top, and build in continuous learning.
 
-The idea of a software factory isn't new. But people are starting to think about dark software factories. A dark factory is one where humans are not present or not allowed at all - there isn't even light inside. There are several in Japan where robots build robots. Sometimes the factory shuts down and humans go in to do things.
+The idea of a software factory isn't new. But people are starting to think about dark software factories. A dark factory is one where humans are not present or not allowed at all - there isn't even light inside. There are several in Japan where robots build robots.
 
 In a dark software factory, humans are not allowed to look at the code. They get artifacts that let them make business decisions and verify that everything is correct, but humans are separated from the generated code. Hugo doesn't suggest anyone build one today. But he thinks there is a not-so-distant future where they are economically viable and productive. If that sounds out there, remember that we don't read machine code anymore. There are abstraction layers that make us confident software works. Again, it comes down to good tests, verification, and specification with agents.
 
@@ -213,19 +190,9 @@ In my setup, agents escalate things that need human verification. I had to tune 
 
 Often I am involved more than I want, because agents create slop, especially in design. Even with all the design principles, you need to keep an eye on it. Maybe in the future we can have perfect dark software factories. For the backend, they can be dark factories already. For the frontend, not yet. But with new models like Opus 5.5 I feel I can be involved less and less.
 
-## Opus 5.5 and Prose
-
-Hugo likes Opus but works with another model much more, partly because Opus's prose hurts his brain. On Twitter he wrote that whoever says Opus 5.5 writes better prose is wrong. It told him "in that sense, one is sharpened, and the sharpening is the interesting part", and that three things were "load-bearing". None of it was the interesting part.
-
-My experience is different. I have a lot of AI-generated text. I run a workshop, and the easiest way to turn it into a written document is AI. I do minimal editing, a few hours removing obvious slop, because if I spend more time editing, I slow down and can't produce the next workshop. Some slop still creeps in. Opus 5.5 found a lot of that slop, removed it, and the text became crystal clear. I already have skills for this, and Opus 5.5 is quite good at following them.
-
-Someone in the chat recommended ASD-STE100, Simplified Technical English. I see people recommending it, but I haven't tried it. Hugo hasn't used it either, although he has read a lot about it.
-
 ## Human Skills Still Matter
 
-An attendee thanked us for stressing the data science fundamentals. Hugo recently recorded a podcast with Hamel Husain called The Rise of the AI Scientist. It is about how data science skills form the basis of most of the skills involved.
-
-Another attendee asked whether soft skills and leadership skills stay relevant in the AI era. Hugo said absolutely. A lot of the skills we need will be about working with humans, and with humans and agents together. He prefers to call them human skills rather than soft skills.
+An attendee asked whether soft skills and leadership skills stay relevant in the AI era. Hugo said absolutely. A lot of the skills we need will be about working with humans, and with humans and agents together. He prefers to call them human skills rather than soft skills.
 
 Think about it this way. Why do we use agents? To write code. Why do we write code? To solve problems. Whose problems? If we build a product, our customers' problems. Our customers are people, not agents. So we need to communicate with people to solve their problems - otherwise, will they use our product? Probably not. We still need the human connection, the user interviews, and everything product managers and product designers have done for a very long time.
 
@@ -235,15 +202,13 @@ The same applies to freelancers. You need to find clients and convince them why 
 
 Hugo agreed. The sales cycle is one of the toughest parts for solo founders. It comes down to speaking with people, understanding their problems, and solving them in a way that gives them more value than they pay. His teaching works the same way - this session exists to find out what people are interested in. And the two of us are doing it together because we met in Berlin and had breakfast. All of that is human skills.
 
-Still, it's nice to talk to agents. I'm an introvert, so if I can avoid talking to people, I will.
-
 ## Organizing Many Agents
 
-Hugo uses Codex with a gaming controller during the day, jumping between conversations to see what different agents are up to. A few weeks ago he figured out that Codex agents can talk to each other, so he can ask one thread to ping another. People have been thinking about agentic hierarchies with subagents, which is useful for some things, especially context separation. He is excited about what comes next, though he hesitates to call it swarms.
+Hugo uses Codex during the day, jumping between conversations to see what different agents are up to. A few weeks ago he figured out that Codex agents can talk to each other, so he can ask one thread to ping another. People have been thinking about agentic hierarchies with subagents, which is useful for some things, especially context separation. He is excited about what comes next, though he hesitates to call it swarms.
 
 I don't think it is swarms. A corporation is not a swarm. There are different ways to organize work, but there is usually a hierarchy - a CEO or president, then CPO, CTO, CFO, and then the verticals. You can't just tell 10,000 agents to go solve millennium problems. You need organization - for example, a chief scientist who says "you try this, you try that".
 
-When OpenAI made its announcement about the Navier-Stokes problem - I'm very far from that world, while for Hugo it is actually his world - what interested me was that it was a team of 10,000 agents. I ran a thought experiment: if I had to approach a problem I don't know, with nearly infinite compute - 10,000 agents - how would I organize the work? I arrived at a hierarchical approach. It all comes from the leadership and soft skills world.
+When OpenAI made its announcement about the Navier-Stokes problem, what interested me was that it was a team of 10,000 agents. I ran a thought experiment: if I had to approach a problem I don't know, with nearly infinite compute - 10,000 agents - how would I organize the work? I arrived at a hierarchical approach. It all comes from the leadership and soft skills world.
 
 That's why I think product managers are uniquely equipped to run agents. They already have the skills: they know how to organize work in a team, set up processes, define specifications, and check work. This sets them apart from developers who follow whatever processes are set. Heads of product work at an even higher level, and with agents, we need this kind of structure for complicated problems.
 
@@ -257,17 +222,13 @@ An attendee asked whether it is better for AI engineers to work on the harness o
 
 Hugo didn't say which is better. Training models is like working on an internal combustion engine. If you are a Formula One driver, it is good to know how it works, but most people who use a car don't need to. Most people building production systems won't train models themselves, although they may be interested in how it works. He wouldn't even say an AI engineer works on the harness. An AI engineer works on a product. That involves working on the harness, but the harness is a technical implementation detail.
 
-I recently read Inference Engineering by Philip Kiely. It is about hosting open-source models yourself. Most of the time, we send a request to OpenAI, Anthropic, or another provider, get a response, and do something around it. That is AI engineering simplified into two sentences - overly simplified, because there is a lot of work around it to make it reliable.
+I recently read Inference Engineering by Philip Kiely, who spent several years at Baseten working on high-performance inference at scale. It is about hosting open-source models yourself. Most of the time, we send a request to OpenAI, Anthropic, or another provider, get a response, and do something around it. That is AI engineering simplified into two sentences - overly simplified, because there is a lot of work around it to make it reliable.
 
-If you want to look under the hood of what happens when you send a request, the book is very good. It is broad rather than in-depth - maybe even shallow, but that is its purpose. It covers multiple areas and some details like autoscaling. If an area interests you, like quantization, you can go and read more. It doesn't tell you how to train a model, but it tells you a lot about how to serve one once it is trained.
-
-Hugo added that Philip is not some random author - he worked at Baseten for several years on high-performance inference at scale for some of the world's biggest companies.
-
-I also brought up Sebastian Raschka, whom Hugo interviewed. Hugo recommends following him, especially his Substack. His most recent book, Build a Reasoning Model from Scratch, walks you through building a reasoning model with all the code. It is a sequel to Build a Large Language Model from Scratch, which Hugo also recommends. Hugo interviewed Sebastian on his podcast and asked what the third book of the trilogy would be. The answer, of course, is build a coding agent from scratch.
+If you want to look under the hood of what happens when you send a request, the book is very good. It is broad rather than in-depth, and it tells you a lot about how to serve a model once it is trained.
 
 ## Becoming an AI Engineer in Three Months
 
-I passed a question on to Hugo: "My goal is to become an AI engineer and get hired in the next three months. Do I need to focus on training and serving, or should I spend my time elsewhere?" Hugo asked about the current job, and we took a backend engineer as the example.
+I passed a question on to Hugo: "My goal is to become an AI engineer and get hired in the next three months. Do I need to focus on training and serving, or should I spend my time elsewhere?"
 
 Hugo would take one of our AI engineering courses. Otherwise, he would focus on the data science mentality and the new software development lifecycle. It is not the traditional spec, build, deploy, maintain. It is iterative and experimental:
 
@@ -283,22 +244,8 @@ Hugo didn't mention training a model from scratch, mastering inference engineeri
 
 Some companies do lower-level work and may ask for it, but in my data it is less than 10%. If your time is limited and you want to get into AI engineering, spend it on what Hugo described. Don't spread your focus across areas just because they look interesting and you are not sure whether they are required. To get your foot in the door, you don't need them. Inference Engineering is a wonderful book, but if your goal is to become an AI engineer, read it later and focus on building projects now. If your goal is to become an inference engineer, that is the book to read.
 
-## Are Orchestration and Harness Converging?
-
-An attendee asked whether orchestration and harness are converging or are still different concepts.
-
-Hugo said orchestration is a huge term that exists outside agentic systems. It is essentially building graphs that let us specify workflows. That is very important for harnesses too, but he doesn't see them converging. Orchestration is important inside harnesses, it exists without harnesses, and you can orchestrate different agents, each with their own harness, to work together.
-
-For me, "harness" is such an overloaded term that I wish it would go away. When people say "harness", I ask what exactly they mean. Sometimes they mean Claude Code, Pi, or OpenCode - the thing that lets us do coding tasks. Sometimes they mean an evaluation harness. Sometimes something else. I think it is better to have separate terms for these things. When I hear "harness", I picture the climbing harness.
-
-Hugo agreed that an agent harness is different from an eval harness. An eval harness helps you evaluate performance. An agent harness is what surrounds the LLM at runtime and lets it do its job. He thinks of Krang from Teenage Mutant Ninja Turtles - the brain inside a big body. The brain is the LLM, and the harness is everything around it that lets it interact with the world: the reasoning loop, tools, guardrails, sandbox, and so on. His friend John Berryman, who worked on Copilot at GitHub, doesn't like the term "harness" because it is actually the agent - it is everything the agent is. Hugo understands that objection too.
-
 ## What Comes Next
 
-Hugo and I want to run a paid course together, like the ones we already run on Maven. There are infinitely many ideas, so we want to understand what people actually want: where they stand, what they want to build, where they are stuck, what their goals are, and what format they prefer. We shared a form that asks about this. It is not a short form and needs some focus time, so as a thank you, people who fill it in will get a discount on the future course once we decide what to build. If there is something you want to learn specifically from us and haven't found the content for it, the form is the place to share what bothers or worries you about AI. Hugo added that we want to hear both what pains you and what excites you, so we can build an offering that meets your needs.
+Hugo and I want to run a paid course together, like the ones we already run on Maven. There are infinitely many ideas, so we want to understand what people actually want: where they stand, what they want to build, where they are stuck, what their goals are, and what format they prefer. We shared a form that asks about this. It is not a short form and needs some focus time, so as a thank you, people who fill it in will get a discount on the future course once we decide what to build. Hugo added that we want to hear both what pains you and what excites you, so we can build an offering that meets your needs.
 
 We will send the form, the recording, and a transcript by email to everyone who signed up. Hugo will also invite me to do another lightning lesson soon.
-
-## Sources
-
-"Trends in AI Engineering" lightning lesson with Hugo Bowne-Anderson, Zoom recording, 2026-09-29 (67 minutes). The recording and transcript are kept private and are not stored in this repository.
