@@ -64,8 +64,8 @@
 
   <line class="divider" x1="16" y1="190" x2="1064" y2="190"/>
 
-  <path class="edge" d="M500 90H623Q635 90 635 102V240" stroke="#64748b" marker-end="url(#arrow-gray)"/>
-  <path class="edge" d="M770 290H893Q905 290 905 278V140" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M370 140L370 290L510 290" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M770 290L910 290L910 140" stroke="#64748b" marker-end="url(#arrow-gray)"/>
 
   <g class="node node-plain node-blue" transform="translate(40 40)">
     <use href="#icon-user" x="16" y="30.5" width="34" height="34" color="#2563eb"/>
