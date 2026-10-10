@@ -204,6 +204,11 @@ In AI engineering, we call the same verification work evaluation. Systems built 
 
 Data science skills help a lot when you build that framework. Data scientists have done this kind of evaluation for a long time, because machine learning is non-deterministic too.
 
+<figure>
+  <img src="../../assets/images/trends-in-ai-engineering-lightning-lesson/llm-evaluation.png" alt="Line chart: the share of AI engineering postings that mention LLM evaluation grew from 20% in February to 25% in September 2026">
+  <figcaption>Share of AI engineering postings that mention LLM evaluation</figcaption>
+</figure>
+
 ## Dark Software Factories
 
 Hugo then described an idea that he admitted may sound radical: dark software factories. A dark factory is one where humans aren't present at all - there isn't even light inside. There are several in Japan where robots build robots.
@@ -214,7 +219,14 @@ Hugo doesn't suggest anyone build one today. But he thinks there's a not-so-dist
 
 I think it's a good point. Whether you're a solo founder or a software engineer, your time is limited. If you check everything your agents write, you become the bottleneck. Once you let the agents run without your involvement, you're only the final gatekeeper who accepts or rejects.
 
-In my setup, agents escalate things that need human verification. They add a human tag to a GitHub issue, and then I look. I had to tune them so they escalate only what I need to see. Most of the time I'm out of the loop. I give them specifications or raw input, and they turn it into specifications, build features, and ship them.
+In my setup, agents escalate things that need human verification. They add a human tag to a GitHub issue, and then I look. I had to tune them so they escalate only what I need to see.
+
+<figure>
+  <img src="../../assets/images/trends-in-ai-engineering-lightning-lesson/human-issues.png" alt="Terminal output of gh issue list --label human for the AI-Shipping-Labs/website repository, showing six bugs and enhancements that agents escalated for human review">
+  <figcaption>Issues my agents escalated to me in the AI Shipping Labs website repository</figcaption>
+</figure>
+
+Most of the time I'm out of the loop. I give them specifications or raw input, and they turn it into specifications, build features, and ship them.
 
 Often I'm involved more than I want, because agents create slop, especially in design. For the backend, it can be a dark factory already. For the frontend, not yet. But with new models like Opus 5.5 I feel I can be involved less and less.
 
@@ -248,6 +260,11 @@ You can't just tell them to go solve it. You need a hierarchy - for example, a c
 
 That's why I think product managers are uniquely equipped to run agents. They already know how to organize work in a team, set up processes, define specifications, and check work.
 
+<figure>
+  <img src="../../assets/images/trends-in-ai-engineering-lightning-lesson/agent-hierarchy.png" alt="Tree diagram: a chief scientist agent assigns approaches A, B, and C to three team lead agents, and each team lead directs its own team of thousands of agents">
+  <figcaption>Organizing 10,000 agents takes a hierarchy, not a swarm</figcaption>
+</figure>
+
 ## Becoming an AI Engineer
 
 If you want to become an AI engineer and get hired in the next three months, you don't need to focus on training and serving models. Hugo compared training models to working on an internal combustion engine. If you're a Formula One driver, it's good to know how it works, but most people who use a car don't need to. An AI engineer works on a product.
@@ -276,6 +293,11 @@ I recently read [Inference Engineering](https://aishippinglabs.com/books/inferen
 ## Our Next Course
 
 Hugo and I want to run a paid course together, like the ones we already run on Maven. There are infinitely many ideas, so we want to understand what you actually want.
+
+<figure>
+  <img src="../../assets/images/trends-in-ai-engineering-lightning-lesson/course-questionnaire-intro.jpg" alt="Intro of the questionnaire Help Shape a New Practical AI Engineering Course by Hugo Bowne-Anderson and Alexey Grigorev">
+  <figcaption>The questionnaire we shared at the end of the session</figcaption>
+</figure>
 
 Tell us where you stand, what you want to build, where you're stuck, and what format you prefer. We want to hear both what frustrates you and what excites you about AI.
 

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1801" height="536" viewBox="0 0 1801 536" role="img" aria-label="AI-Shipping-Labs/website">
+<rect x="1" y="1" width="1799" height="534" rx="16" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+<path d="M 2 16 Q 2 2 16 2 L 1785 2 Q 1799 2 1799 16 L 1799 99 Q 1799 109 1789 109 L 26 109 Q 16 109 16 99 Z" fill="#161b22"/>
+<line x1="2" y1="80" x2="1799" y2="80" stroke="#30363d" stroke-width="2"/>
+<circle cx="44.5" cy="40" r="12.5" fill="#ff5f56"/>
+<circle cx="84.5" cy="40" r="12.5" fill="#ffbd2e"/>
+<circle cx="124.5" cy="40" r="12.5" fill="#27c93f"/>
+<text x="900.5" y="48" text-anchor="middle" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="21" fill="#8b949e">AI-Shipping-Labs/website</text>
+<text x="52" y="156" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#7ee787" xml:space="preserve">$ </text>
+<text x="88.12" y="156" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" font-weight="bold" fill="#e6edf3" xml:space="preserve">gh issue list --label human</text>
+<text x="52" y="240" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" font-weight="bold" fill="#f0f6fc" xml:space="preserve">ID</text>
+<text x="178.42" y="240" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" font-weight="bold" fill="#f0f6fc" xml:space="preserve">TITLE</text>
+<text x="1243.96" y="240" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" font-weight="bold" fill="#f0f6fc" xml:space="preserve">LABELS</text>
+<text x="52" y="282" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#3fb950" xml:space="preserve">#1935</text>
+<text x="178.42" y="282" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">Pods: stuck pod meeting proposals in the daily staff Sl…</text>
+<text x="1243.96" y="282" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#8b949e" xml:space="preserve">enhancement, P2, human</text>
+<text x="52" y="324" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#3fb950" xml:space="preserve">#1934</text>
+<text x="178.42" y="324" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">Pod meetings polish: clearer proposal rule, nearer next…</text>
+<text x="1243.96" y="324" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#8b949e" xml:space="preserve">enhancement, P2, human</text>
+<text x="52" y="366" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#3fb950" xml:space="preserve">#1933</text>
+<text x="178.42" y="366" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">Tier overrides: API picks a different override than Stu…</text>
+<text x="1243.96" y="366" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#8b949e" xml:space="preserve">bug, P2, human</text>
+<text x="52" y="408" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#3fb950" xml:space="preserve">#1929</text>
+<text x="178.42" y="408" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">Studio global search: result row is cut off and shows F…</text>
+<text x="1243.96" y="408" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#8b949e" xml:space="preserve">bug, P1, human</text>
+<text x="52" y="450" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#3fb950" xml:space="preserve">#1927</text>
+<text x="178.42" y="450" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">Pods polish: honest suggested-time labels, re-request c…</text>
+<text x="1243.96" y="450" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#8b949e" xml:space="preserve">enhancement, P2, human</text>
+<text x="52" y="492" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#3fb950" xml:space="preserve">#1925</text>
+<text x="178.42" y="492" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#c9d1d9" xml:space="preserve">Scope the homework Q&amp;A to Introduction and question ste…</text>
+<text x="1243.96" y="492" font-family="JetBrains Mono, DejaVu Sans Mono, Noto Sans Mono, Menlo, Consolas, monospace" font-size="30" fill="#8b949e" xml:space="preserve">bug, P1, human</text>
+</svg>

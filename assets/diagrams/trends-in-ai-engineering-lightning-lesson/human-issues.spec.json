@@ -1,0 +1,151 @@
+{
+ "theme": "github-dark",
+ "chrome": "window",
+ "title": "AI-Shipping-Labs/website",
+ "width": 1801,
+ "lines": [
+  {
+   "spans": [
+    [
+     "$ ",
+     "prompt"
+    ],
+    [
+     "gh issue list --label human",
+     "bright",
+     true
+    ]
+   ]
+  },
+  {
+   "lead": 1,
+   "spans": [
+    [
+     "ID",
+     "white",
+     true
+    ],
+    {
+     "t": "TITLE",
+     "c": "white",
+     "b": true,
+     "col": 7
+    },
+    {
+     "t": "LABELS",
+     "c": "white",
+     "b": true,
+     "col": 66
+    }
+   ]
+  },
+  {
+   "spans": [
+    [
+     "#1935",
+     "green"
+    ],
+    {
+     "t": "Pods: stuck pod meeting proposals in the daily staff Sl\u2026",
+     "c": "fg",
+     "col": 7
+    },
+    {
+     "t": "enhancement, P2, human",
+     "c": "muted",
+     "col": 66
+    }
+   ]
+  },
+  {
+   "spans": [
+    [
+     "#1934",
+     "green"
+    ],
+    {
+     "t": "Pod meetings polish: clearer proposal rule, nearer next\u2026",
+     "c": "fg",
+     "col": 7
+    },
+    {
+     "t": "enhancement, P2, human",
+     "c": "muted",
+     "col": 66
+    }
+   ]
+  },
+  {
+   "spans": [
+    [
+     "#1933",
+     "green"
+    ],
+    {
+     "t": "Tier overrides: API picks a different override than Stu\u2026",
+     "c": "fg",
+     "col": 7
+    },
+    {
+     "t": "bug, P2, human",
+     "c": "muted",
+     "col": 66
+    }
+   ]
+  },
+  {
+   "spans": [
+    [
+     "#1929",
+     "green"
+    ],
+    {
+     "t": "Studio global search: result row is cut off and shows F\u2026",
+     "c": "fg",
+     "col": 7
+    },
+    {
+     "t": "bug, P1, human",
+     "c": "muted",
+     "col": 66
+    }
+   ]
+  },
+  {
+   "spans": [
+    [
+     "#1927",
+     "green"
+    ],
+    {
+     "t": "Pods polish: honest suggested-time labels, re-request c\u2026",
+     "c": "fg",
+     "col": 7
+    },
+    {
+     "t": "enhancement, P2, human",
+     "c": "muted",
+     "col": 66
+    }
+   ]
+  },
+  {
+   "spans": [
+    [
+     "#1925",
+     "green"
+    ],
+    {
+     "t": "Scope the homework Q&A to Introduction and question ste\u2026",
+     "c": "fg",
+     "col": 7
+    },
+    {
+     "t": "bug, P1, human",
+     "c": "muted",
+     "col": 66
+    }
+   ]
+  }
+ ]
+}

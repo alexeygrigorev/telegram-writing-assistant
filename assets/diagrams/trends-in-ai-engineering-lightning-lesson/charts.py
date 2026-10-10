@@ -1,7 +1,7 @@
 import json, matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
-D = json.load(open("/data/tmp/claude-1000/-home-alexey-git-telegram-writing-assistant/ef286e4e-10bc-4266-ace2-4700dc6c4c53/scratchpad/trend_data.json"))
+D = json.load(open("assets/diagrams/trends-in-ai-engineering-lightning-lesson/trend_data.json"))
 dates = list(D); labels = ["Feb 4","Feb 27","Mar 27","Apr 22","May 29","Jun 25","Jul 22","Aug 25","Sep 23"]
 OUT = "assets/images/trends-in-ai-engineering-lightning-lesson/"
 SURF, TXT, TXT2, GRID = "#fcfcfb", "#0b0b0b", "#52514e", "#e6e5e0"
@@ -42,6 +42,8 @@ lines([("integ", "Integrator stack\n(RAG, agents, APIs)", BLUE), ("trainer", "Tr
       "Integrators up, trainers down", "Share of AI-first postings that mention each stack", "integrator-vs-trainer.png", (0, 100))
 lines([("agents", "Agents", BLUE), ("rag", "RAG", ORANGE)],
       "Agents and RAG keep growing", "Share of all postings that mention each skill", "agents-and-rag.png", (0, 70))
+lines([("evals", "LLM evaluation", BLUE)],
+      "Evals show up in a quarter of postings", "Share of all postings that mention LLM evaluation", "llm-evaluation.png", (0, 40))
 # seniority, latest scrape
 s = D[dates[-1]]["sen"]
 order = [("Junior/Entry","Junior / entry"),("Mid (unspecified)","No level in title"),("Senior","Senior"),("Lead","Lead"),("Staff+","Staff, principal"),("Mgmt/Director","Manager, director")]
