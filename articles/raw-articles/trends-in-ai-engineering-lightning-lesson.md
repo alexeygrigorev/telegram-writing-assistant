@@ -9,7 +9,7 @@ status: draft
 # Trends in AI Engineering
 ## Webinar with Hugo Bowne-Anderson
 
-Last week I ran a webinar with Hugo Bowne-Anderson. Hugo and I met in Berlin about a month before, had a great breakfast, and decided to do something together.
+Last week I ran a webinar with [Hugo Bowne-Anderson](https://substack.com/@hugobowne). Hugo and I met in Berlin about a month before, had a great breakfast, and decided to do something together.
 
 <figure>
   <img src="../../assets/images/trends-in-ai-engineering-lightning-lesson/hugo-and-alexey.jpg" alt="Alexey Grigorev and Hugo Bowne-Anderson in a cafe in Berlin">
