@@ -8,6 +8,7 @@ See [All Articles](../_index.md) for the main articles index.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Dark Software Factories](dark-software-factories.md) | draft | 2026-10-11 | Agent-only software pipelines where no human reads the code: Hugo Bowne-Anderson and Alexey's webinar discussion, Dan Shapiro's five levels, StrongDM's hidden scenarios and digital twins, OpenAI's harness engineering, critiques (comprehension debt, test gaming, liability), and open questions |
 | [Whiteboard Architecture Review - Forwarded Notes](whiteboard-architecture-review.md) | draft | 2026-10-01 | Forwarded review of clickable diagrams, semantic diffs, call trees, and architecture-review limitations. |
 | [Inside ZCode: Taking a Coding Agent Harness Apart](inside-zcode.md) | draft | 2026-09-18 | Reverse-engineered Z.ai's Electron coding harness - process topology, the NDJSON wire protocol, agent runtime internals (tools, subagents, MCP, skills), the LLM-as-judge goal machine, and what the codex-zcode fork borrows from it |
 | [TypeSafe AI and Jev: A Decision Model That Does Not Generate Text](typesafe-ai.md) | draft | 2026-09-18 | TypeSafe AI's Jev (System One Model) - a non-generative model that returns typed probabilistic decisions in 70-500ms at $0.042/M input tokens, trained with RLCD, plus community projects (self-driving sims, Doom, chess) and reception |
