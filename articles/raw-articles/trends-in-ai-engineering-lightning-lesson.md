@@ -335,7 +335,7 @@ I recently read [Inference Engineering](https://aishippinglabs.com/books/inferen
 Hugo and I want to run a paid course together, like the ones we already run on Maven. There are infinitely many ideas, so we want to understand what you actually want.
 
 <figure>
-  <img src="../../assets/images/trends-in-ai-engineering-lightning-lesson/course-questionnaire-intro.jpg" alt="Intro of the questionnaire Help Shape a New Practical AI Engineering Course by Hugo Bowne-Anderson and Alexey Grigorev">
+  <img src="../../assets/images/trends-in-ai-engineering-lightning-lesson/course-questionnaire.png" alt="Intro of the questionnaire Help Shape a New Practical AI Engineering Course by Hugo Bowne-Anderson and Alexey Grigorev: a paid hands-on course, tuition of about US$1,500, a 4 to 5 minute survey, and a 30% discount for respondents">
   <figcaption>The questionnaire we shared at the end of the session</figcaption>
 </figure>
 
