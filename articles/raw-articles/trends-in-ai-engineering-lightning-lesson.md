@@ -29,26 +29,41 @@ If you prefer video, here's the recording:
 
 https://youtu.be/whIdxTQsU0A
 
-During the session, Hugo separated two terms that people often confuse: AI engineering, where AI is part of the product, and agentic engineering, where agents help you build the product. The two are closely connected, and we talked about both.
-
-In this article, I focus on AI engineering and the trends we see in the job market. In the next one, I'll cover the other half: agentic engineering.
-
-Here's what this article covers:
-
-- What we can see in nine monthly scrapes of AI engineering job postings
-- The difference between AI engineering and agentic engineering
-- Which skills stay human
-- What to focus on if you want to become an AI engineer: evals and the AI product lifecycle
-
 ## Hugo and Me
 
 Since you're reading this newsletter, I hope you already know a few things about me. I like calling myself a product AI engineer: I do whatever it takes to integrate AI from the user's perspective. I teach this in my courses.
 
 Hugo's background is in mathematics, physics, and biology. He researched cell biology at the Max Planck Institute in Dresden and then at Yale. About 15 years ago he moved to industry, but he stayed in education. He worked at DataCamp, taught in the SciPy and PyData ecosystems, and did developer relations at startups such as Coiled and Outerbounds. He hosts the [Vanishing Gradients](https://vanishinggradients.fireside.fm/) podcast, and that's how we first met - we've done a bunch of podcasts together.
 
+## AI Engineering vs Agentic Engineering
+
+We talked about a lot of things in the session. One of them was Hugo's distinction between two terms that often get confused:
+
+- In agentic engineering (a term popularized by Simon Willison), you build software with agents. The agent is part of the dev team. Your job is specification, delegation, review, and orchestration.
+- In AI engineering, you build agentic search, RAG, or an agent. AI is part of the product. You think about models, prompts, evals, harness engineering, and agentic loops.
+
+<figure>
+  <img src="../../assets/images/trends-in-ai-engineering-lightning-lesson/agentic-vs-ai-engineering.jpg" alt="Two-column slide: in agentic engineering, the agent is part of the development team; in AI engineering, AI is part of the product">
+  <figcaption>Hugo's slide comparing agentic engineering and AI engineering</figcaption>
+</figure>
+
+In practice, you do both. You build AI-powered products with agents. And for agentic engineering, you build up your own harness - skills in your AGENTS.md, MCP servers, sandboxes, and guardrails.
+
+I see this confusion among people who join my courses: they join a course about AI engineering wanting to learn how to use AI for coding. There's a lot of overlap, but the work is different. If you write code with AI, someone else takes care of evaluating and monitoring that tool. You focus on creating the proper specification, making sure the agent follows it, and enforcing the development lifecycle rules.
+
+In the session, we talked about both. In this article, I cover the AI engineering half. The other half, agentic engineering, is in the [next article](TODO: link to the agentic engineering article once it's published).
+
+Here's what this article covers:
+
+- What we can see in nine monthly scrapes of AI engineering job postings
+- Which skills stay human, and why working with people still matters
+- What to skip if you want to become an AI engineer
+- What to learn instead: evals and the AI product lifecycle
+- The course Hugo and I want to build next, and how you can help us choose its topic
+
 ## The Job Market
 
-I maintain the [AI Engineering Field Guide](https://github.com/alexeygrigorev/ai-engineering-field-guide) repository.
+We started the session with trends in AI engineering jobs. I maintain the [AI Engineering Field Guide](https://github.com/alexeygrigorev/ai-engineering-field-guide) repository.
 
 Every month since February 2026 I scrape job postings for the query "AI engineering" in six locations: Berlin, Amsterdam, London, New York, Los Angeles, and all of India. Then I use LLMs to extract skills, responsibilities, and use cases from each posting.
 
@@ -117,25 +132,9 @@ There are almost no junior positions: only about 1% of job titles say junior or 
   <figcaption>Seniority from the job title, September 2026 scrape</figcaption>
 </figure>
 
-## AI Engineering vs Agentic Engineering
-
-Hugo separated two terms that often get confused:
-
-- In agentic engineering (a term popularized by Simon Willison), you build software with agents. The agent is part of the dev team. Your job is specification, delegation, review, and orchestration.
-- In AI engineering, you build agentic search, RAG, or an agent. AI is part of the product. You think about models, prompts, evals, harness engineering, and agentic loops.
-
-<figure>
-  <img src="../../assets/images/trends-in-ai-engineering-lightning-lesson/agentic-vs-ai-engineering.jpg" alt="Two-column slide: in agentic engineering, the agent is part of the development team; in AI engineering, AI is part of the product">
-  <figcaption>Hugo's slide comparing agentic engineering and AI engineering</figcaption>
-</figure>
-
-In practice, you do both. You build AI-powered products with agents. And for agentic engineering, you build up your own harness - skills in your AGENTS.md, MCP servers, sandboxes, and guardrails.
-
-I see this confusion among people who join my courses: they join a course about AI engineering wanting to learn how to use AI for coding. There's a lot of overlap, but the work is different. If you write code with AI, someone else takes care of evaluating and monitoring that tool. You focus on creating the proper specification, making sure the agent follows it, and enforcing the development lifecycle rules.
-
 ## The Human Side
 
-Nobody can see what roles, hiring processes, or even tools will look like in a year or two. But we can name the skills that will stay valuable.
+The job data shows where the market is now. But nobody can see what roles, hiring processes, or even tools will look like in a year or two. But we can name the skills that will stay valuable.
 
 Hugo listed the data scientist skills that will always be useful:
 
@@ -159,7 +158,7 @@ For Hugo, the work is speaking with people, understanding their problems, and so
 
 ## Becoming an AI Engineer
 
-If you want to become an AI engineer and get hired in the next three months, you don't need to focus on training and serving models. Hugo compared training models to working on an internal combustion engine. If you're a Formula One driver, it's good to know how it works, but most people who use a car don't need to. An AI engineer works on a product.
+Then there are the technical skills. If you want to become an AI engineer and get hired in the next three months, you don't need to focus on training and serving models. Hugo compared training models to working on an internal combustion engine. If you're a Formula One driver, it's good to know how it works, but most people who use a car don't need to. An AI engineer works on a product.
 
 People often ask me whether they need to know LLM internals to work as an AI engineer. I usually say no. You need to know how to send a request to an LLM provider, build everything around it, and have the data science mindset. Some companies do lower-level work and may ask for it, but they're a minority in my data, and the share keeps falling.
 
@@ -169,14 +168,14 @@ I recently read [Inference Engineering](https://aishippinglabs.com/books/inferen
 
 What you do need is evals. AI systems need checking, and in AI engineering, we call it evaluation. Only a quarter of postings name LLM evaluation explicitly, but the share keeps growing.
 
-Systems built on LLMs aren't deterministic, so we can't simply trust them. We need a framework to make sure they can be trusted - for example, an evaluation set built from real user data.
-
-Data science skills help a lot when you build that framework. Data scientists have done this kind of evaluation for a long time, because machine learning is non-deterministic too.
-
 <figure>
   <img src="../../assets/images/trends-in-ai-engineering-lightning-lesson/llm-evaluation.png" alt="Line chart: the share of AI engineering postings that mention LLM evaluation grew from 20% in February to 25% in September 2026">
   <figcaption>Share of AI engineering postings that mention LLM evaluation</figcaption>
 </figure>
+
+Systems built on LLMs aren't deterministic, so we can't simply trust them. We need a framework to make sure they can be trusted - for example, an evaluation set built from real user data.
+
+Data science skills help a lot when you build that framework. Data scientists have done this kind of evaluation for a long time, because machine learning is non-deterministic too.
 
 Evals are one step in a bigger loop. If Hugo were starting as an AI engineer today, he would focus on the data science mentality and the lifecycle of AI products. Unlike the traditional spec, build, deploy, maintain cycle, it's iterative and experimental.
 
@@ -197,7 +196,7 @@ You learn it by building a project: an agent or an AI-powered application with r
 
 ## Our Next Course
 
-That was the second goal of the session: to find out what we could build together for you. Hugo and I want to run a paid course together, like the ones we already run on Maven. There are infinitely many ideas, so we want to understand what you actually want.
+The session had a second goal: to find out what we could build together for you. Hugo and I want to run a paid course together, like the ones we already run on Maven. There are infinitely many ideas, so we want to understand what you actually want.
 
 <figure>
   <img src="../../assets/images/trends-in-ai-engineering-lightning-lesson/course-questionnaire.png" alt="Intro of the questionnaire Help Shape a New Practical AI Engineering Course by Hugo Bowne-Anderson and Alexey Grigorev: a paid hands-on course, tuition of about US$1,500, a 4 to 5 minute survey, and a 30% discount for respondents">
