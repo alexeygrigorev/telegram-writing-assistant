@@ -51,7 +51,6 @@
     {
       "id": "team1",
       "title": "Agent team",
-      "subtitle": "thousands of agents",
       "icon": "robot",
       "color": "gray",
       "x": 40,
@@ -60,7 +59,6 @@
     {
       "id": "team2",
       "title": "Agent team",
-      "subtitle": "thousands of agents",
       "icon": "robot",
       "color": "gray",
       "x": 390,
@@ -69,7 +67,6 @@
     {
       "id": "team3",
       "title": "Agent team",
-      "subtitle": "thousands of agents",
       "icon": "robot",
       "color": "gray",
       "x": 740,

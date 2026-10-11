@@ -301,7 +301,7 @@ You can't just tell them to go solve it. You need a hierarchy - for example, a c
 That's why I think product managers are uniquely equipped to run agents. They already know how to organize work in a team, set up processes, define specifications, and check work.
 
 <figure>
-  <img src="../../assets/images/trends-in-ai-engineering-lightning-lesson/agent-hierarchy.png" alt="Tree diagram: a chief scientist agent assigns approaches A, B, and C to three team lead agents, and each team lead directs its own team of thousands of agents">
+  <img src="../../assets/images/trends-in-ai-engineering-lightning-lesson/agent-hierarchy.png" alt="Tree diagram: a chief scientist agent assigns approaches A, B, and C to three team lead agents, and each team lead directs its own team of agents">
   <figcaption>Organizing 10,000 agents takes a hierarchy, not a swarm</figcaption>
 </figure>
 
