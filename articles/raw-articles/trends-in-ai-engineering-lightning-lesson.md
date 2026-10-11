@@ -61,10 +61,50 @@ Every month since February 2026 I scrape job postings for the query "AI engineer
 
 This is what one processed job posting looks like:
 
-<figure>
-  <img src="../../assets/images/trends-in-ai-engineering-lightning-lesson/structured-job.png" alt="Structured YAML extracted from a Senior AI Engineer job posting: company, responsibilities, use cases, and skills">
-  <figcaption>A Senior AI Engineer posting from the September 2026 scrape after LLM extraction</figcaption>
-</figure>
+```yaml
+company:
+  name: Ecolab
+  stage: null
+  focus: Water, hygiene and infection prevention solutions
+position:
+  title: Senior AI Engineer
+  ai_type:
+    type: ai-first
+    reasoning: |-
+      The role designs RAG, multi-agent orchestration, and LLM-
+      powered workflows directly, shaping model behavior and
+      output quality of generative systems, so it is ai-first.
+  responsibilities:
+  - Lead development of scalable GenAI-powered systems
+  - Design intelligent workflows leveraging LLMs, vector-based retrieval, and multi-agent
+    orchestration
+  - Drive solution architecture for AI applications
+  - Mentor junior engineers
+  - Deliver production-ready applications integrated with business processes and platforms
+  use_cases:
+  - Intelligent business process workflows powered by LLMs
+  - Vector-based retrieval and multi-agent orchestration for enterprise applications
+  - GenAI applications integrated with business platforms
+  skills:
+    genai: [Generative AI, LLMs, RAG, Multi-Agent Systems]
+    ml: []
+    web: []
+    databases: []
+    data: []
+    cloud: []
+    ops: []
+    languages: []
+    domains: []
+    other: []
+  is_customer_facing: false
+  is_management: false
+meta:
+  job_id: '10038736'
+  location: Bengaluru, IND
+  extracted_at: '2026-09-23T10:57:17.683468'
+  model: glm-5.2
+  prompt_sha: ef6fdeb19af2
+```
 
 Nine months of data isn't enough to build models that predict the future. But I can already see where the market is going.
 
