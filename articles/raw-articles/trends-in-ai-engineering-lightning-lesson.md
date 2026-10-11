@@ -29,7 +29,7 @@ If you prefer video, here's the recording:
 
 https://youtu.be/whIdxTQsU0A
 
-Agents now write more and more of the code. Hugo and I think the human engineer still adds value at the two ends of the work - deciding what to build, and checking that what got built is right.
+Agents now write more and more of the code. Hugo and I think the human engineer still adds value at the two ends of the work - deciding what to build, and setting up how the result gets checked.
 
 <figure>
   <img src="../../assets/images/trends-in-ai-engineering-lightning-lesson/two-ends.png" alt="Two lanes: you decide what to build, agents build and write most of the code, and you check that the result is right">
@@ -40,10 +40,12 @@ In this article, I'll cover:
 
 - What we can see in nine months of AI engineering job postings
 - How agents changed the way we write code
-- Why verification is now the bottleneck, and how to deal with sloppy agent code
+- The difference between agentic engineering and AI engineering
+- Why verification is now the bottleneck
+- How to deal with sloppy agent code: agents that check other agents, and rules from good books
 - Dark software factories, where humans don't look at the code at all
 - Which skills stay human
-- What to focus on if you want to become an AI engineer
+- What to focus on if you want to become an AI engineer: evals and the AI product lifecycle
 
 ## Hugo and Me
 
@@ -55,7 +57,7 @@ Hugo's background is in mathematics, physics, and biology. He researched cell bi
 
 I maintain the [AI Engineering Field Guide](https://github.com/alexeygrigorev/ai-engineering-field-guide) repository.
 
-Every month since February 2026 I scrape job postings for the query "AI engineering" in six locations: Berlin, Amsterdam, London, New York, Los Angeles, and entire India. Then I use LLMs to extract skills, responsibilities, and use cases from each posting.
+Every month since February 2026 I scrape job postings for the query "AI engineering" in six locations: Berlin, Amsterdam, London, New York, Los Angeles, and all of India. Then I use LLMs to extract skills, responsibilities, and use cases from each posting.
 
 This is what one processed job posting looks like:
 
@@ -122,7 +124,7 @@ There are almost no junior positions - only about 1%. AI engineers are usually m
   <figcaption>Seniority from the job title, September 2026 scrape</figcaption>
 </figure>
 
-Most of the job is the work around hosted LLMs, and a big part of that is evaluation. Knowing evals is the difference between getting hired and not getting hired. If a hiring manager finds out you don't know evals, the interview will likely end there.
+Most of the job is the work around hosted LLMs.
 
 ## Agents Write the Code Now
 
@@ -133,6 +135,8 @@ I talk to more and more companies whose policy is "no handwritten code". You are
 I was surprised they were that adamant about it. But it's their choice - they know their business better than I do.
 
 Even when a company doesn't require agents, it's hard to go back to writing code by hand. You're still the bottleneck when you work with agents, but if you write code directly, you're just so much slower.
+
+## Agentic Engineering vs AI Engineering
 
 Hugo separated two terms that often get confused:
 
@@ -183,18 +187,35 @@ With agents, the steps look like this:
 
 ## Sloppy Agent Code
 
-Coding agents, even frontier ones, make sloppy design and code. They give you pages and pages of design that are absolute slop. When you design with them, you need to be in the loop and in control. Hugo asks them to respond in three sentences, or to give him 10 ideas of three sentences each, so he can choose the best one.
+Coding agents, even frontier ones, make sloppy design and code. They give you pages and pages of design that are absolute slop.
 
-Hugo stays in the loop himself. I let a second agent do the checking instead, using what I call [adversarial design](https://github.com/alexeygrigorev/.agents/blob/main/skills/adversarial-design-review/SKILL.md). I set up two agents: a designer and a senior designer. The designer designs, and the senior designer tries to find a reason to reject the design. They share a design system document that describes how the design should look, and they bounce the design between each other until the senior designer is satisfied.
+When you design with them, you need to control the output.
 
-I do the same for code, with an implementer and a tester. The tester's goal is to find holes in the implementation and bounce it back to the implementer. A feature may take 4-5 hours instead of 20 minutes because of the back and forth, but it's still faster than doing it manually, and the quality at the end is better.
+Hugo does it himself: he asks them to respond in three sentences, or to give him 10 ideas of three sentences each, so he can choose the best one.
+
+## Agents Controlling Agents
+
+Many people think only a technical human can fix the slop. Hugo disagrees: the fixer can be an agent with the correct instructions and the correct verification processes. Parallelize with a few of them because some will mess up, and surface the high-risk, important things to a human. That doesn't have to mean looking at code - it can be dashboards, information graphics, or cards.
+
+That's how I work too. I often let one agent control the output of another:
+
+- For coding, I follow the implementer-reviewer pattern
+- For design, I use what I call [adversarial design](https://github.com/alexeygrigorev/.agents/blob/main/skills/adversarial-design-review/SKILL.md).
+
+The second agent acts as a gatekeeper: until it agrees that the result is good, the first one has to continue.
+
+For design, I have a designer and a senior designer. The designer designs, and the senior designer tries to find a reason to reject the design. They share a design system document that describes how the design should look, and a set of criteria for evaluating the design. They bounce the design between each other until the senior designer is satisfied.
+
+For code, the tester's goal is to find holes in the implementation and bounce it back to the implementer. A feature may take 4-5 hours instead of 20 minutes because of the back and forth, but it's still faster than doing it manually, and the quality at the end is better.
 
 <figure>
   <img src="../../assets/images/trends-in-ai-engineering-lightning-lesson/adversarial-loop.png" alt="A maker agent builds, a checker agent checks the result against shared rules such as a design system or Clean Code, and sends rejected work back until it accepts it">
   <figcaption>One agent builds, another tries to reject the result</figcaption>
 </figure>
 
-Both agents need rules to check against, and the good books are a shortcut. My favorite is Clean Code by Robert Martin. If you just say "follow the principles from the Clean Code book by Robert Martin", the code improves.
+## Rules From Good Books
+
+Both agents need rules to check against. I often refer to books. For coding, I can say "follow the principles from the Clean Code book by Robert Martin", then code improves.
 
 Sometimes I make it more specific:
 
@@ -207,26 +228,15 @@ Of course it burns more tokens, but I don't want to cry when I look at the code.
 
 Hugo does the same for writing with Strunk and White's The Elements of Style. Its rules include "omit needless words" and "use the active voice". He has these rules in the AGENTS.md of a bunch of repos. The agents don't always follow them, so he runs three verification agents in parallel, because each one misses something. Then a final agent performs the edit.
 
-I developed my own rules empirically, by looking at what went wrong and correcting it. Referencing a well-known book is much more convenient.
+Referencing a well-known book is much more convenient than writing every rule yourself.
 
-It's the same as leading a team of juniors. You don't look at every line, but you share the design principles and check from time to time: "No, this isn't good, I said no ternary operator". When you see something that isn't in the rules yet, you add a rule.
+## Adding Rules as You Go
+
+I also add my own rules empirically, by looking at what went wrong and correcting it. It's the same as leading a team of juniors. You don't look at every line, but you share the design principles and check from time to time: "No, this isn't good, I said no ternary operator". When you see something that isn't in the rules yet, you add a rule.
 
 For example, agents like defensive coding. In Python, they check if an attribute exists before accessing it. These checks make the code hard to read. With a type checker, you don't need them.
 
-I tested this on a fairly large and relatively old codebase. I developed it with AI, first by copy-pasting from ChatGPT and then fully with coding agents. When I noticed a lot of slop, I asked the agent to refactor the entire codebase using these rules. It took two Codex resets, but after that I could read the code without crying.
-
-Many people think only a technical human can fix the slop. Hugo disagrees: the fixer can be an agent with the correct instructions and the correct verification processes. Parallelize with a few of them because some will mess up, and surface the high-risk, important things to a human. That doesn't have to mean looking at code - it can be dashboards, information graphics, or cards.
-
-## Evals Are the Same Skill
-
-In AI engineering, we call the same verification work evaluation. Systems built on LLMs aren't deterministic, so we can't simply trust them. We need a framework to make sure they can be trusted - for example, an agent that evaluates another agent.
-
-Data science skills help a lot when you build that framework. Data scientists have done this kind of evaluation for a long time, because machine learning is non-deterministic too.
-
-<figure>
-  <img src="../../assets/images/trends-in-ai-engineering-lightning-lesson/llm-evaluation.png" alt="Line chart: the share of AI engineering postings that mention LLM evaluation grew from 20% in February to 25% in September 2026">
-  <figcaption>Share of AI engineering postings that mention LLM evaluation</figcaption>
-</figure>
+I tested these rules on a fairly large and relatively old codebase. I developed it with AI, first by copy-pasting from ChatGPT and then fully with coding agents. When I noticed a lot of slop, I asked the agent to refactor the entire codebase using these rules. It took two Codex resets, but after that I could read the code without crying.
 
 ## Dark Software Factories
 
@@ -237,6 +247,8 @@ In a dark software factory, humans aren't allowed to look at the code. They get 
 Hugo doesn't suggest anyone build one today. But he thinks there's a not-so-distant future where they're economically viable. If that sounds strange, remember that we don't read machine code anymore. We trust software because of abstraction layers, and with agents, we get that trust from good tests, verification, and specification.
 
 I think it's a good point. Whether you're a solo founder or a software engineer, your time is limited. If you check everything your agents write, you become the bottleneck. Once you let the agents run without your involvement, you're only the final gatekeeper who accepts or rejects.
+
+## How I Stay Out of the Loop
 
 In my setup, agents escalate things that need human verification. They add a human tag to a GitHub issue, and then I look. I had to tune them so they escalate only what I need to see.
 
@@ -253,7 +265,7 @@ Hugo added that this is still hard work. We haven't evolved to make that many de
 
 ## The Human Side
 
-Nobody can see what roles, hiring processes, or even tools will look like in a year or two. But we can name the skills that matter at the other end of the work - deciding what to build and for whom.
+If agents can build and check the code, what's left for us? Nobody can see what roles, hiring processes, or even tools will look like in a year or two. But we can name the skills that matter at the other end of the work - deciding what to build and for whom.
 
 Hugo listed the data scientist skills that will always be useful:
 
@@ -265,6 +277,8 @@ I would add problem discovery. There are so many problems around us waiting to b
 
 With AI, I can finally approach these problems. Every week there's a new model available for free, and you can test how it solves your particular problem. AI can't find these problems for you, so you can stand out by finding them.
 
+## Working With People
+
 Hugo also talked about what he prefers to call human skills rather than soft skills. We use agents to write code, and we write code to solve problems for our customers. Our customers are people, not agents. We still need the human connection, the user interviews, and everything product managers and product designers have done for a long time.
 
 As a solo founder, I can go far with AI. But my background is engineering, and I don't have marketing or sales skills. So I can't reliably sell what I build.
@@ -272,6 +286,8 @@ As a solo founder, I can go far with AI. But my background is engineering, and I
 Freelancers have the same problem. You need to convince clients why you charge $2,000 per day when a Claude subscription costs $200 per month - agents won't give you money. And at work, you still need to convince your manager to give you that promotion.
 
 Hugo agreed. For him, the work is speaking with people, understanding their problems, and solving them in a way that gives them more value than they pay. Even this session exists because we met in Berlin and had breakfast.
+
+## Organizing Agents Like a Team
 
 Organizing work is a human skill too. When OpenAI announced its Navier-Stokes result, I was most interested in the fact that a team of 10,000 agents worked on it. I tried to imagine how I would organize the work of 10,000 agents on a problem I don't know.
 
@@ -288,7 +304,24 @@ That's why I think product managers are uniquely equipped to run agents. They al
 
 If you want to become an AI engineer and get hired in the next three months, you don't need to focus on training and serving models. Hugo compared training models to working on an internal combustion engine. If you're a Formula One driver, it's good to know how it works, but most people who use a car don't need to. An AI engineer works on a product.
 
-Instead, Hugo would focus on the data science mentality and the lifecycle of AI products. Unlike the traditional spec, build, deploy, maintain cycle, it's iterative and experimental.
+People often ask me whether they need to know LLM internals to work as an AI engineer. I usually say no. You need to know how to send a request to an LLM provider, build everything around it, and have the data science mindset. Some companies do lower-level work and may ask for it, but fewer than 10% of the postings in my data do.
+
+I recently read [Inference Engineering](https://aishippinglabs.com/books/inference-engineering) by Philip Kiely, who spent several years at Baseten working on high-performance inference at scale. It's a wonderful book if you want to know what happens after you send a request. But if your goal is to become an AI engineer, read it later and focus on building projects now. If your goal is to become an inference engineer, that's the book to read.
+
+## What to Learn Instead: Evals and the Lifecycle
+
+What you do need is evals. Checking the output matters just as much when AI is part of the product, and in AI engineering, we call it evaluation. Knowing evals is the difference between getting hired and not getting hired. If a hiring manager finds out you don't know evals, the interview will likely end there.
+
+Systems built on LLMs aren't deterministic, so we can't simply trust them. We need a framework to make sure they can be trusted - for example, an agent that evaluates another agent.
+
+Data science skills help a lot when you build that framework. Data scientists have done this kind of evaluation for a long time, because machine learning is non-deterministic too.
+
+<figure>
+  <img src="../../assets/images/trends-in-ai-engineering-lightning-lesson/llm-evaluation.png" alt="Line chart: the share of AI engineering postings that mention LLM evaluation grew from 20% in February to 25% in September 2026">
+  <figcaption>Share of AI engineering postings that mention LLM evaluation</figcaption>
+</figure>
+
+Evals are one step in a bigger loop. Hugo would focus on the data science mentality and the lifecycle of AI products. Unlike the traditional spec, build, deploy, maintain cycle, it's iterative and experimental.
 
 The lifecycle looks like this:
 
@@ -305,10 +338,6 @@ The lifecycle looks like this:
 
 You learn it by building a project: an agent or an AI-powered application with real users.
 
-People often ask me whether they need to know LLM internals to work as an AI engineer. I usually say no. You need to know how to send a request to an LLM provider, build everything around it, and have the data science mindset. Some companies do lower-level work and may ask for it, but fewer than 10% of the postings in my data do.
-
-I recently read [Inference Engineering](https://aishippinglabs.com/books/inference-engineering) by Philip Kiely, who spent several years at Baseten working on high-performance inference at scale. It's a wonderful book if you want to know what happens after you send a request. But if your goal is to become an AI engineer, read it later and focus on building projects now. If your goal is to become an inference engineer, that's the book to read.
-
 ## Our Next Course
 
 Hugo and I want to run a paid course together, like the ones we already run on Maven. There are infinitely many ideas, so we want to understand what you actually want.
@@ -320,4 +349,4 @@ Hugo and I want to run a paid course together, like the ones we already run on M
 
 Tell us where you stand, what you want to build, where you're stuck, and what format you prefer. We want to hear both what frustrates you and what excites you about AI.
 
-If you want to help us decide, fill in [this questionnaire](https://forms.gle/EjtBzfmZft15dCvY9). It isn't a short form and needs some focus time. As a thank you, people who fill it in will get a discount on the future course once we decide what to build.
+If you want to help us decide, fill in [this questionnaire](https://forms.gle/EjtBzfmZft15dCvY9). It takes about 5 minutes. As a thank you, people who fill it in will get a discount on the future course once we decide what to build.
