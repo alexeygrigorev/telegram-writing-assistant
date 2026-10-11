@@ -55,23 +55,18 @@ Hugo's background is in mathematics, physics, and biology. He researched cell bi
 
 I maintain the [AI Engineering Field Guide](https://github.com/alexeygrigorev/ai-engineering-field-guide) repository.
 
-Every month since February 2026 I scrape job postings for the query "AI engineering" in six locations: Berlin, Amsterdam, London, New York, Los Angeles, and India. Then I use LLMs to extract skills, responsibilities, and use cases from each posting.
+Every month since February 2026 I scrape job postings for the query "AI engineering" in six locations: Berlin, Amsterdam, London, New York, Los Angeles, and entire India. Then I use LLMs to extract skills, responsibilities, and use cases from each posting.
 
 This is what one processed job posting looks like:
 
 ```yaml
 company:
   name: Ecolab
-  stage: null
   focus: Water, hygiene and infection prevention solutions
 position:
   title: Senior AI Engineer
   ai_type:
     type: ai-first
-    reasoning: |-
-      The role designs RAG, multi-agent orchestration, and LLM-
-      powered workflows directly, shaping model behavior and
-      output quality of generative systems, so it is ai-first.
   responsibilities:
   - Lead development of scalable GenAI-powered systems
   - Design intelligent workflows leveraging LLMs, vector-based retrieval, and multi-agent
@@ -85,23 +80,7 @@ position:
   - GenAI applications integrated with business platforms
   skills:
     genai: [Generative AI, LLMs, RAG, Multi-Agent Systems]
-    ml: []
-    web: []
-    databases: []
-    data: []
-    cloud: []
-    ops: []
-    languages: []
-    domains: []
-    other: []
-  is_customer_facing: false
-  is_management: false
-meta:
-  job_id: '10038736'
-  location: Bengaluru, IND
-  extracted_at: '2026-09-23T10:57:17.683468'
-  model: glm-5.2
-  prompt_sha: ef6fdeb19af2
+# ...
 ```
 
 Nine months of data isn't enough to build models that predict the future. But I can already see where the market is going.
@@ -120,7 +99,9 @@ Forward-deployed engineer (FDE) roles grow faster than the market overall. The n
   <figcaption>Forward-deployed engineer postings per scrape</figcaption>
 </figure>
 
-Model training roles are shrinking. Before, companies hired people to train LLMs with PyTorch-style skills. Companies post fewer of these roles now, and fewer inference and serving roles too. Companies now mostly use "AI engineer" to mean someone who calls models through APIs and builds things around them.
+Roles that focus on training models are shrinking. Before, companies wanted more people with PyTorch-style skills. Now they post fewer of these roles. Also, fewer inference and serving roles.
+
+So it looks like now companies mostly use "AI engineer" to mean someone who calls models through APIs and builds things around them.
 
 <figure>
   <img src="../../assets/images/trends-in-ai-engineering-lightning-lesson/integrator-vs-trainer.png" alt="Line chart: the share of AI-first postings that mention the integrator stack grew from 80% to 91%, while the trainer stack fell from 38% to 30%">
@@ -141,7 +122,7 @@ There are almost no junior positions - only about 1%. AI engineers are usually m
   <figcaption>Seniority from the job title, September 2026 scrape</figcaption>
 </figure>
 
-So most of the job is the work around the model, and a big part of that is evaluation. Knowing evals is the difference between getting hired and not getting hired. If a hiring manager finds out you don't know evals, the interview will likely end there.
+Most of the job is the work around hosted LLMs, and a big part of that is evaluation. Knowing evals is the difference between getting hired and not getting hired. If a hiring manager finds out you don't know evals, the interview will likely end there.
 
 ## Agents Write the Code Now
 
@@ -173,12 +154,12 @@ If agents write the code, you need a way to know that the code is right.
 
 Hugo ran a survey on how people do agentic data science. Many people said AI changes their workflow significantly: 34 said "fundamentally" and 39 said "significantly". Hugo wanted to see what made the difference, so he built a heat map of how much AI changed people's workflow against how they verify AI-generated code.
 
-Agentic verification means using agents to verify the work of other agents. 59% of the people whose workflow changed fundamentally use it and write tests. The less impact people reported, the fewer of them wrote tests or used agentic verification. It isn't causal, but there's a correlation: the more tests you write and the more agentic verification you use, the more value you get from agents.
-
 <figure>
   <img src="../../assets/images/trends-in-ai-engineering-lightning-lesson/agentic-verification-heat-map.jpg" alt="Heat map of verification methods by how much AI agents changed people's workflow. In the group whose workflow changed fundamentally, 59% ask another agent to critique the work and 62% write tests">
   <figcaption>From Hugo's survey: how people verify AI-generated work, grouped by how much agents changed their workflow</figcaption>
 </figure>
+
+Agentic verification means using agents to verify the work of other agents. 59% of the people whose workflow changed fundamentally use it and write tests. The less impact people reported, the fewer of them wrote tests or used agentic verification. It isn't causal, but there's a correlation: the more tests you write and the more agentic verification you use, the more value you get from agents.
 
 Hugo doesn't say to stop reading code manually - only that you probably shouldn't read all of it.
 
@@ -186,14 +167,14 @@ Agents change the whole development lifecycle. In a reductive version, you spec 
 
 With agents, the steps look like this:
 
-1. Speccing is agent-assisted.
-2. The build is agent-driven - agents write most of the code.
+1. Creating specifications is agent-assisted
+2. Building is agent-driven - agents write most of the code (if not all)
 3. Verification has several layers:
    - Automated tests, as before - unit, integration, end-to-end, regression
    - LLM as a judge for correctness, quality, and adherence
    - Agentic review, where agents review code and design
    - Human review for context, UX, and similar things
-4. Once you get sophisticated enough, agents monitor, operate, and suggest changes in production.
+4. Once you get sophisticated enough, your agents start monitoring, operating and suggesting changes in production
 
 <figure>
   <img src="../../assets/images/trends-in-ai-engineering-lightning-lesson/agentic-software-lifecycle.jpg" alt="Diagram of the agentic software lifecycle: an agent-assisted spec, an agent-driven build, a verification layer with human review, agent review, LLM as a judge and automated tests, then ship and maintain, with a loop back to the spec">
@@ -204,7 +185,7 @@ With agents, the steps look like this:
 
 Coding agents, even frontier ones, make sloppy design and code. They give you pages and pages of design that are absolute slop. When you design with them, you need to be in the loop and in control. Hugo asks them to respond in three sentences, or to give him 10 ideas of three sentences each, so he can choose the best one.
 
-I use what I call adversarial design. I set up two agents: a designer and a senior designer. The designer designs, and the senior designer tries to find a reason to reject the design. They share a design system document that describes how the design should look, and they bounce the design between each other until the senior designer is satisfied.
+I use what I call [adversarial design](https://github.com/alexeygrigorev/.agents/blob/main/skills/adversarial-design-review/SKILL.md). I set up two agents: a designer and a senior designer. The designer designs, and the senior designer tries to find a reason to reject the design. They share a design system document that describes how the design should look, and they bounce the design between each other until the senior designer is satisfied.
 
 I do the same for code, with an implementer and a tester. The tester's goal is to find holes in the implementation and bounce it back to the implementer. A feature may take 4-5 hours instead of 20 minutes because of the back and forth, but it's still faster than doing it manually, and the quality at the end is better.
 
