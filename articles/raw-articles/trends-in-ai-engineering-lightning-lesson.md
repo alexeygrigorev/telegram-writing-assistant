@@ -16,14 +16,14 @@ Last week I ran a webinar with [Hugo Bowne-Anderson](https://substack.com/@hugob
   <figcaption>Hugo and I at our breakfast in Berlin</figcaption>
 </figure>
 
-The first step was an open ask-us-anything session - which was the webinar.
+The first step we decided on was an open ask-us-anything session - which was the webinar.
 
 We had two goals for it:
 
 - help the people who came to the webinar
 - understand what we could create together for you longer term
 
-At the end of the session Hugo and I talked about turning this recap into a shared Substack article - this article.
+At the end of the session Hugo and I talked about turning this recap into a shared Substack article. This article.
 
 If you prefer video, here's the recording:
 
@@ -47,11 +47,9 @@ In this article, I'll cover:
 
 ## Hugo and Me
 
-I've been an educator for about six years. I started with [machine learning engineering](https://github.com/DataTalksClub/machine-learning-zoomcamp) and then did [data engineering](https://github.com/DataTalksClub/data-engineering-zoomcamp). In the last few years I've focused on [AI Engineering](https://maven.com/alexey-grigorev/from-rag-to-agents). Before that I was a hands-on data scientist, machine learning engineer and data engineer - a full-stack data scientist doing whatever needed to be done to work with machine learning and AI.
+Since you're reading this newsletter, I hope you already know a few things about me. I like calling myself a product AI engineer: I do whatever it takes to integrate AI from the user's perspective. I teach this in my courses.
 
-I like calling myself a product AI engineer: I do whatever it takes to integrate AI from the user's perspective. I teach this in my courses.
-
-Hugo's background is in mathematics, physics, and biology. He researched cell biology at the Max Planck Institute in Dresden and then at Yale. About 15 years ago he moved to industry, but he stayed in education. He worked at DataCamp, taught in the SciPy and PyData ecosystems, and did developer relations at startups such as Coiled and Outerbounds. He hosts podcasts, and that's how we first met - we've done a bunch of podcasts together.
+Hugo's background is in mathematics, physics, and biology. He researched cell biology at the Max Planck Institute in Dresden and then at Yale. About 15 years ago he moved to industry, but he stayed in education. He worked at DataCamp, taught in the SciPy and PyData ecosystems, and did developer relations at startups such as Coiled and Outerbounds. He hosts the [Vanishing Gradients](https://vanishinggradients.fireside.fm/) podcast, and that's how we first met - we've done a bunch of podcasts together.
 
 ## The Job Market
 
