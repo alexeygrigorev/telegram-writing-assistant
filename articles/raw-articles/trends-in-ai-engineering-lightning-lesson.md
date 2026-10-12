@@ -23,11 +23,32 @@ We had two goals for it:
 - help the people who came to the webinar
 - understand what we could create together for you longer term
 
-At the end of the session Hugo and I talked about turning this recap into a shared Substack article. This article.
-
-If you prefer video, here's the recording:
-
 https://youtu.be/whIdxTQsU0A
+
+At the end of the session, Hugo and I decided to turn the recap into a shared Substack article.
+
+In the session, we talked about AI Engineering and agentic engineering. In this article I want to focus on the first part.
+
+In particular, in this article I'll cover:
+
+- Hugo's distinction between AI engineering and agentic engineering
+- What we can see in nine monthly scrapes of AI engineering job postings
+- Which skills will stay valuable, and why working with people still matters
+- What to focus on if you want to become an AI engineer
+- The course Hugo and I want to build
+
+In the follow-up article, I'll cover the agentic engineering part: 
+
+- How agents changed the way we write code
+- Why verification is now the bottleneck
+- The implementer-reviewer pattern: letting one agent check another
+- How to deal with sloppy agent code
+- The rules for better code and better writing
+- How to organize running many agents in parallel
+- Dark software factories
+- How I stay out of the loop in my own projects
+
+Subscribe to make sure you don't miss it.
 
 ## Hugo and Me
 
@@ -51,19 +72,12 @@ In practice, you do both. You build AI-powered products with agents. And for age
 
 I see this confusion among people who join my courses: they join a course about AI engineering wanting to learn how to use AI for coding. There's a lot of overlap, but the work is different. If you write code with AI, someone else takes care of evaluating and monitoring that tool. You focus on creating the proper specification, making sure the agent follows it, and enforcing the development lifecycle rules.
 
-In the session, we talked about both. In this article, I cover the AI engineering half. The other half, agentic engineering, is in the [next article](TODO: link to the agentic engineering article once it's published).
+In this article, we focus on AI Engineering. In the next one, on agentic engineering.
 
-Here's what this article covers:
-
-- What we can see in nine monthly scrapes of AI engineering job postings
-- Which skills stay human, and why working with people still matters
-- What to skip if you want to become an AI engineer
-- What to learn instead: evals and the AI product lifecycle
-- The course Hugo and I want to build next, and how you can help us choose its topic
 
 ## The Job Market
 
-We started the session with trends in AI engineering jobs. I maintain the [AI Engineering Field Guide](https://github.com/alexeygrigorev/ai-engineering-field-guide) repository.
+I maintain the [AI Engineering Field Guide](https://github.com/alexeygrigorev/ai-engineering-field-guide) repository.
 
 Every month since February 2026 I scrape job postings for the query "AI engineering" in six locations: Berlin, Amsterdam, London, New York, Los Angeles, and all of India. Then I use LLMs to extract skills, responsibilities, and use cases from each posting.
 
@@ -95,23 +109,25 @@ position:
 
 Nine monthly scrapes aren't enough to build models that predict the future. But I can already see where the market is going.
 
-The overall market is growing. Everyone asks "where are all the jobs?" The number of postings dipped in spring, but the last two scrapes are the biggest so far, so for now I don't see a reason to worry.
+What we can see from the data is that the overall market is growing, and there's a lot of demand on AI engineers. 
 
 <figure>
   <img src="../../assets/images/trends-in-ai-engineering-lightning-lesson/postings-per-month.png" alt="Bar chart of AI engineering job postings per monthly scrape from February to September 2026, from 895 to 1,086 with a spring dip and a peak of 1,222 in August">
   <figcaption>AI engineering postings per monthly scrape</figcaption>
 </figure>
 
-Forward-deployed engineer (FDE) roles grow faster than the market overall. The number of FDE postings roughly doubled since February. I have a separate analysis of the FDE market: [What AI Forward-Deployed Engineers Do](https://aishippingblog.com/p/what-ai-forward-deployed-engineers).
+Forward-deployed engineer (FDE) roles grow even faster than the market overall. The number of FDE postings roughly doubled since February.
+
+> If you want to learn more about FDEs, I have a separate analysis of this part of the AI jobs market: [What AI Forward-Deployed Engineers Do](https://aishippingblog.com/p/what-ai-forward-deployed-engineers).
 
 <figure>
   <img src="../../assets/images/trends-in-ai-engineering-lightning-lesson/fde-postings.png" alt="Bar chart of forward-deployed engineer postings per scrape, growing from 18 in February to 34-37 in July through September 2026">
   <figcaption>Forward-deployed engineer postings per scrape</figcaption>
 </figure>
 
-Roles that focus on training models are shrinking. Before, companies wanted more people with PyTorch-style skills. Now they post fewer of these roles. Also, fewer inference and serving roles.
+Roles that focus on training models are shrinking. Before, companies wanted more people with PyTorch-style skills where people were expecting to train models. Now they post fewer of these roles. And I can see fewer inference and serving roles in the data too.
 
-So it looks like now companies mostly use "AI engineer" to mean someone who calls models through APIs and builds things around them.
+The data suggests that now companies mostly use "AI engineer" to mean someone who calls models through APIs and builds things around them. 
 
 <figure>
   <img src="../../assets/images/trends-in-ai-engineering-lightning-lesson/integrator-vs-trainer.png" alt="Line chart: the share of AI-first postings that mention the integrator stack grew from 80% to 91%, while the trainer stack fell from 38% to 30%">
@@ -132,71 +148,66 @@ There are almost no junior positions: only about 1% of job titles say junior or 
   <figcaption>Seniority from the job title, September 2026 scrape</figcaption>
 </figure>
 
-## The Human Side
+So AI Engineering is not a junior role.
 
-The job data shows where the market is now. But nobody can see what roles, hiring processes, or even tools will look like in a year or two. But we can name the skills that will stay valuable.
+## Relevant Skill
 
-Hugo listed the data scientist skills that will always be useful:
+We can observe the current situation on the market now though date and talking to friends and network. But we don't have a crystal ball to see what roles, hiring processes, or even tools will look like in a year or two.
 
-- A hacker mentality: when a new model comes out, play with it, explore what you can do with it, and use it to deliver business value or help people
-- Knowing some statistics, how to analyze data, and how to use data to improve products
-- Domain expertise in something - SRE, DevOps, marketing, or anything else
+But based on our experience we can try to think which skills will stay relevant and valuable in the future.
 
-I would add problem discovery. There are so many problems around us waiting to be discovered and solved. Look at your own everyday life. You repeat many things, and many things are mildly annoying, but you aren't doing anything about them yet.
+Hugo believes that it's a combination of: 
 
-With AI, I can finally approach these problems. Every week there's a new model available for free, and you can test how it solves your particular problem. AI can't find these problems for you, so you can stand out by finding them.
+- A hacker mentality - playing with new models when they come out, exploring what's possible and seeing how to use it deliver business value or help people
+- The data science skills - statistics, data analysis, using data to improve products
+- Domain expertise - SRE, DevOps, marketing, or anything else
 
-## Working With People
+I can't argue with that, but I would also add the problem discovery skill.
 
-Hugo also talked about what he prefers to call human skills rather than soft skills. We use agents to write code, and we write code to solve problems for our customers. Our customers are people, not agents. We still need the human connection, the user interviews, and everything product managers and product designers have done for a long time.
+There are so many problems around us waiting to be discovered and solved. Look at your own everyday life. You repeat many things, and many things are mildly annoying, but you aren't doing anything about them yet.
 
-As a solo founder, I can go far with AI. But my background is engineering, and I don't have marketing or sales skills. So I can't reliably sell what I build.
+With AI, I can finally approach these problems. But before I can even approach them, I need know know they exist, identify them and only then solve them with AI. AI can't find these problems for you, and you can stand out by learning how to find them.
 
-Freelancers have the same problem. You need to convince clients why you charge $2,000 per day when a Claude subscription costs $200 per month - agents won't give you money. And at work, you still need to convince your manager to give you that promotion.
+And finally, we need the human skills.
 
-For Hugo, the work is speaking with people, understanding their problems, and solving them in a way that gives them more value than they pay. Even this session exists because we met in Berlin and had breakfast.
+## Human Skills: Working With People
+
+We use agents to write code, and we write code to solve problems for our customers. Our customers are people, not agents. We still need the human connection, we need to conduct the user interviews - and everything else that product managers and product designers have been doing for a long time.
+
+As a solo founder, I can go far with AI. But my background is engineering, and I don't have marketing or sales skills. For me it's hard to market and sell what I build.
+
+Freelancers have the same problem. You need to convince clients why you charge $2,000 per day when a Claude subscription costs $200 per month. At work, you still need to convince your manager to give you that promotion.
+
+For Hugo, the work of engineers is speaking with people, understanding their problems, and solving them in a way that gives them more value than they pay. Even this session exists because we (humans) met in Berlin and had breakfast.
 
 ## Becoming an AI Engineer
 
-Then there are the technical skills. If you want to become an AI engineer and get hired in the next three months, you don't need to focus on training and serving models. Hugo compared training models to working on an internal combustion engine. If you're a Formula One driver, it's good to know how it works, but most people who use a car don't need to. An AI engineer works on a product.
+There are also technical skills that you need. If you want to become an AI engineer, and have limited amount of time, it makes sense focus on the areas with most return on investment: RAG, agents, and evaluations. 
 
-People often ask me whether they need to know LLM internals to work as an AI engineer. I usually say no. You need to know how to send a request to an LLM provider, build everything around it, and have the data science mindset. Some companies do lower-level work and may ask for it, but they're a minority in my data, and the share keeps falling.
+Evals is the most important part. Systems built on LLMs aren't deterministic, so we can't simply trust them. We need a framework to make sure they can be relied on - for example, an evaluation set built from real user data.
 
-I recently read [Inference Engineering](https://aishippinglabs.com/books/inference-engineering) by Philip Kiely, who spent several years at Baseten working on high-performance inference at scale. It's a wonderful book if you want to know what happens after you send a request. But if your goal is to become an AI engineer, read it later and focus on building projects now. If your goal is to become an inference engineer, that's the book to read.
-
-## What to Learn Instead: Evals and the Lifecycle
-
-What you do need is evals. AI systems need checking, and in AI engineering, we call it evaluation. Only a quarter of postings name LLM evaluation explicitly, but the share keeps growing.
+Most jobs assume you have the evaluation skills, but also we can see that more and more positions define it explictly as one of the requiements.
 
 <figure>
   <img src="../../assets/images/trends-in-ai-engineering-lightning-lesson/llm-evaluation.png" alt="Line chart: the share of AI engineering postings that mention LLM evaluation grew from 20% in February to 25% in September 2026">
   <figcaption>Share of AI engineering postings that mention LLM evaluation</figcaption>
 </figure>
 
-Systems built on LLMs aren't deterministic, so we can't simply trust them. We need a framework to make sure they can be trusted - for example, an evaluation set built from real user data.
-
-Data science skills help a lot when you build that framework. Data scientists have done this kind of evaluation for a long time, because machine learning is non-deterministic too.
-
-Evals are one step in a bigger loop. If Hugo were starting as an AI engineer today, he would focus on the data science mentality and the lifecycle of AI products. Unlike the traditional spec, build, deploy, maintain cycle, it's iterative and experimental.
-
-The lifecycle looks like this:
-
-1. You build.
-2. You add observability and traces.
-3. You look at your data and build an evaluation set from it.
-4. You pull levers based on the problems you see in the data.
-5. You iterate in production with domain experts.
-
-<figure>
-  <img src="../../assets/images/trends-in-ai-engineering-lightning-lesson/ai-product-lifecycle.png" alt="A loop of five steps: build, add traces, build an eval set from real data, fix what you see, and iterate in production with domain experts, then build again">
-  <figcaption>The AI product lifecycle is a loop, not a straight line</figcaption>
-</figure>
-
 You learn it by building a project: an agent or an AI-powered application with real users.
+
+There are also things you don't need to focus on. Data shows that you don't need to focus on training and serving models. Hugo compared training models to working on an internal combustion engine. If you're a Formula One driver, it's good to know how it works, but most people who use a car don't need to. An AI engineer works on a product.
+
+You don't need to know LLM internals to start working as an AI engineer. At the beginning, it's enough to know how to send a request to an LLM provider, build everything around it, and have the data science mindset. Some companies do lower-level work and may ask for it, but they're a minority in my data, and the share keeps falling. 
+
+But if you want to learn more about these things, I'd recommend Inference Engineering by Philip Kiely. Recently [we hosted a book club](https://aishippinglabs.com/books/inference-engineering) about it, and it's  wonderful book if you want to know what happens after you send a request. But if your goal is to become an AI engineer, read it later and focus on building projects now. But if you want to become an inference engineer, that's the book to read.
+
+## Agentic Engieering 
+
+That was only a half of our webinar with Hugo. In the second half, we talked about agentic engineering - using AI assistants to create code. I'm working on the article about that and publish it soon.
 
 ## Our Next Course
 
-The session had a second goal: to find out what we could build together for you. Hugo and I want to run a paid course together, like the ones we already run on Maven. There are infinitely many ideas, so we want to understand what you actually want.
+The main goal for our session was to find out how we can help you achieve your goals and what we can build for you thought a course that we want to run together. There are infinitely many ideas, so we want to understand what's the best direction for us.
 
 <figure>
   <img src="../../assets/images/trends-in-ai-engineering-lightning-lesson/course-questionnaire.png" alt="Intro of the questionnaire Help Shape a New Practical AI Engineering Course by Hugo Bowne-Anderson and Alexey Grigorev: a paid hands-on course, tuition of about US$1,500, a 4 to 5 minute survey, and a 30% discount for respondents">
@@ -205,4 +216,6 @@ The session had a second goal: to find out what we could build together for you.
 
 Tell us where you stand, what you want to build, where you're stuck, and what format you prefer. We want to hear both what frustrates you and what excites you about AI.
 
-If you want to help us decide, fill in [this questionnaire](https://forms.gle/EjtBzfmZft15dCvY9). It takes about 5 minutes. As a thank you, people who fill it in will get a discount on the future course once we decide what to build.
+If you want to help us, fill in [this questionnaire](https://forms.gle/EjtBzfmZft15dCvY9). It takes about 5 minutes. As a thank you, people who fill it in will get a discount on the future course when we announce it.
+
+Of course, I'll announce it here in this newsletter, so make sure to subscribe if you haven't. 
