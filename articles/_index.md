@@ -27,7 +27,7 @@ Repository-wide indexes and long-running collections with special underscore-pre
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
 | [Interesting Resources](_interesting-resources.md) | draft | 2026-10-01 | Curated collection of tools, resources, and project ideas for the newsletter |
-| [Substack Archive Index](_substack-archive-index.md) | draft | 2026-09-15 | Lookup table of all published Substack posts (title, description, URL), used to insert direct links to things Alexey has already shared |
+| [Substack Archive Index](_substack-archive-index.md) | draft | 2026-10-12 | Lookup table of all published Substack posts (title, description, URL), used to insert direct links to things Alexey has already shared |
 | [Weekly Log](_weekly-log.md) | draft | 2026-07-09 | Running log of what was done each week. Topics with their own dedicated article appear as short summaries with links; smaller items stay inline |
 
 ## Metadata
@@ -95,7 +95,6 @@ Draft articles and talk material whose core substance has already been collected
 |-------|--------|--------------|-------------|
 | [AI Agents Do Everything Now. You Still Need Kubernetes.](raw-articles/why-kubernetes-still-matters.md) | draft | 2026-10-06 | Short article on why Kubernetes remains relevant in the age of AI agents, with KubeAuto Day Berlin CTA |
 | [Specs First: Building a Full-Stack App with AI Coding Agents](raw-articles/devmio-spec-driven-full-stack-app.md) | draft | 2026-10-02 | Guest article for devmio on spec-driven full-stack development with coding agents, based on the AI Shipping Labs full-stack workshop |
-| [Trends in AI Engineering: Lightning Lesson with Hugo Bowne-Anderson](raw-articles/trends-in-ai-engineering-lightning-lesson.md) | draft | 2026-09-29 | Recap of the open Q&A lightning lesson with Hugo Bowne-Anderson on AI engineering job trends, agentic verification, and career advice |
 | [13 Real-Life AI Projects from AI Engineering Buildcamp Cohort 3](raw-articles/ai-engineering-buildcamp-cohort-3-projects.md) | draft | 2026-09-03 | Newsletter draft of cohort 3 Demo Day plus the rest of the submitted Buildcamp projects |
 | [Roles in an AI Team](raw-articles/roles-in-ai-team.md) | draft | 2026-09-03 | Updated version of the Data Team Roles article with the AI Engineer role added |
 | [Interview Experiment](raw-articles/interview-experiment.md) | draft | 2026-08-11 | Running log of the experiment of interviewing at different companies, starting with the first interview at Deriv |
