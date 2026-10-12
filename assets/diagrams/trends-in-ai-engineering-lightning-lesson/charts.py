@@ -56,3 +56,5 @@ ax.grid(axis="y", visible=False); ax.grid(axis="x", color=GRID, lw=0.8); ax.spin
 ax.xaxis.set_major_formatter(lambda x, _: f"{x:.0f}%"); ax.set_xlim(0, 58)
 fig.subplots_adjust(left=0.2, right=0.97)
 fig.savefig(OUT + "seniority.png"); plt.close(fig)
+lines([("infer", "Inference\nand serving", ORANGE)],
+      "Fewer inference and serving skills", "Share of AI-first postings that mention vLLM, Triton, TensorRT, CUDA, or model deployment", "inference-serving.png", (0, 30))

@@ -113,6 +113,11 @@ Forward-deployed engineer (FDE) roles grow even faster than the market overall. 
 
 Roles that focus on training models are shrinking. Before, companies hired more people to train models with PyTorch. Now they post fewer of these roles. And I can see fewer inference and serving roles in the data too.
 
+<figure>
+  <img src="../../assets/images/trends-in-ai-engineering-lightning-lesson/inference-serving.png" alt="Line chart: the share of AI-first postings that mention inference and serving skills fell from 20% in February to 16% in September 2026, with a dip to 10% in August">
+  <figcaption>Share of AI-first postings that mention inference and serving skills</figcaption>
+</figure>
+
 The data suggests that companies now mostly use "AI engineer" to mean someone who calls models through APIs and builds things around them.
 
 <figure>
@@ -149,6 +154,11 @@ Hugo believes that it's a combination of:
 - Domain expertise - SRE, DevOps, marketing, or anything else
 
 I can't argue with that, but I would also add the problem discovery skill.
+
+<figure>
+  <img src="../../assets/images/trends-in-ai-engineering-lightning-lesson/relevant-skills.png" alt="A 2x2 grid of four skills that stay valuable: hacker mentality, data science, domain expertise, and problem discovery">
+  <figcaption>Four skills that stay valuable</figcaption>
+</figure>
 
 There are so many problems around us waiting to be discovered and solved. Look at your own everyday life. You repeat many things, and many things are mildly annoying, but you aren't doing anything about them yet.
 
@@ -187,9 +197,19 @@ You don't need to know LLM internals to start working as an AI engineer. At the 
 
 But if you want to learn more about these things, I'd recommend Inference Engineering by Philip Kiely. Recently [we hosted a book club about it](https://aishippinglabs.com/books/inference-engineering), and it's a wonderful book if you want to know what happens after you send a request. But if your goal is to become an AI engineer, read it later and focus on building projects now. If you want to become an inference engineer, that's the book to read.
 
+<figure>
+  <img src="../../assets/images/trends-in-ai-engineering-lightning-lesson/inference-engineering-book.png" alt="Cover of Inference Engineering by Philip Kiely">
+  <figcaption>Inference Engineering by Philip Kiely</figcaption>
+</figure>
+
 ## Agentic Engineering
 
 That was only half of our webinar with Hugo. In the second half, we talked about agentic engineering - using AI assistants to create code. I'm working on an article about that and will publish it soon.
+
+<figure>
+  <img src="../../assets/images/when-agents-write-the-code/agentic-software-lifecycle.jpg" alt="Hugo's slide of the agentic software lifecycle: a spec goes to an agent-driven build, then to verification by human review, agent review, LLM as judge, and automated tests, and only working code ships">
+  <figcaption>Hugo's slide on the agentic software lifecycle</figcaption>
+</figure>
 
 In it, I'll cover:
 

@@ -10,6 +10,7 @@ integ = lambda j: has(j, "genai", "RAG", "LangChain", "LangGraph", "CrewAI", "Au
 agents = lambda j: has(j, "genai", "AI Agents", "Agentic Workflows", "Multi-Agent Systems")
 rag = lambda j: has(j, "genai", "RAG")
 evals = lambda j: has(j, "genai", "LLM Evaluation")
+infer = lambda j: has(j, "ops", "vLLM", "Triton", "TensorRT", "Model Deployment") or has(j, "ml", "CUDA")
 fde = lambda j: bool(re.search(r"fde|forward.deploy", (j.get("position", {}).get("title") or ""), re.I))
 out = {}
 for d in DATES:
@@ -21,7 +22,7 @@ for d in DATES:
         loc["India" if re.search(r"IND|India", l) else "Other"] += 1
     sen = Counter(seniority(j.get("position", {}).get("title", "")) for j in js)
     out[d] = dict(n=n, india=loc["India"], fde=sum(map(fde, js)),
-        trainer=100*sum(map(trainer, aif))/len(aif), integ=100*sum(map(integ, aif))/len(aif),
+        trainer=100*sum(map(trainer, aif))/len(aif), integ=100*sum(map(integ, aif))/len(aif), infer=100*sum(map(infer, aif))/len(aif),
         agents=100*sum(map(agents, js))/n, evals=100*sum(map(evals, js))/n, rag=100*sum(map(rag, js))/n,
         junior=100*sen["Junior/Entry"]/n, sen={k: round(100*v/n,1) for k,v in sen.items()})
 json.dump(out, open(sys.argv[1], "w"), indent=1)

@@ -1,0 +1,13 @@
+{
+  "title": "Skills that stay valuable",
+  "description": "Four skills that keep their value: a hacker mentality, data science skills, domain expertise, and finding the problems worth solving.",
+  "canvas": {"width": 780, "height": 300, "background": "#ffffff"},
+  "layout": {"type": "manual", "card_width": 340, "card_height": 100},
+  "nodes": [
+    {"id": "hacker", "title": "Hacker mentality", "subtitle": "play with new models", "icon": "sparkles", "color": "purple", "x": 40, "y": 40},
+    {"id": "ds", "title": "Data science", "subtitle": "statistics, data analysis", "icon": "observability", "color": "purple", "x": 400, "y": 40},
+    {"id": "domain", "title": "Domain expertise", "subtitle": "SRE, DevOps, marketing", "icon": "settings", "color": "purple", "x": 40, "y": 160},
+    {"id": "discovery", "title": "Problem discovery", "subtitle": "find problems worth solving", "icon": "search", "color": "purple", "x": 400, "y": 160}
+  ],
+  "edges": []
+}
