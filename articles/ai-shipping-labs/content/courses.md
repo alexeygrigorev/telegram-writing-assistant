@@ -1,7 +1,7 @@
 ---
 title: "AI Shipping Labs Course Ideas"
 created: 2026-02-12
-updated: 2026-09-03
+updated: 2026-10-16
 tags: [courses, community, ai-shipping-labs, ideas]
 status: draft
 ---
@@ -171,6 +171,14 @@ Many people want the MLOps course redone with more of an AI focus. Updating it t
 
 One option is to run the MLOps course within AI Shipping Labs instead of DataTalks Club. The reasoning: sponsors did not work out, and running it without a sponsor is not interesting. Launching it for free is not appealing either. The old material stays available where it has always been. But the course can be done together within AI Shipping Labs, going through it as a group and updating it along the way[^21].
 
+## Course launch pricing and enrollment strategy
+
+The next course launch will have only 15 spots. There will be multiple enrollment options at different price points: $100, around $750, and around $1,500[^23].
+
+The enrollment process includes a pre-screening assessment form. The goal is to select people who are actually motivated. The discounted tiers require completing the assessment. People who want to skip the questionnaire and join outside the quota can pay a default price of around $3,000[^24].
+
+This is a first launch, so participants will get extra involvement and support. The target is to launch in November 2026[^23].
+
 ## Course format strategy
 
 The plan is to have at least one big course on Maven (if time permits), while the rest would be mini-courses available in the community at tier 3. Will actively ask people what they're interested in and monitor what content they engage with most[^10].
@@ -207,3 +215,5 @@ Adding more courses is also the step before considering a price raise. Details o
 [^20]: [20260903_063239_AlexeyDTC_msg4916_transcript.txt](../../../inbox/used/20260903_063239_AlexeyDTC_msg4916_transcript.txt)
 [^21]: [20260903_065210_AlexeyDTC_msg4924_transcript.txt](../../../inbox/used/20260903_065210_AlexeyDTC_msg4924_transcript.txt)
 [^22]: [20260903_070241_AlexeyDTC_msg4930_transcript.txt](../../../inbox/used/20260903_070241_AlexeyDTC_msg4930_transcript.txt)
+[^23]: [20261010_084935_AlexeyDTC_msg5028_transcript.txt](../../../inbox/used/20261010_084935_AlexeyDTC_msg5028_transcript.txt)
+[^24]: [20261010_084936_AlexeyDTC_msg5029_transcript.txt](../../../inbox/used/20261010_084936_AlexeyDTC_msg5029_transcript.txt)

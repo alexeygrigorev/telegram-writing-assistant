@@ -1,7 +1,7 @@
 ---
 title: "Product Shipping Zoomcamp"
 created: 2026-07-01
-updated: 2026-07-01
+updated: 2026-10-16
 tags: [course-idea, zoomcamp, product, build-in-public]
 status: draft
 ---
@@ -633,8 +633,10 @@ The most important design decision is that community and build-in-public start i
 - DataTalks.Club ML Zoomcamp project structure: https://github.com/DataTalksClub/machine-learning-zoomcamp/tree/master/projects
 - DataTalks.Club LLM Zoomcamp project structure: https://github.com/DataTalksClub/llm-zoomcamp/blob/main/project.md
 - Vibe Shipping repository: https://github.com/ad3002/masters-course-2026-vibe-shipping
+- Rob Walling on getting the first 10 SaaS customers: https://youtu.be/Ki3qBvIRo6A - covers marketing before coding, ICP selection, six customer acquisition tactics, and feedback loops. Full summary in [First 10 SaaS Customers: A Repeatable Playbook](../interviews/first-10-saas-customers.md) [^3]
 
 ## Sources
 
 [^1]: [20260701_130457_AlexeyDTC_msg4649.md](../../inbox/used/20260701_130457_AlexeyDTC_msg4649.md)
 [^2]: [20260701_130457_AlexeyDTC_msg4650.md](../../inbox/used/20260701_130457_AlexeyDTC_msg4650.md)
+[^3]: [20261016_112722_AlexeyDTC_msg5046.md](../../inbox/used/20261016_112722_AlexeyDTC_msg5046.md)

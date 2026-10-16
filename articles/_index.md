@@ -46,7 +46,7 @@ Community strategy, platform notes, member research, plans, workshops, and cours
 |-------|--------|--------------|-------------|
 | [AI Shipping Labs Marketing and Content Strategy](ai-shipping-labs/marketing-and-content.md) | draft | 2026-10-04 | Marketing channels, funnel, lead magnets, pricing, moat, and content strategy for the community. |
 | [AI Engineering Buildcamp Cohort 4 Launch](ai-shipping-labs/content/ai-engineering-buildcamp-cohort-4-launch.md) | draft | 2026-10-01 | Photo from the cohort 4 launch call. |
-| [AI Shipping Labs Course Ideas](ai-shipping-labs/content/courses.md) | draft | 2026-09-03 | Course and workshop ideas for the community, with the member requests behind them. |
+| [AI Shipping Labs Course Ideas](ai-shipping-labs/content/courses.md) | draft | 2026-10-16 | Course and workshop ideas for the community, with the member requests behind them. |
 | [AI-Assisted Automation Course Idea](ai-shipping-labs/content/ai-assisted-automation-course-idea.md) | draft | 2026-09-03 | Concept for a paid course on AI-assisted automation |
 | [AI Shipping Labs Content Plan](ai-shipping-labs/ai-shipping-labs-content-plan.md) | draft | 2026-08-03 | Gap analysis of the current workshop catalog, a repackaging of the existing sessions into six courses, and the next eight workshops to run |
 | [Mini-Course Proposal: LLM Wikis as Agent Memory](ai-shipping-labs/content/llm-wikis-agent-memory-mini-course.md) | draft | 2026-07-31 | Vendor-neutral 90-minute mini-course with theory, a reusable wiki skill, two demos, fit boundaries and a two-part publishing plan |
@@ -74,7 +74,7 @@ DataTalks.Club platform, event, publishing, and product-planning material.
 |-------|--------|--------------|-------------|
 | [DataTalks.Club Unified Platform](datatalksclub/datatalks-club-unified-platform.md) | draft | 2026-08-11 | Planning document for consolidating DataTalks.Club's fragmented surfaces (course repos, docs, FAQ, course management platform) into one unified portal - problem statement, vision, how to approach the redesign, and a map of the current org |
 | [Playbooks and Agents for DataTalks.Club Events and Content](datatalksclub/datatalks-club-playbooks-and-agents.md) | draft | 2026-07-20 | Ideas for extending the course promotion playbooks to events and other recurring activities, handing post creation to agents, and replacing the podcast guest back-and-forth with a form |
-| [Product Shipping Zoomcamp](datatalksclub/product-shipping-zoomcamp.md) | draft | 2026-07-01 | Concept for an end-to-end product development Zoomcamp - six modules plus midterm and capstone, taking students from idea to a deployed, measured, publicly launched, peer-reviewed product, with build-in-public starting from Module 1 |
+| [Product Shipping Zoomcamp](datatalksclub/product-shipping-zoomcamp.md) | draft | 2026-10-16 | Concept for an end-to-end product development Zoomcamp - six modules plus midterm and capstone, taking students from idea to a deployed, measured, publicly launched, peer-reviewed product, with build-in-public starting from Module 1 |
 | [Publishing Zoomcamp Lessons in Text Form](datatalksclub/zoomcamp-text-course-publishing.md) | draft | 2026-04-30 | Idea to publish each LLM Zoomcamp / DataTalks.Club lesson as a long written conspectus with diagrams (Paul Iusztin's Substack format), to own destination traffic, show page-level stats, and attract more sponsors |
 
 ## Marketing
@@ -137,8 +137,9 @@ Articles currently being developed from a researched outline.
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [How I Automated My Business with a Mini PC and AI Agents](work-in-progress/business-automation-setup.md) | draft | 2026-10-16 | Physical and software setup for automating business tasks with a ThinkCentre mini PC, Grok Bot, and VPN-routed AI agents. |
+| [Cloudflare Git for Agents Competition](work-in-progress/cloudflare-git-for-agents-competition.md) | draft | 2026-10-16 | Daily log of participating in Cloudflare's competition to build a git alternative for agentic workloads. |
 | [Organizational Agents - Progress Report](work-in-progress/organizational-agents-progress-report.md) | draft | 2026-10-08 | Experiment with multi-team AI agent organization: hierarchy, self-healing, and the gap between design and operational reliability. |
-| [Cloudflare Git for Agents Competition](work-in-progress/cloudflare-git-for-agents-competition.md) | draft | 2026-10-04 | Daily log of participating in Cloudflare's competition to build a git alternative for agentic workloads. |
 | [Why Did I Create My Own Terminal Multiplexer?](work-in-progress/why-did-i-create-my-own-terminal-multiplexer.md) | draft | 2026-10-01 | Why tmux stopped matching an agent-heavy workflow and how aplexer supports persistent sessions and agent coordination. |
 
 ## Testimonials
@@ -176,6 +177,9 @@ Detailed summaries of podcast episodes, YouTube interviews, and other conversati
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [Productizing Services: A Ten-Step Blueprint to $100K/Month](interviews/productizing-services-ten-step-blueprint.md) | draft | 2026-10-12 | Ten-step process for turning custom service work into a scalable productized offer, from niche selection to marketing funnel |
+| [Productized AI Service Offers: From Trading Time to Selling Outcomes](interviews/productized-ai-service-offers.md) | draft | 2026-10-16 | Live coaching session on designing a productized AI service offer: backwards math, market research, three-tier pricing, sales materials |
+| [First 10 SaaS Customers: A Repeatable Playbook](interviews/first-10-saas-customers.md) | draft | 2026-10-16 | Rob Walling's playbook for finding first 10 B2B SaaS customers: marketing before coding, ICP selection, six acquisition tactics |
 | [AI Content Machines: How Creators Build Anti-Slop Writing Systems](interviews/ai-content-machines.md) | draft | 2026-10-09 | Research on AI content creation systems: Lieberman's Content Machine, OpenClaw's agent team, Koe's validation-first workflow, with a prompts directory |
 | [AI Tools Assessment: A Productized Service Business Model](interviews/ai-tools-assessment-business.md) | draft | 2026-10-09 | Corey Ganim's $999 AI tools assessment for small businesses: four delivery phases, six upsells, seven client acquisition methods |
 | [Jonathan Courtney on the Promoter Blueprint: AI Marketing with Claude Code](interviews/jonathan-courtney-promoter-blueprint-ai-marketing.md) | draft | 2026-10-09 | Four-step Promoter Blueprint framework and live Claude Code workflow for AI marketing from The Startup Ideas Podcast |
