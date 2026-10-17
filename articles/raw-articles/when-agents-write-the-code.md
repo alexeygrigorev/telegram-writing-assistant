@@ -9,7 +9,7 @@ status: draft
 # When Agents Write the Code
 ## Agentic engineering lessons from a webinar with Hugo Bowne-Anderson
 
-A few weeks ago I ran a webinar with [Hugo Bowne-Anderson](https://substack.com/@hugobowne). During the session, Hugo separated two terms that people often confuse: AI engineering, where AI is part of the product, and agentic engineering, where agents help you build the product. We talked about both, and in the [first article](TODO: link to the AI engineering trends article) I covered AI engineering and the job market. This one is about agentic engineering.
+A few weeks ago I ran a webinar with [Hugo Bowne-Anderson](https://substack.com/@hugobowne). During the session, Hugo separated two terms that people often confuse: AI engineering, where AI is part of the product, and agentic engineering, where agents help you build the product. We talked about both, and in the [first article](https://aishippingblog.com/p/trends-in-ai-engineering) I covered AI engineering and the job market. This one is about agentic engineering.
 
 If you prefer video, here's the recording:
 
