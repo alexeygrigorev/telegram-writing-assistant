@@ -1,0 +1,21 @@
+{
+  "title": "Three checkers, one editor",
+  "description": "The rules from The Elements of Style live in AGENTS.md. Three verification agents check the text in parallel because each one misses something, and a final agent makes the edit.",
+  "canvas": {"width": 1100, "height": 440, "background": "#ffffff"},
+  "layout": {"type": "manual", "card_width": 260, "card_height": 100},
+  "nodes": [
+    {"id": "rules", "title": "AGENTS.md", "subtitle": "Strunk and White rules", "icon": "document", "color": "gray", "x": 40, "y": 170},
+    {"id": "c1", "title": "Verification agent 1", "subtitle": "checks the draft", "icon": "search", "color": "purple", "x": 420, "y": 40},
+    {"id": "c2", "title": "Verification agent 2", "subtitle": "checks the draft", "icon": "search", "color": "purple", "x": 420, "y": 170},
+    {"id": "c3", "title": "Verification agent 3", "subtitle": "checks the draft", "icon": "search", "color": "purple", "x": 420, "y": 300},
+    {"id": "editor", "title": "Editor agent", "subtitle": "performs the final edit", "icon": "robot", "color": "amber", "x": 800, "y": 170}
+  ],
+  "edges": [
+    {"from": "rules", "to": "c1", "route": "orthogonal"},
+    {"from": "rules", "to": "c2"},
+    {"from": "rules", "to": "c3", "route": "orthogonal"},
+    {"from": "c1", "to": "editor", "route": "orthogonal"},
+    {"from": "c2", "to": "editor"},
+    {"from": "c3", "to": "editor", "route": "orthogonal"}
+  ]
+}

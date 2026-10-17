@@ -35,6 +35,11 @@ In this article, I'll cover:
 
 We write code very differently than we did a year ago.
 
+<figure>
+  <img src="../../assets/images/when-agents-write-the-code/agentic-vs-ai-engineering.jpg" alt="Slide from Hugo's talk comparing agentic engineering, building software with agents where the agent is part of the development team, with AI engineering, building AI-powered products where AI is part of the product">
+  <figcaption>Hugo's slide: in agentic engineering the agent is part of the development team</figcaption>
+</figure>
+
 I talk to more and more companies whose policy is "no handwritten code". You aren't allowed to write code yourself, only through an agent. At one such company, many engineers resisted and said they still wanted to write code by hand. The company told them: nobody is keeping you here, go find a different place.
 
 I was surprised they were that adamant about it. But it's their choice - they know their business better than I do.
@@ -82,6 +87,11 @@ When you design with them, you need to control the output.
 
 Hugo does it himself: he asks them to respond in three sentences, or to give him 10 ideas of three sentences each, so he can choose the best one. But controlling the output by hand keeps you in the loop for every response.
 
+<figure>
+  <img src="../../assets/images/when-agents-write-the-code/ten-ideas.png" alt="You ask the agent for 10 ideas of three lines each, the agent answers in short form, and you read all of them and pick one">
+  <figcaption>Hugo's manual way to control the output: short answers, but you read every one</figcaption>
+</figure>
+
 ## Agents Controlling Agents
 
 Many people think only a technical human can fix the slop. Hugo often does it by hand himself, but he disagrees. The fixer can be an agent with the correct instructions and the correct verification processes. Surface the high-risk, important things to a human. That doesn't have to mean looking at code - it can be dashboards, information graphics, or cards.
@@ -92,6 +102,11 @@ That's how I work too. I often let one agent control the output of another:
 - For design, I use what I call [adversarial design](https://github.com/alexeygrigorev/.agents/blob/main/skills/adversarial-design-review/SKILL.md).
 
 The second agent acts as the reviewer: until it agrees that the result is good, the first one has to continue.
+
+<figure>
+  <img src="../../assets/images/when-agents-write-the-code/adversarial-design-review-skill.png" alt="The adversarial-design-review SKILL.md in the alexeygrigorev/.agents GitHub repository: use two independent roles, an implementer and an adversarial design reviewer">
+  <figcaption>The adversarial design review skill in my .agents repository</figcaption>
+</figure>
 
 For design, the implementer is a designer and the reviewer is a senior designer. The designer designs, and the senior designer tries to find a reason to reject the design. They share a design system document that describes how the design should look, and a set of criteria for evaluating the design. They bounce the design between each other until the senior designer is satisfied.
 
@@ -132,11 +147,21 @@ Hugo does the same for writing with Strunk and White's The Elements of Style. It
 
 Referencing a well-known book is much more convenient than writing every rule yourself.
 
+<figure>
+  <img src="../../assets/images/when-agents-write-the-code/editing-pipeline.png" alt="AGENTS.md with the Strunk and White rules feeds three verification agents that work in parallel, and an editor agent makes the final edit">
+  <figcaption>Hugo's editing setup: three checkers in parallel, then one editor</figcaption>
+</figure>
+
 ## Adding Rules as You Go
 
 I also add my own rules empirically, by looking at what went wrong and correcting it. It's the same as leading a team of juniors. You don't look at every line, but you share the design principles and check from time to time: "No, this isn't good, I said no ternary operator". When you see something that isn't in the rules yet, you add a rule.
 
 For example, agents like defensive coding. In Python, they check if an attribute exists before accessing it. These checks make the code hard to read. With a type checker, you don't need them.
+
+<figure>
+  <img src="../../assets/images/when-agents-write-the-code/rule-loop.png" alt="Agents write code with attribute checks, you spot the hard-to-read checks, you add a rule to rely on the type checker, and the agents follow it from then on">
+  <figcaption>How a rule gets added: you spot the problem once, and the agents follow the rule from then on</figcaption>
+</figure>
 
 I tested these rules on a fairly large and relatively old codebase. I developed it with AI, first by copy-pasting from ChatGPT and then fully with coding agents. When I noticed a lot of slop, I asked the agent to refactor the entire codebase using these rules. It took two Codex resets, but after that I could read the code without crying.
 
@@ -145,6 +170,11 @@ I tested these rules on a fairly large and relatively old codebase. I developed 
 If agents review each other against clear rules, the next question is how much a human needs to look at the code at all. Hugo described an idea that he admitted may sound radical: dark software factories. A dark factory is one where humans aren't present at all - there isn't even light inside. There are several in Japan where robots build robots.
 
 In a dark software factory, humans aren't allowed to look at the code. They get artifacts that let them make business decisions and verify that everything is correct, but they're separated from the generated code.
+
+<figure>
+  <img src="../../assets/images/when-agents-write-the-code/dark-factory.png" alt="You give specs to a dark factory where agents build and verify the code and nobody reads it, and the factory returns artifacts such as dashboards and cards, which you accept or reject">
+  <figcaption>In a dark software factory you work with specs and artifacts, never with the code</figcaption>
+</figure>
 
 Hugo doesn't suggest anyone build one today. But he thinks there's a not-so-distant future where they're economically viable. If that sounds strange, remember that we don't read machine code anymore. We trust software because of abstraction layers, and with agents, we get that trust from good tests, verification, and specification.
 
