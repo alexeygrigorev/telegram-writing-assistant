@@ -121,6 +121,11 @@ For code, the reviewer's goal is to find holes in the implementation and bounce 
 
 The same idea scales up from two agents to many. Organizing work is a human skill. When [OpenAI announced its Navier-Stokes result](https://techspot.com/news/113785-openai-claims-10000-ai-agents-solved-one-mathematics.html), I was most interested in the fact that a team of 10,000 agents worked on it. I tried to imagine how I would organize the work of 10,000 agents on a problem I don't know.
 
+<figure>
+  <img src="../../assets/images/when-agents-write-the-code/techspot-navier-stokes.png" alt="TechSpot article headline: OpenAI claims 10,000 of its AI agents solved one of mathematics' hardest problems in 88 hours">
+  <figcaption>TechSpot report on OpenAI using 10,000 agents to tackle the Navier-Stokes problem</figcaption>
+</figure>
+
 You can't just tell them to go solve it. You need a hierarchy - for example, a chief scientist who says "you try this, you try that". This kind of hierarchy comes from leadership and management.
 
 That's why I think product managers are uniquely equipped to run agents. They already know how to organize work in a team, set up processes, define specifications, and check work.
@@ -172,7 +177,7 @@ If agents review each other against clear rules, the next question is how much a
 In a dark software factory, humans aren't allowed to look at the code. They get artifacts that let them make business decisions and verify that everything is correct, but they're separated from the generated code.
 
 <figure>
-  <img src="../../assets/images/when-agents-write-the-code/dark-factory.png" alt="You give specs to a dark factory where agents build and verify the code and nobody reads it, and the factory returns artifacts such as dashboards and cards, which you accept or reject">
+  <img src="../../assets/images/when-agents-write-the-code/dark-factory.png" alt="You give specs to a dark factory where agents build and verify code without anyone reading it, and the factory returns artifacts such as dashboards and cards, which you accept or reject">
   <figcaption>In a dark software factory you work with specs and artifacts, never with the code</figcaption>
 </figure>
 
@@ -185,7 +190,7 @@ I think it's a good point. Whether you're a solo founder or a software engineer,
 That's close to how I work now. In my setup, agents escalate things that need human verification. They add a human tag to a GitHub issue, and then I look. I had to tune them so they escalate only what I need to see.
 
 <figure>
-  <img src="../../assets/images/when-agents-write-the-code/human-issues.png" alt="Terminal output of gh issue list --label human for the AI-Shipping-Labs/website repository, showing six bugs and enhancements that agents escalated for human review">
+  <img src="../../assets/images/when-agents-write-the-code/human-issues.png" alt="Terminal output of gh issue list with label human for the AI-Shipping-Labs/website repository, showing six bugs and enhancements that agents escalated for human review">
   <figcaption>Issues my agents escalated to me in the AI Shipping Labs website repository</figcaption>
 </figure>
 

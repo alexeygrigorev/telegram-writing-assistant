@@ -1,6 +1,6 @@
 {
   "title": "Organizing 10,000 agents",
-  "description": "A large number of agents needs a hierarchy, not a swarm: a chief scientist splits the problem between team leads, and each lead directs its own team of agents.",
+  "description": "A large number of agents needs a hierarchy, not a swarm. A chief scientist splits the problem between team leads, and each lead directs its own team of agents.",
   "canvas": {
     "width": 1060,
     "height": 580,

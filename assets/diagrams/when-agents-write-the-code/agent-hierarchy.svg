@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1060" height="580" viewBox="0 0 1060 580" role="img" aria-labelledby="title desc">
   <title id="title">Organizing 10,000 agents</title>
-  <desc id="desc">A large number of agents needs a hierarchy, not a swarm: a chief scientist splits the problem between team leads, and each lead directs its own team of agents.</desc>
+  <desc id="desc">A large number of agents needs a hierarchy, not a swarm. A chief scientist splits the problem between team leads, and each lead directs its own team of agents.</desc>
   <defs>
     <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
       <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0f172a" flood-opacity="0.08"/>

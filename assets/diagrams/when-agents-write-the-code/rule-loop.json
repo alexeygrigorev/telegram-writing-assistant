@@ -1,6 +1,6 @@
 {
   "title": "Rules grow from what went wrong",
-  "description": "When you spot something in the agents' output that the rules do not cover yet, you add a rule, and the agents follow it from then on.",
+  "description": "When you spot something the rules don't cover yet, you add a rule. The agents follow it from then on.",
   "canvas": {"width": 1080, "height": 330, "background": "#ffffff"},
   "layout": {"type": "manual", "card_width": 260, "card_height": 100},
   "nodes": [
