@@ -8,89 +8,50 @@ status: draft
 
 # Dark Software Factories
 
-On 2026-09-29 I ran a lightning lesson, "Trends in AI Engineering", with [Hugo Bowne-Anderson](https://substack.com/@hugobowne), who hosts the Vanishing Gradients podcast. Near the end, Hugo brought up dark software factories - an idea he admitted may sound radical. I liked it enough to go and research where the term comes from, who actually runs one, and where it breaks.[^1][^2]
+Reading code and checking all the diffs singnificanly slows me down. That's why around 6 months ago I stopped doing it. Now I write code myself or look at the code that agents wrote only occassionally - when I prepare for a workshop or a course. 
 
-A dark software factory is a development setup where agents write, test, and ship code, and no human reads that code. People still decide what to build and how to check it, but they look at artifacts and outcomes, not diffs.
+I started hearing the term "software factries" 1-2 months ago. Turned out I already had one - I described my approach in April (TODO double check)
 
-This article is for developers and team leads who already use coding agents and want to know how far "out of the loop" is realistic today.
+Back then I was still looking at the code. It was terrible, and the tests were absolute total slop. I wanted it to be beautiful - as if I wrote it. So I woudl use google recorder to dictate code review notes, and then give it to my agent teams. Then for a copule of days they would be busy rewriting it, fixing my suggestions. And when I was reviering it next time, only to discovr that some of my comments were not addressed, so I would record anote note. 
 
-## Map of This Article
+At some point I realized that its' not productive, it's just biy work. The agents will never write the code the way I do. But I also discovered that the code they write actually works well. And the tets that I considered absolute slop (and I still do) were helpful against the code that agents write. WHen I was removing tests that I conisdered slop, the code actually stopped working. SO I decided to leave them alone and do whatever they need. I only guide architecturally, make sure the sustem is modular, and the process are sound and reliable. If something breask, there's a process that helps it recover. ANd the processes help eevrything stay under control.
 
-The article goes from our conversation to the wider debate and back:
+And recently I startard herign another term - "dark software factory". 
 
-- The conversation that started it: what Hugo said, and how my own setup compares
-- Where the terms come from: lights-out manufacturing, the 1960s "software factory", and Dan Shapiro's five levels
-- Teams running a factory: StrongDM's Software Factory, OpenAI's harness engineering experiment, and smaller examples
-- The practices that make it work: specs, holdout scenarios, digital twins, agentic review, escalation
-- Economics: token budgets and who can afford this
-- Critiques and failure modes: the HumanLayer reversal, comprehension debt, reward hacking, security, accountability
-- How Hugo's and my positions compare with the public ones
-- Open questions worth writing about next
+A dark software factory is a development setup where agents write, test, and ship code, and human don't look at it at all. People decide what to build and how to check it, but they look at artifacts and outcomes, not PRs and code diffs.
 
-The first two parts give you vocabulary. The middle parts show what people built with it. The last parts weigh it.
+My decisiosn now are more architectural. Like we have these two projects, let's have a common library that both these projects share. Or all of my projects need a common way of authenticating, let's create a SSO library adn remove the auth layer from the applications completely. Or I want to have the same codebase across different devices, so indead of having a Kotlin app for android, a desktop app as vs code fork, and a web app in typescript, let's implement eveythign in TypeScript, so if there's a bug, we fix it once and it works for all the platforms. 
 
-## The Conversation That Prompted This
+Or if I see that agents take too much time fixing things, I can ask "how large is the code base". On one f my projects it was taking multiple days to fix a bug, and when I was testing it, it wsa fully fixed. Turned out the code grew too much and there was a patch on patch on patch. So I asked the agents to recreate the same beahviour but use only 20% of the code usign the "clean room" (TODO checj term) appeach - so like a distillation. 
 
-The idea came up after we talked about verification and about agents controlling other agents. That context matters, so I start there.
+In these cases i'm still involved in tehcnical decisions, but it's more directional, and I don't really look at the code. 
 
-### Verification as the Bottleneck
 
-Hugo ran a survey on agentic data science. Among people who said AI changed their workflow "fundamentally", 59% ask another agent to critique the work and 62% write tests. Both practices were less common among people who reported less impact.[^1]
+So when I came across the term, it looked to me that I was already doing it for some time. But I also wanted to check what people actually mean by this term, so I decided to do some research about it and write an article. 
 
-Hugo also showed his diagram of the agentic software lifecycle:
+In this article, you will:
 
-1. Specification is agent-assisted
-2. Building is agent-driven
-3. Verification has layers: automated tests, LLM as a judge, agentic review, and human review for context and UX
-4. Once you get sophisticated enough, agents monitor and operate production and suggest changes
 
-His point was that the fixer of agent slop doesn't have to be a technical human. It can be an agent with the right instructions and verification process. A human should see the high-risk, important things - and that doesn't have to mean code. It can be dashboards, information graphics, or cards.[^1]
-
-I described my own version of this: an implementer-reviewer pattern for code and an [adversarial design review](https://github.com/alexeygrigorev/.agents/blob/main/skills/adversarial-design-review/SKILL.md) for design, where a second agent tries to reject the first agent's work until it's good. I give both agents rules from well-known books such as Clean Code.[^1]
-
-### Hugo's Definition
-
-Then Hugo described the dark software factory. In a physical dark factory, humans aren't present at all, so there's no need for light inside. He mentioned that there are several in Japan where robots build robots.[^1]
-
-In a dark software factory, humans aren't allowed to look at the generated code. They get artifacts that let them make business decisions and verify that everything is correct, but they're separated from the code itself.[^1]
-
-Hugo didn't suggest anyone build one today. He thinks there's a not-so-distant future where they become economically viable. His argument for why this isn't as strange as it sounds is that we don't read machine code anymore. We trust software because of abstraction layers. With agents, that trust comes from good tests, verification, and specification.[^1]
-
-Hugo also mentioned that he teaches a course on agentic software factories. His framing combines automation with continuous learning: a system that keeps working while you're away and gets better from what it learns. He pointed to his Substack post "The Agentic Data Science Playbook", which has a lifecycle diagram of this process.[^1] The course is "Build Your Agentic Software Factory", co-taught with Eleanor Berger, and its page describes the factory as "a system where agents work continuously in the background to build software for you", with reports on what the agents changed and learned instead of line-by-line review ([Maven course page](https://maven.com/agentic-ventures/agent-factory)).
-
-### My Setup
-
-I said I think it's a good point. If you check everything your agents write, you become the bottleneck. Once the agents run without you, you're only the final gatekeeper who accepts or rejects.[^1]
-
-In my setup, agents escalate what needs human verification. They add a `human` label to a GitHub issue, and then I look. In the [AI-Shipping-Labs/website](https://github.com/AI-Shipping-Labs/website) repository, that label is defined as "Needs manual human verification". I had to tune the agents so they escalate only what I actually need to see.[^1]
-
-Most of the time I'm out of the loop. I give the agents specifications or raw input, and they turn it into specifications, build features, and ship them. The raw input is the part I own: what the feature is for and who it's for.[^1]
-
-I'm still more involved than I want to be, because agents create slop, especially in design. For the backend, my setup is close to a dark factory already. For the frontend, it isn't yet. With models like Opus 5.5, I feel I can be involved less and less.[^1]
-
-Hugo added that this is still hard work. We haven't evolved to make that many decisions and read that much text. Agents didn't make software engineering easy - they made it a different kind of hard.[^1]
-
-With that conversation as the starting point, the next section looks at where the words "dark" and "factory" come from.
 
 ## Origins of the Term
 
-The phrase "dark software factory" joins two older ideas: lights-out manufacturing and the software factory. The agentic version is very recent.
+The phrase "dark software factory" joins two older ideas: lights-out manufacturing and the software factory. 
 
-### Lights-Out Manufacturing
+[Lights-out manufacturing](https://en.wikipedia.org/wiki/Lights_out_(manufacturing)) means a plant that runs without people on the floor, so nobody needs the lights on. 
 
-Lights-out manufacturing means a plant that runs without people on the floor, so nobody needs the lights on. FANUC, the Japanese robotics company, has run a lights-out factory since 2001. Robots build other robots at about 50 per 24-hour shift and can run unsupervised for up to 30 days. A FANUC vice president, Gary Zywiol, said: "Not only is it lights-out, we turn off the air conditioning and heat too." ([Wikipedia: Lights out (manufacturing)](https://en.wikipedia.org/wiki/Lights_out_(manufacturing)), citing a 2003 CNN Money article)
+- FANUC uses robots to build other robots, and they can run unsupervised for up to 30 days
+- Philips makes electric razors with 128 robots and nine human quality assurance workers
+- Xiaomi has a fully automated smartphone factory
 
-The same page lists other examples: Philips makes electric razors with 128 robots and nine human quality assurance workers, and Xiaomi has a fully automated smartphone factory in Changping, Beijing. FANUC is the example Hugo had in mind with "robots building robots in Japan".
-
-### The Software Factory, 1968
-
-The software factory is an old dream. R. W. Bemer proposed in 1968 that General Electric build a software factory with standardized tools and historical data for management control. Hitachi was the first company to call a software organization a factory, in 1969, and NEC, Toshiba, and Fujitsu followed in the 1970s ([Aaen, Bøttcher, Mathiassen, "Software Factories"](https://cin.ufpe.br/~if722/2006.2/readings/03/Software_Factories_17.pdf), summarizing Michael Cusumano's history).
+The concept of a software factory has been around for some time. TODO: create a short summary of the idea - is it with humans? NO need for names dropping. is an old dream. R. W. Bemer proposed in 1968 that General Electric build a software factory with standardized tools and historical data for management control. Hitachi was the first company to call a software organization a factory, in 1969, and NEC, Toshiba, and Fujitsu followed in the 1970s ([Aaen, Bøttcher, Mathiassen, "Software Factories"](https://cin.ufpe.br/~if722/2006.2/readings/03/Software_Factories_17.pdf), summarizing Michael Cusumano's history).
 
 Addy Osmani points to Bemer's 1968 paper as the origin and notes that the dream "has generally (although not universally) fallen flat, in part because of the difficulty of stamping out ideas" ([Addy Osmani, "Software Factories, Light and Dark"](https://addyosmani.com/blog/software-factories/)). Agents revived it because the stamping-out part became cheap.
 
-### Dan Shapiro's Five Levels
+I asked AI to do some archeology to find out where it came from.
 
-The current use of "dark factory" for software comes from Dan Shapiro's January 2026 post, "The Five Levels: from Spicy Autocomplete to the Dark Factory" ([Dan Shapiro's blog](https://www.danshapiro.com/blog/2026/01/the-five-levels-from-spicy-autocomplete-to-the-software-factory/)). He modelled it on the NHTSA levels of driving automation, so it's zero-indexed and has six steps:
+The first use of "dark factory" for software that I could find was Dan Shapiro's post in  January 2026 post, "The Five Levels: from Spicy Autocomplete to the Dark Factory" ([Dan Shapiro's blog](https://www.danshapiro.com/blog/2026/01/the-five-levels-from-spicy-autocomplete-to-the-software-factory/)).
+
+TODO: use list: He modelled it on the NHTSA levels of driving automation, so it's zero-indexed and has six steps:
 
 | Level | Driving analogy | What you do |
 |-------|-----------------|-------------|
@@ -101,57 +62,35 @@ The current use of "dark factory" for software comes from Dan Shapiro's January 
 | 4 | Robotaxi | Write specs, craft skills, leave for 12 hours, check if tests pass |
 | 5 | Not a car any more | "A black box that turns specs into software" |
 
-Shapiro wrote that level 5 is named after "the Fanuc Dark Factory", which is dark "because it's a place where humans are neither needed nor welcome". He said he knew "a handful of people" doing it, in teams of fewer than five. He placed himself at level 4.
+Shapiro wrote that level 5 is named after "the FANUC Dark Factory", which is dark "because it's a place where humans are neither needed nor welcome". 
 
-Simon Willison amplified the post and added what he saw from one such team: nobody reviews the code, ever; most agent work goes into testing, tooling, and simulating related systems; and the humans design that system ([Simon Willison, "The Five Levels"](https://simonwillison.net/2026/Jan/28/the-five-levels/)). He later said that team was StrongDM. He later brought the idea to a wider audience on Lenny's Podcast. The episode summary describes it as the pattern "where nobody writes or reviews code and AI does its own QA" ([Lenny's Newsletter, "An AI state of the union"](https://www.lennysnewsletter.com/p/an-ai-state-of-the-union)).
+Then there was a post from ([Simon Willison, "The Five Levels"](https://simonwillison.net/2026/Jan/28/the-five-levels/)). (Every time I do research on some AI engineering terminology, ther's an article from Simon) where he (TODO 1 short sentence)
 
-I didn't find an earlier public use of "dark factory" for agentic coding than Shapiro's post. StrongDM used "Software Factory" internally from July 2025, but published it in February 2026. So Shapiro named the level, and StrongDM published the first detailed example.
+I rememebr my first experiements with letting agents work on code (TODO: link article about projects that didn't make it). I think the agents were actaully already capable of running unsupervised - claude opus 4.6 (Todo check which model was around back then) was a capable model and the limits were extremeny generous on the $200 plans. but most popele didn't have the xperince doing these things and the tooling was very rudimentary compared to what we have today. 
 
-The terms are in place. The next section looks at the teams that tried it.
+Many things changed over the last 9 months, so more and more developrs focus more on processes and stop looking at the code. 
+
+(TODO add some reserach from X + reddit = how popular )
+
 
 ## Teams Running a Factory
 
-Public examples are few. Most come from small teams or from companies that sell tools in this space, so keep that in mind as you read them.
+TODO: find different examples, not from vendors. I removed strongDM's examples. Use reddit and X
 
-### StrongDM's Software Factory
-
-StrongDM builds access management and security software. Its CTO Justin McCarthy founded an AI team with Jay Taylor and Navan Chauhan on July 14, 2025, and in February 2026 they published "Software Factories and the Agentic Moment" ([StrongDM Software Factory](https://factory.strongdm.ai/)). They describe it as "non-interactive development where specs + scenarios drive agents that write code, run harnesses, and converge without human review".
-
-The charter has two rules:
-
-- Code must not be written by humans
-- Code must not be reviewed by humans
-
-Their practical rule is: "If you haven't spent at least $1,000 on tokens today per human engineer, your software factory has room for improvement."
-
-They released two artifacts. [Attractor](https://github.com/strongdm/attractor), their non-interactive coding agent, ships as three markdown spec files and no code - you feed the specs to your own agent. [cxdb](https://github.com/strongdm/cxdb), an "AI Context Store", has about 16,000 lines of Rust, 9,500 of Go, and 6,700 of TypeScript ([Simon Willison, "How StrongDM's AI team build serious software without even looking at the code"](https://simonwillison.net/2026/Feb/7/software-factory/)).
-
-Willison visited the team in October 2025. He described it as "a glimpse of one potential future of software development, where software engineers move from building the code to building and then semi-monitoring the systems that build the code".
-
-Jay Taylor and Navan Chauhan later left to co-found Dark Factory Inc., according to a [Commoncog Q&A announcement](https://commoncog.com/software-dark-factory-q-a/) from May 2026.
-
-### OpenAI's Harness Engineering Experiment
-
-OpenAI published a post in February 2026 about building an internal beta product with "0 lines of manually-written code" ([OpenAI, "Harness engineering"](https://openai.com/index/harness-engineering/)). Over five months, the repository grew to about a million lines. Roughly 1,500 pull requests were merged by a team that started with three engineers and grew to seven, an average of 3.5 PRs per engineer per day. The slogan was "Humans steer. Agents execute."
-
-This isn't fully dark. The post says "Humans may review pull requests, but aren't required to", and most review moved agent-to-agent. Two details from it are worth noting:
-
-- "Our bottleneck became human QA capacity" - so they made the UI, logs, and metrics readable by Codex
-- The team "used to spend every Friday (20% of the week) cleaning up AI slop", then encoded "golden principles" into the repository and ran background agents that open refactoring PRs
-
-The golden principles are close to what I do with rules from books: you encode taste once, and a reviewer agent enforces it.
-
-### Smaller Examples
+TODO: describe a bit in more detailsl. I want fully dark factory examples from june and later of 2026
 
 Johnny Butler, a head of engineering at a company with a Rails monolith, built his personal site as a "dark factory" project ([Johnny Butler, "Dark Factory: No Humans Should Write Code"](https://world.hey.com/johnnybutler/dark-factory-no-humans-should-write-code-and-what-it-taught-me-3f1a06f0)). He gets to "Level 3-ish" in the monolith and closer to Level 4 in greenfield areas. His takeaway is to carve out "micro-factories" with narrow scope and clean contracts, like a dedicated API namespace.
 
 BCG Platinion uses "Agentic Software Factory" in a March 2026 report ([BCG Platinion, "The Agentic Software Factory"](https://www.bcgplatinion.com/insights/the-dark-software-factory)). It reports 3 to 5x productivity gains for organizations "operating at this level" and says Spotify engineers "have not written a single line of code since December 2025", with 650 AI-generated PRs merged per month. These are consultancy claims with footnoted secondary sources, not audited numbers.
 
-These examples share a set of practices. The next section goes through them.
+
+### My personal projects
+
+For all the projects that I currently actively run I never look at the code. These projects are: 
 
 ## Enabling Practices
 
-Every serious example replaces code review with something else. The overall loop looks like this:
+A conveyor belt cannot run fully unattended - we still need quality checks. In case of dark factoies, it's agents that cehck other agents. 
 
 ```mermaid
 graph LR
@@ -322,10 +261,6 @@ These are the threads I'd like to follow next:
 
 ## Sources
 
-[^1]: When Agents Write the Code (draft based on the lightning lesson) - [articles/raw-articles/when-agents-write-the-code.md](../raw-articles/when-agents-write-the-code.md); recording of "Trends in AI Engineering" with Hugo Bowne-Anderson, 2026-09-29 - https://youtu.be/whIdxTQsU0A
-
-[^2]: User instruction: "Research dark software factories and write a research article", with the session points to anchor on
-
 Web sources:
 
 - Dan Shapiro, "The Five Levels: from Spicy Autocomplete to the Dark Factory" - https://www.danshapiro.com/blog/2026/01/the-five-levels-from-spicy-autocomplete-to-the-software-factory/
@@ -345,8 +280,6 @@ Web sources:
 - BCG Platinion, "The Agentic Software Factory" - https://www.bcgplatinion.com/insights/the-dark-software-factory
 - Johnny Butler, "Dark Factory: No Humans Should Write Code (and what it taught me)" - https://world.hey.com/johnnybutler/dark-factory-no-humans-should-write-code-and-what-it-taught-me-3f1a06f0
 - Commoncog, "Software Dark Factory Q&A" - https://commoncog.com/software-dark-factory-q-a/
-- Hugo Bowne-Anderson, "The Agentic Data Science Playbook" - https://hugobowne.substack.com/p/the-agentic-data-science-playbook (republished at https://www.oreilly.com/radar/?p=19847)
-- Hugo Bowne-Anderson and Eleanor Berger, "Build Your Agentic Software Factory" (Maven course) - https://maven.com/agentic-ventures/agent-factory
 - Wikipedia, "Lights out (manufacturing)" - https://en.wikipedia.org/wiki/Lights_out_(manufacturing)
 - Aaen, Bøttcher, Mathiassen, "Software Factories" (history incl. Bemer 1968, Hitachi 1969) - https://cin.ufpe.br/~if722/2006.2/readings/03/Software_Factories_17.pdf
 - Cloud Security Alliance, "Vibe Coding Security Debt" - https://labs.cloudsecurityalliance.org/research/csa-research-note-ai-codegen-vulnerability-debt-2026
