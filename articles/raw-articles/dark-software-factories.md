@@ -1,102 +1,112 @@
 ---
 title: "Dark Software Factories"
 created: 2026-10-11
-updated: 2026-10-11
+updated: 2026-10-20
 tags: [research, agentic-engineering, coding-agents, dark-factory, software-factory, verification, hugo-bowne-anderson]
 status: draft
 ---
 
 # Dark Software Factories
 
-Reading code and checking all the diffs singnificanly slows me down. That's why around 6 months ago I stopped doing it. Now I write code myself or look at the code that agents wrote only occassionally - when I prepare for a workshop or a course. 
+I work much more slowly when I read code and check every diff. That's why around six months ago I stopped doing it routinely. Now I write code myself or read agent-generated code occasionally, when I prepare a workshop or course.
 
-I started hearing the term "software factries" 1-2 months ago. Turned out I already had one - I described my approach in April (TODO double check)
+I started hearing the term "software factories" a month or two ago and realized I already had one. I described my agent team on [April 3, 2026](https://aishippingblog.com/p/i-built-an-ai-agent-team-for-software), before I called it a factory.
 
-Back then I was still looking at the code. It was terrible, and the tests were absolute total slop. I wanted it to be beautiful - as if I wrote it. So I woudl use google recorder to dictate code review notes, and then give it to my agent teams. Then for a copule of days they would be busy rewriting it, fixing my suggestions. And when I was reviering it next time, only to discovr that some of my comments were not addressed, so I would record anote note. 
+Back then I was still looking at the code. It was terrible, and I thought the tests were absolute slop. I wanted the code to look as if I'd written it myself. I'd dictate review notes with Google Recorder and give them to my agent teams.
 
-At some point I realized that its' not productive, it's just biy work. The agents will never write the code the way I do. But I also discovered that the code they write actually works well. And the tets that I considered absolute slop (and I still do) were helpful against the code that agents write. WHen I was removing tests that I conisdered slop, the code actually stopped working. SO I decided to leave them alone and do whatever they need. I only guide architecturally, make sure the sustem is modular, and the process are sound and reliable. If something breask, there's a process that helps it recover. ANd the processes help eevrything stay under control.
+They'd spend a couple of days rewriting it. When I reviewed it again, some comments still weren't addressed, so I'd record another note. At some point I realized I was spending time making code match my preferences without improving the product.
 
-And recently I startard herign another term - "dark software factory". 
+The code worked, and the tests I disliked caught problems in the code the agents wrote. When I removed some of those tests, things stopped working. So I left the agents to write what they needed and focused on architecture, modularity, checks, and recovery when something broke.
 
-A dark software factory is a development setup where agents write, test, and ship code, and human don't look at it at all. People decide what to build and how to check it, but they look at artifacts and outcomes, not PRs and code diffs.
+Recently I started hearing another term: "dark software factory". In this setup, people give agents specifications and have them write, test, and ship code without human code review. People still decide what to build and how to check it. They evaluate the results through tests, demos, and monitoring.
 
-My decisiosn now are more architectural. Like we have these two projects, let's have a common library that both these projects share. Or all of my projects need a common way of authenticating, let's create a SSO library adn remove the auth layer from the applications completely. Or I want to have the same codebase across different devices, so indead of having a Kotlin app for android, a desktop app as vs code fork, and a web app in typescript, let's implement eveythign in TypeScript, so if there's a bug, we fix it once and it works for all the platforms. 
+I now make more decisions about architecture. If two projects need the same functionality, I ask for a shared library. If they need common authentication, I ask for single sign-on instead of maintaining an authentication layer in every application.
 
-Or if I see that agents take too much time fixing things, I can ask "how large is the code base". On one f my projects it was taking multiple days to fix a bug, and when I was testing it, it wsa fully fixed. Turned out the code grew too much and there was a patch on patch on patch. So I asked the agents to recreate the same beahviour but use only 20% of the code usign the "clean room" (TODO checj term) appeach - so like a distillation. 
+I also want to share code across devices. Instead of separate Kotlin, desktop, and web implementations, I can ask for a common TypeScript codebase and fix a bug once.
 
-In these cases i'm still involved in tehcnical decisions, but it's more directional, and I don't really look at the code. 
+When agents take days to fix a bug, I ask how large the codebase has become. In one project, patch after patch had made it difficult to change. I asked the agents to reimplement the same behavior with a target of 20% of the code. I used the existing behavior as the specification for the rewrite.
 
+I'm still making technical decisions, but I do it by setting direction and checking behavior. I wanted to understand how that compares with what other people call a dark factory.
 
-So when I came across the term, it looked to me that I was already doing it for some time. But I also wanted to check what people actually mean by this term, so I decided to do some research about it and write an article. 
+In this article, I'll cover:
 
-In this article, you will:
-
-
+- Where the factory terminology came from
+- What recent practitioners say they're running
+- How to verify software without reading every change
+- The costs and operational problems that still need human judgment
 
 ## Origins of the Term
 
-The phrase "dark software factory" joins two older ideas: lights-out manufacturing and the software factory. 
+The phrase "dark software factory" combines lights-out manufacturing with the older idea of a software factory.
 
-[Lights-out manufacturing](https://en.wikipedia.org/wiki/Lights_out_(manufacturing)) means a plant that runs without people on the floor, so nobody needs the lights on. 
+In lights-out manufacturing, machines can run without people on the factory floor. [FANUC describes factories](https://www.fanuc.co.jp/en/profile/production/factory1.html) where robots load machining cells for unattended operation, including nights and weekends.
 
-- FANUC uses robots to build other robots, and they can run unsupervised for up to 30 days
-- Philips makes electric razors with 128 robots and nine human quality assurance workers
-- Xiaomi has a fully automated smartphone factory
+The software-factory idea is older than coding agents. People wanted to make development repeatable through shared tools, reusable components, standards, and quality checks. Humans still designed, wrote, and reviewed the software. [Addy Osmani traces that ambition to 1968](https://addyosmani.com/blog/software-factories/).
 
-The concept of a software factory has been around for some time. TODO: create a short summary of the idea - is it with humans? NO need for names dropping. is an old dream. R. W. Bemer proposed in 1968 that General Electric build a software factory with standardized tools and historical data for management control. Hitachi was the first company to call a software organization a factory, in 1969, and NEC, Toshiba, and Fujitsu followed in the 1970s ([Aaen, Bøttcher, Mathiassen, "Software Factories"](https://cin.ufpe.br/~if722/2006.2/readings/03/Software_Factories_17.pdf), summarizing Michael Cusumano's history).
+With agents, people are trying to automate more of those steps, including implementation and review.
 
-Addy Osmani points to Bemer's 1968 paper as the origin and notes that the dream "has generally (although not universally) fallen flat, in part because of the difficulty of stamping out ideas" ([Addy Osmani, "Software Factories, Light and Dark"](https://addyosmani.com/blog/software-factories/)). Agents revived it because the stamping-out part became cheap.
+The earliest explicit software use I found was [Dan Shapiro's January 23, 2026 post](https://www.danshapiro.com/blog/2026/01/the-five-levels-from-spicy-autocomplete-to-the-software-factory/). That's the earliest I found, rather than proof that nobody used it earlier.
 
-I asked AI to do some archeology to find out where it came from.
+He used driving automation as an analogy and described levels 0 through 5:
 
-The first use of "dark factory" for software that I could find was Dan Shapiro's post in  January 2026 post, "The Five Levels: from Spicy Autocomplete to the Dark Factory" ([Dan Shapiro's blog](https://www.danshapiro.com/blog/2026/01/the-five-levels-from-spicy-autocomplete-to-the-software-factory/)).
+- Level 0: you write the code and occasionally use AI for search or suggestions.
+- Level 1: you delegate small tasks such as tests and docstrings.
+- Level 2: you pair with an agent while staying involved in implementation.
+- Level 3: you mainly review the code agents produce.
+- Level 4: you prepare specifications and checks, then let agents work for hours.
+- Level 5: you operate a system that turns specifications into software without routine human code review.
 
-TODO: use list: He modelled it on the NHTSA levels of driving automation, so it's zero-indexed and has six steps:
+Shapiro placed himself at level 4 and borrowed the dark-factory name from FANUC for level 5.
 
-| Level | Driving analogy | What you do |
-|-------|-----------------|-------------|
-| 0 | Your parents' Volvo | Write code yourself, use AI as search |
-| 1 | Lanekeeping and cruise control | Hand off discrete tasks like a unit test or docstring |
-| 2 | Highway autopilot | Pair with the AI; "where 90% of AI-native developers are living right now" |
-| 3 | Waymo with a safety driver | Review diffs all day; "almost everyone tops out here" |
-| 4 | Robotaxi | Write specs, craft skills, leave for 12 hours, check if tests pass |
-| 5 | Not a car any more | "A black box that turns specs into software" |
+[Simon Willison summarized the levels on January 28](https://simonwillison.net/2026/Jan/28/the-five-levels/) and described a small team whose agents demonstrated correctness without human code review. He later identified them as StrongDM's AI team.
 
-Shapiro wrote that level 5 is named after "the FANUC Dark Factory", which is dark "because it's a place where humans are neither needed nor welcome". 
+My own early experiments were in January 2026, as I described in [Six Projects That Didn't Make It](https://aishippingblog.com/p/six-projects-that-didnt-make-it). Opus 4.5 was available then, following [its November 24, 2025 release](https://www.anthropic.com/news/claude-opus-4-5). [Opus 4.6 arrived on February 5, 2026](https://www.anthropic.com/news/claude-opus-4-6), so it couldn't have powered my January experiments.
 
-Then there was a post from ([Simon Willison, "The Five Levels"](https://simonwillison.net/2026/Jan/28/the-five-levels/)). (Every time I do research on some AI engineering terminology, ther's an article from Simon) where he (TODO 1 short sentence)
+The agents could already keep working for hours, but my metabolism simulator showed why that wasn't enough. I got more features while basic logging remained broken. I needed clearer requirements, tests, and acceptance checks.
 
-I rememebr my first experiements with letting agents work on code (TODO: link article about projects that didn't make it). I think the agents were actaully already capable of running unsupervised - claude opus 4.6 (Todo check which model was around back then) was a capable model and the limits were extremeny generous on the $200 plans. but most popele didn't have the xperince doing these things and the tooling was very rudimentary compared to what we have today. 
+## The Discussion on Reddit and X
 
-Many things changed over the last 9 months, so more and more developrs focus more on processes and stop looking at the code. 
+In a [July 30 Reddit discussion](https://www.reddit.com/r/ycombinator/comments/1vamsls/has_anyone_here_actually_set_up_a_software/), developers described several different meanings of "factory". Some had automated tasks through pull requests, while others still handled scheduling, exceptions, and final approval. One commenter explicitly said their system wasn't lights-out.
 
-(TODO add some reserach from X + reddit = how popular )
+On September 12, [Pieter Levels argued on X](https://x.com/levelsio/status/2098861287413268889) that one coding agent was sufficient and could start more agents when needed. On September 25, [Geoffrey Huntley described a software factory on X](https://x.com/GeoffreyHuntley/status/2103470149450022989) as automation built into the product.
 
+Those posts show an active disagreement about how much machinery to build. They don't tell us what fraction of developers run factories. I couldn't find representative adoption data for the stricter definition of unattended delivery.
 
 ## Teams Running a Factory
 
-TODO: find different examples, not from vendors. I removed strongDM's examples. Use reddit and X
+I looked for practitioner accounts from June 2026 onward, rather than treating vendor descriptions as proof of adoption. Automatic code generation, automatic merging, and automatic production deployment are separate claims.
 
-TODO: describe a bit in more detailsl. I want fully dark factory examples from june and later of 2026
+On June 1, [Brian McQuay described adding ticket-to-merge automation to Sandstorm](https://brianmcquay.com/blog/going-dark/). After ticket refinement, he wanted agents to implement the change and review it automatically. They'd fix problems, run tests, and create a PR, then resolve conflicts and merge it. He described per-project automation settings and kept human application QA. He was still implementing the option when he wrote the post, so it doesn't establish a sustained production record.
 
-Johnny Butler, a head of engineering at a company with a Rails monolith, built his personal site as a "dark factory" project ([Johnny Butler, "Dark Factory: No Humans Should Write Code"](https://world.hey.com/johnnybutler/dark-factory-no-humans-should-write-code-and-what-it-taught-me-3f1a06f0)). He gets to "Level 3-ish" in the monolith and closer to Level 4 in greenfield areas. His takeaway is to carve out "micro-factories" with narrow scope and clean contracts, like a dedicated API namespace.
+On July 26, [John Wilger described building an SSH proxy called Lanyard](https://johnwilger.com/blog/somebody-has-to-design-the-factory/). He required isolated worktrees, verification that a live deployment answered, and fresh reviews tied to the exact code changes. When the code changed, earlier review approvals no longer counted. He also required agents to stop and escalate when they couldn't meet a required check.
 
-BCG Platinion uses "Agentic Software Factory" in a March 2026 report ([BCG Platinion, "The Agentic Software Factory"](https://www.bcgplatinion.com/insights/the-dark-software-factory)). It reports 3 to 5x productivity gains for organizations "operating at this level" and says Spotify engineers "have not written a single line of code since December 2025", with 650 AI-generated PRs merged per month. These are consultancy claims with footnoted secondary sources, not audited numbers.
+In the July Reddit thread, [a developer described a Linear-to-PR setup](https://www.reddit.com/r/ycombinator/comments/1vamsls/has_anyone_here_actually_set_up_a_software/). They started agent sessions for ready user stories, followed repository instructions, and produced preview URLs. They also described automated releasing with end-to-end tests. The account doesn't specify whether a human approves each merge, so I wouldn't classify it as fully dark.
 
+I didn't verify a non-vendor example from this period that established sustained production delivery with no human intervention.
 
-### My personal projects
+## My Personal Projects
 
-For all the projects that I currently actively run I never look at the code. These projects are: 
+For my active projects, I now leave routine code reading to the agents.
+
+That includes:
+
+- [AI Shipping Labs](https://github.com/AI-Shipping-Labs/website), my workshop and community platform.
+- [The DataTalks.Club website](https://github.com/DataTalksClub/datatalksclub.github.io), where I check the published pages and behavior.
+- [PocketShell](https://github.com/PocketShell-io/pocketshell), my Android SSH client for working with agents from my phone.
+
+These are examples of how I work today, not a claim that the repositories prove nobody ever reviewed their code. I still check the products, set architectural direction, and handle decisions the agents escalate. I also read code when preparing educational material.
 
 ## Enabling Practices
 
-A conveyor belt cannot run fully unattended - we still need quality checks. In case of dark factoies, it's agents that cehck other agents. 
+A conveyor belt still needs quality checks. In a dark software factory, we ask agents to check other agents and use automated tests to check their output.
+
+I organize that work around implementation, verification, and escalation:
 
 ```mermaid
 graph LR
     H[Human: intent and raw input] --> S[Spec]
     S --> B[Agents build]
-    B --> V[Verification: tests, holdout scenarios, digital twins, agent review]
+    B --> V[Verification: tests, scenarios, agent review]
     V -->|fails| B
     V -->|passes| P[Ship]
     P --> M[Monitor production]
@@ -105,37 +115,39 @@ graph LR
     E --> S
 ```
 
-The human appears at the start (intent) and at the escalation edge. Everything else is agents. The subsections below cover each box.
+I provide the intent at the start and handle escalations. Between those points, I have agents turn the request into specifications, implement changes, and verify them.
 
-### Specifications
+## Specifications
 
-StrongDM calls the input a "seed": historically a PRD or spec, but now possibly "a few sentences, a screenshot, or an existing codebase" ([StrongDM, "The Principles"](https://factory.strongdm.ai/principles)). BCG Platinion calls the human skill "intent thinking" - turning business needs into "precise, testable descriptions of desired outcomes".
+StrongDM calls the input a seed, which can be a specification, a screenshot, or a short request. They have agents develop it into software through repeated verification. ([StrongDM's principles](https://factory.strongdm.ai/principles))
 
-This matches what Hugo and I said in the lesson: the human owns what to build and who it's for, and agents turn that into detailed specs.
+Hugo and I discussed the same division of responsibility. I decide what to build and who it's for, then ask agents to develop the detailed specifications.
 
-### Holdout Scenarios
+## Holdout Scenarios
 
-StrongDM found that tests in the codebase weren't enough. The agent took shortcuts: "return true is a great way to pass narrowly written tests". A test stored in the repo "can be lazily rewritten to match the code" ([StrongDM Software Factory](https://factory.strongdm.ai/)).
+StrongDM found that agents could satisfy tests by weakening them or taking shortcuts. They use end-to-end scenarios stored separately from the implementation. ([StrongDM Software Factory](https://factory.strongdm.ai/))
 
-Their fix was the scenario: an end-to-end user story "often stored outside the codebase (similar to a 'holdout' set in model training)". A holdout set in ML is data the model never sees during training, so it gives an honest score. Here the coding agents can't see the scenarios, so they can't game them.
+A holdout set in machine learning contains examples the model doesn't see during training. Here, we keep evaluation scenarios out of the coding agent's working materials. That makes it harder to change the evaluation to match the implementation.
 
-They replaced "the test suite is green" with satisfaction: "of all the observed trajectories through all the scenarios, what fraction of them likely satisfy the user?" An LLM judges each trajectory. Willison compared this to "aggressive testing by an external QA team".
+They evaluate how often the software satisfies the scenarios, rather than relying only on whether repository tests pass. They use a model to judge the observed sequences of actions. We still need to check whether that judge can recognize a wrong result.
 
-### Digital Twins of External Services
+## Digital Twins of External Services
 
-StrongDM's software integrates with third-party services, so they built a "Digital Twin Universe": behavioral clones of Okta, Jira, Slack, Google Docs, Google Drive, and Google Sheets. With the twins, they run "thousands of scenarios per hour without hitting rate limits, triggering abuse detection, or accumulating API costs" ([StrongDM Software Factory](https://factory.strongdm.ai/)).
+StrongDM also built behavioral replicas of external services, including Okta, Jira, and Slack. They test against these replicas without using live-service quotas or changing production data. ([StrongDM's account](https://factory.strongdm.ai/))
 
-Agents built the twins too. Jay Taylor shared the prompting strategy on Hacker News: use the most popular public SDK client libraries as compatibility targets, "with the goal always being 100% compatibility" ([Simon Willison's write-up](https://simonwillison.net/2026/Feb/7/software-factory/)). StrongDM's argument is that a full replica of a SaaS API "was always possible, but never economically feasible" before agents.
+They used agents to build the replicas. Jay Taylor explained that they tested compatibility against popular public SDK clients. That gives them concrete behavior to reproduce, rather than asking a model to invent what an API should do. ([Willison's report and Taylor's explanation](https://simonwillison.net/2026/Feb/7/software-factory/))
 
-### Agentic Review and Cleanup
+## Agentic Review and Cleanup
 
-OpenAI's team asks Codex to review its own changes, requests more agent reviews, and loops "until all agent reviewers are satisfied". Background agents scan for deviations from the golden principles and open small refactoring PRs, most of which "can be reviewed in under a minute and automerged" ([OpenAI, "Harness engineering"](https://openai.com/index/harness-engineering/)).
+OpenAI describes asking Codex to review changes, requesting additional agent reviews, and iterating until the reviewers accept the work. They also run background agents to find violations of repository rules and propose small refactors. ([OpenAI's engineering account](https://openai.com/index/harness-engineering/))
 
-This is the same shape as my implementer-reviewer and designer-senior-designer pairs, and as Hugo's three parallel verification agents for writing.
+I use an implementer and a reviewer in a similar way. For design, I assign a designer and senior designer. Hugo uses three parallel verification agents for writing.
 
-### Escalation to Humans
+## Escalation to Humans
 
-No public example is completely dark. Something always routes back to people. My `human` label on GitHub issues is one form of this. Here's how that loop works:
+People remain responsible for goals and exceptions when agents produce code unattended. I use a `human` label on GitHub issues to identify decisions that need me.
+
+I ask the agents to follow this escalation process:
 
 ```mermaid
 sequenceDiagram
@@ -151,136 +163,102 @@ sequenceDiagram
     I-->>A: Only labelled issues reach me
 ```
 
-The hard part is calibration. Escalate too much, and you're back to reviewing everything. Escalate too little, and you miss the things that matter.
+I had to tune what they escalate. If the agents escalate too often, I review everything. If they escalate too rarely, I miss decisions I need to make.
 
-Hugo's playbook makes escalation part of the task prompt. The brief has a "Return to me" line listing what the agent must bring back, such as "a trade-off that requires an operational decision" ([Hugo Bowne-Anderson, "The Agentic Data Science Playbook", republished on O'Reilly Radar](https://www.oreilly.com/radar/?p=19847); original on [Vanishing Gradients](https://hugobowne.substack.com/p/the-agentic-data-science-playbook)).
+In [his agentic data science playbook](https://hugobowne.substack.com/p/the-agentic-data-science-playbook), Hugo recommends stating what an agent must return for human review. That includes trade-offs requiring an operational decision.
 
-### Continuous Learning
+## Continuous Learning
 
-The same playbook ends with "Preserve evidence and turn reviewed lessons into reusable expertise". Lessons from a reviewed run become skills and evals for the next run. In one example, an agent ran 41 experiments "while the team slept" on a fraud model and kept seven changes that reduced validation loss.
+Hugo also recommends preserving evidence and converting reviewed lessons into reusable instructions and evaluations. He describes an overnight fraud-model experiment in which agents tried 41 changes and retained seven that improved validation loss.
 
-This is the "works while you're away" part Hugo described in the lesson. StrongDM's principles say something similar: feed a sample of the output back into the inputs so the system can "compound correctness".
+I do something similar when I add a rule after seeing the agents make a mistake. The agents should use what I learned while reviewing their previous work.
 
-These practices cost money to run. That's the next topic.
+I also need to account for the tokens I spend on repeated reviews and experiments.
 
 ## Economics
 
-StrongDM's benchmark is $1,000 in tokens per engineer per day. Willison did the math: that's about $20,000 per engineer per month. He wrote that at that price "this becomes more of a business model exercise" and that he hopes the patterns work "with a much lower spend". He said the $200/month Claude Max plan is enough for his own experiments ([Simon Willison](https://simonwillison.net/2026/Feb/7/software-factory/)).
+In February, StrongDM proposed spending at least $1,000 in tokens per engineer per day. Willison calculated roughly $20,000 per working month and questioned the economics. He contrasted that with his own experiments on a $200/month Claude Max plan. These were February 2026 figures, not a minimum budget for every factory. ([Willison's cost discussion](https://simonwillison.net/2026/Feb/7/software-factory/))
 
-Dan Shapiro frames the economics as "technical deflation": code gets cheaper so fast that teams defer human work today and pay it back later with cheaper AI hours ([Dan Shapiro](https://www.danshapiro.com/blog/2026/01/the-five-levels-from-spicy-autocomplete-to-the-software-factory/)).
+Shapiro argues that falling generation costs change the economics of automation. But cheaper implementation doesn't remove the cost of repeated checks, failed attempts, and production recovery.
 
-From these sources, the setup looks viable for:
+When I estimate the cost, I need to include:
 
-- Small, senior teams on greenfield products, like StrongDM's three people
-- Large companies that can absorb the token bill, like OpenAI
-- Bounded areas with cheap, hard-to-fake checks, like Butler's micro-factories
+- Tokens spent implementing and reviewing each change
+- Retries and work that fails acceptance checks
+- Test environments, monitoring, and recovery
+- My time specifying the work and checking outcomes
 
-For a solo founder, the token budget is the limit. That's part of why I keep a human in the escalation path rather than adding more parallel reviewer agents.
+For a solo founder, the token budget limits how many agents I can run. I also need to know whether extra reviewers catch more defects or repeat the same judgments.
 
-Cost is only one objection. The critiques below are about whether it works at all.
+## Maintainability and Failed Experiments
 
-## Critiques and Failure Modes
+Dex Horthy describes HumanLayer trying lights-off development in July 2025 and later returning to human review. In [his account of why software factories fail](https://github.com/humanlayer/advanced-context-engineering-for-coding-agents/blob/main/wsff.md), he argues that maintainability can deteriorate even while tests pass.
 
-The strongest critiques come from people who tried it, and from lawyers.
+He separates passing a short coding task from keeping a codebase easy to change over several months. A model can get rewarded for a patch that passes tests without accounting for the future cost of that design.
 
-### The HumanLayer Reversal
+[Nash Borges notes the limits of this evidence](https://nashborg.es/the-dark-factory-floods-what-happens-when-agents-write-code-no-one-reads/). Horthy sells tools for human-agent collaboration, and the account isn't a controlled comparison. It gives us a concrete maintenance concern without proving that every dark factory will fail.
 
-Dex Horthy, CEO of HumanLayer, tried full lights-off development in July 2025, according to the write-up of his AI Engineer World's Fair 2026 talk ([AI Engineer, "Why Software Factories Fail"](https://www.ai.engineer/talks/Ib5GBkD555M-harness-engineering-is-not-enough-why-software)). On the High Leverage podcast he described the end: "in November, December, we basically took our open source, chucked it, and basically rebuilt it from scratch. Basically, this was the end of my 'don't read the code' cycle." ([Heavybit, High Leverage Ep. 12](https://www.heavybit.com/library/podcasts/high-leverage/ep-12-the-limits-of-lights-out-coding-with-dexter-horthy))
+## Comprehension Debt
 
-His summary: "If you give it five features a day for the next six weeks, you will wake up to a ball of spaghetti." His diagnosis is that models don't know what well-factored code is, because "the penalty function of bad architecture is measured in months and years", which makes it hard to train for.
+Addy Osmani calls the growing amount of code that people no longer understand comprehension debt. He argues that passing tests doesn't tell us how much of that debt we're accumulating. ([Software Factories, Light and Dark](https://addyosmani.com/blog/software-factories/))
 
-Nash Borges points out that Horthy runs a company that sells human-in-the-loop tooling, and that the evidence is one experiment with no control group on models that are now outdated ([Nash Borges, "The Dark Factory Floods"](https://nashborg.es/the-dark-factory-floods-what-happens-when-agents-write-code-no-one-reads/)). The story is still the most detailed public account of a dark factory failing.
+He favors giving agents autonomy where people can verify outcomes cheaply and reliably. Human judgment still matters for architecture and decisions where a wrong answer is expensive.
 
-### Comprehension Debt
+I recognize the practical problem: if I stop reading code, I need another way to understand behavior and recover from incidents. Monitoring alone won't help if nobody can diagnose what the monitoring finds.
 
-Addy Osmani defines comprehension debt as "the widening gap between how much code exists and how much any human still understands". He writes that a dark factory "takes it on as fast as it can, with the tests green the whole way" ([Addy Osmani](https://addyosmani.com/blog/software-factories/)).
+## Reward Hacking and Correlated Judges
 
-His alternative is the "lit factory": agents still build, but human judgment moves upstream to product, design, and architecture. His rule for which loops can run dark is "back pressure": "you can only hand a loop as much autonomy as you can cheaply and reliably verify". A loop earns the dark when its check is cheap, frequent, and hard to fake, like type gates or property tests. It stays lit when a wrong answer is expensive and only a person can catch it, like auth, billing, or a public API contract.
+Reward hacking means an agent optimizes the score instead of the goal. Returning a fixed answer to pass a narrow test is one example.
 
-Borges connects this to Lisanne Bainbridge's 1983 "Ironies of Automation": automate what you can, and the human is left with monitoring, which humans do worst, while the skills needed to take over decay.
+The Stanford CodeX authors question how much trust we should place in agents that both write and judge software. A separate judge can still share the builder's blind spots. Keeping test scenarios separate doesn't automatically make the judge independent. ([Stanford CodeX's analysis](https://law.stanford.edu/2026/02/08/built-by-agents-tested-by-agents-trusted-by-whom/))
 
-### Reward Hacking and Correlated Judges
+I therefore want deterministic checks alongside agent opinions. A type checker or a test against a known result can reject an answer that several agents accept.
 
-Reward hacking means an agent optimizes the score instead of the goal - `return true` is the crude version. StrongDM's holdout scenarios exist to resist it.
+## Security
 
-The Stanford CodeX essay argues that holdout scenarios don't remove the deeper problem. Satisfaction is measured by an LLM judge, so "the same class of technology that writes the code also decides whether the code works". When a human writes a test, they bring different blind spots than the code's author, and that mismatch is what makes testing useful ([Stanford Law, "Built by Agents, Tested by Agents, Trusted by Whom?"](https://law.stanford.edu/2026/02/08/built-by-agents-tested-by-agents-trusted-by-whom/)).
+The Cloud Security Alliance summarizes a Veracode study in which 45% of AI-generated samples failed security tests. That measures generated code samples, rather than the output of a complete factory with verification. It still illustrates the defects the checks must catch. ([CSA's research note](https://labs.cloudsecurityalliance.org/research/csa-research-note-ai-codegen-vulnerability-debt-20260406-csa/))
 
-Borges makes the same point with Birgitta Böckeler's distinction: deterministic checks such as tests, linters, and type checks are independent of the model, while model-judges-model checks are correlated with it. Stacking more of the second kind "raises confidence faster than it raises correctness".
+A history of successful deployments doesn't prove that the next change is secure. I still need explicit checks for access control, secret handling, and dependencies.
 
-### Security
+## Accountability
 
-The flagship example is security software, which the Stanford essay calls the part to "pause on". Industry studies of AI-generated code report high vulnerability rates. The Cloud Security Alliance summarizes Veracode's 2025 finding that 45% of AI-generated samples failed security tests against the OWASP Top 10 ([CSA research note](https://labs.cloudsecurityalliance.org/research/csa-research-note-ai-codegen-vulnerability-debt-2026)). These studies test single generations without a verification harness, so they don't measure a factory directly. They show what a harness has to catch.
+The Stanford authors also ask how accountability works when agents create the implementation and its evaluation. People still have to explain what they authorized and what evidence they accepted.
 
-Simon Willison has written about the "normalization of deviance" in AI: teams get used to treating unreliable model output as safe because nothing has gone wrong yet, the dynamic blamed for the Challenger disaster ([Simon Willison, "Normalization of deviance"](https://simonwillison.net/2025/Dec/10/normalization-of-deviance)). A factory that ships unread code for months without incident is exactly that setting.
+Their concerns include:
 
-### Accountability and Regulation
+- Responsibility when unreviewed code causes harm
+- Evidence that customers and auditors can evaluate
+- Contracts written around assumptions of human development and review
 
-The Stanford essay argues that existing liability frameworks "assume someone, somewhere, looked at the work". In a factory, nobody wrote the code, the test, or the replica it was tested against. It names three gaps:
-
-- Liability: it's unclear who is responsible when unreviewed code fails
-- Disclosure: auditors and procurement have no standard for judging "satisfaction scores exceeded our threshold"
-- Contracts: warranty disclaimers written for human-built software now cover software no human looked at
-
-It ends with: "The risk is that when it fails, nobody will know why. Nobody will know how to fix it."
-
-With the critiques laid out, I can compare them to what Hugo and I said.
+These are questions raised by the authors, rather than a statement that one legal rule applies to every factory.
 
 ## Comparing Positions
 
-Here's where each voice stands:
+The authors agree that people still choose goals and define checks.
 
-| Who | Position | Where humans stay |
-|-----|----------|-------------------|
-| Dan Shapiro | Level 5 is likely "our future"; he's at level 4 | Specs, skills, plans |
-| StrongDM | No human writes or reviews code | Specs, scenarios, scores |
-| OpenAI harness team | No manual code; review optional | Steering, QA, taste encoded as rules |
-| Addy Osmani | Lit factory by default; dark only for cheap-to-verify loops | Design, architecture, high-stakes review |
-| Dex Horthy | Tried dark, rebuilt from scratch; read plans and much of the code | Planning and code reading |
-| Stanford CodeX | Accountability gap is unsolved | Unclear, which is the problem |
-| Hugo | Not today, but economically viable soon; trust from tests, verification, specs | Business decisions via artifacts, high-risk items surfaced |
-| Me | Backend close to dark, frontend not yet | Raw input, escalations via `human` label |
+They disagree about how far we can trust automated verification:
 
-Hugo's position is close to Shapiro's and StrongDM's on direction, but more careful on timing. His abstraction-layer argument - we don't read machine code - is the same bet StrongDM makes. The difference is that compilers are deterministic and well-tested, while agents are neither. That's the gap the Stanford and Borges critiques point at.
+- Shapiro describes unattended specification-to-software work as the highest level of automation.
+- StrongDM describes an implementation and verification workflow without human code review.
+- Osmani ties autonomy to how reliably people can verify the output.
+- Horthy argues that today's tests don't adequately measure maintainability over time.
+- The Stanford authors question the independence of agent judges and who remains accountable.
 
-My position is close to Osmani's lit factory with selective darkness. The backend has cheap, deterministic checks, so it can run dark. Design and frontend have no cheap oracle, so I'm in the loop there. My readability rules for agent code are a hedge against the HumanLayer failure: when something escalates, I can still read the code.
+Hugo expects it to become economically viable to focus on business outcomes without reading code. He compares that with trusting compilers without reading machine code. I agree with the direction, but we still have to establish what checks justify that trust for agents.
 
-Hugo's "different kind of hard" matches what everyone says, from StrongDM's "creative, frontier engineering" to Horthy's warning about burning out senior engineers with "a mountain of PRs".
+In my projects, I already leave routine code reading to the agents. For interfaces, I check the rendered product and give feedback, then ask agents to implement and review the changes. That's human involvement in product and design decisions, even when I don't read the frontend code.
+
+I still care about readable code because an incident may eventually require someone to investigate it. When I leave the implementation to agents, I'm still responsible for architecture and recovery.
 
 ## Open Questions
 
-These are the threads I'd like to follow next:
+These are the questions I'd like to explore next:
 
-- Escalation calibration. How do you tune agents to escalate only what matters? Nobody publishes their escalation rules. A write-up of my `human` label setup, with examples of good and bad escalations, could fill that gap.
-- Holdout scenarios for small teams. StrongDM's approach needs a place to store scenarios that agents can't see. What's the minimal version for a solo developer with one repository?
-- Digital twins on a budget. Cloning a third-party API with agents and SDK compatibility targets sounds like a weekend project. It would be good to try it on one service and report.
-- Deterministic vs LLM checks. Which parts of my reviewer rules can become linters or type checks, so the reviewer agent isn't the only gate?
-- Long-term maintenance. Every positive example is under a year old and greenfield. HumanLayer's failure appeared after about four months. What does a dark backend look like after a year?
-- Design and frontend. There's no public example of a dark factory for UI. Adversarial design review is my attempt. Is there a design equivalent of a holdout scenario?
-- Token economics for individuals. What does a factory cost at $200 a month instead of $1,000 a day, and what do you give up?
-- Accountability. If a company ships factory-built software to customers, what should it disclose?
-
-## Sources
-
-Web sources:
-
-- Dan Shapiro, "The Five Levels: from Spicy Autocomplete to the Dark Factory" - https://www.danshapiro.com/blog/2026/01/the-five-levels-from-spicy-autocomplete-to-the-software-factory/
-- Simon Willison, "The Five Levels" (link post) - https://simonwillison.net/2026/Jan/28/the-five-levels/
-- Simon Willison, "How StrongDM's AI team build serious software without even looking at the code" - https://simonwillison.net/2026/Feb/7/software-factory/
-- Simon Willison, "Normalization of deviance" - https://simonwillison.net/2025/Dec/10/normalization-of-deviance
-- StrongDM, "Software Factories and the Agentic Moment" - https://factory.strongdm.ai/
-- StrongDM, "The Principles" - https://factory.strongdm.ai/principles
-- StrongDM Attractor - https://github.com/strongdm/attractor
-- StrongDM cxdb - https://github.com/strongdm/cxdb
-- OpenAI, "Harness engineering" - https://openai.com/index/harness-engineering/
-- Addy Osmani, "Software Factories, Light and Dark" - https://addyosmani.com/blog/software-factories/
-- AI Engineer World's Fair 2026, Dex Horthy, "Why Software Factories Fail" - https://www.ai.engineer/talks/Ib5GBkD555M-harness-engineering-is-not-enough-why-software
-- Heavybit, High Leverage Ep. 12, "The Limits of Lights-Out Coding with Dexter Horthy" - https://www.heavybit.com/library/podcasts/high-leverage/ep-12-the-limits-of-lights-out-coding-with-dexter-horthy
-- Nash Borges, "The Dark Factory Floods" - https://nashborg.es/the-dark-factory-floods-what-happens-when-agents-write-code-no-one-reads/
-- Stanford Law CodeX, "Built by Agents, Tested by Agents, Trusted by Whom?" - https://law.stanford.edu/2026/02/08/built-by-agents-tested-by-agents-trusted-by-whom/
-- BCG Platinion, "The Agentic Software Factory" - https://www.bcgplatinion.com/insights/the-dark-software-factory
-- Johnny Butler, "Dark Factory: No Humans Should Write Code (and what it taught me)" - https://world.hey.com/johnnybutler/dark-factory-no-humans-should-write-code-and-what-it-taught-me-3f1a06f0
-- Commoncog, "Software Dark Factory Q&A" - https://commoncog.com/software-dark-factory-q-a/
-- Wikipedia, "Lights out (manufacturing)" - https://en.wikipedia.org/wiki/Lights_out_(manufacturing)
-- Aaen, Bøttcher, Mathiassen, "Software Factories" (history incl. Bemer 1968, Hitachi 1969) - https://cin.ufpe.br/~if722/2006.2/readings/03/Software_Factories_17.pdf
-- Cloud Security Alliance, "Vibe Coding Security Debt" - https://labs.cloudsecurityalliance.org/research/csa-research-note-ai-codegen-vulnerability-debt-2026
-- Lenny's Podcast with Simon Willison, "An AI state of the union" - https://www.lennysnewsletter.com/p/an-ai-state-of-the-union
+- Escalation calibration. I want to document issues that need my attention and issues agents should resolve themselves.
+- Holdout scenarios for small teams. I want an evaluation setup that the coding agents can't change to suit their implementation.
+- Digital twins on a budget. I want to test how much effort it takes to reproduce one external service faithfully.
+- Deterministic checks. I want to move more reviewer rules into linters and tests with known expected results.
+- Long-term maintenance. I want evidence from systems maintained this way for a year, including incidents and the cost of later changes.
+- Design and frontend. I want to test whether an independent design reviewer can catch the problems I currently find by looking at the interface.
+- Token economics. I want to compare the full cost per accepted change, including failed attempts and verification.
+- Accountability. I want to understand what evidence customers need when agents produce software that nobody routinely reads.
