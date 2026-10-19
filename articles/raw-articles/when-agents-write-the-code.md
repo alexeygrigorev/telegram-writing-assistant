@@ -1,15 +1,16 @@
 ---
 title: "Agentic Engineering"
 created: 2026-10-11
-updated: 2026-10-11
+updated: 2026-10-20
 tags: [agentic-engineering, coding-agents, verification, hugo-bowne-anderson, lightning-lesson]
 status: draft
 ---
 
+# Agentic Engineering
 
-A few weeks ago [Hugo Bowne-Anderson](https://substack.com/@hugobowne) and I ran a webinar about trends in AI Engineering.
+A few weeks ago [Hugo Bowne-Anderson](https://substack.com/@hugobowne) and I ran a webinar about trends in AI engineering.
 
-https://youtu.be/whIdxTQsU0A
+[Watch the webinar recording](https://youtu.be/whIdxTQsU0A).
 
 At the beginning, Hugo defined two terms that people nowadays often confuse:
 
@@ -21,72 +22,69 @@ At the beginning, Hugo defined two terms that people nowadays often confuse:
   <figcaption>Hugo's slide: in agentic engineering the agent is part of the development team</figcaption>
 </figure>
 
-At the end of the session we decided to write based on what we talked about. Since we covered both topics, I decided to split the article into two parts. The [first article about AI engineering](https://aishippingblog.com/p/trends-in-ai-engineering) was published earlier this week. This one is about agentic engineering.
+At the end of the session we decided to write about both topics separately. I published [the first article about AI engineering](https://aishippingblog.com/p/trends-in-ai-engineering) earlier. Here, I focus on agentic engineering.
 
 In particular, I'll cover:
 
-- How agents changed the way we write code
-- Why verification is now the bottleneck
-- Dealing with sloppy agent code
-- Using good books and rules to help agents write better code
-- Organizing work across multiple agents
-- Dark software factories
+- How people verify agent-generated work as their workflows change
+- Using one agent to review another's code and designs
+- Giving agents shared rules for coding and writing
+- Organizing agents into teams and larger hierarchies
+- Running software factories where humans focus on outcomes
 
-TODO update the outline
+## Verifying Agent-Generated Work
 
-
-## TODO Our work has changed (?)
-
-Hugo ran a survey on how people do agentic engineering in data science. 34 people said that AI changed their worflow "fundamentally", and 39 said "significantly".
+Hugo ran a survey on how people do agentic engineering in data science. 34 people said that AI changed their workflow "fundamentally", and 39 said "significantly".
 
 Hugo wanted to see what exactly was different, so he followed up and visualized the results with a heatmap.
 
-TODO: use codex imagegen to regenerate it in high-res and remove all the artifacts/noise 
 <figure>
-  <img src="../../assets/images/when-agents-write-the-code/agentic-verification-heat-map.jpg" alt="Heat map of verification methods by how much AI agents changed people's workflow. In the group whose workflow changed fundamentally, 59% ask another agent to critique the work and 62% write tests">
-  <figcaption>From Hugo's survey: how people verify AI-generated work, grouped by how much agents changed their workflow</figcaption>
+  <img src="../../assets/images/when-agents-write-the-code/agentic-verification-heat-map-clean.png" alt="Heat map of verification methods by how much AI agents changed people's workflow. In the group whose workflow changed fundamentally, 59% ask another agent to critique the work and 62% write tests">
+  <figcaption>Hugo's survey, redrawn for readability: verification methods grouped by how much agents changed people's workflow</figcaption>
 </figure>
 
-Amonth the significant and fundamental groups, 59% ask another agent to critique the work.
+Among people whose workflow changed fundamentally, 59% ask another AI tool or agent to critique the work. In the significantly changed group, it's 54%.
 
 The less impact people reported, the less common this practice was. It's not causal, but the people who changed their workflow the most also verify using agents the most.
 
 ## Agents Controlling Agents
 
-Even frontier models give you pages and pages of absolute slop. With this amount of output it's very hard to review every line of code ourselves, so we use agents to control agents.
+Even frontier models give you pages and pages of absolute slop. With this amount of output it's hard to review every line of code ourselves, so we use agents to control agents.
 
-I call it the "implementer-reviewer" pattern.
+I call it the "implementer-reviewer" approach.
 
-The implementer is doign the work, and the reviewer is validating it. They iterate until the second agent accepts the output of the first agent.
+I have the implementer do the work and the reviewer validate it. I let them iterate until the second agent accepts the output of the first agent.
 
-It works very well for coding. The implementer is a software engineer working on a task, and the reviewer is a tester whose goal is to find holes in the implementation. A feature may take a few hours instead of 20 minutes, but the quality at the end is better.
+For coding, I assign one agent to implement the task as a software engineer. I ask another to act as a tester and find problems in the implementation. A feature may take a few hours instead of 20 minutes, but the quality at the end is better.
 
 <figure>
   <img src="../../assets/images/when-agents-write-the-code/adversarial-loop.png" alt="An implementer agent builds, a reviewer agent checks the result against shared rules such as a design system or Clean Code, and sends rejected work back until it accepts it">
   <figcaption>One agent builds, another tries to reject the result</figcaption>
 </figure>
-TODO: let's remove the subtitles from the last row 
 
 It works outside of coding tasks too.
 
 Agents usually produce terrible and complicated designs, so I use the same implementer-reviewer approach:
 
 - The implementer is a designer, who creates the interface
-- The reviewer is a senior designer who tries to find reasons to reject the design 
+- The reviewer is a senior designer who tries to find reasons to reject the design
 
-They share a design system and a rubrik for evaluating the interface. After each iteration the senior designer scores the system, and they iterate until the score is 10/10.
+They share a design system and a rubric for evaluating the interface. After each iteration the senior designer scores the interface, and they iterate until the score is 10/10.
 
-I call this "adversarial design" (todo include the link).
+I call this [adversarial design](https://github.com/alexeygrigorev/.agents/blob/main/skills/adversarial-design-review/SKILL.md).
 
-TODO add the screenshot from the adversarial design
+<figure>
+  <img src="../../assets/images/when-agents-write-the-code/adversarial-design-review-skill.png" alt="My instructions for an implementer and an independent senior design reviewer in the adversarial design review skill on GitHub">
+  <figcaption>The skill that defines the designer and reviewer roles</figcaption>
+</figure>
 
-TODO find a way to include my artcile about design - like if you want to know how do I approach design wtih AI as a non-designer you can check this article
+I described how I use mockups and design systems as a non-designer in [AI Design for Non-Designers](https://aishippingblog.com/p/ai-design-for-non-designers).
 
 ## Rules for Coding
 
-The implementer and reviewer need a common set of rules. For coding tasks, it can be the acceptance criteria and the coding standards document. For design, it's the design system and the evaluation rubrick.
+I give the implementer and reviewer a common set of rules. For coding tasks, I give them acceptance criteria and a coding standards document. For design, I give them a design system and an evaluation rubric.
 
-But instead of describing the entire system and list all the criteria, I often take a shortcut and refer to books.
+But instead of describing the entire system and listing all the criteria, I often take a shortcut and refer to books.
 
 For coding, I can say "follow the principles from the Clean Code book by Robert Martin", then code improves.
 
@@ -95,49 +93,50 @@ Sometimes I add details to make it more specific:
 - Functions no longer than 30 lines
 - Files no longer than 300 lines
 
-TODO: add picture of clean code
+<figure>
+  <img src="../../assets/images/when-agents-write-the-code/clean-code-cover.jpg" alt="Cover of Clean Code: A Handbook of Agile Software Craftsmanship by Robert C. Martin" width="300">
+  <figcaption>Clean Code by Robert C. Martin. Cover: <a href="https://www.informit.com/store/clean-code-a-handbook-of-agile-software-craftsmanship-9780132350884">Pearson / InformIT</a></figcaption>
+</figure>
 
-Referencing a well-known book is a convenient way for getting better quality results.
-
-I tested these rules on a fairly large and relatively old codebase. I started it in 2023. I developed it with AI, first by copy-pasting from ChatGPT and then fully with coding agents. When the code inevitably turned into a pile of slop, I asked the agent to refactor the entire coodebase using these this approach.
+I tested these rules on a fairly large codebase I started in 2023. I developed it with AI, first by copy-pasting from ChatGPT and then fully with coding agents. When the code turned into a pile of slop, I asked the agent to refactor the entire codebase using this approach.
 
 It took two banked Codex resets, but after that I could read the code without crying.
 
 ## Rules for Writing
 
-Hugo does the same for writing with Strunk and White's The Elements of Styledd. Its rules include "omit needless words" and "use the active voice".
+Hugo does the same for writing with Strunk and White's The Elements of Style. Its rules include "omit needless words" and "use the active voice".
 
-The agents don't always follow them, so he runs three extra verification agents in parallel. Then there a final agent performs the edit.
+The agents don't always follow them, so he runs three extra verification agents in parallel. Then he has a final agent edit the text.
 
 <figure>
-  <img src="../../assets/images/when-agents-write-the-code/editing-pipeline.png" alt="AGENTS.md with the Strunk and White rules feeds three verification agents that work in parallel, and an editor agent makes the final edit">
+  <img src="../../assets/images/when-agents-write-the-code/editing-pipeline.png" alt="Hugo gives three verification agents the Strunk and White rules in AGENTS.md, runs them in parallel, then has an editor agent edit the text">
   <figcaption>Hugo's editing setup: three checkers in parallel, then one editor</figcaption>
 </figure>
 
 
 ## Organizing Agents Like a Team
 
-In the implementer-reviewer pattern we have two agents. But we can scale this idea to a full team by adding a product manager and on-call engineer.
+With an implementer and reviewer we have two agents. But we can scale this idea to a full team by adding a product manager and on-call engineer.
 
-You describe the reponsibilities of each team member, and let them work together on a project:
+You describe the responsibilities of each team member, and let them work together on a project:
 
-- PM grooms the tasks and adds acceptance criteria
+- PM plans the tasks and adds acceptance criteria
 - Software engineer implements the task
 - QA engineer checks that the code works against the criteria
-- PM runs acceptance tests though a browser
-- On-call engineer makes sure that CI/CD stays green 
- 
-I described this approach in detail in my <TODO team of agents article> and [the first lesson of the AI Dev Tools Zoomcamp course](TODO add link).
+- PM runs acceptance tests through a browser
+- On-call engineer makes sure that CI/CD checks pass
 
-When [OpenAI announced its Navier-Stokes result](https://techspot.com/news/113785-openai-claims-10000-ai-agents-solved-one-mathematics.html), I read the article too. I don't know much about math and I didn't even know that Navier-Stokes existed, but I still found the article quite interesting. The the most interesting part was how exactly they achived this result - by 10,000 running agents in parallel.
+I described this approach in [I Built an AI Agent Team for Software Development](https://aishippingblog.com/p/i-built-an-ai-agent-team-for-software). You can follow the setup in [the first lesson of AI Dev Tools Zoomcamp](https://github.com/DataTalksClub/ai-dev-tools-zoomcamp/blob/main/01-ai-native-workflow/01-ai-native-developer-workflow.md).
 
-It took me quite some time to figure out the setup with one team of 5 agents, and I still haven't nailed scaling it to a departament (although I think I'm pretty close). So getting this up to a whole enterprise-lever corporation and organizing it across 10,000 agents is really the next level.
+When I read [TechSpot's report about OpenAI's claimed Navier-Stokes result](https://techspot.com/news/113785-openai-claims-10000-ai-agents-solved-one-mathematics.html), I was interested in how they organized the work. I don't know much about the mathematics. But the report described 10,000 agents running in parallel, and I tried to imagine how I'd manage that.
 
-Natutally, I startied thiniking how I'd organize this work. IN my mind, this requires a hierarchy:
+It took me quite some time to figure out one team of five agents. I still haven't made a department of teams work reliably, although I think I'm pretty close.
 
-- a chief scientist setting the directios
-- heads controlling each part of their work
-- many agents under them trying to explore a different part of the solution space
+I'd organize them into a hierarchy:
+
+- A chief scientist setting the direction
+- Team heads coordinating each part of the work
+- Many agents under them exploring different approaches
 
 
 <figure>
@@ -145,40 +144,44 @@ Natutally, I startied thiniking how I'd organize this work. IN my mind, this req
   <figcaption>How I would organize 10,000 agents</figcaption>
 </figure>
 
-I probably will never have a problem that will require 10,000 agents, but now I can reliably manage 30-50. 
+I'll probably never have a problem that requires 10,000 agents, but now I can manage 30-50 across my projects.
 
-TODO: add a teaser from my cloudflare competition where I tried 
+I tried scaling beyond one team while working on Cloudflare's Git platform competition. I gave separate teams the Git project, messaging, a dashboard, and an agent launcher. I put a principal agent in charge of coordinating them. Keeping the organization working was harder than defining the roles: failures sometimes left it idle for hours. I'll write more about that experiment separately.
 
 ## Dark Software Factories
 
-I recently had a chat with a company that has a policy of "no handwritten code". There, you aren't allowed to write code yourself, only through an agent. When some engineers threathened to resign, the company said "nobody is forcing you to work here, you're welcome to explore other options". 
+I recently had a chat with a company that has a policy of "no handwritten code". There, you aren't allowed to write code yourself, only through an agent. When some engineers threatened to resign, the company said "nobody is forcing you to work here, you're welcome to explore other options".
 
-TODO Transition?
+Today we write code differently compared to one year ago. Even half a year ago I was still checking my code from time to time. Now I only do that when I prepare materials for my workshops and courses.
 
-Today we write code very differently compared to one year ago. Even half a year ago I was still checking my code from time to time, but now I only do that when I prepare materials for my workshops and courses.
+When you have a team of agents work through your backlog, you can imagine a conveyor belt of features. That's a software factory.
 
-When a team of agents is working through your backlog, you can imagine a conveyor belt with features processed by the agents. That's a software factory.
+<figure>
+  <img src="../../assets/images/when-agents-write-the-code/software-factory.png" alt="Robot arms build, check, and package applications on a conveyor belt fed by a backlog of feature cards">
+  <figcaption>A software factory: you assign agents features from a backlog. AI-generated illustration</figcaption>
+</figure>
 
-TODO add illustation via imagegen
+Hugo takes this further and describes a dark software factory. The name comes from lights-out manufacturing: when machines work without people on the factory floor, there's no need to keep the lights on. FANUC's factories are a physical example of this kind of automation.
 
-Hugo takes this futher and describes a dark software factory. A dark factory is factory with no humans, only robots build robots. SO there's no light inside. 
-
-TOOD find pcitures on the internet from it
+<figure>
+  <img src="../../assets/images/when-agents-write-the-code/fanuc-robot-factory.jpg" alt="Yellow industrial robots in FANUC's robot factory in Japan">
+  <figcaption>FANUC's robot factory. Photo: <a href="https://www.fanuc.co.jp/en/profile/production/factory1.html">FANUC</a>, which describes automatic transport and continuous testing of assembled robots</figcaption>
+</figure>
 
 In a dark software factory, humans aren't allowed to look at the code. They get artifacts that let them make business decisions and verify that everything is correct, but they're separated from the generated code.
 
 <figure>
-  <img src="../../assets/images/when-agents-write-the-code/dark-factory.png" alt="You give specs to a dark factory where agents build and verify the code and nobody reads it, and the factory returns artifacts such as dashboards and cards, which you accept or reject">
+  <img src="../../assets/images/when-agents-write-the-code/dark-factory.png" alt="You give specs to a dark factory. Agents build and verify code without human code review, then return dashboards and cards for you to accept or reject">
   <figcaption>In a dark software factory you work with specs and artifacts, never with the code</figcaption>
 </figure>
 
-Hugo doesn't suggest that everyone should start building a dark software factory today. But he thinks that's soon it will be economically viable to skip reading code and focus on the business.
+Hugo doesn't suggest that everyone should start building a dark software factory today. But he thinks it'll soon be economically viable to skip reading code and focus on the business.
 
-Just like we don't read machine code anymore because we trust compilers, we can trust our agents by following good software engineering processes and practices. 
+He compares this to trusting compilers without reading machine code. With agents, we still need tests, independent checks, and clear specifications before we can trust the result.
 
-And I agree. I'm a solo founder, so my time is very limited. If I check everything that agents write, I will be the bottleneck. But once I let the agents run without my involvement, I can focus on more high-level and impactful work.
+I agree with that direction because I'm a solo founder with limited time. If I check everything that agents write, I'll be the bottleneck. Once I let the agents run without my involvement, I can focus on product and architecture decisions.
 
 
-## XXX
+## My Work at Both Ends
 
-TODO Short conclusion
+I still need to decide what to build and who it's for. I also need to define what counts as correct, give the reviewers rules, and make sure they bring the important decisions back to me.
