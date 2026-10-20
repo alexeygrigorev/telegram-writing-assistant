@@ -173,11 +173,6 @@ Our industry has changed significantly over the last year. Today we write code d
 
 Some time ago I heard the term "software factory". It made sense to me: you have a team of agents and they work through your backlog. So I can imagine a conveyor belt of features, each agent is adding something to it, and the result is a product.
 
-<figure>
-  <img src="../../assets/images/when-agents-write-the-code/software-factory.png" alt="A backlog feeds an implementer agent, a reviewer checks the work and returns rejected changes for revision, and accepted changes become the product">
-  <figcaption>A software factory: you assign agents features from a backlog</figcaption>
-</figure>
-
 Hugo takes this further and describes a dark software factory. The name comes from lights-out manufacturing: when machines work without people on the factory floor, there's no need to keep the lights on. [FANUC's factories](https://en.wikipedia.org/wiki/Lights_out_%28manufacturing%29#Existing_%22lights-out_factories%22) are a physical example of this kind of automation.
 
 <figure>
@@ -198,10 +193,14 @@ He compares this to trusting compilers without reading the machine code they pro
 
 I agree with that direction. I'm a solo founder with limited time, so if I check everything that agents write, I'll never be able to finish anything. Once I let the agents run without my involvement, I can spend more time on product and architecture decisions.
 
-## My Role Before and After Implementation
+I started reading more about dark software factories and realized that I've been doing some of this for quite some time too. I'm writing a separate article to explore how other people keep their factories running and what I can learn from them.
 
-I still need to decide what to build and who it's for. Before the agents start, I describe the outcome, define acceptance criteria, and give the implementer and reviewers shared rules.
+[Subscribe to follow these experiments](https://aishippingblog.com/subscribe).
 
-After they finish, I check the product. For an interface, I look at the rendered pages and try the flow through a browser. I also make architecture decisions: when projects need the same functionality, I ask for a shared library instead of maintaining it in several places.
+## Keeping the Factory Running
 
-When something breaks, I need the agents to investigate it and help me recover. I can delegate implementation and code review, but I still choose the direction and judge whether the result solves the problem.
+Humans are still needed to keep the factory running. First of all, it doesn't just happen, people build it. And once it's running, it needs attention. Even the FANUC factory needs a maintanance every month.
+
+It's the same with agents. You can polish your process and let your agentic teams run unsupervised, but only up to a point. Eventually, you'll still become the bottleneck - or else the agents will build something you don't need.
+
+And we're still learning how to build it.
