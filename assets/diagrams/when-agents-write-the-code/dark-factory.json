@@ -1,0 +1,19 @@
+{
+  "title": "A dark software factory",
+  "description": "Humans stay outside the factory. They give it specs and receive artifacts such as dashboards and cards, and they never look at the generated code.",
+  "canvas": {"width": 1240, "height": 360, "background": "#ffffff"},
+  "layout": {"type": "manual", "card_width": 240, "card_height": 100},
+  "nodes": [
+    {"id": "you", "title": "You", "variant": "icon", "icon": "user", "color": "blue", "x": 60, "y": 90},
+    {"id": "factory", "title": "Dark factory · nobody reads the code", "variant": "boundary", "contains": ["build", "verify"]},
+    {"id": "build", "title": "Agents build", "subtitle": "write and ship the code", "icon": "robot", "color": "amber", "x": 270, "y": 120},
+    {"id": "verify", "title": "Agents verify", "subtitle": "tests, reviews, judges", "icon": "check", "color": "purple", "x": 580, "y": 120},
+    {"id": "art", "title": "Artifacts", "subtitle": "dashboards, cards", "icon": "observability", "color": "green", "x": 940, "y": 120}
+  ],
+  "edges": [
+    {"from": "you", "to": "build", "label": "Specs", "route": "orthogonal"},
+    {"from": "build", "to": "verify"},
+    {"from": "verify", "to": "art"},
+    {"from": "art", "to": "you", "route": "below", "label": "Accept or reject"}
+  ]
+}

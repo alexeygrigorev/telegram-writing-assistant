@@ -1,0 +1,17 @@
+{
+  "title": "Controlling the output by hand",
+  "description": "Asking for short answers keeps the output manageable, but you still read every response and pick the best one yourself.",
+  "canvas": {"width": 1080, "height": 280, "background": "#ffffff"},
+  "layout": {"type": "manual", "card_width": 220, "card_height": 100},
+  "nodes": [
+    {"id": "ask", "title": "You ask", "subtitle": "10 ideas, 3 lines each", "icon": "user", "color": "blue", "x": 40, "y": 90},
+    {"id": "agent", "title": "Agent", "subtitle": "answers in short form", "icon": "robot", "color": "amber", "x": 300, "y": 90},
+    {"id": "ideas", "title": "10 short ideas", "subtitle": "not pages of slop", "icon": "document", "color": "gray", "x": 560, "y": 90},
+    {"id": "pick", "title": "You pick", "subtitle": "read all, pick one", "icon": "check", "color": "blue", "x": 820, "y": 90}
+  ],
+  "edges": [
+    {"from": "ask", "to": "agent"},
+    {"from": "agent", "to": "ideas"},
+    {"from": "ideas", "to": "pick"}
+  ]
+}

@@ -72,15 +72,13 @@
   </g>
   <g class="node node-amber" transform="translate(40 220)" filter="url(#shadow)">
     <rect width="260" height="100" rx="18" fill="#fff7ed" stroke="#c2410c"/>
-    <use href="#icon-robot" x="16" y="20" width="34" height="34" color="#c2410c"/>
-    <text class="node-title icon-copy" x="62" y="44.2" font-size="20">Maker agent</text>
-    <text class="node-subtitle" x="130" y="75" font-size="16">designer or implementer</text>
+    <use href="#icon-robot" x="16" y="30.5" width="34" height="34" color="#c2410c"/>
+    <text class="node-title icon-copy" x="62" y="54.7" font-size="20">Maker agent</text>
   </g>
   <g class="node node-purple" transform="translate(540 220)" filter="url(#shadow)">
     <rect width="260" height="100" rx="18" fill="#f5f3ff" stroke="#7c3aed"/>
-    <use href="#icon-search" x="16" y="20" width="34" height="34" color="#7c3aed"/>
-    <text class="node-title icon-copy" x="62" y="44.2" font-size="20">Checker agent</text>
-    <text class="node-subtitle" x="130" y="75" font-size="16">senior designer or tester</text>
+    <use href="#icon-search" x="16" y="30.5" width="34" height="34" color="#7c3aed"/>
+    <text class="node-title icon-copy" x="62" y="54.7" font-size="20">Checker agent</text>
   </g>
   <g class="node-icon-only node-green" transform="translate(980 242)">
     <use href="#icon-check" x="0" y="0" width="56" height="56" color="#15803d"/>

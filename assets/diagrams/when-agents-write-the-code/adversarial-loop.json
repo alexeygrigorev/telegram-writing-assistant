@@ -24,7 +24,6 @@
     {
       "id": "maker",
       "title": "Maker agent",
-      "subtitle": "designer or implementer",
       "icon": "robot",
       "color": "amber",
       "x": 40,
@@ -33,7 +32,6 @@
     {
       "id": "checker",
       "title": "Checker agent",
-      "subtitle": "senior designer or tester",
       "icon": "search",
       "color": "purple",
       "x": 540,

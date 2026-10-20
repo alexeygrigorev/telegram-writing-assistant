@@ -1,0 +1,16 @@
+{
+  "title": "Rules grow from what went wrong",
+  "description": "When you spot something the rules don't cover yet, you add a rule. The agents follow it from then on.",
+  "canvas": {"width": 1080, "height": 330, "background": "#ffffff"},
+  "layout": {"type": "manual", "card_width": 260, "card_height": 100},
+  "nodes": [
+    {"id": "write", "title": "Agents write code", "subtitle": "checks if an attribute exists", "icon": "robot", "color": "amber", "x": 40, "y": 40},
+    {"id": "spot", "title": "You spot a problem", "subtitle": "hard-to-read checks", "icon": "user", "color": "blue", "x": 410, "y": 40},
+    {"id": "rule", "title": "You add a rule", "subtitle": "rely on the type checker", "icon": "document", "color": "gray", "x": 780, "y": 40}
+  ],
+  "edges": [
+    {"from": "write", "to": "spot"},
+    {"from": "spot", "to": "rule"},
+    {"from": "rule", "to": "write", "route": "below", "label": "Agents follow it"}
+  ]
+}
