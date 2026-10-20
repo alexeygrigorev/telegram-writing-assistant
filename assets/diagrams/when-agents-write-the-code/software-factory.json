@@ -1,0 +1,76 @@
+{
+  "title": "A software factory with review",
+  "description": "A backlog feeds an implementer agent. A reviewer returns rejected changes for revision, while accepted changes become the product.",
+  "canvas": {
+    "width": 1080,
+    "height": 360,
+    "background": "#ffffff"
+  },
+  "layout": {
+    "type": "manual",
+    "card_width": 260,
+    "card_height": 100
+  },
+  "nodes": [
+    {
+      "id": "backlog",
+      "title": "Feature backlog",
+      "icon": "queue",
+      "color": "gray",
+      "x": 40,
+      "y": 40
+    },
+    {
+      "id": "maker",
+      "title": "Implementer agent",
+      "icon": "robot",
+      "color": "amber",
+      "x": 40,
+      "y": 220
+    },
+    {
+      "id": "checker",
+      "title": "Reviewer agent",
+      "icon": "search",
+      "color": "purple",
+      "x": 540,
+      "y": 220
+    },
+    {
+      "id": "product",
+      "title": "Product",
+      "variant": "icon",
+      "icon": "browser",
+      "color": "green",
+      "x": 900,
+      "y": 220,
+      "width": 140,
+      "height": 100
+    }
+  ],
+  "edges": [
+    {
+      "from": "backlog",
+      "to": "maker"
+    },
+    {
+      "from": "maker",
+      "to": "checker",
+      "from_anchor": "right_top",
+      "to_anchor": "left_top"
+    },
+    {
+      "from": "checker",
+      "to": "maker",
+      "from_anchor": "left_bottom",
+      "to_anchor": "right_bottom",
+      "label": "Rejected",
+      "color": "red"
+    },
+    {
+      "from": "checker",
+      "to": "product",
+      "color": "green"
+    }
+  ]
+}

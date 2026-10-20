@@ -55,39 +55,42 @@
     <rect width="280" height="100" rx="18" fill="#f5f3ff" stroke="#7c3aed"/>
     <use href="#icon-robot" x="16" y="20" width="34" height="34" color="#7c3aed"/>
     <text class="node-title icon-copy" x="62" y="43.12" font-size="17">Chief scientist agent</text>
-    <text class="node-subtitle" x="140" y="75" font-size="16">&quot;you try this, you try that&quot;</text>
+    <text class="node-subtitle" x="140" y="75" font-size="16">sets research direction</text>
   </g>
   <g class="node node-amber" transform="translate(40 240)" filter="url(#shadow)">
     <rect width="280" height="100" rx="18" fill="#fff7ed" stroke="#c2410c"/>
     <use href="#icon-robot" x="16" y="20" width="34" height="34" color="#c2410c"/>
     <text class="node-title icon-copy" x="62" y="43.12" font-size="17">Team lead</text>
-    <text class="node-subtitle" x="140" y="75" font-size="16">approach A</text>
+    <text class="node-subtitle" x="140" y="75" font-size="16">coordinates approach A</text>
   </g>
   <g class="node node-amber" transform="translate(390 240)" filter="url(#shadow)">
     <rect width="280" height="100" rx="18" fill="#fff7ed" stroke="#c2410c"/>
     <use href="#icon-robot" x="16" y="20" width="34" height="34" color="#c2410c"/>
     <text class="node-title icon-copy" x="62" y="43.12" font-size="17">Team lead</text>
-    <text class="node-subtitle" x="140" y="75" font-size="16">approach B</text>
+    <text class="node-subtitle" x="140" y="75" font-size="16">coordinates approach B</text>
   </g>
   <g class="node node-amber" transform="translate(740 240)" filter="url(#shadow)">
     <rect width="280" height="100" rx="18" fill="#fff7ed" stroke="#c2410c"/>
     <use href="#icon-robot" x="16" y="20" width="34" height="34" color="#c2410c"/>
     <text class="node-title icon-copy" x="62" y="43.12" font-size="17">Team lead</text>
-    <text class="node-subtitle" x="140" y="75" font-size="16">approach C</text>
+    <text class="node-subtitle" x="140" y="75" font-size="16">coordinates approach C</text>
   </g>
   <g class="node node-gray" transform="translate(40 440)" filter="url(#shadow)">
     <rect width="280" height="100" rx="18" fill="#f8fafc" stroke="#64748b"/>
-    <use href="#icon-robot" x="16" y="30.5" width="34" height="34" color="#64748b"/>
-    <text class="node-title icon-copy" x="62" y="53.62" font-size="17">Agent team</text>
+    <use href="#icon-robot" x="16" y="20" width="34" height="34" color="#64748b"/>
+    <text class="node-title icon-copy" x="62" y="43.12" font-size="17">Agent team</text>
+    <text class="node-subtitle" x="140" y="75" font-size="16">tests ideas and reports results</text>
   </g>
   <g class="node node-gray" transform="translate(390 440)" filter="url(#shadow)">
     <rect width="280" height="100" rx="18" fill="#f8fafc" stroke="#64748b"/>
-    <use href="#icon-robot" x="16" y="30.5" width="34" height="34" color="#64748b"/>
-    <text class="node-title icon-copy" x="62" y="53.62" font-size="17">Agent team</text>
+    <use href="#icon-robot" x="16" y="20" width="34" height="34" color="#64748b"/>
+    <text class="node-title icon-copy" x="62" y="43.12" font-size="17">Agent team</text>
+    <text class="node-subtitle" x="140" y="75" font-size="16">tests ideas and reports results</text>
   </g>
   <g class="node node-gray" transform="translate(740 440)" filter="url(#shadow)">
     <rect width="280" height="100" rx="18" fill="#f8fafc" stroke="#64748b"/>
-    <use href="#icon-robot" x="16" y="30.5" width="34" height="34" color="#64748b"/>
-    <text class="node-title icon-copy" x="62" y="53.62" font-size="17">Agent team</text>
+    <use href="#icon-robot" x="16" y="20" width="34" height="34" color="#64748b"/>
+    <text class="node-title icon-copy" x="62" y="43.12" font-size="17">Agent team</text>
+    <text class="node-subtitle" x="140" y="75" font-size="16">tests ideas and reports results</text>
   </g>
 </svg>

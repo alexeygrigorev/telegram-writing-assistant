@@ -15,7 +15,7 @@
     {
       "id": "chief",
       "title": "Chief scientist agent",
-      "subtitle": "\"you try this, you try that\"",
+      "subtitle": "sets research direction",
       "icon": "robot",
       "color": "purple",
       "x": 390,
@@ -24,7 +24,7 @@
     {
       "id": "lead1",
       "title": "Team lead",
-      "subtitle": "approach A",
+      "subtitle": "coordinates approach A",
       "icon": "robot",
       "color": "amber",
       "x": 40,
@@ -33,7 +33,7 @@
     {
       "id": "lead2",
       "title": "Team lead",
-      "subtitle": "approach B",
+      "subtitle": "coordinates approach B",
       "icon": "robot",
       "color": "amber",
       "x": 390,
@@ -42,7 +42,7 @@
     {
       "id": "lead3",
       "title": "Team lead",
-      "subtitle": "approach C",
+      "subtitle": "coordinates approach C",
       "icon": "robot",
       "color": "amber",
       "x": 740,
@@ -54,7 +54,8 @@
       "icon": "robot",
       "color": "gray",
       "x": 40,
-      "y": 440
+      "y": 440,
+      "subtitle": "tests ideas and reports results"
     },
     {
       "id": "team2",
@@ -62,7 +63,8 @@
       "icon": "robot",
       "color": "gray",
       "x": 390,
-      "y": 440
+      "y": 440,
+      "subtitle": "tests ideas and reports results"
     },
     {
       "id": "team3",
@@ -70,7 +72,8 @@
       "icon": "robot",
       "color": "gray",
       "x": 740,
-      "y": 440
+      "y": 440,
+      "subtitle": "tests ideas and reports results"
     }
   ],
   "edges": [
