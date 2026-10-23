@@ -84,7 +84,7 @@ On the evening of October 21, I gave the agent a backlog in this order:
 3. Replace the three load balancers with one nginx server, because there's nothing to balance
 4. Find out why the snapshot export costs so much
 
-The load balancers annoyed me the most. Each app had its own Application Load Balancer, but the ALBs were not required in that setup. None of them had real multi-target load to balance — just a few small apps. We still paid about $64 in three weeks for the balancers, plus public IPv4 addresses across availability zones, for traffic that one reverse proxy could route. The first idea was to replace the three ALBs with one nginx server.
+The load balancers annoyed me the most. Each app had its own Application Load Balancer. In that AWS/ECS-style setup an ALB in front was required — you had to put one there. For the actual traffic, though, they were not needed: none of them had real multi-target load to balance, just a few small apps. We still paid about $64 in three weeks for the balancers, plus public IPv4 addresses across availability zones, for traffic that one reverse proxy could route. The first idea was to replace the three ALBs with one nginx server.
 
 In the same message, I asked the agent to look for hosting. I named a budget of about €70 to €80 per month for two machines with 64 GB of RAM each. I wanted to run [Coolify](https://coolify.io/) on them.
 
