@@ -1,6 +1,6 @@
 ---
 title: "How I Moved Our Apps from AWS to Two Contabo Servers"
-subtitle: "What the AWS bill looked like, what the move cost, and what still runs on AWS"
+subtitle: "What the AWS bill looked like, what broke after cutover, and how we fix production the same turn"
 ---
 
 On October 21, I asked one of my agents to explain why our sandbox AWS account pays for encryption keys. By the next afternoon, all four of our production web apps ran on two Contabo servers instead of AWS.
@@ -20,8 +20,12 @@ In this post, I'll share:
 
 - What the sandbox and main AWS accounts were paying for
 - The first plan, which was to trim AWS
-- Why I bought two Contabo servers and installed Coolify
+- Why I bought two Contabo servers and installed Coolify — after the analysis, not before
 - How the cutover went, one app at a time
+- The public IPv4 cleanup once the apps left AWS
+- Observability on Contabo: metrics, logs, alerts, and the business metrics we're collecting first
+- What broke in the first nights after cutover, and how we fixed each problem
+- The ops loop we run now: alerts land in mail, and we fix the same turn
 - What it costs now, and what still runs on AWS
 
 ## The sandbox bill
@@ -59,6 +63,8 @@ Here's where the $455.50 went:
 
 The containers that run the apps cost about $37, and the EC2 hosts added about $7. The rest went to databases, networking, support and tax.
 
+Public IPv4 alone was about $20 for those three weeks. Almost all of it was the EU public IPv4 in-use charge — about $19.58. That covered roughly seven or eight addresses: load balancers across availability zones, a NAT gateway, and a bastion. At about $3.60 per IP per month, the line adds up quietly.
+
 The Business Support+ line comes from the night [I dropped our production database](https://aishippingblog.com/p/how-i-dropped-our-production-database). I upgraded to get faster help from AWS, and the support plan has stayed on the bill since then.
 
 The DataTalks.Club website surprised me the most. Its ECS services were scaled to zero. But its database, load balancer, firewall rules and seven secrets kept billing every day. Most of those secrets had never been read.
@@ -90,15 +96,19 @@ I asked for results by the next morning, China time.
 
 I also told the agent not to purchase anything before a thorough analysis. Our Hetzner server costs about €30 per month, and I didn't want to pay much more for the same thing.
 
+So the agent analyzed first. No order went out until that comparison was done and reviewed.
+
 The agent first compared Hetzner options. One dedicated AX42 server for about €67 was more than we needed. Two smaller Hetzner cloud servers, a CAX31 and a CAX21, came to about €32.48.
 
-Putting Coolify on the existing Hetzner server was another option. But my agents work on that server, so it isn't a quiet place for production.
+Putting Coolify on the existing Hetzner server was another option. But my agents work on that server, so it isn't a quiet place for production. The agent box and production don't share a machine.
 
 I preferred two cheaper servers over one big one. I turned the €70 to €80 budget into a ceiling, and I hoped to spend closer to €30 to €50.
 
 In the end, I picked two Cloud VPS 16 instances from [Contabo](https://contabo.com/), each with 16 cores and 64 GB of RAM. The promo price was about €29.60 each, and the total came to €70.44 per month including VAT.
 
 That's above the range I hoped for, but each server has 64 GB of RAM. Before buying, I asked the agent to check with my other agents that this setup would work. Two of them reviewed the plan, and both said go.
+
+Only after that review did the agent place the order.
 
 I call this bare metal, but technically these are virtual servers. For me the difference that matters is the billing model. I pay a fixed monthly price for the whole machine, and there are no per-hour charges for databases, balancers or IP addresses.
 
@@ -143,39 +153,206 @@ By then, the agent was moving the apps instead of trimming AWS. There was no poi
 
 In the same report, the agent noticed that the snapshot export cron still had a line for Relay. Its database no longer existed, so that export would fail every evening. I asked the agent to run one last export and then disable the cron.
 
-Later that day, the agent switched DNS and CloudFront for the course platform, AI Shipping Labs and the website to the Traefik proxy on Contabo. All three came up healthy. The agent then deleted two of the three load balancers.
-
-The third one stays for now, because the Relay dev environment still routes through it.
+Later that day, the agent switched DNS and CloudFront for the course platform, AI Shipping Labs and the website to the Traefik proxy on Contabo. All three came up healthy. The agent then deleted the remaining Application Load Balancers. After cutover, the main account had none left.
 
 ## The last step: the databases
 
-Four RDS databases are still running on AWS. They belong to the course platform, AI Shipping Labs, the website, and a shared dev database. The production apps don't use them anymore, because they now read from Postgres on Contabo.
+After the apps were on Contabo, four RDS databases were still running on AWS. They belonged to the course platform, AI Shipping Labs, the website, and a shared dev database. The production apps no longer used them.
 
-Before deleting anything, I asked the agent to take a snapshot of each one. All four snapshots are available now, three for regular instances and one for the Aurora cluster.
-
-The agent has everything ready, but it won't run the command until I say so.
+Before deleting anything, I asked the agent to take a snapshot of each one. All four snapshots were kept — three for regular instances and one for the Aurora cluster.
 
 I set that rule after the database incident. Back then, an agent ran `terraform apply` with auto-approve and wiped our production infrastructure. Since then, I keep one hard rule: agents prepare destructive steps, and I approve them.
+
+Once the snapshots were in place and I approved, the agent deleted the RDS instances. The snapshots stay. The instances are gone.
+
+## Public IPv4 after the move
+
+Once the apps lived on Contabo, the main account's public IPv4 addresses had nothing left to serve.
+
+For October 1 to 21, that line was about $20 — almost all of it the EU in-use charge of about $19.58. Roughly seven or eight public IPv4s were in play: load balancers across availability zones, a NAT gateway, and the course-management bastion. At about $3.60 per IP per month, idle addresses still billed.
+
+The same day as the cutover, the agent tore those leftovers down:
+
+- The course-management bastion EC2 host
+- The website NAT gateway
+- The Elastic IP attached to that NAT
+
+AI Shipping Labs' ECS services were scaled to zero. They had been the only private consumers of that NAT.
+
+After that cleanup, the main account had zero Elastic IPs, zero NAT gateways, zero public network interfaces, zero Application Load Balancers, and zero RDS instances.
+
+The sandbox account still has a few associated Elastic IPs for live and dev tools. Those stay for now. The main account's public IPv4 story is over.
+
+## Observability on Contabo
+
+Moving off managed AWS also meant replacing CloudWatch. I asked for a small stack, not a Grafana / Prometheus / Loki zoo.
+
+What landed is VictoriaMetrics and VictoriaLogs on Contabo. Vector ships logs and metrics into them. For day-to-day checks I use a thin vmui. The setup, including Docker fault-injection tests for the alerts, lives in the public repo [alexeygrigorev/coolify-observability](https://github.com/alexeygrigorev/coolify-observability).
+
+An out-of-band coolify-healthcheck dead-man runs on both hosts. If the stack goes quiet, it emails via SES to alexey@datatalks.club and dev@dtcdev.click.
+
+### Retention
+
+I asked for about one day hot on disk. Each day, the day-before-yesterday ships compressed to S3. An S3 lifecycle rule keeps those objects for about two weeks, then deletes them.
+
+In the compose file, VictoriaMetrics and VictoriaLogs use a hot retention of about two days. So hot retention is roughly one to two days; older data lives in S3 for about two weeks.
+
+### What gets probed
+
+The health checks cover the infra I care about:
+
+- Postgres on the shared instance and on Relay
+- The Coolify UI
+- Relay and Relay-dev health endpoints
+- The courses API health endpoint
+- The website health and ready endpoints
+- An AI Shipping Labs ping
+- VictoriaMetrics and VictoriaLogs themselves, as dead-man targets
+
+### Alert drills
+
+The public repo includes Docker fault-injection tests for the alert scenarios I required:
+
+- HTTPS target down and recover
+- Postgres stop
+- Disk fill
+- Memory pressure / OOM
+- Container restart loop
+- Log ERROR spike
+- SMTP down
+- Scrape target missing
+- Vector / VictoriaLogs backpressure
+- VictoriaMetrics stop (caught only by the out-of-band dead-man)
+
+### Disaster recovery raise metrics
+
+Once a week, a timed restore takes Contabo Postgres dumps and raises them on Hetzner. On real data, the RTO was about 26 seconds.
+
+VictoriaMetrics stores `dr_fast_pg_raise_rto_seconds`, `last_success_unixtime`, `ok`, and `db_bytes`. If there is no successful raise for about eight days, an alert goes to dev@.
+
+### Business metrics
+
+I also asked for business metrics — collect first, deviation alerts later. We catalogued about 50 of them. Phase 1 only collects and stores; no alert thresholds yet. I'll revisit that in about two weeks.
+
+The durable store is Postgres: `biz_metrics.metric_daily` on the existing shared Postgres. VictoriaMetrics is the live view, but two days of hot retention is too short for week-over-week, so the daily table is the source of truth.
+
+Priority examples I named:
+
+- Relay: transactional messages, campaign recipients, bounce and complaint rates
+- Course management: homework submissions, course registrations
+- AI Shipping Labs: lesson opens and active learners, paid conversions and new MRR
+
+Broader families in the same catalog include website event registrations, DataOps newsletter issue stats, and dapier workflow usage. Collection is on; alerting on deviations comes later.
+
+
+## What broke after cutover
+
+Moving the apps was the easy half. The first nights on Contabo showed the real work: small misconfigurations that only show up in production, and a habit of fixing them the same turn instead of waiting for a weekly review.
+
+Here is what actually showed up, and what we did about each one.
+
+### Healthcheck false alarms on the Coolify primary
+
+The healthcheck started failing on the Coolify control-plane host for dump and WAL freshness. Those backups live on the data host, not on the control plane. The control plane was looking for files that were never supposed to be there.
+
+We set `SKIP_BACKUP_CHECKS` on the control-plane host so it only watches apps, disk, and HTTP. The data host still checks dump and WAL age. After that, both hosts reported green, and the false FAIL storm stopped.
+
+### Relay workers kept an old Postgres address
+
+Coolify recreated the Relay Postgres container. Docker gave it a new address on the internal network. The long-lived Relay workers still had the old address cached. They could not open the database. SES webhook messages piled up, the oldest-message alarm fired, and messages landed in the dead-letter queue.
+
+Public health endpoints still looked fine, because they do not exercise that worker-to-database path.
+
+We restarted the Contabo Relay workers so they resolved the name again, then redrove the dead-letter queue back to the main queue. After that, ingress drained with failures at zero.
+
+To stop the silent repeat, we installed a small watchdog on the data host. Every minute it checks, from inside the dependent containers, that the Postgres hostname still resolves and accepts a connection. If Postgres itself is healthy but a worker cannot reach it, the watchdog restarts that worker and emails us. We kept hostname plus the watchdog. We did not pin a fixed Docker IP — that path was cancelled on purpose.
+
+### Alert mail went only to the shared inbox
+
+For a while, Contabo production alerts went only to `dev@dtcdev.click`. I want them in my own inbox too.
+
+We restored the alert recipients to both `alexey@datatalks.club` and `dev@dtcdev.click`, on both Contabo hosts, and smoke-tested the mail path.
+
+### SES webhooks stuck after the worker outage
+
+The same Postgres DNS churn left the production SES webhooks queue aging past the threshold, with messages in the dead-letter queue. That was not an SES outage. The consumers on Contabo were the ones stuck.
+
+Restarting the workers and redriving the dead-letter queue cleared both CloudWatch alarms. The queues went back to empty.
+
+### Deploy from GitHub Actions could not reach Coolify
+
+After we tightened the edge firewall, GitHub Actions could no longer reach Coolify's API on port 8000. Deploys from CI timed out.
+
+We kept port 8000 closed to the world. Instead, Actions calls Coolify through Traefik over HTTPS, with the token as before. The next website deploy through that path succeeded.
+
+### Dead CloudWatch alarms after we deleted RDS
+
+Once the RDS instances were gone, a few leftover CloudWatch alarms for deleted databases and load balancers stayed in ALARM because they had no datapoints left to evaluate. They were noise.
+
+We deleted the orphaned RDS and load-balancer alarms. We kept the SES and SQS alarms that still point at real queues.
+
+### Backups: keep little on disk, ship the rest off-host
+
+On Contabo we keep only about two days of Postgres dumps on the data host. Older dumps and WAL live in S3 for about two weeks. The healthcheck alerts if a dump is missing or too old, or if WAL shipping goes stale. The old Hetzner SnapshotExport cron stays disabled — those RDS instances no longer exist.
+
+### Website database empty on Contabo
+
+The public DataTalks.Club apex still served from the static CloudFront path, so visitors did not see an empty site. The Contabo Postgres for the website, though, had schema and almost no content — zero users, documents, and events in the live checks.
+
+Separately, the website importer still expected the old SQLite export from the RDS SnapshotExport pipeline. Contabo dumps are `pg_dump` archives. That bridge needs a Contabo-native import path, not the old parquet-to-SQLite route. We filed that as its own fix and started the content load against Contabo.
+
+### AI Shipping Labs had no background worker
+
+The AISHL web container was up, but there was no `qcluster` worker on Contabo. Scheduled jobs in the database had gone stale for about a day. HTTP looked fine; background work did not run.
+
+We treated that as a same-turn production gap: add the worker service on Contabo and clear the stalled schedules once the process is healthy.
+
+### Postgres metrics pointed at the wrong target
+
+The Relay Postgres exporter was scraping the wrong address on the private network, so `pg_up` stayed at zero even while Relay Postgres itself was fine. Shared Postgres metrics were already green.
+
+We repointed the exporter at the Coolify Postgres hostname on the Docker network — again hostname, not a pinned IP — and confirmed `pg_up=1`.
+
+### The watchdog only proved a fresh TCP connect
+
+The DNS watchdog's first version opened a new connection from a short-lived probe. That can pass while a long-lived worker still holds a dead pool. SES recovery after the restart was real, but the probe alone is not full proof.
+
+We filed a follow-up to add progress checks (task or queue freshness) on top of the TCP probe, so `ALL_OK` cannot mask a stuck worker.
+
+### The agent scheduler got in the way of the fixes
+
+While we were fixing the above, our agent Hub often could not place a coding session — no free capacity, or the requested engine was unavailable. Work sat waiting even when the fix was clear.
+
+The standing rule is: check Hub placement first, fix the host or capacity when that is the blocker, and only then start a backup coding runner. One host release unblocked part of the queue. Capacity is still a live concern — it delays how fast a fix can land, so it stays on the same alert loop.
+
+## How we run production after the move
+
+After the migration, I do not want a weekly postmortem culture for Contabo. I want the opposite.
+
+Every production error should fly to me and to the shared developer inbox — healthcheck mail, CloudWatch SES alarms, backup age alerts. When something fires, I (or the Developer agent working as me) triage immediately. We open a Hub task with clear acceptance criteria, start a coding session when we need one, check placement before spinning extra agents, and fix the failure in the same turn.
+
+The standing rule is fix-on-failure: maximally fast reaction to production problems, not batching until someone asks «почини». The cutover nights were the first real test of that loop. Some fixes were a one-line env change. Some needed a watchdog. Some are still open. All of them started from an alert or a live probe, not from a scheduled review.
 
 ## The costs now
 
 The new fixed cost is €70.44 per month for both Contabo servers, which is about $77.
 
-I can't state the savings yet. AWS bills with a lag, the agent did most of the teardown in the last day, and the RDS databases are still running. I'll know the real number when the November bill arrives.
+I can't state the savings yet. AWS bills with a lag, and the agent did most of the teardown in the last day. I'll know the real number when the November bill arrives.
 
 Some things will stay on AWS:
 
 - SES for sending email, and the SQS queues that Relay uses for SES webhooks
-- An S3 bucket for Coolify database backups
+- An S3 bucket for Coolify database backups, plus the short-lived observability archives
 - Route 53 DNS and the CloudFront distribution in front of Relay
-- The Relay dev environment, with its host and the last load balancer
-- The bastion host for the course platform
+- The Relay sandbox / dev tooling that still needs a few Elastic IPs on the sandbox account
 
 I still have a few tasks left:
 
 - I need to move the production deploy workflows from ECR to GitHub Container Registry
-- I plan to add monitoring on Contabo, but nothing is installed yet
 - I still need to clean up the orphan sandbox keys and stale secrets
+- Business-metric deviation alerts — revisit in about two weeks, once we have enough daily rows
+- Finish the website Contabo content load and the importer bridge off the old SQLite export path
+- Keep Hub placeability healthy so same-turn fixes are not stuck waiting for a free engine
 
 ## Lessons learned
 
@@ -183,10 +360,12 @@ I was paying AWS mostly for the parts around the apps.
 
 The containers cost less than the databases, the load balancers or even the tax. For four small apps, I was paying for managed infrastructure built for much bigger systems.
 
-I also learned to watch idle stacks. Scaling a service to zero stops the containers, but the database, balancer, IP addresses and secrets keep billing. When I stop using an app, I need to tear down the whole stack or accept the cost on purpose.
+I also learned to watch idle stacks. Scaling a service to zero stops the containers, but the database, balancer, IP addresses and secrets keep billing. When I stop using an app, I need to tear down the whole stack or accept the cost on purpose. The public IPv4 line was a clear example: about $20 for three weeks of addresses that became useless the moment Traefik took over.
 
-Finally, I liked working this way. The agents ran Cost Explorer, bought the servers, installed Coolify, migrated the data and switched DNS. I made the decisions in chat and approved the destructive steps.
+Finally, I liked working this way. The agents ran Cost Explorer, analyzed hosting before any purchase, bought the servers, installed Coolify, migrated the data, switched DNS, cleaned up IPs, and stood up observability. I made the decisions in chat and approved the destructive steps.
+
+The first nights after cutover also changed how I want to operate. Alerts go to my mail. We dig, open a Hub task, and fix the same turn. That is slower to write about than a clean migration story, and more useful.
 
 I accepted some trade-offs, of course. On AWS, someone else patches the databases and replaces failed hardware. On Contabo, that's my job now, or my agents' job. But for apps of this size, I'm fine with that.
 
-Once the RDS teardown is done and the November bill arrives, I'll write a follow-up with the real numbers. Subscribe if you want to see how it turns out.
+Once the November bill arrives, I'll write a follow-up with the real numbers. Subscribe if you want to see how it turns out.
