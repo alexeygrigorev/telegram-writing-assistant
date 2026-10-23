@@ -84,7 +84,7 @@ On the evening of October 21, I gave the agent a backlog in this order:
 3. Replace the three load balancers with one nginx server, because there's nothing to balance
 4. Find out why the snapshot export costs so much
 
-The load balancers annoyed me the most. Each app had its own Application Load Balancer. In that AWS/ECS-style setup an ALB in front was required — you had to put one there. For the actual traffic, though, they were not needed: none of them had real multi-target load to balance, just a few small apps. We still paid about $64 in three weeks for the balancers, plus public IPv4 addresses across availability zones, for traffic that one reverse proxy could route. The first idea was to replace the three ALBs with one nginx server.
+The load balancers annoyed me the most. Each app had its own Application Load Balancer. In that AWS/ECS-style setup an ALB in front was required — you had to put one there. For multi-target load they were not needed: none of them had real load to balance, just a few small apps. That does not mean they were fully useless. The ALB gave us zero-downtime deploys — it only sent traffic to a new target after that target was healthy, then drained the old one. We still paid about $64 in three weeks for the balancers, plus public IPv4 addresses across availability zones, for traffic that one reverse proxy could route. The first idea was to replace the three ALBs with one nginx server.
 
 In the same message, I asked the agent to look for hosting. I named a budget of about €70 to €80 per month for two machines with 64 GB of RAM each. I wanted to run [Coolify](https://coolify.io/) on them.
 
@@ -149,7 +149,7 @@ It showed how little of the original backlog was done:
 - One nginx instead of three load balancers: not done
 - Snapshot export: the cron was still running
 
-By then, the agent was moving the apps instead of trimming AWS. There was no point in making the AWS databases cheaper if the apps were about to leave them. The standalone nginx never got built either — Coolify already ships Traefik, and that was enough for a few small apps.
+By then, the agent was moving the apps instead of trimming AWS. There was no point in making the AWS databases cheaper if the apps were about to leave them. The standalone nginx never got built either — Coolify already ships Traefik, and that was enough for routing a few small apps. What did not come along for free was the ALB's rolling deploy behavior.
 
 In the same report, the agent noticed that the snapshot export cron still had a line for Relay. Its database no longer existed, so that export would fail every evening. I asked the agent to run one last export and then disable the cron.
 
@@ -285,6 +285,12 @@ After we tightened the edge firewall, GitHub Actions could no longer reach Cooli
 
 We kept port 8000 closed to the world. Instead, Actions calls Coolify through Traefik over HTTPS, with the token as before. The next website deploy through that path succeeded.
 
+### Coolify deploys leave a 502/503 gap
+
+On AWS, the ALB waited for the new target to pass health checks before it drained the old one. On Contabo today, Coolify force-recreates the single web container. Between stop and start, Traefik has nothing healthy to send to, so deploys leave a short 502/503 window.
+
+Traefik replaced the ALBs for routing. Zero-downtime did not come along for free. The Contabo path has to match what the ALB did — bring the new version up beside the old, health-gate it, then roll — or we lose that property.
+
 ### Dead CloudWatch alarms after we deleted RDS
 
 Once the RDS instances were gone, a few leftover CloudWatch alarms for deleted databases and load balancers stayed in ALARM because they had no datapoints left to evaluate. They were noise.
@@ -353,6 +359,7 @@ I still have a few tasks left:
 - Business-metric deviation alerts — revisit in about two weeks, once we have enough daily rows
 - Finish the website Contabo content load and the importer bridge off the old SQLite export path
 - Keep Hub placeability healthy so same-turn fixes are not stuck waiting for a free engine
+- Bring Coolify/Traefik prod web deploys back to health-gated rolling updates so we do not keep the 502/503 gap
 
 ## Lessons learned
 
@@ -361,6 +368,8 @@ I was paying AWS mostly for the parts around the apps.
 The containers cost less than the databases, the load balancers or even the tax. For four small apps, I was paying for managed infrastructure built for much bigger systems.
 
 I also learned to watch idle stacks. Scaling a service to zero stops the containers, but the database, balancer, IP addresses and secrets keep billing. When I stop using an app, I need to tear down the whole stack or accept the cost on purpose. The public IPv4 line was a clear example: about $20 for three weeks of addresses that became useless the moment Traefik took over.
+
+I also had to correct myself on the load balancers. For load they were overkill. For deploys they were not. Dropping them without a health-gated rolling path on Traefik traded one kind of waste for a 502/503 gap on every recreate.
 
 Finally, I liked working this way. The agents ran Cost Explorer, analyzed hosting before any purchase, bought the servers, installed Coolify, migrated the data, switched DNS, cleaned up IPs, and stood up observability. I made the decisions in chat and approved the destructive steps.
 

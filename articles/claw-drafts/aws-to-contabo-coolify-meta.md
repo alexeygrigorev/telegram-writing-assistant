@@ -1,6 +1,6 @@
 # How I Moved Our Apps from AWS to Two Contabo Servers - publishing notes
 
-Status: draft, 2026-10-23 (post-cutover expansion t1221u Europe/Berlin; prior IP + observability t1138u). Template: Build Log (shoot-the-article), outline and draft written in one pass (t1116u, Hub intake d8e419b9-dc11-40d9-9dac-6fefc624c535); IP + observability expansion from t1138u; post-cutover problems/fixes + ops loop from t1221u.
+Status: draft, 2026-10-23 (ALB zero-downtime correction t1287u Europe/Berlin; post-cutover expansion t1221u; prior IP + observability t1138u). Template: Build Log (shoot-the-article), outline and draft written in one pass (t1116u, Hub intake d8e419b9-dc11-40d9-9dac-6fefc624c535); IP + observability expansion from t1138u; post-cutover problems/fixes + ops loop from t1221u; ALB not-fully-useless / Coolify rolling+healthgate note from t1287u.
 
 Sources: `inbox/raw/20261022_144628_alexey_msgt1116u_cloud-to-baremetal-chat-export.md` (cost report appendices) and `inbox/raw/20261022_125100_alexey_msg1792673460.md` (enriched dialogue: hosting analysis, Pack A, t995u cron disable); t1138u ask to deepen analysis-before-buy, public IPv4 story, and Contabo observability; t1221u post-cutover incidents from `~/tmp/agent-reports` (alerts-t1205u/t1209u, relay-contabo-stability-t1207u, relay-pg-no-pin-t1210u, coolify-gha-api-8000-t1040u, main-dead-cw-alarms-t1127u, contabo-dump-wal-retention-t1146u, website-importer-contabo-dump-t1154u, postgres-exporter-relay-fix-t1218u, contabo-current-state-*-t1212u / t1218u follow-ups). Every money figure in the draft comes from the cost sources. No account IDs, IPs, order numbers, distribution IDs or hostnames are in the draft.
 
@@ -13,16 +13,16 @@ I was paying AWS mostly for the parts around the apps (RDS, load balancers, publ
 1. Opener + roadmap - sandbox KMS question on Oct 21, all four prod apps on Contabo by Oct 22 afternoon, done through agents; roadmap includes IP cleanup + observability + post-cutover problems/fixes + ops loop
 2. The sandbox bill - $14.91 KMS+SM, 12 orphan CMKs from a deploy leak (~$12/mo), DynamoDB still needs KMS
 3. The main account - $455.50 Oct 1-21 breakdown, $650-700 projection, Public IPv4 ~$20 (~$19.58 EU in-use, ~7-8 IPs, ~$3.6/IP/mo), Business Support+ link to the dropped-DB post, idle website stack, SnapshotExport $19.80
-4. The first plan: trim AWS - the 4-item backlog, ALB annoyance, hosting brief (EUR 70-80, 2x64 GB), Coolify defined
+4. The first plan: trim AWS - the 4-item backlog, ALB annoyance (required by ECS; not needed for load; not fully useless — zero-downtime / healthgate+drain), hosting brief (EUR 70-80, 2x64 GB), Coolify defined
 5. Buying the servers - no-buy-before-analysis rule (analysis completed before order), Hetzner ~EUR 30 baseline, AX42 ~EUR 67 vs CAX31+CAX21 ~EUR 32.48, agent box isn't prod, budget as ceiling, 2x Contabo Cloud VPS 16 at EUR 70.44/mo incl VAT, peer-agent go review then buy, "bare metal" caveat, plan rules, Coolify 4.4.7, staging on GHCR
-6. The cutover - Relay first, teardown list, ~$60-70/mo Relay savings, shared SM 40 + 17, t993u status vs backlog, cron bug, CMP/AISHL/website DNS cut, all ALBs deleted (none left on MAIN)
+6. The cutover - Relay first, teardown list, ~$60-70/mo Relay savings, shared SM 40 + 17, t993u status vs backlog, cron bug, CMP/AISHL/website DNS cut, Traefik enough for routing but not automatic rolling/0dt, all ALBs deleted (none left on MAIN)
 7. The last step: the databases - 4 predelete snapshots kept, instances deleted after Alexey's go (current as of late Oct 22 afternoon Europe/Berlin); rule from the dropped-DB incident
 8. Public IPv4 after the move - ~$20 MAIN public IPv4 story; same-day teardown of bastion, website NAT + its EIP; AISHL ECS scaled to 0; MAIN left with zero EIP / NAT / public ENI / ALB / RDS; sandbox still has a few EIPs for live/dev tools
 9. Observability on Contabo - VictoriaMetrics + VictoriaLogs + Vector + thin vmui; public repo alexeygrigorev/coolify-observability with Docker alert drills; coolify-healthcheck dead-man → SES to alexey@datatalks.club + dev@dtcdev.click; retention ~1-2d hot, day-before-yesterday to S3 ~2 weeks; probed targets (Postgres, Coolify UI, Relay/Relay-dev, courses, website, AISHL, VM/VL); alert drill list; DR weekly raise RTO ~26s + VM metrics + stale ~8d alert; business metrics ~50 catalogued, Phase 1 collect-only into biz_metrics.metric_daily, P0 families named, deviation alerts later (~2 weeks)
-10. What broke after cutover - real first-night incidents + fixes: SKIP_BACKUP_CHECKS on CP; Relay PG Docker DNS stale → worker restart + DLQ redrive + relay-pg-dns-watchdog (DNS+watchdog, no IP pin); ALERT_TO dual; SES oldest/DLQ; GHA→Coolify via Traefik HTTPS (port 8000 stays closed); dead MAIN RDS/ALB CloudWatch alarms deleted; dump/WAL local≤2d S3~14d + age alerts; empty website Contabo DB + importer still SQLite; AISHL missing qcluster; postgres-exporter-relay wrong target fixed; watchdog TCP-only gap follow-up; Hub no_eligible_route / dig-before-aplexer
+10. What broke after cutover - real first-night incidents + fixes: SKIP_BACKUP_CHECKS on CP; Relay PG Docker DNS stale → worker restart + DLQ redrive + relay-pg-dns-watchdog (DNS+watchdog, no IP pin); ALERT_TO dual; SES oldest/DLQ; GHA→Coolify via Traefik HTTPS (port 8000 stays closed); Coolify single-web force-recreate → 502/503 gap (need healthgate+rolling to match ALB); dead MAIN RDS/ALB CloudWatch alarms deleted; dump/WAL local≤2d S3~14d + age alerts; empty website Contabo DB + importer still SQLite; AISHL missing qcluster; postgres-exporter-relay wrong target fixed; watchdog TCP-only gap follow-up; Hub no_eligible_route / dig-before-aplexer
 11. How we run production after the move - alerts to alexey@ + dev@ → immediate triage → Hub intake+AC+sessions → same-turn fix-on-failure (not weekly postmortem / not wait for «почини»)
-12. The costs now - EUR 70.44 (~$77), savings unknown until November bill, what stays on AWS, open tasks (ECR→GHCR, orphan keys, biz-metric alerts later, website Contabo content/importer, Hub placeability)
-13. Lessons learned - thesis, idle stacks (incl. public IPv4), agent-driven workflow with human approval on destructive steps, fix-on-failure loop, trade-offs, follow-up + subscribe
+12. The costs now - EUR 70.44 (~$77), savings unknown until November bill, what stays on AWS, open tasks (ECR→GHCR, orphan keys, biz-metric alerts later, website Contabo content/importer, Hub placeability, Coolify/Traefik healthgate+rolling 0dt)
+13. Lessons learned - thesis, idle stacks (incl. public IPv4), ALB correction (load overkill / deploy 0dt not useless; Traefik needs healthgate+rolling), agent-driven workflow with human approval on destructive steps, fix-on-failure loop, trade-offs, follow-up + subscribe
 
 ## Things to verify before publishing
 
@@ -40,6 +40,7 @@ I was paying AWS mostly for the parts around the apps (RDS, load balancers, publ
 - Post-cutover incident list vs live Contabo state at publish time (website content load, AISHL qcluster, Hub placeability, watchdog progress checks may still be in flight)
 - ALERT_TO still dual alexey@ + dev@ on both Contabo hosts
 - Confirm GHA COOLIFY_URL still Traefik HTTPS (not raw :8000)
+- Coolify Contabo prod web still force-recreates single container (502/503 gap) until healthgate+rolling lands — draft states the gap honestly
 
 ## Platform deltas
 
