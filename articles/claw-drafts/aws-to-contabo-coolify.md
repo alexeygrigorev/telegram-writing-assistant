@@ -84,11 +84,11 @@ On the evening of October 21, I gave the agent a backlog in this order:
 3. Replace the three load balancers with one nginx server, because there's nothing to balance
 4. Find out why the snapshot export costs so much
 
-The load balancers annoyed me the most. Each app had its own Application Load Balancer, but none of them had real load to balance. We paid about $64 in three weeks for traffic that one reverse proxy could route.
+The load balancers annoyed me the most. Each app had its own Application Load Balancer, but the ALBs were not required in that setup. None of them had real multi-target load to balance — just a few small apps. We still paid about $64 in three weeks for the balancers, plus public IPv4 addresses across availability zones, for traffic that one reverse proxy could route. The first idea was to replace the three ALBs with one nginx server.
 
 In the same message, I asked the agent to look for hosting. I named a budget of about €70 to €80 per month for two machines with 64 GB of RAM each. I wanted to run [Coolify](https://coolify.io/) on them.
 
-Coolify is an open-source, self-hosted platform for deploying apps. It does roughly what Heroku or Vercel do, on your own servers. It runs Docker containers and puts a Traefik reverse proxy in front of them, which handles routing and TLS certificates.
+Coolify is an open-source, self-hosted platform for deploying apps. It does roughly what Heroku or Vercel do, on your own servers. It runs Docker containers and puts a Traefik reverse proxy in front of them, which handles routing and TLS certificates. That Traefik is what would later take over the routing role — not a standalone nginx.
 
 I asked for results by the next morning, China time.
 
@@ -149,11 +149,11 @@ It showed how little of the original backlog was done:
 - One nginx instead of three load balancers: not done
 - Snapshot export: the cron was still running
 
-By then, the agent was moving the apps instead of trimming AWS. There was no point in making the AWS databases cheaper if the apps were about to leave them.
+By then, the agent was moving the apps instead of trimming AWS. There was no point in making the AWS databases cheaper if the apps were about to leave them. The standalone nginx never got built either — Coolify already ships Traefik, and that was enough for a few small apps.
 
 In the same report, the agent noticed that the snapshot export cron still had a line for Relay. Its database no longer existed, so that export would fail every evening. I asked the agent to run one last export and then disable the cron.
 
-Later that day, the agent switched DNS and CloudFront for the course platform, AI Shipping Labs and the website to the Traefik proxy on Contabo. All three came up healthy. The agent then deleted the remaining Application Load Balancers. After cutover, the main account had none left.
+Later that day, the agent switched DNS and CloudFront for the course platform, AI Shipping Labs and the website to Coolify's Traefik on Contabo. All three came up healthy. That was the real cutover of the routing idea: nginx was the first plan on AWS; Traefik is what actually routes traffic now. The agent then deleted the remaining Application Load Balancers. After cutover, the main account had none left.
 
 ## The last step: the databases
 
