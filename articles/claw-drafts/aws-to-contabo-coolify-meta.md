@@ -4,6 +4,10 @@ Status: draft, 2026-10-23 (ALB zero-downtime correction t1287u Europe/Berlin; po
 
 Sources: `inbox/raw/20261022_144628_alexey_msgt1116u_cloud-to-baremetal-chat-export.md` (cost report appendices) and `inbox/raw/20261022_125100_alexey_msg1792673460.md` (enriched dialogue: hosting analysis, Pack A, t995u cron disable); t1138u ask to deepen analysis-before-buy, public IPv4 story, and Contabo observability; t1221u post-cutover incidents from `~/tmp/agent-reports` (alerts-t1205u/t1209u, relay-contabo-stability-t1207u, relay-pg-no-pin-t1210u, coolify-gha-api-8000-t1040u, main-dead-cw-alarms-t1127u, contabo-dump-wal-retention-t1146u, website-importer-contabo-dump-t1154u, postgres-exporter-relay-fix-t1218u, contabo-current-state-*-t1212u / t1218u follow-ups). Every money figure in the draft comes from the cost sources. No account IDs, IPs, order numbers, distribution IDs or hostnames are in the draft.
 
+## Drain verification
+
+The original t1116u outline, draft and indexes were committed previously. This t1909u pass preserves the later expansions and corrects style regressions. The two inbox dialogue exports explicitly identify themselves as report-derived reconstructions, not verbatim transcripts. Cost figures remain historical estimates from those exports. No new prices or realized savings are claimed.
+
 ## Thesis
 
 I was paying AWS mostly for the parts around the apps (RDS, load balancers, public IPs, support, tax), while the containers themselves were about $37 + $7 EC2 of the $455.50.
@@ -45,7 +49,7 @@ I was paying AWS mostly for the parts around the apps (RDS, load balancers, publ
 ## Platform deltas
 
 Substack (Alexey On Data, aishippingblog.com):
-- Subtitle: What the AWS bill looked like, what the move cost, and what still runs on AWS
+- Subtitle: What the AWS bill looked like, what broke after cutover, and how we fix production the same turn
 - Paywall: if paywalled, place the break after "The main account"
 - Publish-time apparatus added on Substack, not in the draft: editor credit, digest sections if it's a regular issue
 
