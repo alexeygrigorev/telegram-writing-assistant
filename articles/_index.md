@@ -27,7 +27,7 @@ Repository-wide indexes and long-running collections with special underscore-pre
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
 | [Interesting Resources](_interesting-resources.md) | draft | 2026-10-01 | Curated collection of tools, resources, and project ideas for the newsletter |
-| [Substack Archive Index](_substack-archive-index.md) | draft | 2026-10-12 | Lookup table of all published Substack posts (title, description, URL), used to insert direct links to things Alexey has already shared |
+| [Substack Archive Index](_substack-archive-index.md) | draft | 2026-10-24 | Lookup table of all published Substack posts (title, description, URL), used to insert direct links to things Alexey has already shared |
 | [Weekly Log](_weekly-log.md) | draft | 2026-07-09 | Running log of what was done each week. Topics with their own dedicated article appear as short summaries with links; smaller items stay inline |
 
 ## Metadata
@@ -93,9 +93,7 @@ Draft articles and talk material whose core substance has already been collected
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
-| [AI Agents Do Everything Now. You Still Need Kubernetes.](raw-articles/why-kubernetes-still-matters.md) | draft | 2026-10-06 | Short article on why Kubernetes remains relevant in the age of AI agents, with KubeAuto Day Berlin CTA |
 | [Specs First: Building a Full-Stack App with AI Coding Agents](raw-articles/devmio-spec-driven-full-stack-app.md) | draft | 2026-10-02 | Guest article for devmio on spec-driven full-stack development with coding agents, based on the AI Shipping Labs full-stack workshop |
-| [13 Real-Life AI Projects from AI Engineering Buildcamp Cohort 3](raw-articles/ai-engineering-buildcamp-cohort-3-projects.md) | draft | 2026-09-03 | Newsletter draft of cohort 3 Demo Day plus the rest of the submitted Buildcamp projects |
 | [Roles in an AI Team](raw-articles/roles-in-ai-team.md) | draft | 2026-09-03 | Updated version of the Data Team Roles article with the AI Engineer role added |
 | [Interview Experiment](raw-articles/interview-experiment.md) | draft | 2026-08-11 | Running log of the experiment of interviewing at different companies, starting with the first interview at Deriv |
 | [Diagram Creator: Declarative SVG and PNG Workflows](raw-articles/diagram-generator.md) | complete | 2026-08-09 | How the deterministic diagram creator turns JSON specifications into editable SVG and PNG diagrams. |
@@ -107,7 +105,6 @@ Draft articles and talk material whose core substance has already been collected
 | [Course Material Preparation](raw-articles/course-material-preparation.md) | draft | 2026-02-25 | Workflow for keeping code and documentation in sync |
 | [AI Engineer Role Survey](raw-articles/ai-engineer-role-survey.md) | draft | 2026-02-22 | Survey collecting first-hand accounts from AI Engineer practitioners about their roles, tools, and interview experiences |
 | [Hetzner Server Setup](raw-articles/hetzner-server-setup.md) | draft | 2026-02-21 | Setting up a dedicated Hetzner server for running bots, AI workloads, and development environments |
-| [Coding Agent Building Blocks: Reusable Skills and Specialized Subagents](raw-articles/code-agents-building-blocks.md) | draft | 2026-02-18 | Article about making coding agents more reliable with reusable skills and specialized subagents. |
 | [AI Engineer RPG Game](raw-articles/ai-engineer-rpg-game.md) | draft | 2026-02-13 | RPG game for interview practice built with OpenCode/GLM-5 in Rust |
 | [AI as Personal Analyst](raw-articles/ai-as-personal-analyst.md) | draft | 2026-02-12 | Talk about using AI for Excel automation, data cleaning, and scaling document review |
 | [Streaming JSON Parsing with jaxn](raw-articles/jaxn-streaming-json.md) | draft | 2026-01-29 | Streaming parser for LLM structured output |
@@ -140,7 +137,6 @@ Articles currently being developed from a researched outline.
 | [How I Automated My Business with a Mini PC and AI Agents](work-in-progress/business-automation-setup.md) | draft | 2026-10-16 | Physical and software setup for automating business tasks with a ThinkCentre mini PC, Grok Bot, and VPN-routed AI agents. |
 | [Cloudflare Git for Agents Competition](work-in-progress/cloudflare-git-for-agents-competition.md) | draft | 2026-10-16 | Daily log of participating in Cloudflare's competition to build a git alternative for agentic workloads. |
 | [Organizational Agents - Progress Report](work-in-progress/organizational-agents-progress-report.md) | draft | 2026-10-08 | Experiment with multi-team AI agent organization: hierarchy, self-healing, and the gap between design and operational reliability. |
-| [Why Did I Create My Own Terminal Multiplexer?](work-in-progress/why-did-i-create-my-own-terminal-multiplexer.md) | draft | 2026-10-01 | Why tmux stopped matching an agent-heavy workflow and how aplexer supports persistent sessions and agent coordination. |
 
 ## Testimonials
 
@@ -169,7 +165,6 @@ Articles drafted by Clo from topic research and voice templates.
 | [Context That Improves Itself](claw-drafts/self-improving-context.md) | draft | 2026-08-28 | Concepts Explainer (~1,800 words). ACE, Meta-Harness, memory wave, self-improvement ladder |
 | [The Open-Source AI CEO: A Joke That Ships](claw-drafts/open-executive.md) | draft | 2026-08-28 | Tool Teardown lite (~1,500 words). OpenExecutive teardown + delegation ladder |
 | [The Skeptic Scorecard: Dan Luu Audited Ed Zitron, and It Wasn't Close](claw-drafts/ai-skeptic-scorecard.md) | draft | 2026-09-03 | Reaction essay (~1,900 words). Zitron prediction audit + how to scorecard AI sources |
-| [How to Get LLM Access for Free (or Almost Free)](claw-drafts/free-llm-access.md) | draft | 2026-09-09 | How-To Guide (~1,300 words). Free API tiers + $5 token math + local GPU hardware costs + coding-agent deals |
 | [How I Moved Our Apps from AWS to Two Contabo Servers](claw-drafts/aws-to-contabo-coolify.md) | draft | 2026-10-22 | Build Log (~2,050 words). AWS cost dig (sandbox KMS/SM orphan keys, main account $455.50 Oct 1-21) to 2x Contabo VPS + Coolify (EUR 70.44/mo): trim-AWS backlog, Relay-first cutover, 2 of 3 ALBs gone, RDS delete waiting for go. Publishing notes in `aws-to-contabo-coolify-meta.md` |
 
 ## Interviews

@@ -225,4 +225,4 @@ I distilled this article from three longer write-ups with verbatim de-minified e
 - ui-core-interaction.md - the UI-to-core pipeline and the fork bridge comparison
 - zcode-core-internals.md - the runtime stack, the agent loop, and the goal machine
 
-For the notes on getting the free GLM tokens and connecting ZCode to Codex, see [free-llm-access](../claw-drafts/free-llm-access.md).
+For the notes on getting the free GLM tokens and connecting ZCode to Codex, see [free-llm-access](https://aishippingblog.com/p/free-and-affordable-ai-native-development).

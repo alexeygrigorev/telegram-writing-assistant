@@ -1,7 +1,7 @@
 ---
 title: "Substack Archive Index"
 created: 2026-05-16
-updated: 2026-10-12
+updated: 2026-10-24
 tags: [reference, index]
 status: draft
 ---
@@ -21,6 +21,7 @@ When processing a message where I refer back to something I already shared, scan
 
 | Date | Title | URL | Description |
 |------|-------|-----|-------------|
+| 2026-10-20 | Trends in Agentic Engineering | https://aishippingblog.com/p/trends-in-agentic-engineering | Webinar recap with Hugo Bowne-Anderson on agentic engineering, dark and light software factories, coding agents, human review, specifications, testing, and the changing role of software engineers. |
 | 2026-10-12 | Trends in AI Engineering | https://aishippingblog.com/p/trends-in-ai-engineering | Part one of the lightning lesson recap with Hugo Bowne-Anderson (Vanishing Gradients): AI engineering vs agentic engineering, nine monthly scrapes of AI engineering job postings from the AI Engineering Field Guide (postings per month, seniority, forward-deployed engineers, integrator vs trainer roles), relevant skills such as RAG, agents, LLM evaluation, inference and serving, the Inference Engineering book club, human skills, how to become an AI engineer, and the course questionnaire for the course Hugo and Alexey plan to build. |
 | 2026-10-07 | AI Agents Can Do Everything Now. Do We Still Need Kubernetes? | https://aishippingblog.com/p/ai-agents-can-do-everything-now-do | Why Kubernetes still matters for AI agents, previewing talks at Kubernetes Automation Day (KubeAuto Day) Berlin on October 15: Giant Swarm moving an SRE agent from a laptop into the cluster, Mehul Patel's TheNightOps autonomous SRE agent built with Google ADK and guardrails, agents vs microservices and Agent Substrate, agents shipping more code to production, plus links to Machine Learning Zoomcamp Module 10 and AI Dev Tools Zoomcamp. |
 | 2026-10-02 | Aplexer - Why I Stopped Using Tmux and Created My Own Terminal Multiplexer | https://aishippingblog.com/p/aplexer-why-i-stopped-using-tmux | Why Alexey replaced tmux with aplexer, a Rust terminal multiplexer for coding agents running 24/7 on a remote dev box: how tmux client, server, and PTY work over SSH, OOM killer and cgroups problems, tmuxctl and cargo-safe workarounds, aplexer's spec-driven requirements, architecture, OOM isolation test, agent-aware sessions and agent-to-agent communication, and integration with PocketShell. |
