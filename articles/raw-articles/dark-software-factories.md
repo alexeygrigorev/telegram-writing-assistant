@@ -1,53 +1,75 @@
 ---
 title: "Dark Software Factories"
 created: 2026-10-11
-updated: 2026-10-20
+updated: 2026-10-24
 tags: [research, agentic-engineering, coding-agents, dark-factory, software-factory, verification, hugo-bowne-anderson]
 status: draft
 ---
 
 # Dark Software Factories
 
-I work much more slowly when I read code and check every diff. That's why around six months ago I stopped doing it routinely. Now I write code myself or read agent-generated code occasionally, when I prepare a workshop or course.
+Reading code slows me down and makes me a bottleneck. That's why around six months ago I stopped doing it routinely. Now I read agent-generated code only when I prepare a workshop or course.
 
-I started hearing the term "software factories" a month or two ago and realized I already had one. I described my agent team on [April 3, 2026](https://aishippingblog.com/p/i-built-an-ai-agent-team-for-software), before I called it a factory.
+A few months ago I started hearing the term "software factories" and realized I already had one. I described my agent team [in my article "TODO:NAME"](https://aishippingblog.com/p/i-built-an-ai-agent-team-for-software) - in April 2026, before I knew it was called "a factory".
 
-Back then I was still looking at the code. It was terrible, and I thought the tests were absolute slop. I wanted the code to look as if I'd written it myself. I'd dictate review notes with Google Recorder and give them to my agent teams.
+But more recently I started hearing another term: "dark software factory". It's a factory where humans are not allowed. We give agents specifications and check that they follow them, but we don't look at how it's implemented. We still decide what to build and evaluate the results through tests, demos, and constant monitoring.
 
-They'd spend a couple of days rewriting it. When I reviewed it again, some comments still weren't addressed, so I'd record another note. At some point I realized I was spending time making code match my preferences without improving the product.
+I've been doing it for some time too, but I wanted to undestand what people actually mean by the term "dark software factory" and how others implement it. 
 
-The code worked, and the tests I disliked caught problems in the code the agents wrote. When I removed some of those tests, things stopped working. So I left the agents to write what they needed and focused on architecture, modularity, checks, and recovery when something broke.
+I did some research and I'll describe what I found in this article.
 
-Recently I started hearing another term: "dark software factory". In this setup, people give agents specifications and have them write, test, and ship code without human code review. People still decide what to build and how to check it. They evaluate the results through tests, demos, and monitoring.
+Here I will cover:
 
-I now make more decisions about architecture. If two projects need the same functionality, I ask for a shared library. If they need common authentication, I ask for single sign-on instead of maintaining an authentication layer in every application.
+TODO update
+- The source for the factory terminology
+- What other people and companies are doing
+- Operational problems that still need human judgment
+- The costs
 
-I also want to share code across devices. Instead of separate Kotlin, desktop, and web implementations, I can ask for a common TypeScript codebase and fix a bug once.
 
-When agents take days to fix a bug, I ask how large the codebase has become. In one project, patch after patch had made it difficult to change. I asked the agents to reimplement the same behavior with a target of 20% of the code. I used the existing behavior as the specification for the rewrite.
+## XXX?
 
-I'm still making technical decisions, but I do it by setting direction and checking behavior. I wanted to understand how that compares with what other people call a dark factory.
+When I first started working with agents, I was looking at the code. It was terrible. Especially the tests - they were absolute slop. I wanted the code to look as if I had written it myself.
 
-In this article, I'll cover:
+I'd dictate review notes with Google Recorder and give the transcript to my agent teams to correct it. They'd spend one or two days rewriting the code. When I reviewed it again, some comments still weren't addressed, so I'd record another note, and we kept iterating.
 
-- Where the factory terminology came from
-- What recent practitioners say they're running
-- How to verify software without reading every change
-- The costs and operational problems that still need human judgment
+At some point I realized I was spending too much time (and tokens) on it without making any meaningful progres.
+
+The main problem was that the original code actually worked. And that the tests I disliked were actually able to catch problems in the code the agents wrote. When I removed some of those tests, things started to break.
+
+Instead of helping, I was making things worse. Yes, the code still looked terrible, but if I had either accept it or go back to writing code myself.
+
+So I left the agents to write whatever they needed and instead I focused on high level architecture details:
+
+- If two projects need the same functionality, I ask for a shared library.
+- If they need authentication, I ask for single sign-on instead of maintaining an authentication layer in every application.
+- If I want to use the same project across devices, I ask for a common TypeScript codebase instead of a separate Kotlin, desktop, and web implementation. If we catch a bug, we fix it only once.
+- If adding new features or fixing bugs start taking long time, I ask to split the code into multiple modules.
+- If the codebase grew too large, I ask for a reimplementaion with the target to reduce the codebase by 70%. I also specifically ask to remove all the backwards-compatibility layers that agents like to create.
+- If running tests takes too long, I ask to review the tests and/or split the library into multiple modules.
+
+When I work with agents, I'm still making technical decisions, but I do it by setting direction and checking behavior, not by checking the code.
+
+??? transition something like so I came to using this concept and I have implemented quite a few projects this way - something along these lines
 
 ## Origins of the Term
 
-The phrase "dark software factory" combines lights-out manufacturing with the older idea of a software factory.
+The term "dark software factory" is a combination of two ideas:
 
-In lights-out manufacturing, machines can run without people on the factory floor. [FANUC describes factories](https://www.fanuc.co.jp/en/profile/production/factory1.html) where robots load machining cells for unattended operation, including nights and weekends.
+- lights-out manufacturing
+- software factories
 
-The software-factory idea is older than coding agents. People wanted to make development repeatable through shared tools, reusable components, standards, and quality checks. Humans still designed, wrote, and reviewed the software. [Addy Osmani traces that ambition to 1968](https://addyosmani.com/blog/software-factories/).
+In lights-out manufacturing, machines can run without people on the factory floor. [FANUC describes factories](https://www.fanuc.co.jp/en/profile/production/factory1.html) where robots load [machining cells for unattended operation][TODO: rewrite in simpler terms], including nights and weekends.
 
-With agents, people are trying to automate more of those steps, including implementation and review.
+## Software Factories
 
-The earliest explicit software use I found was [Dan Shapiro's January 23, 2026 post](https://www.danshapiro.com/blog/2026/01/the-five-levels-from-spicy-autocomplete-to-the-software-factory/). That's the earliest I found, rather than proof that nobody used it earlier.
+The "software factory" idea is actually older than coding agents, and [it was traced back to 1968](https://addyosmani.com/blog/software-factories/): people wanted to make development repeatable through shared tools, reusable components, standards, and quality checks. Of course it would be humans who write code, but the idea was to have a standard process to ensure good quality. And with agents, we're trying to automate these steps, incluing implementation and review.
 
-He used driving automation as an analogy and described levels 0 through 5:
+TODO: is there a diagram from early pre-agent times that show this?
+
+The earliest mention of the term with respect to agents I found in [Dan Shapiro's post](https://www.danshapiro.com/blog/2026/01/the-five-levels-from-spicy-autocomplete-to-the-software-factory/) (January 2026).
+
+He described levels 0 through 5:
 
 - Level 0: you write the code and occasionally use AI for search or suggestions.
 - Level 1: you delegate small tasks such as tests and docstrings.
@@ -56,33 +78,33 @@ He used driving automation as an analogy and described levels 0 through 5:
 - Level 4: you prepare specifications and checks, then let agents work for hours.
 - Level 5: you operate a system that turns specifications into software without routine human code review.
 
+TODO: let's add an illustation
+
 Shapiro placed himself at level 4 and borrowed the dark-factory name from FANUC for level 5.
 
-[Simon Willison summarized the levels on January 28](https://simonwillison.net/2026/Jan/28/the-five-levels/) and described a small team whose agents demonstrated correctness without human code review. He later identified them as StrongDM's AI team.
+[Simon Willison also wrote a post about it](https://simonwillison.net/2026/Jan/28/the-five-levels/) (also January 2026) and described a small team whose agents demonstrated correctness without human code review. (Every time I do term archeology, Simon's blog comes up!)
 
-My own early experiments were in January 2026, as I described in [Six Projects That Didn't Make It](https://aishippingblog.com/p/six-projects-that-didnt-make-it). Opus 4.5 was available then, following [its November 24, 2025 release](https://www.anthropic.com/news/claude-opus-4-5). [Opus 4.6 arrived on February 5, 2026](https://www.anthropic.com/news/claude-opus-4-6), so it couldn't have powered my January experiments.
+I also experimented with this in January and February 2026, and I described these projects in [Six Projects That Didn't Make It](https://aishippingblog.com/p/six-projects-that-didnt-make-it). Opus 4.5, available back then, was a very decent model, but most of us didn't have the proper tooling and established processes to make it work. 
 
-The agents could already keep working for hours, but my metabolism simulator showed why that wasn't enough. I got more features while basic logging remained broken. I needed clearer requirements, tests, and acceptance checks.
+Now, 10 months later, we have learned enough - I even did a course about it. TODO: finish
 
-## The Discussion on Reddit and X
+## Teams Running Factories
 
-In a [July 30 Reddit discussion](https://www.reddit.com/r/ycombinator/comments/1vamsls/has_anyone_here_actually_set_up_a_software/), developers described several different meanings of "factory". Some had automated tasks through pull requests, while others still handled scheduling, exceptions, and final approval. One commenter explicitly said their system wasn't lights-out.
+In my courses I teafch the way I approach it. I learbed it by trial and error and uesd it across many projects. 
 
-On September 12, [Pieter Levels argued on X](https://x.com/levelsio/status/2098861287413268889) that one coding agent was sufficient and could start more agents when needed. On September 25, [Geoffrey Huntley described a software factory on X](https://x.com/GeoffreyHuntley/status/2103470149450022989) as automation built into the product.
+But for this article I also wanted to see what other pople on the internet wrote about it. 
 
-Those posts show an active disagreement about how much machinery to build. They don't tell us what fraction of developers run factories. I couldn't find representative adoption data for the stricter definition of unattended delivery.
+In my research I wanted to focus on what peole shared and on their personal blogs. I specifically exluded vendors who offer these solutions (yes there are alreayd a few)
 
-## Teams Running a Factory
+I restricred my search to June 2026 onwards to get fresh materials. 
 
-I looked for practitioner accounts from June 2026 onward, rather than treating vendor descriptions as proof of adoption. Automatic code generation, automatic merging, and automatic production deployment are separate claims.
+Her's what I found:
 
-On June 1, [Brian McQuay described adding ticket-to-merge automation to Sandstorm](https://brianmcquay.com/blog/going-dark/). After ticket refinement, he wanted agents to implement the change and review it automatically. They'd fix problems, run tests, and create a PR, then resolve conflicts and merge it. He described per-project automation settings and kept human application QA. He was still implementing the option when he wrote the post, so it doesn't establish a sustained production record.
+- [Brian McQuay described adding ticket-to-merge automation to Sandstorm](https://brianmcquay.com/blog/going-dark/). After ticket refinement, agents implement the change automatically and also review it. They'd fix problems, run tests, and create a PR, then resolve conflicts and merge it.
+- [John Wilger described building an SSH proxy called Lanyard](https://johnwilger.com/blog/somebody-has-to-design-the-factory/). He required isolated worktrees, verification that a live deployment answered, and fresh reviews tied to the exact code changes. When the code changed, earlier review approvals no longer counted. He also required agents to stop and escalate when they couldn't meet a required check.
+- in a Reddit thread, [a developer described a Linear-to-PR setup](https://www.reddit.com/r/ycombinator/comments/1vamsls/has_anyone_here_actually_set_up_a_software/). They started agent sessions for ready user stories, followed repository instructions, and produced preview URLs. They also described automated releasing with end-to-end tests. The account doesn't specify whether a human approves each merge, so I wouldn't classify it as fully dark.
 
-On July 26, [John Wilger described building an SSH proxy called Lanyard](https://johnwilger.com/blog/somebody-has-to-design-the-factory/). He required isolated worktrees, verification that a live deployment answered, and fresh reviews tied to the exact code changes. When the code changed, earlier review approvals no longer counted. He also required agents to stop and escalate when they couldn't meet a required check.
 
-In the July Reddit thread, [a developer described a Linear-to-PR setup](https://www.reddit.com/r/ycombinator/comments/1vamsls/has_anyone_here_actually_set_up_a_software/). They started agent sessions for ready user stories, followed repository instructions, and produced preview URLs. They also described automated releasing with end-to-end tests. The account doesn't specify whether a human approves each merge, so I wouldn't classify it as fully dark.
-
-I didn't verify a non-vendor example from this period that established sustained production delivery with no human intervention.
 
 ## My Personal Projects
 
