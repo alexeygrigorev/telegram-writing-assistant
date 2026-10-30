@@ -1,7 +1,7 @@
 ---
 title: "Dark Software Factories"
 created: 2026-10-11
-updated: 2026-10-24
+updated: 2026-10-30
 tags: [research, agentic-engineering, coding-agents, dark-factory, software-factory, verification, hugo-bowne-anderson]
 status: draft
 ---
@@ -10,47 +10,46 @@ status: draft
 
 Reading code slows me down and makes me a bottleneck. That's why around six months ago I stopped doing it routinely. Now I read agent-generated code only when I prepare a workshop or course.
 
-A few months ago I started hearing the term "software factories" and realized I already had one. I described my agent team [in my article "TODO:NAME"](https://aishippingblog.com/p/i-built-an-ai-agent-team-for-software) - in April 2026, before I knew it was called "a factory".
+A few months ago I started hearing the term "software factories" and realized I already had one. In April 2026, I published [I Built an AI Agent Team for Software Development and Tested on 5 Real Projects](https://aishippingblog.com/p/i-built-an-ai-agent-team-for-software). I described my agent team before I knew it was called "a factory".
 
-But more recently I started hearing another term: "dark software factory". It's a factory where humans are not allowed. We give agents specifications and check that they follow them, but we don't look at how it's implemented. We still decide what to build and evaluate the results through tests, demos, and constant monitoring.
+But more recently I started hearing another term: "dark software factory". It's a factory where humans aren't allowed. We give agents specifications and check that they follow them, but we don't look at how it's implemented. We still decide what to build and evaluate the results through tests, demos, and constant monitoring.
 
-I've been doing it for some time too, but I wanted to undestand what people actually mean by the term "dark software factory" and how others implement it. 
+I've been doing it for some time too. I wanted to understand what people mean by "dark software factory" and how others implement it.
 
 I did some research and I'll describe what I found in this article.
 
-Here I will cover:
+Here I'll cover:
 
-TODO update
-- The source for the factory terminology
-- What other people and companies are doing
-- Operational problems that still need human judgment
-- The costs
+- Why I stopped routinely reviewing agent-generated code
+- Where the factory terminology comes from
+- How other teams build, verify, and ship software with agents
+- The costs and the problems that still need human judgment
 
 
-## XXX?
+## Giving Up Routine Code Review
 
 When I first started working with agents, I was looking at the code. It was terrible. Especially the tests - they were absolute slop. I wanted the code to look as if I had written it myself.
 
 I'd dictate review notes with Google Recorder and give the transcript to my agent teams to correct it. They'd spend one or two days rewriting the code. When I reviewed it again, some comments still weren't addressed, so I'd record another note, and we kept iterating.
 
-At some point I realized I was spending too much time (and tokens) on it without making any meaningful progres.
+At some point I realized I was spending too much time (and tokens) on it without making any meaningful progress.
 
 The main problem was that the original code actually worked. And that the tests I disliked were actually able to catch problems in the code the agents wrote. When I removed some of those tests, things started to break.
 
-Instead of helping, I was making things worse. Yes, the code still looked terrible, but if I had either accept it or go back to writing code myself.
+Instead of helping, I was making things worse. Yes, the code still looked terrible, but I had to either accept it or go back to writing code myself.
 
-So I left the agents to write whatever they needed and instead I focused on high level architecture details:
+So I left the agents to write whatever they needed and instead I focused on architecture:
 
 - If two projects need the same functionality, I ask for a shared library.
 - If they need authentication, I ask for single sign-on instead of maintaining an authentication layer in every application.
 - If I want to use the same project across devices, I ask for a common TypeScript codebase instead of a separate Kotlin, desktop, and web implementation. If we catch a bug, we fix it only once.
-- If adding new features or fixing bugs start taking long time, I ask to split the code into multiple modules.
-- If the codebase grew too large, I ask for a reimplementaion with the target to reduce the codebase by 70%. I also specifically ask to remove all the backwards-compatibility layers that agents like to create.
+- If adding new features or fixing bugs starts taking a long time, I ask to split the code into multiple modules.
+- If the codebase grows too large, I ask for a reimplementation that reduces the codebase by 70%. I also specifically ask to remove all the backwards-compatibility layers that agents like to create.
 - If running tests takes too long, I ask to review the tests and/or split the library into multiple modules.
 
 When I work with agents, I'm still making technical decisions, but I do it by setting direction and checking behavior, not by checking the code.
 
-??? transition something like so I came to using this concept and I have implemented quite a few projects this way - something along these lines
+That's how I arrived at this way of working, before I had a name for it. After using it across several projects, I wanted to understand where the idea came from and what other people had learned from it.
 
 ## Origins of the Term
 
@@ -59,13 +58,13 @@ The term "dark software factory" is a combination of two ideas:
 - lights-out manufacturing
 - software factories
 
-In lights-out manufacturing, machines can run without people on the factory floor. [FANUC describes factories](https://www.fanuc.co.jp/en/profile/production/factory1.html) where robots load [machining cells for unattended operation][TODO: rewrite in simpler terms], including nights and weekends.
+In lights-out manufacturing, machines can run without people on the factory floor. [FANUC describes factories](https://www.fanuc.co.jp/en/profile/production/factory1.html) where robots put parts into machines so production can continue without people, including nights and weekends.
 
 ## Software Factories
 
-The "software factory" idea is actually older than coding agents, and [it was traced back to 1968](https://addyosmani.com/blog/software-factories/): people wanted to make development repeatable through shared tools, reusable components, standards, and quality checks. Of course it would be humans who write code, but the idea was to have a standard process to ensure good quality. And with agents, we're trying to automate these steps, incluing implementation and review.
+The "software factory" idea is older than coding agents. [Addy Osmani traces it back to 1968](https://addyosmani.com/blog/software-factories/). People wanted to make development repeatable through shared tools, reusable components, standards, and quality checks. People would still write code, but the idea was to have a standard process to ensure good quality. And with agents, we're trying to automate these steps, including implementation and review.
 
-TODO: is there a diagram from early pre-agent times that show this?
+For a pre-agent example, Jack Greenfield's 2007 article "Mass Customizing Solutions" includes a [software factory schema diagram on page 31](https://www.methodsandtools.com/PDF/mt200703.pdf#page=31). It connects roles, tasks, and workstreams to reusable assets. The factory was a structured environment that helped people build related applications from shared components.
 
 The earliest mention of the term with respect to agents I found in [Dan Shapiro's post](https://www.danshapiro.com/blog/2026/01/the-five-levels-from-spicy-autocomplete-to-the-software-factory/) (January 2026).
 
@@ -78,31 +77,40 @@ He described levels 0 through 5:
 - Level 4: you prepare specifications and checks, then let agents work for hours.
 - Level 5: you operate a system that turns specifications into software without routine human code review.
 
-TODO: let's add an illustation
+As the levels increase, people move from implementation to defining the work and checking its results:
+
+```mermaid
+graph TD
+    L0["Level 0: Write code, ask AI occasionally"] --> L1["Level 1: Delegate small tasks"]
+    L1 --> L2["Level 2: Pair with an agent"]
+    L2 --> L3["Level 3: Review agent-written code"]
+    L3 --> L4["Level 4: Set specifications and checks, let agents work"]
+    L4 --> L5["Level 5: Operate a factory without routine code review"]
+```
 
 Shapiro placed himself at level 4 and borrowed the dark-factory name from FANUC for level 5.
 
 [Simon Willison also wrote a post about it](https://simonwillison.net/2026/Jan/28/the-five-levels/) (also January 2026) and described a small team whose agents demonstrated correctness without human code review. (Every time I do term archeology, Simon's blog comes up!)
 
-I also experimented with this in January and February 2026, and I described these projects in [Six Projects That Didn't Make It](https://aishippingblog.com/p/six-projects-that-didnt-make-it). Opus 4.5, available back then, was a very decent model, but most of us didn't have the proper tooling and established processes to make it work. 
+I also experimented with this in January and February 2026, and I described these projects in [Six Projects That Didn't Make It](https://aishippingblog.com/p/six-projects-that-didnt-make-it). Opus 4.5 was a decent model. But most of us didn't have the proper tooling and established processes to make it work.
 
-Now, 10 months later, we have learned enough - I even did a course about it. TODO: finish
+Now, several months later, I've used these workflows enough to teach them in AI Dev Tools Zoomcamp. I taught people to write specifications, assign agent roles, and verify the results. I described this in [my article about AI-native development](https://aishippingblog.com/p/ai-native-development-specifications). I still have to decide what evidence I need before I trust a change and when the agents should ask me for help.
 
 ## Teams Running Factories
 
-In my courses I teafch the way I approach it. I learbed it by trial and error and uesd it across many projects. 
+In my courses I teach the way I approach it. I learned it by trial and error across many projects.
 
-But for this article I also wanted to see what other pople on the internet wrote about it. 
+But for this article I also wanted to see what other people on the internet wrote about it.
 
-In my research I wanted to focus on what peole shared and on their personal blogs. I specifically exluded vendors who offer these solutions (yes there are alreayd a few)
+For these examples, I focused on developers describing their own setups on personal blogs and forums. I excluded vendors selling factory solutions, though I discuss StrongDM's verification practices later.
 
-I restricred my search to June 2026 onwards to get fresh materials. 
+I restricted my search to June 2026 onwards to get fresh materials.
 
-Her's what I found:
+Here's what I found:
 
 - [Brian McQuay described adding ticket-to-merge automation to Sandstorm](https://brianmcquay.com/blog/going-dark/). After ticket refinement, agents implement the change automatically and also review it. They'd fix problems, run tests, and create a PR, then resolve conflicts and merge it.
 - [John Wilger described building an SSH proxy called Lanyard](https://johnwilger.com/blog/somebody-has-to-design-the-factory/). He required isolated worktrees, verification that a live deployment answered, and fresh reviews tied to the exact code changes. When the code changed, earlier review approvals no longer counted. He also required agents to stop and escalate when they couldn't meet a required check.
-- in a Reddit thread, [a developer described a Linear-to-PR setup](https://www.reddit.com/r/ycombinator/comments/1vamsls/has_anyone_here_actually_set_up_a_software/). They started agent sessions for ready user stories, followed repository instructions, and produced preview URLs. They also described automated releasing with end-to-end tests. The account doesn't specify whether a human approves each merge, so I wouldn't classify it as fully dark.
+- In a Reddit thread, [a developer described a Linear-to-PR setup](https://www.reddit.com/r/ycombinator/comments/1vamsls/has_anyone_here_actually_set_up_a_software/). They started agent sessions for ready user stories, followed repository instructions, and produced preview URLs. They also described automated releasing with end-to-end tests. The account doesn't specify whether a human approves each merge, so I wouldn't classify it as fully dark.
 
 
 
