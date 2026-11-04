@@ -26,13 +26,13 @@ Here I'll cover:
 
 ## Not Reading Code
 
-When I first started working with agents, I was looking at the code. It was terrible. Especially the tests - they were absolute slop. I wanted the code to look as if I had written it myself.
+When I first started working with agents, I was looking at the code. It was terrible. Especially the tests - they were absolute 100% slop. I wanted the code to look as if I had written it myself.
 
-I'd dictate review notes with Google Recorder and give the transcript to my agent teams to correct it. They'd spend one or two days rewriting the code. When I reviewed the project again, only to find that some comments were still not addressed. So I'd record another note, and then another one, and then another one.
+I'd dictate review notes with Google Recorder and give the transcript to my agent teams to correct it. They'd spend one or two days rewriting the code. Then I'd review the project again, only to find that some comments were still not addressed. So I'd record another note, and then another one, and then another one.
 
 At some point I realized I was spending too much time (and tokens) on it without making any meaningful progress.
 
-The problem was me, not the code. The original code actually worked fine. And that the tests I disliked were actually able to catch problems in the code the agents wrote. When I removed some of those tests, things started to break apart.
+And I realized another thing: the actual problem was me, not the code. The original code actually worked fine. And that the tests I disliked were actually able to catch problems in the code the agents wrote. When I removed some of those tests, things started to break apart.
 
 Instead of helping, I was making things worse. Yes, the code looked terrible, but I had to either accept it or go back to writing code myself.
 
@@ -45,13 +45,13 @@ Eventually I left the agents to write whatever they needed and instead I focused
 - If the codebase grows too large, I ask for a reimplementation that reduces the codebase 2-3 times. I also specifically ask to remove all the backwards-compatibility layers that agents like to create.
 - If running tests takes too long, I ask to review the tests and/or split the library into multiple modules.
 
-When I work with agents, I'm still making technical decisions, but I do it by setting direction and checking behavior, not by controlling the code.
+When I work with agents, I'm still making technical decisions, but I do it by setting the direction and checking the behavior, not by controlling the code.
 
 It was a gradual process, but eventually I arrived at what people now call "dark software factories".
 
 And since the term keeps appearing, I wanted to undestand where it comes from and how people do it. 
 
-## Origins
+## Lights-Out Manufacturing
 
 The term "dark software factory" is a combination of two ideas:
 
