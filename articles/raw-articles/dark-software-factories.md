@@ -1,7 +1,7 @@
 ---
 title: "Dark Software Factories"
 created: 2026-10-11
-updated: 2026-10-30
+updated: 2026-11-04
 tags: [research, agentic-engineering, coding-agents, dark-factory, software-factory, verification, hugo-bowne-anderson]
 status: draft
 ---
@@ -49,7 +49,7 @@ When I work with agents, I'm still making technical decisions, but I do it by se
 
 It was a gradual process, but eventually I arrived at what people now call "dark software factories".
 
-And since the term keeps appearing, I wanted to undestand where it comes from and how people do it. 
+And since the term keeps appearing, I wanted to undestand where it comes from and how people do it.
 
 ## Lights-Out Manufacturing
 
@@ -60,7 +60,10 @@ The term "dark software factory" is a combination of two ideas:
 
 In lights-out manufacturing, machines can run without people on the factory floor. [FANUC describes factories](https://www.fanuc.co.jp/en/profile/production/factory1.html) where robots put parts into machines so production can continue without people, including nights and weekends.
 
-TODO: image of FANUC factory
+<figure>
+  <img src="../../assets/images/dark-software-factories/fanuc-cnc-factory.png" alt="FANUC robots assembling parts in its CNC factory">
+  <figcaption>FANUC's CNC factory. Source: <a href="https://www.fanuc.co.jp/en/profile/production/factory1.html">FANUC</a>.</figcaption>
+</figure>
 
 
 ## Software Factories
@@ -69,8 +72,13 @@ The "software factory" idea is way older than coding agents.
 
 [Addy Osmani traces it back to 1968](https://addyosmani.com/blog/software-factories/). People wanted to make development repeatable through shared tools, reusable components, standards, and quality checks. Writing code wasn't automated, but the idea was to have a standard process to ensure good quality. With agents, we're now automating these steps, including implementation and review.
 
-TODO put the actual diagram from there
 For a pre-agent example, Jack Greenfield's 2007 article "Mass Customizing Solutions" includes a [software factory schema diagram on page 31](https://www.methodsandtools.com/PDF/mt200703.pdf#page=31). It connects roles, tasks, and workstreams to reusable assets. The factory was a structured environment that helped people build related applications from shared components.
+
+<figure>
+  <img src="../../assets/images/dark-software-factories/greenfield-software-factory-schema.png" alt="Software factory schema linking context, roles, tasks, workstreams, artifacts, assets, editors, and views">
+  <figcaption>Jack Greenfield's software factory schema. Source: <a href="https://www.methodsandtools.com/PDF/mt200703.pdf#page=31">Mass Customizing Solutions, page 31</a>.</figcaption>
+</figure>
+
 
 When it comes to agents, the earliest mention was [Dan Shapiro's post](https://www.danshapiro.com/blog/2026/01/the-five-levels-from-spicy-autocomplete-to-the-software-factory/) (January 2026).
 
@@ -85,21 +93,18 @@ Dan described levels 0 through 5 of a code factory:
 
 As the levels increase, people move from implementation to defining the work and checking its results:
 
-TODO: use diagram-creator skill like a vertial diagram 
-```mermaid
-graph TD
-    L0["Level 0: Write code, ask AI occasionally"] --> L1["Level 1: Delegate small tasks"]
-    L1 --> L2["Level 2: Pair with an agent"]
-    L2 --> L3["Level 3: Review agent-written code"]
-    L3 --> L4["Level 4: Set specifications and checks, let agents work"]
-    L4 --> L5["Level 5: Operate a factory without routine code review"]
-```
+<figure>
+  <img src="../../assets/images/dark-software-factories/shapiro-levels.svg" alt="A staircase from level 0, writing code, to level 5, running a factory without routine code review">
+  <figcaption>The six stages in Dan Shapiro's levels 0 through 5. Source: <a href="https://www.danshapiro.com/blog/2026/01/the-five-levels-from-spicy-autocomplete-to-the-software-factory/">The Five Levels</a>.</figcaption>
+</figure>
 
 Shapiro placed himself at level 4 and borrowed the dark-factory name from FANUC for level 5.
 
 [Simon Willison wrote a follow-up post about it](https://simonwillison.net/2026/Jan/28/the-five-levels/) in January 2026 and described a small team with agents demonstrated correctness without human code review. (Every time I do term archeology, Simon's blog comes up!)
 
-I was already experimenting with it in January and February with Claude. When it comes to coding, Opus 4.5 was a decent model, but most of us didn't have the proper tooling and processes to make it work at Level 5. I described some of my experiments and what I learned from them in [Six Projects That Didn't Make It](https://aishippingblog.com/p/six-projects-that-didnt-make-it).
+I was already experimenting with it in January and February with Claude. When it comes to coding, Opus 4.5 was a decent model, but most of us didn't have the proper tooling and processes to make it work at Level 5.
+
+I described some of my earlier experiments and what I learned from them in [Six Projects That Didn't Make It](https://aishippingblog.com/p/six-projects-that-didnt-make-it).
 
 Things have changed since January. The tooling is now a lot better, plus we figured out how to organize the work so it actually works: we now create specifications, have agents with different roles, and have an automated way of verifying the results.
 
@@ -107,70 +112,156 @@ I cover this in [my article about AI-native development](https://aishippingblog.
 
 ## Teams Running Factories
 
-In my courses I teach my way of approaching. I learned it by trial and error across many projects. But for this article I also wanted to see what other people are doing.
+In my courses I teach how I approach agentic engieering. I learned it by trial and error across many projects. But for this article I also wanted to see what other people are doing.
 
 In my research, I focused on developers sharing their experience and exluded vendors and companies that consult in this area. I also wanted to check fresh articles, so I restricted my search to June 2026 onwards.
 Here's what I found:
 
-- [Brian McQuay described adding ticket-to-merge automation to Sandstorm](https://brianmcquay.com/blog/going-dark/). After ticket refinement, agents implement the change automatically and also review it. They'd fix problems, run tests, and create a PR, then resolve conflicts and merge it.
-- [John Wilger described building an SSH proxy called Lanyard](https://johnwilger.com/blog/somebody-has-to-design-the-factory/). He required isolated worktrees, verification that a live deployment answered, and fresh reviews tied to the exact code changes. When the code changed, earlier review approvals no longer counted. He also required agents to stop and escalate when they couldn't meet a required check.
-- In a Reddit thread, [a developer described a Linear-to-PR setup](https://www.reddit.com/r/ycombinator/comments/1vamsls/has_anyone_here_actually_set_up_a_software/). They started agent sessions for ready user stories, followed repository instructions, and produced preview URLs. They also described automated releasing with end-to-end tests. The account doesn't specify whether a human approves each merge, so I wouldn't classify it as fully dark.
+### Sandstorm
 
-TODO: let's describe their approach in more detail - each article should get a separate small section + illustration
+[Brian McQuay describes Sandstorm](https://brianmcquay.com/blog/going-dark/), a system he uses for his software factory.
+
+It's a Kanban-driven pipeline:
+
+- a human refines a ticket and marks it ready
+- the sytem prepared an isolated enviroment for the task to run
+- the task is implemented and reviewed
+- if any problems are identified, they are fixed
+- it opens a PR
+- the PR is merged and conflicts are resolved
+
+Then he uses it for each project.
+
+It reminded me my earlier attemt to create the factory - I called it "litehive" (described in [Six Projects That Didn't Make It](https://aishippingblog.com/p/six-projects-that-didnt-make-it)). Except I didn't manage to make it work, but Brian did.
+
+### Checks in Lanyard
+
+While building an SSH proxy called Lanyard, [John Wilger found several ways his agents could appear to finish a task without actually finishing it](https://johnwilger.com/blog/somebody-has-to-design-the-factory/).
+
+He added rules to prevent that:
+
+- Each task gets its own copy of the code, so agents working on different tasks do not interfere with one another.
+- A deployment is complete only when he can open the live URL and get a response.
+- A command reporting success is not enough. The agent must check that the intended result actually happened.
+
+He also makes agents repeat checks after every code change. Another agent reviews the work in a fresh session and cannot change the code while reviewing it. If the agents cannot pass a required check, they stop and ask John for help instead of skipping it.
+
+<figure>
+  <img src="../../assets/images/dark-software-factories/wilger-checks.png" alt="An isolated task is tested, reviewed in a fresh session, and checked at its live URL. A code edit sends it back to testing.">
+  <figcaption>Checks apply to the current version of the code. If an agent cannot pass one, it stops and asks Wilger. Source: <a href="https://johnwilger.com/blog/somebody-has-to-design-the-factory/">John Wilger</a>.</figcaption>
+</figure>
+
+### A Linear-to-PR account
+
+I also found an interesting [Reddit discussion](https://www.reddit.com/r/ycombinator/comments/1vamsls/has_anyone_here_actually_set_up_a_software/) where people share what they used. 
+
+One of the comments:
+
+- prepare stories in Linear
+- launch agent sessions for prepared stories
+- make them follow repository instructions
+- run end-to-end tests
+- produce a PR with a preview URL
+
+
+<figure>
+  <img src="../../assets/images/dark-software-factories/linear-to-pr.png" alt="A ready Linear story starts an agent session, which produces a pull request with a preview URL before release checks run.">
+  <figcaption>The Linear-to-PR workflow described by a developer in a <a href="https://www.reddit.com/r/ycombinator/comments/1vamsls/has_anyone_here_actually_set_up_a_software/">Reddit discussion</a>.</figcaption>
+</figure>
+
+
 
 ## Enabling Practices
 
-All the approaches that work have two core components:
+All these stories follow more or less the same flow:
 
-- Specification-driven development
-- Agentic verification
+- Have a task backlog 
+- Use spec-driven development to refine tasks 
+- Have agents verify other agents 
 
-Agents are good at writing code. They are also good at filling the gaps in the specifications. If we ask an agent to implement a feature, it will work. But don't provide enough details, it won't be what we need.
+Having a backlog is important because agents don't have long-term memory. Even within one session they can forget that you asked something. So it's ready important to capture the tasks in any way, be it GitHub issues, Libear, or even plain text files.
 
-To address this problem, we follow speficication-driven development (or a variation of it), and turn each task into a spec with clear acceptance critera. 
+We also need to have clearly defined tasks. Agents are good at writing code. But yhey are also good at filling the gaps in the specifications. If we ask an agent to implement a feature, it will work. But don't provide enough details, it won't be what we need.
+
+To address this problem, we follow speficication-driven development, and turn each task into a spec with clear acceptance critera.
 
 Once the feature is implemented, we have another agent that checks the imlementation against these criteria. If some fo the boxes aren't checked, the implementer has to fix it.
 
-TODO: include a picture from my module 1 ai dev tools article.
+This is the loop I show in [module 1 of AI Dev Tools Zoomcamp](https://aishippingblog.com/p/ai-native-development-specifications):
 
+- a product manager agent grooms the issue
+- an engineer implements it
+- a QA agent checks each acceptance criterion
+- on failure, the engineer has to do it again
+- QA only reports what it observed and does not edit the code
+
+<figure>
+  <img src="https://substackcdn.com/image/fetch/%24s_%21lxKR%21%2Cw_1456%2Cc_limit%2Cf_auto%2Cq_auto%3Agood%2Cfl_progressive%3Asteep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F525257ec-6465-4bad-a749-099a4557eba0_1440x360.png" alt="Product manager, engineer, and QA agent workflow from AI Dev Tools Zoomcamp">
+  <figcaption>The product manager grooms the issue, the engineer implements it, and QA checks the result. Source: <a href="https://aishippingblog.com/p/ai-native-development-specifications">AI-Native Development</a>.</figcaption>
+</figure>
+
+There are some other techniques that we need. One of them is baing able to ask questions when the agents aren't sure about someting.
 
 ## Escalation to Humans
 
-We still need to involve humans, but not on every single step. This means, agents need to have a way to escalate to humans only when it's absolutely needed. I want to be involved as little as possible - but not miss important checks and decisions.
+We still need to involve humans. 
+
+Agents need to have a way to escalate to humans but only when it's absolutely needed. I want to be involved as little as possible - but I also don't want to miss important checks and decisions.
+
+[In Brian's Sandstorm](https://brianmcquay.com/blog/going-dark/), he requires approval for higher-risk or ambiguous work. Lower-risk work can merge automatically and receive application-level QA.
+
+[In John's Lanyard workflow](https://johnwilger.com/blog/somebody-has-to-design-the-factory/), agents must stop and ask him for help if they cannot complete a required check. For example, if they cannot confirm that the deployed app responds, they cannot simply mark the task as done.
+
+Brian and John decide ahead of time when an agent needs to involve a person.
 
 In my projects, agents use the `human` tag for GitHub issues. They may decide that it's needed when turning a task into a spec, or later when verifying the results.
 
-Every time when agents involve me, but I think I wasn't actually needed there, I tune the process:
+Of course, I also need to tune the process. If agents wanted to involve me, but I wasn't needed there, I ask to update the escalation rules. But also if something wasn't escalated, but should have, I do the same. Eventually it becomes clear what should be escalated and what shouldn't be.
 
-- If I think I'm not really needed there, I tell the agent to make a decision and not involve me next time.
-- Or I can tell them what to do, but remember this decision, and repeat it next time without my invovement. 
+## Problems with Factories 
 
-If something wasn't escalated, I discover it later when using the application. In this case, I ask why it was done this way, and ask to involve me next time a similar decision is needed.
+In the [Reddit discussion](https://www.reddit.com/r/ycombinator/comments/1vamsls/has_anyone_here_actually_set_up_a_software/) that I already mentioned, I found another interesting link - a post on [why software factories fail](https://github.com/humanlayer/advanced-context-engineering-for-coding-agents/blob/main/wsff.md).
 
-In all cases, I make sure this gets documented, so it's clear what should be escalated, and what shouldn't be.  
+It's very long, but the main point I got from there was that maintainability deteriorates with time even when tests pass.
 
-TODO describe what other practicioners do
+<figure>
+  <img src="../../assets/images/dark-software-factories/why-software-factories-fail-10-slices.png" alt="The full article cut into ten equal consecutive slices, with each slice placed as one column">
+  <figcaption>Ten consecutive slices of the post, placed side by side. Source: <a href="https://github.com/humanlayer/advanced-context-engineering-for-coding-agents/blob/main/wsff.md">Why Software Factories Fail</a>.</figcaption>
+</figure>
+
+That's true. Tests may pass, but as your codebase grows, adding functionality becomes more and more difficult. Models get rewarded for a quick patch without accounting for the future cost of that design. And since we don't look at the code (it's a dark factory, after all), the technical debt accumulates. 
+
+It's certainly a problem. Agents create code fast and often completely disregard best engineering practices. They write duplicated code and don't really care about modularity.
+
+In some cases it's okay. If we're only starting a project, it's too early to worry about it.
+
+But if the project doesn't get abandoned, with time you will start noticing that adding a feature takes 1 hour instead of 5 minutes. On top of that, some bugs keep coming back, even though you thought you asked to fix them 5 times already.
+
+When it starts happening, it's time to do maintanance work. I ask agents to analyze what slows them down and then find a way to fix it. Sometimes I also can ask them to describe the architecture and see if they can improve it. 
+
+Maintainability is not the only problem. Even with specifications, agents still make a lot of decisions for us.
+
+I must admit that I sometimes find myself surprized when I discover some features in my own projects. And often the surprize is not a positive one.
+
+[Addy Osmani calls it "comprehension debt"](https://addyosmani.com/blog/software-factories/). 
+
+If I have a clear picture of how each feature works, my comprehension debt is low. But if I can't predict what happens when I click somewhere or change something, the debt is high.
+
+And there's no shortcut to fixing it. I need to spend time using the product, checking its behavior, and asking agents to explain all the surprising decisions. 
+
+Later I fix the suprizing behaviour. For important features it often means staying away from the factory format and hand-holding the agent session for the important UX and UI details.
 
 
-## Technical Debt and Comprehension Debt
+## Keeping the Factory Useful
 
-Dex Horthy describes HumanLayer trying lights-off development in July 2025 and later returning to human review. In [his account of why software factories fail](https://github.com/humanlayer/advanced-context-engineering-for-coding-agents/blob/main/wsff.md), he argues that maintainability can deteriorate even while tests pass.
+Yes, there are downsides when it comes to software factories - including the technical debt and compresension debt that they produce. 
 
-He separates passing a short coding task from keeping a codebase easy to change over several months. A model can get rewarded for a patch that passes tests without accounting for the future cost of that design.
+To me, knowing the level of your comprehension debt is way more important than the level of technical debt. That's why we can't easily scale the factories - else we end up with absolute slot. So you have to spend quality time doing the product work.
 
-It's certainly a problem - agents create code fast and often disregard best engineering practices. They write duplicated code and don't really care about modularity. In some cases it's okay - it's too early to need it. But as the project grows, you will see adding a feature or a bug now takes 1 hour instead of 5 minutes, and some bugs keep coming back - then it's time to do some maintanance work. You just ask agents to analyze what the problems are, what slows them down (they are agood at this too) and find a way to fix it.
+Which is actually good news - we, humans, are still needed. 
 
-Maintainability is not the only problem. Even with specifications, agents still make a lot of decisions for us. 
+But I certainly don't want to return to writing or reading code. I want to understand the product well enough to decide what it should do and notice when it goes wrong. That means writing better specifications, having better verifications, and actually using what you create.
 
-I must admit that I sometimes find myself surprized when I dicover some features in my own projects - but usually not in the positive way. 
+The factory itself also needs maintenance. We need to monitor it to make sure it doesn't slow donw. And when it does, we try to figure out how to fix it - like change the process, fix the code, or split the projects into multiple.
 
-If I have a very clear picture of how each feature works, then my compresension debt is low. If I have no idea what happens when .. (TOdo expand)
-
-[Addy Osmani calls it comprehension debt](https://addyosmani.com/blog/software-factories/). I like the name. 
-
-
-## ...
-
-Final words
-
-
+So going "dark" doesn't mean just offloading everything to agents. The more work I delegate, the more carefully I have to design the specifications, checks, and escalation paths around it.

@@ -1,0 +1,17 @@
+{
+  "title": "A developer's Linear-to-PR workflow",
+  "description": "A ready Linear story starts an agent session that follows repository instructions, opens a pull request with a preview URL, and runs end-to-end checks before release.",
+  "style": "asl-light",
+  "canvas": {"width": 1440, "height": 300},
+  "nodes": [
+    {"id": "story", "title": "Ready story", "subtitle": "Picked up from Linear", "icon": "issue", "color": "blue"},
+    {"id": "agent", "title": "Agent session", "subtitle": "Follows repo instructions", "icon": "robot", "color": "purple"},
+    {"id": "preview", "title": "PR and preview", "subtitle": "Running change to inspect", "icon": "pull-request", "color": "amber"},
+    {"id": "checks", "title": "Release checks", "subtitle": "End-to-end tests", "icon": "check", "color": "green"}
+  ],
+  "edges": [
+    {"from": "story", "to": "agent"},
+    {"from": "agent", "to": "preview"},
+    {"from": "preview", "to": "checks"}
+  ]
+}
