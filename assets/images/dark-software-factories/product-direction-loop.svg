@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="350" viewBox="0 0 1200 350" role="img" aria-labelledby="title desc">
+<title id="title">Setting direction and checking the product</title><desc id="desc">A human sets direction, agents build and verify, and human product checks inform better direction.</desc>
+<defs><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#2563eb"/></marker><marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#7c3aed"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#c2410c"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#648900"/></marker><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#737373"/></marker><symbol id="icon-check" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="m7.5 12 3 3 6-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol><symbol id="icon-issue" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="M12 7v6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="17" r="1.2" fill="currentColor"/>
+      </symbol><symbol id="icon-pull-request" viewBox="0 0 24 24">
+        <circle cx="6" cy="5" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="6" cy="19" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="18" cy="19" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M6 7.5v9M15 5h1a2 2 0 0 1 2 2v9.5M13 2l3 3-3 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol><symbol id="icon-robot" viewBox="0 0 24 24">
+        <path d="M12 5V2.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        <circle cx="12" cy="2.5" r="1" fill="currentColor"/>
+        <rect x="4" y="5" width="16" height="15" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/>
+        <path d="M4 10H2.5v5H4M20 10h1.5v5H20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="9" cy="11" r="1.3" fill="currentColor"/>
+        <circle cx="15" cy="11" r="1.3" fill="currentColor"/>
+        <path d="M8.5 16h7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </symbol><symbol id="icon-document" viewBox="0 0 24 24">
+        <path d="M6 2h8l4 4v16H6Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M14 2v5h4M9 12h6M9 16h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol><symbol id="icon-search" viewBox="0 0 24 24">
+        <circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="m16 16 4.5 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol><symbol id="icon-terminal" viewBox="0 0 24 24">
+        <rect x="2.5" y="3" width="19" height="18" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+        <path d="M3 7.5h18" fill="none" stroke="currentColor" stroke-width="1.8"/>
+        <circle cx="5.5" cy="5.25" r=".75" fill="currentColor"/>
+        <circle cx="8" cy="5.25" r=".75" fill="currentColor"/>
+        <path d="m7 12 3 2.5-3 2.5M12.5 17h4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol><symbol id="icon-user" viewBox="0 0 24 24">
+        <circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="M4 22c.6-5 3.3-7 8-7s7.4 2 8 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol><symbol id="icon-workflow" viewBox="0 0 24 24">
+        <path d="M4 11A8.5 8.5 0 0 1 19.5 8.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M19.5 4.5v4h-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M20 13A8.5 8.5 0 0 1 4.5 15.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M4.5 19.5v-4h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol><symbol id="icon-browser" viewBox="0 0 32 22">
+        <rect x="1" y="1.5" width="30" height="19" rx="2.25" fill="none" stroke="currentColor" stroke-width="2.67"/>
+        <path d="M1.5 6.5h29" fill="none" stroke="currentColor" stroke-width="2.67"/>
+        <circle cx="4" cy="4" r=".48" fill="currentColor"/>
+        <circle cx="6.2" cy="4" r=".48" fill="currentColor"/>
+        <circle cx="8.4" cy="4" r=".48" fill="currentColor"/>
+        <rect x="12" y="3.3" width="15" height="1.5" rx=".75" fill="currentColor" opacity=".35"/>
+      </symbol><filter id="shadow" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-opacity="0.07"/></filter><style>text{font-family:"Segoe UI",Arial,sans-serif;fill:#171717}symbol [stroke]{vector-effect:non-scaling-stroke}</style></defs>
+<rect width="1200" height="350" fill="white"/>
+<g transform="translate(40 35)" filter="url(#shadow)"><rect width="320" height="170" rx="18" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/><use href="#icon-document" x="143.0" y="12" width="34" height="34" color="#2563eb"/>
+<text x="160.0" y="69" text-anchor="middle" font-size="28" font-weight="600">Human sets</text>
+<text x="160.0" y="100" text-anchor="middle" font-size="28" font-weight="600">direction</text>
+<text x="160.0" y="129" text-anchor="middle" font-size="22" style="fill:#525252">Specs and architecture</text>
+</g>
+<g transform="translate(440 35)" filter="url(#shadow)"><rect width="320" height="170" rx="18" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2"/><use href="#icon-robot" x="143.0" y="12" width="34" height="34" color="#7c3aed"/>
+<text x="160.0" y="69" text-anchor="middle" font-size="28" font-weight="600">Agents build and</text>
+<text x="160.0" y="100" text-anchor="middle" font-size="28" font-weight="600">verify</text>
+<text x="160.0" y="129" text-anchor="middle" font-size="22" style="fill:#525252">Implementation and tests</text>
+</g>
+<g transform="translate(840 35)" filter="url(#shadow)"><rect width="320" height="170" rx="18" fill="#f5fbe7" stroke="#648900" stroke-width="2"/><use href="#icon-user" x="143.0" y="12" width="34" height="34" color="#648900"/>
+<text x="160.0" y="69" text-anchor="middle" font-size="28" font-weight="600">Human checks</text>
+<text x="160.0" y="100" text-anchor="middle" font-size="28" font-weight="600">product</text>
+<text x="160.0" y="129" text-anchor="middle" font-size="22" style="fill:#525252">Use it; inspect behavior</text>
+</g>
+<path d="M360 120H440" fill="none" stroke="#737373" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-gray)"/>
+<path d="M760 120H840" fill="none" stroke="#737373" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-gray)"/>
+<path d="M1000 205V258Q1000 270 988 270H212Q200 270 200 258V205" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-blue)"/>
+<text x="600" y="313" text-anchor="middle" font-size="22" font-weight="500" style="fill:#2563eb">Refine direction from product behavior</text>
+</svg>

@@ -1,0 +1,58 @@
+{
+  "title": "Sandstorm ticket-to-merge workflow",
+  "source": "https://brianmcquay.com/blog/going-dark/",
+  "nodes": [
+    {
+      "title": "Ready ticket",
+      "details": [
+        "Human refines the task",
+        "and marks it ready"
+      ]
+    },
+    {
+      "title": "Isolated workspace",
+      "details": [
+        "Prepare a separate",
+        "task environment"
+      ]
+    },
+    {
+      "title": "Implement",
+      "details": [
+        "Agent writes code",
+        "and fixes problems"
+      ]
+    },
+    {
+      "title": "Review",
+      "details": [
+        "Check the work",
+        "and report problems"
+      ]
+    },
+    {
+      "title": "Open PR",
+      "details": [
+        "Submit the change",
+        "for integration"
+      ]
+    },
+    {
+      "title": "Merge",
+      "details": [
+        "Integrate the change",
+        "and resolve conflicts"
+      ]
+    }
+  ],
+  "review_loop": "Review -> Implement -> Review",
+  "canvas": {
+    "width": 1200,
+    "height": 1055
+  },
+  "renderer": "scripts/render_dark_factory_diagrams.py",
+  "layout": {
+    "type": "staircase",
+    "direction": "descending"
+  }
+}

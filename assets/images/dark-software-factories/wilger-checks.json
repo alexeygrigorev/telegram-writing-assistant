@@ -2,17 +2,64 @@
   "title": "John Wilger's checks for agent work",
   "description": "A task is isolated, tested, independently reviewed, and checked on a live URL; a code edit sends it back to testing, and a gate the agents cannot pass goes to Wilger.",
   "style": "asl-light",
-  "canvas": {"width": 1440, "height": 450},
+  "canvas": {
+    "width": 1200,
+    "height": 785
+  },
   "nodes": [
-    {"id": "task", "title": "Isolated task", "subtitle": "Own worktree", "icon": "issue", "color": "blue"},
-    {"id": "test", "title": "Test current code", "subtitle": "Evidence for this change", "icon": "check", "color": "amber"},
-    {"id": "review", "title": "Fresh review", "subtitle": "Reviewer cannot edit", "icon": "search", "color": "purple"},
-    {"id": "live", "title": "Check live URL", "subtitle": "Confirm it responds", "icon": "browser", "color": "green"}
+    {
+      "id": "task",
+      "title": "Isolated task",
+      "subtitle": "Own worktree",
+      "icon": "issue",
+      "color": "blue"
+    },
+    {
+      "id": "test",
+      "title": "Test current code",
+      "subtitle": "Evidence for this change",
+      "icon": "check",
+      "color": "amber"
+    },
+    {
+      "id": "review",
+      "title": "Fresh review",
+      "subtitle": "Reviewer cannot edit",
+      "icon": "search",
+      "color": "purple"
+    },
+    {
+      "id": "live",
+      "title": "Check live URL",
+      "subtitle": "Confirm it responds",
+      "icon": "browser",
+      "color": "green"
+    }
   ],
   "edges": [
-    {"from": "task", "to": "test"},
-    {"from": "test", "to": "review"},
-    {"from": "review", "to": "live"},
-    {"from": "review", "to": "test", "route": "below", "label": "CODE EDITED", "color": "amber"}
-  ]
+    {
+      "from": "task",
+      "to": "test"
+    },
+    {
+      "from": "test",
+      "to": "review"
+    },
+    {
+      "from": "review",
+      "to": "live"
+    },
+    {
+      "from": "review",
+      "to": "test",
+      "route": "below",
+      "label": "CODE EDITED",
+      "color": "amber"
+    }
+  ],
+  "renderer": "scripts/render_dark_factory_diagrams.py",
+  "layout": {
+    "type": "staircase",
+    "direction": "descending"
+  }
 }

@@ -1,27 +1,82 @@
 {
   "title": "Dan Shapiro's five levels of AI-assisted coding",
-  "description": "Six stages from level 0 to level 5 climb toward greater agent autonomy and less routine human code review.",
+  "description": "Six stages from level 0 to level 5 descend toward greater agent autonomy and less routine human code review.",
   "style": "asl-light",
-  "canvas": {"width": 1440, "height": 770},
+  "canvas": {
+    "width": 1200,
+    "height": 815
+  },
   "layout": {
     "type": "staircase",
-    "direction": "ascending",
-    "card_width": 285,
-    "card_height": 100
+    "direction": "descending",
+    "card_width": 320,
+    "card_height": 105
   },
   "nodes": [
-    {"id": "l0", "title": "Level 0 · Write code", "subtitle": "AI suggests occasionally", "color": "gray", "icon": "terminal"},
-    {"id": "l1", "title": "Level 1 · Delegate", "subtitle": "Small tasks", "color": "blue", "icon": "issue"},
-    {"id": "l2", "title": "Level 2 · Pair", "subtitle": "Stay in implementation", "color": "blue", "icon": "user"},
-    {"id": "l3", "title": "Level 3 · Review", "subtitle": "Read agent-written code", "color": "purple", "icon": "search"},
-    {"id": "l4", "title": "Level 4 · Specify", "subtitle": "Set checks; agents work", "color": "amber", "icon": "document"},
-    {"id": "l5", "title": "Level 5 · Run factory", "subtitle": "No routine code review", "color": "green", "icon": "workflow"}
+    {
+      "id": "l0",
+      "title": "Level 0 · Write code",
+      "subtitle": "AI suggests occasionally",
+      "color": "gray",
+      "icon": "terminal"
+    },
+    {
+      "id": "l1",
+      "title": "Level 1 · Delegate",
+      "subtitle": "Small tasks",
+      "color": "blue",
+      "icon": "issue"
+    },
+    {
+      "id": "l2",
+      "title": "Level 2 · Pair",
+      "subtitle": "Stay in implementation",
+      "color": "blue",
+      "icon": "user"
+    },
+    {
+      "id": "l3",
+      "title": "Level 3 · Review",
+      "subtitle": "Read agent-written code",
+      "color": "purple",
+      "icon": "search"
+    },
+    {
+      "id": "l4",
+      "title": "Level 4 · Specify",
+      "subtitle": "Set checks; agents work",
+      "color": "amber",
+      "icon": "document"
+    },
+    {
+      "id": "l5",
+      "title": "Level 5 · Run factory",
+      "subtitle": "No routine code review",
+      "color": "green",
+      "icon": "workflow"
+    }
   ],
   "edges": [
-    {"from": "l0", "to": "l1"},
-    {"from": "l1", "to": "l2"},
-    {"from": "l2", "to": "l3"},
-    {"from": "l3", "to": "l4"},
-    {"from": "l4", "to": "l5"}
-  ]
+    {
+      "from": "l0",
+      "to": "l1"
+    },
+    {
+      "from": "l1",
+      "to": "l2"
+    },
+    {
+      "from": "l2",
+      "to": "l3"
+    },
+    {
+      "from": "l3",
+      "to": "l4"
+    },
+    {
+      "from": "l4",
+      "to": "l5"
+    }
+  ],
+  "renderer": "scripts/render_dark_factory_diagrams.py"
 }
