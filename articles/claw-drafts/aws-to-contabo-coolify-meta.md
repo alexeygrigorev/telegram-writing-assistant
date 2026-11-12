@@ -1,8 +1,30 @@
 # How I Moved Our Apps from AWS to Two Contabo Servers - publishing notes
 
-Status: draft, 2026-10-23 (ALB zero-downtime correction t1287u Europe/Berlin; post-cutover expansion t1221u; prior IP + observability t1138u). Template: Build Log (shoot-the-article), outline and draft written in one pass (t1116u, Hub intake d8e419b9-dc11-40d9-9dac-6fefc624c535); IP + observability expansion from t1138u; post-cutover problems/fixes + ops loop from t1221u; ALB not-fully-useless / Coolify rolling+healthgate note from t1287u.
+Status: draft, 2026-11-12 (real costs + incident timeline, t2207u); earlier 2026-10-23 (ALB zero-downtime correction t1287u Europe/Berlin; post-cutover expansion t1221u; prior IP + observability t1138u). Template: Build Log (shoot-the-article), outline and draft written in one pass (t1116u, Hub intake d8e419b9-dc11-40d9-9dac-6fefc624c535); IP + observability expansion from t1138u; post-cutover problems/fixes + ops loop from t1221u; ALB not-fully-useless / Coolify rolling+healthgate note from t1287u.
 
 Sources: `inbox/raw/20261022_144628_alexey_msgt1116u_cloud-to-baremetal-chat-export.md` (cost report appendices) and `inbox/raw/20261022_125100_alexey_msg1792673460.md` (enriched dialogue: hosting analysis, Pack A, t995u cron disable); t1138u ask to deepen analysis-before-buy, public IPv4 story, and Contabo observability; t1221u post-cutover incidents from `~/tmp/agent-reports` (alerts-t1205u/t1209u, relay-contabo-stability-t1207u, relay-pg-no-pin-t1210u, coolify-gha-api-8000-t1040u, main-dead-cw-alarms-t1127u, contabo-dump-wal-retention-t1146u, website-importer-contabo-dump-t1154u, postgres-exporter-relay-fix-t1218u, contabo-current-state-*-t1212u / t1218u follow-ups). Every money figure in the draft comes from the cost sources. No account IDs, IPs, order numbers, distribution IDs or hostnames are in the draft.
+
+## 2026-11-12 update (Hub intake 7dbf57e8, t2207u)
+
+Added real costs ("The costs now", "Before and after, per day", "The remaining AWS bill", "Sources for the cost figures") and "Incident timeline, October 22 to 27". Lessons close updated with the retained-backups lesson and the per-day result.
+
+Cost sources (all real billing data, nothing estimated by us):
+- AWS: Cost Explorer get-cost-and-usage, UnblendedCost, LINKED_ACCOUNT = main, queried 2026-11-12 by the MAIN spend investigation. Raw JSON in `~/tmp/agent-reports/aws-spend-2026-11-evidence/` (`oct-main-daily-service-usage-full.json` for October daily/service, `nov-main-daily-service.json` and `nov-main-service-usage.json` for November 1-11, `oct-main-service-region.json` for the October monthly total, `oct-linked-accounts.json` for sandbox). Report: `~/tmp/agent-reports/main-aws-spend-2026-11.md`. Note: `oct-main-daily-service.json` is organization-scope despite its name (sums to $592.73), so it was not used for MAIN figures.
+- Derived values: Oct 1-21 MAIN $483.14 (final; the draft's $455.50 is the Oct 21 snapshot), Oct 2-21 average $17.25/day, Nov 2-11 average excluding Nov 9 $2.76/day, Oct 1-11 $312.69, Nov 1-11 $87.82 (AWS marks November as estimated).
+- Contabo: proforma invoice dated 2026-10-21, 2x Cloud VPS 16 NVMe, EUR 59.19 net + 11.25 VAT = 70.44 (DataOps invoice OCR extraction, `~/tmp/agent-reports/contabo-f9cb-report.md` and `~/git/telegram-writing-assistant-wt-234ba6b2/assets/images/aws-to-contabo-coolify/data/contabo-billing.json`). Daily = 70.44 x 12 / 365.
+- FX: ECB EXR D.USD.EUR.SP00.A, 2026-10-21 = 1.1234 (re-fetched from data-api.ecb.europa.eu on 2026-11-12).
+- Not obtained: a second Contabo invoice (DataOps CLI refresh token revoked on 2026-11-12); fresh CE query (AWS Gate closed; request withdrawn because the morning evidence already covers Nov 1-11).
+
+Timeline source: `~/tmp/agent-reports/2026-11-12-contabo-history.md` (cc-hist, built from dated agent reports). The Grok Bot conversation history was NOT retrieved: it lives in `%APPDATA%/Grok Bot/sand-client-persistence` on the Windows desktop, which is offline from Hub. Open TODO in the draft. Hostnames, IPs, commit SHAs and Hub IDs from the history report are kept out of the draft.
+
+New things to verify before publishing:
+- Final November AWS numbers once the month closes
+- Second Contabo invoice amount
+- Which app sent the 132,227 SES emails on Nov 9
+- Relay to course-platform callback 503s resolved?
+- X-Origin-Verify check on Contabo Traefik
+- Live proxy-recreate proof for the network keeper
+- Existing "Relay workers kept an old Postgres address" section says we restarted the workers; the history report says the watchdog install brought them back and no explicit restart is recorded. Reconcile.
 
 ## Drain verification
 

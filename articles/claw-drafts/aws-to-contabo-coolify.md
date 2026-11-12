@@ -25,6 +25,7 @@ In this post, I'll share:
 - The public IPv4 cleanup once the apps left AWS
 - Observability on Contabo: metrics, logs, alerts, and the business metrics we're collecting first
 - What broke in the first nights after cutover, and how we fixed each problem
+- A dated timeline of the incidents in the first week
 - The production workflow we run now, from emailed alerts to immediate fixes
 - What it costs now, and what still runs on AWS
 
@@ -332,6 +333,48 @@ I check Hub placement first and resolve host or capacity problems before startin
 
 We track those delays through the same alert workflow.
 
+## Incident timeline, October 22 to 27
+
+Here's our first week on Contabo, including the monitoring we added along the way. All times are Berlin time.
+
+October 22:
+
+- 00:20 - We run Coolify 4.4.7 on both Contabo servers. We use one as the Coolify primary and the other for the data.
+- 02:20 to 02:35 - We cut over Relay first. CloudFront's health check returns 200 through Contabo. We haven't moved everything the ALB did to Traefik yet. On AWS, we had the ALB check a secret origin header from CloudFront, and on Contabo we haven't set up Traefik to check it.
+- 07:13 - The first alert emails say both Postgres databases are down. The databases are up. The healthcheck ran with its default environment, and the data host had no `pg_isready`. Also, the default `postgres` user doesn't exist, because Coolify creates a different admin user. We install the Postgres client and change the default user.
+- 12:50 to 14:05 - After we deploy the Relay workers, the scheduler and the SES ingress worker restart in a loop. The scheduler is missing a database column, and the ingress worker has no AWS credentials. By 14:05, both run and the SQS queues are empty.
+- 15:04 - The main AWS account has no RDS databases and no load balancers left. Continuous WAL archiving is live, and a restore drill on real data takes 26 seconds.
+- 16:04 - Relay sends email through SES from Contabo.
+- 17:13 - Coolify recreates the Relay Postgres container after a WAL config change, and the container gets a new internal address. The Relay workers keep the old one and stop processing messages, while the healthcheck stays green.
+- 18:45 to 19:10 - The AI Shipping Labs staging container gets recreated every five minutes. An auto-deploy script compared image names with and without the `ghcr.io/` prefix, never found a match, and redeployed on every run. We disable the cron and replace the script with one that normalizes the prefix.
+
+October 23:
+
+- 03:02 - We install the DNS watchdog on the data host, and the Relay workers reach Postgres at its new address.
+- 03:41 - We have an agent combine three independent audits of the live state. It finds no active outage and files two follow-ups. For about 26 hours, callbacks from Relay to the course platform had returned 503 errors, with 103 failed final attempts. The course platform's webhook token was empty. The disaster-recovery staleness check also sent a false alert.
+- 08:40 to 12:15 - The old AI Shipping Labs dev service on ECS keeps coming back. We scale it to zero at 08:40. At 11:52, a GitHub Actions deploy script sets it back to one, and a scheduled Playwright job could do the same. We set the Terraform count to zero and add an IAM rule that denies scaling that service.
+- 14:02 to 14:13 - The AI Shipping Labs web and worker containers lose their connection to the shared Postgres network, and the web container crashes because it can't resolve the database name. Coolify runs `docker compose up` first and then connects each container to its networks with `|| true`, so a failed connect stays silent. We declare the networks in the compose file instead.
+
+October 25:
+
+- 01:55 - We fix the Relay deploy check. Each deploy had waited about eight minutes for Coolify to report the aggregate status `running:healthy`, which never happens when some apps have no healthcheck. The new check looks at each app separately. On October 27, we found that the first version read the desired config and not the running containers, and fixed it to check the actual replacement containers.
+- 02:08 to 02:23 - Relay dev times out, while production stays at 200. We had recreated the Traefik proxy to add a metrics endpoint, and the recreate dropped its network attachments. We reconnect the networks by hand. Later that day, we add a script that runs every two minutes and keeps Traefik attached to its networks, plus a check every five minutes that only alerts.
+
+October 25 and 26:
+
+- The website staging workers get stuck in the `Created` state. An old workflow step wrote production database settings into the staging secret, so the web container failed its database preflight check. The worker waits for a healthy web container, so it never starts. We fix the workflow and restore the staging database name, and a watchdog that runs every two minutes starts stuck workers. Three staging deploys in a row pass on October 26 between 07:35 and 07:38.
+
+October 27:
+
+- 18:31 - We redeploy the dead-man check with two fixes. It used to split URLs at the first `::`, which broke IPv6 addresses. And an earlier version of its test harness had sent real alert mail through SES, because the test stubs didn't cover the mail binaries.
+
+For a few items from that week, I don't have a recorded outcome yet:
+
+- TODO: Confirm that the Relay callbacks to the course platform work again after the webhook token fix.
+- TODO: Confirm that Traefik on Contabo checks the CloudFront origin header.
+- TODO: Run a real proxy recreate to prove that the network keeper works, in a maintenance window.
+- TODO: Add the Grok Bot conversation history. It lives on the Windows desktop, which was offline from Hub as of November 10. This timeline comes only from the dated agent reports.
+
 ## Running production after the move
 
 After the migration, I wanted production errors investigated as soon as they appeared. Healthcheck mail, CloudWatch SES alarms and backup age alerts should reach me and the shared developer inbox.
@@ -342,9 +385,56 @@ We first handled alerts this way during the cutover nights. Some fixes needed a 
 
 ## The costs now
 
-The new fixed cost is €70.44 per month for both Contabo servers, which is about $77.
+Three weeks after the cutover, I have final October numbers from Cost Explorer and the first Contabo invoice.
 
-I can't state the savings yet. AWS bills with a lag, and we completed most of the teardown in the last day. I'll know the real number when the November bill arrives.
+When I first checked on October 21, Cost Explorer showed about $455.50 for October 1 to 21. Cost Explorer hadn't counted all of those costs yet. After October closed, it showed $483.14 for the same 21 days. The full October bill for the main account came to $518.02, not the $650 to $700 the agent had projected. We had stopped most of the infrastructure on October 22.
+
+## Before and after, per day
+
+This is the daily cost of the main AWS account around the cutover:
+
+- October 2 to 21, everything on AWS: $17.25 per day on average, between $16.14 and $21.02
+- October 22, the cutover day: $8.18
+- October 23: $3.52
+- October 24 to 31: between $2.36 and $3.74 per day
+- November 2 to 11: between $2.04 and $3.73 per day, except November 9 at $15.96
+
+I left out the first day of each month. AWS charges the monthly support fee and tax on that day, so October 1 was $138.20 and November 1 was $47.05.
+
+On the Contabo side, there's one invoice so far, the proforma invoice from October 21. It covers two Cloud VPS 16 NVMe servers for one month: €59.19 net plus €11.25 VAT, €70.44 in total. At the ECB reference rate on the invoice date, 1.1234 dollars per euro, that's $79.13 per month. Spread over a year, it's about €2.32, or $2.60, per day.
+
+On a regular November day, the main AWS account costs about $2.76 (the average for November 2 to 11 without November 9). Together with Contabo, that's about $5.36 per day, compared with $17.25 per day before the move.
+
+For a month-level comparison, I took the same eleven days in both months, because both include the support fee and tax on the first day:
+
+- October 1 to 11, all on AWS: $312.69
+- November 1 to 11: $87.82 on AWS plus about $28.62 for Contabo, $116.44 in total
+
+## The remaining AWS bill
+
+Here's where the $87.82 for November 1 to 11 went:
+
+- AWS Business Support+: $29.00
+- SES (Simple Email Service): $15.43
+- Tax: $14.02
+- RDS backups: $12.74
+- WAF: $7.87
+- Route 53: $5.88
+- KMS: $1.45
+- S3: $0.74
+- CloudWatch, Cost Explorer, Secrets Manager, SQS and the rest: about $0.70 together
+
+Business Support+ takes the biggest share. It costs $29 per month whether we use AWS a lot or a little, and it's now a third of the main account's bill.
+
+I didn't expect to still pay for RDS. We deleted the databases on October 22, but AWS Backup still holds 222 recovery points for them, with the 90-day retention from our backup plan. We deleted the backup plan on October 23, but that didn't remove the recovery points it had already created. They cost about $1.27 per day. The latest ones are from October 22, so they keep billing until about January 20 unless I delete them earlier.
+
+SES was $15.43, and $13.22 of that came from one day. On November 9, we sent 132,227 emails, and CloudWatch shows the same number of outbound sends. The billing data doesn't show which app sent them.
+
+WAF went up in November. We added a third web ACL on November 10, and the daily WAF cost rose from about $0.64 to $1.12.
+
+On November 12, AWS Budgets emailed me that the organization forecast had crossed my $350 budget. The forecast was $471.68 for November, while the actual spend so far was $100.90. AWS Budgets still bases the forecast on October, when everything ran on AWS. Since then, we added budgets for the main account alone, in $50 steps, plus a daily check that alerts on sudden jumps.
+
+The sandbox account wasn't part of the move. It cost $74.71 in October and $13.07 for November 1 to 11.
 
 I'll keep using AWS for:
 
@@ -362,6 +452,23 @@ I still have a few tasks left:
 - Keep Hub placement available so production fixes can start promptly
 - Add rolling web deployments with health checks to Coolify/Traefik to prevent 502/503 errors
 
+## Sources for the cost figures
+
+The cost numbers above come from these sources:
+
+- AWS figures: Cost Explorer, `get-cost-and-usage` with UnblendedCost, filtered to the main account, daily and monthly, grouped by service and usage type. Queried on November 12, 2026. AWS marks the November daily figures as estimated until the month closes.
+- October 1 to 21 totals before the move: the same Cost Explorer data, final for October. The earlier $455.50 and its breakdown in this post are the snapshot I saw on October 21.
+- RDS backup counts and retention: the AWS Backup recovery point inventory on November 12.
+- November 9 sends: the CloudWatch SES Send metric for eu-west-1.
+- Contabo: the Contabo proforma invoice dated October 21, 2026, for 2x Cloud VPS 16 NVMe.
+- EUR to USD: the ECB euro reference rate for October 21, 2026.
+
+Open TODOs for these numbers:
+
+- TODO: Check for a second Contabo invoice for the second month. On November 12, our invoice records only had the October 21 proforma, and the invoice tool's login had expired, so I couldn't search for newer ones.
+- TODO: Replace the November estimates with final figures once AWS closes November.
+- TODO: Find out which app sent the 132,227 emails on November 9.
+
 ## Lessons learned
 
 I was paying AWS mostly for the parts around the apps.
@@ -378,4 +485,6 @@ After the first nights on Contabo, I also changed how I want to operate. Alerts 
 
 I accepted some trade-offs, of course. On AWS, someone else patches the databases and replaces failed hardware. On Contabo, that's my job now, or my agents' job. But for apps of this size, I'm fine with that.
 
-Once the November bill arrives, I'll write a follow-up with the real numbers. Subscribe if you want to see how it turns out.
+I also learned that deleting a database doesn't delete its backups. Three weeks after the move, retained RDS recovery points are still one of the largest lines on the AWS bill.
+
+So far, the main account went from about $17.25 per day to about $2.76, plus $2.60 per day for Contabo. Subscribe if you want to see the final November numbers.
