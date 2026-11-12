@@ -166,6 +166,7 @@ Articles drafted by Clo from topic research and voice templates.
 | [The Open-Source AI CEO: A Joke That Ships](claw-drafts/open-executive.md) | draft | 2026-08-28 | Tool Teardown lite (~1,500 words). OpenExecutive teardown + delegation ladder |
 | [The Skeptic Scorecard: Dan Luu Audited Ed Zitron, and It Wasn't Close](claw-drafts/ai-skeptic-scorecard.md) | draft | 2026-09-03 | Reaction essay (~1,900 words). Zitron prediction audit + how to scorecard AI sources |
 | [How I Moved Our Apps from AWS to Two Contabo Servers](claw-drafts/aws-to-contabo-coolify.md) | draft | 2026-10-22 | Build Log (~2,050 words). AWS cost dig (sandbox KMS/SM orphan keys, main account $455.50 Oct 1-21) to 2x Contabo VPS + Coolify (EUR 70.44/mo): trim-AWS backlog, Relay-first cutover, 2 of 3 ALBs gone, RDS delete waiting for go. Publishing notes in `aws-to-contabo-coolify-meta.md` |
+| [Making a Better Git](claw-drafts/making-a-better-git.md) | draft | 2026-11-12 | Build Log (~2,550 words). Cloudflare Git competition entry built by a team of coding agents, the problems along the way, the demo and the result |
 
 ## Interviews
 
