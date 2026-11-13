@@ -33,20 +33,19 @@ In this post, I'll cover:
 - Where people use systems like this
 - The content of each module
 - Our capstone project at the end of the course
-- How to apply and how the GPU credits
+- How to apply and how the GPU credits work
 
-We also talked about the course and answered many questions in the recent Q&A stream, you can check it here:
+We also talked about the course and answered many questions in the recent Q&A stream. You can watch it here:
 
 https://www.youtube.com/watch?v=iACtrkiXndw
-
 
 ## The media factory
 
 In the course, across all four modules, we build a media factory. We give it a record from our data, and it makes a personalized card or ad for it.
 
-- First, the agent plans what the asset should look like and writes the text for it.
-- Then it calls GPU models to make the image and the voice or video.
-- If the result doesn't look good enough, the agent throws it away and tries again.
+- First, the agent plans what the asset should look like and writes the text for it
+- Then it calls GPU models to make the image and the voice or video
+- If the result doesn't look good enough, the agent throws it away and tries again
 
 We start with one record and then scale to thousands.
 
@@ -146,7 +145,7 @@ In this module, we:
 
 - Add cheap deterministic checks and a multimodal judge that we calibrate on our own labels
 - Add a golden set to evaluate the system
-- Trace every call to see how much generating costs and how long it takes
+- Trace every call to see how much generation costs and how long it takes
 - Define an SLO (a target for speed and reliability) to know when something needs our attention
 - Look at auth, quotas, and abuse
 - Look at prompt injection, content safety, and licensing
@@ -162,7 +161,7 @@ There's no homework in this module. Instead, we apply all of it in the capstone 
 
 For the capstone, you build your own agent with at least two GPU media models. You run it on Nebius Serverless AI and share it publicly.
 
-We will grade your system and the engineering behind it, not how pretty the pictures are (but pretty images will be a plus!).
+We'll grade your system and the engineering behind it, not how pretty the pictures are (but pretty images will be a plus!).
 
 Your project needs to include:
 
@@ -180,16 +179,15 @@ Your project needs to include:
   <figcaption>What the capstone has to include.</figcaption>
 </figure>
 
-You can use any data you want. If you don't know what to work on, we'll share some ideas - like a marketing studio or a podcast producer.
+You can use any data you want. If you don't know what to work on, we'll share some ideas, like a marketing studio or a podcast producer.
 
 When you describe your project, don't focus only on the demo. Write about the problems you had and how you solved them, like a model that kept failing or costs that were too high. Hiring managers want to see that you understand how the system works.
 
-Some of you may want to turn the capstone into a product later. For peer review, we need to see the code on GitHub. If you want to keep some parts private, move them into a separate package that your project installs as a dependency. If you fine-tuned a model, you don't have to share the weights, so an endpoint that can be tested is enough.
-
+Some of you may want to turn the capstone into a product later. For peer review, we need to see the code on GitHub. If you want to keep some parts private, move them into a separate package that your project installs as a dependency. If you fine-tune a model, you don't have to share the weights. An endpoint that reviewers can test is enough.
 
 ## The stack
 
-We use Nebius Serverless AI for GPUs and Nebius Token Factory for the LLMs. The code is MIT-licensed, and it only uses OpenAI-compatible and S3-compatible services, so you can also run it anywhere else.
+We use Nebius Serverless AI for GPUs and Nebius Token Factory for the LLMs. The code is MIT-licensed, and it only uses OpenAI-compatible and S3-compatible services, so you can also run it elsewhere.
 
 <figure>
   <img src="../../assets/images/production-ai-agents-generative-media/tech-stack.png" alt="The course stack: Hugging Face Diffusers, image models such as Qwen-Image, FLUX-class and Sana, Wan for video, Kokoro, Chatterbox and Whisper for audio, Nebius Token Factory for the LLM, raw tool calling and MCP for agents, Nebius Serverless AI for GPU compute, and S3-compatible object storage with FastAPI">
@@ -225,7 +223,7 @@ The course is free, but we have limited seats in the live cohort, so you need to
 
 Our emails may end up in spam or promotions, so please check there. If you use Gmail, drag our email to the primary tab. Then Gmail learns that our emails are important, and you won't miss the weekly updates.
 
-A few people wrote to me after they got a rejection email. If we reject you, you only don't get access to the Nebius platform. All the materials are public, so you can still go through the course, do the homework, and add the project to your portfolio. You'll need to find a different way to access GPUs and other recourses to run the code.
+A few people wrote to me after they got a rejection email. If we reject you, the only thing you miss is access to the Nebius platform. All the materials are public, so you can still go through the course, do the homework, and add the project to your portfolio. You'll need to find a different way to access GPUs and other resources to run the code.
 
 ## GPU credits
 
@@ -236,7 +234,6 @@ Please request the credits after 16 November, not before. Nebius adds compute cr
 If you applied to the program earlier, Nebius can add the credits manually. Ask in Slack if they don't show up.
 
 A regular GPU costs roughly $2 to $3 per hour, and spot instances are much cheaper. So $75 gives you a good amount of GPU time.
-
 
 ## Dates
 
@@ -256,16 +253,15 @@ All times are CET, and modules run from Monday to Sunday:
 
 We may still change the materials and the dates.
 
-## Referrals 
+## Referrals
 
 We also added personal referral links to this course. After you're accepted, you get your link in the email. If someone you invite gets accepted, you get a point on the leaderboard. You also get points for correct homework answers and for sharing your progress online.
 
+## Credits
 
-## Credits 
+Mikhail Rozhkov, Marouane Khoukh, and Aleksandr Iziumov from the Nebius DevRel team created the course. They'll be the main instructors, and I'll help where I can. Thanks to the Nebius and Nebius Academy teams for preparing the course and for giving GPU credits to everyone.
 
-Mikhail Rozhkov, Marouane Khoukh, and Aleksandr Iziumov from Nebius DevRel team created the course. They are going to be the main instructors, and I will help where I can. Thanks to the Nebius and Nebius Academy teams for preparing the course and for giving GPU credits to everyone.
-
-## Links and Quesitons
+## Links and questions
 
 If you have questions, ask in the [DataTalks.Club Slack](https://datatalks.club/slack.html) or come to the weekly office hour. I also shared the slides from the Q&A in Slack.
 
