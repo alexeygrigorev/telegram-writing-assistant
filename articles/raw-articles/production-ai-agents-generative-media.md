@@ -12,97 +12,159 @@ status: draft
   <img src="../../assets/images/production-ai-agents-generative-media/course-cover.png" alt="Production AI Agents for Generative Media: a free, open source, project-based course with DataTalks.Club and Nebius. An agent plans, writes and checks image, voice and video assets on serverless GPUs, from 1 to 1,000+ records, with a cost per asset">
 </figure>
 
-On Monday we're starting Production AI Agents for Generative Media. It's our new free course that we run at DataTalks.Club together with Nebius. 
+On Monday, we start [Production AI Agents for Generative Media](https://github.com/DataTalksClub/production-ai-agents-for-media-generation). It's a new free course at DataTalks.Club, and we run it together with Nebius.
 
-In the course we learn how to build a media generation pipeline and we learn to use open-source models and tools for that. Running these models require access to GPUs, which course participants will receive though the Nebius Buider (?) program. 
+In the course, we generate images, voice, and video with open-weight models. We need GPUs to run these models, and Nebius gives course participants GPU credits through the [Nebius AI Builder Program](https://dev.nebius.com/builders).
 
-Generating one image is simple. Doing it for 1,000 records is where the trouble starts. GPU jobs fail halfway, files are large, and you pay for every GPU hour.
+Generating one image is easy. But when we need a thousand images or videos, we quickly run into problems.
 
-You build an agent that plans and checks image, voice, and video assets. Then you run it on GPUs for 1,000+ records. You don't need your own GPU or a cluster. We run the models as Jobs and Endpoints on Nebius Serverless AI.
+In the course, we deal with these problems:
 
-Here's what's in this post:
+- GPUs are expensive, and we pay for every hour
+- GPU jobs fail halfway, and we don't want to pay for the same work twice
+- Videos are large, so sending them back in an API response is slow
+- Agents aren't reliable, and the quality changes from run to run
 
-- The four modules and the capstone
-- The stack and what you should know before joining
-- How to apply, how the GPU credits work, and the dates
+We build an agent that takes a short brief and produces an image, a voice track, or a video. It checks the result, and if the result isn't good enough, it tries again. Then we scale it from one record to more than 1,000.
 
-You can start from these links:
+In this post, I'll cover:
 
-- [Apply for the course](https://courses.datatalks.club/register/production-ai-agents-generative-media/). It's free, but seats in the live cohort are limited
-- [Course repository](https://github.com/DataTalksClub/production-ai-agents-for-media-generation) with all the materials under the MIT licence
-- [Launch stream](https://luma.com/xey7h50c) on Monday, 16 November, at 17:00 CET
-- [DataTalks.Club Slack](https://datatalks.club/slack.html) for questions
+- What we build in the course
+- Where people use systems like this
+- The content of each module
+- Our capstone project at the end of the course
+- How to apply and how the GPU credits
 
-## Course structure
+We also talked about the course and answered many questions in the recent Q&A stream, you can check it here:
 
-A welcome session comes first, then four modules over five weeks, and then the capstone. The pre-course Q&A was on 10 November.
+https://www.youtube.com/watch?v=iACtrkiXndw
 
-<figure>
-  <img src="../../assets/images/production-ai-agents-generative-media/diagram-course-roadmap.png" alt="Course structure: Module 0 Welcome, Module 1 Make it work, Module 2 Make it intelligent, Module 3 Make it scale, Module 4 Make it production-ready, then the capstone">
-  <figcaption>A welcome session, four modules, and a capstone.</figcaption>
-</figure>
 
-## The system
+## The media factory
 
-Across the modules we build a media factory. It takes a record from your data and produces a personalized card or ad. An agent plans the asset and writes the text. GPU models make the image and the voice or video.
+In the course, across all four modules, we build a media factory. We give it a record from our data, and it makes a personalized card or ad for it.
 
-Before the result goes out, a check looks at it. If the quality isn't good enough, the factory generates it again. We start with one record, scale to more than 1,000, and track the cost of each asset.
+- First, the agent plans what the asset should look like and writes the text for it.
+- Then it calls GPU models to make the image and the voice or video.
+- If the result doesn't look good enough, the agent throws it away and tries again.
+
+We start with one record and then scale to thousands.
 
 <figure>
   <img src="../../assets/images/production-ai-agents-generative-media/diagram-media-factory.png" alt="The Personalized Media Factory: a brief goes to an agent, GPU models generate image, voice or video, a check sends assets that aren't good enough back to revise and regenerate, and the factory scales from 1 to 1,000+ records with a cost per asset">
   <figcaption>The media factory that we build during the course.</figcaption>
 </figure>
 
+## Course structure
+
+We start the course on Monday with a launch session, then go through four modules, and finish with the capstone project.
+
+<figure>
+  <img src="../../assets/images/production-ai-agents-generative-media/diagram-course-roadmap.png" alt="Course structure: Module 0 Welcome, Module 1 Make it work, Module 2 Make it intelligent, Module 3 Make it scale, Module 4 Make it production-ready, then the capstone">
+  <figcaption>A welcome session, four modules, and a capstone.</figcaption>
+</figure>
+
 ## Module 1: Consistent Media Generation on Serverless GPUs
 
-We give the first module two weeks, so people who apply after the start can still catch up.
+In the first module, we make media generation work. We give it two weeks, so people who join after the start can still catch up.
 
-We compare image, video, and audio models. Size, VRAM, and latency are the main criteria, and quality and licence matter too. The comparison shows why video costs so much more than images. After that, you generate a first asset through an Endpoint or in JupyterLab. Then you run the same generation as a batch Job.
+In this module, we:
 
-For the homework, you build a GPU worker that reports its generation time and the cost of one asset. You work out when self-hosting beats paying per call to an API. You also write a one-page capstone proposal.
+- Get an overview of image, video, and audio models, and see why video costs so much more than images
+- Generate our first image, video, or audio in a few minutes
+- Package a model in a container
+- Run it as an Endpoint for serving and as a Job for batch inference
+- Measure how much one asset costs
+
+In the homework, we:
+
+- Generate an asset for our own creative idea
+- Calculate when self-hosting becomes cheaper than paying an API
+- Write a one-page proposal for the capstone
 
 ## Module 2: Multi-Agent Media Workflows
 
-Here the agent runs on CPU, and the GPU models are its tools. A generation call can take minutes. So the tool submits a job and polls for the result. If something fails, you can resume without paying for the same GPU work twice.
+In the second module, we build the agent. It runs on a CPU and uses the GPU models as tools.
 
-On top of these tools we add a planner, a generator, and a reviewer. A versioned rubric guides the reviewer, and the agent regenerates an asset instead of accepting the first output.
+In this module, we:
+
+- Submit long-running generation jobs and poll for the result instead of waiting for minutes
+- Resume a failed run without paying for the same GPU work again
+- Build the agent from a planner, a generator, and a reviewer
+- Check each asset against a versioned rubric and generate it again if it doesn't pass
+- Define a creative direction and keep the agents aligned with it
 
 <figure>
   <img src="../../assets/images/production-ai-agents-generative-media/diagram-agent-gpu-tools.png" alt="A CPU agent with planner, generator and reviewer calls GPU models as typed tools: image, voice, video and speech to text. Those tools run on Serverless AI Endpoints and Jobs, and results go to object storage">
   <figcaption>A CPU agent, with GPU models as tools.</figcaption>
 </figure>
 
-For the homework, the agent makes a short coffee ad of about 10 seconds. It writes a plan, produces a keyframe, judges it, and only then generates the video. Every step is traced, so the cost of one video can be split by step.
+In the homework, we:
+
+- Build an agent that makes a coffee ad of about 10 seconds
+- Let it write a plan, make a keyframe (one still image from the video), and review it before it generates the video
+- Trace every step to see how much each one costs
 
 ## Module 3: Batch Media Generation at Scale
 
-A batch of 1,000 records needs workers that can fail without losing finished work. We spread the records over parallel Jobs on spot (preemptible) GPUs and checkpoint each item. To test this, we kill a run on purpose and check that it resumes where it stopped.
+In the third module, we scale the factory to 1,000 records. Some workers will fail, and we don't want to lose what they already finished.
 
-We also look at what makes an asset cheaper, from cold start to generation time and the choice of GPU. In the homework you compete on a leaderboard, and the cheapest reliable run at acceptable quality wins.
+In this module, we:
+
+- Spread the records across parallel Jobs and save a checkpoint after each item
+- Kill a run on purpose and check that it continues where it stopped
+- Run the Jobs on spot (preemptible) GPUs, which cost $0.80 to $1 per hour last week
+- Put videos in S3-compatible storage and pass links instead of sending the files in API responses
+- See how cold starts, generation time, and the GPU type change the cost of one asset
 
 <figure>
   <img src="../../assets/images/production-ai-agents-generative-media/diagram-batch-scale.png" alt="Records fan out to spot GPU workers with a per-item checkpoint. A preempted worker returns its items to the queue. Each result is written once to object storage, with a cost report. A killed run resumes and skips items that are already done">
-  <figcaption>Fan-out on spot GPUs, with per-item checkpoints and a cost report.</figcaption>
+  <figcaption>Parallel Jobs on spot GPUs, with a checkpoint for each item and a cost report.</figcaption>
 </figure>
+
+In the homework, we:
+
+- Generate a card text, an image, and a voice track for 200 records, with 10 spot GPU Jobs in parallel
+- Kill the run halfway and resume it without regenerating finished items
+- Calculate how much one asset costs, counting only the assets that passed the quality check
+
+Everyone uses the same records and the same models, so we can compare the costs on a public leaderboard.
+
+## Optional lesson: fine-tuning
+
+We'll also have an optional lesson about fine-tuning an image model for a specific style.
+
+A few weeks ago, Nebius ran a hackathon in Berlin about it. People trained LoRA adapters to generate media in a specific style. It took them only a few hours, and the results became much more consistent.
+
+In the lesson, we'll show how to do the same.
 
 ## Module 4: Evaluation, Observability and Production
 
-Cheap deterministic checks come first, and a multimodal judge comes after them. You calibrate the judge on your own labels. A golden set (a fixed set of reference examples) blocks any change that makes the results worse. From one trace you can see why a record cost this much and took this long. An SLO tells you when to react.
+In the last module, we make the system production-ready.
 
-In the capstone brief you also write down how you handle auth, quotas, and abuse. Prompt injection, content safety, and licensing go there too.
+In this module, we:
 
-There's no homework in this module, because you use all of it in the capstone.
+- Add cheap deterministic checks and a multimodal judge that we calibrate on our own labels
+- Add a golden set to evaluate the system
+- Trace every call to see how much generating costs and how long it takes
+- Define an SLO (a target for speed and reliability) to know when something needs our attention
+- Look at auth, quotas, and abuse
+- Look at prompt injection, content safety, and licensing
 
 <figure>
   <img src="../../assets/images/production-ai-agents-generative-media/diagram-evals-tracing-slo.png" alt="Module 4: evals at the system, agent and media layers, a trace with cost and time per step, and an SLO with a dashboard and an alert">
   <figcaption>Evals, a trace with cost and time per step, and an SLO.</figcaption>
 </figure>
 
+There's no homework in this module. Instead, we apply all of it in the capstone project.
+
 ## The capstone
 
-For the capstone you build your own agent with at least two GPU media models. You run it on Nebius Serverless AI and share it publicly. We grade the engineering, not how the images look.
+For the capstone, you build your own agent with at least two GPU media models. You run it on Nebius Serverless AI and share it publicly.
 
-Your project has to include:
+We will grade your system and the engineering behind it, not how pretty the pictures are (but pretty images will be a plus!).
+
+Your project needs to include:
 
 - An agent with 2 or more tools
 - An async GPU workload
@@ -111,65 +173,76 @@ Your project has to include:
 - Tracing
 - An SLO
 - A cost report
-- Proof that a killed run resumes without redoing finished work
+- Crash recovery
 
 <figure>
   <img src="../../assets/images/production-ai-agents-generative-media/capstone-requirements.png" alt="Capstone requirements: an agent with 2 or more tools, an async GPU workload, assets in object storage, an eval suite, tracing, an SLO, a cost report, and proof that a killed run resumes without redoing finished work">
   <figcaption>What the capstone has to include.</figcaption>
 </figure>
 
-You bring your own data as a CSV or JSONL file with an id column. Ideas from the repository include a marketing studio, a podcast producer, video localization, or a storybook generator. The proposal is due in the first module and the brief in the last one.
+You can use any data you want. If you don't know what to work on, we'll share some ideas - like a marketing studio or a podcast producer.
+
+When you describe your project, don't focus only on the demo. Write about the problems you had and how you solved them, like a model that kept failing or costs that were too high. Hiring managers want to see that you understand how the system works.
+
+Some of you may want to turn the capstone into a product later. For peer review, we need to see the code on GitHub. If you want to keep some parts private, move them into a separate package that your project installs as a dependency. If you fine-tuned a model, you don't have to share the weights, so an endpoint that can be tested is enough.
+
 
 ## The stack
 
-We use Nebius Serverless AI together with Nebius Token Factory as the reference platform. The code is MIT-licensed and works with OpenAI-compatible and S3-compatible services, so you can run it somewhere else.
+We use Nebius Serverless AI for GPUs and Nebius Token Factory for the LLMs. The code is MIT-licensed, and it only uses OpenAI-compatible and S3-compatible services, so you can also run it anywhere else.
 
 <figure>
   <img src="../../assets/images/production-ai-agents-generative-media/tech-stack.png" alt="The course stack: Hugging Face Diffusers, image models such as Qwen-Image, FLUX-class and Sana, Wan for video, Kokoro, Chatterbox and Whisper for audio, Nebius Token Factory for the LLM, raw tool calling and MCP for agents, Nebius Serverless AI for GPU compute, and S3-compatible object storage with FastAPI">
   <figcaption>The default stack, with alternatives for each layer.</figcaption>
 </figure>
 
-These are the defaults:
-
-- Media runtimes: Hugging Face Diffusers, with ComfyUI for prototyping
-- Models: Qwen-Image, FLUX-class, and Sana for images, Wan for video, Kokoro or Chatterbox for speech, and Whisper. Any open-weights equivalent works
-- LLM: Nebius Token Factory, or self-hosted vLLM, or any OpenAI-compatible API
-- Agents and tools: raw tool calling, then MCP. Pydantic AI and LangGraph are alternatives
-- GPU compute: Nebius Serverless AI Jobs and Endpoints, or DevLabs with JupyterLab
-- Storage and API: S3-compatible object storage and FastAPI, plus Gradio or Streamlit for a simple UI
-- Tracking, tracing, and evals: not announced yet. Langfuse and OpenTelemetry are listed as alternatives
-
-Open-weights models come with their own licences, so check each one before you use it commercially.
+Each open-weights model comes with its own licence, so check it before you use the model commercially.
 
 ## Prerequisites
 
-The level is intermediate to advanced.
+The course isn't for complete beginners.
 
-The course is for people who run open or custom GPU media models:
+We had these people in mind when we were preparing the course:
 
-- AI and ML engineers adding image, video, or audio generation to real systems
-- MLOps and platform engineers who own the batch pipeline and its cost
-- Technical founders paying for per-call media APIs who want to know when self-hosting wins
+- AI and ML engineers who already work with models and want to add agents or run media pipelines in production
+- Software engineers who integrate open-source models into their applications
+- Researchers who write code. If you know some Python, Git, and Docker, you'll be fine
+- Technical founders who pay for media APIs per call and want to know when self-hosting is cheaper
 
-You need Python, Docker basics, HTTP APIs, and the command line. Experience with an LLM or MLOps course helps, but it's not required.
+You don't need a machine learning background, because the course is about engineering. But you need to be comfortable with Python, Docker basics, HTTP APIs, and the command line. We read and explain a lot of code, so without coding experience, the course will be hard to follow.
 
-We don't cover diffusion maths or training foundation models. CUDA, Kubernetes, RAG, and LLM fundamentals aren't covered either.
+You don't need formal work experience to get in, so students are welcome too.
+
+You also don't need a GPU. If your laptop can run Python 3.11, that's enough, because the agent runs locally and calls remote endpoints. If your laptop is too old even for that, Nebius DevLabs gives you JupyterLab in the cloud.
+
+You can also run the models on your own hardware and point the agent to local endpoints. On a laptop with integrated graphics, generation will take a long time, but a recent MacBook Pro or Mac Studio has a better chance. Making the pipeline run on local hardware with smaller models would be a good capstone project.
+
+We don't cover diffusion maths or training foundation models. CUDA, Kubernetes, RAG, and LLM fundamentals aren't part of the course either.
 
 ## Applying
 
-The course is free, but seats in the live cohort are limited, so it's application only. More than 1,160 people have applied so far, and we review each application, usually within 2 business days.
+The course is free, but we have limited seats in the live cohort, so you need to apply. More than 1,160 people have applied so far. We process applications once a day, usually in the evening European time, and you get an email with the decision.
 
-By "live cohort" I mean shared deadlines and peer-reviewed homework, not mandatory live classes. Lectures are pre-recorded, and there's a weekly live office hour.
+Our emails may end up in spam or promotions, so please check there. If you use Gmail, drag our email to the primary tab. Then Gmail learns that our emails are important, and you won't miss the weekly updates.
 
-Everyone admitted gets GPU compute through the [Nebius AI Builder Program](https://dev.nebius.com/builders), which is free to join. The credits are $25 at the start and another $50 after Homework 2, as we explained in the [pre-course Q&A](https://www.youtube.com/watch?v=iACtrkiXndw&t=736s). Request them after 16 November, not before.
+A few people wrote to me after they got a rejection email. If we reject you, you only don't get access to the Nebius platform. All the materials are public, so you can still go through the course, do the homework, and add the project to your portfolio. You'll need to find a different way to access GPUs and other recourses to run the code.
 
-On non-high-end GPUs the price is roughly $2 to $3 per GPU hour. Usage beyond the credits is billed to your account, so the credits may not cover the whole course.
+## GPU credits
 
-If you don't apply or aren't approved, all the materials stay public. You'll just need your own GPU access to run the code.
+Everyone we accept gets GPU credits through the [Nebius AI Builder Program](https://dev.nebius.com/builders), which is free to join. You get $25 at the start and another $50 after Homework 2.
+
+Please request the credits after 16 November, not before. Nebius adds compute credits to the program on that day, and we'll send you an email with instructions. Nebius may take a couple of days to approve your request.
+
+If you applied to the program earlier, Nebius can add the credits manually. Ask in Slack if they don't show up.
+
+A regular GPU costs roughly $2 to $3 per hour, and spot instances are much cheaper. So $75 gives you a good amount of GPU time.
+
 
 ## Dates
 
-All times are CET, and modules run Monday to Sunday.
+The deadlines in our course are strict. Once we score a homework form, the answers are public, so we can't accept late submissions. I know life happens, and sometimes you need a break for a few weeks. If you fall behind, keep going at your own pace and aim for the second capstone attempt.
+
+All times are CET, and modules run from Monday to Sunday:
 
 - Monday, 16 November, 17:00 to 18:00: launch stream
 - 16 to 29 November: Module 1 (two weeks), Homework 1, and the capstone proposal
@@ -181,8 +254,29 @@ All times are CET, and modules run Monday to Sunday.
 - 29 January 2027: capstone, attempt 2
 - 5 February 2027: final peer review, attempt 2
 
-We may change the materials and dates.
+We may still change the materials and the dates.
 
-From Nebius, the team is Mikhail Rozhkov, Marouane Khoukh, and Aleksandr Iziumov. Nebius DevRel creates and teaches the course, with content and expert support from Nebius Academy.
+## Referrals 
 
-If you have questions, ask in the [DataTalks.Club Slack](https://datatalks.club/slack.html) or bring them to the weekly office hour.
+We also added personal referral links to this course. After you're accepted, you get your link in the email. If someone you invite gets accepted, you get a point on the leaderboard. You also get points for correct homework answers and for sharing your progress online.
+
+
+## Credits 
+
+Mikhail Rozhkov, Marouane Khoukh, and Aleksandr Iziumov from Nebius DevRel team created the course. They are going to be the main instructors, and I will help where I can. Thanks to the Nebius and Nebius Academy teams for preparing the course and for giving GPU credits to everyone.
+
+## Links and Quesitons
+
+If you have questions, ask in the [DataTalks.Club Slack](https://datatalks.club/slack.html) or come to the weekly office hour. I also shared the slides from the Q&A in Slack.
+
+Here are all the links:
+
+- [Apply for the course](https://courses.datatalks.club/register/production-ai-agents-generative-media/). It's free, but seats in the live cohort are limited
+- [Course repository](https://github.com/DataTalksClub/production-ai-agents-for-media-generation) with all the materials under the MIT licence
+- [Launch stream](https://luma.com/xey7h50c) on Monday, 16 November, at 17:00 CET
+- [Pre-course Q&A recording](https://www.youtube.com/watch?v=iACtrkiXndw) with more questions about the course, the credits, and the prerequisites
+- [DataTalks.Club Slack](https://datatalks.club/slack.html) for questions
+
+And please star the course repository - it takes five seconds, and if the repo gets into GitHub trending, more people will find the course.
+
+See you on Monday!
