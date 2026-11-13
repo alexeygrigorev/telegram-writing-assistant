@@ -155,7 +155,9 @@ You need Python, Docker basics, HTTP APIs, and the command line. Prior LLM or ML
 
 The course does not cover diffusion maths, training foundation models, deep fine-tuning, CUDA, Kubernetes, RAG, or LLM fundamentals.
 
-The course itself is free. Seats in the live cohort are limited, so that part is application only. We review every application, usually within 2 business days. Approved applicants join the live cohort: shared deadlines, peer-reviewed homework, and the capstone. They also get GPU credits through the [Nebius AI Builder Program](https://dev.nebius.com/builders), which is free to join. Usage beyond the credits is billed to your account.
+The course itself is free. Seats in the live cohort are limited, so that part is application only. We review every application, usually within 2 business days. Approved applicants join the live cohort: shared deadlines, peer-reviewed homework, and the capstone.
+
+Everyone admitted to the course gets access to GPU compute as part of the course, through the [Nebius AI Builder Program](https://dev.nebius.com/builders), which is free to join. You get $25 in compute credits at the start, then another $50 after Homework 2, as we walked through in the [pre-course Q&A](https://www.youtube.com/watch?v=iACtrkiXndw&t=736s). Request the credits after Monday, 16 November, not before. On non-high-end GPUs, that's roughly $2 to $3 per GPU hour. Usage beyond the credits is billed to your account. The credits will not necessarily cover the whole course. If you're admitted, you don't need your own GPU or cluster: the models run as Jobs and Endpoints on Nebius Serverless AI.
 
 "Live cohort" means shared deadlines and peer-reviewed homework, not mandatory live classes. Lectures are pre-recorded, and there is a weekly live office hour.
 
