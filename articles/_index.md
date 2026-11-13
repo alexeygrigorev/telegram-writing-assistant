@@ -93,6 +93,7 @@ Draft articles and talk material whose core substance has already been collected
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [A Free Course on Production AI Agents for Generative Media Starts Monday](raw-articles/production-ai-agents-generative-media.md) | draft | 2026-11-13 | Substack draft for the free Production AI Agents for Generative Media course that starts Monday 16 November, covering the factory project, modules, capstone, stack, and how to join |
 | [Specs First: Building a Full-Stack App with AI Coding Agents](raw-articles/devmio-spec-driven-full-stack-app.md) | draft | 2026-10-02 | Guest article for devmio on spec-driven full-stack development with coding agents, based on the AI Shipping Labs full-stack workshop |
 | [Roles in an AI Team](raw-articles/roles-in-ai-team.md) | draft | 2026-09-03 | Updated version of the Data Team Roles article with the AI Engineer role added |
 | [Interview Experiment](raw-articles/interview-experiment.md) | draft | 2026-08-11 | Running log of the experiment of interviewing at different companies, starting with the first interview at Deriv |
