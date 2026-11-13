@@ -26,8 +26,8 @@ Repository-wide indexes and long-running collections with special underscore-pre
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
-| [Interesting Resources](_interesting-resources.md) | draft | 2026-10-01 | Curated collection of tools, resources, and project ideas for the newsletter |
-| [Substack Archive Index](_substack-archive-index.md) | draft | 2026-10-24 | Lookup table of all published Substack posts (title, description, URL), used to insert direct links to things Alexey has already shared |
+| [Interesting Resources](_interesting-resources.md) | draft | 2026-11-13 | Curated collection of tools, resources, and project ideas for the newsletter |
+| [Substack Archive Index](_substack-archive-index.md) | draft | 2026-11-09 | Lookup table of all published Substack posts (title, description, URL), used to insert direct links to things Alexey has already shared |
 | [Weekly Log](_weekly-log.md) | draft | 2026-07-09 | Running log of what was done each week. Topics with their own dedicated article appear as short summaries with links; smaller items stay inline |
 
 ## Metadata
@@ -174,6 +174,7 @@ Detailed summaries of podcast episodes, YouTube interviews, and other conversati
 
 | Title | Status | Last Updated | Description |
 |-------|--------|--------------|-------------|
+| [AI Agents for Marketing: Static Ads, UGC Video Ads, and the Full Workflow](interviews/ai-agents-marketing-ads-workflow.md) | draft | 2026-11-13 | Cody Schneider's step-by-step workflows for using coding agents to produce static ads, AI avatar UGC video ads, and the data feedback loop that ties performance to creative decisions |
 | [Productizing Services: A Ten-Step Blueprint to $100K/Month](interviews/productizing-services-ten-step-blueprint.md) | draft | 2026-10-12 | Ten-step process for turning custom service work into a scalable productized offer, from niche selection to marketing funnel |
 | [Productized AI Service Offers: From Trading Time to Selling Outcomes](interviews/productized-ai-service-offers.md) | draft | 2026-10-16 | Live coaching session on designing a productized AI service offer: backwards math, market research, three-tier pricing, sales materials |
 | [First 10 SaaS Customers: A Repeatable Playbook](interviews/first-10-saas-customers.md) | draft | 2026-10-16 | Rob Walling's playbook for finding first 10 B2B SaaS customers: marketing before coding, ICP selection, six acquisition tactics |

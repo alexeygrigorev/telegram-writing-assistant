@@ -1,7 +1,7 @@
 ---
 title: "Interesting Resources"
 created: 2026-01-31
-updated: 2026-10-01
+updated: 2026-11-13
 tags: [resources, tools, ai, development]
 status: draft
 ---
@@ -27,6 +27,10 @@ Each resource entry follows this simple format:
 
 
 ## Tools
+
+### The Ultimate Beginner's Guide to Hermes Agent
+
+[The Ultimate Beginner's Guide to Hermes Agent](https://youtu.be/XNcKUSL1CTE) by Matt walks through standing up Hermes Agent - a free, open-source personal AI agent from Nous Research - on a cheap VPS, then connecting it through Telegram or WhatsApp so it runs 24/7. The video is structured as six levels that climb from renting a server and choosing a model, through file access and account integrations, to scheduled automations and a multi-agent task board, all without writing a line of code. Probably the best Hermes walkthrough available, and a model for how step-by-step guides should be paced[^61].
 
 ### Whiteboard
 
@@ -128,3 +132,4 @@ Interesting for future automation[^28].
 [^59]: [https://github.com/floci-io/floci](https://github.com/floci-io/floci) via [20260711_100445_AlexeyDTC_msg4747.md](../inbox/used/20260711_100445_AlexeyDTC_msg4747.md)
 
 [^60]: [20261001_041857_AlexeyDTC_msg4987.md](../inbox/used/20261001_041857_AlexeyDTC_msg4987.md) - Forwarded review, marked as a resource in the preceding message
+[^61]: [https://youtu.be/XNcKUSL1CTE](https://youtu.be/XNcKUSL1CTE) via [20261017_090152_AlexeyDTC_msg5055.md](../inbox/used/20261017_090152_AlexeyDTC_msg5055.md)
