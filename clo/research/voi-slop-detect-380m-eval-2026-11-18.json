@@ -1,0 +1,757 @@
+{
+  "evaluated_at": "2026-11-18",
+  "corpus_size": 32,
+  "summary": {
+    "voi_onnx_first512": {
+      "load_s": 1.84,
+      "total_inf_s": 1601.19,
+      "peak_rss_mb": 805.7,
+      "threshold": 0.4256,
+      "auroc_voice_vs_claw": 1.0,
+      "auroc_substack_vs_claw": 0.9875,
+      "auroc_substack_vs_raw_articles": 0.6,
+      "groups": {
+        "human_voice_raw": {
+          "n": 6,
+          "mean": 0.0154,
+          "median": 0.016,
+          "min": 0.0064,
+          "max": 0.0248,
+          "flagged": 0
+        },
+        "edited_published_substack": {
+          "n": 10,
+          "mean": 0.4519,
+          "median": 0.4471,
+          "min": 0.117,
+          "max": 0.7698,
+          "flagged": 6
+        },
+        "unedited_raw_articles": {
+          "n": 8,
+          "mean": 0.5074,
+          "median": 0.4585,
+          "min": 0.331,
+          "max": 0.7956,
+          "flagged": 4
+        },
+        "unedited_claw_drafts": {
+          "n": 8,
+          "mean": 0.9616,
+          "median": 0.998,
+          "min": 0.7053,
+          "max": 0.9996,
+          "flagged": 8
+        }
+      }
+    },
+    "voi_onnx_chunk_mean": {
+      "load_s": 1.84,
+      "total_inf_s": 1601.19,
+      "peak_rss_mb": 805.7,
+      "threshold": 0.4256,
+      "auroc_voice_vs_claw": 1.0,
+      "auroc_substack_vs_claw": 1.0,
+      "auroc_substack_vs_raw_articles": 0.5375,
+      "groups": {
+        "human_voice_raw": {
+          "n": 6,
+          "mean": 0.0154,
+          "median": 0.016,
+          "min": 0.0064,
+          "max": 0.0248,
+          "flagged": 0
+        },
+        "edited_published_substack": {
+          "n": 10,
+          "mean": 0.3637,
+          "median": 0.3486,
+          "min": 0.2139,
+          "max": 0.5293,
+          "flagged": 2
+        },
+        "unedited_raw_articles": {
+          "n": 8,
+          "mean": 0.3801,
+          "median": 0.3862,
+          "min": 0.2478,
+          "max": 0.5293,
+          "flagged": 3
+        },
+        "unedited_claw_drafts": {
+          "n": 8,
+          "mean": 0.9038,
+          "median": 0.9264,
+          "min": 0.7094,
+          "max": 0.9868,
+          "flagged": 8
+        }
+      }
+    },
+    "voi_pt_bf16": {
+      "load_s": 23.66,
+      "total_inf_s": 1065.86,
+      "peak_rss_mb": 1106.1,
+      "threshold": 0.4256,
+      "auroc_voice_vs_claw": 1.0,
+      "auroc_substack_vs_claw": 0.9875,
+      "auroc_substack_vs_raw_articles": 0.5875,
+      "groups": {
+        "human_voice_raw": {
+          "n": 6,
+          "mean": 0.015,
+          "median": 0.0157,
+          "min": 0.0061,
+          "max": 0.0244,
+          "flagged": 0
+        },
+        "edited_published_substack": {
+          "n": 10,
+          "mean": 0.4564,
+          "median": 0.4534,
+          "min": 0.1192,
+          "max": 0.7918,
+          "flagged": 6
+        },
+        "unedited_raw_articles": {
+          "n": 8,
+          "mean": 0.5153,
+          "median": 0.469,
+          "min": 0.332,
+          "max": 0.8141,
+          "flagged": 5
+        },
+        "unedited_claw_drafts": {
+          "n": 8,
+          "mean": 0.9647,
+          "median": 0.9983,
+          "min": 0.728,
+          "max": 0.9997,
+          "flagged": 8
+        }
+      }
+    },
+    "fakespot_roberta": {
+      "load_s": 32.02,
+      "total_inf_s": 158.16,
+      "peak_rss_mb": 892.1,
+      "threshold": 0.5,
+      "auroc_voice_vs_claw": 0.7917,
+      "auroc_substack_vs_claw": 0.575,
+      "auroc_substack_vs_raw_articles": 0.8375,
+      "groups": {
+        "human_voice_raw": {
+          "n": 6,
+          "mean": 0.0279,
+          "median": 0.0024,
+          "min": 0.0006,
+          "max": 0.1558,
+          "flagged": 0
+        },
+        "edited_published_substack": {
+          "n": 10,
+          "mean": 0.0273,
+          "median": 0.0069,
+          "min": 0.0014,
+          "max": 0.1565,
+          "flagged": 0
+        },
+        "unedited_raw_articles": {
+          "n": 8,
+          "mean": 0.1449,
+          "median": 0.0745,
+          "min": 0.0045,
+          "max": 0.6992,
+          "flagged": 1
+        },
+        "unedited_claw_drafts": {
+          "n": 8,
+          "mean": 0.052,
+          "median": 0.0187,
+          "min": 0.002,
+          "max": 0.3059,
+          "flagged": 0
+        }
+      }
+    },
+    "modernbert_ai": {
+      "load_s": 33.53,
+      "total_inf_s": 923.78,
+      "peak_rss_mb": 903.9,
+      "threshold": 0.5,
+      "auroc_voice_vs_claw": 0.4583,
+      "auroc_substack_vs_claw": 0.0,
+      "auroc_substack_vs_raw_articles": 0.25,
+      "groups": {
+        "human_voice_raw": {
+          "n": 6,
+          "mean": 0.0025,
+          "median": 0.0,
+          "min": 0.0,
+          "max": 0.0147,
+          "flagged": 0
+        },
+        "edited_published_substack": {
+          "n": 10,
+          "mean": 0.2609,
+          "median": 0.0191,
+          "min": 0.0041,
+          "max": 0.9882,
+          "flagged": 3
+        },
+        "unedited_raw_articles": {
+          "n": 8,
+          "mean": 0.1114,
+          "median": 0.0028,
+          "min": 0.0,
+          "max": 0.5373,
+          "flagged": 1
+        },
+        "unedited_claw_drafts": {
+          "n": 8,
+          "mean": 0.0001,
+          "median": 0.0,
+          "min": 0.0,
+          "max": 0.0005,
+          "flagged": 0
+        }
+      }
+    },
+    "hello_simpleai": {
+      "load_s": 22.76,
+      "total_inf_s": 294.71,
+      "peak_rss_mb": 908.4,
+      "threshold": 0.5,
+      "auroc_voice_vs_claw": 0.0625,
+      "auroc_substack_vs_claw": 0.05,
+      "auroc_substack_vs_raw_articles": 0.2875,
+      "groups": {
+        "human_voice_raw": {
+          "n": 6,
+          "mean": 0.0067,
+          "median": 0.0008,
+          "min": 0.0003,
+          "max": 0.0261,
+          "flagged": 0
+        },
+        "edited_published_substack": {
+          "n": 10,
+          "mean": 0.0014,
+          "median": 0.0005,
+          "min": 0.0003,
+          "max": 0.0067,
+          "flagged": 0
+        },
+        "unedited_raw_articles": {
+          "n": 8,
+          "mean": 0.0005,
+          "median": 0.0004,
+          "min": 0.0003,
+          "max": 0.0009,
+          "flagged": 0
+        },
+        "unedited_claw_drafts": {
+          "n": 8,
+          "mean": 0.0003,
+          "median": 0.0003,
+          "min": 0.0003,
+          "max": 0.0003,
+          "flagged": 0
+        }
+      }
+    },
+    "slop_tells_regex": {
+      "load_s": 0.07,
+      "total_inf_s": 0.05,
+      "peak_rss_mb": 37.9,
+      "threshold": 0.3,
+      "auroc_voice_vs_claw": 0.875,
+      "auroc_substack_vs_claw": 0.5125,
+      "auroc_substack_vs_raw_articles": 0.8375,
+      "groups": {
+        "human_voice_raw": {
+          "n": 6,
+          "mean": 0.0,
+          "median": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "flagged": 0
+        },
+        "edited_published_substack": {
+          "n": 10,
+          "mean": 0.056,
+          "median": 0.0616,
+          "min": 0.0,
+          "max": 0.1294,
+          "flagged": 0
+        },
+        "unedited_raw_articles": {
+          "n": 8,
+          "mean": 0.1814,
+          "median": 0.1434,
+          "min": 0.0095,
+          "max": 0.4573,
+          "flagged": 2
+        },
+        "unedited_claw_drafts": {
+          "n": 8,
+          "mean": 0.0583,
+          "median": 0.0611,
+          "min": 0.0,
+          "max": 0.1065,
+          "flagged": 0
+        }
+      }
+    }
+  },
+  "per_file_scores": [
+    {
+      "path": "inbox/used/20260226_112618_AlexeyDTC_msg2504_transcript.txt",
+      "group": "human_voice_raw",
+      "words": 183,
+      "voi_onnx_first512": 0.0205,
+      "voi_onnx_chunk_mean": 0.0205,
+      "voi_onnx_chunk_max": 0.0205,
+      "num_chunks": 1,
+      "voi_pt_bf16": 0.0197,
+      "fakespot_roberta": 0.0018,
+      "modernbert_ai": 0.0002,
+      "hello_simpleai": 0.0261,
+      "slop_tells_regex": 0.0
+    },
+    {
+      "path": "inbox/used/20260226_112909_AlexeyDTC_msg2508_transcript.txt",
+      "group": "human_voice_raw",
+      "words": 179,
+      "voi_onnx_first512": 0.0206,
+      "voi_onnx_chunk_mean": 0.0206,
+      "voi_onnx_chunk_max": 0.0206,
+      "num_chunks": 1,
+      "voi_pt_bf16": 0.02,
+      "fakespot_roberta": 0.1558,
+      "modernbert_ai": 0.0147,
+      "hello_simpleai": 0.0116,
+      "slop_tells_regex": 0.0
+    },
+    {
+      "path": "inbox/used/20260226_113217_AlexeyDTC_msg2510_transcript.txt",
+      "group": "human_voice_raw",
+      "words": 395,
+      "voi_onnx_first512": 0.0248,
+      "voi_onnx_chunk_mean": 0.0248,
+      "voi_onnx_chunk_max": 0.0248,
+      "num_chunks": 1,
+      "voi_pt_bf16": 0.0244,
+      "fakespot_roberta": 0.0046,
+      "modernbert_ai": 0.0,
+      "hello_simpleai": 0.0013,
+      "slop_tells_regex": 0.0
+    },
+    {
+      "path": "inbox/used/20260831_094949_AlexeyDTC_msg4896_transcript.txt",
+      "group": "human_voice_raw",
+      "words": 288,
+      "voi_onnx_first512": 0.0115,
+      "voi_onnx_chunk_mean": 0.0115,
+      "voi_onnx_chunk_max": 0.0115,
+      "num_chunks": 1,
+      "voi_pt_bf16": 0.0117,
+      "fakespot_roberta": 0.0006,
+      "modernbert_ai": 0.0,
+      "hello_simpleai": 0.0004,
+      "slop_tells_regex": 0.0
+    },
+    {
+      "path": "inbox/used/20260831_185020_AlexeyDTC_msg4898_transcript.txt",
+      "group": "human_voice_raw",
+      "words": 152,
+      "voi_onnx_first512": 0.0064,
+      "voi_onnx_chunk_mean": 0.0064,
+      "voi_onnx_chunk_max": 0.0064,
+      "num_chunks": 1,
+      "voi_pt_bf16": 0.0061,
+      "fakespot_roberta": 0.0015,
+      "modernbert_ai": 0.0,
+      "hello_simpleai": 0.0003,
+      "slop_tells_regex": 0.0
+    },
+    {
+      "path": "inbox/used/20261002_154147_AlexeyDTC_msg4996_transcript.txt",
+      "group": "human_voice_raw",
+      "words": 183,
+      "voi_onnx_first512": 0.0086,
+      "voi_onnx_chunk_mean": 0.0086,
+      "voi_onnx_chunk_max": 0.0086,
+      "num_chunks": 1,
+      "voi_pt_bf16": 0.0081,
+      "fakespot_roberta": 0.003,
+      "modernbert_ai": 0.0,
+      "hello_simpleai": 0.0004,
+      "slop_tells_regex": 0.0
+    },
+    {
+      "path": "reference/substack/2026-01-09-my-experiments-with-claude-code.md",
+      "group": "edited_published_substack",
+      "words": 1310,
+      "voi_onnx_first512": 0.3215,
+      "voi_onnx_chunk_mean": 0.3196,
+      "voi_onnx_chunk_max": 0.7268,
+      "num_chunks": 11,
+      "voi_pt_bf16": 0.3157,
+      "fakespot_roberta": 0.0021,
+      "modernbert_ai": 0.2151,
+      "hello_simpleai": 0.0004,
+      "slop_tells_regex": 0.0374
+    },
+    {
+      "path": "reference/substack/2026-01-30-telegram-assistant.md",
+      "group": "edited_published_substack",
+      "words": 1809,
+      "voi_onnx_first512": 0.4458,
+      "voi_onnx_chunk_mean": 0.3971,
+      "voi_onnx_chunk_max": 0.6264,
+      "num_chunks": 13,
+      "voi_pt_bf16": 0.4547,
+      "fakespot_roberta": 0.0038,
+      "modernbert_ai": 0.5544,
+      "hello_simpleai": 0.0028,
+      "slop_tells_regex": 0.0
+    },
+    {
+      "path": "reference/substack/2026-03-06-how-i-dropped-our-production-database.md",
+      "group": "edited_published_substack",
+      "words": 3546,
+      "voi_onnx_first512": 0.4837,
+      "voi_onnx_chunk_mean": 0.4613,
+      "voi_onnx_chunk_max": 0.8099,
+      "num_chunks": 18,
+      "voi_pt_bf16": 0.4879,
+      "fakespot_roberta": 0.0094,
+      "modernbert_ai": 0.0077,
+      "hello_simpleai": 0.001,
+      "slop_tells_regex": 0.0833
+    },
+    {
+      "path": "reference/substack/2026-03-20-i-turned-my-telegram-bot-into-a-multi.md",
+      "group": "edited_published_substack",
+      "words": 1957,
+      "voi_onnx_first512": 0.5755,
+      "voi_onnx_chunk_mean": 0.4253,
+      "voi_onnx_chunk_max": 0.6476,
+      "num_chunks": 14,
+      "voi_pt_bf16": 0.5974,
+      "fakespot_roberta": 0.1565,
+      "modernbert_ai": 0.9882,
+      "hello_simpleai": 0.0005,
+      "slop_tells_regex": 0.0127
+    },
+    {
+      "path": "reference/substack/2026-04-17-how-we-built-ai-shipping-labs.md",
+      "group": "edited_published_substack",
+      "words": 2955,
+      "voi_onnx_first512": 0.6739,
+      "voi_onnx_chunk_mean": 0.3592,
+      "voi_onnx_chunk_max": 0.7104,
+      "num_chunks": 21,
+      "voi_pt_bf16": 0.6522,
+      "fakespot_roberta": 0.0239,
+      "modernbert_ai": 0.0041,
+      "hello_simpleai": 0.0005,
+      "slop_tells_regex": 0.0628
+    },
+    {
+      "path": "reference/substack/2026-05-29-minsearch-the-small-search-library.md",
+      "group": "edited_published_substack",
+      "words": 2292,
+      "voi_onnx_first512": 0.7698,
+      "voi_onnx_chunk_mean": 0.5293,
+      "voi_onnx_chunk_max": 0.8028,
+      "num_chunks": 12,
+      "voi_pt_bf16": 0.7918,
+      "fakespot_roberta": 0.0366,
+      "modernbert_ai": 0.0255,
+      "hello_simpleai": 0.0005,
+      "slop_tells_regex": 0.0
+    },
+    {
+      "path": "reference/substack/2026-06-12-ai-design-for-non-designers.md",
+      "group": "edited_published_substack",
+      "words": 2141,
+      "voi_onnx_first512": 0.4484,
+      "voi_onnx_chunk_mean": 0.2858,
+      "voi_onnx_chunk_max": 0.6346,
+      "num_chunks": 15,
+      "voi_pt_bf16": 0.4521,
+      "fakespot_roberta": 0.0326,
+      "modernbert_ai": 0.007,
+      "hello_simpleai": 0.0067,
+      "slop_tells_regex": 0.0604
+    },
+    {
+      "path": "reference/substack/2026-08-14-how-to-do-evals-in-2026.md",
+      "group": "edited_published_substack",
+      "words": 2647,
+      "voi_onnx_first512": 0.117,
+      "voi_onnx_chunk_mean": 0.2139,
+      "voi_onnx_chunk_max": 0.3506,
+      "num_chunks": 14,
+      "voi_pt_bf16": 0.1192,
+      "fakespot_roberta": 0.0025,
+      "modernbert_ai": 0.7827,
+      "hello_simpleai": 0.0005,
+      "slop_tells_regex": 0.0987
+    },
+    {
+      "path": "reference/substack/2026-10-02-aplexer-why-i-stopped-using-tmux.md",
+      "group": "edited_published_substack",
+      "words": 2946,
+      "voi_onnx_first512": 0.3687,
+      "voi_onnx_chunk_mean": 0.3075,
+      "voi_onnx_chunk_max": 0.4085,
+      "num_chunks": 17,
+      "voi_pt_bf16": 0.3766,
+      "fakespot_roberta": 0.0014,
+      "modernbert_ai": 0.0117,
+      "hello_simpleai": 0.0009,
+      "slop_tells_regex": 0.1294
+    },
+    {
+      "path": "reference/substack/2026-10-20-trends-in-agentic-engineering.md",
+      "group": "edited_published_substack",
+      "words": 1907,
+      "voi_onnx_first512": 0.3148,
+      "voi_onnx_chunk_mean": 0.338,
+      "voi_onnx_chunk_max": 0.467,
+      "num_chunks": 11,
+      "voi_pt_bf16": 0.3166,
+      "fakespot_roberta": 0.0044,
+      "modernbert_ai": 0.0126,
+      "hello_simpleai": 0.0003,
+      "slop_tells_regex": 0.0756
+    },
+    {
+      "path": "articles/raw-articles/ai-as-personal-analyst.md",
+      "group": "unedited_raw_articles",
+      "words": 730,
+      "voi_onnx_first512": 0.72,
+      "voi_onnx_chunk_mean": 0.5293,
+      "voi_onnx_chunk_max": 0.7077,
+      "num_chunks": 3,
+      "voi_pt_bf16": 0.7326,
+      "fakespot_roberta": 0.0294,
+      "modernbert_ai": 0.5373,
+      "hello_simpleai": 0.0003,
+      "slop_tells_regex": 0.0976
+    },
+    {
+      "path": "articles/raw-articles/benchmarking-sqlitesearch.md",
+      "group": "unedited_raw_articles",
+      "words": 973,
+      "voi_onnx_first512": 0.331,
+      "voi_onnx_chunk_mean": 0.2947,
+      "voi_onnx_chunk_max": 0.4731,
+      "num_chunks": 4,
+      "voi_pt_bf16": 0.332,
+      "fakespot_roberta": 0.0045,
+      "modernbert_ai": 0.0,
+      "hello_simpleai": 0.0003,
+      "slop_tells_regex": 0.1858
+    },
+    {
+      "path": "articles/raw-articles/course-management-agent.md",
+      "group": "unedited_raw_articles",
+      "words": 583,
+      "voi_onnx_first512": 0.4966,
+      "voi_onnx_chunk_mean": 0.2478,
+      "voi_onnx_chunk_max": 0.4645,
+      "num_chunks": 4,
+      "voi_pt_bf16": 0.5102,
+      "fakespot_roberta": 0.0556,
+      "modernbert_ai": 0.0483,
+      "hello_simpleai": 0.0009,
+      "slop_tells_regex": 0.0822
+    },
+    {
+      "path": "articles/raw-articles/hetzner-server-setup.md",
+      "group": "unedited_raw_articles",
+      "words": 1563,
+      "voi_onnx_first512": 0.3375,
+      "voi_onnx_chunk_mean": 0.2696,
+      "voi_onnx_chunk_max": 0.3536,
+      "num_chunks": 7,
+      "voi_pt_bf16": 0.3381,
+      "fakespot_roberta": 0.1206,
+      "modernbert_ai": 0.0,
+      "hello_simpleai": 0.0004,
+      "slop_tells_regex": 0.1341
+    },
+    {
+      "path": "articles/raw-articles/production-ai-agents-generative-media.md",
+      "group": "unedited_raw_articles",
+      "words": 2617,
+      "voi_onnx_first512": 0.4204,
+      "voi_onnx_chunk_mean": 0.4574,
+      "voi_onnx_chunk_max": 0.6326,
+      "num_chunks": 9,
+      "voi_pt_bf16": 0.4278,
+      "fakespot_roberta": 0.1008,
+      "modernbert_ai": 0.2989,
+      "hello_simpleai": 0.0004,
+      "slop_tells_regex": 0.0095
+    },
+    {
+      "path": "articles/raw-articles/roles-in-ai-team.md",
+      "group": "unedited_raw_articles",
+      "words": 1858,
+      "voi_onnx_first512": 0.3735,
+      "voi_onnx_chunk_mean": 0.3677,
+      "voi_onnx_chunk_max": 0.6033,
+      "num_chunks": 6,
+      "voi_pt_bf16": 0.3826,
+      "fakespot_roberta": 0.0743,
+      "modernbert_ai": 0.0026,
+      "hello_simpleai": 0.0005,
+      "slop_tells_regex": 0.3321
+    },
+    {
+      "path": "articles/raw-articles/stylint.md",
+      "group": "unedited_raw_articles",
+      "words": 1336,
+      "voi_onnx_first512": 0.585,
+      "voi_onnx_chunk_mean": 0.4048,
+      "voi_onnx_chunk_max": 0.6653,
+      "num_chunks": 6,
+      "voi_pt_bf16": 0.5851,
+      "fakespot_roberta": 0.0747,
+      "modernbert_ai": 0.0009,
+      "hello_simpleai": 0.0005,
+      "slop_tells_regex": 0.4573
+    },
+    {
+      "path": "articles/raw-articles/testing-agents-with-judge-pattern.md",
+      "group": "unedited_raw_articles",
+      "words": 603,
+      "voi_onnx_first512": 0.7956,
+      "voi_onnx_chunk_mean": 0.4691,
+      "voi_onnx_chunk_max": 0.7358,
+      "num_chunks": 3,
+      "voi_pt_bf16": 0.8141,
+      "fakespot_roberta": 0.6992,
+      "modernbert_ai": 0.0031,
+      "hello_simpleai": 0.0006,
+      "slop_tells_regex": 0.1528
+    },
+    {
+      "path": "articles/claw-drafts/ai-skeptic-scorecard.md",
+      "group": "unedited_claw_drafts",
+      "words": 1928,
+      "voi_onnx_first512": 0.9996,
+      "voi_onnx_chunk_mean": 0.8487,
+      "voi_onnx_chunk_max": 0.9996,
+      "num_chunks": 7,
+      "voi_pt_bf16": 0.9997,
+      "fakespot_roberta": 0.0204,
+      "modernbert_ai": 0.0,
+      "hello_simpleai": 0.0003,
+      "slop_tells_regex": 0.0946
+    },
+    {
+      "path": "articles/claw-drafts/context-engineering.md",
+      "group": "unedited_claw_drafts",
+      "words": 1879,
+      "voi_onnx_first512": 0.9989,
+      "voi_onnx_chunk_mean": 0.9132,
+      "voi_onnx_chunk_max": 0.9988,
+      "num_chunks": 7,
+      "voi_pt_bf16": 0.9991,
+      "fakespot_roberta": 0.0032,
+      "modernbert_ai": 0.0005,
+      "hello_simpleai": 0.0003,
+      "slop_tells_regex": 0.097
+    },
+    {
+      "path": "articles/claw-drafts/deepseek-harness.md",
+      "group": "unedited_claw_drafts",
+      "words": 2566,
+      "voi_onnx_first512": 0.9976,
+      "voi_onnx_chunk_mean": 0.9868,
+      "voi_onnx_chunk_max": 0.9994,
+      "num_chunks": 10,
+      "voi_pt_bf16": 0.9981,
+      "fakespot_roberta": 0.002,
+      "modernbert_ai": 0.0003,
+      "hello_simpleai": 0.0003,
+      "slop_tells_regex": 0.0
+    },
+    {
+      "path": "articles/claw-drafts/durable-agents.md",
+      "group": "unedited_claw_drafts",
+      "words": 3181,
+      "voi_onnx_first512": 0.9976,
+      "voi_onnx_chunk_mean": 0.9761,
+      "voi_onnx_chunk_max": 0.9994,
+      "num_chunks": 11,
+      "voi_pt_bf16": 0.9979,
+      "fakespot_roberta": 0.0202,
+      "modernbert_ai": 0.0,
+      "hello_simpleai": 0.0003,
+      "slop_tells_regex": 0.1065
+    },
+    {
+      "path": "articles/claw-drafts/making-a-better-git.md",
+      "group": "unedited_claw_drafts",
+      "words": 3533,
+      "voi_onnx_first512": 0.7053,
+      "voi_onnx_chunk_mean": 0.7094,
+      "voi_onnx_chunk_max": 0.941,
+      "num_chunks": 12,
+      "voi_pt_bf16": 0.728,
+      "fakespot_roberta": 0.0057,
+      "modernbert_ai": 0.0,
+      "hello_simpleai": 0.0003,
+      "slop_tells_regex": 0.0
+    },
+    {
+      "path": "articles/claw-drafts/mcp-vs-code.md",
+      "group": "unedited_claw_drafts",
+      "words": 2310,
+      "voi_onnx_first512": 0.9988,
+      "voi_onnx_chunk_mean": 0.9431,
+      "voi_onnx_chunk_max": 0.9988,
+      "num_chunks": 9,
+      "voi_pt_bf16": 0.999,
+      "fakespot_roberta": 0.3059,
+      "modernbert_ai": 0.0001,
+      "hello_simpleai": 0.0003,
+      "slop_tells_regex": 0.0458
+    },
+    {
+      "path": "articles/claw-drafts/saaspocalypse.md",
+      "group": "unedited_claw_drafts",
+      "words": 1654,
+      "voi_onnx_first512": 0.997,
+      "voi_onnx_chunk_mean": 0.9336,
+      "voi_onnx_chunk_max": 0.9962,
+      "num_chunks": 7,
+      "voi_pt_bf16": 0.9974,
+      "fakespot_roberta": 0.0415,
+      "modernbert_ai": 0.0,
+      "hello_simpleai": 0.0003,
+      "slop_tells_regex": 0.0634
+    },
+    {
+      "path": "articles/claw-drafts/state-of-agents-2026.md",
+      "group": "unedited_claw_drafts",
+      "words": 1785,
+      "voi_onnx_first512": 0.9983,
+      "voi_onnx_chunk_mean": 0.9193,
+      "voi_onnx_chunk_max": 0.9981,
+      "num_chunks": 6,
+      "voi_pt_bf16": 0.9985,
+      "fakespot_roberta": 0.0171,
+      "modernbert_ai": 0.0,
+      "hello_simpleai": 0.0003,
+      "slop_tells_regex": 0.0589
+    }
+  ]
+}
